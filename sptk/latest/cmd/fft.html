@@ -1,0 +1,400 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>fft &mdash; SPTK  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="fftcep" href="fftcep.html" />
+    <link rel="prev" title="fbank" href="fbank.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SPTK
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Command references</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2acr.html">c2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">fft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SPTK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>fft</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/cmd/fft.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="fft">
+<h1>fft<a class="headerlink" href="#fft" title="Permalink to this headline">¶</a></h1>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv44mainiA_Pc">
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="fft_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span>int <code class="sig-name descname">main</code><span class="sig-paren">(</span>int <em>argc</em>, char *<em>argv</em>[]<span class="sig-paren">)</span><br /></dt>
+<dd><p><em>fft</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<p><ul class="simple">
+<li><p><strong>-m</strong> <em>int</em> <ul>
+<li><p>order of sequence <span class="math notranslate nohighlight">\((0 \le M &lt; L)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-l</strong> <em>int</em> <ul>
+<li><p>FFT length <span class="math notranslate nohighlight">\((1 \le L)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-o</strong> <em>int</em> <ul>
+<li><p>output format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> real and imaginary parts </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> real part </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> imaginary part </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> amplitude spectrum </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4</span></code> power spectrum</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>infile</strong> <em>str</em> <ul>
+<li><p>double-type data sequence</p></li>
+</ul>
+</p></li>
+<li><p><strong>stdout</strong> <ul>
+<li><p>double-type FFT sequence</p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+<p>The below example analyzes a sine wave using Blackman window by padding imaginary part with zeros.</p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">sin</span> <span class="o">-</span><span class="n">p</span> <span class="mi">30</span> <span class="o">-</span><span class="n">l</span> <span class="mi">256</span> <span class="o">|</span> <span class="n">window</span> <span class="o">-</span><span class="n">L</span> <span class="mi">512</span> <span class="o">|</span> <span class="n">fft</span> <span class="o">-</span><span class="n">o</span> <span class="mi">3</span> <span class="o">&gt;</span> <span class="n">sine</span><span class="o">.</span><span class="n">spec</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argc</span></code>: Number of arguments. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argv</span></code>: Argument vector. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>0 on success, 1 on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4N4sptk20FastFourierTransformE">
+<span id="_CPPv3N4sptk20FastFourierTransformE"></span><span id="_CPPv2N4sptk20FastFourierTransformE"></span><span id="sptk::FastFourierTransform"></span><span class="target" id="classsptk_1_1FastFourierTransform"></span><em class="property">class </em><code class="sig-prename descclassname">sptk<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">FastFourierTransform</code><a class="headerlink" href="#_CPPv4N4sptk20FastFourierTransformE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculate DFT of complex-valued input data.</p>
+<p>The input is <span class="math notranslate nohighlight">\(M\)</span>-th order complex-valued data: <div class="math notranslate nohighlight">
+\[\begin{split} \begin{array}{cccc} \mathrm{Re}(x(0)), &amp; \mathrm{Re}(x(1)), &amp; \ldots, &amp; \mathrm{Re}(x(M)), \\ \mathrm{Im}(x(0)), &amp; \mathrm{Im}(x(1)), &amp; \ldots, &amp; \mathrm{Im}(x(M)), \end{array} \end{split}\]</div>
+ The outputs are <div class="math notranslate nohighlight">
+\[\begin{split} \begin{array}{cccc} \mathrm{Re}(X(0)), &amp; \mathrm{Re}(X(1)), &amp; \ldots, &amp; \mathrm{Re}(X(L-1)), \\ \mathrm{Im}(X(0)), &amp; \mathrm{Im}(X(1)), &amp; \ldots, &amp; \mathrm{Im}(X(L-1)), \end{array} \end{split}\]</div>
+ where <span class="math notranslate nohighlight">\(L\)</span> is the FFT length and <span class="math notranslate nohighlight">\(X\)</span> is the frequency representation of <span class="math notranslate nohighlight">\(x\)</span>. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N4sptk20FastFourierTransform20FastFourierTransformEi">
+<span id="_CPPv3N4sptk20FastFourierTransform20FastFourierTransformEi"></span><span id="_CPPv2N4sptk20FastFourierTransform20FastFourierTransformEi"></span><span id="sptk::FastFourierTransform::FastFourierTransform__i"></span><span class="target" id="classsptk_1_1FastFourierTransform_1a47d662f9d0653623860bac650d16f4df"></span><code class="sig-name descname">FastFourierTransform</code><span class="sig-paren">(</span>int <em>fft_length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk20FastFourierTransform20FastFourierTransformEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">fft_length</span></code>: FFT length, <span class="math notranslate nohighlight">\(L\)</span>. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4sptk20FastFourierTransform20FastFourierTransformEii">
+<span id="_CPPv3N4sptk20FastFourierTransform20FastFourierTransformEii"></span><span id="_CPPv2N4sptk20FastFourierTransform20FastFourierTransformEii"></span><span id="sptk::FastFourierTransform::FastFourierTransform__i.i"></span><span class="target" id="classsptk_1_1FastFourierTransform_1a53993b6a685e906913626b81d475b62a"></span><code class="sig-name descname">FastFourierTransform</code><span class="sig-paren">(</span>int <em>num_order</em>, int <em>fft_length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk20FastFourierTransform20FastFourierTransformEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">num_order</span></code>: Order of input, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">fft_length</span></code>: FFT length, <span class="math notranslate nohighlight">\(L\)</span>. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk20FastFourierTransform11GetNumOrderEv">
+<span id="_CPPv3NK4sptk20FastFourierTransform11GetNumOrderEv"></span><span id="_CPPv2NK4sptk20FastFourierTransform11GetNumOrderEv"></span><span id="sptk::FastFourierTransform::GetNumOrderC"></span><span class="target" id="classsptk_1_1FastFourierTransform_1ac12d3ad87755fde861987a4d5fd67065"></span>int <code class="sig-name descname">GetNumOrder</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk20FastFourierTransform11GetNumOrderEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Order of input. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk20FastFourierTransform12GetFftLengthEv">
+<span id="_CPPv3NK4sptk20FastFourierTransform12GetFftLengthEv"></span><span id="_CPPv2NK4sptk20FastFourierTransform12GetFftLengthEv"></span><span id="sptk::FastFourierTransform::GetFftLengthC"></span><span class="target" id="classsptk_1_1FastFourierTransform_1ac5beae58fe52110914bd2790b45f995a"></span>int <code class="sig-name descname">GetFftLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk20FastFourierTransform12GetFftLengthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>FFT length. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk20FastFourierTransform7IsValidEv">
+<span id="_CPPv3NK4sptk20FastFourierTransform7IsValidEv"></span><span id="_CPPv2NK4sptk20FastFourierTransform7IsValidEv"></span><span id="sptk::FastFourierTransform::IsValidC"></span><span class="target" id="classsptk_1_1FastFourierTransform_1ab528e2be16ece4b49fea76ad7b6472db"></span>bool <code class="sig-name descname">IsValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk20FastFourierTransform7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if this obejct is valid. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk20FastFourierTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk20FastFourierTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk20FastFourierTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::FastFourierTransform::Run__std::vector:double:CR.std::vector:double:CR.std::vector:double:P.std::vector:double:PC"></span><span class="target" id="classsptk_1_1FastFourierTransform_1aab1f99d04b8f37fd273d04486637f3da"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;double&gt; &amp;<em>real_part_input</em>, <em class="property">const</em> std::vector&lt;double&gt; &amp;<em>imag_part_input</em>, std::vector&lt;double&gt; *<em>real_part_output</em>, std::vector&lt;double&gt; *<em>imag_part_output</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk20FastFourierTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">real_part_input</span></code>: <span class="math notranslate nohighlight">\(M\)</span>-th order real part of input. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">imag_part_input</span></code>: <span class="math notranslate nohighlight">\(M\)</span>-th order imaginary part of input. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">real_part_output</span></code>: Real part of output. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">imag_part_output</span></code>: Imaginary part of output. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk20FastFourierTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk20FastFourierTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk20FastFourierTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::FastFourierTransform::Run__std::vector:double:P.std::vector:double:PC"></span><span class="target" id="classsptk_1_1FastFourierTransform_1a6cd9fd823ceaddbecc3725a44eeb53f4"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span>std::vector&lt;double&gt; *<em>real_part</em>, std::vector&lt;double&gt; *<em>imag_part</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk20FastFourierTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">real_part</span></code>: Real part. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">imag_part</span></code>: Imaginary part. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="fftcep.html" class="btn btn-neutral float-right" title="fftcep" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fbank.html" class="btn btn-neutral float-left" title="fbank" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SPTK Working Group
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,374 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>mlpg &mdash; SPTK  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="nan" href="nan.html" />
+    <link rel="prev" title="mfcc" href="mfcc.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SPTK
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Command references</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2acr.html">c2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SPTK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>mlpg</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/cmd/mlpg.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mlpg">
+<h1>mlpg<a class="headerlink" href="#mlpg" title="Permalink to this headline">¶</a></h1>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv44mainiA_Pc">
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="mlpg_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span>int <code class="sig-name descname">main</code><span class="sig-paren">(</span>int <em>argc</em>, char *<em>argv</em>[]<span class="sig-paren">)</span><br /></dt>
+<dd><p><em>mlpg</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<p><ul class="simple">
+<li><p><strong>-l</strong> <em>int</em> <ul>
+<li><p>length of vector <span class="math notranslate nohighlight">\((1 \le M + 1)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-m</strong> <em>int</em> <ul>
+<li><p>order of vector <span class="math notranslate nohighlight">\((0 \le M)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-s</strong> <em>int</em> <ul>
+<li><p>number of past frames <span class="math notranslate nohighlight">\((0 \le S)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-q</strong> <em>int</em> <ul>
+<li><p>input format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> <span class="math notranslate nohighlight">\(\boldsymbol{\mu}\)</span>, <span class="math notranslate nohighlight">\(\boldsymbol{\varSigma}\)</span> </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> <span class="math notranslate nohighlight">\(\boldsymbol{\mu}\)</span>, <span class="math notranslate nohighlight">\(\boldsymbol{\varSigma}^{-1}\)</span> </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> <span class="math notranslate nohighlight">\(\boldsymbol{\mu\varSigma}^{-1}\)</span>, <span class="math notranslate nohighlight">\(\boldsymbol{\varSigma}^{-1}\)</span></p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>-d</strong> <em>double+</em> <ul>
+<li><p>delta coefficients</p></li>
+</ul>
+</p></li>
+<li><p><strong>-D</strong> <em>string</em> <ul>
+<li><p>filename of double-type delta coefficients</p></li>
+</ul>
+</p></li>
+<li><p><strong>-r</strong> <em>int+</em> <ul>
+<li><p>width of 1st (and 2nd) regression coefficients</p></li>
+</ul>
+</p></li>
+<li><p><strong>infile</strong> <em>str</em> <ul>
+<li><p>double-type mean and variance parameter sequence</p></li>
+</ul>
+</p></li>
+<li><p><strong>stdout</strong> <ul>
+<li><p>double-type static parameter sequence </p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4N4sptk45RecursiveMaximumLikelihoodParameterGenerationE">
+<span id="_CPPv3N4sptk45RecursiveMaximumLikelihoodParameterGenerationE"></span><span id="_CPPv2N4sptk45RecursiveMaximumLikelihoodParameterGenerationE"></span><span id="sptk::RecursiveMaximumLikelihoodParameterGeneration"></span><span class="target" id="classsptk_1_1RecursiveMaximumLikelihoodParameterGeneration"></span><em class="property">class </em><code class="sig-prename descclassname">sptk<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">RecursiveMaximumLikelihoodParameterGeneration</code><a class="headerlink" href="#_CPPv4N4sptk45RecursiveMaximumLikelihoodParameterGenerationE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Estimate the maximum likelihood parameters from the means and the diagonal covariances of Gaussian distributions.</p>
+<p>The input is the sequence of the mean and the diagnoal covariance of <span class="math notranslate nohighlight">\(M\)</span>-th order static and <span class="math notranslate nohighlight">\(DM\)</span>-th order dynamic feature components: <div class="math notranslate nohighlight">
+\[ \begin{array}{ccccc} \boldsymbol{\mu}_1, &amp; \boldsymbol{\varSigma}_1, &amp; \ldots, &amp; \boldsymbol{\mu}_T, &amp; \boldsymbol{\varSigma}_T, \end{array} \]</div>
+ where <div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray} \boldsymbol{\mu}_t &amp;=&amp; \left[ \begin{array}{cccc} \boldsymbol{\mu}_t^{(0)}, &amp; \boldsymbol{\mu}_t^{(1)}, &amp; \ldots, &amp; \boldsymbol{\mu}_t^{(D)} \end{array} \right] \\ \boldsymbol{\varSigma}_t &amp;=&amp; \left[ \begin{array}{cccc} \boldsymbol{\varSigma}_t^{(0)}, &amp; \boldsymbol{\varSigma}_t^{(1)}, &amp; \ldots, &amp; \boldsymbol{\varSigma}_t^{(D)} \end{array} \right]. \end{eqnarray}\end{split}\]</div>
+ The output is the sequence of the <span class="math notranslate nohighlight">\(M\)</span>-th order smoothed static feature components: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} \boldsymbol{c}_1, &amp; \boldsymbol{c}_2, &amp; \ldots, &amp; \boldsymbol{c}_T. \end{array} \]</div>
+</p>
+<p>The impelemented algorithm is based on a recursive manner using Kalman filter. The algorithm does not require entire mean and varaiance parameter sequence, but intorduces approximation error. The amount of approximation error is controlled by a parameter, <span class="math notranslate nohighlight">\(S\)</span>. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N4sptk45RecursiveMaximumLikelihoodParameterGeneration45RecursiveMaximumLikelihoodParameterGenerationEiiRKNSt6vectorINSt6vectorIdEEEEP20InputSourceInterface">
+<span id="_CPPv3N4sptk45RecursiveMaximumLikelihoodParameterGeneration45RecursiveMaximumLikelihoodParameterGenerationEiiRKNSt6vectorINSt6vectorIdEEEEP20InputSourceInterface"></span><span id="_CPPv2N4sptk45RecursiveMaximumLikelihoodParameterGeneration45RecursiveMaximumLikelihoodParameterGenerationEiiRKNSt6vectorINSt6vectorIdEEEEP20InputSourceInterface"></span><span id="sptk::RecursiveMaximumLikelihoodParameterGeneration::RecursiveMaximumLikelihoodParameterGeneration__i.i.std::vector:std::vector:double::CR.InputSourceInterfaceP"></span><span class="target" id="classsptk_1_1RecursiveMaximumLikelihoodParameterGeneration_1a55a59e581dfe7f84957ee9fe595c2caf"></span><code class="sig-name descname">RecursiveMaximumLikelihoodParameterGeneration</code><span class="sig-paren">(</span>int <em>num_order</em>, int <em>num_past_frame</em>, <em class="property">const</em> std::vector&lt;std::vector&lt;double&gt;&gt; &amp;<em>window_coefficients</em>, InputSourceInterface *<em>input_source</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk45RecursiveMaximumLikelihoodParameterGeneration45RecursiveMaximumLikelihoodParameterGenerationEiiRKNSt6vectorINSt6vectorIdEEEEP20InputSourceInterface" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">num_order</span></code>: Order of coefficients, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">num_past_frame</span></code>: Number of past frames, <span class="math notranslate nohighlight">\(S\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">window_coefficients</span></code>: Window coefficients. e.g.) { {-0.5, 0.0, 0.5}, {1.0, -2.0, 1.0} } </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input_source</span></code>: Static and dynamic components sequence. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk45RecursiveMaximumLikelihoodParameterGeneration11GetNumOrderEv">
+<span id="_CPPv3NK4sptk45RecursiveMaximumLikelihoodParameterGeneration11GetNumOrderEv"></span><span id="_CPPv2NK4sptk45RecursiveMaximumLikelihoodParameterGeneration11GetNumOrderEv"></span><span id="sptk::RecursiveMaximumLikelihoodParameterGeneration::GetNumOrderC"></span><span class="target" id="classsptk_1_1RecursiveMaximumLikelihoodParameterGeneration_1af7a6d07e1495f30eabb90a3fa846dcf9"></span>int <code class="sig-name descname">GetNumOrder</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk45RecursiveMaximumLikelihoodParameterGeneration11GetNumOrderEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Order of coefficients. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk45RecursiveMaximumLikelihoodParameterGeneration15GetNumPastFrameEv">
+<span id="_CPPv3NK4sptk45RecursiveMaximumLikelihoodParameterGeneration15GetNumPastFrameEv"></span><span id="_CPPv2NK4sptk45RecursiveMaximumLikelihoodParameterGeneration15GetNumPastFrameEv"></span><span id="sptk::RecursiveMaximumLikelihoodParameterGeneration::GetNumPastFrameC"></span><span class="target" id="classsptk_1_1RecursiveMaximumLikelihoodParameterGeneration_1ac0f196f85f4cf04f129240dd305d180f"></span>int <code class="sig-name descname">GetNumPastFrame</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk45RecursiveMaximumLikelihoodParameterGeneration15GetNumPastFrameEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Number of past frames. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7IsValidEv">
+<span id="_CPPv3NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7IsValidEv"></span><span id="_CPPv2NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7IsValidEv"></span><span id="sptk::RecursiveMaximumLikelihoodParameterGeneration::IsValidC"></span><span class="target" id="classsptk_1_1RecursiveMaximumLikelihoodParameterGeneration_1acdbcc3ed2f5dd79ecfd5e1c17e18b874"></span>bool <code class="sig-name descname">IsValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if this obejct is valid. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4sptk45RecursiveMaximumLikelihoodParameterGeneration3GetEPNSt6vectorIdEE">
+<span id="_CPPv3N4sptk45RecursiveMaximumLikelihoodParameterGeneration3GetEPNSt6vectorIdEE"></span><span id="_CPPv2N4sptk45RecursiveMaximumLikelihoodParameterGeneration3GetEPNSt6vectorIdEE"></span><span id="sptk::RecursiveMaximumLikelihoodParameterGeneration::Get__std::vector:double:P"></span><span class="target" id="classsptk_1_1RecursiveMaximumLikelihoodParameterGeneration_1ade65f5d778ca516fd3a5762620f68dd2"></span>bool <code class="sig-name descname">Get</code><span class="sig-paren">(</span>std::vector&lt;double&gt; *<em>smoothed_static_parameters</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk45RecursiveMaximumLikelihoodParameterGeneration3GetEPNSt6vectorIdEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">smoothed_static_parameters</span></code>: Smoothed static parameters. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="nan.html" class="btn btn-neutral float-right" title="nan" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mfcc.html" class="btn btn-neutral float-left" title="mfcc" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SPTK Working Group
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

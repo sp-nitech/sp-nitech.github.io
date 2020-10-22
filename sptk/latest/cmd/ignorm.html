@@ -1,0 +1,388 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ignorm &mdash; SPTK  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="impulse" href="impulse.html" />
+    <link rel="prev" title="ifft" href="ifft.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SPTK
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Command references</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2acr.html">c2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ignorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SPTK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>ignorm</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/cmd/ignorm.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ignorm">
+<h1>ignorm<a class="headerlink" href="#ignorm" title="Permalink to this headline">¶</a></h1>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv44mainiA_Pc">
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="ignorm_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span>int <code class="sig-name descname">main</code><span class="sig-paren">(</span>int <em>argc</em>, char *<em>argv</em>[]<span class="sig-paren">)</span><br /></dt>
+<dd><p><em>ignorm</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<p><ul class="simple">
+<li><p><strong>-m</strong> <em>int</em> <ul>
+<li><p>order of coefficients <span class="math notranslate nohighlight">\((0 \le M)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-g</strong> <em>double</em> <ul>
+<li><p>gamma <span class="math notranslate nohighlight">\((|\gamma| \le 1)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-c</strong> <em>int</em> <ul>
+<li><p>gamma <span class="math notranslate nohighlight">\(\gamma = -1 / C\)</span> <span class="math notranslate nohighlight">\((1 \le C)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>infile</strong> <em>str</em> <ul>
+<li><p>double-type normalized generalized cepstral coefficients</p></li>
+</ul>
+</p></li>
+<li><p><strong>stdout</strong> <ul>
+<li><p>double-type generalized cepstral coefficients</p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+<p>The below example denormalizes generalized cepstral coefficients:</p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ignorm</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">ngc</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">gc</span>
+</pre></div>
+</div>
+</p>
+<p>The generalized cepstral coefficients can be reverted by</p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gnorm</span> <span class="o">-</span><span class="n">g</span> <span class="o">-</span><span class="mf">0.5</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">ngc</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">gc</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argc</span></code>: Number of arguments. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argv</span></code>: Argument vector. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>0 on success, 1 on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4N4sptk43GeneralizedCepstrumInverseGainNormalizationE">
+<span id="_CPPv3N4sptk43GeneralizedCepstrumInverseGainNormalizationE"></span><span id="_CPPv2N4sptk43GeneralizedCepstrumInverseGainNormalizationE"></span><span id="sptk::GeneralizedCepstrumInverseGainNormalization"></span><span class="target" id="classsptk_1_1GeneralizedCepstrumInverseGainNormalization"></span><em class="property">class </em><code class="sig-prename descclassname">sptk<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">GeneralizedCepstrumInverseGainNormalization</code><a class="headerlink" href="#_CPPv4N4sptk43GeneralizedCepstrumInverseGainNormalizationE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Transform normalized generalized cepstral coefficients to generalized cepstral coefficients.</p>
+<p>The input is the <span class="math notranslate nohighlight">\(M\)</span>-th order normalized generalized cepstral coefficients and the gain <span class="math notranslate nohighlight">\(K\)</span>: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} K, &amp; c'_\gamma(1), &amp; \ldots, &amp; c'_\gamma(M), \end{array} \]</div>
+ and the output is the <span class="math notranslate nohighlight">\(M\)</span>-th order generalized cepstral coefficients: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} c_\gamma(0), &amp; c_\gamma(1), &amp; \ldots, &amp; c_\gamma(M). \end{array} \]</div>
+ The zeroth generalized cepstral coefficient is given by <div class="math notranslate nohighlight">
+\[\begin{split} c_\gamma(0) = \left\{ \begin{array}{ll} (K^\gamma - 1) / \gamma, \quad &amp; 0 &lt; |\gamma| \le 1 \\ \log \, K. &amp; \gamma = 0 \end{array} \right. \end{split}\]</div>
+ The other generalized cepstral coefficients are obtained as follows: <div class="math notranslate nohighlight">
+\[ c_\gamma(m) = (1 + \gamma \, c_\gamma(0)) c'_\gamma(m). \]</div>
+</p>
+<p>[1] T. Kobayashi and S. Imai, “Spectral analysis using generalized cepstrum,” IEEE Transactions on Acoustics, Speech, and Signal Processing, vol. 32, no. 5, pp. 1087-1089, 1984. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N4sptk43GeneralizedCepstrumInverseGainNormalization43GeneralizedCepstrumInverseGainNormalizationEid">
+<span id="_CPPv3N4sptk43GeneralizedCepstrumInverseGainNormalization43GeneralizedCepstrumInverseGainNormalizationEid"></span><span id="_CPPv2N4sptk43GeneralizedCepstrumInverseGainNormalization43GeneralizedCepstrumInverseGainNormalizationEid"></span><span id="sptk::GeneralizedCepstrumInverseGainNormalization::GeneralizedCepstrumInverseGainNormalization__i.double"></span><span class="target" id="classsptk_1_1GeneralizedCepstrumInverseGainNormalization_1aaffa610eacd8487937268e7fb4f80ad1"></span><code class="sig-name descname">GeneralizedCepstrumInverseGainNormalization</code><span class="sig-paren">(</span>int <em>num_order</em>, double <em>gamma</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk43GeneralizedCepstrumInverseGainNormalization43GeneralizedCepstrumInverseGainNormalizationEid" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">num_order</span></code>: Order of coefficients, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">gamma</span></code>: Exponent parameter, <span class="math notranslate nohighlight">\(\gamma\)</span>. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk43GeneralizedCepstrumInverseGainNormalization11GetNumOrderEv">
+<span id="_CPPv3NK4sptk43GeneralizedCepstrumInverseGainNormalization11GetNumOrderEv"></span><span id="_CPPv2NK4sptk43GeneralizedCepstrumInverseGainNormalization11GetNumOrderEv"></span><span id="sptk::GeneralizedCepstrumInverseGainNormalization::GetNumOrderC"></span><span class="target" id="classsptk_1_1GeneralizedCepstrumInverseGainNormalization_1a41bafe77ae2478d78a5870cd1a50d956"></span>int <code class="sig-name descname">GetNumOrder</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk43GeneralizedCepstrumInverseGainNormalization11GetNumOrderEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Order of coefficients. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk43GeneralizedCepstrumInverseGainNormalization8GetGammaEv">
+<span id="_CPPv3NK4sptk43GeneralizedCepstrumInverseGainNormalization8GetGammaEv"></span><span id="_CPPv2NK4sptk43GeneralizedCepstrumInverseGainNormalization8GetGammaEv"></span><span id="sptk::GeneralizedCepstrumInverseGainNormalization::GetGammaC"></span><span class="target" id="classsptk_1_1GeneralizedCepstrumInverseGainNormalization_1aa23023f2002b93f457d14f908d32101b"></span>double <code class="sig-name descname">GetGamma</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk43GeneralizedCepstrumInverseGainNormalization8GetGammaEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Exponent parameter. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk43GeneralizedCepstrumInverseGainNormalization7IsValidEv">
+<span id="_CPPv3NK4sptk43GeneralizedCepstrumInverseGainNormalization7IsValidEv"></span><span id="_CPPv2NK4sptk43GeneralizedCepstrumInverseGainNormalization7IsValidEv"></span><span id="sptk::GeneralizedCepstrumInverseGainNormalization::IsValidC"></span><span class="target" id="classsptk_1_1GeneralizedCepstrumInverseGainNormalization_1a221e5f9e6f9f00c09e12456f6c562e07"></span>bool <code class="sig-name descname">IsValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk43GeneralizedCepstrumInverseGainNormalization7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if this obejct is valid. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk43GeneralizedCepstrumInverseGainNormalization3RunERKNSt6vectorIdEEPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk43GeneralizedCepstrumInverseGainNormalization3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk43GeneralizedCepstrumInverseGainNormalization3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::GeneralizedCepstrumInverseGainNormalization::Run__std::vector:double:CR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1GeneralizedCepstrumInverseGainNormalization_1ab3144d67b275727e48348f73fe7d62fc"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;double&gt; &amp;<em>normalized_generalized_cepstrum</em>, std::vector&lt;double&gt; *<em>generalized_cepstrum</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk43GeneralizedCepstrumInverseGainNormalization3RunERKNSt6vectorIdEEPNSt6vectorIdEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">normalized_generalized_cepstrum</span></code>: <span class="math notranslate nohighlight">\(M\)</span>-th order normalized cepstral coefficients. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">generalized_cepstrum</span></code>: <span class="math notranslate nohighlight">\(M\)</span>-th order cepstral coefficients. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk43GeneralizedCepstrumInverseGainNormalization3RunEPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk43GeneralizedCepstrumInverseGainNormalization3RunEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk43GeneralizedCepstrumInverseGainNormalization3RunEPNSt6vectorIdEE"></span><span id="sptk::GeneralizedCepstrumInverseGainNormalization::Run__std::vector:double:PC"></span><span class="target" id="classsptk_1_1GeneralizedCepstrumInverseGainNormalization_1a6a752f88fb02ba66bbd79da0b87bba20"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span>std::vector&lt;double&gt; *<em>input_and_output</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk43GeneralizedCepstrumInverseGainNormalization3RunEPNSt6vectorIdEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">input_and_output</span></code>: <span class="math notranslate nohighlight">\(M\)</span>-th order coefficients. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="impulse.html" class="btn btn-neutral float-right" title="impulse" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ifft.html" class="btn btn-neutral float-left" title="ifft" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SPTK Working Group
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
