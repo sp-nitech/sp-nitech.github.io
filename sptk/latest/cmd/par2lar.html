@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>iulaw &mdash; SPTK  documentation</title>
+  <title>par2lar &mdash; SPTK  documentation</title>
   
 
   
@@ -37,8 +37,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="lar2par" href="lar2par.html" />
-    <link rel="prev" title="impulse" href="impulse.html" /> 
+    <link rel="next" title="par2lpc" href="par2lpc.html" />
+    <link rel="prev" title="nan" href="nan.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -107,7 +107,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
@@ -117,7 +117,7 @@
 <li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
-<li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
@@ -172,13 +172,13 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>iulaw</li>
+      <li>par2lar</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/cmd/iulaw.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/cmd/par2lar.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -191,35 +191,36 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="iulaw">
-<h1>iulaw<a class="headerlink" href="#iulaw" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="par2lar">
+<span id="id1"></span><h1>par2lar<a class="headerlink" href="#par2lar" title="Permalink to this headline">¶</a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric">Functions</p>
 <dl class="cpp function">
 <dt id="_CPPv44mainiA_Pc">
-<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="iulaw_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span>int <code class="sig-name descname">main</code><span class="sig-paren">(</span>int <em>argc</em>, char *<em>argv</em>[]<span class="sig-paren">)</span><br /></dt>
-<dd><p><em>iulaw</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="par2lar_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span>int <code class="sig-name descname">main</code><span class="sig-paren">(</span>int <em>argc</em>, char *<em>argv</em>[]<span class="sig-paren">)</span><br /></dt>
+<dd><p><em>par2lar</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
 <p><ul class="simple">
-<li><p><strong>-v</strong> <em>int</em> <ul>
-<li><p>absolute maximum value of input <span class="math notranslate nohighlight">\((0 &lt; V)\)</span></p></li>
-</ul>
-</p></li>
-<li><p><strong>-u</strong> <em>double</em> <ul>
-<li><p>compression factor <span class="math notranslate nohighlight">\((0 &lt; \mu)\)</span></p></li>
+<li><p><strong>-m</strong> <em>int</em> <ul>
+<li><p>order of coefficients <span class="math notranslate nohighlight">\((0 \le M)\)</span></p></li>
 </ul>
 </p></li>
 <li><p><strong>infile</strong> <em>str</em> <ul>
-<li><p>double-type compressed data sequence</p></li>
+<li><p>double-type PARCOR coefficients</p></li>
 </ul>
 </p></li>
 <li><p><strong>stdout</strong> <ul>
-<li><p>double-type output data sequence</p></li>
+<li><p>double-type LAR coefficients</p></li>
 </ul>
 </p></li>
 </ul>
 </p>
-<p>In the below example, 8-bit compressed and quantized data read from <code class="docutils literal notranslate"><span class="pre">data.ulaw</span></code> is transformed into raw waveform.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dequantize</span> <span class="n">data</span><span class="o">.</span><span class="n">ulaw</span> <span class="o">|</span> <span class="n">iulaw</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">raw</span>
+<p>The below example converts PARCOR coefficients into LAR coefficients:</p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">par2lar</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">rc</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">lar</span>
+</pre></div>
+</div>
+</p>
+<p>The converted LAR coefficients can be reverted by</p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">lar2par</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">lar</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">rc</span>
 </pre></div>
 </div>
 </p>
@@ -236,22 +237,29 @@
 </dd></dl>
 
 </div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="lar2par.html#lar2par"><span class="std std-ref">lar2par</span></a></p>
+</div>
 <dl class="cpp class">
-<dt id="_CPPv4N4sptk14MuLawExpansionE">
-<span id="_CPPv3N4sptk14MuLawExpansionE"></span><span id="_CPPv2N4sptk14MuLawExpansionE"></span><span id="sptk::MuLawExpansion"></span><span class="target" id="classsptk_1_1MuLawExpansion"></span><em class="property">class </em><code class="sig-prename descclassname">sptk<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">MuLawExpansion</code><a class="headerlink" href="#_CPPv4N4sptk14MuLawExpansionE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Nonlinearly decompress data based on <span class="math notranslate nohighlight">\(\mu\)</span>-law algorithm.</p>
-<p>Given the input data <span class="math notranslate nohighlight">\(y(n)\)</span>, the expansion is performed as follows: <div class="math notranslate nohighlight">
-\[ x(n) = V \, \mathrm{sgn}(y(n)) \frac{(1 + \mu)^{|y(n)|/V} - 1}{\mu} \]</div>
- where <span class="math notranslate nohighlight">\(V\)</span> is the absolute maximum value of the input data and <span class="math notranslate nohighlight">\(\mu\)</span> is the compression factor, which is typically set to 255. </p>
+<dt id="_CPPv4N4sptk32ParcorCoefficientsToLogAreaRatioE">
+<span id="_CPPv3N4sptk32ParcorCoefficientsToLogAreaRatioE"></span><span id="_CPPv2N4sptk32ParcorCoefficientsToLogAreaRatioE"></span><span id="sptk::ParcorCoefficientsToLogAreaRatio"></span><span class="target" id="classsptk_1_1ParcorCoefficientsToLogAreaRatio"></span><em class="property">class </em><code class="sig-prename descclassname">sptk<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">ParcorCoefficientsToLogAreaRatio</code><a class="headerlink" href="#_CPPv4N4sptk32ParcorCoefficientsToLogAreaRatioE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Convert PARCOR coefficients to log area ratio (LAR).</p>
+<p>The input is the <span class="math notranslate nohighlight">\(M\)</span>-th order PARCOR coefficients: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} K, &amp; k(1), &amp; \ldots, &amp; k(M), \end{array} \]</div>
+ and the output is the <span class="math notranslate nohighlight">\(M\)</span>-th order LAR coefficients: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} K, &amp; g(1), &amp; \ldots, &amp; g(M), \end{array} \]</div>
+ where <span class="math notranslate nohighlight">\(K\)</span> is the gain. The conversion is performed by <div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray} g(m) &amp;=&amp; \frac{1 + k(m)}{1 - k(m)} \\ &amp;=&amp; 2\tanh^{-1}(k(m)). \end{eqnarray}\end{split}\]</div>
+ </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric">Public Functions</p>
 <dl class="cpp function">
-<dt id="_CPPv4N4sptk14MuLawExpansion14MuLawExpansionEdd">
-<span id="_CPPv3N4sptk14MuLawExpansion14MuLawExpansionEdd"></span><span id="_CPPv2N4sptk14MuLawExpansion14MuLawExpansionEdd"></span><span id="sptk::MuLawExpansion::MuLawExpansion__double.double"></span><span class="target" id="classsptk_1_1MuLawExpansion_1adba40c6a5421375ade33b020f6a6369b"></span><code class="sig-name descname">MuLawExpansion</code><span class="sig-paren">(</span>double <em>abs_max_value</em>, double <em>compression_factor</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk14MuLawExpansion14MuLawExpansionEdd" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4N4sptk32ParcorCoefficientsToLogAreaRatio32ParcorCoefficientsToLogAreaRatioEi">
+<span id="_CPPv3N4sptk32ParcorCoefficientsToLogAreaRatio32ParcorCoefficientsToLogAreaRatioEi"></span><span id="_CPPv2N4sptk32ParcorCoefficientsToLogAreaRatio32ParcorCoefficientsToLogAreaRatioEi"></span><span id="sptk::ParcorCoefficientsToLogAreaRatio::ParcorCoefficientsToLogAreaRatio__i"></span><span class="target" id="classsptk_1_1ParcorCoefficientsToLogAreaRatio_1ac04f4ded1dc92f5c4e9612036595d64c"></span><code class="sig-name descname">ParcorCoefficientsToLogAreaRatio</code><span class="sig-paren">(</span>int <em>num_order</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk32ParcorCoefficientsToLogAreaRatio32ParcorCoefficientsToLogAreaRatioEi" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">abs_max_value</span></code>: Absolute maximum value. </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">compression_factor</span></code>: Compression factor, <span class="math notranslate nohighlight">\(\mu\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">num_order</span></code>: Order of coefficients. </p></li>
 </ul>
 </dd>
 </dl>
@@ -259,28 +267,18 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4sptk14MuLawExpansion14GetAbsMaxValueEv">
-<span id="_CPPv3NK4sptk14MuLawExpansion14GetAbsMaxValueEv"></span><span id="_CPPv2NK4sptk14MuLawExpansion14GetAbsMaxValueEv"></span><span id="sptk::MuLawExpansion::GetAbsMaxValueC"></span><span class="target" id="classsptk_1_1MuLawExpansion_1a525689aa053ed31a19ba3ce76dcf7d11"></span>double <code class="sig-name descname">GetAbsMaxValue</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk14MuLawExpansion14GetAbsMaxValueEv" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4NK4sptk32ParcorCoefficientsToLogAreaRatio11GetNumOrderEv">
+<span id="_CPPv3NK4sptk32ParcorCoefficientsToLogAreaRatio11GetNumOrderEv"></span><span id="_CPPv2NK4sptk32ParcorCoefficientsToLogAreaRatio11GetNumOrderEv"></span><span id="sptk::ParcorCoefficientsToLogAreaRatio::GetNumOrderC"></span><span class="target" id="classsptk_1_1ParcorCoefficientsToLogAreaRatio_1a03c9e30790e8704dc1ec384125c0af97"></span>int <code class="sig-name descname">GetNumOrder</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk32ParcorCoefficientsToLogAreaRatio11GetNumOrderEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><dl class="simple">
-<dt><strong>Return</strong></dt><dd><p>Absolute maximum value. </p>
+<dt><strong>Return</strong></dt><dd><p>Order of coefficients. </p>
 </dd>
 </dl>
 </p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4sptk14MuLawExpansion20GetCompressionFactorEv">
-<span id="_CPPv3NK4sptk14MuLawExpansion20GetCompressionFactorEv"></span><span id="_CPPv2NK4sptk14MuLawExpansion20GetCompressionFactorEv"></span><span id="sptk::MuLawExpansion::GetCompressionFactorC"></span><span class="target" id="classsptk_1_1MuLawExpansion_1aced21e8cf9e0be4e2637d5516b6257fa"></span>double <code class="sig-name descname">GetCompressionFactor</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk14MuLawExpansion20GetCompressionFactorEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><dl class="simple">
-<dt><strong>Return</strong></dt><dd><p>Compression factor. </p>
-</dd>
-</dl>
-</p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4sptk14MuLawExpansion7IsValidEv">
-<span id="_CPPv3NK4sptk14MuLawExpansion7IsValidEv"></span><span id="_CPPv2NK4sptk14MuLawExpansion7IsValidEv"></span><span id="sptk::MuLawExpansion::IsValidC"></span><span class="target" id="classsptk_1_1MuLawExpansion_1abf71d72ec063bc41824d29e4c0d686c9"></span>bool <code class="sig-name descname">IsValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk14MuLawExpansion7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4NK4sptk32ParcorCoefficientsToLogAreaRatio7IsValidEv">
+<span id="_CPPv3NK4sptk32ParcorCoefficientsToLogAreaRatio7IsValidEv"></span><span id="_CPPv2NK4sptk32ParcorCoefficientsToLogAreaRatio7IsValidEv"></span><span id="sptk::ParcorCoefficientsToLogAreaRatio::IsValidC"></span><span class="target" id="classsptk_1_1ParcorCoefficientsToLogAreaRatio_1a5a6d3869bce520e3062d3146c0bb3b74"></span>bool <code class="sig-name descname">IsValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk32ParcorCoefficientsToLogAreaRatio7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>True if this obejct is valid. </p>
 </dd>
@@ -289,12 +287,12 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4sptk14MuLawExpansion3RunEdPd">
-<span id="_CPPv3NK4sptk14MuLawExpansion3RunEdPd"></span><span id="_CPPv2NK4sptk14MuLawExpansion3RunEdPd"></span><span id="sptk::MuLawExpansion::Run__double.doublePC"></span><span class="target" id="classsptk_1_1MuLawExpansion_1aecf18d134490ac22330a28f6403cf30c"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span>double <em>input</em>, double *<em>output</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk14MuLawExpansion3RunEdPd" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4NK4sptk32ParcorCoefficientsToLogAreaRatio3RunERKNSt6vectorIdEEPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk32ParcorCoefficientsToLogAreaRatio3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk32ParcorCoefficientsToLogAreaRatio3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::ParcorCoefficientsToLogAreaRatio::Run__std::vector:double:CR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1ParcorCoefficientsToLogAreaRatio_1a0871e578da2c1b8d5e9701e47045d768"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;double&gt; &amp;<em>parcor_coefficients</em>, std::vector&lt;double&gt; *<em>log_area_ratio</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk32ParcorCoefficientsToLogAreaRatio3RunERKNSt6vectorIdEEPNSt6vectorIdEE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input</span></code>: Input data. </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: Output data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">parcor_coefficients</span></code>: <span class="math notranslate nohighlight">\(M\)</span>-th order PARCOR coefficients. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">log_area_ratio</span></code>: <span class="math notranslate nohighlight">\(M\)</span>-th order LAR coefficients. </p></li>
 </ul>
 </dd>
 <dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
@@ -304,11 +302,11 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4sptk14MuLawExpansion3RunEPd">
-<span id="_CPPv3NK4sptk14MuLawExpansion3RunEPd"></span><span id="_CPPv2NK4sptk14MuLawExpansion3RunEPd"></span><span id="sptk::MuLawExpansion::Run__doublePC"></span><span class="target" id="classsptk_1_1MuLawExpansion_1aa331cf5d9c681049ca2edb4ef5a91cb0"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span>double *<em>input_and_output</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk14MuLawExpansion3RunEPd" title="Permalink to this definition">¶</a><br /></dt>
+<dt id="_CPPv4NK4sptk32ParcorCoefficientsToLogAreaRatio3RunEPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk32ParcorCoefficientsToLogAreaRatio3RunEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk32ParcorCoefficientsToLogAreaRatio3RunEPNSt6vectorIdEE"></span><span id="sptk::ParcorCoefficientsToLogAreaRatio::Run__std::vector:double:PC"></span><span class="target" id="classsptk_1_1ParcorCoefficientsToLogAreaRatio_1a41df88e6919b7ffea7409020ccb58122"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span>std::vector&lt;double&gt; *<em>input_and_output</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk32ParcorCoefficientsToLogAreaRatio3RunEPNSt6vectorIdEE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">input_and_output</span></code>: Input/output data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">input_and_output</span></code>: <span class="math notranslate nohighlight">\(M\)</span>-th order coefficients. </p></li>
 </ul>
 </dd>
 <dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
@@ -330,10 +328,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="lar2par.html" class="btn btn-neutral float-right" title="lar2par" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="par2lpc.html" class="btn btn-neutral float-right" title="par2lpc" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="impulse.html" class="btn btn-neutral float-left" title="impulse" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="nan.html" class="btn btn-neutral float-left" title="nan" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

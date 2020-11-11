@@ -1,0 +1,426 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>window &mdash; SPTK  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="zerodf" href="zerodf.html" />
+    <link rel="prev" title="ulaw" href="ulaw.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SPTK
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Command references</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2acr.html">c2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df2.html">df2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dfs.html">dfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SPTK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>window</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/cmd/window.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="window">
+<span id="id1"></span><h1>window<a class="headerlink" href="#window" title="Permalink to this headline">¶</a></h1>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv44mainiA_Pc">
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="window_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span>int <code class="sig-name descname">main</code><span class="sig-paren">(</span>int <em>argc</em>, char *<em>argv</em>[]<span class="sig-paren">)</span><br /></dt>
+<dd><p><em>window</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<p><ul class="simple">
+<li><p><strong>-l</strong> <em>int</em> <ul>
+<li><p>input length <span class="math notranslate nohighlight">\((1 \le L_1)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-L</strong> <em>int</em> <ul>
+<li><p>output length <span class="math notranslate nohighlight">\((1 \le L_2)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-n</strong> <em>int</em> <ul>
+<li><p>normalization type <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> none </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> power </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> magnitude</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>-w</strong> <em>int</em> <ul>
+<li><p>window type <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> Blackman </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> Hamming </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> Hanning </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> Bartlett </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4</span></code> Trapezoidal </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">5</span></code> Rectangular</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>infile</strong> <em>str</em> <ul>
+<li><p>double-type data sequence</p></li>
+</ul>
+</p></li>
+<li><p><strong>stdout</strong> <ul>
+<li><p>double-type windowed data sequence</p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+<p>The below example performs spectral analysis with Blackman window.</p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span> <span class="o">-</span><span class="n">l</span> <span class="mi">400</span> <span class="o">-</span><span class="n">p</span> <span class="mi">80</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span> <span class="o">|</span> <span class="n">window</span> <span class="o">-</span><span class="n">l</span> <span class="mi">400</span> <span class="o">-</span><span class="n">L</span> <span class="mi">512</span> <span class="o">|</span> <span class="n">spec</span> <span class="o">-</span><span class="n">l</span> <span class="mi">512</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">spec</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argc</span></code>: Number of arguments. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argv</span></code>: Argument vector. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>0 on success, 1 on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4N4sptk13DataWindowingE">
+<span id="_CPPv3N4sptk13DataWindowingE"></span><span id="_CPPv2N4sptk13DataWindowingE"></span><span id="sptk::DataWindowing"></span><span class="target" id="classsptk_1_1DataWindowing"></span><em class="property">class </em><code class="sig-prename descclassname">sptk<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">DataWindowing</code><a class="headerlink" href="#_CPPv4N4sptk13DataWindowingE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Apply a window function.</p>
+<p>The input is the <span class="math notranslate nohighlight">\(L_1\)</span>-length data: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} x(0), &amp; x(1), &amp; \ldots, &amp; x(L_1-1), \end{array} \]</div>
+ and the output is the <span class="math notranslate nohighlight">\(L_2\)</span>-th length data: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} x'(0), &amp; x'(1), &amp; \ldots, &amp; x'(L_2-1). \end{array} \]</div>
+ where <div class="math notranslate nohighlight">
+\[\begin{split} x'(l) = \left\{ \begin{array}{cc} x(l)w(l), &amp; l &lt; L_1 \\ 0. &amp; L_1 \le l \end{array} \right. \end{split}\]</div>
+ and <span class="math notranslate nohighlight">\(w(\cdot)\)</span> is a window.</p>
+<p>The window <span class="math notranslate nohighlight">\(w(\cdot)\)</span> is normalized depending on the given normalization type. There are two types of normalization: <div class="math notranslate nohighlight">
+\[ \sum_{l=0}^{L_1} w^2(l) = 1 \]</div>
+ and <div class="math notranslate nohighlight">
+\[ \sum_{l=0}^{L_1} w(l) = 1. \]</div>
+ </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="cpp enum">
+<dt id="_CPPv4N4sptk13DataWindowing17NormalizationTypeE">
+<span id="_CPPv3N4sptk13DataWindowing17NormalizationTypeE"></span><span id="_CPPv2N4sptk13DataWindowing17NormalizationTypeE"></span><span class="target" id="classsptk_1_1DataWindowing_1af146d63efbb0d22005ad504af958716b"></span><em class="property">enum </em><code class="sig-name descname">NormalizationType</code><a class="headerlink" href="#_CPPv4N4sptk13DataWindowing17NormalizationTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Normalization type. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt id="_CPPv4N4sptk13DataWindowing17NormalizationType5kNoneE">
+<span id="_CPPv3N4sptk13DataWindowing17NormalizationType5kNoneE"></span><span id="_CPPv2N4sptk13DataWindowing17NormalizationType5kNoneE"></span><span class="target" id="classsptk_1_1DataWindowing_1af146d63efbb0d22005ad504af958716ba72fe969e6cfab553e8846c531ad4451d"></span><em class="property">enumerator </em><code class="sig-name descname">kNone</code> = 0<a class="headerlink" href="#_CPPv4N4sptk13DataWindowing17NormalizationType5kNoneE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N4sptk13DataWindowing17NormalizationType6kPowerE">
+<span id="_CPPv3N4sptk13DataWindowing17NormalizationType6kPowerE"></span><span id="_CPPv2N4sptk13DataWindowing17NormalizationType6kPowerE"></span><span class="target" id="classsptk_1_1DataWindowing_1af146d63efbb0d22005ad504af958716ba80b2503a179b44c978c89f78bd98f4cc"></span><em class="property">enumerator </em><code class="sig-name descname">kPower</code><a class="headerlink" href="#_CPPv4N4sptk13DataWindowing17NormalizationType6kPowerE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N4sptk13DataWindowing17NormalizationType10kMagnitudeE">
+<span id="_CPPv3N4sptk13DataWindowing17NormalizationType10kMagnitudeE"></span><span id="_CPPv2N4sptk13DataWindowing17NormalizationType10kMagnitudeE"></span><span class="target" id="classsptk_1_1DataWindowing_1af146d63efbb0d22005ad504af958716ba0067713da66ba1125332a616574be8d7"></span><em class="property">enumerator </em><code class="sig-name descname">kMagnitude</code><a class="headerlink" href="#_CPPv4N4sptk13DataWindowing17NormalizationType10kMagnitudeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N4sptk13DataWindowing17NormalizationType22kNumNormalizationTypesE">
+<span id="_CPPv3N4sptk13DataWindowing17NormalizationType22kNumNormalizationTypesE"></span><span id="_CPPv2N4sptk13DataWindowing17NormalizationType22kNumNormalizationTypesE"></span><span class="target" id="classsptk_1_1DataWindowing_1af146d63efbb0d22005ad504af958716bad7214f6451d1cf433d60299c0368cf78"></span><em class="property">enumerator </em><code class="sig-name descname">kNumNormalizationTypes</code><a class="headerlink" href="#_CPPv4N4sptk13DataWindowing17NormalizationType22kNumNormalizationTypesE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N4sptk13DataWindowing13DataWindowingEP15WindowInterfacei17NormalizationType">
+<span id="_CPPv3N4sptk13DataWindowing13DataWindowingEP15WindowInterfacei17NormalizationType"></span><span id="_CPPv2N4sptk13DataWindowing13DataWindowingEP15WindowInterfacei17NormalizationType"></span><span id="sptk::DataWindowing::DataWindowing__WindowInterfaceP.i.NormalizationType"></span><span class="target" id="classsptk_1_1DataWindowing_1a5997cf9ede842ec9c48ac09bc3d607c7"></span><code class="sig-name descname">DataWindowing</code><span class="sig-paren">(</span>WindowInterface *<em>window</em>, int <em>output_length</em>, <a class="reference internal" href="#_CPPv4N4sptk13DataWindowing17NormalizationTypeE" title="sptk::DataWindowing::NormalizationType">NormalizationType</a> <em>normalization_type</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk13DataWindowing13DataWindowingEP15WindowInterfacei17NormalizationType" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">window</span></code>: <span class="math notranslate nohighlight">\(L_1\)</span>-length window to be used. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">output_length</span></code>: Output length, <span class="math notranslate nohighlight">\(L_2\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">normalization_type</span></code>: Type of normalization. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk13DataWindowing14GetInputLengthEv">
+<span id="_CPPv3NK4sptk13DataWindowing14GetInputLengthEv"></span><span id="_CPPv2NK4sptk13DataWindowing14GetInputLengthEv"></span><span id="sptk::DataWindowing::GetInputLengthC"></span><span class="target" id="classsptk_1_1DataWindowing_1ad6d11e81c5b10bca455152c94ec07e57"></span>int <code class="sig-name descname">GetInputLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk13DataWindowing14GetInputLengthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Input length. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk13DataWindowing15GetOutputLengthEv">
+<span id="_CPPv3NK4sptk13DataWindowing15GetOutputLengthEv"></span><span id="_CPPv2NK4sptk13DataWindowing15GetOutputLengthEv"></span><span id="sptk::DataWindowing::GetOutputLengthC"></span><span class="target" id="classsptk_1_1DataWindowing_1a4e3c54830b03099e6238f73c8472fbd5"></span>int <code class="sig-name descname">GetOutputLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk13DataWindowing15GetOutputLengthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Output length. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk13DataWindowing7IsValidEv">
+<span id="_CPPv3NK4sptk13DataWindowing7IsValidEv"></span><span id="_CPPv2NK4sptk13DataWindowing7IsValidEv"></span><span id="sptk::DataWindowing::IsValidC"></span><span class="target" id="classsptk_1_1DataWindowing_1a3ad620a9d8c2f03342e7575a49c0c162"></span>bool <code class="sig-name descname">IsValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk13DataWindowing7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if this obejct is valid. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk13DataWindowing3RunERKNSt6vectorIdEEPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk13DataWindowing3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk13DataWindowing3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::DataWindowing::Run__std::vector:double:CR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1DataWindowing_1a913bc78a653d8720f0bcc7542fbd4ca7"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;double&gt; &amp;<em>data</em>, std::vector&lt;double&gt; *<em>windowed_data</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk13DataWindowing3RunERKNSt6vectorIdEEPNSt6vectorIdEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">data</span></code>: <span class="math notranslate nohighlight">\(L_1\)</span>-length input data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">windowed_data</span></code>: <span class="math notranslate nohighlight">\(L_2\)</span>-length output data. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="zerodf.html" class="btn btn-neutral float-right" title="zerodf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ulaw.html" class="btn btn-neutral float-left" title="ulaw" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SPTK Working Group
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

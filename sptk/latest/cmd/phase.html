@@ -1,0 +1,431 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>phase &mdash; SPTK  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pitch" href="pitch.html" />
+    <link rel="prev" title="par2lpc" href="par2lpc.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SPTK
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Command references</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2acr.html">c2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df2.html">df2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dfs.html">dfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">phase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SPTK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>phase</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/cmd/phase.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="phase">
+<span id="id1"></span><h1>phase<a class="headerlink" href="#phase" title="Permalink to this headline">¶</a></h1>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv44mainiA_Pc">
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="phase_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span>int <code class="sig-name descname">main</code><span class="sig-paren">(</span>int <em>argc</em>, char *<em>argv</em>[]<span class="sig-paren">)</span><br /></dt>
+<dd><p><em>phase</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<p><ul class="simple">
+<li><p><strong>-l</strong> <em>int</em> <ul>
+<li><p>FFT length <span class="math notranslate nohighlight">\((2 \le L)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-m</strong> <em>int</em> <ul>
+<li><p>order of numerator coefficients <span class="math notranslate nohighlight">\((0 \le M &lt; L)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-n</strong> <em>int</em> <ul>
+<li><p>order of denominator coefficients <span class="math notranslate nohighlight">\((0 \le N &lt; L)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-z</strong> <em>str</em> <ul>
+<li><p>name of file containing numerator coefficients</p></li>
+</ul>
+</p></li>
+<li><p><strong>-p</strong> <em>str</em> <ul>
+<li><p>name of file containing denominator coefficients</p></li>
+</ul>
+</p></li>
+<li><p><strong>-u</strong> <em>bool</em> <ul>
+<li><p>perform phase unwrapping</p></li>
+</ul>
+</p></li>
+<li><p><strong>infile</strong> <em>str</em> <ul>
+<li><p>double-type real sequence</p></li>
+</ul>
+</p></li>
+<li><p><strong>stdout</strong> <ul>
+<li><p>double-type phase</p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+<p>The below example calculates phase spectrum from 10-th order filter coefficients:</p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">phase</span> <span class="o">-</span><span class="n">z</span> <span class="n">data</span><span class="o">.</span><span class="n">z</span> <span class="o">-</span><span class="n">m</span> <span class="mi">10</span> <span class="o">-</span><span class="n">p</span> <span class="n">data</span><span class="o">.</span><span class="n">p</span> <span class="o">-</span><span class="n">n</span> <span class="mi">10</span> <span class="o">-</span><span class="n">l</span> <span class="mi">16</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">ph</span>
+</pre></div>
+</div>
+</p>
+<p>If the filter coefficients are stable, the below example gives the same result:</p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">impulse</span> <span class="o">-</span><span class="n">l</span> <span class="mi">16</span> <span class="o">|</span> <span class="n">dfs</span> <span class="o">-</span><span class="n">z</span> <span class="n">data</span><span class="o">.</span><span class="n">z</span> <span class="o">-</span><span class="n">p</span> <span class="n">data</span><span class="o">.</span><span class="n">p</span> <span class="o">|</span> <span class="n">phase</span> <span class="o">-</span><span class="n">l</span> <span class="mi">16</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">ph</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argc</span></code>: Number of arguments. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argv</span></code>: Argument vector. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>0 on success, 1 on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="grpdelay.html#grpdelay"><span class="std std-ref">grpdelay</span></a></p>
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4N4sptk33FilterCoefficientsToPhaseSpectrumE">
+<span id="_CPPv3N4sptk33FilterCoefficientsToPhaseSpectrumE"></span><span id="_CPPv2N4sptk33FilterCoefficientsToPhaseSpectrumE"></span><span id="sptk::FilterCoefficientsToPhaseSpectrum"></span><span class="target" id="classsptk_1_1FilterCoefficientsToPhaseSpectrum"></span><em class="property">class </em><code class="sig-prename descclassname">sptk<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">FilterCoefficientsToPhaseSpectrum</code><a class="headerlink" href="#_CPPv4N4sptk33FilterCoefficientsToPhaseSpectrumE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Transform filter coefficients to phase spectrum.</p>
+<p>The input is the <span class="math notranslate nohighlight">\(M\)</span>-th order numerator coefficients and the <span class="math notranslate nohighlight">\(N\)</span>-th order denominator coefficients: <div class="math notranslate nohighlight">
+\[\begin{split} \begin{array}{cccc} b(0), &amp; b(1), &amp; \ldots, &amp; b(M), \\ K, &amp; a(1), &amp; \ldots, &amp; a(N), \end{array} \end{split}\]</div>
+ and the output is the <span class="math notranslate nohighlight">\((2/L+1)\)</span>-length phase spectrum: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} \angle H(0), &amp; \angle H(1), &amp; \ldots, &amp; \angle H(2/L), \end{array} \]</div>
+ where <span class="math notranslate nohighlight">\(L\)</span> is the FFT length.</p>
+<p>The general form of transfer function is given by <div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray} H(z) &amp;=&amp; \frac{\sum_{m=0}^M b(m) z^{-m}}{\sum_{n=0}^N a(n) z^{-n}} \\ &amp;=&amp; \frac{B(z)}{A(z)}. \end{eqnarray}\end{split}\]</div>
+ where <span class="math notranslate nohighlight">\(a(0)=1\)</span>. It can be rewritten as <div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray} H(z) &amp;=&amp; \frac{B_R(z) + i B_I(z)}{A_R(z) + i A_I(z)} \\ &amp;=&amp; \frac{B_R(z) + i B_I(z)}{A_R(z) + i A_I(z)} \cdot \frac{A_R(z) - i A_I(z)}{A_R(z) - i A_I(z)} \\ &amp;=&amp; \frac{B_R(z) A_R(z) + B_I(z) A_I(z)}{A_R^2(z) + A_I^2(z)} +i \frac{B_I(z) A_R(z) - B_R(z) A_I(z)}{A_R^2(z) + A_I^2(z)}. \end{eqnarray}\end{split}\]</div>
+ where the subscripts <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(I\)</span> denote the real and imaginary parts. Thus <div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray} \angle H(z) &amp;=&amp; \tan^{-1} \left(\frac{H_I(z)}{H_R(z)}\right) \\ &amp;=&amp; \tan^{-1} \left( \frac{B_I(z) A_R(z) - B_R(z) A_I(z)} {B_R(z) A_R(z) + B_I(z) A_I(z)} \right). \end{eqnarray}\end{split}\]</div>
+ </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N4sptk33FilterCoefficientsToPhaseSpectrum33FilterCoefficientsToPhaseSpectrumEiiib">
+<span id="_CPPv3N4sptk33FilterCoefficientsToPhaseSpectrum33FilterCoefficientsToPhaseSpectrumEiiib"></span><span id="_CPPv2N4sptk33FilterCoefficientsToPhaseSpectrum33FilterCoefficientsToPhaseSpectrumEiiib"></span><span id="sptk::FilterCoefficientsToPhaseSpectrum::FilterCoefficientsToPhaseSpectrum__i.i.i.b"></span><span class="target" id="classsptk_1_1FilterCoefficientsToPhaseSpectrum_1a74c38270ca14efb2c2800c48d9ad5aca"></span><code class="sig-name descname">FilterCoefficientsToPhaseSpectrum</code><span class="sig-paren">(</span>int <em>num_numerator_order</em>, int <em>num_denominator_order</em>, int <em>fft_length</em>, bool <em>unwrapping</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk33FilterCoefficientsToPhaseSpectrum33FilterCoefficientsToPhaseSpectrumEiiib" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">num_numerator_order</span></code>: Order of numerator coefficients, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">num_denominator_order</span></code>: Order of denominator coefficients, <span class="math notranslate nohighlight">\(N\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">fft_length</span></code>: Number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">unwrapping</span></code>: If true, perform phase unwrapping. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk33FilterCoefficientsToPhaseSpectrum20GetNumNumeratorOrderEv">
+<span id="_CPPv3NK4sptk33FilterCoefficientsToPhaseSpectrum20GetNumNumeratorOrderEv"></span><span id="_CPPv2NK4sptk33FilterCoefficientsToPhaseSpectrum20GetNumNumeratorOrderEv"></span><span id="sptk::FilterCoefficientsToPhaseSpectrum::GetNumNumeratorOrderC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToPhaseSpectrum_1a67f5a101870a70e3aec639e2744c7d52"></span>int <code class="sig-name descname">GetNumNumeratorOrder</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk33FilterCoefficientsToPhaseSpectrum20GetNumNumeratorOrderEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Order of numerator coefficients. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk33FilterCoefficientsToPhaseSpectrum22GetNumDenominatorOrderEv">
+<span id="_CPPv3NK4sptk33FilterCoefficientsToPhaseSpectrum22GetNumDenominatorOrderEv"></span><span id="_CPPv2NK4sptk33FilterCoefficientsToPhaseSpectrum22GetNumDenominatorOrderEv"></span><span id="sptk::FilterCoefficientsToPhaseSpectrum::GetNumDenominatorOrderC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToPhaseSpectrum_1a5a3d499eaaabbdfccc0c777f3b60813c"></span>int <code class="sig-name descname">GetNumDenominatorOrder</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk33FilterCoefficientsToPhaseSpectrum22GetNumDenominatorOrderEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Order of denominator coefficients. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk33FilterCoefficientsToPhaseSpectrum12GetFftLengthEv">
+<span id="_CPPv3NK4sptk33FilterCoefficientsToPhaseSpectrum12GetFftLengthEv"></span><span id="_CPPv2NK4sptk33FilterCoefficientsToPhaseSpectrum12GetFftLengthEv"></span><span id="sptk::FilterCoefficientsToPhaseSpectrum::GetFftLengthC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToPhaseSpectrum_1ad3324b832be0fa78b79a2a105397b0c2"></span>int <code class="sig-name descname">GetFftLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk33FilterCoefficientsToPhaseSpectrum12GetFftLengthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>FFT length. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk33FilterCoefficientsToPhaseSpectrum11IsUnwrappedEv">
+<span id="_CPPv3NK4sptk33FilterCoefficientsToPhaseSpectrum11IsUnwrappedEv"></span><span id="_CPPv2NK4sptk33FilterCoefficientsToPhaseSpectrum11IsUnwrappedEv"></span><span id="sptk::FilterCoefficientsToPhaseSpectrum::IsUnwrappedC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToPhaseSpectrum_1a6f84ebe1ca3110e2c879b5ba2a7ca0dd"></span>bool <code class="sig-name descname">IsUnwrapped</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk33FilterCoefficientsToPhaseSpectrum11IsUnwrappedEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if unwrapping is performed. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk33FilterCoefficientsToPhaseSpectrum7IsValidEv">
+<span id="_CPPv3NK4sptk33FilterCoefficientsToPhaseSpectrum7IsValidEv"></span><span id="_CPPv2NK4sptk33FilterCoefficientsToPhaseSpectrum7IsValidEv"></span><span id="sptk::FilterCoefficientsToPhaseSpectrum::IsValidC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToPhaseSpectrum_1ad870b157ff8ac41b5fe42a4d4a797cd8"></span>bool <code class="sig-name descname">IsValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk33FilterCoefficientsToPhaseSpectrum7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if this obejct is valid. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk33FilterCoefficientsToPhaseSpectrum3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN33FilterCoefficientsToPhaseSpectrum6BufferE">
+<span id="_CPPv3NK4sptk33FilterCoefficientsToPhaseSpectrum3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN33FilterCoefficientsToPhaseSpectrum6BufferE"></span><span id="_CPPv2NK4sptk33FilterCoefficientsToPhaseSpectrum3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN33FilterCoefficientsToPhaseSpectrum6BufferE"></span><span id="sptk::FilterCoefficientsToPhaseSpectrum::Run__std::vector:double:CR.std::vector:double:CR.std::vector:double:P.FilterCoefficientsToPhaseSpectrum::BufferPC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToPhaseSpectrum_1a2fc15af6078e4bf61653a8faf2c11ff2"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;double&gt; &amp;<em>numerator_coefficients</em>, <em class="property">const</em> std::vector&lt;double&gt; &amp;<em>denominator_coefficients</em>, std::vector&lt;double&gt; *<em>phase_spectrum</em>, <a class="reference internal" href="#_CPPv4N4sptk33FilterCoefficientsToPhaseSpectrumE" title="sptk::FilterCoefficientsToPhaseSpectrum">FilterCoefficientsToPhaseSpectrum</a>::<a class="reference internal" href="#_CPPv4N4sptk33FilterCoefficientsToPhaseSpectrum6BufferE" title="sptk::FilterCoefficientsToPhaseSpectrum::Buffer">Buffer</a> *<em>buffer</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk33FilterCoefficientsToPhaseSpectrum3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN33FilterCoefficientsToPhaseSpectrum6BufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">numerator_coefficients</span></code>: <span class="math notranslate nohighlight">\(M\)</span>-th order coefficients. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">denominator_coefficients</span></code>: <span class="math notranslate nohighlight">\(N\)</span>-th order coefficients. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">phase_spectrum</span></code>: <span class="math notranslate nohighlight">\((L/2+1)\)</span>-length phase spectrum. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">buffer</span></code>: <a class="reference internal" href="#classsptk_1_1FilterCoefficientsToPhaseSpectrum_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4N4sptk33FilterCoefficientsToPhaseSpectrum6BufferE">
+<span id="_CPPv3N4sptk33FilterCoefficientsToPhaseSpectrum6BufferE"></span><span id="_CPPv2N4sptk33FilterCoefficientsToPhaseSpectrum6BufferE"></span><span id="sptk::FilterCoefficientsToPhaseSpectrum::Buffer"></span><span class="target" id="classsptk_1_1FilterCoefficientsToPhaseSpectrum_1_1Buffer"></span><em class="property">class </em><code class="sig-name descname">Buffer</code><a class="headerlink" href="#_CPPv4N4sptk33FilterCoefficientsToPhaseSpectrum6BufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classsptk_1_1FilterCoefficientsToPhaseSpectrum_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1FilterCoefficientsToPhaseSpectrum"><span class="std std-ref">FilterCoefficientsToPhaseSpectrum</span></a> class. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="pitch.html" class="btn btn-neutral float-right" title="pitch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="par2lpc.html" class="btn btn-neutral float-left" title="par2lpc" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SPTK Working Group
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

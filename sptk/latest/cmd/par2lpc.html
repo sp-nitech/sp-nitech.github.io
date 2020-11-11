@@ -37,8 +37,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="pitch" href="pitch.html" />
-    <link rel="prev" title="nan" href="nan.html" /> 
+    <link rel="next" title="phase" href="phase.html" />
+    <link rel="prev" title="par2lar" href="par2lar.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,6 +93,8 @@
 <li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
 <li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df2.html">df2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dfs.html">dfs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
@@ -101,21 +103,28 @@
 <li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
 <li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
 </ul>
 
@@ -231,12 +240,12 @@
 <dl class="cpp class">
 <dt id="_CPPv4N4sptk48ParcorCoefficientsToLinearPredictiveCoefficientsE">
 <span id="_CPPv3N4sptk48ParcorCoefficientsToLinearPredictiveCoefficientsE"></span><span id="_CPPv2N4sptk48ParcorCoefficientsToLinearPredictiveCoefficientsE"></span><span id="sptk::ParcorCoefficientsToLinearPredictiveCoefficients"></span><span class="target" id="classsptk_1_1ParcorCoefficientsToLinearPredictiveCoefficients"></span><em class="property">class </em><code class="sig-prename descclassname">sptk<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">ParcorCoefficientsToLinearPredictiveCoefficients</code><a class="headerlink" href="#_CPPv4N4sptk48ParcorCoefficientsToLinearPredictiveCoefficientsE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Transform PARCOR coefficients to LPC coefficients.</p>
+<dd><p>Convert PARCOR coefficients to LPC coefficients.</p>
 <p>The input is the <span class="math notranslate nohighlight">\(M\)</span>-th order PARCOR coefficients: <div class="math notranslate nohighlight">
 \[ \begin{array}{cccc} K, &amp; k(1), &amp; \ldots, &amp; k(M), \end{array} \]</div>
  and the output is the <span class="math notranslate nohighlight">\(M\)</span>-th order LPC coefficients: <div class="math notranslate nohighlight">
 \[ \begin{array}{cccc} K, &amp; a(1), &amp; \ldots, &amp; a(M), \end{array} \]</div>
- where <span class="math notranslate nohighlight">\(K\)</span> is the gain. The transformation is given by the following recursion formula: <div class="math notranslate nohighlight">
+ where <span class="math notranslate nohighlight">\(K\)</span> is the gain. The conversion is given by the following recursion formula: <div class="math notranslate nohighlight">
 \[\begin{split} a^{(i)}(m) = a^{(i-1)}(m) + k(i) a^{(i-1)}(i-m) \\ i = 2,\ldots,M \end{split}\]</div>
  with the initial condition <span class="math notranslate nohighlight">\(a^{(i)}(i)=k(i)\)</span> for <span class="math notranslate nohighlight">\(i = 1,\ldots,M-1\)</span>. The outputs can then be written as <div class="math notranslate nohighlight">
 \[\begin{split} a(m) = \left\{ \begin{array}{ll} a^{(M)}(m), &amp; 1 \le m &lt; M \\ k(m). &amp; m = M \end{array} \right. \end{split}\]</div>
@@ -325,10 +334,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="pitch.html" class="btn btn-neutral float-right" title="pitch" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="phase.html" class="btn btn-neutral float-right" title="phase" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="nan.html" class="btn btn-neutral float-left" title="nan" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="par2lar.html" class="btn btn-neutral float-left" title="par2lar" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

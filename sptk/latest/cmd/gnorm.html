@@ -37,7 +37,7 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ifft" href="ifft.html" />
+    <link rel="next" title="grpdelay" href="grpdelay.html" />
     <link rel="prev" title="freqt" href="freqt.html" /> 
 </head>
 
@@ -93,6 +93,8 @@
 <li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
 <li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df2.html">df2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dfs.html">dfs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
@@ -101,21 +103,28 @@
 <li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
 <li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
 </ul>
 
@@ -239,7 +248,7 @@
 <dl class="cpp class">
 <dt id="_CPPv4N4sptk36GeneralizedCepstrumGainNormalizationE">
 <span id="_CPPv3N4sptk36GeneralizedCepstrumGainNormalizationE"></span><span id="_CPPv2N4sptk36GeneralizedCepstrumGainNormalizationE"></span><span id="sptk::GeneralizedCepstrumGainNormalization"></span><span class="target" id="classsptk_1_1GeneralizedCepstrumGainNormalization"></span><em class="property">class </em><code class="sig-prename descclassname">sptk<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">GeneralizedCepstrumGainNormalization</code><a class="headerlink" href="#_CPPv4N4sptk36GeneralizedCepstrumGainNormalizationE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Transform generalized cepstral coefficients to normalized generalized cepstral coefficients.</p>
+<dd><p>Convert generalized cepstral coefficients to normalized generalized cepstral coefficients.</p>
 <p>The input is the <span class="math notranslate nohighlight">\(M\)</span>-th order generalized cepstral coefficients: <div class="math notranslate nohighlight">
 \[ \begin{array}{cccc} c_\gamma(0), &amp; c_\gamma(1), &amp; \ldots, &amp; c_\gamma(M), \end{array} \]</div>
  and the output is the <span class="math notranslate nohighlight">\(M\)</span>-th order normalized generalized cepstral coefficients: <div class="math notranslate nohighlight">
@@ -337,7 +346,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="ifft.html" class="btn btn-neutral float-right" title="ifft" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="grpdelay.html" class="btn btn-neutral float-right" title="grpdelay" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="freqt.html" class="btn btn-neutral float-left" title="freqt" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

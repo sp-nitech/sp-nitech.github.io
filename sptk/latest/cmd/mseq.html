@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>frame &mdash; SPTK  documentation</title>
+  <title>mseq &mdash; SPTK  documentation</title>
   
 
   
@@ -37,8 +37,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="freqt" href="freqt.html" />
-    <link rel="prev" title="fftr" href="fftr.html" /> 
+    <link rel="next" title="nan" href="nan.html" />
+    <link rel="prev" title="mlpg" href="mlpg.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -100,7 +100,7 @@
 <li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
 <li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
@@ -115,7 +115,7 @@
 <li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">mseq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
@@ -172,13 +172,13 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>frame</li>
+      <li>mseq</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/cmd/frame.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/cmd/mseq.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -191,57 +191,32 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="frame">
-<h1>frame<a class="headerlink" href="#frame" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="mseq">
+<span id="id1"></span><h1>mseq<a class="headerlink" href="#mseq" title="Permalink to this headline">¶</a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric">Functions</p>
 <dl class="cpp function">
 <dt id="_CPPv44mainiA_Pc">
-<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="frame_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span>int <code class="sig-name descname">main</code><span class="sig-paren">(</span>int <em>argc</em>, char *<em>argv</em>[]<span class="sig-paren">)</span><br /></dt>
-<dd><p><em>frame</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="mseq_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span>int <code class="sig-name descname">main</code><span class="sig-paren">(</span>int <em>argc</em>, char *<em>argv</em>[]<span class="sig-paren">)</span><br /></dt>
+<dd><p><em>mseq</em> [ <em>option</em> ]</p>
 <p><ul class="simple">
 <li><p><strong>-l</strong> <em>int</em> <ul>
-<li><p>frame length <span class="math notranslate nohighlight">\((1 \le L)\)</span></p></li>
+<li><p>output length <span class="math notranslate nohighlight">\((1 \le L)\)</span></p></li>
 </ul>
 </p></li>
-<li><p><strong>-p</strong> <em>double</em> <ul>
-<li><p>frame period <span class="math notranslate nohighlight">\((1 \le P)\)</span></p></li>
-</ul>
-</p></li>
-<li><p><strong>-n</strong> <em>int</em> <ul>
-<li><p>framing type <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> the beginning of data is the center of the first frame </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> the beginning of data is the start of the first frame</p></li>
-</ul>
-</p></li>
-</ul>
-</p></li>
-<li><p><strong>-z</strong> <em>bool</em> <ul>
-<li><p>perform mean subtraction in a frame</p></li>
-</ul>
-</p></li>
-<li><p><strong>infile</strong> <em>str</em> <ul>
-<li><p>double-type data sequence</p></li>
+<li><p><strong>-m</strong> <em>int</em> <ul>
+<li><p>output order <span class="math notranslate nohighlight">\((0 \le L - 1)\)</span></p></li>
 </ul>
 </p></li>
 <li><p><strong>stdout</strong> <ul>
-<li><p>double-type framed data sequence</p></li>
+<li><p>double-type m-sequence</p></li>
 </ul>
 </p></li>
 </ul>
 </p>
-<p>If the input is <div class="math notranslate nohighlight">
-\[ \begin{array}{c} \{x(t)\}_{t=0}^{T-1} \end{array} \]</div>
- and the frame length <span class="math notranslate nohighlight">\(L\)</span> is even, the output is <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} \{x(t)\}_{t=-2/L}^{t=2/L-1}, &amp; \{x(t)\}_{t=P-2/L}^{t=P+2/L-1}, &amp; \{x(t)\}_{t=2P-2/L}^{t=2P+2/L-1}, &amp; \ldots \end{array} \]</div>
- where <span class="math notranslate nohighlight">\(P\)</span> is frame period and <span class="math notranslate nohighlight">\(\forall t &lt; 0, t \ge T \; x(t)=0\)</span>. If <code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">1</span></code> is specified, the output is <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} \{x(t)\}_{t=0}^{t=L-1}, &amp; \{x(t)\}_{t=P}^{t=P+L-1}, &amp; \{x(t)\}_{t=2P}^{t=2P+L-1}, &amp; \ldots \end{array} \]</div>
-</p>
-<p>The below example extracts LPC coefficients with 25-ms length window and 5-ms shift.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span> <span class="o">-</span><span class="n">l</span> <span class="mi">400</span> <span class="o">-</span><span class="n">p</span> <span class="mi">80</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span> <span class="o">|</span> <span class="n">window</span> <span class="o">-</span><span class="n">l</span> <span class="mi">400</span> <span class="o">|</span> <span class="n">lpc</span> <span class="o">-</span><span class="n">l</span> <span class="mi">400</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">lpc</span>
-</pre></div>
-</div>
-</p>
+<p>The output of this command is <span class="math notranslate nohighlight">\(1\)</span> or <span class="math notranslate nohighlight">\(-1\)</span>: <div class="math notranslate nohighlight">
+\[ \begin{array}{ccccc} 1, &amp; -1, &amp; 1, &amp; \ldots, &amp; 1 \end{array} \]</div>
+ where the output length is <span class="math notranslate nohighlight">\(L\)</span>. If <span class="math notranslate nohighlight">\(L\)</span> is not given, an inifinite m-sequence is generated.</p>
 <p><dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argc</span></code>: Number of arguments. </p></li>
@@ -255,6 +230,36 @@
 </dd></dl>
 
 </div>
+<dl class="cpp class">
+<dt id="_CPPv4N4sptk19MSequenceGenerationE">
+<span id="_CPPv3N4sptk19MSequenceGenerationE"></span><span id="_CPPv2N4sptk19MSequenceGenerationE"></span><span id="sptk::MSequenceGeneration"></span><span class="target" id="classsptk_1_1MSequenceGeneration"></span><em class="property">class </em><code class="sig-prename descclassname">sptk<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">MSequenceGeneration</code> : <em class="property">public</em> RandomGenerationInterface<a class="headerlink" href="#_CPPv4N4sptk19MSequenceGenerationE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Generate random number based on m-sequence. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N4sptk19MSequenceGeneration5ResetEv">
+<span id="_CPPv3N4sptk19MSequenceGeneration5ResetEv"></span><span id="_CPPv2N4sptk19MSequenceGeneration5ResetEv"></span><span id="sptk::MSequenceGeneration::Reset"></span><span class="target" id="classsptk_1_1MSequenceGeneration_1a65c5652f28d2acaf2e2f080c2f469069"></span>void <code class="sig-name descname">Reset</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk19MSequenceGeneration5ResetEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Reset internal state. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4sptk19MSequenceGeneration3GetEPd">
+<span id="_CPPv3N4sptk19MSequenceGeneration3GetEPd"></span><span id="_CPPv2N4sptk19MSequenceGeneration3GetEPd"></span><span id="sptk::MSequenceGeneration::Get__doubleP"></span><span class="target" id="classsptk_1_1MSequenceGeneration_1af70155c4134310ad0e80d98d5b673cc5"></span>bool <code class="sig-name descname">Get</code><span class="sig-paren">(</span>double *<em>output</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk19MSequenceGeneration3GetEPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get random number.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: Random number. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
 </div>
 
 
@@ -265,10 +270,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="freqt.html" class="btn btn-neutral float-right" title="freqt" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="nan.html" class="btn btn-neutral float-right" title="nan" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="fftr.html" class="btn btn-neutral float-left" title="fftr" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="mlpg.html" class="btn btn-neutral float-left" title="mlpg" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

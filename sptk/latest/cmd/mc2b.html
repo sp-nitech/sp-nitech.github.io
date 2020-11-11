@@ -93,6 +93,8 @@
 <li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
 <li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df2.html">df2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dfs.html">dfs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
@@ -101,21 +103,28 @@
 <li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
 <li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">mc2b</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
 </ul>
 
@@ -235,7 +244,7 @@
 <dl class="cpp class">
 <dt id="_CPPv4N4sptk42MelCepstrumToMlsaDigitalFilterCoefficientsE">
 <span id="_CPPv3N4sptk42MelCepstrumToMlsaDigitalFilterCoefficientsE"></span><span id="_CPPv2N4sptk42MelCepstrumToMlsaDigitalFilterCoefficientsE"></span><span id="sptk::MelCepstrumToMlsaDigitalFilterCoefficients"></span><span class="target" id="classsptk_1_1MelCepstrumToMlsaDigitalFilterCoefficients"></span><em class="property">class </em><code class="sig-prename descclassname">sptk<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">MelCepstrumToMlsaDigitalFilterCoefficients</code><a class="headerlink" href="#_CPPv4N4sptk42MelCepstrumToMlsaDigitalFilterCoefficientsE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p>Transform mel-cepstral coefficients to MLSA digital filter coefficients.</p>
+<dd><p>Convert mel-cepstral coefficients to MLSA digital filter coefficients.</p>
 <p>The input is the <span class="math notranslate nohighlight">\(M\)</span>-th order mel-cepstral coefficients: <div class="math notranslate nohighlight">
 \[ \begin{array}{cccc} \tilde{c}(0), &amp; \tilde{c}(1), &amp; \ldots, &amp; \tilde{c}(M), \end{array} \]</div>
  and the output is the <span class="math notranslate nohighlight">\(M\)</span>-th order MLSA digital filter coefficients: <div class="math notranslate nohighlight">
@@ -244,7 +253,7 @@
 \[ \boldsymbol{b} = \boldsymbol{A}^{-1}\tilde{\boldsymbol{c}}, \]</div>
  where <div class="math notranslate nohighlight">
 \[\begin{split}\begin{eqnarray} \boldsymbol{A}^{-1} &amp;=&amp; \left[ \begin{array}{ccccc} 1 &amp; -\alpha &amp; (-\alpha)^2 &amp; \cdots &amp; (-\alpha)^M \\ 0 &amp; 1 &amp; -\alpha &amp; \ddots &amp; \vdots \\ 0 &amp; 0 &amp; 1 &amp; \ddots &amp; (-\alpha)^2 \\ \vdots &amp; \vdots &amp; \ddots &amp; \ddots &amp; -\alpha \\ 0 &amp; 0 &amp; \cdots &amp; 0 &amp; 1 \\ \end{array} \right], \\ \boldsymbol{b} &amp;=&amp; \left[ \begin{array}{cccc} b(0) &amp; b(1) &amp; \cdots &amp; b(M) \end{array} \right]^{\mathsf{T}}, \\ \tilde{\boldsymbol{c}} &amp;=&amp; \left[ \begin{array}{cccc} \tilde{c}(0) &amp; \tilde{c}(1) &amp; \cdots &amp; \tilde{c}(M) \end{array} \right]^{\mathsf{T}}. \end{eqnarray}\end{split}\]</div>
- The transformation is implemented with low computational complexity in a recursive manner as follows: <div class="math notranslate nohighlight">
+ The conversion is implemented with low computational complexity in a recursive manner as follows: <div class="math notranslate nohighlight">
 \[\begin{split} b(m) = \left\{ \begin{array}{ll} \tilde{c}(m), &amp; m = M \\ \tilde{c}(m) - \alpha b(m + 1). &amp; 0 \le m &lt; M \end{array} \right. \end{split}\]</div>
 </p>
 <p>[1] K. Tokuda, T. Kobayashi, T. Chiba, and S. Imai, “Spectral estimation of speech by mel-generalized cepstral analysis,” Electronics and Communications in Japan, part 3, vol. 76, no. 2, pp. 30-43, 1993. </p>

@@ -1,0 +1,415 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>df2 &mdash; SPTK  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="dfs" href="dfs.html" />
+    <link rel="prev" title="delta" href="delta.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SPTK
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Command references</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2acr.html">c2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">df2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dfs.html">dfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SPTK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>df2</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/cmd/df2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="df2">
+<span id="id1"></span><h1>df2<a class="headerlink" href="#df2" title="Permalink to this headline">¶</a></h1>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv44mainiA_Pc">
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="df2_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span>int <code class="sig-name descname">main</code><span class="sig-paren">(</span>int <em>argc</em>, char *<em>argv</em>[]<span class="sig-paren">)</span><br /></dt>
+<dd><p><em>df2</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<p><ul class="simple">
+<li><p><strong>-s</strong> <em>double</em> <ul>
+<li><p>sampling rate in kHz <span class="math notranslate nohighlight">\((0 &lt; F_s)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-p</strong> <em>double</em> <em>double</em> <ul>
+<li><p>pole frequency and bandwidth in Hz <span class="math notranslate nohighlight">\((0 &lt; F_1 &lt; 500F_s, \, 0 &lt; B_1)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-z</strong> <em>double</em> <em>double</em> <ul>
+<li><p>zero frequency and bandwidth in Hz <span class="math notranslate nohighlight">\((0 &lt; F_2 &lt; 500F_s, \, 0 &lt; B_2)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>infile</strong> <em>str</em> <ul>
+<li><p>double-type filter input</p></li>
+</ul>
+</p></li>
+<li><p><strong>stdout</strong> <ul>
+<li><p>double-type filter output</p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argc</span></code>: Number of arguments. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argv</span></code>: Argument vector. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>0 on success, 1 on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="dfs.html#dfs"><span class="std std-ref">dfs</span></a></p>
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4N4sptk24SecondOrderDigitalFilterE">
+<span id="_CPPv3N4sptk24SecondOrderDigitalFilterE"></span><span id="_CPPv2N4sptk24SecondOrderDigitalFilterE"></span><span id="sptk::SecondOrderDigitalFilter"></span><span class="target" id="classsptk_1_1SecondOrderDigitalFilter"></span><em class="property">class </em><code class="sig-prename descclassname">sptk<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">SecondOrderDigitalFilter</code><a class="headerlink" href="#_CPPv4N4sptk24SecondOrderDigitalFilterE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Apply second-order digital filter.</p>
+<p>The second-order digital fiter is represented as <div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray} H(z) &amp;=&amp; \frac{(1-r_2 e^{j\theta_2}z^{-1})(1-r_2 e^{-j\theta_2}z^{-1})} {(1-r_1 e^{j\theta_1}z^{-1})(1-r_1 e^{-j\theta_1}z^{-1})} \\ &amp;=&amp; \frac{1 - 2r_2\cos\theta_2 z^{-1} + r_2^2 z^{-2}} {1 - 2r_1\cos\theta_1 z^{-1} + r_1^2 z^{-2}}. \end{eqnarray}\end{split}\]</div>
+ The relation between radius <span class="math notranslate nohighlight">\(r_{(\cdot)}\)</span> and the 3-dB bandwidth <span class="math notranslate nohighlight">\(B_{(\cdot)}\)</span> is given by <div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray} r_1 &amp;=&amp; e^{-\pi B_1 / F_s}, \\ r_2 &amp;=&amp; e^{-\pi B_2 / F_s}, \end{eqnarray}\end{split}\]</div>
+ where <span class="math notranslate nohighlight">\(F_s\)</span> is the sampling rate. The angle <span class="math notranslate nohighlight">\(\theta_{(\cdot)}\)</span> is <div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray} \theta_1 &amp;=&amp; 2\pi F_1 / F_s, \\ \theta_2 &amp;=&amp; 2\pi F_2 / F_s. \end{eqnarray}\end{split}\]</div>
+</p>
+<p>[1] J. O. Smith, “Relating Pole Radius to Bandwidth,” in Introduction to digital filters with audio applications, <a class="reference external" href="https://ccrma.stanford.edu/~jos/fp/Relating_Pole_Radius_Bandwidth.html">https://ccrma.stanford.edu/~jos/fp/Relating_Pole_Radius_Bandwidth.html</a> </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="cpp enum">
+<dt id="_CPPv4N4sptk24SecondOrderDigitalFilter10FilterTypeE">
+<span id="_CPPv3N4sptk24SecondOrderDigitalFilter10FilterTypeE"></span><span id="_CPPv2N4sptk24SecondOrderDigitalFilter10FilterTypeE"></span><span class="target" id="classsptk_1_1SecondOrderDigitalFilter_1a63d0f7037bbd023e9dbe84d206231800"></span><em class="property">enum </em><code class="sig-name descname">FilterType</code><a class="headerlink" href="#_CPPv4N4sptk24SecondOrderDigitalFilter10FilterTypeE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Filter type. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt id="_CPPv4N4sptk24SecondOrderDigitalFilter10FilterType5kPoleE">
+<span id="_CPPv3N4sptk24SecondOrderDigitalFilter10FilterType5kPoleE"></span><span id="_CPPv2N4sptk24SecondOrderDigitalFilter10FilterType5kPoleE"></span><span class="target" id="classsptk_1_1SecondOrderDigitalFilter_1a63d0f7037bbd023e9dbe84d206231800ad2dc4d35834284113fc16fe239c32d58"></span><em class="property">enumerator </em><code class="sig-name descname">kPole</code> = 0<a class="headerlink" href="#_CPPv4N4sptk24SecondOrderDigitalFilter10FilterType5kPoleE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N4sptk24SecondOrderDigitalFilter10FilterType5kZeroE">
+<span id="_CPPv3N4sptk24SecondOrderDigitalFilter10FilterType5kZeroE"></span><span id="_CPPv2N4sptk24SecondOrderDigitalFilter10FilterType5kZeroE"></span><span class="target" id="classsptk_1_1SecondOrderDigitalFilter_1a63d0f7037bbd023e9dbe84d206231800aca091a09cd5486f2d6e1a853a3df99e9"></span><em class="property">enumerator </em><code class="sig-name descname">kZero</code><a class="headerlink" href="#_CPPv4N4sptk24SecondOrderDigitalFilter10FilterType5kZeroE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N4sptk24SecondOrderDigitalFilter24SecondOrderDigitalFilterE10FilterTypeddd">
+<span id="_CPPv3N4sptk24SecondOrderDigitalFilter24SecondOrderDigitalFilterE10FilterTypeddd"></span><span id="_CPPv2N4sptk24SecondOrderDigitalFilter24SecondOrderDigitalFilterE10FilterTypeddd"></span><span id="sptk::SecondOrderDigitalFilter::SecondOrderDigitalFilter__FilterType.double.double.double"></span><span class="target" id="classsptk_1_1SecondOrderDigitalFilter_1a05bc69c42515797304efd8f8d4bade0d"></span><code class="sig-name descname">SecondOrderDigitalFilter</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4sptk24SecondOrderDigitalFilter10FilterTypeE" title="sptk::SecondOrderDigitalFilter::FilterType">FilterType</a> <em>filter_type</em>, double <em>frequency</em>, double <em>bandwidth</em>, double <em>sampling_rate</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk24SecondOrderDigitalFilter24SecondOrderDigitalFilterE10FilterTypeddd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">filter_type</span></code>: Pole or zero. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">frequency</span></code>: Center frequency in Hz. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">bandwidth</span></code>: Bandwidth in Hz. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">sampling_rate</span></code>: Sampling rate in Hz. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4sptk24SecondOrderDigitalFilter24SecondOrderDigitalFilterEddddd">
+<span id="_CPPv3N4sptk24SecondOrderDigitalFilter24SecondOrderDigitalFilterEddddd"></span><span id="_CPPv2N4sptk24SecondOrderDigitalFilter24SecondOrderDigitalFilterEddddd"></span><span id="sptk::SecondOrderDigitalFilter::SecondOrderDigitalFilter__double.double.double.double.double"></span><span class="target" id="classsptk_1_1SecondOrderDigitalFilter_1a05a67d529bdbcd9937c6ad8e1ca0a372"></span><code class="sig-name descname">SecondOrderDigitalFilter</code><span class="sig-paren">(</span>double <em>pole_frequency</em>, double <em>pole_bandwidth</em>, double <em>zero_frequency</em>, double <em>zero_bandwidth</em>, double <em>sampling_rate</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk24SecondOrderDigitalFilter24SecondOrderDigitalFilterEddddd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pole_frequency</span></code>: Pole frequency in Hz. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">pole_bandwidth</span></code>: Pole bandwidth in Hz. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">zero_frequency</span></code>: Zero frequency in Hz. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">zero_bandwidth</span></code>: Zero bandwidth in Hz. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">sampling_rate</span></code>: Sampling rate in Hz. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk24SecondOrderDigitalFilter7IsValidEv">
+<span id="_CPPv3NK4sptk24SecondOrderDigitalFilter7IsValidEv"></span><span id="_CPPv2NK4sptk24SecondOrderDigitalFilter7IsValidEv"></span><span id="sptk::SecondOrderDigitalFilter::IsValidC"></span><span class="target" id="classsptk_1_1SecondOrderDigitalFilter_1a183e573d146e29836dcad9b8f4373185"></span>bool <code class="sig-name descname">IsValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk24SecondOrderDigitalFilter7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if this obejct is valid. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk24SecondOrderDigitalFilter3RunEdPdPN24SecondOrderDigitalFilter6BufferE">
+<span id="_CPPv3NK4sptk24SecondOrderDigitalFilter3RunEdPdPN24SecondOrderDigitalFilter6BufferE"></span><span id="_CPPv2NK4sptk24SecondOrderDigitalFilter3RunEdPdPN24SecondOrderDigitalFilter6BufferE"></span><span id="sptk::SecondOrderDigitalFilter::Run__double.doubleP.SecondOrderDigitalFilter::BufferPC"></span><span class="target" id="classsptk_1_1SecondOrderDigitalFilter_1abb988d52036619e68957a4955825d863"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span>double <em>input</em>, double *<em>output</em>, <a class="reference internal" href="#_CPPv4N4sptk24SecondOrderDigitalFilterE" title="sptk::SecondOrderDigitalFilter">SecondOrderDigitalFilter</a>::<a class="reference internal" href="#_CPPv4N4sptk24SecondOrderDigitalFilter6BufferE" title="sptk::SecondOrderDigitalFilter::Buffer">Buffer</a> *<em>buffer</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk24SecondOrderDigitalFilter3RunEdPdPN24SecondOrderDigitalFilter6BufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input</span></code>: Filter input. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: Filter output. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">buffer</span></code>: <a class="reference internal" href="#classsptk_1_1SecondOrderDigitalFilter_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk24SecondOrderDigitalFilter3RunEPdPN24SecondOrderDigitalFilter6BufferE">
+<span id="_CPPv3NK4sptk24SecondOrderDigitalFilter3RunEPdPN24SecondOrderDigitalFilter6BufferE"></span><span id="_CPPv2NK4sptk24SecondOrderDigitalFilter3RunEPdPN24SecondOrderDigitalFilter6BufferE"></span><span id="sptk::SecondOrderDigitalFilter::Run__doubleP.SecondOrderDigitalFilter::BufferPC"></span><span class="target" id="classsptk_1_1SecondOrderDigitalFilter_1ab18dace5b5f03ff493645755b986dd38"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span>double *<em>input_and_output</em>, <a class="reference internal" href="#_CPPv4N4sptk24SecondOrderDigitalFilterE" title="sptk::SecondOrderDigitalFilter">SecondOrderDigitalFilter</a>::<a class="reference internal" href="#_CPPv4N4sptk24SecondOrderDigitalFilter6BufferE" title="sptk::SecondOrderDigitalFilter::Buffer">Buffer</a> *<em>buffer</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk24SecondOrderDigitalFilter3RunEPdPN24SecondOrderDigitalFilter6BufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">input_and_output</span></code>: Input/output signal. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">buffer</span></code>: <a class="reference internal" href="#classsptk_1_1SecondOrderDigitalFilter_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4N4sptk24SecondOrderDigitalFilter6BufferE">
+<span id="_CPPv3N4sptk24SecondOrderDigitalFilter6BufferE"></span><span id="_CPPv2N4sptk24SecondOrderDigitalFilter6BufferE"></span><span id="sptk::SecondOrderDigitalFilter::Buffer"></span><span class="target" id="classsptk_1_1SecondOrderDigitalFilter_1_1Buffer"></span><em class="property">class </em><code class="sig-name descname">Buffer</code><a class="headerlink" href="#_CPPv4N4sptk24SecondOrderDigitalFilter6BufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classsptk_1_1SecondOrderDigitalFilter_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1SecondOrderDigitalFilter"><span class="std std-ref">SecondOrderDigitalFilter</span></a> class. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dfs.html" class="btn btn-neutral float-right" title="dfs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="delta.html" class="btn btn-neutral float-left" title="delta" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SPTK Working Group
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

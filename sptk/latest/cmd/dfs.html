@@ -1,0 +1,407 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dfs &mdash; SPTK  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="entropy" href="entropy.html" />
+    <link rel="prev" title="df2" href="df2.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SPTK
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Command references</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2acr.html">c2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df2.html">df2</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SPTK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>dfs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/cmd/dfs.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dfs">
+<span id="id1"></span><h1>dfs<a class="headerlink" href="#dfs" title="Permalink to this headline">¶</a></h1>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv44mainiA_Pc">
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="dfs_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span>int <code class="sig-name descname">main</code><span class="sig-paren">(</span>int <em>argc</em>, char *<em>argv</em>[]<span class="sig-paren">)</span><br /></dt>
+<dd><p><em>dfs</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<p><ul class="simple">
+<li><p><strong>-a</strong> <em>int+</em> <ul>
+<li><p>denominator coefficients</p></li>
+</ul>
+</p></li>
+<li><p><strong>-b</strong> <em>int+</em> <ul>
+<li><p>numerator coefficients</p></li>
+</ul>
+</p></li>
+<li><p><strong>-p</strong> <em>str</em> <ul>
+<li><p>file containing denominator coefficients</p></li>
+</ul>
+</p></li>
+<li><p><strong>-z</strong> <em>str</em> <ul>
+<li><p>file containing numerator coefficients</p></li>
+</ul>
+</p></li>
+<li><p><strong>infile</strong> <em>str</em> <ul>
+<li><p>double-type filter input</p></li>
+</ul>
+</p></li>
+<li><p><strong>stdout</strong> <ul>
+<li><p>double-type filter output</p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+<p>The below example applies a pre-emphasis filter to signals in <code class="docutils literal notranslate"><span class="pre">data.d</span></code> </p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span> <span class="o">-</span><span class="n">a</span> <span class="mi">1</span> <span class="o">-</span><span class="mf">0.97</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">d2</span>
+</pre></div>
+</div>
+</p>
+<p>This is equivalent to the following procedure.</p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="mi">1</span> <span class="o">-</span><span class="mf">0.97</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">ad</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">p</span>
+<span class="n">dfs</span> <span class="o">-</span><span class="n">p</span> <span class="n">data</span><span class="o">.</span><span class="n">p</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">d2</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argc</span></code>: Number of arguments. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argv</span></code>: Argument vector. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>0 on success, 1 on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="df2.html#df2"><span class="std std-ref">df2</span></a></p>
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4N4sptk36InfiniteImpulseResponseDigitalFilterE">
+<span id="_CPPv3N4sptk36InfiniteImpulseResponseDigitalFilterE"></span><span id="_CPPv2N4sptk36InfiniteImpulseResponseDigitalFilterE"></span><span id="sptk::InfiniteImpulseResponseDigitalFilter"></span><span class="target" id="classsptk_1_1InfiniteImpulseResponseDigitalFilter"></span><em class="property">class </em><code class="sig-prename descclassname">sptk<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">InfiniteImpulseResponseDigitalFilter</code><a class="headerlink" href="#_CPPv4N4sptk36InfiniteImpulseResponseDigitalFilterE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Apply infinite impulse response digital filter in time domain.</p>
+<p>Input signal is filtered by <div class="math notranslate nohighlight">
+\[ H(z) = K \frac{\displaystyle\sum_{m=0}^M b(m) z^{-m}} {1 + \displaystyle\sum_{n=1}^N a(n) z^{-n}}, \]</div>
+ where <span class="math notranslate nohighlight">\(K\)</span> is the gain. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N4sptk36InfiniteImpulseResponseDigitalFilter36InfiniteImpulseResponseDigitalFilterERKNSt6vectorIdEERKNSt6vectorIdEE">
+<span id="_CPPv3N4sptk36InfiniteImpulseResponseDigitalFilter36InfiniteImpulseResponseDigitalFilterERKNSt6vectorIdEERKNSt6vectorIdEE"></span><span id="_CPPv2N4sptk36InfiniteImpulseResponseDigitalFilter36InfiniteImpulseResponseDigitalFilterERKNSt6vectorIdEERKNSt6vectorIdEE"></span><span id="sptk::InfiniteImpulseResponseDigitalFilter::InfiniteImpulseResponseDigitalFilter__std::vector:double:CR.std::vector:double:CR"></span><span class="target" id="classsptk_1_1InfiniteImpulseResponseDigitalFilter_1a883b62cc7f26cf723fe36b527a037285"></span><code class="sig-name descname">InfiniteImpulseResponseDigitalFilter</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;double&gt; &amp;<em>denominator_coefficients</em>, <em class="property">const</em> std::vector&lt;double&gt; &amp;<em>numerator_coefficients</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk36InfiniteImpulseResponseDigitalFilter36InfiniteImpulseResponseDigitalFilterERKNSt6vectorIdEERKNSt6vectorIdEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">denominator_coefficients</span></code>: Denominator coefficients, <span class="math notranslate nohighlight">\(K\)</span> and <span class="math notranslate nohighlight">\(\{ a(n) \}_{n=1}^N\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">numerator_coefficients</span></code>: Numerator coefficients, <span class="math notranslate nohighlight">\(\{ b(m) \}_{m=0}^M\)</span>. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk36InfiniteImpulseResponseDigitalFilter22GetNumDenominatorOrderEv">
+<span id="_CPPv3NK4sptk36InfiniteImpulseResponseDigitalFilter22GetNumDenominatorOrderEv"></span><span id="_CPPv2NK4sptk36InfiniteImpulseResponseDigitalFilter22GetNumDenominatorOrderEv"></span><span id="sptk::InfiniteImpulseResponseDigitalFilter::GetNumDenominatorOrderC"></span><span class="target" id="classsptk_1_1InfiniteImpulseResponseDigitalFilter_1a0d352d08477574537d8c3e6aa4430a3a"></span>int <code class="sig-name descname">GetNumDenominatorOrder</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk36InfiniteImpulseResponseDigitalFilter22GetNumDenominatorOrderEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Order of denominator coefficients. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk36InfiniteImpulseResponseDigitalFilter20GetNumNumeratorOrderEv">
+<span id="_CPPv3NK4sptk36InfiniteImpulseResponseDigitalFilter20GetNumNumeratorOrderEv"></span><span id="_CPPv2NK4sptk36InfiniteImpulseResponseDigitalFilter20GetNumNumeratorOrderEv"></span><span id="sptk::InfiniteImpulseResponseDigitalFilter::GetNumNumeratorOrderC"></span><span class="target" id="classsptk_1_1InfiniteImpulseResponseDigitalFilter_1a66a677524af1327a44153ad823c17c6b"></span>int <code class="sig-name descname">GetNumNumeratorOrder</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk36InfiniteImpulseResponseDigitalFilter20GetNumNumeratorOrderEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Order of numerator coefficients. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk36InfiniteImpulseResponseDigitalFilter7IsValidEv">
+<span id="_CPPv3NK4sptk36InfiniteImpulseResponseDigitalFilter7IsValidEv"></span><span id="_CPPv2NK4sptk36InfiniteImpulseResponseDigitalFilter7IsValidEv"></span><span id="sptk::InfiniteImpulseResponseDigitalFilter::IsValidC"></span><span class="target" id="classsptk_1_1InfiniteImpulseResponseDigitalFilter_1af2c743cd287da64c9e08231aaaf3566f"></span>bool <code class="sig-name descname">IsValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk36InfiniteImpulseResponseDigitalFilter7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if this obejct is valid. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk36InfiniteImpulseResponseDigitalFilter3RunEdPdPN36InfiniteImpulseResponseDigitalFilter6BufferE">
+<span id="_CPPv3NK4sptk36InfiniteImpulseResponseDigitalFilter3RunEdPdPN36InfiniteImpulseResponseDigitalFilter6BufferE"></span><span id="_CPPv2NK4sptk36InfiniteImpulseResponseDigitalFilter3RunEdPdPN36InfiniteImpulseResponseDigitalFilter6BufferE"></span><span id="sptk::InfiniteImpulseResponseDigitalFilter::Run__double.doubleP.InfiniteImpulseResponseDigitalFilter::BufferPC"></span><span class="target" id="classsptk_1_1InfiniteImpulseResponseDigitalFilter_1a01e38dc258b8d8441010296494f71b7b"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span>double <em>input</em>, double *<em>output</em>, <a class="reference internal" href="#_CPPv4N4sptk36InfiniteImpulseResponseDigitalFilterE" title="sptk::InfiniteImpulseResponseDigitalFilter">InfiniteImpulseResponseDigitalFilter</a>::<a class="reference internal" href="#_CPPv4N4sptk36InfiniteImpulseResponseDigitalFilter6BufferE" title="sptk::InfiniteImpulseResponseDigitalFilter::Buffer">Buffer</a> *<em>buffer</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk36InfiniteImpulseResponseDigitalFilter3RunEdPdPN36InfiniteImpulseResponseDigitalFilter6BufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input</span></code>: Filter input. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">output</span></code>: Filter output. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">buffer</span></code>: <a class="reference internal" href="#classsptk_1_1InfiniteImpulseResponseDigitalFilter_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk36InfiniteImpulseResponseDigitalFilter3RunEPdPN36InfiniteImpulseResponseDigitalFilter6BufferE">
+<span id="_CPPv3NK4sptk36InfiniteImpulseResponseDigitalFilter3RunEPdPN36InfiniteImpulseResponseDigitalFilter6BufferE"></span><span id="_CPPv2NK4sptk36InfiniteImpulseResponseDigitalFilter3RunEPdPN36InfiniteImpulseResponseDigitalFilter6BufferE"></span><span id="sptk::InfiniteImpulseResponseDigitalFilter::Run__doubleP.InfiniteImpulseResponseDigitalFilter::BufferPC"></span><span class="target" id="classsptk_1_1InfiniteImpulseResponseDigitalFilter_1acf1bb0527cf4de551cc1ad05fb16cd65"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span>double *<em>input_and_output</em>, <a class="reference internal" href="#_CPPv4N4sptk36InfiniteImpulseResponseDigitalFilterE" title="sptk::InfiniteImpulseResponseDigitalFilter">InfiniteImpulseResponseDigitalFilter</a>::<a class="reference internal" href="#_CPPv4N4sptk36InfiniteImpulseResponseDigitalFilter6BufferE" title="sptk::InfiniteImpulseResponseDigitalFilter::Buffer">Buffer</a> *<em>buffer</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk36InfiniteImpulseResponseDigitalFilter3RunEPdPN36InfiniteImpulseResponseDigitalFilter6BufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">input_and_output</span></code>: Input/output signal. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">buffer</span></code>: <a class="reference internal" href="#classsptk_1_1InfiniteImpulseResponseDigitalFilter_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4N4sptk36InfiniteImpulseResponseDigitalFilter6BufferE">
+<span id="_CPPv3N4sptk36InfiniteImpulseResponseDigitalFilter6BufferE"></span><span id="_CPPv2N4sptk36InfiniteImpulseResponseDigitalFilter6BufferE"></span><span id="sptk::InfiniteImpulseResponseDigitalFilter::Buffer"></span><span class="target" id="classsptk_1_1InfiniteImpulseResponseDigitalFilter_1_1Buffer"></span><em class="property">class </em><code class="sig-name descname">Buffer</code><a class="headerlink" href="#_CPPv4N4sptk36InfiniteImpulseResponseDigitalFilter6BufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classsptk_1_1InfiniteImpulseResponseDigitalFilter_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1InfiniteImpulseResponseDigitalFilter"><span class="std std-ref">InfiniteImpulseResponseDigitalFilter</span></a> class. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="entropy.html" class="btn btn-neutral float-right" title="entropy" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="df2.html" class="btn btn-neutral float-left" title="df2" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SPTK Working Group
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
