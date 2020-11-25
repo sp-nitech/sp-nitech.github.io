@@ -107,25 +107,38 @@
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lbg.html">lbg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspdf.html">lspdf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsp2sp.html">mglsp2sp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msvq.html">msvq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step.html">step</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utility references</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../utils/misc.html">misc</a></li>
 </ul>
 
             
@@ -178,7 +191,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/cmd/frame.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/main/frame.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -233,7 +246,7 @@
 <p>If the input is <div class="math notranslate nohighlight">
 \[ \begin{array}{c} \{x(t)\}_{t=0}^{T-1} \end{array} \]</div>
  and the frame length <span class="math notranslate nohighlight">\(L\)</span> is even, the output is <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} \{x(t)\}_{t=-2/L}^{t=2/L-1}, &amp; \{x(t)\}_{t=P-2/L}^{t=P+2/L-1}, &amp; \{x(t)\}_{t=2P-2/L}^{t=2P+2/L-1}, &amp; \ldots \end{array} \]</div>
+\[ \begin{array}{cccc} \{x(t)\}_{t=-L/2}^{t=L/2-1}, &amp; \{x(t)\}_{t=P-L/2}^{t=P+L/2-1}, &amp; \{x(t)\}_{t=2P-L/2}^{t=2P+L/2-1}, &amp; \ldots \end{array} \]</div>
  where <span class="math notranslate nohighlight">\(P\)</span> is frame period and <span class="math notranslate nohighlight">\(\forall t &lt; 0, t \ge T \; x(t)=0\)</span>. If <code class="docutils literal notranslate"><span class="pre">-n</span> <span class="pre">1</span></code> is specified, the output is <div class="math notranslate nohighlight">
 \[ \begin{array}{cccc} \{x(t)\}_{t=0}^{t=L-1}, &amp; \{x(t)\}_{t=P}^{t=P+L-1}, &amp; \{x(t)\}_{t=2P}^{t=2P+L-1}, &amp; \ldots \end{array} \]</div>
 </p>

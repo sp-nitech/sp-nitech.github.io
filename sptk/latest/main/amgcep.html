@@ -107,25 +107,38 @@
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lbg.html">lbg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspdf.html">lspdf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsp2sp.html">mglsp2sp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msvq.html">msvq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step.html">step</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utility references</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../utils/misc.html">misc</a></li>
 </ul>
 
             
@@ -178,7 +191,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/cmd/amgcep.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/main/amgcep.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -280,7 +293,7 @@
 </div>
 <dl class="cpp class">
 <dt id="_CPPv4N4sptk27AdaptiveMelCepstralAnalysisE">
-<span id="_CPPv3N4sptk27AdaptiveMelCepstralAnalysisE"></span><span id="_CPPv2N4sptk27AdaptiveMelCepstralAnalysisE"></span><span id="sptk::AdaptiveMelCepstralAnalysis"></span><span class="target" id="classsptk_1_1AdaptiveMelCepstralAnalysis"></span><em class="property">class </em><code class="sig-prename descclassname">sptk<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">AdaptiveMelCepstralAnalysis</code><a class="headerlink" href="#_CPPv4N4sptk27AdaptiveMelCepstralAnalysisE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk27AdaptiveMelCepstralAnalysisE"></span><span id="_CPPv2N4sptk27AdaptiveMelCepstralAnalysisE"></span><span id="sptk::AdaptiveMelCepstralAnalysis"></span><span class="target" id="classsptk_1_1AdaptiveMelCepstralAnalysis"></span><em class="property">class </em><code class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk">sptk</a><code class="sig-prename descclassname">::</code></code><code class="sig-name descname">AdaptiveMelCepstralAnalysis</code><a class="headerlink" href="#_CPPv4N4sptk27AdaptiveMelCepstralAnalysisE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Perform adaptive mel-cesptral analysis.</p>
 <p>The block diagram of the adaptive mel-cepstral analysis is shown as below: <img alt="../_images/amcep_1.png" src="../_images/amcep_1.png" /></p>
 <p>where <span class="math notranslate nohighlight">\(x(n)\)</span> is an input signal and <span class="math notranslate nohighlight">\(e(n)\)</span> is the output of the inverse filter <span class="math notranslate nohighlight">\(1/D(z)\)</span>. The <span class="math notranslate nohighlight">\(D(z)\)</span> is implemented as a MLSA filter. The coefficients of the MLSA filter <span class="math notranslate nohighlight">\(\boldsymbol{b}\)</span> is updated every sample as <div class="math notranslate nohighlight">
@@ -390,7 +403,7 @@
 <dt id="_CPPv4NK4sptk27AdaptiveMelCepstralAnalysis7IsValidEv">
 <span id="_CPPv3NK4sptk27AdaptiveMelCepstralAnalysis7IsValidEv"></span><span id="_CPPv2NK4sptk27AdaptiveMelCepstralAnalysis7IsValidEv"></span><span id="sptk::AdaptiveMelCepstralAnalysis::IsValidC"></span><span class="target" id="classsptk_1_1AdaptiveMelCepstralAnalysis_1a3a858c61d219b701b6c3309c3a113e0b"></span>bool <code class="sig-name descname">IsValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk27AdaptiveMelCepstralAnalysis7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><dl class="simple">
-<dt><strong>Return</strong></dt><dd><p>True if this obejct is valid. </p>
+<dt><strong>Return</strong></dt><dd><p>True if this object is valid. </p>
 </dd>
 </dl>
 </p>
@@ -424,7 +437,7 @@
 
 <dl class="cpp class">
 <dt id="_CPPv4N4sptk35AdaptiveGeneralizedCepstralAnalysisE">
-<span id="_CPPv3N4sptk35AdaptiveGeneralizedCepstralAnalysisE"></span><span id="_CPPv2N4sptk35AdaptiveGeneralizedCepstralAnalysisE"></span><span id="sptk::AdaptiveGeneralizedCepstralAnalysis"></span><span class="target" id="classsptk_1_1AdaptiveGeneralizedCepstralAnalysis"></span><em class="property">class </em><code class="sig-prename descclassname">sptk<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">AdaptiveGeneralizedCepstralAnalysis</code><a class="headerlink" href="#_CPPv4N4sptk35AdaptiveGeneralizedCepstralAnalysisE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk35AdaptiveGeneralizedCepstralAnalysisE"></span><span id="_CPPv2N4sptk35AdaptiveGeneralizedCepstralAnalysisE"></span><span id="sptk::AdaptiveGeneralizedCepstralAnalysis"></span><span class="target" id="classsptk_1_1AdaptiveGeneralizedCepstralAnalysis"></span><em class="property">class </em><code class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk">sptk</a><code class="sig-prename descclassname">::</code></code><code class="sig-name descname">AdaptiveGeneralizedCepstralAnalysis</code><a class="headerlink" href="#_CPPv4N4sptk35AdaptiveGeneralizedCepstralAnalysisE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Perform adaptive generalized cesptral analysis.</p>
 <p>Let assume <span class="math notranslate nohighlight">\(x(n)\)</span> is an input signal and <span class="math notranslate nohighlight">\(e(n)\)</span> is the output of the inverse filter <span class="math notranslate nohighlight">\((1+F(z))^{-\frac{1}{\gamma}}\)</span>. The relationship between <span class="math notranslate nohighlight">\(x(n)\)</span> and <span class="math notranslate nohighlight">\(e(n)\)</span> is shown as below: <img alt="../_images/agcep_1.png" src="../_images/agcep_1.png" /></p>
 <p>The filter <span class="math notranslate nohighlight">\(F(z)\)</span> is represented as <div class="math notranslate nohighlight">
@@ -535,7 +548,7 @@
 <dt id="_CPPv4NK4sptk35AdaptiveGeneralizedCepstralAnalysis7IsValidEv">
 <span id="_CPPv3NK4sptk35AdaptiveGeneralizedCepstralAnalysis7IsValidEv"></span><span id="_CPPv2NK4sptk35AdaptiveGeneralizedCepstralAnalysis7IsValidEv"></span><span id="sptk::AdaptiveGeneralizedCepstralAnalysis::IsValidC"></span><span class="target" id="classsptk_1_1AdaptiveGeneralizedCepstralAnalysis_1af0b2fa32e6455562efc5041578330f5d"></span>bool <code class="sig-name descname">IsValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk35AdaptiveGeneralizedCepstralAnalysis7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><dl class="simple">
-<dt><strong>Return</strong></dt><dd><p>True if this obejct is valid. </p>
+<dt><strong>Return</strong></dt><dd><p>True if this object is valid. </p>
 </dd>
 </dl>
 </p>

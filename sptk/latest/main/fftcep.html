@@ -107,25 +107,38 @@
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lbg.html">lbg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspdf.html">lspdf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsp2sp.html">mglsp2sp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msvq.html">msvq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step.html">step</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utility references</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../utils/misc.html">misc</a></li>
 </ul>
 
             
@@ -178,7 +191,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/cmd/fftcep.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/main/fftcep.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -205,7 +218,7 @@
 </ul>
 </p></li>
 <li><p><strong>-m</strong> <em>int</em> <ul>
-<li><p>order of coefficients <span class="math notranslate nohighlight">\((0 \le M \le 2/N)\)</span></p></li>
+<li><p>order of coefficients <span class="math notranslate nohighlight">\((0 \le M \le N/2)\)</span></p></li>
 </ul>
 </p></li>
 <li><p><strong>-i</strong> <em>int</em> <ul>
@@ -267,7 +280,7 @@
 </div>
 <dl class="cpp class">
 <dt id="_CPPv4N4sptk36FastFourierTransformCepstralAnalysisE">
-<span id="_CPPv3N4sptk36FastFourierTransformCepstralAnalysisE"></span><span id="_CPPv2N4sptk36FastFourierTransformCepstralAnalysisE"></span><span id="sptk::FastFourierTransformCepstralAnalysis"></span><span class="target" id="classsptk_1_1FastFourierTransformCepstralAnalysis"></span><em class="property">class </em><code class="sig-prename descclassname">sptk<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">FastFourierTransformCepstralAnalysis</code><a class="headerlink" href="#_CPPv4N4sptk36FastFourierTransformCepstralAnalysisE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk36FastFourierTransformCepstralAnalysisE"></span><span id="_CPPv2N4sptk36FastFourierTransformCepstralAnalysisE"></span><span id="sptk::FastFourierTransformCepstralAnalysis"></span><span class="target" id="classsptk_1_1FastFourierTransformCepstralAnalysis"></span><em class="property">class </em><code class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk">sptk</a><code class="sig-prename descclassname">::</code></code><code class="sig-name descname">FastFourierTransformCepstralAnalysis</code><a class="headerlink" href="#_CPPv4N4sptk36FastFourierTransformCepstralAnalysisE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Calculate cepstrum from power spectrum.</p>
 <p>The input is the half of power spectrum: <div class="math notranslate nohighlight">
 \[ \begin{array}{cccc} |X(0)|^2, &amp; |X(1)|^2, &amp; \ldots, &amp; |X(N/2)|^2, \end{array} \]</div>
@@ -336,7 +349,7 @@
 <dt id="_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis7IsValidEv">
 <span id="_CPPv3NK4sptk36FastFourierTransformCepstralAnalysis7IsValidEv"></span><span id="_CPPv2NK4sptk36FastFourierTransformCepstralAnalysis7IsValidEv"></span><span id="sptk::FastFourierTransformCepstralAnalysis::IsValidC"></span><span class="target" id="classsptk_1_1FastFourierTransformCepstralAnalysis_1acb83728f038d77fb6077901a4c3e06ff"></span>bool <code class="sig-name descname">IsValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><dl class="simple">
-<dt><strong>Return</strong></dt><dd><p>True if this obejct is valid. </p>
+<dt><strong>Return</strong></dt><dd><p>True if this object is valid. </p>
 </dd>
 </dl>
 </p>

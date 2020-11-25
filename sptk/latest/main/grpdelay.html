@@ -107,25 +107,38 @@
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lbg.html">lbg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspdf.html">lspdf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsp2sp.html">mglsp2sp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msvq.html">msvq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step.html">step</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utility references</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../utils/misc.html">misc</a></li>
 </ul>
 
             
@@ -178,7 +191,7 @@
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="../_sources/cmd/grpdelay.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/main/grpdelay.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -267,12 +280,12 @@
 </div>
 <dl class="cpp class">
 <dt id="_CPPv4N4sptk30FilterCoefficientsToGroupDelayE">
-<span id="_CPPv3N4sptk30FilterCoefficientsToGroupDelayE"></span><span id="_CPPv2N4sptk30FilterCoefficientsToGroupDelayE"></span><span id="sptk::FilterCoefficientsToGroupDelay"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay"></span><em class="property">class </em><code class="sig-prename descclassname">sptk<code class="sig-prename descclassname">::</code></code><code class="sig-name descname">FilterCoefficientsToGroupDelay</code><a class="headerlink" href="#_CPPv4N4sptk30FilterCoefficientsToGroupDelayE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk30FilterCoefficientsToGroupDelayE"></span><span id="_CPPv2N4sptk30FilterCoefficientsToGroupDelayE"></span><span id="sptk::FilterCoefficientsToGroupDelay"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay"></span><em class="property">class </em><code class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk">sptk</a><code class="sig-prename descclassname">::</code></code><code class="sig-name descname">FilterCoefficientsToGroupDelay</code><a class="headerlink" href="#_CPPv4N4sptk30FilterCoefficientsToGroupDelayE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Transform filter coefficients to group delay.</p>
 <p>The input is the <span class="math notranslate nohighlight">\(M\)</span>-th order numerator coefficients and the <span class="math notranslate nohighlight">\(N\)</span>-th order denominator coefficients: <div class="math notranslate nohighlight">
 \[\begin{split} \begin{array}{cccc} b(0), &amp; b(1), &amp; \ldots, &amp; b(M), \\ K, &amp; a(1), &amp; \ldots, &amp; a(N), \end{array} \end{split}\]</div>
- and the output is the <span class="math notranslate nohighlight">\((2/L+1)\)</span>-length group delay: <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} D(0), &amp; D(1), &amp; \ldots, &amp; D(2/L), \end{array} \]</div>
+ and the output is the <span class="math notranslate nohighlight">\((L/2+1)\)</span>-length group delay: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} D(0), &amp; D(1), &amp; \ldots, &amp; D(L/2), \end{array} \]</div>
  where <span class="math notranslate nohighlight">\(L\)</span> is the FFT length.</p>
 <p>The general form of transfer function is given by <div class="math notranslate nohighlight">
 \[\begin{split}\begin{eqnarray} H(z) &amp;=&amp; \frac{\sum_{m=0}^M b(m) z^{-m}}{\sum_{n=0}^N a(n) z^{-n}} \\ &amp;=&amp; \frac{B(z)}{A(z)}. \end{eqnarray}\end{split}\]</div>
@@ -356,7 +369,7 @@
 <dt id="_CPPv4NK4sptk30FilterCoefficientsToGroupDelay7IsValidEv">
 <span id="_CPPv3NK4sptk30FilterCoefficientsToGroupDelay7IsValidEv"></span><span id="_CPPv2NK4sptk30FilterCoefficientsToGroupDelay7IsValidEv"></span><span id="sptk::FilterCoefficientsToGroupDelay::IsValidC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay_1af104e88fb9d4fdee3150fdfba225aca1"></span>bool <code class="sig-name descname">IsValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk30FilterCoefficientsToGroupDelay7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><dl class="simple">
-<dt><strong>Return</strong></dt><dd><p>True if this obejct is valid. </p>
+<dt><strong>Return</strong></dt><dd><p>True if this object is valid. </p>
 </dd>
 </dl>
 </p>
