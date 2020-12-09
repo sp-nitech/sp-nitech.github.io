@@ -1,0 +1,426 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>dct &mdash; SPTK  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="decimate" href="decimate.html" />
+    <link rel="prev" title="csm2acr" href="csm2acr.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SPTK
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Command references</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2acr.html">c2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2ndps.html">c2ndps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">dct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decimate.html">decimate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df2.html">df2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dfs.html">dfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lbg.html">lbg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="levdur.html">levdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc.html">lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspdf.html">lspdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsp2sp.html">mglsp2sp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msvq.html">msvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pcas.html">pcas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlevdur.html">rlevdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step.html">step</a></li>
+<li class="toctree-l1"><a class="reference internal" href="train.html">train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utility references</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../utils/misc.html">misc</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SPTK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>dct</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/main/dct.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="dct">
+<span id="id1"></span><h1>dct<a class="headerlink" href="#dct" title="Permalink to this headline">¶</a></h1>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv44mainiA_Pc">
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="dct_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span>int <code class="sig-name descname">main</code><span class="sig-paren">(</span>int <em>argc</em>, char *<em>argv</em>[]<span class="sig-paren">)</span><br /></dt>
+<dd><p><em>dct</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<p><ul class="simple">
+<li><p><strong>-l</strong> <em>int</em> <ul>
+<li><p>DCT length <span class="math notranslate nohighlight">\((1 \le L)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-q</strong> <em>int</em> <ul>
+<li><p>input format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> real and imaginary parts </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> real part</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>-o</strong> <em>int</em> <ul>
+<li><p>output format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> real and imaginary parts </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> real part </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> imaginary part </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> amplitude spectrum </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4</span></code> power spectrum</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>infile</strong> <em>str</em> <ul>
+<li><p>double-type data sequence</p></li>
+</ul>
+</p></li>
+<li><p><strong>stdout</strong> <ul>
+<li><p>double-type DCT sequence</p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argc</span></code>: Number of arguments. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argv</span></code>: Argument vector. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>0 on success, 1 on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="idct.html#idct"><span class="std std-ref">idct</span></a></p>
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4N4sptk23DiscreteCosineTransformE">
+<span id="_CPPv3N4sptk23DiscreteCosineTransformE"></span><span id="_CPPv2N4sptk23DiscreteCosineTransformE"></span><span id="sptk::DiscreteCosineTransform"></span><span class="target" id="classsptk_1_1DiscreteCosineTransform"></span><em class="property">class </em><code class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk">sptk</a><code class="sig-prename descclassname">::</code></code><code class="sig-name descname">DiscreteCosineTransform</code><a class="headerlink" href="#_CPPv4N4sptk23DiscreteCosineTransformE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculate DCT-II of complex-valued input data.</p>
+<p>The inputs are <span class="math notranslate nohighlight">\(L\)</span>-length order complex-valued data: <div class="math notranslate nohighlight">
+\[\begin{split} \begin{array}{cccc} \mathrm{Re}(x(0)), &amp; \mathrm{Re}(x(1)), &amp; \ldots, &amp; \mathrm{Re}(x(L-1)), \\ \mathrm{Im}(x(0)), &amp; \mathrm{Im}(x(1)), &amp; \ldots, &amp; \mathrm{Im}(x(L-1)). \end{array} \end{split}\]</div>
+ The outputs are <div class="math notranslate nohighlight">
+\[\begin{split} \begin{array}{cccc} \mathrm{Re}(X(0)), &amp; \mathrm{Re}(X(1)), &amp; \ldots, &amp; \mathrm{Re}(X(L-1)), \\ \mathrm{Im}(X(0)), &amp; \mathrm{Im}(X(1)), &amp; \ldots, &amp; \mathrm{Im}(X(L-1)). \end{array} \end{split}\]</div>
+ They are computed as <div class="math notranslate nohighlight">
+\[ X(k) = \sqrt{\frac{2}{L}} c(k) \sum_{n=0}^{L-1} x(n) \cos \left( \frac{\pi}{L} \left( n + \frac{1}{2} \right) k \right), \]</div>
+ where <div class="math notranslate nohighlight">
+\[\begin{split} c(k) = \left\{ \begin{array}{ll} 1/\sqrt{2}, &amp; k = 0 \\ 1. &amp; 1 \le k &lt; L \end{array} \right. \end{split}\]</div>
+ </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N4sptk23DiscreteCosineTransform23DiscreteCosineTransformEi">
+<span id="_CPPv3N4sptk23DiscreteCosineTransform23DiscreteCosineTransformEi"></span><span id="_CPPv2N4sptk23DiscreteCosineTransform23DiscreteCosineTransformEi"></span><span id="sptk::DiscreteCosineTransform::DiscreteCosineTransform__i"></span><span class="target" id="classsptk_1_1DiscreteCosineTransform_1ae035f7ac509ea4b5fd9ac91440d458cd"></span><code class="sig-name descname">DiscreteCosineTransform</code><span class="sig-paren">(</span>int <em>dct_length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk23DiscreteCosineTransform23DiscreteCosineTransformEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">dct_length</span></code>: DCT length, <span class="math notranslate nohighlight">\(L\)</span>. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk23DiscreteCosineTransform12GetDctLengthEv">
+<span id="_CPPv3NK4sptk23DiscreteCosineTransform12GetDctLengthEv"></span><span id="_CPPv2NK4sptk23DiscreteCosineTransform12GetDctLengthEv"></span><span id="sptk::DiscreteCosineTransform::GetDctLengthC"></span><span class="target" id="classsptk_1_1DiscreteCosineTransform_1ae43ee4e1502a7429c3834d2044b96a6f"></span>int <code class="sig-name descname">GetDctLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk23DiscreteCosineTransform12GetDctLengthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>DCT length. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk23DiscreteCosineTransform7IsValidEv">
+<span id="_CPPv3NK4sptk23DiscreteCosineTransform7IsValidEv"></span><span id="_CPPv2NK4sptk23DiscreteCosineTransform7IsValidEv"></span><span id="sptk::DiscreteCosineTransform::IsValidC"></span><span class="target" id="classsptk_1_1DiscreteCosineTransform_1ab5d85dbbaac0c4271b87b57327bab9d8"></span>bool <code class="sig-name descname">IsValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk23DiscreteCosineTransform7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if this object is valid. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk23DiscreteCosineTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN23DiscreteCosineTransform6BufferE">
+<span id="_CPPv3NK4sptk23DiscreteCosineTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN23DiscreteCosineTransform6BufferE"></span><span id="_CPPv2NK4sptk23DiscreteCosineTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN23DiscreteCosineTransform6BufferE"></span><span id="sptk::DiscreteCosineTransform::Run__std::vector:double:CR.std::vector:double:CR.std::vector:double:P.std::vector:double:P.DiscreteCosineTransform::BufferPC"></span><span class="target" id="classsptk_1_1DiscreteCosineTransform_1aef6517dd5a41817d416d116c6145fb59"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;double&gt; &amp;<em>real_part_input</em>, <em class="property">const</em> std::vector&lt;double&gt; &amp;<em>imag_part_input</em>, std::vector&lt;double&gt; *<em>real_part_output</em>, std::vector&lt;double&gt; *<em>imag_part_output</em>, <a class="reference internal" href="#_CPPv4N4sptk23DiscreteCosineTransformE" title="sptk::DiscreteCosineTransform">DiscreteCosineTransform</a>::<a class="reference internal" href="#_CPPv4N4sptk23DiscreteCosineTransform6BufferE" title="sptk::DiscreteCosineTransform::Buffer">Buffer</a> *<em>buffer</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk23DiscreteCosineTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN23DiscreteCosineTransform6BufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">real_part_input</span></code>: <span class="math notranslate nohighlight">\(L\)</span>-length real part of input. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">imag_part_input</span></code>: <span class="math notranslate nohighlight">\(L\)</span>-length imaginary part of input. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">real_part_output</span></code>: <span class="math notranslate nohighlight">\(L\)</span>-length real part of output. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">imag_part_output</span></code>: <span class="math notranslate nohighlight">\(L\)</span>-length imaginary part of output. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">buffer</span></code>: <a class="reference internal" href="#classsptk_1_1DiscreteCosineTransform_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk23DiscreteCosineTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEEPN23DiscreteCosineTransform6BufferE">
+<span id="_CPPv3NK4sptk23DiscreteCosineTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEEPN23DiscreteCosineTransform6BufferE"></span><span id="_CPPv2NK4sptk23DiscreteCosineTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEEPN23DiscreteCosineTransform6BufferE"></span><span id="sptk::DiscreteCosineTransform::Run__std::vector:double:P.std::vector:double:P.DiscreteCosineTransform::BufferPC"></span><span class="target" id="classsptk_1_1DiscreteCosineTransform_1a930a3a7f4e85bae1f360236c81a3968c"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span>std::vector&lt;double&gt; *<em>real_part</em>, std::vector&lt;double&gt; *<em>imag_part</em>, <a class="reference internal" href="#_CPPv4N4sptk23DiscreteCosineTransformE" title="sptk::DiscreteCosineTransform">DiscreteCosineTransform</a>::<a class="reference internal" href="#_CPPv4N4sptk23DiscreteCosineTransform6BufferE" title="sptk::DiscreteCosineTransform::Buffer">Buffer</a> *<em>buffer</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk23DiscreteCosineTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEEPN23DiscreteCosineTransform6BufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">real_part</span></code>: <span class="math notranslate nohighlight">\(L\)</span>-length real part. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">imag_part</span></code>: <span class="math notranslate nohighlight">\(L\)</span>-length imaginary part. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">buffer</span></code>: <a class="reference internal" href="#classsptk_1_1DiscreteCosineTransform_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4N4sptk23DiscreteCosineTransform6BufferE">
+<span id="_CPPv3N4sptk23DiscreteCosineTransform6BufferE"></span><span id="_CPPv2N4sptk23DiscreteCosineTransform6BufferE"></span><span id="sptk::DiscreteCosineTransform::Buffer"></span><span class="target" id="classsptk_1_1DiscreteCosineTransform_1_1Buffer"></span><em class="property">class </em><code class="sig-name descname">Buffer</code><a class="headerlink" href="#_CPPv4N4sptk23DiscreteCosineTransform6BufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classsptk_1_1DiscreteCosineTransform_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1DiscreteCosineTransform"><span class="std std-ref">DiscreteCosineTransform</span></a> class. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="decimate.html" class="btn btn-neutral float-right" title="decimate" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="csm2acr.html" class="btn btn-neutral float-left" title="csm2acr" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SPTK Working Group
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
