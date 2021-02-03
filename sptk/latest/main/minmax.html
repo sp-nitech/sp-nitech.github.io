@@ -1,0 +1,482 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>minmax &mdash; SPTK  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="mlpg" href="mlpg.html" />
+    <link rel="prev" title="mglsp2sp" href="mglsp2sp.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SPTK
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Command references</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcp.html">bcp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcut.html">bcut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2acr.html">c2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2ndps.html">c2ndps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clip.html">clip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dct.html">dct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decimate.html">decimate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delay.html">delay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df2.html">df2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dfs.html">dfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmm.html">gmm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmmp.html">gmmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lbg.html">lbg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="levdur.html">levdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc.html">lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2lsp.html">lpc2lsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lsp2lpc.html">lsp2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspdf.html">lspdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
+<li class="toctree-l1"><a class="reference internal" href="median.html">median</a></li>
+<li class="toctree-l1"><a class="reference internal" href="merge.html">merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsp2sp.html">mglsp2sp</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">minmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msvq.html">msvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pcas.html">pcas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ramp.html">ramp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reverse.html">reverse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlevdur.html">rlevdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sin.html">sin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step.html">step</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swab.html">swab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="train.html">train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transpose.html">transpose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utility references</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../utils/misc.html">misc</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SPTK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>minmax</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/main/minmax.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="minmax">
+<span id="id1"></span><h1>minmax<a class="headerlink" href="#minmax" title="Permalink to this headline">¶</a></h1>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv44mainiA_Pc">
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="minmax_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span>int <code class="sig-name descname">main</code><span class="sig-paren">(</span>int <em>argc</em>, char *<em>argv</em>[]<span class="sig-paren">)</span><br /></dt>
+<dd><p><em>minmax</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<p><ul class="simple">
+<li><p><strong>-l</strong> <em>int</em> <ul>
+<li><p>length of vector <span class="math notranslate nohighlight">\((1 \le M + 1)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-m</strong> <em>int</em> <ul>
+<li><p>order of vector <span class="math notranslate nohighlight">\((0 \le M)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-b</strong> <em>int</em> <ul>
+<li><p>find <span class="math notranslate nohighlight">\(N\)</span>-best values <span class="math notranslate nohighlight">\((1 \le N)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-o</strong> <em>int</em> <ul>
+<li><p>output format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> minimum and maximum </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> minimum </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> maximum</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>-w</strong> <em>int</em> <ul>
+<li><p>way to find value <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> find value from a vector </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> find value from vector sequence for each dimension</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>-p</strong> <em>str</em> <ul>
+<li><p>int-type positions</p></li>
+</ul>
+</p></li>
+<li><p><strong>infile</strong> <em>str</em> <ul>
+<li><p>double-type data sequence</p></li>
+</ul>
+</p></li>
+<li><p><strong>stdout</strong> <ul>
+<li><p>double-type minimum and maximum values</p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ramp</span> <span class="o">-</span><span class="n">l</span> <span class="mi">10</span> <span class="o">|</span> <span class="n">minmax</span> <span class="o">-</span><span class="n">l</span> <span class="mi">5</span> <span class="o">-</span><span class="n">o</span> <span class="mi">1</span> <span class="o">-</span><span class="n">w</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+<span class="c1"># 0, 5</span>
+</pre></div>
+</div>
+</p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ramp</span> <span class="o">-</span><span class="n">l</span> <span class="mi">10</span> <span class="o">|</span> <span class="n">minmax</span> <span class="o">-</span><span class="n">l</span> <span class="mi">5</span> <span class="o">-</span><span class="n">o</span> <span class="mi">1</span> <span class="o">-</span><span class="n">w</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+<span class="c1"># 0, 1, 2, 3, 4</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argc</span></code>: Number of arguments. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argv</span></code>: Argument vector. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>0 on success, 1 on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4N4sptk18MinMaxAccumulationE">
+<span id="_CPPv3N4sptk18MinMaxAccumulationE"></span><span id="_CPPv2N4sptk18MinMaxAccumulationE"></span><span id="sptk::MinMaxAccumulation"></span><span class="target" id="classsptk_1_1MinMaxAccumulation"></span><em class="property">class </em><code class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk">sptk</a><code class="sig-prename descclassname">::</code></code><code class="sig-name descname">MinMaxAccumulation</code><a class="headerlink" href="#_CPPv4N4sptk18MinMaxAccumulationE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Compute minimum and maximum given data sequence. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N4sptk18MinMaxAccumulation18MinMaxAccumulationEi">
+<span id="_CPPv3N4sptk18MinMaxAccumulation18MinMaxAccumulationEi"></span><span id="_CPPv2N4sptk18MinMaxAccumulation18MinMaxAccumulationEi"></span><span id="sptk::MinMaxAccumulation::MinMaxAccumulation__i"></span><span class="target" id="classsptk_1_1MinMaxAccumulation_1a2926009ea71ce944104ac7004e4ed850"></span><code class="sig-name descname">MinMaxAccumulation</code><span class="sig-paren">(</span>int <em>num_best</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk18MinMaxAccumulation18MinMaxAccumulationEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">num_best</span></code>: Number of minimum/maximum numbers. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk18MinMaxAccumulation10GetNumBestEv">
+<span id="_CPPv3NK4sptk18MinMaxAccumulation10GetNumBestEv"></span><span id="_CPPv2NK4sptk18MinMaxAccumulation10GetNumBestEv"></span><span id="sptk::MinMaxAccumulation::GetNumBestC"></span><span class="target" id="classsptk_1_1MinMaxAccumulation_1adbb1d9d7e3d72bdab52b0cd7648031e1"></span>int <code class="sig-name descname">GetNumBest</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk18MinMaxAccumulation10GetNumBestEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Number of minimum/maximum numbers. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk18MinMaxAccumulation7IsValidEv">
+<span id="_CPPv3NK4sptk18MinMaxAccumulation7IsValidEv"></span><span id="_CPPv2NK4sptk18MinMaxAccumulation7IsValidEv"></span><span id="sptk::MinMaxAccumulation::IsValidC"></span><span class="target" id="classsptk_1_1MinMaxAccumulation_1a8a4234fe979b95a5dd30087ec7f5aeb1"></span>bool <code class="sig-name descname">IsValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk18MinMaxAccumulation7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if this object is valid. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk18MinMaxAccumulation10GetMinimumERKN18MinMaxAccumulation6BufferEiPiPd">
+<span id="_CPPv3NK4sptk18MinMaxAccumulation10GetMinimumERKN18MinMaxAccumulation6BufferEiPiPd"></span><span id="_CPPv2NK4sptk18MinMaxAccumulation10GetMinimumERKN18MinMaxAccumulation6BufferEiPiPd"></span><span id="sptk::MinMaxAccumulation::GetMinimum__MinMaxAccumulation::BufferCR.i.iP.doublePC"></span><span class="target" id="classsptk_1_1MinMaxAccumulation_1a99e38971ab007c985d82a6aa578b7abd"></span>bool <code class="sig-name descname">GetMinimum</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N4sptk18MinMaxAccumulationE" title="sptk::MinMaxAccumulation">MinMaxAccumulation</a>::<a class="reference internal" href="#_CPPv4N4sptk18MinMaxAccumulation6BufferE" title="sptk::MinMaxAccumulation::Buffer">Buffer</a> &amp;<em>buffer</em>, int <em>rank</em>, int *<em>position</em>, double *<em>value</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk18MinMaxAccumulation10GetMinimumERKN18MinMaxAccumulation6BufferEiPiPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get <span class="math notranslate nohighlight">\(n\)</span>-th minimum value and its position.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">buffer</span></code>: <a class="reference internal" href="#classsptk_1_1MinMaxAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">rank</span></code>: Rank <span class="math notranslate nohighlight">\(n\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">position</span></code>: Position of minimum value. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">value</span></code>: Minimum value. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk18MinMaxAccumulation10GetMaximumERKN18MinMaxAccumulation6BufferEiPiPd">
+<span id="_CPPv3NK4sptk18MinMaxAccumulation10GetMaximumERKN18MinMaxAccumulation6BufferEiPiPd"></span><span id="_CPPv2NK4sptk18MinMaxAccumulation10GetMaximumERKN18MinMaxAccumulation6BufferEiPiPd"></span><span id="sptk::MinMaxAccumulation::GetMaximum__MinMaxAccumulation::BufferCR.i.iP.doublePC"></span><span class="target" id="classsptk_1_1MinMaxAccumulation_1a0ed3449b54b2bd75c4fbf1560d2be3b9"></span>bool <code class="sig-name descname">GetMaximum</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="#_CPPv4N4sptk18MinMaxAccumulationE" title="sptk::MinMaxAccumulation">MinMaxAccumulation</a>::<a class="reference internal" href="#_CPPv4N4sptk18MinMaxAccumulation6BufferE" title="sptk::MinMaxAccumulation::Buffer">Buffer</a> &amp;<em>buffer</em>, int <em>rank</em>, int *<em>position</em>, double *<em>value</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk18MinMaxAccumulation10GetMaximumERKN18MinMaxAccumulation6BufferEiPiPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Get <span class="math notranslate nohighlight">\(n\)</span>-th maximum value and its position.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">buffer</span></code>: <a class="reference internal" href="#classsptk_1_1MinMaxAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">rank</span></code>: Rank <span class="math notranslate nohighlight">\(n\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">position</span></code>: Position of maximum value. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">value</span></code>: Maximum value. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk18MinMaxAccumulation5ClearEPN18MinMaxAccumulation6BufferE">
+<span id="_CPPv3NK4sptk18MinMaxAccumulation5ClearEPN18MinMaxAccumulation6BufferE"></span><span id="_CPPv2NK4sptk18MinMaxAccumulation5ClearEPN18MinMaxAccumulation6BufferE"></span><span id="sptk::MinMaxAccumulation::Clear__MinMaxAccumulation::BufferPC"></span><span class="target" id="classsptk_1_1MinMaxAccumulation_1a252d023128c1a8c6532471050e51476f"></span>void <code class="sig-name descname">Clear</code><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4sptk18MinMaxAccumulationE" title="sptk::MinMaxAccumulation">MinMaxAccumulation</a>::<a class="reference internal" href="#_CPPv4N4sptk18MinMaxAccumulation6BufferE" title="sptk::MinMaxAccumulation::Buffer">Buffer</a> *<em>buffer</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk18MinMaxAccumulation5ClearEPN18MinMaxAccumulation6BufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Clear buffer.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">buffer</span></code>: <a class="reference internal" href="#classsptk_1_1MinMaxAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk18MinMaxAccumulation3RunEdPN18MinMaxAccumulation6BufferE">
+<span id="_CPPv3NK4sptk18MinMaxAccumulation3RunEdPN18MinMaxAccumulation6BufferE"></span><span id="_CPPv2NK4sptk18MinMaxAccumulation3RunEdPN18MinMaxAccumulation6BufferE"></span><span id="sptk::MinMaxAccumulation::Run__double.MinMaxAccumulation::BufferPC"></span><span class="target" id="classsptk_1_1MinMaxAccumulation_1a07c0d357b593b46928f8b1273eff4eb4"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span>double <em>data</em>, <a class="reference internal" href="#_CPPv4N4sptk18MinMaxAccumulationE" title="sptk::MinMaxAccumulation">MinMaxAccumulation</a>::<a class="reference internal" href="#_CPPv4N4sptk18MinMaxAccumulation6BufferE" title="sptk::MinMaxAccumulation::Buffer">Buffer</a> *<em>buffer</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk18MinMaxAccumulation3RunEdPN18MinMaxAccumulation6BufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Accumulate minimum and maximum.</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">data</span></code>: Input data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">buffer</span></code>: <a class="reference internal" href="#classsptk_1_1MinMaxAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4N4sptk18MinMaxAccumulation6BufferE">
+<span id="_CPPv3N4sptk18MinMaxAccumulation6BufferE"></span><span id="_CPPv2N4sptk18MinMaxAccumulation6BufferE"></span><span id="sptk::MinMaxAccumulation::Buffer"></span><span class="target" id="classsptk_1_1MinMaxAccumulation_1_1Buffer"></span><em class="property">class </em><code class="sig-name descname">Buffer</code><a class="headerlink" href="#_CPPv4N4sptk18MinMaxAccumulation6BufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classsptk_1_1MinMaxAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1MinMaxAccumulation"><span class="std std-ref">MinMaxAccumulation</span></a>. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mlpg.html" class="btn btn-neutral float-right" title="mlpg" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mglsp2sp.html" class="btn btn-neutral float-left" title="mglsp2sp" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SPTK Working Group
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
