@@ -1,0 +1,508 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>symmetrize &mdash; SPTK  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="train" href="train.html" />
+    <link rel="prev" title="swab" href="swab.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SPTK
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Command references</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcp.html">bcp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcut.html">bcut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2acr.html">c2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2ndps.html">c2ndps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clip.html">clip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dct.html">dct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decimate.html">decimate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delay.html">delay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dequantize.html">dequantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df2.html">df2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dfs.html">dfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmp.html">dmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html">extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fd.html">fd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft2.html">fft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr2.html">fftr2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmm.html">gmm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmmp.html">gmmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lbg.html">lbg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="levdur.html">levdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc.html">lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2lsp.html">lpc2lsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpccheck.html">lpccheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lsp2lpc.html">lsp2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspcheck.html">lspcheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspdf.html">lspdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
+<li class="toctree-l1"><a class="reference internal" href="median.html">median</a></li>
+<li class="toctree-l1"><a class="reference internal" href="merge.html">merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsp2sp.html">mglsp2sp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minmax.html">minmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlsacheck.html">mlsacheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msvq.html">msvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pcas.html">pcas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ramp.html">ramp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reverse.html">reverse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlevdur.html">rlevdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root_pol.html">root_pol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sin.html">sin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step.html">step</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swab.html">swab</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">symmetrize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="train.html">train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transpose.html">transpose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utility references</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../utils/misc.html">misc</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SPTK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>symmetrize</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/main/symmetrize.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="symmetrize">
+<span id="id1"></span><h1>symmetrize<a class="headerlink" href="#symmetrize" title="Permalink to this headline">¶</a></h1>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv44mainiA_Pc">
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="symmetrize_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span>int <code class="sig-name descname">main</code><span class="sig-paren">(</span>int <em>argc</em>, char *<em>argv</em>[]<span class="sig-paren">)</span><br /></dt>
+<dd><p><em>symmetrize</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<p><ul class="simple">
+<li><p><strong>-l</strong> <em>int</em> <ul>
+<li><p>FFT length <span class="math notranslate nohighlight">\((2 \le L)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-q</strong> <em>int</em> <ul>
+<li><p>input format</p></li>
+</ul>
+</p></li>
+<li><p><strong>-o</strong> <em>int</em> <ul>
+<li><p>output format</p></li>
+</ul>
+</p></li>
+<li><p><strong>infile</strong> <em>str</em> <ul>
+<li><p>double-type data sequence</p></li>
+</ul>
+</p></li>
+<li><p><strong>stdout</strong> <ul>
+<li><p>double-type symmetrized data sequence</p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ramp</span> <span class="o">-</span><span class="n">l</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+<span class="c1"># 0, 1, 2</span>
+<span class="n">ramp</span> <span class="o">-</span><span class="n">l</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">symmetrize</span> <span class="o">-</span><span class="n">l</span> <span class="mi">4</span> <span class="o">-</span><span class="n">q</span> <span class="mi">0</span> <span class="o">-</span><span class="n">o</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+<span class="c1"># 0, 1, 2, 1 (used for shaping fourier transform input)</span>
+<span class="n">ramp</span> <span class="o">-</span><span class="n">l</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">symmetrize</span> <span class="o">-</span><span class="n">l</span> <span class="mi">4</span> <span class="o">-</span><span class="n">q</span> <span class="mi">0</span> <span class="o">-</span><span class="n">o</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+<span class="c1"># 1, 1, 0, 1, 1 (used for shaping frequency response)</span>
+<span class="n">ramp</span> <span class="o">-</span><span class="n">l</span> <span class="mi">4</span> <span class="o">|</span> <span class="n">symmetrize</span> <span class="o">-</span><span class="n">l</span> <span class="mi">6</span> <span class="o">-</span><span class="n">q</span> <span class="mi">0</span> <span class="o">-</span><span class="n">o</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+<span class="c1"># 2, 1, 0, 1, 2 (used for shaping frequency response)</span>
+</pre></div>
+</div>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argc</span></code>: Number of arguments. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argv</span></code>: Argument vector. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>0 on success, 1 on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4N4sptk16DataSymmetrizingE">
+<span id="_CPPv3N4sptk16DataSymmetrizingE"></span><span id="_CPPv2N4sptk16DataSymmetrizingE"></span><span id="sptk::DataSymmetrizing"></span><span class="target" id="classsptk_1_1DataSymmetrizing"></span><em class="property">class </em><code class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk">sptk</a><code class="sig-prename descclassname">::</code></code><code class="sig-name descname">DataSymmetrizing</code><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizingE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Symmetrize/desymmetrize data sequence.</p>
+<p>The input and output takes one of the following forms.</p>
+<p>Type 0: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} x(0), &amp; x(1), &amp; \ldots, &amp; x(L/2). \end{array} \]</div>
+ Type 1: <div class="math notranslate nohighlight">
+\[ \begin{array}{ccccccc} x(0), &amp; x(1), &amp; \ldots, &amp; x(L/2), &amp; x(L/2-1), &amp; \ldots, &amp; x(1). \end{array} \]</div>
+ Type 2: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccccccc} \frac{1}{2} x(L/2), &amp; x(L/2-1), &amp; \ldots, &amp; x(0), &amp; x(1), &amp; \ldots, &amp; x(L/2-1), &amp; \frac{1}{2} x(L/2). \end{array} \]</div>
+ Type 3: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccccccc} x(L/2), &amp; x(L/2-1), &amp; \ldots, &amp; x(0), &amp; x(1), &amp; \ldots, &amp; x(L/2-1), &amp; x(L/2), \end{array} \]</div>
+ where <span class="math notranslate nohighlight">\(L\)</span> must be even. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Types</p>
+<dl class="cpp enum">
+<dt id="_CPPv4N4sptk16DataSymmetrizing18InputOutputFormatsE">
+<span id="_CPPv3N4sptk16DataSymmetrizing18InputOutputFormatsE"></span><span id="_CPPv2N4sptk16DataSymmetrizing18InputOutputFormatsE"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ab658e06bbf67b45488ad3085a56ca009"></span><em class="property">enum </em><code class="sig-name descname">InputOutputFormats</code><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormatsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Input and output format. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt id="_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats9kStandardE">
+<span id="_CPPv3N4sptk16DataSymmetrizing18InputOutputFormats9kStandardE"></span><span id="_CPPv2N4sptk16DataSymmetrizing18InputOutputFormats9kStandardE"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ab658e06bbf67b45488ad3085a56ca009a6d53c251ffd20aa850ccdfd7dd95dcca"></span><em class="property">enumerator </em><code class="sig-name descname">kStandard</code> = 0<a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats9kStandardE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats37kSymmetricForApplyingFourierTransformE">
+<span id="_CPPv3N4sptk16DataSymmetrizing18InputOutputFormats37kSymmetricForApplyingFourierTransformE"></span><span id="_CPPv2N4sptk16DataSymmetrizing18InputOutputFormats37kSymmetricForApplyingFourierTransformE"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ab658e06bbf67b45488ad3085a56ca009abc65b6b91c5a818e468fe2b7222a91b9"></span><em class="property">enumerator </em><code class="sig-name descname">kSymmetricForApplyingFourierTransform</code><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats37kSymmetricForApplyingFourierTransformE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats40kSymmetricForPreservingFrequencyResponseE">
+<span id="_CPPv3N4sptk16DataSymmetrizing18InputOutputFormats40kSymmetricForPreservingFrequencyResponseE"></span><span id="_CPPv2N4sptk16DataSymmetrizing18InputOutputFormats40kSymmetricForPreservingFrequencyResponseE"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ab658e06bbf67b45488ad3085a56ca009ac57b1dcf39edeebcd1fa51affead4794"></span><em class="property">enumerator </em><code class="sig-name descname">kSymmetricForPreservingFrequencyResponse</code><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats40kSymmetricForPreservingFrequencyResponseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats38kSymmetricForPlottingFrequencyResponseE">
+<span id="_CPPv3N4sptk16DataSymmetrizing18InputOutputFormats38kSymmetricForPlottingFrequencyResponseE"></span><span id="_CPPv2N4sptk16DataSymmetrizing18InputOutputFormats38kSymmetricForPlottingFrequencyResponseE"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ab658e06bbf67b45488ad3085a56ca009ac47810307bea6441693923697feb627a"></span><em class="property">enumerator </em><code class="sig-name descname">kSymmetricForPlottingFrequencyResponse</code><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats38kSymmetricForPlottingFrequencyResponseE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt id="_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats22kNumInputOutputFormatsE">
+<span id="_CPPv3N4sptk16DataSymmetrizing18InputOutputFormats22kNumInputOutputFormatsE"></span><span id="_CPPv2N4sptk16DataSymmetrizing18InputOutputFormats22kNumInputOutputFormatsE"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ab658e06bbf67b45488ad3085a56ca009aff6638db74d9f9d82893d46afcf756cb"></span><em class="property">enumerator </em><code class="sig-name descname">kNumInputOutputFormats</code><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats22kNumInputOutputFormatsE" title="Permalink to this definition">¶</a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N4sptk16DataSymmetrizing16DataSymmetrizingEi18InputOutputFormats18InputOutputFormats">
+<span id="_CPPv3N4sptk16DataSymmetrizing16DataSymmetrizingEi18InputOutputFormats18InputOutputFormats"></span><span id="_CPPv2N4sptk16DataSymmetrizing16DataSymmetrizingEi18InputOutputFormats18InputOutputFormats"></span><span id="sptk::DataSymmetrizing::DataSymmetrizing__i.InputOutputFormats.InputOutputFormats"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1a1c7082379721bba529fc76b0602c3026"></span><code class="sig-name descname">DataSymmetrizing</code><span class="sig-paren">(</span>int <em>fft_length</em>, <a class="reference internal" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormatsE" title="sptk::DataSymmetrizing::InputOutputFormats">InputOutputFormats</a> <em>input_format</em>, <a class="reference internal" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormatsE" title="sptk::DataSymmetrizing::InputOutputFormats">InputOutputFormats</a> <em>output_format</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizing16DataSymmetrizingEi18InputOutputFormats18InputOutputFormats" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">fft_length</span></code>: FFT length, <span class="math notranslate nohighlight">\(L\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">input_format</span></code>: Input format. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">output_format</span></code>: Output format. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk16DataSymmetrizing12GetFftLengthEv">
+<span id="_CPPv3NK4sptk16DataSymmetrizing12GetFftLengthEv"></span><span id="_CPPv2NK4sptk16DataSymmetrizing12GetFftLengthEv"></span><span id="sptk::DataSymmetrizing::GetFftLengthC"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ae66f872b5a17547b83aea79cf7e0b25e"></span>int <code class="sig-name descname">GetFftLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk16DataSymmetrizing12GetFftLengthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>FFT length. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk16DataSymmetrizing14GetInputFormatEv">
+<span id="_CPPv3NK4sptk16DataSymmetrizing14GetInputFormatEv"></span><span id="_CPPv2NK4sptk16DataSymmetrizing14GetInputFormatEv"></span><span id="sptk::DataSymmetrizing::GetInputFormatC"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ad5b87f896ef1ecd9404eb9ea8a5cb98d"></span><a class="reference internal" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormatsE" title="sptk::DataSymmetrizing::InputOutputFormats">InputOutputFormats</a> <code class="sig-name descname">GetInputFormat</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk16DataSymmetrizing14GetInputFormatEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Input format. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk16DataSymmetrizing15GetOutputFormatEv">
+<span id="_CPPv3NK4sptk16DataSymmetrizing15GetOutputFormatEv"></span><span id="_CPPv2NK4sptk16DataSymmetrizing15GetOutputFormatEv"></span><span id="sptk::DataSymmetrizing::GetOutputFormatC"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ae4d412446efad2a2f06aaa90a2bb8795"></span><a class="reference internal" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormatsE" title="sptk::DataSymmetrizing::InputOutputFormats">InputOutputFormats</a> <code class="sig-name descname">GetOutputFormat</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk16DataSymmetrizing15GetOutputFormatEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Output format. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk16DataSymmetrizing14GetInputLengthEv">
+<span id="_CPPv3NK4sptk16DataSymmetrizing14GetInputLengthEv"></span><span id="_CPPv2NK4sptk16DataSymmetrizing14GetInputLengthEv"></span><span id="sptk::DataSymmetrizing::GetInputLengthC"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1a3cabc47639a96ce36f1a8f2d3033c5e6"></span>int <code class="sig-name descname">GetInputLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk16DataSymmetrizing14GetInputLengthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Expected input length. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk16DataSymmetrizing15GetOutputLengthEv">
+<span id="_CPPv3NK4sptk16DataSymmetrizing15GetOutputLengthEv"></span><span id="_CPPv2NK4sptk16DataSymmetrizing15GetOutputLengthEv"></span><span id="sptk::DataSymmetrizing::GetOutputLengthC"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1abd9ab55d0783aa478a264952c9346bf3"></span>int <code class="sig-name descname">GetOutputLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk16DataSymmetrizing15GetOutputLengthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Expected output length. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk16DataSymmetrizing7IsValidEv">
+<span id="_CPPv3NK4sptk16DataSymmetrizing7IsValidEv"></span><span id="_CPPv2NK4sptk16DataSymmetrizing7IsValidEv"></span><span id="sptk::DataSymmetrizing::IsValidC"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1a9370c8d3329f0d0cfb26beb3ce4fd319"></span>bool <code class="sig-name descname">IsValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk16DataSymmetrizing7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if this object is valid. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk16DataSymmetrizing3RunERKNSt6vectorIdEEPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk16DataSymmetrizing3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk16DataSymmetrizing3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::DataSymmetrizing::Run__std::vector:double:CR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ace509bca1aebcaab57b56ae6cf1e165e"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;double&gt; &amp;<em>data_sequence</em>, std::vector&lt;double&gt; *<em>symmetrized_data_sequence</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk16DataSymmetrizing3RunERKNSt6vectorIdEEPNSt6vectorIdEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">data_sequence</span></code>: Input data. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">symmetrized_data_sequence</span></code>: Output data. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="train.html" class="btn btn-neutral float-right" title="train" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="swab.html" class="btn btn-neutral float-left" title="swab" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SPTK Working Group
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

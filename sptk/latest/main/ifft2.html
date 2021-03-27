@@ -1,0 +1,486 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ifft2 &mdash; SPTK  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ignorm" href="ignorm.html" />
+    <link rel="prev" title="ifft" href="ifft.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SPTK
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Command references</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcp.html">bcp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcut.html">bcut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2acr.html">c2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2ndps.html">c2ndps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clip.html">clip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dct.html">dct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decimate.html">decimate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delay.html">delay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dequantize.html">dequantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df2.html">df2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dfs.html">dfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmp.html">dmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html">extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fd.html">fd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft2.html">fft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr2.html">fftr2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmm.html">gmm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmmp.html">gmmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ifft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lbg.html">lbg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="levdur.html">levdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc.html">lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2lsp.html">lpc2lsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpccheck.html">lpccheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lsp2lpc.html">lsp2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspcheck.html">lspcheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspdf.html">lspdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
+<li class="toctree-l1"><a class="reference internal" href="median.html">median</a></li>
+<li class="toctree-l1"><a class="reference internal" href="merge.html">merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsp2sp.html">mglsp2sp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minmax.html">minmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlsacheck.html">mlsacheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msvq.html">msvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pcas.html">pcas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ramp.html">ramp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reverse.html">reverse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlevdur.html">rlevdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root_pol.html">root_pol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sin.html">sin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step.html">step</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swab.html">swab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="symmetrize.html">symmetrize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="train.html">train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transpose.html">transpose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utility references</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../utils/misc.html">misc</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SPTK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>ifft2</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/main/ifft2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ifft2">
+<span id="id1"></span><h1>ifft2<a class="headerlink" href="#ifft2" title="Permalink to this headline">¶</a></h1>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv44mainiA_Pc">
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="ifft2_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span>int <code class="sig-name descname">main</code><span class="sig-paren">(</span>int <em>argc</em>, char *<em>argv</em>[]<span class="sig-paren">)</span><br /></dt>
+<dd><p><em>ifft2</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<p><ul class="simple">
+<li><p><strong>-l</strong> <em>int</em> <ul>
+<li><p>FFT length <span class="math notranslate nohighlight">\((1 \le L)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-q</strong> <em>int</em> <ul>
+<li><p>input format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> real and imaginary parts </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> real part </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> imaginary part</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>-o</strong> <em>int</em> <ul>
+<li><p>output format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> real and imaginary parts </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> real part </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> imaginary part</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>-p</strong> <em>int</em> <ul>
+<li><p>output style <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> standard </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> transposed </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> transposed with boundary </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> quadrand with boundary</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>infile</strong> <em>str</em> <ul>
+<li><p>double-type 2D data sequence</p></li>
+</ul>
+</p></li>
+<li><p><strong>stdout</strong> <ul>
+<li><p>double-type 2D inverse FFT sequence</p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+<p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argc</span></code>: Number of arguments. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argv</span></code>: Argument vector. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>0 on success, 1 on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="ifft.html#ifft"><span class="std std-ref">ifft</span></a>  <a class="reference internal" href="fft2.html#fft2"><span class="std std-ref">fft2</span></a>  <a class="reference internal" href="fftr2.html#fftr2"><span class="std std-ref">fftr2</span></a></p>
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4N4sptk41TwoDimensionalInverseFastFourierTransformE">
+<span id="_CPPv3N4sptk41TwoDimensionalInverseFastFourierTransformE"></span><span id="_CPPv2N4sptk41TwoDimensionalInverseFastFourierTransformE"></span><span id="sptk::TwoDimensionalInverseFastFourierTransform"></span><span class="target" id="classsptk_1_1TwoDimensionalInverseFastFourierTransform"></span><em class="property">class </em><code class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk">sptk</a><code class="sig-prename descclassname">::</code></code><code class="sig-name descname">TwoDimensionalInverseFastFourierTransform</code><a class="headerlink" href="#_CPPv4N4sptk41TwoDimensionalInverseFastFourierTransformE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Calculate 2D inverse DFT of complex-valued input data.</p>
+<p>The inputs are two <span class="math notranslate nohighlight">\(M \times N\)</span> matrices that represent real and imaginary parts: <div class="math notranslate nohighlight">
+\[ \begin{array}{cc} \mathrm{Re}(\boldsymbol{X}), &amp; \mathrm{Im}(\boldsymbol{X}). \end{array} \]</div>
+ The outputs are two <span class="math notranslate nohighlight">\(L \times L \)</span> matrices: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} \mathrm{Re}(\boldsymbol{x}), &amp; \mathrm{Im}(\boldsymbol{x}), \end{array} \]</div>
+ where <span class="math notranslate nohighlight">\(L\)</span> is the FFT length and must be a power of two. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N4sptk41TwoDimensionalInverseFastFourierTransform41TwoDimensionalInverseFastFourierTransformEiii">
+<span id="_CPPv3N4sptk41TwoDimensionalInverseFastFourierTransform41TwoDimensionalInverseFastFourierTransformEiii"></span><span id="_CPPv2N4sptk41TwoDimensionalInverseFastFourierTransform41TwoDimensionalInverseFastFourierTransformEiii"></span><span id="sptk::TwoDimensionalInverseFastFourierTransform::TwoDimensionalInverseFastFourierTransform__i.i.i"></span><span class="target" id="classsptk_1_1TwoDimensionalInverseFastFourierTransform_1a1b61c0e3b6b0ded26983d90e2774fef3"></span><code class="sig-name descname">TwoDimensionalInverseFastFourierTransform</code><span class="sig-paren">(</span>int <em>num_row</em>, int <em>num_column</em>, int <em>fft_length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk41TwoDimensionalInverseFastFourierTransform41TwoDimensionalInverseFastFourierTransformEiii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">num_row</span></code>: Number of rows, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">num_column</span></code>: Number of columns <span class="math notranslate nohighlight">\(N\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">fft_length</span></code>: FFT length, <span class="math notranslate nohighlight">\(L\)</span>. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk41TwoDimensionalInverseFastFourierTransform9GetNumRowEv">
+<span id="_CPPv3NK4sptk41TwoDimensionalInverseFastFourierTransform9GetNumRowEv"></span><span id="_CPPv2NK4sptk41TwoDimensionalInverseFastFourierTransform9GetNumRowEv"></span><span id="sptk::TwoDimensionalInverseFastFourierTransform::GetNumRowC"></span><span class="target" id="classsptk_1_1TwoDimensionalInverseFastFourierTransform_1a34d9c6c9ece7cdb8b6bb40ccccedf1ba"></span>int <code class="sig-name descname">GetNumRow</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk41TwoDimensionalInverseFastFourierTransform9GetNumRowEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Number of rows of input. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk41TwoDimensionalInverseFastFourierTransform12GetNumColumnEv">
+<span id="_CPPv3NK4sptk41TwoDimensionalInverseFastFourierTransform12GetNumColumnEv"></span><span id="_CPPv2NK4sptk41TwoDimensionalInverseFastFourierTransform12GetNumColumnEv"></span><span id="sptk::TwoDimensionalInverseFastFourierTransform::GetNumColumnC"></span><span class="target" id="classsptk_1_1TwoDimensionalInverseFastFourierTransform_1abf41444ed96f4a65f9a19363656517a1"></span>int <code class="sig-name descname">GetNumColumn</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk41TwoDimensionalInverseFastFourierTransform12GetNumColumnEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Number of columns of input. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk41TwoDimensionalInverseFastFourierTransform12GetFftLengthEv">
+<span id="_CPPv3NK4sptk41TwoDimensionalInverseFastFourierTransform12GetFftLengthEv"></span><span id="_CPPv2NK4sptk41TwoDimensionalInverseFastFourierTransform12GetFftLengthEv"></span><span id="sptk::TwoDimensionalInverseFastFourierTransform::GetFftLengthC"></span><span class="target" id="classsptk_1_1TwoDimensionalInverseFastFourierTransform_1a5d14c0484f18ff95ab9ddb3a72d8659c"></span>int <code class="sig-name descname">GetFftLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk41TwoDimensionalInverseFastFourierTransform12GetFftLengthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>FFT length. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk41TwoDimensionalInverseFastFourierTransform7IsValidEv">
+<span id="_CPPv3NK4sptk41TwoDimensionalInverseFastFourierTransform7IsValidEv"></span><span id="_CPPv2NK4sptk41TwoDimensionalInverseFastFourierTransform7IsValidEv"></span><span id="sptk::TwoDimensionalInverseFastFourierTransform::IsValidC"></span><span class="target" id="classsptk_1_1TwoDimensionalInverseFastFourierTransform_1affa025a024cdf45cee05147410f18a5a"></span>bool <code class="sig-name descname">IsValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk41TwoDimensionalInverseFastFourierTransform7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if this object is valid. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk41TwoDimensionalInverseFastFourierTransform3RunERKN4sptk6MatrixERKN4sptk6MatrixEPN4sptk6MatrixEPN4sptk6MatrixEPN41TwoDimensionalInverseFastFourierTransform6BufferE">
+<span id="_CPPv3NK4sptk41TwoDimensionalInverseFastFourierTransform3RunERKN4sptk6MatrixERKN4sptk6MatrixEPN4sptk6MatrixEPN4sptk6MatrixEPN41TwoDimensionalInverseFastFourierTransform6BufferE"></span><span id="_CPPv2NK4sptk41TwoDimensionalInverseFastFourierTransform3RunERKN4sptk6MatrixERKN4sptk6MatrixEPN4sptk6MatrixEPN4sptk6MatrixEPN41TwoDimensionalInverseFastFourierTransform6BufferE"></span><span id="sptk::TwoDimensionalInverseFastFourierTransform::Run__sptk::MatrixCR.sptk::MatrixCR.sptk::MatrixP.sptk::MatrixP.TwoDimensionalInverseFastFourierTransform::BufferPC"></span><span class="target" id="classsptk_1_1TwoDimensionalInverseFastFourierTransform_1ad732ca36ca6b8a760288464164bdad46"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span><em class="property">const</em> <a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk">sptk</a>::Matrix &amp;<em>real_part_input</em>, <em class="property">const</em> <a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk">sptk</a>::Matrix &amp;<em>imag_part_input</em>, <a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk">sptk</a>::Matrix *<em>real_part_output</em>, <a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk">sptk</a>::Matrix *<em>imag_part_output</em>, <a class="reference internal" href="#_CPPv4N4sptk41TwoDimensionalInverseFastFourierTransformE" title="sptk::TwoDimensionalInverseFastFourierTransform">TwoDimensionalInverseFastFourierTransform</a>::<a class="reference internal" href="#_CPPv4N4sptk41TwoDimensionalInverseFastFourierTransform6BufferE" title="sptk::TwoDimensionalInverseFastFourierTransform::Buffer">Buffer</a> *<em>buffer</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk41TwoDimensionalInverseFastFourierTransform3RunERKN4sptk6MatrixERKN4sptk6MatrixEPN4sptk6MatrixEPN4sptk6MatrixEPN41TwoDimensionalInverseFastFourierTransform6BufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">real_part_input</span></code>: Real part of input. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">imag_part_input</span></code>: Imaginary part of input. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">real_part_output</span></code>: Real part of output. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">imag_part_output</span></code>: Imaginary part of output. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">buffer</span></code>: <a class="reference internal" href="#classsptk_1_1TwoDimensionalInverseFastFourierTransform_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk41TwoDimensionalInverseFastFourierTransform3RunEPN4sptk6MatrixEPN4sptk6MatrixEPN41TwoDimensionalInverseFastFourierTransform6BufferE">
+<span id="_CPPv3NK4sptk41TwoDimensionalInverseFastFourierTransform3RunEPN4sptk6MatrixEPN4sptk6MatrixEPN41TwoDimensionalInverseFastFourierTransform6BufferE"></span><span id="_CPPv2NK4sptk41TwoDimensionalInverseFastFourierTransform3RunEPN4sptk6MatrixEPN4sptk6MatrixEPN41TwoDimensionalInverseFastFourierTransform6BufferE"></span><span id="sptk::TwoDimensionalInverseFastFourierTransform::Run__sptk::MatrixP.sptk::MatrixP.TwoDimensionalInverseFastFourierTransform::BufferPC"></span><span class="target" id="classsptk_1_1TwoDimensionalInverseFastFourierTransform_1afa69f12b08665059a85e92988588aeb0"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk">sptk</a>::Matrix *<em>real_part</em>, <a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk">sptk</a>::Matrix *<em>imag_part</em>, <a class="reference internal" href="#_CPPv4N4sptk41TwoDimensionalInverseFastFourierTransformE" title="sptk::TwoDimensionalInverseFastFourierTransform">TwoDimensionalInverseFastFourierTransform</a>::<a class="reference internal" href="#_CPPv4N4sptk41TwoDimensionalInverseFastFourierTransform6BufferE" title="sptk::TwoDimensionalInverseFastFourierTransform::Buffer">Buffer</a> *<em>buffer</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk41TwoDimensionalInverseFastFourierTransform3RunEPN4sptk6MatrixEPN4sptk6MatrixEPN41TwoDimensionalInverseFastFourierTransform6BufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">real_part</span></code>: Real part. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">imag_part</span></code>: Imaginary part. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">buffer</span></code>: <a class="reference internal" href="#classsptk_1_1TwoDimensionalInverseFastFourierTransform_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4N4sptk41TwoDimensionalInverseFastFourierTransform6BufferE">
+<span id="_CPPv3N4sptk41TwoDimensionalInverseFastFourierTransform6BufferE"></span><span id="_CPPv2N4sptk41TwoDimensionalInverseFastFourierTransform6BufferE"></span><span id="sptk::TwoDimensionalInverseFastFourierTransform::Buffer"></span><span class="target" id="classsptk_1_1TwoDimensionalInverseFastFourierTransform_1_1Buffer"></span><em class="property">class </em><code class="sig-name descname">Buffer</code><a class="headerlink" href="#_CPPv4N4sptk41TwoDimensionalInverseFastFourierTransform6BufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classsptk_1_1TwoDimensionalInverseFastFourierTransform_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1TwoDimensionalInverseFastFourierTransform"><span class="std std-ref">TwoDimensionalInverseFastFourierTransform</span></a> class. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ignorm.html" class="btn btn-neutral float-right" title="ignorm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ifft.html" class="btn btn-neutral float-left" title="ifft" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SPTK Working Group
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
