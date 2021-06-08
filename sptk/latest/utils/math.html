@@ -1,0 +1,489 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>math &mdash; SPTK  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="misc" href="misc.html" />
+    <link rel="prev" title="zerodf" href="../main/zerodf.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SPTK
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Command references</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../main/acorr.html">acorr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/amgcep.html">amgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/average.html">average</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/b2mc.html">b2mc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/bcp.html">bcp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/bcut.html">bcut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/c2acr.html">c2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/c2mpir.html">c2mpir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/c2ndps.html">c2ndps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/clip.html">clip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/csm2acr.html">csm2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/dct.html">dct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/decimate.html">decimate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/delay.html">delay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/dequantize.html">dequantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/df2.html">df2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/dfs.html">dfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/dmp.html">dmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/dtw.html">dtw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/dtw_merge.html">dtw_merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/entropy.html">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/excite.html">excite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/extract.html">extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/fbank.html">fbank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/fd.html">fd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/fft.html">fft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/fft2.html">fft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/fftr.html">fftr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/fftr2.html">fftr2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/frame.html">frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/freqt.html">freqt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/gmm.html">gmm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/gmmp.html">gmmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/grpdelay.html">grpdelay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/histogram.html">histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/huffman.html">huffman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/huffman_decode.html">huffman_decode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/idct.html">idct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/ifft.html">ifft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/ifft2.html">ifft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/ignorm.html">ignorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/imsvq.html">imsvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/lbg.html">lbg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/levdur.html">levdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/lpc.html">lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/lpc2c.html">lpc2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/lpc2lsp.html">lpc2lsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/lpccheck.html">lpccheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/lsp2lpc.html">lsp2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/lspcheck.html">lspcheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/lspdf.html">lspdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/ltcdf.html">ltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/mc2b.html">mc2b</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/median.html">median</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/merge.html">merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/mglsp2sp.html">mglsp2sp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/minmax.html">minmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/mlsacheck.html">mlsacheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/mseq.html">mseq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/msvq.html">msvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/ndps2c.html">ndps2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/par2lar.html">par2lar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/pca.html">pca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/pcas.html">pcas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/phase.html">phase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/pqmf.html">pqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/quantize.html">quantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/ramp.html">ramp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/reverse.html">reverse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/rlevdur.html">rlevdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/rmse.html">rmse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/root_pol.html">root_pol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/sin.html">sin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/sopr.html">sopr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/step.html">step</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/swab.html">swab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/symmetrize.html">symmetrize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/train.html">train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/transpose.html">transpose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/vc.html">vc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/vopr.html">vopr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/vstat.html">vstat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/vsum.html">vsum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/zcross.html">zcross</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/zerodf.html">zerodf</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Utility references</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc.html">misc</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SPTK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>math</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/utils/math.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="math">
+<h1>math<a class="headerlink" href="#math" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp class">
+<dt id="_CPPv4N4sptk30ToeplitzPlusHankelSystemSolverE">
+<span id="_CPPv3N4sptk30ToeplitzPlusHankelSystemSolverE"></span><span id="_CPPv2N4sptk30ToeplitzPlusHankelSystemSolverE"></span><span id="sptk::ToeplitzPlusHankelSystemSolver"></span><span class="target" id="classsptk_1_1ToeplitzPlusHankelSystemSolver"></span><em class="property">class </em><code class="sig-prename descclassname"><a class="reference internal" href="misc.html#_CPPv44sptk" title="sptk">sptk</a><code class="sig-prename descclassname">::</code></code><code class="sig-name descname">ToeplitzPlusHankelSystemSolver</code><a class="headerlink" href="#_CPPv4N4sptk30ToeplitzPlusHankelSystemSolverE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Solve the following Toeplitz-plus-Hankel system: <div class="math notranslate nohighlight">
+\[ (\boldsymbol{T} + \boldsymbol{H}) \boldsymbol{x} = \boldsymbol{b}, \]</div>
+ where <div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray} \boldsymbol{T} &amp;=&amp; \left[ \begin{array}{ccccc} t(0) &amp; t(-1) &amp; t(-2) &amp; \cdots &amp; t(-M) \\ t(1) &amp; t(0) &amp; t(-1) &amp; \cdots &amp; t(-M+1) \\ t(2) &amp; t(1) &amp; t(0) &amp; \ddots &amp; \vdots \\ \vdots &amp; \vdots &amp; \ddots &amp; \ddots &amp; t(-1) \\ t(M) &amp; t(M-1) &amp; \cdots &amp; t(1) &amp; t(0) \end{array} \right], \\ \boldsymbol{H} &amp;=&amp; \left[ \begin{array}{ccccc} h(0) &amp; h(1) &amp; h(2) &amp; \cdots &amp; h(M) \\ h(1) &amp; h(2) &amp; h(3) &amp; \cdots &amp; h(M+1) \\ h(2) &amp; t(3) &amp; h(4) &amp; \ddots &amp; \vdots \\ \vdots &amp; \vdots &amp; \ddots &amp; \ddots &amp; h(2M-1) \\ h(M) &amp; h(M+1) &amp; \cdots &amp; h(2M-1)&amp; h(2M) \end{array} \right], \\ \boldsymbol{b} &amp;=&amp; \left[ \begin{array}{cccc} b(0) &amp; b(1) &amp; \cdots &amp; b(M) \end{array} \right]^\mathsf{T}. \\ \end{eqnarray}\end{split}\]</div>
+</p>
+<p>The inputs are <span class="math notranslate nohighlight">\((2M+1)\)</span> Toeplitz coefficient vector: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} t(-M), &amp; t(-M+1), &amp; \ldots, &amp; t(M), \end{array} \]</div>
+ <span class="math notranslate nohighlight">\((2M+1)\)</span> Hankel coefficient vector: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} h(0), &amp; h(1), &amp; \ldots, &amp; h(2M), \end{array} \]</div>
+ and <span class="math notranslate nohighlight">\((M+1)\)</span> constant vector: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} b(0), &amp; b(1), &amp; \ldots, &amp; b(M). \end{array} \]</div>
+ The outputs are the unknown coefficients <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} x(0), &amp; x(1), &amp; \ldots, &amp; x(M). \end{array} \]</div>
+</p>
+<p>[1] G. Merchant and T. Parks, “Efficient solution of a Toeplitz-plus-Hankel coefficient matrix system of equations,” IEEE Transactions on Acoustics, Speech, and Signal Processing, vol. 30, no. 1, pp. 40-44, 1982. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N4sptk30ToeplitzPlusHankelSystemSolver30ToeplitzPlusHankelSystemSolverEib">
+<span id="_CPPv3N4sptk30ToeplitzPlusHankelSystemSolver30ToeplitzPlusHankelSystemSolverEib"></span><span id="_CPPv2N4sptk30ToeplitzPlusHankelSystemSolver30ToeplitzPlusHankelSystemSolverEib"></span><span id="sptk::ToeplitzPlusHankelSystemSolver::ToeplitzPlusHankelSystemSolver__i.b"></span><span class="target" id="classsptk_1_1ToeplitzPlusHankelSystemSolver_1aea82c17ee778a68e2ff31e73d26d2192"></span><code class="sig-name descname">ToeplitzPlusHankelSystemSolver</code><span class="sig-paren">(</span>int <em>num_order</em>, bool <em>coefficients_modification</em> = true<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk30ToeplitzPlusHankelSystemSolver30ToeplitzPlusHankelSystemSolverEib" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">num_order</span></code>: Order of vector, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">coefficients_modification</span></code>: If true, perform coefficients modification. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk30ToeplitzPlusHankelSystemSolver11GetNumOrderEv">
+<span id="_CPPv3NK4sptk30ToeplitzPlusHankelSystemSolver11GetNumOrderEv"></span><span id="_CPPv2NK4sptk30ToeplitzPlusHankelSystemSolver11GetNumOrderEv"></span><span id="sptk::ToeplitzPlusHankelSystemSolver::GetNumOrderC"></span><span class="target" id="classsptk_1_1ToeplitzPlusHankelSystemSolver_1a300e8938f7aa833880a65b5f89eb63c9"></span>int <code class="sig-name descname">GetNumOrder</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk30ToeplitzPlusHankelSystemSolver11GetNumOrderEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Order of vector. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4N4sptk30ToeplitzPlusHankelSystemSolver31GetCoefficientsModificationFlagEv">
+<span id="_CPPv3N4sptk30ToeplitzPlusHankelSystemSolver31GetCoefficientsModificationFlagEv"></span><span id="_CPPv2N4sptk30ToeplitzPlusHankelSystemSolver31GetCoefficientsModificationFlagEv"></span><span id="sptk::ToeplitzPlusHankelSystemSolver::GetCoefficientsModificationFlag"></span><span class="target" id="classsptk_1_1ToeplitzPlusHankelSystemSolver_1a3fca33d7f8f19eea0109bba7e87024b7"></span>bool <code class="sig-name descname">GetCoefficientsModificationFlag</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk30ToeplitzPlusHankelSystemSolver31GetCoefficientsModificationFlagEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Ture if coefficients modification is enabled. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk30ToeplitzPlusHankelSystemSolver7IsValidEv">
+<span id="_CPPv3NK4sptk30ToeplitzPlusHankelSystemSolver7IsValidEv"></span><span id="_CPPv2NK4sptk30ToeplitzPlusHankelSystemSolver7IsValidEv"></span><span id="sptk::ToeplitzPlusHankelSystemSolver::IsValidC"></span><span class="target" id="classsptk_1_1ToeplitzPlusHankelSystemSolver_1ae7fe17437728be4b44a2ac397e48e8c8"></span>bool <code class="sig-name descname">IsValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk30ToeplitzPlusHankelSystemSolver7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if this object is valid. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk30ToeplitzPlusHankelSystemSolver3RunERKNSt6vectorIdEERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN30ToeplitzPlusHankelSystemSolver6BufferE">
+<span id="_CPPv3NK4sptk30ToeplitzPlusHankelSystemSolver3RunERKNSt6vectorIdEERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN30ToeplitzPlusHankelSystemSolver6BufferE"></span><span id="_CPPv2NK4sptk30ToeplitzPlusHankelSystemSolver3RunERKNSt6vectorIdEERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN30ToeplitzPlusHankelSystemSolver6BufferE"></span><span id="sptk::ToeplitzPlusHankelSystemSolver::Run__std::vector:double:CR.std::vector:double:CR.std::vector:double:CR.std::vector:double:P.ToeplitzPlusHankelSystemSolver::BufferPC"></span><span class="target" id="classsptk_1_1ToeplitzPlusHankelSystemSolver_1af026919ac433d8a1737ac9f3e42ab0de"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;double&gt; &amp;<em>toeplitz_coefficient_vector</em>, <em class="property">const</em> std::vector&lt;double&gt; &amp;<em>hankel_coefficient_vector</em>, <em class="property">const</em> std::vector&lt;double&gt; &amp;<em>constant_vector</em>, std::vector&lt;double&gt; *<em>solution_vector</em>, <a class="reference internal" href="#_CPPv4N4sptk30ToeplitzPlusHankelSystemSolverE" title="sptk::ToeplitzPlusHankelSystemSolver">ToeplitzPlusHankelSystemSolver</a>::<a class="reference internal" href="#_CPPv4N4sptk30ToeplitzPlusHankelSystemSolver6BufferE" title="sptk::ToeplitzPlusHankelSystemSolver::Buffer">Buffer</a> *<em>buffer</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk30ToeplitzPlusHankelSystemSolver3RunERKNSt6vectorIdEERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN30ToeplitzPlusHankelSystemSolver6BufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">toeplitz_coefficient_vector</span></code>: <span class="math notranslate nohighlight">\(2M\)</span>-th order coefficient vector of Toeplitz matrix <span class="math notranslate nohighlight">\(\boldsymbol{T}\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">hankel_coefficient_vector</span></code>: <span class="math notranslate nohighlight">\(2M\)</span>-th order coefficient vector of Hankel matrix <span class="math notranslate nohighlight">\(\boldsymbol{H}\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">constant_vector</span></code>: <span class="math notranslate nohighlight">\(M\)</span>-th order constant vector <span class="math notranslate nohighlight">\(\boldsymbol{b}\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">solution_vector</span></code>: <span class="math notranslate nohighlight">\(M\)</span>-th order solution vector <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">buffer</span></code>: <a class="reference internal" href="#classsptk_1_1ToeplitzPlusHankelSystemSolver_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4N4sptk30ToeplitzPlusHankelSystemSolver6BufferE">
+<span id="_CPPv3N4sptk30ToeplitzPlusHankelSystemSolver6BufferE"></span><span id="_CPPv2N4sptk30ToeplitzPlusHankelSystemSolver6BufferE"></span><span id="sptk::ToeplitzPlusHankelSystemSolver::Buffer"></span><span class="target" id="classsptk_1_1ToeplitzPlusHankelSystemSolver_1_1Buffer"></span><em class="property">class </em><code class="sig-name descname">Buffer</code><a class="headerlink" href="#_CPPv4N4sptk30ToeplitzPlusHankelSystemSolver6BufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classsptk_1_1ToeplitzPlusHankelSystemSolver_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1ToeplitzPlusHankelSystemSolver"><span class="std std-ref">ToeplitzPlusHankelSystemSolver</span></a> class. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp class">
+<dt id="_CPPv4N4sptk23VandermondeSystemSolverE">
+<span id="_CPPv3N4sptk23VandermondeSystemSolverE"></span><span id="_CPPv2N4sptk23VandermondeSystemSolverE"></span><span id="sptk::VandermondeSystemSolver"></span><span class="target" id="classsptk_1_1VandermondeSystemSolver"></span><em class="property">class </em><code class="sig-prename descclassname"><a class="reference internal" href="misc.html#_CPPv44sptk" title="sptk">sptk</a><code class="sig-prename descclassname">::</code></code><code class="sig-name descname">VandermondeSystemSolver</code><a class="headerlink" href="#_CPPv4N4sptk23VandermondeSystemSolverE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Solve the following Vandermonde system: <div class="math notranslate nohighlight">
+\[\begin{split} \left[ \begin{array}{cccc} 1 &amp; 1 &amp; \cdots &amp; 1 \\ x(0) &amp; x(1) &amp; \cdots &amp; x(M) \\ x^2(0) &amp; x^2(1) &amp; \cdots &amp; x^2(M) \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ x^M(0) &amp; x^M(1) &amp; \cdots &amp; x^M(M) \end{array} \right] \left[ \begin{array}{c} w(0) \\ w(1) \\ w(2) \\ \vdots \\ w(M) \end{array} \right] = \left[ \begin{array}{c} q(0) \\ q(1) \\ q(2) \\ \vdots \\ q(M) \end{array} \right]. \end{split}\]</div>
+</p>
+<p>The inputs are <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} x(0), &amp; x(1), &amp; \ldots, &amp; x(M), \end{array} \]</div>
+ and <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} q(0), &amp; q(1), &amp; \ldots, &amp; q(M). \end{array} \]</div>
+ The outputs are the unknown coefficients <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} w(0), &amp; w(1), &amp; \ldots, &amp; w(M). \end{array} \]</div>
+</p>
+<p>[1] W. H. Press, et al., “Numerical recipes in C: The art of scientific computing,” Cambridge University Press, pp. 90-92, 1992. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<dl class="cpp function">
+<dt id="_CPPv4N4sptk23VandermondeSystemSolver23VandermondeSystemSolverEi">
+<span id="_CPPv3N4sptk23VandermondeSystemSolver23VandermondeSystemSolverEi"></span><span id="_CPPv2N4sptk23VandermondeSystemSolver23VandermondeSystemSolverEi"></span><span id="sptk::VandermondeSystemSolver::VandermondeSystemSolver__i"></span><span class="target" id="classsptk_1_1VandermondeSystemSolver_1acee8a3cea9eceedea0e5c1e5bf05484c"></span><code class="sig-name descname">VandermondeSystemSolver</code><span class="sig-paren">(</span>int <em>num_order</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk23VandermondeSystemSolver23VandermondeSystemSolverEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">num_order</span></code>: Order of vector, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
+</ul>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk23VandermondeSystemSolver11GetNumOrderEv">
+<span id="_CPPv3NK4sptk23VandermondeSystemSolver11GetNumOrderEv"></span><span id="_CPPv2NK4sptk23VandermondeSystemSolver11GetNumOrderEv"></span><span id="sptk::VandermondeSystemSolver::GetNumOrderC"></span><span class="target" id="classsptk_1_1VandermondeSystemSolver_1af09ad0173a37aae83cfcc7de0536487b"></span>int <code class="sig-name descname">GetNumOrder</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk23VandermondeSystemSolver11GetNumOrderEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Order of vector. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk23VandermondeSystemSolver7IsValidEv">
+<span id="_CPPv3NK4sptk23VandermondeSystemSolver7IsValidEv"></span><span id="_CPPv2NK4sptk23VandermondeSystemSolver7IsValidEv"></span><span id="sptk::VandermondeSystemSolver::IsValidC"></span><span class="target" id="classsptk_1_1VandermondeSystemSolver_1a1c53af11176be053f883a453a58e24d9"></span>bool <code class="sig-name descname">IsValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk23VandermondeSystemSolver7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>True if this object is valid. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk23VandermondeSystemSolver3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN23VandermondeSystemSolver6BufferE">
+<span id="_CPPv3NK4sptk23VandermondeSystemSolver3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN23VandermondeSystemSolver6BufferE"></span><span id="_CPPv2NK4sptk23VandermondeSystemSolver3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN23VandermondeSystemSolver6BufferE"></span><span id="sptk::VandermondeSystemSolver::Run__std::vector:double:CR.std::vector:double:CR.std::vector:double:P.VandermondeSystemSolver::BufferPC"></span><span class="target" id="classsptk_1_1VandermondeSystemSolver_1a066ea18b0c0a3464011465c6abcb5cc8"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;double&gt; &amp;<em>coefficient_vector</em>, <em class="property">const</em> std::vector&lt;double&gt; &amp;<em>constant_vector</em>, std::vector&lt;double&gt; *<em>solution_vector</em>, <a class="reference internal" href="#_CPPv4N4sptk23VandermondeSystemSolverE" title="sptk::VandermondeSystemSolver">VandermondeSystemSolver</a>::<a class="reference internal" href="#_CPPv4N4sptk23VandermondeSystemSolver6BufferE" title="sptk::VandermondeSystemSolver::Buffer">Buffer</a> *<em>buffer</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk23VandermondeSystemSolver3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN23VandermondeSystemSolver6BufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">coefficient_vector</span></code>: <span class="math notranslate nohighlight">\(M\)</span>-th order vector <span class="math notranslate nohighlight">\(\boldsymbol{x}\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">constant_vector</span></code>: <span class="math notranslate nohighlight">\(M\)</span>-th order vector <span class="math notranslate nohighlight">\(\boldsymbol{q}\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">solution_vector</span></code>: <span class="math notranslate nohighlight">\(M\)</span>-th order vector <span class="math notranslate nohighlight">\(\boldsymbol{w}\)</span>. </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">buffer</span></code>: <a class="reference internal" href="#classsptk_1_1VandermondeSystemSolver_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt id="_CPPv4N4sptk23VandermondeSystemSolver6BufferE">
+<span id="_CPPv3N4sptk23VandermondeSystemSolver6BufferE"></span><span id="_CPPv2N4sptk23VandermondeSystemSolver6BufferE"></span><span id="sptk::VandermondeSystemSolver::Buffer"></span><span class="target" id="classsptk_1_1VandermondeSystemSolver_1_1Buffer"></span><em class="property">class </em><code class="sig-name descname">Buffer</code><a class="headerlink" href="#_CPPv4N4sptk23VandermondeSystemSolver6BufferE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><a class="reference internal" href="#classsptk_1_1VandermondeSystemSolver_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1VandermondeSystemSolver"><span class="std std-ref">VandermondeSystemSolver</span></a> class. </p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="misc.html" class="btn btn-neutral float-right" title="misc" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../main/zerodf.html" class="btn btn-neutral float-left" title="zerodf" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2020, SPTK Working Group
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

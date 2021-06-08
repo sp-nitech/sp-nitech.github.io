@@ -37,8 +37,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="extract" href="extract.html" />
-    <link rel="prev" title="dmp" href="dmp.html" /> 
+    <link rel="next" title="excite" href="excite.html" />
+    <link rel="prev" title="dtw_merge" href="dtw_merge.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -105,7 +105,10 @@
 <li class="toctree-l1"><a class="reference internal" href="df2.html">df2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dfs.html">dfs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dmp.html">dmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtw.html">dtw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtw_merge.html">dtw_merge</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extract.html">extract</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fd.html">fd</a></li>
@@ -120,6 +123,10 @@
 <li class="toctree-l1"><a class="reference internal" href="gmmp.html">gmmp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="histogram.html">histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
@@ -168,14 +175,19 @@
 <li class="toctree-l1"><a class="reference internal" href="ramp.html">ramp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reverse.html">reverse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rlevdur.html">rlevdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rmse.html">rmse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="root_pol.html">root_pol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sin.html">sin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sopr.html">sopr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step.html">step</a></li>
 <li class="toctree-l1"><a class="reference internal" href="swab.html">swab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="symmetrize.html">symmetrize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="train.html">train</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transpose.html">transpose</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vc.html">vc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vopr.html">vopr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
@@ -183,6 +195,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Utility references</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../utils/math.html">math</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utils/misc.html">misc</a></li>
 </ul>
 
@@ -286,7 +299,7 @@
 </ul>
 </p>
 <p>The input is a set of probabilities: <div class="math notranslate nohighlight">
-\[ \begin{array}{ccc} \underbrace{p_1(1),\,p_1(2),\,\ldots,\,p_1(N)}_{\boldsymbol{p}(0)}, &amp; \underbrace{p_2(1),\,p_2(2),\,\ldots,\,p_2(N)}_{\boldsymbol{p}(1)}, &amp; \ldots, \end{array} \]</div>
+\[ \begin{array}{ccc} \underbrace{p_0(1),\,p_0(2),\,\ldots,\,p_0(N)}_{\boldsymbol{p}(0)}, &amp; \underbrace{p_1(1),\,p_1(2),\,\ldots,\,p_1(N)}_{\boldsymbol{p}(1)}, &amp; \ldots, \end{array} \]</div>
  If <code class="docutils literal notranslate"><span class="pre">-f</span></code> option is given, the output sequence is <div class="math notranslate nohighlight">
 \[ \begin{array}{cccc} H(0), &amp; H(1), &amp; H(2), &amp; \ldots, \end{array} \]</div>
  where <span class="math notranslate nohighlight">\(H(t)\)</span> is the entropy at <span class="math notranslate nohighlight">\(t\)</span>-th frame: <div class="math notranslate nohighlight">
@@ -297,7 +310,7 @@
 \[ \bar{H} = \frac{1}{T} \sum_{t=0}^{T-1} H(t), \]</div>
  where <span class="math notranslate nohighlight">\(T\)</span> is the number of the set of probabilities.</p>
 <p>The below example calculates maximum value of entropy:</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">step</span> <span class="o">-</span><span class="n">l</span> <span class="mi">4</span> <span class="o">|</span> <span class="nb">bin</span><span class="o">/</span><span class="n">sopr</span> <span class="o">-</span><span class="n">d</span> <span class="mi">4</span> <span class="o">|</span> <span class="n">entropy</span> <span class="o">-</span><span class="n">l</span> <span class="mi">4</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">step</span> <span class="o">-</span><span class="n">l</span> <span class="mi">4</span> <span class="o">|</span> <span class="n">sopr</span> <span class="o">-</span><span class="n">d</span> <span class="mi">4</span> <span class="o">|</span> <span class="n">entropy</span> <span class="o">-</span><span class="n">l</span> <span class="mi">4</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
 </pre></div>
 </div>
 </p>
@@ -428,10 +441,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="extract.html" class="btn btn-neutral float-right" title="extract" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="excite.html" class="btn btn-neutral float-right" title="excite" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="dmp.html" class="btn btn-neutral float-left" title="dmp" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="dtw_merge.html" class="btn btn-neutral float-left" title="dtw_merge" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

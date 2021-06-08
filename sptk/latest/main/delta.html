@@ -105,7 +105,10 @@
 <li class="toctree-l1"><a class="reference internal" href="df2.html">df2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dfs.html">dfs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dmp.html">dmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtw.html">dtw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtw_merge.html">dtw_merge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extract.html">extract</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fd.html">fd</a></li>
@@ -120,6 +123,10 @@
 <li class="toctree-l1"><a class="reference internal" href="gmmp.html">gmmp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="histogram.html">histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
@@ -168,14 +175,19 @@
 <li class="toctree-l1"><a class="reference internal" href="ramp.html">ramp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reverse.html">reverse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rlevdur.html">rlevdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rmse.html">rmse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="root_pol.html">root_pol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sin.html">sin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sopr.html">sopr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step.html">step</a></li>
 <li class="toctree-l1"><a class="reference internal" href="swab.html">swab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="symmetrize.html">symmetrize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="train.html">train</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transpose.html">transpose</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vc.html">vc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vopr.html">vopr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
@@ -183,6 +195,7 @@
 </ul>
 <p class="caption"><span class="caption-text">Utility references</span></p>
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="../utils/math.html">math</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utils/misc.html">misc</a></li>
 </ul>
 
@@ -278,7 +291,7 @@
 <li><p>width of 1st (and 2nd) regression coefficients</p></li>
 </ul>
 </p></li>
-<li><p><strong>-M</strong> <em>double</em> <ul>
+<li><p><strong>-magic</strong> <em>double</em> <ul>
 <li><p>magic number</p></li>
 </ul>
 </p></li>
@@ -304,7 +317,7 @@
 </pre></div>
 </div>
 </p>
-<p>If data contains a special number such as an unvoiced symbol in a sequence of fundamental frequencies, use <strong>-M</strong> option: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span> <span class="o">-</span><span class="n">l</span> <span class="mi">15</span> <span class="o">-</span><span class="n">D</span> <span class="n">delta</span><span class="o">.</span><span class="n">win</span> <span class="o">-</span><span class="n">M</span> <span class="o">-</span><span class="mf">1e+10</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">lf0</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">lf0</span><span class="o">.</span><span class="n">delta</span>
+<p>If data contains a special number such as an unvoiced symbol in a sequence of fundamental frequencies, use <strong>-magic</strong> option: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span> <span class="o">-</span><span class="n">l</span> <span class="mi">15</span> <span class="o">-</span><span class="n">D</span> <span class="n">delta</span><span class="o">.</span><span class="n">win</span> <span class="o">-</span><span class="n">magic</span> <span class="o">-</span><span class="mf">1e+10</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">lf0</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">lf0</span><span class="o">.</span><span class="n">delta</span>
 </pre></div>
 </div>
 </p>
@@ -337,7 +350,7 @@
 <p>The input is the <span class="math notranslate nohighlight">\(M\)</span>-th order static feature components: <div class="math notranslate nohighlight">
 \[ \begin{array}{cccc} x_t(0), &amp; x_t(1), &amp; \ldots, &amp; x_t(M), \end{array} \]</div>
  and the output is composed of the set of dynamic feature components: <div class="math notranslate nohighlight">
-\[ \begin{array}{cccccc} \Delta^{(1)} x_t(0), &amp; \ldots, &amp; \Delta^{(1)} x_t(M), \Delta^{(2)} x_t(0), &amp; \ldots, &amp; \Delta^{(D)} x_t(M). \end{array} \]</div>
+\[ \begin{array}{cccccc} \Delta^{(1)} x_t(0), &amp; \ldots, &amp; \Delta^{(1)} x_t(M), &amp; \Delta^{(2)} x_t(0), &amp; \ldots, &amp; \Delta^{(D)} x_t(M). \end{array} \]</div>
 </p>
 <p>The derivatives are derived as <div class="math notranslate nohighlight">
 \[ \Delta^{(d)} x(m) = \sum_{\tau=-L^{(d)}}^{L^{(d)}} w^{(d)}_{\tau} x_{t+\tau}(m) \]</div>
@@ -346,7 +359,7 @@
 <p class="breathe-sectiondef-title rubric">Public Functions</p>
 <dl class="cpp function">
 <dt id="_CPPv4N4sptk16DeltaCalculation16DeltaCalculationEiRKNSt6vectorINSt6vectorIdEEEEP20InputSourceInterfacebd">
-<span id="_CPPv3N4sptk16DeltaCalculation16DeltaCalculationEiRKNSt6vectorINSt6vectorIdEEEEP20InputSourceInterfacebd"></span><span id="_CPPv2N4sptk16DeltaCalculation16DeltaCalculationEiRKNSt6vectorINSt6vectorIdEEEEP20InputSourceInterfacebd"></span><span id="sptk::DeltaCalculation::DeltaCalculation__i.std::vector:std::vector:double::CR.InputSourceInterfaceP.b.double"></span><span class="target" id="classsptk_1_1DeltaCalculation_1aaa131a0b2102bfc7978fa83b007260ca"></span><code class="sig-name descname">DeltaCalculation</code><span class="sig-paren">(</span>int <em>num_order</em>, <em class="property">const</em> std::vector&lt;std::vector&lt;double&gt;&gt; &amp;<em>window_coefficients</em>, InputSourceInterface *<em>input_source</em>, bool <em>use_magic_number</em> = false, double <em>magic_number</em> = -1e+10<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk16DeltaCalculation16DeltaCalculationEiRKNSt6vectorINSt6vectorIdEEEEP20InputSourceInterfacebd" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk16DeltaCalculation16DeltaCalculationEiRKNSt6vectorINSt6vectorIdEEEEP20InputSourceInterfacebd"></span><span id="_CPPv2N4sptk16DeltaCalculation16DeltaCalculationEiRKNSt6vectorINSt6vectorIdEEEEP20InputSourceInterfacebd"></span><span id="sptk::DeltaCalculation::DeltaCalculation__i.std::vector:std::vector:double::CR.InputSourceInterfaceP.b.double"></span><span class="target" id="classsptk_1_1DeltaCalculation_1a9d9e9f9204c021cf6e9cc8949c8aed21"></span><code class="sig-name descname">DeltaCalculation</code><span class="sig-paren">(</span>int <em>num_order</em>, <em class="property">const</em> std::vector&lt;std::vector&lt;double&gt;&gt; &amp;<em>window_coefficients</em>, InputSourceInterface *<em>input_source</em>, bool <em>use_magic_number</em>, double <em>magic_number</em> = 0.0<span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk16DeltaCalculation16DeltaCalculationEiRKNSt6vectorINSt6vectorIdEEEEP20InputSourceInterfacebd" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><dl class="simple">
 <dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">num_order</span></code>: Order of coefficients, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
@@ -365,6 +378,16 @@
 <span id="_CPPv3NK4sptk16DeltaCalculation11GetNumOrderEv"></span><span id="_CPPv2NK4sptk16DeltaCalculation11GetNumOrderEv"></span><span id="sptk::DeltaCalculation::GetNumOrderC"></span><span class="target" id="classsptk_1_1DeltaCalculation_1a1e0a3aaeb6d1bb7965f314df7ef033fc"></span>int <code class="sig-name descname">GetNumOrder</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk16DeltaCalculation11GetNumOrderEv" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p><dl class="simple">
 <dt><strong>Return</strong></dt><dd><p>Order of coefficients. </p>
+</dd>
+</dl>
+</p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt id="_CPPv4NK4sptk16DeltaCalculation14GetMagicNumberEv">
+<span id="_CPPv3NK4sptk16DeltaCalculation14GetMagicNumberEv"></span><span id="_CPPv2NK4sptk16DeltaCalculation14GetMagicNumberEv"></span><span id="sptk::DeltaCalculation::GetMagicNumberC"></span><span class="target" id="classsptk_1_1DeltaCalculation_1a707350c5d291b27289434177e34bafe9"></span>double <code class="sig-name descname">GetMagicNumber</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk16DeltaCalculation14GetMagicNumberEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p><dl class="simple">
+<dt><strong>Return</strong></dt><dd><p>Magic number. </p>
 </dd>
 </dl>
 </p>
