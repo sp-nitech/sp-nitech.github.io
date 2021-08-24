@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8">
+  <meta charset="utf-8" />
   
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>ifft &mdash; SPTK  documentation</title>
   
@@ -13,10 +13,15 @@
   
   <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
 
   
   
+
   
+  
+
   
 
   
@@ -26,11 +31,11 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-        <script src="../_static/language_data.js"></script>
-        <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     
     <script type="text/javascript" src="../_static/js/theme.js"></script>
 
@@ -52,7 +57,7 @@
           
 
           
-            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> SPTK
+            <a href="../index.html" class="icon icon-home"> SPTK
           
 
           
@@ -83,7 +88,7 @@
               
             
             
-              <p class="caption"><span class="caption-text">Command references</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Command references</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
@@ -142,6 +147,7 @@
 <li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lbg.html">lbg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="levdur.html">levdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear_intpl.html">linear_intpl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc.html">lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2lsp.html">lpc2lsp</a></li>
@@ -152,6 +158,7 @@
 <li class="toctree-l1"><a class="reference internal" href="lspdf.html">lspdf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcpf.html">mcpf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="median.html">median</a></li>
 <li class="toctree-l1"><a class="reference internal" href="merge.html">merge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
@@ -185,7 +192,9 @@
 <li class="toctree-l1"><a class="reference internal" href="rmse.html">rmse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="root_pol.html">root_pol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sin.html">sin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snr.html">snr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sopr.html">sopr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spec.html">spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step.html">step</a></li>
 <li class="toctree-l1"><a class="reference internal" href="swab.html">swab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="symmetrize.html">symmetrize</a></li>
@@ -197,13 +206,15 @@
 <li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Utility references</span></p>
+<p class="caption" role="heading"><span class="caption-text">Utility references</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../utils/math.html">math</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../utils/misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/sptk.html">sptk</a></li>
 </ul>
 
             
@@ -244,6 +255,8 @@
 
 
 
+
+
 <div role="navigation" aria-label="breadcrumbs navigation">
 
   <ul class="wy-breadcrumbs">
@@ -255,7 +268,7 @@
     
       <li class="wy-breadcrumbs-aside">
         
-            
+          
             <a href="../_sources/main/ifft.rst.txt" rel="nofollow"> View page source</a>
           
         
@@ -272,10 +285,10 @@
   <div class="section" id="ifft">
 <span id="id1"></span><h1>ifft<a class="headerlink" href="#ifft" title="Permalink to this headline">¶</a></h1>
 <div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric">Functions</p>
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
-<dt id="_CPPv44mainiA_Pc">
-<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="ifft_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span>int <code class="sig-name descname">main</code><span class="sig-paren">(</span>int <em>argc</em>, char *<em>argv</em>[]<span class="sig-paren">)</span><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv44mainiA_Pc">
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="ifft_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
 <dd><p><em>ifft</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
 <p><ul class="simple">
 <li><p><strong>-l</strong> <em>int</em> <ul>
@@ -310,16 +323,17 @@
 </p></li>
 </ul>
 </p>
-<p><dl class="simple">
-<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argc</span></code>: Number of arguments. </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">argv</span></code>: Argument vector. </p></li>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
+<li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
 </ul>
 </dd>
-<dt><strong>Return</strong></dt><dd><p>0 on success, 1 on failure. </p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, 1 on failure. </p>
 </dd>
 </dl>
-</p>
 </dd></dl>
 
 </div>
@@ -328,8 +342,8 @@
 <p><a class="reference internal" href="fft.html#fft"><span class="std std-ref">fft</span></a>  <a class="reference internal" href="fftr.html#fftr"><span class="std std-ref">fftr</span></a></p>
 </div>
 <dl class="cpp class">
-<dt id="_CPPv4N4sptk27InverseFastFourierTransformE">
-<span id="_CPPv3N4sptk27InverseFastFourierTransformE"></span><span id="_CPPv2N4sptk27InverseFastFourierTransformE"></span><span id="sptk::InverseFastFourierTransform"></span><span class="target" id="classsptk_1_1InverseFastFourierTransform"></span><em class="property">class </em><code class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk">sptk</a><code class="sig-prename descclassname">::</code></code><code class="sig-name descname">InverseFastFourierTransform</code><a class="headerlink" href="#_CPPv4N4sptk27InverseFastFourierTransformE" title="Permalink to this definition">¶</a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk27InverseFastFourierTransformE">
+<span id="_CPPv3N4sptk27InverseFastFourierTransformE"></span><span id="_CPPv2N4sptk27InverseFastFourierTransformE"></span><span id="sptk::InverseFastFourierTransform"></span><span class="target" id="classsptk_1_1InverseFastFourierTransform"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">InverseFastFourierTransform</span></span></span><a class="headerlink" href="#_CPPv4N4sptk27InverseFastFourierTransformE" title="Permalink to this definition">¶</a><br /></dt>
 <dd><p>Calculate inverse DFT of complex-valued input data.</p>
 <p>The inputs are <span class="math notranslate nohighlight">\(M\)</span>-th order complex-valued data: <div class="math notranslate nohighlight">
 \[\begin{split} \begin{array}{cccc} \mathrm{Re}(X(0)), &amp; \mathrm{Re}(X(1)), &amp; \ldots, &amp; \mathrm{Re}(X(M)), \\ \mathrm{Im}(X(0)), &amp; \mathrm{Im}(X(1)), &amp; \ldots, &amp; \mathrm{Im}(X(M)). \end{array} \end{split}\]</div>
@@ -337,92 +351,92 @@
 \[\begin{split} \begin{array}{cccc} \mathrm{Re}(x(0)), &amp; \mathrm{Re}(x(1)), &amp; \ldots, &amp; \mathrm{Re}(x(L-1)), \\ \mathrm{Im}(x(0)), &amp; \mathrm{Im}(x(1)), &amp; \ldots, &amp; \mathrm{Im}(x(L-1)), \end{array} \end{split}\]</div>
  where <span class="math notranslate nohighlight">\(L\)</span> is the FFT length and must be a power of two. </p>
 <div class="breathe-sectiondef docutils container">
-<p class="breathe-sectiondef-title rubric">Public Functions</p>
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt id="_CPPv4N4sptk27InverseFastFourierTransform27InverseFastFourierTransformEi">
-<span id="_CPPv3N4sptk27InverseFastFourierTransform27InverseFastFourierTransformEi"></span><span id="_CPPv2N4sptk27InverseFastFourierTransform27InverseFastFourierTransformEi"></span><span id="sptk::InverseFastFourierTransform::InverseFastFourierTransform__i"></span><span class="target" id="classsptk_1_1InverseFastFourierTransform_1ae0eb65f002e194a445e9ee52b4480749"></span><code class="sig-name descname">InverseFastFourierTransform</code><span class="sig-paren">(</span>int <em>fft_length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk27InverseFastFourierTransform27InverseFastFourierTransformEi" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><dl class="simple">
-<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">fft_length</span></code>: FFT length, <span class="math notranslate nohighlight">\(L\)</span>. </p></li>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk27InverseFastFourierTransform27InverseFastFourierTransformEi">
+<span id="_CPPv3N4sptk27InverseFastFourierTransform27InverseFastFourierTransformEi"></span><span id="_CPPv2N4sptk27InverseFastFourierTransform27InverseFastFourierTransformEi"></span><span id="sptk::InverseFastFourierTransform::InverseFastFourierTransform__i"></span><span class="target" id="classsptk_1_1InverseFastFourierTransform_1ae0eb65f002e194a445e9ee52b4480749"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">InverseFastFourierTransform</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk27InverseFastFourierTransform27InverseFastFourierTransformEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>fft_length</strong> – <strong>[in]</strong> FFT length, <span class="math notranslate nohighlight">\(L\)</span>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk27InverseFastFourierTransform27InverseFastFourierTransformEii">
+<span id="_CPPv3N4sptk27InverseFastFourierTransform27InverseFastFourierTransformEii"></span><span id="_CPPv2N4sptk27InverseFastFourierTransform27InverseFastFourierTransformEii"></span><span id="sptk::InverseFastFourierTransform::InverseFastFourierTransform__i.i"></span><span class="target" id="classsptk_1_1InverseFastFourierTransform_1a0564f43ab04915dd74b7671eae4d88ae"></span><span class="sig-name descname"><span class="n"><span class="pre">InverseFastFourierTransform</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk27InverseFastFourierTransform27InverseFastFourierTransformEii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_order</strong> – <strong>[in]</strong> Order of input, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
+<li><p><strong>fft_length</strong> – <strong>[in]</strong> FFT length, <span class="math notranslate nohighlight">\(L\)</span>. </p></li>
 </ul>
 </dd>
 </dl>
-</p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4N4sptk27InverseFastFourierTransform27InverseFastFourierTransformEii">
-<span id="_CPPv3N4sptk27InverseFastFourierTransform27InverseFastFourierTransformEii"></span><span id="_CPPv2N4sptk27InverseFastFourierTransform27InverseFastFourierTransformEii"></span><span id="sptk::InverseFastFourierTransform::InverseFastFourierTransform__i.i"></span><span class="target" id="classsptk_1_1InverseFastFourierTransform_1a0564f43ab04915dd74b7671eae4d88ae"></span><code class="sig-name descname">InverseFastFourierTransform</code><span class="sig-paren">(</span>int <em>num_order</em>, int <em>fft_length</em><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk27InverseFastFourierTransform27InverseFastFourierTransformEii" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><dl class="simple">
-<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">num_order</span></code>: Order of input, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">fft_length</span></code>: FFT length, <span class="math notranslate nohighlight">\(L\)</span>. </p></li>
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk27InverseFastFourierTransform11GetNumOrderEv">
+<span id="_CPPv3NK4sptk27InverseFastFourierTransform11GetNumOrderEv"></span><span id="_CPPv2NK4sptk27InverseFastFourierTransform11GetNumOrderEv"></span><span id="sptk::InverseFastFourierTransform::GetNumOrderC"></span><span class="target" id="classsptk_1_1InverseFastFourierTransform_1acff62374532e014be8d80cc59400a523"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk27InverseFastFourierTransform11GetNumOrderEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Order of input. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk27InverseFastFourierTransform12GetFftLengthEv">
+<span id="_CPPv3NK4sptk27InverseFastFourierTransform12GetFftLengthEv"></span><span id="_CPPv2NK4sptk27InverseFastFourierTransform12GetFftLengthEv"></span><span id="sptk::InverseFastFourierTransform::GetFftLengthC"></span><span class="target" id="classsptk_1_1InverseFastFourierTransform_1a83b214bea251115fec09d444508c8b8a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk27InverseFastFourierTransform12GetFftLengthEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>FFT length. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk27InverseFastFourierTransform7IsValidEv">
+<span id="_CPPv3NK4sptk27InverseFastFourierTransform7IsValidEv"></span><span id="_CPPv2NK4sptk27InverseFastFourierTransform7IsValidEv"></span><span id="sptk::InverseFastFourierTransform::IsValidC"></span><span class="target" id="classsptk_1_1InverseFastFourierTransform_1a9ab41649e3ebbcf977c55938287d19ec"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk27InverseFastFourierTransform7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if this object is valid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk27InverseFastFourierTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk27InverseFastFourierTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk27InverseFastFourierTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::InverseFastFourierTransform::Run__std::vector:double:CR.std::vector:double:CR.std::vector:double:P.std::vector:double:PC"></span><span class="target" id="classsptk_1_1InverseFastFourierTransform_1a359013192e73830c44e51d4335f5f49c"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">real_part_input</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">imag_part_input</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">real_part_output</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">imag_part_output</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk27InverseFastFourierTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>real_part_input</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order real part of input. </p></li>
+<li><p><strong>imag_part_input</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order imaginary part of input. </p></li>
+<li><p><strong>real_part_output</strong> – <strong>[out]</strong> <span class="math notranslate nohighlight">\(L\)</span>-length real part of output. </p></li>
+<li><p><strong>imag_part_output</strong> – <strong>[out]</strong> <span class="math notranslate nohighlight">\(L\)</span>-length iaginary part of output. </p></li>
 </ul>
 </dd>
-</dl>
-</p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4sptk27InverseFastFourierTransform11GetNumOrderEv">
-<span id="_CPPv3NK4sptk27InverseFastFourierTransform11GetNumOrderEv"></span><span id="_CPPv2NK4sptk27InverseFastFourierTransform11GetNumOrderEv"></span><span id="sptk::InverseFastFourierTransform::GetNumOrderC"></span><span class="target" id="classsptk_1_1InverseFastFourierTransform_1acff62374532e014be8d80cc59400a523"></span>int <code class="sig-name descname">GetNumOrder</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk27InverseFastFourierTransform11GetNumOrderEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><dl class="simple">
-<dt><strong>Return</strong></dt><dd><p>Order of input. </p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
-</p>
 </dd></dl>
 
 <dl class="cpp function">
-<dt id="_CPPv4NK4sptk27InverseFastFourierTransform12GetFftLengthEv">
-<span id="_CPPv3NK4sptk27InverseFastFourierTransform12GetFftLengthEv"></span><span id="_CPPv2NK4sptk27InverseFastFourierTransform12GetFftLengthEv"></span><span id="sptk::InverseFastFourierTransform::GetFftLengthC"></span><span class="target" id="classsptk_1_1InverseFastFourierTransform_1a83b214bea251115fec09d444508c8b8a"></span>int <code class="sig-name descname">GetFftLength</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk27InverseFastFourierTransform12GetFftLengthEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><dl class="simple">
-<dt><strong>Return</strong></dt><dd><p>FFT length. </p>
-</dd>
-</dl>
-</p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4sptk27InverseFastFourierTransform7IsValidEv">
-<span id="_CPPv3NK4sptk27InverseFastFourierTransform7IsValidEv"></span><span id="_CPPv2NK4sptk27InverseFastFourierTransform7IsValidEv"></span><span id="sptk::InverseFastFourierTransform::IsValidC"></span><span class="target" id="classsptk_1_1InverseFastFourierTransform_1a9ab41649e3ebbcf977c55938287d19ec"></span>bool <code class="sig-name descname">IsValid</code><span class="sig-paren">(</span><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk27InverseFastFourierTransform7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><dl class="simple">
-<dt><strong>Return</strong></dt><dd><p>True if this object is valid. </p>
-</dd>
-</dl>
-</p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4sptk27InverseFastFourierTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEE">
-<span id="_CPPv3NK4sptk27InverseFastFourierTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk27InverseFastFourierTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::InverseFastFourierTransform::Run__std::vector:double:CR.std::vector:double:CR.std::vector:double:P.std::vector:double:PC"></span><span class="target" id="classsptk_1_1InverseFastFourierTransform_1a359013192e73830c44e51d4335f5f49c"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span><em class="property">const</em> std::vector&lt;double&gt; &amp;<em>real_part_input</em>, <em class="property">const</em> std::vector&lt;double&gt; &amp;<em>imag_part_input</em>, std::vector&lt;double&gt; *<em>real_part_output</em>, std::vector&lt;double&gt; *<em>imag_part_output</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk27InverseFastFourierTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><dl class="simple">
-<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">real_part_input</span></code>: <span class="math notranslate nohighlight">\(M\)</span>-th order real part of input. </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[in]</span> <span class="pre">imag_part_input</span></code>: <span class="math notranslate nohighlight">\(M\)</span>-th order imaginary part of input. </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">real_part_output</span></code>: <span class="math notranslate nohighlight">\(L\)</span>-length real part of output. </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[out]</span> <span class="pre">imag_part_output</span></code>: <span class="math notranslate nohighlight">\(L\)</span>-length iaginary part of output. </p></li>
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk27InverseFastFourierTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk27InverseFastFourierTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk27InverseFastFourierTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::InverseFastFourierTransform::Run__std::vector:double:P.std::vector:double:PC"></span><span class="target" id="classsptk_1_1InverseFastFourierTransform_1ade68c6b3e497c43fba23002f06a0de91"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">real_part</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">imag_part</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk27InverseFastFourierTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>real_part</strong> – <strong>[inout]</strong> Real part. </p></li>
+<li><p><strong>imag_part</strong> – <strong>[inout]</strong> Imaginary part. </p></li>
 </ul>
 </dd>
-<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
-</p>
-</dd></dl>
-
-<dl class="cpp function">
-<dt id="_CPPv4NK4sptk27InverseFastFourierTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEE">
-<span id="_CPPv3NK4sptk27InverseFastFourierTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk27InverseFastFourierTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::InverseFastFourierTransform::Run__std::vector:double:P.std::vector:double:PC"></span><span class="target" id="classsptk_1_1InverseFastFourierTransform_1ade68c6b3e497c43fba23002f06a0de91"></span>bool <code class="sig-name descname">Run</code><span class="sig-paren">(</span>std::vector&lt;double&gt; *<em>real_part</em>, std::vector&lt;double&gt; *<em>imag_part</em><span class="sig-paren">)</span> <em class="property">const</em><a class="headerlink" href="#_CPPv4NK4sptk27InverseFastFourierTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEE" title="Permalink to this definition">¶</a><br /></dt>
-<dd><p><dl class="simple">
-<dt><strong>Parameters</strong></dt><dd><ul class="breatheparameterlist simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">real_part</span></code>: Real part. </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">[inout]</span> <span class="pre">imag_part</span></code>: Imaginary part. </p></li>
-</ul>
-</dd>
-<dt><strong>Return</strong></dt><dd><p>True on success, false on failure. </p>
-</dd>
-</dl>
-</p>
 </dd></dl>
 
 </div>
@@ -435,37 +449,29 @@
            
           </div>
           <footer>
-  
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="ifft2.html" class="btn btn-neutral float-right" title="ifft2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="idct.html" class="btn btn-neutral float-left" title="idct" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
+        <a href="ifft2.html" class="btn btn-neutral float-right" title="ifft2" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="idct.html" class="btn btn-neutral float-left" title="idct" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
-  
 
   <hr/>
 
   <div role="contentinfo">
     <p>
-        
-        &copy; Copyright 2020, SPTK Working Group
+        &#169; Copyright 2021, SPTK Working Group.
 
     </p>
   </div>
     
     
     
-    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     
-    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
     
     provided by <a href="https://readthedocs.org">Read the Docs</a>. 
 
 </footer>
-
         </div>
       </div>
 

@@ -1,0 +1,752 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>sptk &mdash; SPTK  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="misc" href="misc.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SPTK
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Command references</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../main/acorr.html">acorr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/acr2csm.html">acr2csm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/amgcep.html">amgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/average.html">average</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/b2mc.html">b2mc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/bcp.html">bcp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/bcut.html">bcut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/c2acr.html">c2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/c2mpir.html">c2mpir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/c2ndps.html">c2ndps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/cdist.html">cdist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/clip.html">clip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/csm2acr.html">csm2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/dct.html">dct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/decimate.html">decimate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/delay.html">delay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/dequantize.html">dequantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/df2.html">df2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/dfs.html">dfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/dmp.html">dmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/dtw.html">dtw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/dtw_merge.html">dtw_merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/entropy.html">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/excite.html">excite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/extract.html">extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/fbank.html">fbank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/fd.html">fd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/fft.html">fft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/fft2.html">fft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/fftr.html">fftr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/fftr2.html">fftr2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/frame.html">frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/freqt.html">freqt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/gmm.html">gmm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/gmmp.html">gmmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/grpdelay.html">grpdelay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/histogram.html">histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/huffman.html">huffman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/huffman_decode.html">huffman_decode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/idct.html">idct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/ifft.html">ifft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/ifft2.html">ifft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/ignorm.html">ignorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/imglsadf.html">imglsadf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/imsvq.html">imsvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/lbg.html">lbg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/levdur.html">levdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/linear_intpl.html">linear_intpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/lpc.html">lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/lpc2c.html">lpc2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/lpc2lsp.html">lpc2lsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/lpccheck.html">lpccheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/lsp2lpc.html">lsp2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/lspcheck.html">lspcheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/lspdf.html">lspdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/ltcdf.html">ltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/mc2b.html">mc2b</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/mcpf.html">mcpf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/median.html">median</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/merge.html">merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/mgc2mgc.html">mgc2mgc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/mgc2sp.html">mgc2sp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/mgcep.html">mgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/mglsadf.html">mglsadf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/mglsp2sp.html">mglsp2sp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/minmax.html">minmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/mlsacheck.html">mlsacheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/mseq.html">mseq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/msvq.html">msvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/ndps2c.html">ndps2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/par2lar.html">par2lar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/pca.html">pca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/pcas.html">pcas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/phase.html">phase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/pqmf.html">pqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/quantize.html">quantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/ramp.html">ramp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/reverse.html">reverse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/rlevdur.html">rlevdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/rmse.html">rmse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/root_pol.html">root_pol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/sin.html">sin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/snr.html">snr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/sopr.html">sopr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/spec.html">spec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/step.html">step</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/swab.html">swab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/symmetrize.html">symmetrize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/train.html">train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/transpose.html">transpose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/vc.html">vc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/vopr.html">vopr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/vstat.html">vstat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/vsum.html">vsum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/x2x.html">x2x</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/zcross.html">zcross</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/zerodf.html">zerodf</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utility references</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="math.html">math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="misc.html">misc</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">sptk</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SPTK</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>sptk</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/utils/sptk.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sptk">
+<h1>sptk<a class="headerlink" href="#sptk" title="Permalink to this headline">¶</a></h1>
+<dl class="cpp type">
+<dt class="sig sig-object cpp" id="_CPPv44sptk">
+<span id="_CPPv34sptk"></span><span id="_CPPv24sptk"></span><span class="target" id="namespacesptk"></span><span class="k"><span class="pre">namespace</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">sptk</span></span></span><br /></dt>
+<dd><div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN4sptk10ReadStreamEbP1TPNSt7istreamE">
+<span id="_CPPv3I0EN4sptk10ReadStreamEP1TPNSt7istreamE"></span><span id="_CPPv2I0EN4sptk10ReadStreamEP1TPNSt7istreamE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="sptk__utils_8h_1aad45e14974603af1f1926bd2b75ef7c1"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ReadStream</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0EN4sptk10ReadStreamEbP1TPNSt7istreamE" title="sptk::ReadStream::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">data_to_read</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">istream</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_stream</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN4sptk10ReadStreamEbP1TPNSt7istreamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_to_read</strong> – <strong>[out]</strong> Scalar. </p></li>
+<li><p><strong>input_stream</strong> – <strong>[out]</strong> Stream to be read. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk10ReadStreamEPN4sptk6MatrixEPNSt7istreamE">
+<span id="_CPPv3N4sptk10ReadStreamEPN4sptk6MatrixEPNSt7istreamE"></span><span id="_CPPv2N4sptk10ReadStreamEPN4sptk6MatrixEPNSt7istreamE"></span><span id="sptk::ReadStream__sptk::MatrixP.isP"></span><span class="target" id="sptk__utils_8h_1a4fcc3234e68a60840a2dfc84b1695f46"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ReadStream</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="math.html#_CPPv4N4sptk6MatrixE" title="sptk::Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">matrix_to_read</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">istream</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_stream</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk10ReadStreamEPN4sptk6MatrixEPNSt7istreamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>matrix_to_read</strong> – <strong>[out]</strong> <a class="reference internal" href="math.html#classsptk_1_1Matrix"><span class="std std-ref">Matrix</span></a>. </p></li>
+<li><p><strong>input_stream</strong> – <strong>[out]</strong> Stream to be read. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk10ReadStreamEPN4sptk15SymmetricMatrixEPNSt7istreamE">
+<span id="_CPPv3N4sptk10ReadStreamEPN4sptk15SymmetricMatrixEPNSt7istreamE"></span><span id="_CPPv2N4sptk10ReadStreamEPN4sptk15SymmetricMatrixEPNSt7istreamE"></span><span id="sptk::ReadStream__sptk::SymmetricMatrixP.isP"></span><span class="target" id="sptk__utils_8h_1a925d7d622a84955b88b6d8d3febc4454"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ReadStream</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="math.html#_CPPv4N4sptk15SymmetricMatrixE" title="sptk::SymmetricMatrix"><span class="n"><span class="pre">SymmetricMatrix</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">matrix_to_read</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">istream</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_stream</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk10ReadStreamEPN4sptk15SymmetricMatrixEPNSt7istreamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>matrix_to_read</strong> – <strong>[out]</strong> Symmetric matrix. </p></li>
+<li><p><strong>input_stream</strong> – <strong>[out]</strong> Stream to be read. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN4sptk10ReadStreamEbbiiiPNSt6vectorI1TEEPNSt7istreamEPi">
+<span id="_CPPv3I0EN4sptk10ReadStreamEbiiiPNSt6vectorI1TEEPNSt7istreamEPi"></span><span id="_CPPv2I0EN4sptk10ReadStreamEbiiiPNSt6vectorI1TEEPNSt7istreamEPi"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="sptk__utils_8h_1a781543d7314ff5a0faaba01da135a48a"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ReadStream</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">zero_padding</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">stream_skip</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">read_point</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">read_size</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN4sptk10ReadStreamEbbiiiPNSt6vectorI1TEEPNSt7istreamEPi" title="sptk::ReadStream::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">sequence_to_read</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">istream</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_stream</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">actual_read_size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN4sptk10ReadStreamEbbiiiPNSt6vectorI1TEEPNSt7istreamEPi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>zero_padding</strong> – <strong>[in]</strong> If true and <span class="math notranslate nohighlight">\(L'&gt;0\)</span>, pad <span class="math notranslate nohighlight">\(L-L'\)</span> elements with zeros and return true. If false, padding is not performed and return false. </p></li>
+<li><p><strong>stream_skip</strong> – <strong>[in]</strong> Skip size. </p></li>
+<li><p><strong>read_point</strong> – <strong>[in]</strong> Insert index in vector. </p></li>
+<li><p><strong>read_size</strong> – <strong>[in]</strong> Target read size, <span class="math notranslate nohighlight">\(L\)</span>. </p></li>
+<li><p><strong>sequence_to_read</strong> – <strong>[out]</strong> Vector. </p></li>
+<li><p><strong>input_stream</strong> – <strong>[out]</strong> Stream to be read. </p></li>
+<li><p><strong>actual_read_size</strong> – <strong>[out]</strong> Actual read size, <span class="math notranslate nohighlight">\(L'\)</span>. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN4sptk11WriteStreamEb1TPNSt7ostreamE">
+<span id="_CPPv3I0EN4sptk11WriteStreamE1TPNSt7ostreamE"></span><span id="_CPPv2I0EN4sptk11WriteStreamE1TPNSt7ostreamE"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="sptk__utils_8h_1a4545bfa01a383f7d922ae968d5139186"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WriteStream</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0EN4sptk11WriteStreamEb1TPNSt7ostreamE" title="sptk::WriteStream::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">data_to_write</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">output_stream</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN4sptk11WriteStreamEb1TPNSt7ostreamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data_to_write</strong> – <strong>[in]</strong> Scalar. </p></li>
+<li><p><strong>output_stream</strong> – <strong>[out]</strong> Stream to be write. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk11WriteStreamERKN4sptk6MatrixEPNSt7ostreamE">
+<span id="_CPPv3N4sptk11WriteStreamERKN4sptk6MatrixEPNSt7ostreamE"></span><span id="_CPPv2N4sptk11WriteStreamERKN4sptk6MatrixEPNSt7ostreamE"></span><span id="sptk::WriteStream__sptk::MatrixCR.osP"></span><span class="target" id="sptk__utils_8h_1a38acaf5c7a21d576b3d6ddefa14b1f41"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WriteStream</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="math.html#_CPPv4N4sptk6MatrixE" title="sptk::Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">matrix_to_write</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">output_stream</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk11WriteStreamERKN4sptk6MatrixEPNSt7ostreamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>matrix_to_write</strong> – <strong>[in]</strong> <a class="reference internal" href="math.html#classsptk_1_1Matrix"><span class="std std-ref">Matrix</span></a>. </p></li>
+<li><p><strong>output_stream</strong> – <strong>[out]</strong> Stream to be write. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk11WriteStreamERKN4sptk15SymmetricMatrixEPNSt7ostreamE">
+<span id="_CPPv3N4sptk11WriteStreamERKN4sptk15SymmetricMatrixEPNSt7ostreamE"></span><span id="_CPPv2N4sptk11WriteStreamERKN4sptk15SymmetricMatrixEPNSt7ostreamE"></span><span id="sptk::WriteStream__sptk::SymmetricMatrixCR.osP"></span><span class="target" id="sptk__utils_8h_1a50a0e78d187b0f8df2b11aab687f872b"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WriteStream</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="math.html#_CPPv4N4sptk15SymmetricMatrixE" title="sptk::SymmetricMatrix"><span class="n"><span class="pre">SymmetricMatrix</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">matrix_to_write</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">output_stream</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk11WriteStreamERKN4sptk15SymmetricMatrixEPNSt7ostreamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>matrix_to_write</strong> – <strong>[in]</strong> Symmetric matrix. </p></li>
+<li><p><strong>output_stream</strong> – <strong>[out]</strong> Stream to be write. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN4sptk11WriteStreamEbiiRKNSt6vectorI1TEEPNSt7ostreamEPi">
+<span id="_CPPv3I0EN4sptk11WriteStreamEiiRKNSt6vectorI1TEEPNSt7ostreamEPi"></span><span id="_CPPv2I0EN4sptk11WriteStreamEiiRKNSt6vectorI1TEEPNSt7ostreamEPi"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="sptk__utils_8h_1aea160a43fb84d77e7d40f65b7f4270c3"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WriteStream</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">write_point</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">write_size</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="#_CPPv4I0EN4sptk11WriteStreamEbiiRKNSt6vectorI1TEEPNSt7ostreamEPi" title="sptk::WriteStream::T"><span class="n"><span class="pre">T</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">sequence_to_write</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">output_stream</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">actual_write_size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN4sptk11WriteStreamEbiiRKNSt6vectorI1TEEPNSt7ostreamEPi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>write_point</strong> – <strong>[in]</strong> Start index. </p></li>
+<li><p><strong>write_size</strong> – <strong>[in]</strong> Target write size. </p></li>
+<li><p><strong>sequence_to_write</strong> – <strong>[in]</strong> Vector. </p></li>
+<li><p><strong>output_stream</strong> – <strong>[out]</strong> Stream to be write. </p></li>
+<li><p><strong>actual_write_size</strong> – <strong>[out]</strong> Actual write size. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4I0EN4sptk8SnPrintfEb1TRKNSt6stringENSt6size_tEPc">
+<span id="_CPPv3I0EN4sptk8SnPrintfE1TRKNSt6stringENSt6size_tEPc"></span><span id="_CPPv2I0EN4sptk8SnPrintfE1TRKNSt6stringENSt6size_tEPc"></span><span class="k"><span class="pre">template</span></span><span class="p"><span class="pre">&lt;</span></span><span class="k"><span class="pre">typename</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">T</span></span></span><span class="p"><span class="pre">&gt;</span></span><br /><span class="target" id="sptk__utils_8h_1a8ca5820be6ce0b85b439ecd263219bf0"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SnPrintf</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4I0EN4sptk8SnPrintfEb1TRKNSt6stringENSt6size_tEPc" title="sptk::SnPrintf::T"><span class="n"><span class="pre">T</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">data</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">print_format</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">size_t</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">buffer_size</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4I0EN4sptk8SnPrintfEb1TRKNSt6stringENSt6size_tEPc" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – <strong>[in]</strong> Data. </p></li>
+<li><p><strong>print_format</strong> – <strong>[in]</strong> Print format. </p></li>
+<li><p><strong>buffer_size</strong> – <strong>[in]</strong> Buffer size. </p></li>
+<li><p><strong>buffer</strong> – <strong>[out]</strong> Formatted data. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk22ConvertBooleanToStringEb">
+<span id="_CPPv3N4sptk22ConvertBooleanToStringEb"></span><span id="_CPPv2N4sptk22ConvertBooleanToStringEb"></span><span id="sptk::ConvertBooleanToString__b"></span><span class="target" id="sptk__utils_8h_1ae5f26c0aaf061ce32a60ca4c7ea97375"></span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="sig-name descname"><span class="n"><span class="pre">ConvertBooleanToString</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">input</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk22ConvertBooleanToStringEb" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input</strong> – <strong>[in]</strong> Boolean. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Converted string, “TRUE” or “FALSE”. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk22ConvertStringToIntegerERKNSt6stringEPi">
+<span id="_CPPv3N4sptk22ConvertStringToIntegerERKNSt6stringEPi"></span><span id="_CPPv2N4sptk22ConvertStringToIntegerERKNSt6stringEPi"></span><span id="sptk::ConvertStringToInteger__ssCR.iP"></span><span class="target" id="sptk__utils_8h_1ab01b86c3e60cf52590f72f7a4ea5ab57"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ConvertStringToInteger</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">input</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">output</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk22ConvertStringToIntegerERKNSt6stringEPi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> – <strong>[in]</strong> String. </p></li>
+<li><p><strong>output</strong> – <strong>[out]</strong> Converted integer value. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk21ConvertStringToDoubleERKNSt6stringEPd">
+<span id="_CPPv3N4sptk21ConvertStringToDoubleERKNSt6stringEPd"></span><span id="_CPPv2N4sptk21ConvertStringToDoubleERKNSt6stringEPd"></span><span id="sptk::ConvertStringToDouble__ssCR.doubleP"></span><span class="target" id="sptk__utils_8h_1af3a4b83f41888c9ec71d1f2f41f6b8ae"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ConvertStringToDouble</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">input</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">output</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk21ConvertStringToDoubleERKNSt6stringEPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> – <strong>[in]</strong> String. </p></li>
+<li><p><strong>output</strong> – <strong>[out]</strong> Converted float value. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk28ConvertSpecialStringToDoubleERKNSt6stringEPd">
+<span id="_CPPv3N4sptk28ConvertSpecialStringToDoubleERKNSt6stringEPd"></span><span id="_CPPv2N4sptk28ConvertSpecialStringToDoubleERKNSt6stringEPd"></span><span id="sptk::ConvertSpecialStringToDouble__ssCR.doubleP"></span><span class="target" id="sptk__utils_8h_1ae364649d646343287c19e46377e98d81"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ConvertSpecialStringToDouble</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">input</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">output</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk28ConvertSpecialStringToDoubleERKNSt6stringEPd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> – <strong>[in]</strong> String can be “pi”, “db”, “cent”, “semitone”, “octave”, “sqrtX”, “lnX”, “expX”, and “X”, where “X” is a number. </p></li>
+<li><p><strong>output</strong> – <strong>[out]</strong> Converted float value. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk6IsEvenEi">
+<span id="_CPPv3N4sptk6IsEvenEi"></span><span id="_CPPv2N4sptk6IsEvenEi"></span><span id="sptk::IsEven__i"></span><span class="target" id="sptk__utils_8h_1abbe62da980a63205819ed2fbd10cff90"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsEven</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk6IsEvenEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>num</strong> – <strong>[in]</strong> A number. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if given number is even, false otherwise. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk9IsInRangeEiii">
+<span id="_CPPv3N4sptk9IsInRangeEiii"></span><span id="_CPPv2N4sptk9IsInRangeEiii"></span><span id="sptk::IsInRange__i.i.i"></span><span class="target" id="sptk__utils_8h_1ab44d951b8ece4f3322cbbcab006c3fbd"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsInRange</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">min</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">max</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk9IsInRangeEiii" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num</strong> – <strong>[in]</strong> A number. </p></li>
+<li><p><strong>min</strong> – <strong>[in]</strong> Minimum value. </p></li>
+<li><p><strong>max</strong> – <strong>[in]</strong> Maximum value. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if given number is in [min, max], false otherwise. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk9IsInRangeEddd">
+<span id="_CPPv3N4sptk9IsInRangeEddd"></span><span id="_CPPv2N4sptk9IsInRangeEddd"></span><span id="sptk::IsInRange__double.double.double"></span><span class="target" id="sptk__utils_8h_1a091582e86cef5579f2c85e76b98cfa5a"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsInRange</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">min</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">max</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk9IsInRangeEddd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num</strong> – <strong>[in]</strong> A number. </p></li>
+<li><p><strong>min</strong> – <strong>[in]</strong> Minimum value. </p></li>
+<li><p><strong>max</strong> – <strong>[in]</strong> Maximum value. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if given number is in [min, max], false otherwise. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk12IsPowerOfTwoEi">
+<span id="_CPPv3N4sptk12IsPowerOfTwoEi"></span><span id="_CPPv2N4sptk12IsPowerOfTwoEi"></span><span id="sptk::IsPowerOfTwo__i"></span><span class="target" id="sptk__utils_8h_1ad8a95004a0a7e832e7c6e12a8a05882a"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsPowerOfTwo</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk12IsPowerOfTwoEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>num</strong> – <strong>[in]</strong> A number. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if given number is <span class="math notranslate nohighlight">\(2^n\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is a non-negative number, false otherwise. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk12IsValidAlphaEd">
+<span id="_CPPv3N4sptk12IsValidAlphaEd"></span><span id="_CPPv2N4sptk12IsValidAlphaEd"></span><span id="sptk::IsValidAlpha__double"></span><span class="target" id="sptk__utils_8h_1a0ac0993ee60038df4e07c6f3bbd78dfc"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValidAlpha</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">alpha</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk12IsValidAlphaEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>alpha</strong> – <strong>[in]</strong> All-pass constant, <span class="math notranslate nohighlight">\(\alpha\)</span>. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if given alpha satisfy <span class="math notranslate nohighlight">\(|\alpha| &lt; 1\)</span>, false otherwise. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk12IsValidGammaEd">
+<span id="_CPPv3N4sptk12IsValidGammaEd"></span><span id="_CPPv2N4sptk12IsValidGammaEd"></span><span id="sptk::IsValidGamma__double"></span><span class="target" id="sptk__utils_8h_1a79ed90cc1554b923f3717666a3cfeee4"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValidGamma</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">gamma</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk12IsValidGammaEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>gamma</strong> – <strong>[in]</strong> Gamma, <span class="math notranslate nohighlight">\(\gamma\)</span>. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if given gamma satisfy <span class="math notranslate nohighlight">\(|\gamma| \le 1\)</span>, false otherwise. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk10NextPowTwoEi">
+<span id="_CPPv3N4sptk10NextPowTwoEi"></span><span id="_CPPv2N4sptk10NextPowTwoEi"></span><span id="sptk::NextPowTwo__i"></span><span class="target" id="sptk__utils_8h_1a25e6761bd3085c78cdadc3f518dc1c3d"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NextPowTwo</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk10NextPowTwoEi" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>num</strong> – <strong>[in]</strong> A number, <span class="math notranslate nohighlight">\(x\)</span>. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The smallest <span class="math notranslate nohighlight">\(2^n\)</span> greater than or equal to <span class="math notranslate nohighlight">\(x\)</span>, where <span class="math notranslate nohighlight">\(n\)</span> is a non-negative number. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk11ExtractSignEd">
+<span id="_CPPv3N4sptk11ExtractSignEd"></span><span id="_CPPv2N4sptk11ExtractSignEd"></span><span id="sptk::ExtractSign__double"></span><span class="target" id="sptk__utils_8h_1a722ab1e801ab2b2969d4d7347c35a70d"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ExtractSign</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk11ExtractSignEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>num</strong> – <strong>[in]</strong> A number, <span class="math notranslate nohighlight">\(x\)</span>. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><span class="math notranslate nohighlight">\(\mathrm{sgn}(x)\)</span>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk8FloorLogEd">
+<span id="_CPPv3N4sptk8FloorLogEd"></span><span id="_CPPv2N4sptk8FloorLogEd"></span><span id="sptk::FloorLog__double"></span><span class="target" id="sptk__utils_8h_1ab9f942da7d789dc7cd1f3aeac443b4dc"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FloorLog</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk8FloorLogEd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>num</strong> – <strong>[in]</strong> A number, <span class="math notranslate nohighlight">\(x\)</span>. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><span class="math notranslate nohighlight">\(\max(\ln(x), -1 \times 10^{10})\)</span>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk9FloorLog2Ed">
+<span id="_CPPv3N4sptk9FloorLog2Ed"></span><span id="_CPPv2N4sptk9FloorLog2Ed"></span><span id="sptk::FloorLog2__double"></span><span class="target" id="sptk__utils_8h_1ac5f337ed356ccc2a519f70ddfb26dd0e"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FloorLog2</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk9FloorLog2Ed" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>num</strong> – <strong>[in]</strong> A number, <span class="math notranslate nohighlight">\(x\)</span>. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><span class="math notranslate nohighlight">\(\max(\log_2(x), -1 \times 10^{10})\)</span>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk10FloorLog10Ed">
+<span id="_CPPv3N4sptk10FloorLog10Ed"></span><span id="_CPPv2N4sptk10FloorLog10Ed"></span><span id="sptk::FloorLog10__double"></span><span class="target" id="sptk__utils_8h_1adedd3f954542cb2b1fee622e99a25beb"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FloorLog10</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk10FloorLog10Ed" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>num</strong> – <strong>[in]</strong> A number, <span class="math notranslate nohighlight">\(x\)</span>. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><span class="math notranslate nohighlight">\(\max(\log_{10}(x), -1 \times 10^{10})\)</span>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk13AddInLogSpaceEdd">
+<span id="_CPPv3N4sptk13AddInLogSpaceEdd"></span><span id="_CPPv2N4sptk13AddInLogSpaceEdd"></span><span id="sptk::AddInLogSpace__double.double"></span><span class="target" id="sptk__utils_8h_1a27e871a948989310f74e54ae6a58128c"></span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddInLogSpace</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">log_x</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">log_y</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk13AddInLogSpaceEdd" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>log_x</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(\ln(x)\)</span>. </p></li>
+<li><p><strong>log_y</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(\ln(y)\)</span>. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p><span class="math notranslate nohighlight">\(\ln(x + y)\)</span>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk13PrintDataTypeERKNSt6stringEPNSt7ostreamE">
+<span id="_CPPv3N4sptk13PrintDataTypeERKNSt6stringEPNSt7ostreamE"></span><span id="_CPPv2N4sptk13PrintDataTypeERKNSt6stringEPNSt7ostreamE"></span><span id="sptk::PrintDataType__ssCR.osP"></span><span class="target" id="sptk__utils_8h_1a21d54853825bc598d2034fad91b1b427"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PrintDataType</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">symbol</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostream</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">stream</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk13PrintDataTypeERKNSt6stringEPNSt7ostreamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>symbol</strong> – <strong>[in]</strong> A character represents data type. </p></li>
+<li><p><strong>stream</strong> – <strong>[out]</strong> Stream to be written readable data type. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk17PrintErrorMessageERKNSt6stringERKNSt13ostringstreamE">
+<span id="_CPPv3N4sptk17PrintErrorMessageERKNSt6stringERKNSt13ostringstreamE"></span><span id="_CPPv2N4sptk17PrintErrorMessageERKNSt6stringERKNSt13ostringstreamE"></span><span id="sptk::PrintErrorMessage__ssCR.std::ostringstreamCR"></span><span class="target" id="sptk__utils_8h_1ad6440cb606857657af990dad1664dfce"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PrintErrorMessage</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">string</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">program_name</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">ostringstream</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">message</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk17PrintErrorMessageERKNSt6stringERKNSt13ostringstreamE" title="Permalink to this definition">¶</a><br /></dt>
+<dd><p>Print error message to standard error.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>program_name</strong> – <strong>[in]</strong> Name of SPTK command. </p></li>
+<li><p><strong>message</strong> – <strong>[in]</strong> Error message. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="misc.html" class="btn btn-neutral float-left" title="misc" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, SPTK Working Group.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
