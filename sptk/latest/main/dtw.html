@@ -1,74 +1,35 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>dtw &mdash; SPTK  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="dtw_merge" href="dtw_merge.html" />
     <link rel="prev" title="dmp" href="dmp.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
             <a href="../index.html" class="icon icon-home"> SPTK
-          
-
-          
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -76,18 +37,7 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Command references</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
@@ -119,6 +69,7 @@
 <li class="toctree-l1"><a class="reference internal" href="extract.html">extract</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fd.html">fd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fdrw.html">fdrw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fft2.html">fft2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
@@ -126,10 +77,15 @@
 <li class="toctree-l1"><a class="reference internal" href="fftr2.html">fftr2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
 <li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glogsp.html">glogsp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gmm.html">gmm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gmmp.html">gmmp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpolezero.html">gpolezero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grlogsp.html">grlogsp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gseries.html">gseries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gwave.html">gwave</a></li>
 <li class="toctree-l1"><a class="reference internal" href="histogram.html">histogram</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
@@ -217,73 +173,32 @@
 <li class="toctree-l1"><a class="reference internal" href="../utils/sptk.html">sptk</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="../index.html">SPTK</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>dtw</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/main/dtw.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="dtw">
-<span id="id1"></span><h1>dtw<a class="headerlink" href="#dtw" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="dtw">
+<span id="id1"></span><h1>dtw<a class="headerlink" href="#dtw" title="Permalink to this headline"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
@@ -355,7 +270,7 @@
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk18DynamicTimeWarpingE">
-<span id="_CPPv3N4sptk18DynamicTimeWarpingE"></span><span id="_CPPv2N4sptk18DynamicTimeWarpingE"></span><span id="sptk::DynamicTimeWarping"></span><span class="target" id="classsptk_1_1DynamicTimeWarping"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">DynamicTimeWarping</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18DynamicTimeWarpingE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk18DynamicTimeWarpingE"></span><span id="_CPPv2N4sptk18DynamicTimeWarpingE"></span><span id="sptk::DynamicTimeWarping"></span><span class="target" id="classsptk_1_1DynamicTimeWarping"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">DynamicTimeWarping</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18DynamicTimeWarpingE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Perform dynamic time warping.</p>
 <p>The input is the <span class="math notranslate nohighlight">\(M\)</span>-th order query vectors: <div class="math notranslate nohighlight">
 \[ \begin{array}{cccc} \boldsymbol{x}(1), &amp; \boldsymbol{x}(2), &amp; \ldots, &amp; \boldsymbol{x}(T_x), \end{array} \]</div>
@@ -370,55 +285,55 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
 <dl class="cpp enum">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraintsE">
-<span id="_CPPv3N4sptk18DynamicTimeWarping20LocalPathConstraintsE"></span><span id="_CPPv2N4sptk18DynamicTimeWarping20LocalPathConstraintsE"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1ae0e39c769674489882490f59cb50c792"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LocalPathConstraints</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraintsE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk18DynamicTimeWarping20LocalPathConstraintsE"></span><span id="_CPPv2N4sptk18DynamicTimeWarping20LocalPathConstraintsE"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1ae0e39c769674489882490f59cb50c792"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LocalPathConstraints</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraintsE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Local path constraints. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints6kType0E">
-<span id="_CPPv3N4sptk18DynamicTimeWarping20LocalPathConstraints6kType0E"></span><span id="_CPPv2N4sptk18DynamicTimeWarping20LocalPathConstraints6kType0E"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1ae0e39c769674489882490f59cb50c792a70ebb2b2d96e5c2bb8bb6a8540e3b787"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kType0</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints6kType0E" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk18DynamicTimeWarping20LocalPathConstraints6kType0E"></span><span id="_CPPv2N4sptk18DynamicTimeWarping20LocalPathConstraints6kType0E"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1ae0e39c769674489882490f59cb50c792a70ebb2b2d96e5c2bb8bb6a8540e3b787"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kType0</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints6kType0E" title="Permalink to this definition"></a><br /></dt>
 <dd><p><img alt="../_images/dtw_p0.png" src="../_images/dtw_p0.png" /></p>
 </dd></dl>
 
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints6kType1E">
-<span id="_CPPv3N4sptk18DynamicTimeWarping20LocalPathConstraints6kType1E"></span><span id="_CPPv2N4sptk18DynamicTimeWarping20LocalPathConstraints6kType1E"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1ae0e39c769674489882490f59cb50c792a90784bd6768418ce3a11e190b8a0f3b4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kType1</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints6kType1E" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk18DynamicTimeWarping20LocalPathConstraints6kType1E"></span><span id="_CPPv2N4sptk18DynamicTimeWarping20LocalPathConstraints6kType1E"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1ae0e39c769674489882490f59cb50c792a90784bd6768418ce3a11e190b8a0f3b4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kType1</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints6kType1E" title="Permalink to this definition"></a><br /></dt>
 <dd><p><img alt="../_images/dtw_p1.png" src="../_images/dtw_p1.png" /></p>
 </dd></dl>
 
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints6kType2E">
-<span id="_CPPv3N4sptk18DynamicTimeWarping20LocalPathConstraints6kType2E"></span><span id="_CPPv2N4sptk18DynamicTimeWarping20LocalPathConstraints6kType2E"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1ae0e39c769674489882490f59cb50c792a9323b7929afdfcf26623b252422546dd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kType2</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints6kType2E" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk18DynamicTimeWarping20LocalPathConstraints6kType2E"></span><span id="_CPPv2N4sptk18DynamicTimeWarping20LocalPathConstraints6kType2E"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1ae0e39c769674489882490f59cb50c792a9323b7929afdfcf26623b252422546dd"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kType2</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints6kType2E" title="Permalink to this definition"></a><br /></dt>
 <dd><p><img alt="../_images/dtw_p2.png" src="../_images/dtw_p2.png" /></p>
 <p>Require <span class="math notranslate nohighlight">\(T_x &gt;= T_y\)</span>. </p>
 </dd></dl>
 
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints6kType3E">
-<span id="_CPPv3N4sptk18DynamicTimeWarping20LocalPathConstraints6kType3E"></span><span id="_CPPv2N4sptk18DynamicTimeWarping20LocalPathConstraints6kType3E"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1ae0e39c769674489882490f59cb50c792a4b41dd8877da11183fd91df616191f59"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kType3</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints6kType3E" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk18DynamicTimeWarping20LocalPathConstraints6kType3E"></span><span id="_CPPv2N4sptk18DynamicTimeWarping20LocalPathConstraints6kType3E"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1ae0e39c769674489882490f59cb50c792a4b41dd8877da11183fd91df616191f59"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kType3</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints6kType3E" title="Permalink to this definition"></a><br /></dt>
 <dd><p><img alt="../_images/dtw_p3.png" src="../_images/dtw_p3.png" /></p>
 </dd></dl>
 
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints6kType4E">
-<span id="_CPPv3N4sptk18DynamicTimeWarping20LocalPathConstraints6kType4E"></span><span id="_CPPv2N4sptk18DynamicTimeWarping20LocalPathConstraints6kType4E"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1ae0e39c769674489882490f59cb50c792ad5b63ad152fe2223c8d1c1a86aa59747"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kType4</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints6kType4E" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk18DynamicTimeWarping20LocalPathConstraints6kType4E"></span><span id="_CPPv2N4sptk18DynamicTimeWarping20LocalPathConstraints6kType4E"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1ae0e39c769674489882490f59cb50c792ad5b63ad152fe2223c8d1c1a86aa59747"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kType4</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints6kType4E" title="Permalink to this definition"></a><br /></dt>
 <dd><p><img alt="../_images/dtw_p4.png" src="../_images/dtw_p4.png" /></p>
 </dd></dl>
 
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints6kType5E">
-<span id="_CPPv3N4sptk18DynamicTimeWarping20LocalPathConstraints6kType5E"></span><span id="_CPPv2N4sptk18DynamicTimeWarping20LocalPathConstraints6kType5E"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1ae0e39c769674489882490f59cb50c792a64e4107f218313e5d5783f9c94e30e34"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kType5</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints6kType5E" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk18DynamicTimeWarping20LocalPathConstraints6kType5E"></span><span id="_CPPv2N4sptk18DynamicTimeWarping20LocalPathConstraints6kType5E"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1ae0e39c769674489882490f59cb50c792a64e4107f218313e5d5783f9c94e30e34"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kType5</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints6kType5E" title="Permalink to this definition"></a><br /></dt>
 <dd><p><img alt="../_images/dtw_p5.png" src="../_images/dtw_p5.png" /></p>
 </dd></dl>
 
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints6kType6E">
-<span id="_CPPv3N4sptk18DynamicTimeWarping20LocalPathConstraints6kType6E"></span><span id="_CPPv2N4sptk18DynamicTimeWarping20LocalPathConstraints6kType6E"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1ae0e39c769674489882490f59cb50c792a24bee6b2a6a1f8680ec65725288661ed"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kType6</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints6kType6E" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk18DynamicTimeWarping20LocalPathConstraints6kType6E"></span><span id="_CPPv2N4sptk18DynamicTimeWarping20LocalPathConstraints6kType6E"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1ae0e39c769674489882490f59cb50c792a24bee6b2a6a1f8680ec65725288661ed"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kType6</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints6kType6E" title="Permalink to this definition"></a><br /></dt>
 <dd><p><img alt="../_images/dtw_p6.png" src="../_images/dtw_p6.png" /></p>
 </dd></dl>
 
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints9kNumTypesE">
-<span id="_CPPv3N4sptk18DynamicTimeWarping20LocalPathConstraints9kNumTypesE"></span><span id="_CPPv2N4sptk18DynamicTimeWarping20LocalPathConstraints9kNumTypesE"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1ae0e39c769674489882490f59cb50c792a2b9d3dc1a8f4b387278afb7be6a75ae9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kNumTypes</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints9kNumTypesE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk18DynamicTimeWarping20LocalPathConstraints9kNumTypesE"></span><span id="_CPPv2N4sptk18DynamicTimeWarping20LocalPathConstraints9kNumTypesE"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1ae0e39c769674489882490f59cb50c792a2b9d3dc1a8f4b387278afb7be6a75ae9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kNumTypes</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraints9kNumTypesE" title="Permalink to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -428,7 +343,7 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk18DynamicTimeWarping18DynamicTimeWarpingEi20LocalPathConstraintsN19DistanceCalculation15DistanceMetricsE">
-<span id="_CPPv3N4sptk18DynamicTimeWarping18DynamicTimeWarpingEi20LocalPathConstraintsN19DistanceCalculation15DistanceMetricsE"></span><span id="_CPPv2N4sptk18DynamicTimeWarping18DynamicTimeWarpingEi20LocalPathConstraintsN19DistanceCalculation15DistanceMetricsE"></span><span id="sptk::DynamicTimeWarping::DynamicTimeWarping__i.LocalPathConstraints.DistanceCalculation::DistanceMetrics"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1ace660164bcacee7c4d5de6ba374d4ced"></span><span class="sig-name descname"><span class="n"><span class="pre">DynamicTimeWarping</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <a class="reference internal" href="#_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraintsE" title="sptk::DynamicTimeWarping::LocalPathConstraints"><span class="n"><span class="pre">LocalPathConstraints</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">local_path_constraint</span></span>, <a class="reference internal" href="#_CPPv4N4sptk19DistanceCalculationE" title="sptk::DistanceCalculation"><span class="n"><span class="pre">DistanceCalculation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk19DistanceCalculation15DistanceMetricsE" title="sptk::DistanceCalculation::DistanceMetrics"><span class="n"><span class="pre">DistanceMetrics</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">distance_metric</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk18DynamicTimeWarping18DynamicTimeWarpingEi20LocalPathConstraintsN19DistanceCalculation15DistanceMetricsE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk18DynamicTimeWarping18DynamicTimeWarpingEi20LocalPathConstraintsN19DistanceCalculation15DistanceMetricsE"></span><span id="_CPPv2N4sptk18DynamicTimeWarping18DynamicTimeWarpingEi20LocalPathConstraintsN19DistanceCalculation15DistanceMetricsE"></span><span id="sptk::DynamicTimeWarping::DynamicTimeWarping__i.LocalPathConstraints.DistanceCalculation::DistanceMetrics"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1ace660164bcacee7c4d5de6ba374d4ced"></span><span class="sig-name descname"><span class="n"><span class="pre">DynamicTimeWarping</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <a class="reference internal" href="#_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraintsE" title="sptk::DynamicTimeWarping::LocalPathConstraints"><span class="n"><span class="pre">LocalPathConstraints</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">local_path_constraint</span></span>, <a class="reference internal" href="#_CPPv4N4sptk19DistanceCalculationE" title="sptk::DistanceCalculation"><span class="n"><span class="pre">DistanceCalculation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk19DistanceCalculation15DistanceMetricsE" title="sptk::DistanceCalculation::DistanceMetrics"><span class="n"><span class="pre">DistanceMetrics</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">distance_metric</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk18DynamicTimeWarping18DynamicTimeWarpingEi20LocalPathConstraintsN19DistanceCalculation15DistanceMetricsE" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -442,7 +357,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk18DynamicTimeWarping11GetNumOrderEv">
-<span id="_CPPv3NK4sptk18DynamicTimeWarping11GetNumOrderEv"></span><span id="_CPPv2NK4sptk18DynamicTimeWarping11GetNumOrderEv"></span><span id="sptk::DynamicTimeWarping::GetNumOrderC"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1adb2e211a7e2c4407dcdb5e7f198a2265"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18DynamicTimeWarping11GetNumOrderEv" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3NK4sptk18DynamicTimeWarping11GetNumOrderEv"></span><span id="_CPPv2NK4sptk18DynamicTimeWarping11GetNumOrderEv"></span><span id="sptk::DynamicTimeWarping::GetNumOrderC"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1adb2e211a7e2c4407dcdb5e7f198a2265"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18DynamicTimeWarping11GetNumOrderEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>Order of vector. </p>
@@ -452,7 +367,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk18DynamicTimeWarping22GetLocalPathConstraintEv">
-<span id="_CPPv3NK4sptk18DynamicTimeWarping22GetLocalPathConstraintEv"></span><span id="_CPPv2NK4sptk18DynamicTimeWarping22GetLocalPathConstraintEv"></span><span id="sptk::DynamicTimeWarping::GetLocalPathConstraintC"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1a7e9c398a7aeace92942e7bc7f0ef5e56"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraintsE" title="sptk::DynamicTimeWarping::LocalPathConstraints"><span class="n"><span class="pre">LocalPathConstraints</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetLocalPathConstraint</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18DynamicTimeWarping22GetLocalPathConstraintEv" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3NK4sptk18DynamicTimeWarping22GetLocalPathConstraintEv"></span><span id="_CPPv2NK4sptk18DynamicTimeWarping22GetLocalPathConstraintEv"></span><span id="sptk::DynamicTimeWarping::GetLocalPathConstraintC"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1a7e9c398a7aeace92942e7bc7f0ef5e56"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk18DynamicTimeWarping20LocalPathConstraintsE" title="sptk::DynamicTimeWarping::LocalPathConstraints"><span class="n"><span class="pre">LocalPathConstraints</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetLocalPathConstraint</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18DynamicTimeWarping22GetLocalPathConstraintEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>Type of local path constraint. </p>
@@ -462,7 +377,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk18DynamicTimeWarping17GetDistanceMetricEv">
-<span id="_CPPv3NK4sptk18DynamicTimeWarping17GetDistanceMetricEv"></span><span id="_CPPv2NK4sptk18DynamicTimeWarping17GetDistanceMetricEv"></span><span id="sptk::DynamicTimeWarping::GetDistanceMetricC"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1af984a5db27d20ce13092688600b7eb92"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk19DistanceCalculationE" title="sptk::DistanceCalculation"><span class="n"><span class="pre">DistanceCalculation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk19DistanceCalculation15DistanceMetricsE" title="sptk::DistanceCalculation::DistanceMetrics"><span class="n"><span class="pre">DistanceMetrics</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetDistanceMetric</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18DynamicTimeWarping17GetDistanceMetricEv" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3NK4sptk18DynamicTimeWarping17GetDistanceMetricEv"></span><span id="_CPPv2NK4sptk18DynamicTimeWarping17GetDistanceMetricEv"></span><span id="sptk::DynamicTimeWarping::GetDistanceMetricC"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1af984a5db27d20ce13092688600b7eb92"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk19DistanceCalculationE" title="sptk::DistanceCalculation"><span class="n"><span class="pre">DistanceCalculation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk19DistanceCalculation15DistanceMetricsE" title="sptk::DistanceCalculation::DistanceMetrics"><span class="n"><span class="pre">DistanceMetrics</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetDistanceMetric</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18DynamicTimeWarping17GetDistanceMetricEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>Distance metric. </p>
@@ -472,7 +387,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk18DynamicTimeWarping7IsValidEv">
-<span id="_CPPv3NK4sptk18DynamicTimeWarping7IsValidEv"></span><span id="_CPPv2NK4sptk18DynamicTimeWarping7IsValidEv"></span><span id="sptk::DynamicTimeWarping::IsValidC"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1ac9f79f1e92ffd8a7edf286df7087a071"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18DynamicTimeWarping7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3NK4sptk18DynamicTimeWarping7IsValidEv"></span><span id="_CPPv2NK4sptk18DynamicTimeWarping7IsValidEv"></span><span id="sptk::DynamicTimeWarping::IsValidC"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1ac9f79f1e92ffd8a7edf286df7087a071"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18DynamicTimeWarping7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -482,7 +397,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk18DynamicTimeWarping3RunERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorINSt4pairIiiEEEEPd">
-<span id="_CPPv3NK4sptk18DynamicTimeWarping3RunERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorINSt4pairIiiEEEEPd"></span><span id="_CPPv2NK4sptk18DynamicTimeWarping3RunERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorINSt4pairIiiEEEEPd"></span><span id="sptk::DynamicTimeWarping::Run__std::vector:std::vector:double::CR.std::vector:std::vector:double::CR.std::vector:std::pair:i.i::P.doublePC"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1a37455a2b2db15f050bd7d97b1b62b2dd"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">query_vector_sequence</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">reference_vector_sequence</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">pair</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">viterbi_path</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">total_score</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18DynamicTimeWarping3RunERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorINSt4pairIiiEEEEPd" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3NK4sptk18DynamicTimeWarping3RunERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorINSt4pairIiiEEEEPd"></span><span id="_CPPv2NK4sptk18DynamicTimeWarping3RunERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorINSt4pairIiiEEEEPd"></span><span id="sptk::DynamicTimeWarping::Run__std::vector:std::vector:double::CR.std::vector:std::vector:double::CR.std::vector:std::pair:i.i::P.doublePC"></span><span class="target" id="classsptk_1_1DynamicTimeWarping_1a37455a2b2db15f050bd7d97b1b62b2dd"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">query_vector_sequence</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">reference_vector_sequence</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">pair</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">viterbi_path</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">total_score</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18DynamicTimeWarping3RunERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorINSt4pairIiiEEEEPd" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -503,38 +418,38 @@
 
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk19DistanceCalculationE">
-<span id="_CPPv3N4sptk19DistanceCalculationE"></span><span id="_CPPv2N4sptk19DistanceCalculationE"></span><span id="sptk::DistanceCalculation"></span><span class="target" id="classsptk_1_1DistanceCalculation"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">DistanceCalculation</span></span></span><a class="headerlink" href="#_CPPv4N4sptk19DistanceCalculationE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk19DistanceCalculationE"></span><span id="_CPPv2N4sptk19DistanceCalculationE"></span><span id="sptk::DistanceCalculation"></span><span class="target" id="classsptk_1_1DistanceCalculation"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">DistanceCalculation</span></span></span><a class="headerlink" href="#_CPPv4N4sptk19DistanceCalculationE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Calculate distance between two vectors. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
 <dl class="cpp enum">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk19DistanceCalculation15DistanceMetricsE">
-<span id="_CPPv3N4sptk19DistanceCalculation15DistanceMetricsE"></span><span id="_CPPv2N4sptk19DistanceCalculation15DistanceMetricsE"></span><span class="target" id="classsptk_1_1DistanceCalculation_1a7be2b77361a4806702e60da6184566a2"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DistanceMetrics</span></span></span><a class="headerlink" href="#_CPPv4N4sptk19DistanceCalculation15DistanceMetricsE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk19DistanceCalculation15DistanceMetricsE"></span><span id="_CPPv2N4sptk19DistanceCalculation15DistanceMetricsE"></span><span class="target" id="classsptk_1_1DistanceCalculation_1a7be2b77361a4806702e60da6184566a2"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DistanceMetrics</span></span></span><a class="headerlink" href="#_CPPv4N4sptk19DistanceCalculation15DistanceMetricsE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Metric of distance </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk19DistanceCalculation15DistanceMetrics10kManhattanE">
-<span id="_CPPv3N4sptk19DistanceCalculation15DistanceMetrics10kManhattanE"></span><span id="_CPPv2N4sptk19DistanceCalculation15DistanceMetrics10kManhattanE"></span><span class="target" id="classsptk_1_1DistanceCalculation_1a7be2b77361a4806702e60da6184566a2aa6e856f9f39daf2bfdd6145005ee4a61"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kManhattan</span></span></span><a class="headerlink" href="#_CPPv4N4sptk19DistanceCalculation15DistanceMetrics10kManhattanE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk19DistanceCalculation15DistanceMetrics10kManhattanE"></span><span id="_CPPv2N4sptk19DistanceCalculation15DistanceMetrics10kManhattanE"></span><span class="target" id="classsptk_1_1DistanceCalculation_1a7be2b77361a4806702e60da6184566a2aa6e856f9f39daf2bfdd6145005ee4a61"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kManhattan</span></span></span><a class="headerlink" href="#_CPPv4N4sptk19DistanceCalculation15DistanceMetrics10kManhattanE" title="Permalink to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk19DistanceCalculation15DistanceMetrics10kEuclideanE">
-<span id="_CPPv3N4sptk19DistanceCalculation15DistanceMetrics10kEuclideanE"></span><span id="_CPPv2N4sptk19DistanceCalculation15DistanceMetrics10kEuclideanE"></span><span class="target" id="classsptk_1_1DistanceCalculation_1a7be2b77361a4806702e60da6184566a2ac69ac92ce534a9ec121f859a21465466"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kEuclidean</span></span></span><a class="headerlink" href="#_CPPv4N4sptk19DistanceCalculation15DistanceMetrics10kEuclideanE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk19DistanceCalculation15DistanceMetrics10kEuclideanE"></span><span id="_CPPv2N4sptk19DistanceCalculation15DistanceMetrics10kEuclideanE"></span><span class="target" id="classsptk_1_1DistanceCalculation_1a7be2b77361a4806702e60da6184566a2ac69ac92ce534a9ec121f859a21465466"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kEuclidean</span></span></span><a class="headerlink" href="#_CPPv4N4sptk19DistanceCalculation15DistanceMetrics10kEuclideanE" title="Permalink to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk19DistanceCalculation15DistanceMetrics17kSquaredEuclideanE">
-<span id="_CPPv3N4sptk19DistanceCalculation15DistanceMetrics17kSquaredEuclideanE"></span><span id="_CPPv2N4sptk19DistanceCalculation15DistanceMetrics17kSquaredEuclideanE"></span><span class="target" id="classsptk_1_1DistanceCalculation_1a7be2b77361a4806702e60da6184566a2ae64884407a328fc93ae2e8ef26b31380"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kSquaredEuclidean</span></span></span><a class="headerlink" href="#_CPPv4N4sptk19DistanceCalculation15DistanceMetrics17kSquaredEuclideanE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk19DistanceCalculation15DistanceMetrics17kSquaredEuclideanE"></span><span id="_CPPv2N4sptk19DistanceCalculation15DistanceMetrics17kSquaredEuclideanE"></span><span class="target" id="classsptk_1_1DistanceCalculation_1a7be2b77361a4806702e60da6184566a2ae64884407a328fc93ae2e8ef26b31380"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kSquaredEuclidean</span></span></span><a class="headerlink" href="#_CPPv4N4sptk19DistanceCalculation15DistanceMetrics17kSquaredEuclideanE" title="Permalink to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk19DistanceCalculation15DistanceMetrics25kSymmetricKullbackLeiblerE">
-<span id="_CPPv3N4sptk19DistanceCalculation15DistanceMetrics25kSymmetricKullbackLeiblerE"></span><span id="_CPPv2N4sptk19DistanceCalculation15DistanceMetrics25kSymmetricKullbackLeiblerE"></span><span class="target" id="classsptk_1_1DistanceCalculation_1a7be2b77361a4806702e60da6184566a2aec28b18f62ddee4b29eb4ec64932be96"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kSymmetricKullbackLeibler</span></span></span><a class="headerlink" href="#_CPPv4N4sptk19DistanceCalculation15DistanceMetrics25kSymmetricKullbackLeiblerE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk19DistanceCalculation15DistanceMetrics25kSymmetricKullbackLeiblerE"></span><span id="_CPPv2N4sptk19DistanceCalculation15DistanceMetrics25kSymmetricKullbackLeiblerE"></span><span class="target" id="classsptk_1_1DistanceCalculation_1a7be2b77361a4806702e60da6184566a2aec28b18f62ddee4b29eb4ec64932be96"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kSymmetricKullbackLeibler</span></span></span><a class="headerlink" href="#_CPPv4N4sptk19DistanceCalculation15DistanceMetrics25kSymmetricKullbackLeiblerE" title="Permalink to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk19DistanceCalculation15DistanceMetrics11kNumMetricsE">
-<span id="_CPPv3N4sptk19DistanceCalculation15DistanceMetrics11kNumMetricsE"></span><span id="_CPPv2N4sptk19DistanceCalculation15DistanceMetrics11kNumMetricsE"></span><span class="target" id="classsptk_1_1DistanceCalculation_1a7be2b77361a4806702e60da6184566a2a775287e33dcf3477d665dd6097c5ba68"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kNumMetrics</span></span></span><a class="headerlink" href="#_CPPv4N4sptk19DistanceCalculation15DistanceMetrics11kNumMetricsE" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk19DistanceCalculation15DistanceMetrics11kNumMetricsE"></span><span id="_CPPv2N4sptk19DistanceCalculation15DistanceMetrics11kNumMetricsE"></span><span class="target" id="classsptk_1_1DistanceCalculation_1a7be2b77361a4806702e60da6184566a2a775287e33dcf3477d665dd6097c5ba68"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kNumMetrics</span></span></span><a class="headerlink" href="#_CPPv4N4sptk19DistanceCalculation15DistanceMetrics11kNumMetricsE" title="Permalink to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -544,7 +459,7 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk19DistanceCalculation19DistanceCalculationEi15DistanceMetrics">
-<span id="_CPPv3N4sptk19DistanceCalculation19DistanceCalculationEi15DistanceMetrics"></span><span id="_CPPv2N4sptk19DistanceCalculation19DistanceCalculationEi15DistanceMetrics"></span><span id="sptk::DistanceCalculation::DistanceCalculation__i.DistanceMetrics"></span><span class="target" id="classsptk_1_1DistanceCalculation_1a5829abce3a1dbb8cb5cae89ea6dac8cc"></span><span class="sig-name descname"><span class="n"><span class="pre">DistanceCalculation</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <a class="reference internal" href="#_CPPv4N4sptk19DistanceCalculation15DistanceMetricsE" title="sptk::DistanceCalculation::DistanceMetrics"><span class="n"><span class="pre">DistanceMetrics</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">distance_metric</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk19DistanceCalculation19DistanceCalculationEi15DistanceMetrics" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3N4sptk19DistanceCalculation19DistanceCalculationEi15DistanceMetrics"></span><span id="_CPPv2N4sptk19DistanceCalculation19DistanceCalculationEi15DistanceMetrics"></span><span id="sptk::DistanceCalculation::DistanceCalculation__i.DistanceMetrics"></span><span class="target" id="classsptk_1_1DistanceCalculation_1a5829abce3a1dbb8cb5cae89ea6dac8cc"></span><span class="sig-name descname"><span class="n"><span class="pre">DistanceCalculation</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <a class="reference internal" href="#_CPPv4N4sptk19DistanceCalculation15DistanceMetricsE" title="sptk::DistanceCalculation::DistanceMetrics"><span class="n"><span class="pre">DistanceMetrics</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">distance_metric</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk19DistanceCalculation19DistanceCalculationEi15DistanceMetrics" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -557,7 +472,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk19DistanceCalculation11GetNumOrderEv">
-<span id="_CPPv3NK4sptk19DistanceCalculation11GetNumOrderEv"></span><span id="_CPPv2NK4sptk19DistanceCalculation11GetNumOrderEv"></span><span id="sptk::DistanceCalculation::GetNumOrderC"></span><span class="target" id="classsptk_1_1DistanceCalculation_1a6e883751abdf78a14b4d4f3f332f83cb"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk19DistanceCalculation11GetNumOrderEv" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3NK4sptk19DistanceCalculation11GetNumOrderEv"></span><span id="_CPPv2NK4sptk19DistanceCalculation11GetNumOrderEv"></span><span id="sptk::DistanceCalculation::GetNumOrderC"></span><span class="target" id="classsptk_1_1DistanceCalculation_1a6e883751abdf78a14b4d4f3f332f83cb"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk19DistanceCalculation11GetNumOrderEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>Order of vector. </p>
@@ -567,7 +482,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk19DistanceCalculation17GetDistanceMetricEv">
-<span id="_CPPv3NK4sptk19DistanceCalculation17GetDistanceMetricEv"></span><span id="_CPPv2NK4sptk19DistanceCalculation17GetDistanceMetricEv"></span><span id="sptk::DistanceCalculation::GetDistanceMetricC"></span><span class="target" id="classsptk_1_1DistanceCalculation_1a5635a4cbb6583c928f3307e59b8eddc3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk19DistanceCalculation15DistanceMetricsE" title="sptk::DistanceCalculation::DistanceMetrics"><span class="n"><span class="pre">DistanceMetrics</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetDistanceMetric</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk19DistanceCalculation17GetDistanceMetricEv" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3NK4sptk19DistanceCalculation17GetDistanceMetricEv"></span><span id="_CPPv2NK4sptk19DistanceCalculation17GetDistanceMetricEv"></span><span id="sptk::DistanceCalculation::GetDistanceMetricC"></span><span class="target" id="classsptk_1_1DistanceCalculation_1a5635a4cbb6583c928f3307e59b8eddc3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk19DistanceCalculation15DistanceMetricsE" title="sptk::DistanceCalculation::DistanceMetrics"><span class="n"><span class="pre">DistanceMetrics</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetDistanceMetric</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk19DistanceCalculation17GetDistanceMetricEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>Distance metric. </p>
@@ -577,7 +492,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk19DistanceCalculation7IsValidEv">
-<span id="_CPPv3NK4sptk19DistanceCalculation7IsValidEv"></span><span id="_CPPv2NK4sptk19DistanceCalculation7IsValidEv"></span><span id="sptk::DistanceCalculation::IsValidC"></span><span class="target" id="classsptk_1_1DistanceCalculation_1acc2f13071a04f117b661ca6aebd55bda"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk19DistanceCalculation7IsValidEv" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3NK4sptk19DistanceCalculation7IsValidEv"></span><span id="_CPPv2NK4sptk19DistanceCalculation7IsValidEv"></span><span id="sptk::DistanceCalculation::IsValidC"></span><span class="target" id="classsptk_1_1DistanceCalculation_1acc2f13071a04f117b661ca6aebd55bda"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk19DistanceCalculation7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -587,7 +502,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk19DistanceCalculation3RunERKNSt6vectorIdEERKNSt6vectorIdEEPd">
-<span id="_CPPv3NK4sptk19DistanceCalculation3RunERKNSt6vectorIdEERKNSt6vectorIdEEPd"></span><span id="_CPPv2NK4sptk19DistanceCalculation3RunERKNSt6vectorIdEERKNSt6vectorIdEEPd"></span><span id="sptk::DistanceCalculation::Run__std::vector:double:CR.std::vector:double:CR.doublePC"></span><span class="target" id="classsptk_1_1DistanceCalculation_1aa4aff47f752978d046b9138ffcb2ca37"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">vector1</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">vector2</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">distance</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk19DistanceCalculation3RunERKNSt6vectorIdEERKNSt6vectorIdEEPd" title="Permalink to this definition">¶</a><br /></dt>
+<span id="_CPPv3NK4sptk19DistanceCalculation3RunERKNSt6vectorIdEERKNSt6vectorIdEEPd"></span><span id="_CPPv2NK4sptk19DistanceCalculation3RunERKNSt6vectorIdEERKNSt6vectorIdEEPd"></span><span id="sptk::DistanceCalculation::Run__std::vector:double:CR.std::vector:double:CR.doublePC"></span><span class="target" id="classsptk_1_1DistanceCalculation_1aa4aff47f752978d046b9138ffcb2ca37"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">vector1</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">vector2</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">distance</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk19DistanceCalculation3RunERKNSt6vectorIdEERKNSt6vectorIdEEPd" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -605,54 +520,37 @@
 </div>
 </dd></dl>
 
-</div>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="dtw_merge.html" class="btn btn-neutral float-right" title="dtw_merge" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="dmp.html" class="btn btn-neutral float-left" title="dmp" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="dtw_merge.html" class="btn btn-neutral float-right" title="dtw_merge" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, SPTK Working Group.
-
-    </p>
+    <p>&#169; Copyright 2021, SPTK Working Group.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
