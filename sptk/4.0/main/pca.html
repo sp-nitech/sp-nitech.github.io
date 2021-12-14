@@ -227,6 +227,15 @@
 <li><p>convergence threshold <span class="math notranslate nohighlight">\((0 \le \epsilon)\)</span></p></li>
 </ul>
 </p></li>
+<li><p><strong>-u</strong> <em>int</em> <ul>
+<li><p>covariance type <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> sample covariance </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> unbiased covariance </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> correlation</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
 <li><p><strong>-v</strong> <em>str</em> <ul>
 <li><p>double-type eigenvalues and proportions</p></li>
 </ul>
@@ -279,16 +288,47 @@
 \[ \begin{array}{cccc} \lambda(0), &amp; \lambda(1), &amp; \ldots, &amp; \lambda(M). \end{array} \]</div>
  The eigenvalue problem is solved by the Jacobi iterative method. </p>
 <div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk26PrincipalComponentAnalysis14CovarianceTypeE">
+<span id="_CPPv3N4sptk26PrincipalComponentAnalysis14CovarianceTypeE"></span><span id="_CPPv2N4sptk26PrincipalComponentAnalysis14CovarianceTypeE"></span><span class="target" id="classsptk_1_1PrincipalComponentAnalysis_1a735ebcbf81d59ad660f024013f0de3eb"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CovarianceType</span></span></span><a class="headerlink" href="#_CPPv4N4sptk26PrincipalComponentAnalysis14CovarianceTypeE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Type of covariance. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk26PrincipalComponentAnalysis14CovarianceType17kSampleCovarianceE">
+<span id="_CPPv3N4sptk26PrincipalComponentAnalysis14CovarianceType17kSampleCovarianceE"></span><span id="_CPPv2N4sptk26PrincipalComponentAnalysis14CovarianceType17kSampleCovarianceE"></span><span class="target" id="classsptk_1_1PrincipalComponentAnalysis_1a735ebcbf81d59ad660f024013f0de3eba9394d8e3b1014926ba234f2b37e4d2cb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kSampleCovariance</span></span></span><a class="headerlink" href="#_CPPv4N4sptk26PrincipalComponentAnalysis14CovarianceType17kSampleCovarianceE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk26PrincipalComponentAnalysis14CovarianceType19kUnbiasedCovarianceE">
+<span id="_CPPv3N4sptk26PrincipalComponentAnalysis14CovarianceType19kUnbiasedCovarianceE"></span><span id="_CPPv2N4sptk26PrincipalComponentAnalysis14CovarianceType19kUnbiasedCovarianceE"></span><span class="target" id="classsptk_1_1PrincipalComponentAnalysis_1a735ebcbf81d59ad660f024013f0de3ebaec6911aa719e97d7ea20840a9624f054"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kUnbiasedCovariance</span></span></span><a class="headerlink" href="#_CPPv4N4sptk26PrincipalComponentAnalysis14CovarianceType19kUnbiasedCovarianceE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk26PrincipalComponentAnalysis14CovarianceType12kCorrelationE">
+<span id="_CPPv3N4sptk26PrincipalComponentAnalysis14CovarianceType12kCorrelationE"></span><span id="_CPPv2N4sptk26PrincipalComponentAnalysis14CovarianceType12kCorrelationE"></span><span class="target" id="classsptk_1_1PrincipalComponentAnalysis_1a735ebcbf81d59ad660f024013f0de3eba626a028b51c8df57211cc54dffe965f8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kCorrelation</span></span></span><a class="headerlink" href="#_CPPv4N4sptk26PrincipalComponentAnalysis14CovarianceType12kCorrelationE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk26PrincipalComponentAnalysis14CovarianceType19kNumCovarianceTypesE">
+<span id="_CPPv3N4sptk26PrincipalComponentAnalysis14CovarianceType19kNumCovarianceTypesE"></span><span id="_CPPv2N4sptk26PrincipalComponentAnalysis14CovarianceType19kNumCovarianceTypesE"></span><span class="target" id="classsptk_1_1PrincipalComponentAnalysis_1a735ebcbf81d59ad660f024013f0de3eba008a3170728fe117d496737858580ec6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kNumCovarianceTypes</span></span></span><a class="headerlink" href="#_CPPv4N4sptk26PrincipalComponentAnalysis14CovarianceType19kNumCovarianceTypesE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4sptk26PrincipalComponentAnalysis26PrincipalComponentAnalysisEiid">
-<span id="_CPPv3N4sptk26PrincipalComponentAnalysis26PrincipalComponentAnalysisEiid"></span><span id="_CPPv2N4sptk26PrincipalComponentAnalysis26PrincipalComponentAnalysisEiid"></span><span id="sptk::PrincipalComponentAnalysis::PrincipalComponentAnalysis__i.i.double"></span><span class="target" id="classsptk_1_1PrincipalComponentAnalysis_1ab441ae8bc3fd0b2a2add5767fce9b986"></span><span class="sig-name descname"><span class="n"><span class="pre">PrincipalComponentAnalysis</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_iteration</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">convergence_threshold</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk26PrincipalComponentAnalysis26PrincipalComponentAnalysisEiid" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk26PrincipalComponentAnalysis26PrincipalComponentAnalysisEiid14CovarianceType">
+<span id="_CPPv3N4sptk26PrincipalComponentAnalysis26PrincipalComponentAnalysisEiid14CovarianceType"></span><span id="_CPPv2N4sptk26PrincipalComponentAnalysis26PrincipalComponentAnalysisEiid14CovarianceType"></span><span id="sptk::PrincipalComponentAnalysis::PrincipalComponentAnalysis__i.i.double.CovarianceType"></span><span class="target" id="classsptk_1_1PrincipalComponentAnalysis_1a215549e6c5e34482b0d3e97b02d50d0e"></span><span class="sig-name descname"><span class="n"><span class="pre">PrincipalComponentAnalysis</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_iteration</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">convergence_threshold</span></span>, <a class="reference internal" href="#_CPPv4N4sptk26PrincipalComponentAnalysis14CovarianceTypeE" title="sptk::PrincipalComponentAnalysis::CovarianceType"><span class="n"><span class="pre">CovarianceType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">covariance_type</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk26PrincipalComponentAnalysis26PrincipalComponentAnalysisEiid14CovarianceType" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>num_order</strong> – <strong>[in]</strong> Order of vector, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
 <li><p><strong>num_iteration</strong> – <strong>[in]</strong> Number of iterations. </p></li>
 <li><p><strong>convergence_threshold</strong> – <strong>[in]</strong> Convergence threshold. </p></li>
+<li><p><strong>covariance_type</strong> – <strong>[in]</strong> Type of covariance. </p></li>
 </ul>
 </dd>
 </dl>
@@ -320,6 +360,16 @@
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>Convergence threshold. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk26PrincipalComponentAnalysis17GetCovarianceTypeEv">
+<span id="_CPPv3NK4sptk26PrincipalComponentAnalysis17GetCovarianceTypeEv"></span><span id="_CPPv2NK4sptk26PrincipalComponentAnalysis17GetCovarianceTypeEv"></span><span id="sptk::PrincipalComponentAnalysis::GetCovarianceTypeC"></span><span class="target" id="classsptk_1_1PrincipalComponentAnalysis_1aa558718e2657468b764fd8154e769e45"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk26PrincipalComponentAnalysis14CovarianceTypeE" title="sptk::PrincipalComponentAnalysis::CovarianceType"><span class="n"><span class="pre">CovarianceType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetCovarianceType</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk26PrincipalComponentAnalysis17GetCovarianceTypeEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Type of covariance. </p>
 </dd>
 </dl>
 </dd></dl>
