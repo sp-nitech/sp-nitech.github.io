@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>spec &mdash; SPTK  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="step" href="step.html" />
+    <link rel="prev" title="sopr" href="sopr.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> SPTK
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Command references</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcp.html">bcp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcut.html">bcut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2acr.html">c2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2ndps.html">c2ndps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdist.html">cdist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clip.html">clip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dct.html">dct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decimate.html">decimate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delay.html">delay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dequantize.html">dequantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df2.html">df2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dfs.html">dfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmp.html">dmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtw.html">dtw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtw_merge.html">dtw_merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html">extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fd.html">fd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fdrw.html">fdrw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft2.html">fft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr2.html">fftr2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glogsp.html">glogsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmm.html">gmm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmmp.html">gmmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpolezero.html">gpolezero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grlogsp.html">grlogsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gseries.html">gseries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gspecgram.html">gspecgram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gwave.html">gwave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="histogram.html">histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imglsadf.html">imglsadf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lbg.html">lbg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="levdur.html">levdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear_intpl.html">linear_intpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc.html">lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2lsp.html">lpc2lsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpccheck.html">lpccheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lsp2lpc.html">lsp2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspcheck.html">lspcheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspdf.html">lspdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcpf.html">mcpf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="median.html">median</a></li>
+<li class="toctree-l1"><a class="reference internal" href="merge.html">merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgc2mgc.html">mgc2mgc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgc2sp.html">mgc2sp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgcep.html">mgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsadf.html">mglsadf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsp2sp.html">mglsp2sp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minmax.html">minmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlsacheck.html">mlsacheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mpir2c.html">mpir2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msvq.html">msvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pcas.html">pcas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ramp.html">ramp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reverse.html">reverse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlevdur.html">rlevdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rmse.html">rmse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root_pol.html">root_pol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sin.html">sin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smcep.html">smcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snr.html">snr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sopr.html">sopr</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">spec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step.html">step</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swab.html">swab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="symmetrize.html">symmetrize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="train.html">train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transpose.html">transpose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vc.html">vc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vopr.html">vopr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utility references</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../utils/math.html">math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/sptk.html">sptk</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SPTK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>spec</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/main/spec.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="spec">
+<span id="id1"></span><h1>spec<a class="headerlink" href="#spec" title="Permalink to this headline"></a></h1>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv44mainiA_Pc">
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="spec_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p><em>spec</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<p><ul class="simple">
+<li><p><strong>-l</strong> <em>int</em> <ul>
+<li><p>FFT length <span class="math notranslate nohighlight">\((2 \le L)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-m</strong> <em>int</em> <ul>
+<li><p>order of numerator coefficients <span class="math notranslate nohighlight">\((0 \le M &lt; L)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-n</strong> <em>int</em> <ul>
+<li><p>order of denominator coefficients <span class="math notranslate nohighlight">\((0 \le N &lt; L)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-z</strong> <em>string</em> <ul>
+<li><p>filename of double-type numerator coefficients</p></li>
+</ul>
+</p></li>
+<li><p><strong>-p</strong> <em>string</em> <ul>
+<li><p>filename of double-type denominator coefficients</p></li>
+</ul>
+</p></li>
+<li><p><strong>-e</strong> <em>double</em> <ul>
+<li><p>small value added to power spectrum</p></li>
+</ul>
+</p></li>
+<li><p><strong>-E</strong> <em>double</em> <ul>
+<li><p>relative floor in decibels</p></li>
+</ul>
+</p></li>
+<li><p><strong>-o</strong> <em>int</em> <ul>
+<li><p>output format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> amplitude spectrum in dB </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> log amplitude spectrum </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> amplitude spectrum </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> power spectrum</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>infile</strong> <em>str</em> <ul>
+<li><p>double-type data sequence</p></li>
+</ul>
+</p></li>
+<li><p><strong>stdout</strong> <ul>
+<li><p>double-type spectrum</p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+<p>The below example performs spectral analysis. To prevent <span class="math notranslate nohighlight">\(log(0)\)</span>, a small value is add to power spectrum using <code class="docutils literal notranslate"><span class="pre">-e</span></code> option.</p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span> <span class="o">-</span><span class="n">l</span> <span class="mi">400</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span> <span class="o">|</span> <span class="n">window</span> <span class="o">-</span><span class="n">l</span> <span class="mi">400</span> <span class="o">-</span><span class="n">L</span> <span class="mi">512</span> <span class="o">|</span> <span class="n">spec</span> <span class="o">-</span><span class="n">l</span> <span class="mi">512</span> <span class="o">-</span><span class="n">e</span> <span class="mf">1e-6</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">sp</span>
+</pre></div>
+</div>
+</p>
+<p>Instead a relative floor value of spectrum can be set using <code class="docutils literal notranslate"><span class="pre">-E</span></code> option.</p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spec</span> <span class="o">-</span><span class="n">E</span> <span class="o">-</span><span class="mi">30</span> <span class="n">data</span><span class="o">.</span><span class="n">d2</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">sp</span>
+</pre></div>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
+<li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, 1 on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="fftr.html#fftr"><span class="std std-ref">fftr</span></a>  <a class="reference internal" href="phase.html#phase"><span class="std std-ref">phase</span></a>  <a class="reference internal" href="grpdelay.html#grpdelay"><span class="std std-ref">grpdelay</span></a>  <a class="reference internal" href="glogsp.html#glogsp"><span class="std std-ref">glogsp</span></a>  <a class="reference internal" href="grlogsp.html#grlogsp"><span class="std std-ref">grlogsp</span></a></p>
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk18WaveformToSpectrumE">
+<span id="_CPPv3N4sptk18WaveformToSpectrumE"></span><span id="_CPPv2N4sptk18WaveformToSpectrumE"></span><span id="sptk::WaveformToSpectrum"></span><span class="target" id="classsptk_1_1WaveformToSpectrum"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">WaveformToSpectrum</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18WaveformToSpectrumE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Convert waveform to spectrum.</p>
+<p>The input is the <span class="math notranslate nohighlight">\(L\)</span>-length waveform signals: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} x(0), &amp; x(1), &amp; \ldots, &amp; x(L-1). \end{array} \]</div>
+ The output is the <span class="math notranslate nohighlight">\((N/2+1)\)</span>-length spectrum and takes one of the following forms.</p>
+<p>Type 0: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} 20 \log_{10}|H(0)|, &amp; 20 \log_{10}|H(1)|, &amp; \ldots, &amp; 20 \log_{10}|H(N/2)|. \end{array} \]</div>
+ Type 1: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} \ln|H(0)|, &amp; \ln|H(1)|, &amp; \ldots, &amp; \ln|H(N/2)|. \end{array} \]</div>
+ Type 2: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} |H(0)|, &amp; |H(1)|, &amp; \ldots, &amp; |H(N/2)|. \end{array} \]</div>
+ Type 3: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} |H(0)|^2, &amp; |H(1)|^2, &amp; \ldots, &amp; |H(N/2)|^2, \end{array} \]</div>
+ where <span class="math notranslate nohighlight">\(N\)</span> is the FFT length. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk18WaveformToSpectrum18WaveformToSpectrumEiiN18SpectrumToSpectrum18InputOutputFormatsEdd">
+<span id="_CPPv3N4sptk18WaveformToSpectrum18WaveformToSpectrumEiiN18SpectrumToSpectrum18InputOutputFormatsEdd"></span><span id="_CPPv2N4sptk18WaveformToSpectrum18WaveformToSpectrumEiiN18SpectrumToSpectrum18InputOutputFormatsEdd"></span><span id="sptk::WaveformToSpectrum::WaveformToSpectrum__i.i.SpectrumToSpectrum::InputOutputFormats.double.double"></span><span class="target" id="classsptk_1_1WaveformToSpectrum_1a0abd51136e7fd1ad8b645b94c1910e4f"></span><span class="sig-name descname"><span class="n"><span class="pre">WaveformToSpectrum</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">frame_length</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <a class="reference internal" href="#_CPPv4N4sptk18SpectrumToSpectrumE" title="sptk::SpectrumToSpectrum"><span class="n"><span class="pre">SpectrumToSpectrum</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk18SpectrumToSpectrum18InputOutputFormatsE" title="sptk::SpectrumToSpectrum::InputOutputFormats"><span class="n"><span class="pre">InputOutputFormats</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">output_format</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">epsilon</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">relative_floor_in_decibels</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk18WaveformToSpectrum18WaveformToSpectrumEiiN18SpectrumToSpectrum18InputOutputFormatsEdd" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frame_length</strong> – <strong>[in]</strong> Frame length, <span class="math notranslate nohighlight">\(L\)</span>. </p></li>
+<li><p><strong>fft_length</strong> – <strong>[in]</strong> FFT length, <span class="math notranslate nohighlight">\(N\)</span>. </p></li>
+<li><p><strong>output_format</strong> – <strong>[in]</strong> Output format. </p></li>
+<li><p><strong>epsilon</strong> – <strong>[in]</strong> Small value added to power spectrum. </p></li>
+<li><p><strong>relative_floor_in_decibels</strong> – <strong>[in]</strong> Relative floor in decibels. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk18WaveformToSpectrum14GetFrameLengthEv">
+<span id="_CPPv3NK4sptk18WaveformToSpectrum14GetFrameLengthEv"></span><span id="_CPPv2NK4sptk18WaveformToSpectrum14GetFrameLengthEv"></span><span id="sptk::WaveformToSpectrum::GetFrameLengthC"></span><span class="target" id="classsptk_1_1WaveformToSpectrum_1aa79d25af0b7d69a9a28aaee532786c31"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFrameLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18WaveformToSpectrum14GetFrameLengthEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Frame length. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk18WaveformToSpectrum12GetFftLengthEv">
+<span id="_CPPv3NK4sptk18WaveformToSpectrum12GetFftLengthEv"></span><span id="_CPPv2NK4sptk18WaveformToSpectrum12GetFftLengthEv"></span><span id="sptk::WaveformToSpectrum::GetFftLengthC"></span><span class="target" id="classsptk_1_1WaveformToSpectrum_1a56c51a130d73c51de0513532180c921c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18WaveformToSpectrum12GetFftLengthEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>FFT length. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk18WaveformToSpectrum15GetOutputFormatEv">
+<span id="_CPPv3NK4sptk18WaveformToSpectrum15GetOutputFormatEv"></span><span id="_CPPv2NK4sptk18WaveformToSpectrum15GetOutputFormatEv"></span><span id="sptk::WaveformToSpectrum::GetOutputFormatC"></span><span class="target" id="classsptk_1_1WaveformToSpectrum_1a49411028e87ff251e4128dc19fa22eba"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk18SpectrumToSpectrumE" title="sptk::SpectrumToSpectrum"><span class="n"><span class="pre">SpectrumToSpectrum</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk18SpectrumToSpectrum18InputOutputFormatsE" title="sptk::SpectrumToSpectrum::InputOutputFormats"><span class="n"><span class="pre">InputOutputFormats</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetOutputFormat</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18WaveformToSpectrum15GetOutputFormatEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Output format. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk18WaveformToSpectrum10GetEpsilonEv">
+<span id="_CPPv3NK4sptk18WaveformToSpectrum10GetEpsilonEv"></span><span id="_CPPv2NK4sptk18WaveformToSpectrum10GetEpsilonEv"></span><span id="sptk::WaveformToSpectrum::GetEpsilonC"></span><span class="target" id="classsptk_1_1WaveformToSpectrum_1a3eff8f538a7688bce8af5d2c9644baec"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetEpsilon</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18WaveformToSpectrum10GetEpsilonEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Epsilon. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk18WaveformToSpectrum26GetRelativeFloorInDecibelsEv">
+<span id="_CPPv3NK4sptk18WaveformToSpectrum26GetRelativeFloorInDecibelsEv"></span><span id="_CPPv2NK4sptk18WaveformToSpectrum26GetRelativeFloorInDecibelsEv"></span><span id="sptk::WaveformToSpectrum::GetRelativeFloorInDecibelsC"></span><span class="target" id="classsptk_1_1WaveformToSpectrum_1ab79c1e8e60d7d6ff0599c8188f437df0"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetRelativeFloorInDecibels</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18WaveformToSpectrum26GetRelativeFloorInDecibelsEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Relative floor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk18WaveformToSpectrum7IsValidEv">
+<span id="_CPPv3NK4sptk18WaveformToSpectrum7IsValidEv"></span><span id="_CPPv2NK4sptk18WaveformToSpectrum7IsValidEv"></span><span id="sptk::WaveformToSpectrum::IsValidC"></span><span class="target" id="classsptk_1_1WaveformToSpectrum_1a4a8b285257105708dc2d9e569aae9a92"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18WaveformToSpectrum7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if this object is valid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk18WaveformToSpectrum3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN18WaveformToSpectrum6BufferE">
+<span id="_CPPv3NK4sptk18WaveformToSpectrum3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN18WaveformToSpectrum6BufferE"></span><span id="_CPPv2NK4sptk18WaveformToSpectrum3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN18WaveformToSpectrum6BufferE"></span><span id="sptk::WaveformToSpectrum::Run__std::vector:double:CR.std::vector:double:P.WaveformToSpectrum::BufferPC"></span><span class="target" id="classsptk_1_1WaveformToSpectrum_1adbef9748a1cf507fb9f7bbf69021bdf5"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">waveform</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">spectrum</span></span>, <a class="reference internal" href="#_CPPv4N4sptk18WaveformToSpectrumE" title="sptk::WaveformToSpectrum"><span class="n"><span class="pre">WaveformToSpectrum</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk18WaveformToSpectrum6BufferE" title="sptk::WaveformToSpectrum::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18WaveformToSpectrum3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN18WaveformToSpectrum6BufferE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>waveform</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(L\)</span>-length waveform signals. </p></li>
+<li><p><strong>spectrum</strong> – <strong>[out]</strong> <span class="math notranslate nohighlight">\((N/2+1)\)</span>-length spectrum. </p></li>
+<li><p><strong>buffer</strong> – <strong>[out]</strong> <a class="reference internal" href="#classsptk_1_1WaveformToSpectrum_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk18WaveformToSpectrum6BufferE">
+<span id="_CPPv3N4sptk18WaveformToSpectrum6BufferE"></span><span id="_CPPv2N4sptk18WaveformToSpectrum6BufferE"></span><span id="sptk::WaveformToSpectrum::Buffer"></span><span class="target" id="classsptk_1_1WaveformToSpectrum_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18WaveformToSpectrum6BufferE" title="Permalink to this definition"></a><br /></dt>
+<dd><p><a class="reference internal" href="#classsptk_1_1WaveformToSpectrum_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1WaveformToSpectrum"><span class="std std-ref">WaveformToSpectrum</span></a> class. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk28FilterCoefficientsToSpectrumE">
+<span id="_CPPv3N4sptk28FilterCoefficientsToSpectrumE"></span><span id="_CPPv2N4sptk28FilterCoefficientsToSpectrumE"></span><span id="sptk::FilterCoefficientsToSpectrum"></span><span class="target" id="classsptk_1_1FilterCoefficientsToSpectrum"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">FilterCoefficientsToSpectrum</span></span></span><a class="headerlink" href="#_CPPv4N4sptk28FilterCoefficientsToSpectrumE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Convert filter coefficients to spectrum.</p>
+<p>The input is the <span class="math notranslate nohighlight">\(M\)</span>-th order numerator coefficients and the <span class="math notranslate nohighlight">\(N\)</span>-th order denominator coefficients: <div class="math notranslate nohighlight">
+\[\begin{split} \begin{array}{cccc} b(0), &amp; b(1), &amp; \ldots, &amp; b(M), \\ K, &amp; a(1), &amp; \ldots, &amp; a(N). \end{array} \end{split}\]</div>
+ The output is the <span class="math notranslate nohighlight">\((L/2+1)\)</span>-length spectrum and takes one of the following forms.</p>
+<p>Type 0: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} 20 \log_{10}|H(0)|, &amp; 20 \log_{10}|H(1)|, &amp; \ldots, &amp; 20 \log_{10}|H(L/2)|. \end{array} \]</div>
+ Type 1: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} \ln|H(0)|, &amp; \ln|H(1)|, &amp; \ldots, &amp; \ln|H(L/2)|. \end{array} \]</div>
+ Type 2: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} |H(0)|, &amp; |H(1)|, &amp; \ldots, &amp; |H(L/2)|. \end{array} \]</div>
+ Type 3: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} |H(0)|^2, &amp; |H(1)|^2, &amp; \ldots, &amp; |H(L/2)|^2, \end{array} \]</div>
+ where <span class="math notranslate nohighlight">\(L\)</span> is the FFT length. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk28FilterCoefficientsToSpectrum28FilterCoefficientsToSpectrumEiiiN18SpectrumToSpectrum18InputOutputFormatsEdd">
+<span id="_CPPv3N4sptk28FilterCoefficientsToSpectrum28FilterCoefficientsToSpectrumEiiiN18SpectrumToSpectrum18InputOutputFormatsEdd"></span><span id="_CPPv2N4sptk28FilterCoefficientsToSpectrum28FilterCoefficientsToSpectrumEiiiN18SpectrumToSpectrum18InputOutputFormatsEdd"></span><span id="sptk::FilterCoefficientsToSpectrum::FilterCoefficientsToSpectrum__i.i.i.SpectrumToSpectrum::InputOutputFormats.double.double"></span><span class="target" id="classsptk_1_1FilterCoefficientsToSpectrum_1a21afa3b2dcb0a2b9263436ecb1b5fd4d"></span><span class="sig-name descname"><span class="n"><span class="pre">FilterCoefficientsToSpectrum</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_numerator_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_denominator_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <a class="reference internal" href="#_CPPv4N4sptk18SpectrumToSpectrumE" title="sptk::SpectrumToSpectrum"><span class="n"><span class="pre">SpectrumToSpectrum</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk18SpectrumToSpectrum18InputOutputFormatsE" title="sptk::SpectrumToSpectrum::InputOutputFormats"><span class="n"><span class="pre">InputOutputFormats</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">output_format</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">epsilon</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">relative_floor_in_decibels</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk28FilterCoefficientsToSpectrum28FilterCoefficientsToSpectrumEiiiN18SpectrumToSpectrum18InputOutputFormatsEdd" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_numerator_order</strong> – <strong>[in]</strong> Order of numerator coefficients, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
+<li><p><strong>num_denominator_order</strong> – <strong>[in]</strong> Order of denominator coefficients, <span class="math notranslate nohighlight">\(N\)</span>. </p></li>
+<li><p><strong>fft_length</strong> – <strong>[in]</strong> FFT length, <span class="math notranslate nohighlight">\(L\)</span>. </p></li>
+<li><p><strong>output_format</strong> – <strong>[in]</strong> Output format. </p></li>
+<li><p><strong>epsilon</strong> – <strong>[in]</strong> Small value added to power spectrum. </p></li>
+<li><p><strong>relative_floor_in_decibels</strong> – <strong>[in]</strong> Relative floor in decibels. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk28FilterCoefficientsToSpectrum20GetNumNumeratorOrderEv">
+<span id="_CPPv3NK4sptk28FilterCoefficientsToSpectrum20GetNumNumeratorOrderEv"></span><span id="_CPPv2NK4sptk28FilterCoefficientsToSpectrum20GetNumNumeratorOrderEv"></span><span id="sptk::FilterCoefficientsToSpectrum::GetNumNumeratorOrderC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToSpectrum_1a886a8cb5de0cbe9ed1826857b1461836"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumNumeratorOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk28FilterCoefficientsToSpectrum20GetNumNumeratorOrderEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Order of numerator coefficients. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk28FilterCoefficientsToSpectrum22GetNumDenominatorOrderEv">
+<span id="_CPPv3NK4sptk28FilterCoefficientsToSpectrum22GetNumDenominatorOrderEv"></span><span id="_CPPv2NK4sptk28FilterCoefficientsToSpectrum22GetNumDenominatorOrderEv"></span><span id="sptk::FilterCoefficientsToSpectrum::GetNumDenominatorOrderC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToSpectrum_1aa970b63ea84f0a45ec861878ce7df8ac"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumDenominatorOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk28FilterCoefficientsToSpectrum22GetNumDenominatorOrderEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Order of denominator coefficients. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk28FilterCoefficientsToSpectrum12GetFftLengthEv">
+<span id="_CPPv3NK4sptk28FilterCoefficientsToSpectrum12GetFftLengthEv"></span><span id="_CPPv2NK4sptk28FilterCoefficientsToSpectrum12GetFftLengthEv"></span><span id="sptk::FilterCoefficientsToSpectrum::GetFftLengthC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToSpectrum_1aab7a5e8bec6c20543b4c15cc6e4bfdaa"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk28FilterCoefficientsToSpectrum12GetFftLengthEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>FFT length. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk28FilterCoefficientsToSpectrum15GetOutputFormatEv">
+<span id="_CPPv3NK4sptk28FilterCoefficientsToSpectrum15GetOutputFormatEv"></span><span id="_CPPv2NK4sptk28FilterCoefficientsToSpectrum15GetOutputFormatEv"></span><span id="sptk::FilterCoefficientsToSpectrum::GetOutputFormatC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToSpectrum_1ab59481eeec8226ff1dfecdad98112548"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk18SpectrumToSpectrumE" title="sptk::SpectrumToSpectrum"><span class="n"><span class="pre">SpectrumToSpectrum</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk18SpectrumToSpectrum18InputOutputFormatsE" title="sptk::SpectrumToSpectrum::InputOutputFormats"><span class="n"><span class="pre">InputOutputFormats</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetOutputFormat</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk28FilterCoefficientsToSpectrum15GetOutputFormatEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Output format. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk28FilterCoefficientsToSpectrum10GetEpsilonEv">
+<span id="_CPPv3NK4sptk28FilterCoefficientsToSpectrum10GetEpsilonEv"></span><span id="_CPPv2NK4sptk28FilterCoefficientsToSpectrum10GetEpsilonEv"></span><span id="sptk::FilterCoefficientsToSpectrum::GetEpsilonC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToSpectrum_1a75a1989c115b1fa26f38be990af1fa08"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetEpsilon</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk28FilterCoefficientsToSpectrum10GetEpsilonEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Epsilon. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk28FilterCoefficientsToSpectrum26GetRelativeFloorInDecibelsEv">
+<span id="_CPPv3NK4sptk28FilterCoefficientsToSpectrum26GetRelativeFloorInDecibelsEv"></span><span id="_CPPv2NK4sptk28FilterCoefficientsToSpectrum26GetRelativeFloorInDecibelsEv"></span><span id="sptk::FilterCoefficientsToSpectrum::GetRelativeFloorInDecibelsC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToSpectrum_1a0abb6c7efb89c79075cb6288a2bd6c7b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetRelativeFloorInDecibels</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk28FilterCoefficientsToSpectrum26GetRelativeFloorInDecibelsEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Relative floor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk28FilterCoefficientsToSpectrum7IsValidEv">
+<span id="_CPPv3NK4sptk28FilterCoefficientsToSpectrum7IsValidEv"></span><span id="_CPPv2NK4sptk28FilterCoefficientsToSpectrum7IsValidEv"></span><span id="sptk::FilterCoefficientsToSpectrum::IsValidC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToSpectrum_1a85b2d0074d4daeb837c543f020f3eacd"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk28FilterCoefficientsToSpectrum7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if this object is valid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk28FilterCoefficientsToSpectrum3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN28FilterCoefficientsToSpectrum6BufferE">
+<span id="_CPPv3NK4sptk28FilterCoefficientsToSpectrum3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN28FilterCoefficientsToSpectrum6BufferE"></span><span id="_CPPv2NK4sptk28FilterCoefficientsToSpectrum3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN28FilterCoefficientsToSpectrum6BufferE"></span><span id="sptk::FilterCoefficientsToSpectrum::Run__std::vector:double:CR.std::vector:double:CR.std::vector:double:P.FilterCoefficientsToSpectrum::BufferPC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToSpectrum_1af1b3c02af66ef40d9bf89876726afe55"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">numerator_coefficients</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">denominator_coefficients</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">spectrum</span></span>, <a class="reference internal" href="#_CPPv4N4sptk28FilterCoefficientsToSpectrumE" title="sptk::FilterCoefficientsToSpectrum"><span class="n"><span class="pre">FilterCoefficientsToSpectrum</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk28FilterCoefficientsToSpectrum6BufferE" title="sptk::FilterCoefficientsToSpectrum::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk28FilterCoefficientsToSpectrum3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN28FilterCoefficientsToSpectrum6BufferE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>numerator_coefficients</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order coefficients. </p></li>
+<li><p><strong>denominator_coefficients</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(N\)</span>-th order coefficients. </p></li>
+<li><p><strong>spectrum</strong> – <strong>[out]</strong> <span class="math notranslate nohighlight">\((L/2+1)\)</span>-length spectrum. </p></li>
+<li><p><strong>buffer</strong> – <strong>[out]</strong> <a class="reference internal" href="#classsptk_1_1FilterCoefficientsToSpectrum_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk28FilterCoefficientsToSpectrum6BufferE">
+<span id="_CPPv3N4sptk28FilterCoefficientsToSpectrum6BufferE"></span><span id="_CPPv2N4sptk28FilterCoefficientsToSpectrum6BufferE"></span><span id="sptk::FilterCoefficientsToSpectrum::Buffer"></span><span class="target" id="classsptk_1_1FilterCoefficientsToSpectrum_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk28FilterCoefficientsToSpectrum6BufferE" title="Permalink to this definition"></a><br /></dt>
+<dd><p><a class="reference internal" href="#classsptk_1_1FilterCoefficientsToSpectrum_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1FilterCoefficientsToSpectrum"><span class="std std-ref">FilterCoefficientsToSpectrum</span></a> class. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk18SpectrumToSpectrumE">
+<span id="_CPPv3N4sptk18SpectrumToSpectrumE"></span><span id="_CPPv2N4sptk18SpectrumToSpectrumE"></span><span id="sptk::SpectrumToSpectrum"></span><span class="target" id="classsptk_1_1SpectrumToSpectrum"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">SpectrumToSpectrum</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumToSpectrumE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Convert spectrum to spectrum.</p>
+<p>The input and output are the <span class="math notranslate nohighlight">\((N/2+1)\)</span>-length spectrum and take one of the following forms.</p>
+<p>Type 0: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} 20 \log_{10}|H(0)|, &amp; 20 \log_{10}|H(1)|, &amp; \ldots, &amp; 20 \log_{10}|H(N/2)|. \end{array} \]</div>
+ Type 1: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} \ln|H(0)|, &amp; \ln|H(1)|, &amp; \ldots, &amp; \ln|H(N/2)|. \end{array} \]</div>
+ Type 2: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} |H(0)|, &amp; |H(1)|, &amp; \ldots, &amp; |H(N/2)|. \end{array} \]</div>
+ Type 3: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} |H(0)|^2, &amp; |H(1)|^2, &amp; \ldots, &amp; |H(N/2)|^2, \end{array} \]</div>
+ where <span class="math notranslate nohighlight">\(N\)</span> is the FFT length. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk18SpectrumToSpectrum18InputOutputFormatsE">
+<span id="_CPPv3N4sptk18SpectrumToSpectrum18InputOutputFormatsE"></span><span id="_CPPv2N4sptk18SpectrumToSpectrum18InputOutputFormatsE"></span><span class="target" id="classsptk_1_1SpectrumToSpectrum_1ac31cb91e93168a8a6e471883332fbb94"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">InputOutputFormats</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumToSpectrum18InputOutputFormatsE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Input and output format. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk18SpectrumToSpectrum18InputOutputFormats31kLogAmplitudeSpectrumInDecibelsE">
+<span id="_CPPv3N4sptk18SpectrumToSpectrum18InputOutputFormats31kLogAmplitudeSpectrumInDecibelsE"></span><span id="_CPPv2N4sptk18SpectrumToSpectrum18InputOutputFormats31kLogAmplitudeSpectrumInDecibelsE"></span><span class="target" id="classsptk_1_1SpectrumToSpectrum_1ac31cb91e93168a8a6e471883332fbb94a2c7dda54bbeb334f450fc45e4b604b00"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kLogAmplitudeSpectrumInDecibels</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumToSpectrum18InputOutputFormats31kLogAmplitudeSpectrumInDecibelsE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk18SpectrumToSpectrum18InputOutputFormats21kLogAmplitudeSpectrumE">
+<span id="_CPPv3N4sptk18SpectrumToSpectrum18InputOutputFormats21kLogAmplitudeSpectrumE"></span><span id="_CPPv2N4sptk18SpectrumToSpectrum18InputOutputFormats21kLogAmplitudeSpectrumE"></span><span class="target" id="classsptk_1_1SpectrumToSpectrum_1ac31cb91e93168a8a6e471883332fbb94ac8e9f4925be88ba8751137acd22e8882"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kLogAmplitudeSpectrum</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumToSpectrum18InputOutputFormats21kLogAmplitudeSpectrumE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk18SpectrumToSpectrum18InputOutputFormats18kAmplitudeSpectrumE">
+<span id="_CPPv3N4sptk18SpectrumToSpectrum18InputOutputFormats18kAmplitudeSpectrumE"></span><span id="_CPPv2N4sptk18SpectrumToSpectrum18InputOutputFormats18kAmplitudeSpectrumE"></span><span class="target" id="classsptk_1_1SpectrumToSpectrum_1ac31cb91e93168a8a6e471883332fbb94af3602725a0258c135aa6f6a5a6ba5174"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kAmplitudeSpectrum</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumToSpectrum18InputOutputFormats18kAmplitudeSpectrumE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk18SpectrumToSpectrum18InputOutputFormats14kPowerSpectrumE">
+<span id="_CPPv3N4sptk18SpectrumToSpectrum18InputOutputFormats14kPowerSpectrumE"></span><span id="_CPPv2N4sptk18SpectrumToSpectrum18InputOutputFormats14kPowerSpectrumE"></span><span class="target" id="classsptk_1_1SpectrumToSpectrum_1ac31cb91e93168a8a6e471883332fbb94a0c62e3252254e5dadf9c8dfc65f37cad"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kPowerSpectrum</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumToSpectrum18InputOutputFormats14kPowerSpectrumE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk18SpectrumToSpectrum18InputOutputFormats22kNumInputOutputFormatsE">
+<span id="_CPPv3N4sptk18SpectrumToSpectrum18InputOutputFormats22kNumInputOutputFormatsE"></span><span id="_CPPv2N4sptk18SpectrumToSpectrum18InputOutputFormats22kNumInputOutputFormatsE"></span><span class="target" id="classsptk_1_1SpectrumToSpectrum_1ac31cb91e93168a8a6e471883332fbb94a1f43337b772c17a3b926827ffe059f5d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kNumInputOutputFormats</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumToSpectrum18InputOutputFormats22kNumInputOutputFormatsE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk18SpectrumToSpectrum18SpectrumToSpectrumEi18InputOutputFormats18InputOutputFormatsdd">
+<span id="_CPPv3N4sptk18SpectrumToSpectrum18SpectrumToSpectrumEi18InputOutputFormats18InputOutputFormatsdd"></span><span id="_CPPv2N4sptk18SpectrumToSpectrum18SpectrumToSpectrumEi18InputOutputFormats18InputOutputFormatsdd"></span><span id="sptk::SpectrumToSpectrum::SpectrumToSpectrum__i.InputOutputFormats.InputOutputFormats.double.double"></span><span class="target" id="classsptk_1_1SpectrumToSpectrum_1add1eb7a35825f6e0dd7184a19b26364e"></span><span class="sig-name descname"><span class="n"><span class="pre">SpectrumToSpectrum</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <a class="reference internal" href="#_CPPv4N4sptk18SpectrumToSpectrum18InputOutputFormatsE" title="sptk::SpectrumToSpectrum::InputOutputFormats"><span class="n"><span class="pre">InputOutputFormats</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">input_format</span></span>, <a class="reference internal" href="#_CPPv4N4sptk18SpectrumToSpectrum18InputOutputFormatsE" title="sptk::SpectrumToSpectrum::InputOutputFormats"><span class="n"><span class="pre">InputOutputFormats</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">output_format</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">epsilon</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">relative_floor_in_decibels</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumToSpectrum18SpectrumToSpectrumEi18InputOutputFormats18InputOutputFormatsdd" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fft_length</strong> – <strong>[in]</strong> FFT length, <span class="math notranslate nohighlight">\(N\)</span>. </p></li>
+<li><p><strong>input_format</strong> – <strong>[in]</strong> Input format. </p></li>
+<li><p><strong>output_format</strong> – <strong>[in]</strong> Output format. </p></li>
+<li><p><strong>epsilon</strong> – <strong>[in]</strong> Small value added to power spectrum. </p></li>
+<li><p><strong>relative_floor_in_decibels</strong> – <strong>[in]</strong> Relative floor in decibels. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk18SpectrumToSpectrum12GetFftLengthEv">
+<span id="_CPPv3NK4sptk18SpectrumToSpectrum12GetFftLengthEv"></span><span id="_CPPv2NK4sptk18SpectrumToSpectrum12GetFftLengthEv"></span><span id="sptk::SpectrumToSpectrum::GetFftLengthC"></span><span class="target" id="classsptk_1_1SpectrumToSpectrum_1a4766ea0d07bdaae74a584ceaa9186f4f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18SpectrumToSpectrum12GetFftLengthEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>FFT length. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk18SpectrumToSpectrum14GetInputFormatEv">
+<span id="_CPPv3NK4sptk18SpectrumToSpectrum14GetInputFormatEv"></span><span id="_CPPv2NK4sptk18SpectrumToSpectrum14GetInputFormatEv"></span><span id="sptk::SpectrumToSpectrum::GetInputFormatC"></span><span class="target" id="classsptk_1_1SpectrumToSpectrum_1aeb836ecced9072ef61fc21e122276859"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk18SpectrumToSpectrum18InputOutputFormatsE" title="sptk::SpectrumToSpectrum::InputOutputFormats"><span class="n"><span class="pre">InputOutputFormats</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetInputFormat</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18SpectrumToSpectrum14GetInputFormatEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Input format. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk18SpectrumToSpectrum15GetOutputFormatEv">
+<span id="_CPPv3NK4sptk18SpectrumToSpectrum15GetOutputFormatEv"></span><span id="_CPPv2NK4sptk18SpectrumToSpectrum15GetOutputFormatEv"></span><span id="sptk::SpectrumToSpectrum::GetOutputFormatC"></span><span class="target" id="classsptk_1_1SpectrumToSpectrum_1a7ac7f3305fde4e343e6250fadc17d8b8"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk18SpectrumToSpectrum18InputOutputFormatsE" title="sptk::SpectrumToSpectrum::InputOutputFormats"><span class="n"><span class="pre">InputOutputFormats</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetOutputFormat</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18SpectrumToSpectrum15GetOutputFormatEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Output format. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk18SpectrumToSpectrum10GetEpsilonEv">
+<span id="_CPPv3NK4sptk18SpectrumToSpectrum10GetEpsilonEv"></span><span id="_CPPv2NK4sptk18SpectrumToSpectrum10GetEpsilonEv"></span><span id="sptk::SpectrumToSpectrum::GetEpsilonC"></span><span class="target" id="classsptk_1_1SpectrumToSpectrum_1acb0c5ef32ee433c3be811b0b833f9bf1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetEpsilon</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18SpectrumToSpectrum10GetEpsilonEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Epsilon. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk18SpectrumToSpectrum26GetRelativeFloorInDecibelsEv">
+<span id="_CPPv3NK4sptk18SpectrumToSpectrum26GetRelativeFloorInDecibelsEv"></span><span id="_CPPv2NK4sptk18SpectrumToSpectrum26GetRelativeFloorInDecibelsEv"></span><span id="sptk::SpectrumToSpectrum::GetRelativeFloorInDecibelsC"></span><span class="target" id="classsptk_1_1SpectrumToSpectrum_1a65a156948034360203da7b65d719cfeb"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetRelativeFloorInDecibels</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18SpectrumToSpectrum26GetRelativeFloorInDecibelsEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Relative floor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk18SpectrumToSpectrum7IsValidEv">
+<span id="_CPPv3NK4sptk18SpectrumToSpectrum7IsValidEv"></span><span id="_CPPv2NK4sptk18SpectrumToSpectrum7IsValidEv"></span><span id="sptk::SpectrumToSpectrum::IsValidC"></span><span class="target" id="classsptk_1_1SpectrumToSpectrum_1a57579aef9f27519f3718ab890aea90fb"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18SpectrumToSpectrum7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if this object is valid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk18SpectrumToSpectrum3RunERKNSt6vectorIdEEPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk18SpectrumToSpectrum3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk18SpectrumToSpectrum3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::SpectrumToSpectrum::Run__std::vector:double:CR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1SpectrumToSpectrum_1aeb1bb548d7da02b9a58d151add200bb5"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">input</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">output</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18SpectrumToSpectrum3RunERKNSt6vectorIdEEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\((N/2+1)\)</span>-length spectrum. </p></li>
+<li><p><strong>output</strong> – <strong>[out]</strong> <span class="math notranslate nohighlight">\((N/2+1)\)</span>-length spectrum. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk18SpectrumToSpectrum3RunEPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk18SpectrumToSpectrum3RunEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk18SpectrumToSpectrum3RunEPNSt6vectorIdEE"></span><span id="sptk::SpectrumToSpectrum::Run__std::vector:double:PC"></span><span class="target" id="classsptk_1_1SpectrumToSpectrum_1a2391dc716e64728d2b4ce2ee01922216"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_and_output</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18SpectrumToSpectrum3RunEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input_and_output</strong> – <strong>[inout]</strong> <span class="math notranslate nohighlight">\((N/2+1)\)</span>-length spectrum. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk18SpectrumToSpectrum18OperationInterfaceE">
+<span id="_CPPv3N4sptk18SpectrumToSpectrum18OperationInterfaceE"></span><span id="_CPPv2N4sptk18SpectrumToSpectrum18OperationInterfaceE"></span><span id="sptk::SpectrumToSpectrum::OperationInterface"></span><span class="target" id="classsptk_1_1SpectrumToSpectrum_1_1OperationInterface"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">OperationInterface</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumToSpectrum18OperationInterfaceE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Interface of spectrum operation. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk18SpectrumToSpectrum18OperationInterface3RunEPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk18SpectrumToSpectrum18OperationInterface3RunEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk18SpectrumToSpectrum18OperationInterface3RunEPNSt6vectorIdEE"></span><span id="sptk::SpectrumToSpectrum::OperationInterface::Run__std::vector:double:PC"></span><span class="target" id="classsptk_1_1SpectrumToSpectrum_1_1OperationInterface_1aca3ef52fb0d75eb9acbe4d85a239f3da"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_and_output</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4NK4sptk18SpectrumToSpectrum18OperationInterface3RunEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input_and_output</strong> – <strong>[inout]</strong> Input/output spectrum. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sopr.html" class="btn btn-neutral float-left" title="sopr" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="step.html" class="btn btn-neutral float-right" title="step" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, SPTK Working Group.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

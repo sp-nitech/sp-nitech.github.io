@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vc &mdash; SPTK  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="vopr" href="vopr.html" />
+    <link rel="prev" title="ulaw" href="ulaw.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> SPTK
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Command references</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcp.html">bcp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcut.html">bcut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2acr.html">c2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2ndps.html">c2ndps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdist.html">cdist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clip.html">clip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dct.html">dct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decimate.html">decimate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delay.html">delay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dequantize.html">dequantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df2.html">df2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dfs.html">dfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmp.html">dmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtw.html">dtw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtw_merge.html">dtw_merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html">extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fd.html">fd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fdrw.html">fdrw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft2.html">fft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr2.html">fftr2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glogsp.html">glogsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmm.html">gmm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmmp.html">gmmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpolezero.html">gpolezero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grlogsp.html">grlogsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gseries.html">gseries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gspecgram.html">gspecgram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gwave.html">gwave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="histogram.html">histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imglsadf.html">imglsadf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lbg.html">lbg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="levdur.html">levdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear_intpl.html">linear_intpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc.html">lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2lsp.html">lpc2lsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpccheck.html">lpccheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lsp2lpc.html">lsp2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspcheck.html">lspcheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspdf.html">lspdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcpf.html">mcpf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="median.html">median</a></li>
+<li class="toctree-l1"><a class="reference internal" href="merge.html">merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgc2mgc.html">mgc2mgc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgc2sp.html">mgc2sp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgcep.html">mgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsadf.html">mglsadf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsp2sp.html">mglsp2sp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minmax.html">minmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlsacheck.html">mlsacheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mpir2c.html">mpir2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msvq.html">msvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pcas.html">pcas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ramp.html">ramp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reverse.html">reverse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlevdur.html">rlevdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rmse.html">rmse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root_pol.html">root_pol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sin.html">sin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smcep.html">smcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snr.html">snr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sopr.html">sopr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spec.html">spec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step.html">step</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swab.html">swab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="symmetrize.html">symmetrize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="train.html">train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transpose.html">transpose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">vc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vopr.html">vopr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utility references</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../utils/math.html">math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/sptk.html">sptk</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SPTK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>vc</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/main/vc.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vc">
+<span id="id1"></span><h1>vc<a class="headerlink" href="#vc" title="Permalink to this headline"></a></h1>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv44mainiA_Pc">
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="vc_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p><em>vc</em> [ <em>option</em> ] <em>gmmfile</em> [ <em>infile</em> ]</p>
+<p><ul class="simple">
+<li><p><strong>-l</strong> <em>int</em> <ul>
+<li><p>length of source vector <span class="math notranslate nohighlight">\((1 \le M_1 + 1)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-m</strong> <em>int</em> <ul>
+<li><p>order of source vector <span class="math notranslate nohighlight">\((0 \le M_1)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-L</strong> <em>int</em> <ul>
+<li><p>length of target vector <span class="math notranslate nohighlight">\((1 \le M_2 + 1)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-M</strong> <em>int</em> <ul>
+<li><p>order of target vector <span class="math notranslate nohighlight">\((0 \le M_2)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-k</strong> <em>int</em> <ul>
+<li><p>number of mixtures <span class="math notranslate nohighlight">\((1 \le K)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-f</strong> <em>bool</em> <ul>
+<li><p>use full or block covariance instead of diagonal one</p></li>
+</ul>
+</p></li>
+<li><p><strong>-d</strong> <em>double+</em> <ul>
+<li><p>delta coefficients</p></li>
+</ul>
+</p></li>
+<li><p><strong>-D</strong> <em>string</em> <ul>
+<li><p>filename of double-type delta coefficients</p></li>
+</ul>
+</p></li>
+<li><p><strong>-r</strong> <em>int+</em> <ul>
+<li><p>width of 1st (and 2nd) regression coefficients</p></li>
+</ul>
+</p></li>
+<li><p><strong>-magic</strong> <em>double</em> <ul>
+<li><p>magic number</p></li>
+</ul>
+</p></li>
+<li><p><strong>gmmfile</strong> <em>str</em> <ul>
+<li><p>double-type GMM parameters</p></li>
+</ul>
+</p></li>
+<li><p><strong>infile</strong> <em>str</em> <ul>
+<li><p>double-type source static+dynamic vector sequence</p></li>
+</ul>
+</p></li>
+<li><p><strong>stdout</strong> <ul>
+<li><p>double-type target static vector sequence</p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+<p>In the following example, the converted 4-th order vectors corresponding <code class="docutils literal notranslate"><span class="pre">data.source</span></code> are obtained using the trained 2-mixture GMM <code class="docutils literal notranslate"><span class="pre">data.gmm</span></code>.</p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span> <span class="o">-</span><span class="n">l</span> <span class="mi">5</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="mf">0.5</span> <span class="mf">0.0</span> <span class="mf">0.5</span> <span class="n">data</span><span class="o">.</span><span class="n">source</span> <span class="o">|</span> \
+  <span class="n">vc</span> <span class="o">-</span><span class="n">k</span> <span class="mi">2</span> <span class="o">-</span><span class="n">l</span> <span class="mi">5</span> <span class="n">data</span><span class="o">.</span><span class="n">gmm</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
+<li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, 1 on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="gmm.html#gmm"><span class="std std-ref">gmm</span></a>  <a class="reference internal" href="gmmp.html#gmmp"><span class="std std-ref">gmmp</span></a></p>
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk35GaussianMixtureModelBasedConversionE">
+<span id="_CPPv3N4sptk35GaussianMixtureModelBasedConversionE"></span><span id="_CPPv2N4sptk35GaussianMixtureModelBasedConversionE"></span><span id="sptk::GaussianMixtureModelBasedConversion"></span><span class="target" id="classsptk_1_1GaussianMixtureModelBasedConversion"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">GaussianMixtureModelBasedConversion</span></span></span><a class="headerlink" href="#_CPPv4N4sptk35GaussianMixtureModelBasedConversionE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Perform GMM-based voice conversion.</p>
+<p>The input is the <span class="math notranslate nohighlight">\((D+1)(M_1+1)\)</span>-length source vectors: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} \boldsymbol{X}_0, &amp; \boldsymbol{X}_1, &amp; \ldots, &amp; \boldsymbol{X}_{T-1}, \end{array} \]</div>
+ where <div class="math notranslate nohighlight">
+\[ \boldsymbol{X}_t = \left[ \begin{array}{cccc} \boldsymbol{x}_t^{\mathsf{T}} &amp; \Delta^{(1)} \boldsymbol{x}_t^{\mathsf{T}} &amp; \cdots &amp; \Delta^{(D)} \boldsymbol{x}_t^{\mathsf{T}} \end{array} \right]^{\mathsf{T}}. \]</div>
+ The output is the <span class="math notranslate nohighlight">\((M_2+1)\)</span>-length target vectors: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} \boldsymbol{y}_0, &amp; \boldsymbol{y}_1, &amp; \ldots, &amp; \boldsymbol{y}_{T-1}. \end{array} \]</div>
+</p>
+<p>The optimal target vectors can be drived in a maximum likelihood sense: <div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray} \hat{\boldsymbol{y}} &amp;=&amp; \mathop{\mathrm{argmax}}_{\boldsymbol{y}} \, p(\boldsymbol{Y} \,|\, \boldsymbol{X}, \boldsymbol{\lambda}) \\ &amp;=&amp; \mathop{\mathrm{argmax}}_{\boldsymbol{y}} \sum_{\boldsymbol{m}} p(\boldsymbol{m} \,|\, \boldsymbol{X}, \boldsymbol{\lambda}) \, p(\boldsymbol{Y} \,|\, \boldsymbol{X}, \boldsymbol{m}, \boldsymbol{\lambda}), \end{eqnarray}\end{split}\]</div>
+ where <span class="math notranslate nohighlight">\(\boldsymbol{\lambda}\)</span> is the GMM that models the joint vectors. The mean vector and the covariance matrix of the <span class="math notranslate nohighlight">\(m\)</span>-th mixture component are written as <div class="math notranslate nohighlight">
+\[\begin{split} \boldsymbol{\mu}_m = \left[ \begin{array}{c} \boldsymbol{\mu}_m^{(X)} \\ \boldsymbol{\mu}_m^{(Y)} \end{array} \right] \end{split}\]</div>
+ and <div class="math notranslate nohighlight">
+\[\begin{split} \boldsymbol{\varSigma}_m = \left[ \begin{array}{cc} \boldsymbol{\varSigma}_m^{(XX)} &amp; \boldsymbol{\varSigma}_m^{(XY)} \\ \boldsymbol{\varSigma}_m^{(YX)} &amp; \boldsymbol{\varSigma}_m^{(YY)} \end{array} \right]. \end{split}\]</div>
+ To easily compute the ML estimate, the maximum a posteriori approximation is applied: <div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray} \hat{\boldsymbol{y}} &amp;=&amp; \mathop{\mathrm{argmax}}_{\boldsymbol{y}} \, p(\hat{\boldsymbol{m}} \,|\, \boldsymbol{X}, \boldsymbol{\lambda}) \, p(\boldsymbol{Y} \,|\, \boldsymbol{X}, \hat{\boldsymbol{m}}, \boldsymbol{\lambda}) \\ &amp;=&amp; \mathop{\mathrm{argmax}}_{\boldsymbol{y}} \prod_{t=0}^{T-1} p(\hat{m}_t \,|\, \boldsymbol{X}_t, \boldsymbol{\lambda}) \, p(\boldsymbol{Y}_t \,|\, \boldsymbol{X}_t, \hat{m}_t, \boldsymbol{\lambda}), \end{eqnarray}\end{split}\]</div>
+ where <div class="math notranslate nohighlight">
+\[ p(\hat{m}_t \,|\, \boldsymbol{X}_t, \boldsymbol{\lambda}) = \max_m \, \frac{w_m \mathcal{N} \left( \boldsymbol{X}_t \,\big|\, \boldsymbol{\mu}_m^{(X)}, \boldsymbol{\varSigma}_m^{(XX)} \right)} {\sum_{n=1}^M w_n \mathcal{N} \left( \boldsymbol{X}_t \,\big|\, \boldsymbol{\mu}_n^{(X)}, \boldsymbol{\varSigma}_n^{(XX)} \right)}, \]</div>
+ and <div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray} p(\boldsymbol{Y}_t \,|\, \boldsymbol{X}_t, m, \boldsymbol{\lambda}) &amp;=&amp; \mathcal{N} \left( \boldsymbol{Y}_t \,\big|\, \boldsymbol{E}_{m,t}^{(Y)}, \boldsymbol{D}_{m,t}^{(Y)} \right), \\ \boldsymbol{E}_{m,t}^{(Y)} &amp;=&amp; \boldsymbol{\mu}_m^{(Y)} + \boldsymbol{\varSigma}_m^{(YX)} \boldsymbol{\varSigma}_m^{(XX)^{-1}} \left( \boldsymbol{X}_t - \boldsymbol{\mu}_m^{(X)} \right), \\ \boldsymbol{D}_{m,t}^{(Y)} &amp;=&amp; \boldsymbol{\varSigma}_m^{(YY)} - \boldsymbol{\varSigma}_m^{(YX)} \boldsymbol{\varSigma}_m^{(XX)^{-1}} \boldsymbol{\varSigma}_m^{(XY)}. \end{eqnarray}\end{split}\]</div>
+ The converted static vector sequence <span class="math notranslate nohighlight">\(\hat{\boldsymbol{y}}\)</span> under the constraint between static and dynamic components is obtained by the maximum likelihood parameter generation algorithm.</p>
+<p>[1] T. Toda, A. W. Black, and K. Tokuda, “Voice conversion based on maximum-likelihood estimation of spectral parameter trajectory,” IEEE Transactions on Audio, Speech, and Language Processing, vol. 15, no. 8, pp. 2222-2235, 2007. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk35GaussianMixtureModelBasedConversion35GaussianMixtureModelBasedConversionEiiRKNSt6vectorINSt6vectorIdEEEERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorI15SymmetricMatrixEEbd">
+<span id="_CPPv3N4sptk35GaussianMixtureModelBasedConversion35GaussianMixtureModelBasedConversionEiiRKNSt6vectorINSt6vectorIdEEEERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorI15SymmetricMatrixEEbd"></span><span id="_CPPv2N4sptk35GaussianMixtureModelBasedConversion35GaussianMixtureModelBasedConversionEiiRKNSt6vectorINSt6vectorIdEEEERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorI15SymmetricMatrixEEbd"></span><span id="sptk::GaussianMixtureModelBasedConversion::GaussianMixtureModelBasedConversion__i.i.std::vector:std::vector:double::CR.std::vector:double:CR.std::vector:std::vector:double::CR.std::vector:SymmetricMatrix:CR.b.double"></span><span class="target" id="classsptk_1_1GaussianMixtureModelBasedConversion_1a7d961df21ce4aa08b5d1ef5c70bf8b36"></span><span class="sig-name descname"><span class="n"><span class="pre">GaussianMixtureModelBasedConversion</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_source_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_target_order</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">window_coefficients</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">weights</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">mean_vectors</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../utils/math.html#_CPPv4N4sptk15SymmetricMatrixE" title="sptk::SymmetricMatrix"><span class="n"><span class="pre">SymmetricMatrix</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">covariance_matrices</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">use_magic_number</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">magic_number</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.0</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk35GaussianMixtureModelBasedConversion35GaussianMixtureModelBasedConversionEiiRKNSt6vectorINSt6vectorIdEEEERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorI15SymmetricMatrixEEbd" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_source_order</strong> – <strong>[in]</strong> Order of source vector, <span class="math notranslate nohighlight">\(M_1\)</span>. </p></li>
+<li><p><strong>num_target_order</strong> – <strong>[in]</strong> Order of target vector, <span class="math notranslate nohighlight">\(M_2\)</span>. </p></li>
+<li><p><strong>window_coefficients</strong> – <strong>[in]</strong> Window coefficients. e.g.) { {-0.5, 0.0, 0.5}, {1.0, -2.0, 1.0} } </p></li>
+<li><p><strong>weights</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(K\)</span> mixture weights. </p></li>
+<li><p><strong>mean_vectors</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(K\)</span> mean vectors. The shape is <span class="math notranslate nohighlight">\([K, (D+1)(M_1+M_2+2)]\)</span>. </p></li>
+<li><p><strong>covariance_matrices</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(K\)</span> covariance matrices. The shape is <span class="math notranslate nohighlight">\([K, (D+1)(M_1+M_2+2), (D+1)(M_1+M_2+2)]\)</span>. </p></li>
+<li><p><strong>use_magic_number</strong> – <strong>[in]</strong> Whether to use magic number. </p></li>
+<li><p><strong>magic_number</strong> – <strong>[in]</strong> A magic number represents a discrete symbol. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk35GaussianMixtureModelBasedConversion17GetNumSourceOrderEv">
+<span id="_CPPv3NK4sptk35GaussianMixtureModelBasedConversion17GetNumSourceOrderEv"></span><span id="_CPPv2NK4sptk35GaussianMixtureModelBasedConversion17GetNumSourceOrderEv"></span><span id="sptk::GaussianMixtureModelBasedConversion::GetNumSourceOrderC"></span><span class="target" id="classsptk_1_1GaussianMixtureModelBasedConversion_1a0c4b63988c46919333cf49be78c86a32"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumSourceOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk35GaussianMixtureModelBasedConversion17GetNumSourceOrderEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Order of source vector. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk35GaussianMixtureModelBasedConversion17GetNumTargetOrderEv">
+<span id="_CPPv3NK4sptk35GaussianMixtureModelBasedConversion17GetNumTargetOrderEv"></span><span id="_CPPv2NK4sptk35GaussianMixtureModelBasedConversion17GetNumTargetOrderEv"></span><span id="sptk::GaussianMixtureModelBasedConversion::GetNumTargetOrderC"></span><span class="target" id="classsptk_1_1GaussianMixtureModelBasedConversion_1a3bdb4a62195e79b100710e7cf71d1993"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumTargetOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk35GaussianMixtureModelBasedConversion17GetNumTargetOrderEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Order of target vector. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk35GaussianMixtureModelBasedConversion7IsValidEv">
+<span id="_CPPv3NK4sptk35GaussianMixtureModelBasedConversion7IsValidEv"></span><span id="_CPPv2NK4sptk35GaussianMixtureModelBasedConversion7IsValidEv"></span><span id="sptk::GaussianMixtureModelBasedConversion::IsValidC"></span><span class="target" id="classsptk_1_1GaussianMixtureModelBasedConversion_1a4a5301eecd69ef7f814d5dd04d0b3f72"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk35GaussianMixtureModelBasedConversion7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if this object is valid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk35GaussianMixtureModelBasedConversion3RunERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorINSt6vectorIdEEEE">
+<span id="_CPPv3NK4sptk35GaussianMixtureModelBasedConversion3RunERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorINSt6vectorIdEEEE"></span><span id="_CPPv2NK4sptk35GaussianMixtureModelBasedConversion3RunERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorINSt6vectorIdEEEE"></span><span id="sptk::GaussianMixtureModelBasedConversion::Run__std::vector:std::vector:double::CR.std::vector:std::vector:double::PC"></span><span class="target" id="classsptk_1_1GaussianMixtureModelBasedConversion_1a5a950e37dcbcb84d82a05e8ed28e9e48"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">source_vectors</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">target_vectors</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk35GaussianMixtureModelBasedConversion3RunERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorINSt6vectorIdEEEE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>source_vectors</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M_1\)</span>-th order source vectors containing dynamic components. The shape is <span class="math notranslate nohighlight">\([T, (D+1)(M_1+1)]\)</span>. </p></li>
+<li><p><strong>target_vectors</strong> – <strong>[out]</strong> <span class="math notranslate nohighlight">\(M_2\)</span>-th order target vectors. The shape is <span class="math notranslate nohighlight">\([T, (M_2+1)]\)</span>. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ulaw.html" class="btn btn-neutral float-left" title="ulaw" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vopr.html" class="btn btn-neutral float-right" title="vopr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, SPTK Working Group.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

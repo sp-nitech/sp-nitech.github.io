@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>vstat &mdash; SPTK  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="vsum" href="vsum.html" />
+    <link rel="prev" title="vopr" href="vopr.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> SPTK
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Command references</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcp.html">bcp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcut.html">bcut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2acr.html">c2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2ndps.html">c2ndps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdist.html">cdist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clip.html">clip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dct.html">dct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decimate.html">decimate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delay.html">delay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dequantize.html">dequantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df2.html">df2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dfs.html">dfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmp.html">dmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtw.html">dtw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtw_merge.html">dtw_merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html">extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fd.html">fd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fdrw.html">fdrw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft2.html">fft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr2.html">fftr2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glogsp.html">glogsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmm.html">gmm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmmp.html">gmmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpolezero.html">gpolezero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grlogsp.html">grlogsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gseries.html">gseries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gspecgram.html">gspecgram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gwave.html">gwave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="histogram.html">histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imglsadf.html">imglsadf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lbg.html">lbg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="levdur.html">levdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear_intpl.html">linear_intpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc.html">lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2lsp.html">lpc2lsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpccheck.html">lpccheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lsp2lpc.html">lsp2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspcheck.html">lspcheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspdf.html">lspdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcpf.html">mcpf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="median.html">median</a></li>
+<li class="toctree-l1"><a class="reference internal" href="merge.html">merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgc2mgc.html">mgc2mgc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgc2sp.html">mgc2sp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgcep.html">mgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsadf.html">mglsadf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsp2sp.html">mglsp2sp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minmax.html">minmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlsacheck.html">mlsacheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mpir2c.html">mpir2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msvq.html">msvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pcas.html">pcas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ramp.html">ramp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reverse.html">reverse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlevdur.html">rlevdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rmse.html">rmse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root_pol.html">root_pol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sin.html">sin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smcep.html">smcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snr.html">snr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sopr.html">sopr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spec.html">spec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step.html">step</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swab.html">swab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="symmetrize.html">symmetrize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="train.html">train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transpose.html">transpose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vc.html">vc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vopr.html">vopr</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">vstat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utility references</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../utils/math.html">math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/sptk.html">sptk</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SPTK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>vstat</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/main/vstat.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="vstat">
+<span id="id1"></span><h1>vstat<a class="headerlink" href="#vstat" title="Permalink to this headline"></a></h1>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv44mainiA_Pc">
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="vstat_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p><em>vstat</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<p><ul class="simple">
+<li><p><strong>-l</strong> <em>int</em> <ul>
+<li><p>length of vector <span class="math notranslate nohighlight">\((1 \le L)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-m</strong> <em>int</em> <ul>
+<li><p>order of vector <span class="math notranslate nohighlight">\((0 \le L - 1)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-t</strong> <em>int</em> <ul>
+<li><p>output interval <span class="math notranslate nohighlight">\((1 \le T)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-c</strong> <em>double</em> <ul>
+<li><p>confidence level <span class="math notranslate nohighlight">\((0 &lt; C &lt; 100)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-o</strong> <em>int</em> <ul>
+<li><p>output format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> mean and covariance </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> mean </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> covariance </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> standard deviation </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4</span></code> correlation </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">5</span></code> precision </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">6</span></code> mean and lower/upper bounds</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>-d</strong> <em>bool</em> <ul>
+<li><p>output only diagonal elements</p></li>
+</ul>
+</p></li>
+<li><p><strong>infile</strong> <em>str</em> <ul>
+<li><p>double-type vectors</p></li>
+</ul>
+</p></li>
+<li><p><strong>stdout</strong> <ul>
+<li><p>double-type statistics</p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+<p>The input of this command is <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} \underbrace{ \underbrace{x_1(1), \; \ldots, \; x_1(L)}_L, \; \ldots, \; \underbrace{x_T(1), \; \ldots, \; x_T(L)}_L, }_{L \times T} \; \ldots, \end{array} \]</div>
+ and the output format depends on <code class="docutils literal notranslate"><span class="pre">-o</span></code> option.</p>
+<p>If <span class="math notranslate nohighlight">\(O=1\)</span>, <div class="math notranslate nohighlight">
+\[ \begin{array}{ccc} \underbrace{\mu_{0}(1), \; \ldots, \; \mu_{0}(L)}_L, &amp; \underbrace{\mu_{T}(1), \; \ldots, \; \mu_{T}(L)}_L, &amp; \ldots, \end{array} \]</div>
+ where <div class="math notranslate nohighlight">
+\[ \mu_t(l) = \frac{1}{T} \sum_{\tau=1}^T x_{t+\tau}(l). \]</div>
+</p>
+<p>If <span class="math notranslate nohighlight">\(O=2\)</span>, <div class="math notranslate nohighlight">
+\[ \begin{array}{cc} \underbrace{\sigma^2_0(1,1), \; \sigma^2_{0}(1,2), \; \ldots, \; \sigma^2_0(L,L)}_{L \times L}, &amp; \ldots, \end{array} \]</div>
+ where <div class="math notranslate nohighlight">
+\[ \sigma^2_t(k,l) = \frac{1}{T} \sum_{\tau=1}^T (x_{t+\tau}(k) - \mu_t(k)) (x_{t+\tau}(l) - \mu_t(l)). \]</div>
+</p>
+<p>If <span class="math notranslate nohighlight">\(O=3\)</span>, <div class="math notranslate nohighlight">
+\[ \begin{array}{cc} \underbrace{\sigma_{0}(1,1), \; \sigma_{0}(2,2), \; \ldots, \; \sigma_{0}(L,L)}_L, &amp; \ldots \end{array} \]</div>
+</p>
+<p>If <span class="math notranslate nohighlight">\(O=4\)</span>, <div class="math notranslate nohighlight">
+\[ \begin{array}{cc} \underbrace{r_{0}(1,1), \; r_{0}(1,2), \; \ldots, \; r_{0}(L,L)}_{L \times L}, &amp; \ldots, \end{array} \]</div>
+ where <div class="math notranslate nohighlight">
+\[ r_t(k,l) = \frac{\sigma^2_t(k,l)}{\sigma_t(k,k) \, \sigma_t(l,l)}. \]</div>
+</p>
+<p>If <span class="math notranslate nohighlight">\(O=5\)</span>, <div class="math notranslate nohighlight">
+\[ \begin{array}{cc} \underbrace{s_{0}(1,1), \; s_{0}(1,2), \; \ldots, \; s_{0}(L,L)}_{L \times L}, &amp; \ldots, \end{array} \]</div>
+ where <span class="math notranslate nohighlight">\(s_t(k,l)\)</span> is the <span class="math notranslate nohighlight">\((k,l)\)</span>-th component of the inverse of the covariance matrix <span class="math notranslate nohighlight">\(\{\sigma^2_t(k,l)\}_{k,l=1}^L\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(O=6\)</span>, <div class="math notranslate nohighlight">
+\[ \begin{array}{ccc} \underbrace{\mu_{0}(1), \; \ldots, \; \mu_{0}(L)}_L, &amp; \underbrace{\ell_{0}(1), \; \ldots, \; \ell_{0}(L)}_L, &amp; \underbrace{u_{0}(1), \; \ldots, \; u_{0}(L)}_L, &amp; \ldots, \end{array} \]</div>
+ where <div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray} \ell_t(l) &amp;=&amp; \mu_t(l) - p(C, L-1) \sqrt{\frac{\sigma^2_t(l,l)}{L-1}}, \\ u_t(l) &amp;=&amp; \mu_t(l) + p(C, L-1) \sqrt{\frac{\sigma^2_t(l,l)}{L-1}}, \end{eqnarray}\end{split}\]</div>
+ and <span class="math notranslate nohighlight">\(p(C, L-1)\)</span> is the upper <span class="math notranslate nohighlight">\((100-C)/2\)</span>-th percentile of the of the t-distribution with degrees of freedom <span class="math notranslate nohighlight">\(L-1\)</span>.</p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span> <span class="mi">7</span> <span class="mi">8</span> <span class="mi">9</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">ad</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span>
+<span class="n">vstat</span> <span class="o">-</span><span class="n">o</span> <span class="mi">1</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+<span class="c1"># 4.5</span>
+<span class="n">vstat</span> <span class="o">-</span><span class="n">o</span> <span class="mi">1</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span> <span class="o">-</span><span class="n">t</span> <span class="mi">5</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+<span class="c1"># 2, 7</span>
+</pre></div>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
+<li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, 1 on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="vsum.html#vsum"><span class="std std-ref">vsum</span></a></p>
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk22StatisticsAccumulationE">
+<span id="_CPPv3N4sptk22StatisticsAccumulationE"></span><span id="_CPPv2N4sptk22StatisticsAccumulationE"></span><span id="sptk::StatisticsAccumulation"></span><span class="target" id="classsptk_1_1StatisticsAccumulation"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">StatisticsAccumulation</span></span></span><a class="headerlink" href="#_CPPv4N4sptk22StatisticsAccumulationE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Accumulate statistics.</p>
+<p>The input of is an <span class="math notranslate nohighlight">\(M\)</span>-th order vector: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} x_t(0), &amp; x_t(1), &amp; \ldots, &amp; x_t(M). \end{array} \]</div>
+ After running <code class="docutils literal notranslate"><span class="pre">Run</span></code> <span class="math notranslate nohighlight">\(T\)</span> times, the following statistics are obtained: <div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray} S_0 &amp;=&amp; T, \\ S_1(m) &amp;=&amp; \sum_{t=0}^{T-1} x_t(m), \\ S_2(m,n) &amp;=&amp; \sum_{t=0}^{T-1} x_t(m) x_t(n). \end{eqnarray}\end{split}\]</div>
+ Then, the moments, e.g., mean and covariance, of the input data can be computed from the accumulated statistics <span class="math notranslate nohighlight">\(\{S_k\}_{k=0}^K\)</span>. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk22StatisticsAccumulation22StatisticsAccumulationEii">
+<span id="_CPPv3N4sptk22StatisticsAccumulation22StatisticsAccumulationEii"></span><span id="_CPPv2N4sptk22StatisticsAccumulation22StatisticsAccumulationEii"></span><span id="sptk::StatisticsAccumulation::StatisticsAccumulation__i.i"></span><span class="target" id="classsptk_1_1StatisticsAccumulation_1a3a712e68350e88e485c839740578b3e9"></span><span class="sig-name descname"><span class="n"><span class="pre">StatisticsAccumulation</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_statistics_order</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk22StatisticsAccumulation22StatisticsAccumulationEii" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_order</strong> – <strong>[in]</strong> Order of vector, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
+<li><p><strong>num_statistics_order</strong> – <strong>[in]</strong> Order of statistics, <span class="math notranslate nohighlight">\(K\)</span>. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk22StatisticsAccumulation11GetNumOrderEv">
+<span id="_CPPv3NK4sptk22StatisticsAccumulation11GetNumOrderEv"></span><span id="_CPPv2NK4sptk22StatisticsAccumulation11GetNumOrderEv"></span><span id="sptk::StatisticsAccumulation::GetNumOrderC"></span><span class="target" id="classsptk_1_1StatisticsAccumulation_1a7b9b23ee5de39d001bdea9e9710183d8"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk22StatisticsAccumulation11GetNumOrderEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Order of vector. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk22StatisticsAccumulation21GetNumStatisticsOrderEv">
+<span id="_CPPv3NK4sptk22StatisticsAccumulation21GetNumStatisticsOrderEv"></span><span id="_CPPv2NK4sptk22StatisticsAccumulation21GetNumStatisticsOrderEv"></span><span id="sptk::StatisticsAccumulation::GetNumStatisticsOrderC"></span><span class="target" id="classsptk_1_1StatisticsAccumulation_1aa8cfb5e1d0f7b38d4daabd60c8222399"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumStatisticsOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk22StatisticsAccumulation21GetNumStatisticsOrderEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Order of statistics. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk22StatisticsAccumulation7IsValidEv">
+<span id="_CPPv3NK4sptk22StatisticsAccumulation7IsValidEv"></span><span id="_CPPv2NK4sptk22StatisticsAccumulation7IsValidEv"></span><span id="sptk::StatisticsAccumulation::IsValidC"></span><span class="target" id="classsptk_1_1StatisticsAccumulation_1a0764761fa2965d3006ac92f97174560c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk22StatisticsAccumulation7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if this object is valid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk22StatisticsAccumulation10GetNumDataERKN22StatisticsAccumulation6BufferEPi">
+<span id="_CPPv3NK4sptk22StatisticsAccumulation10GetNumDataERKN22StatisticsAccumulation6BufferEPi"></span><span id="_CPPv2NK4sptk22StatisticsAccumulation10GetNumDataERKN22StatisticsAccumulation6BufferEPi"></span><span id="sptk::StatisticsAccumulation::GetNumData__StatisticsAccumulation::BufferCR.iPC"></span><span class="target" id="classsptk_1_1StatisticsAccumulation_1ab3bcae5658639b139c62297096118994"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumData</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulationE" title="sptk::StatisticsAccumulation"><span class="n"><span class="pre">StatisticsAccumulation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulation6BufferE" title="sptk::StatisticsAccumulation::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">buffer</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">num_data</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk22StatisticsAccumulation10GetNumDataERKN22StatisticsAccumulation6BufferEPi" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buffer</strong> – <strong>[in]</strong> <a class="reference internal" href="#classsptk_1_1StatisticsAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+<li><p><strong>num_data</strong> – <strong>[out]</strong> Number of accumulated data. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk22StatisticsAccumulation6GetSumERKN22StatisticsAccumulation6BufferEPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk22StatisticsAccumulation6GetSumERKN22StatisticsAccumulation6BufferEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk22StatisticsAccumulation6GetSumERKN22StatisticsAccumulation6BufferEPNSt6vectorIdEE"></span><span id="sptk::StatisticsAccumulation::GetSum__StatisticsAccumulation::BufferCR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1StatisticsAccumulation_1a0ed84c37feabc448fbe98008a8f8fbe6"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetSum</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulationE" title="sptk::StatisticsAccumulation"><span class="n"><span class="pre">StatisticsAccumulation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulation6BufferE" title="sptk::StatisticsAccumulation::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">buffer</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">sum</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk22StatisticsAccumulation6GetSumERKN22StatisticsAccumulation6BufferEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buffer</strong> – <strong>[in]</strong> <a class="reference internal" href="#classsptk_1_1StatisticsAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+<li><p><strong>sum</strong> – <strong>[out]</strong> Summation of accumulated data. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk22StatisticsAccumulation7GetMeanERKN22StatisticsAccumulation6BufferEPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk22StatisticsAccumulation7GetMeanERKN22StatisticsAccumulation6BufferEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk22StatisticsAccumulation7GetMeanERKN22StatisticsAccumulation6BufferEPNSt6vectorIdEE"></span><span id="sptk::StatisticsAccumulation::GetMean__StatisticsAccumulation::BufferCR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1StatisticsAccumulation_1a73d22871b98cb5249f186ea1c0d1e9eb"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetMean</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulationE" title="sptk::StatisticsAccumulation"><span class="n"><span class="pre">StatisticsAccumulation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulation6BufferE" title="sptk::StatisticsAccumulation::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">buffer</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">mean</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk22StatisticsAccumulation7GetMeanERKN22StatisticsAccumulation6BufferEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buffer</strong> – <strong>[in]</strong> <a class="reference internal" href="#classsptk_1_1StatisticsAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+<li><p><strong>mean</strong> – <strong>[out]</strong> Mean of accumulated data. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk22StatisticsAccumulation21GetDiagonalCovarianceERKN22StatisticsAccumulation6BufferEPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk22StatisticsAccumulation21GetDiagonalCovarianceERKN22StatisticsAccumulation6BufferEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk22StatisticsAccumulation21GetDiagonalCovarianceERKN22StatisticsAccumulation6BufferEPNSt6vectorIdEE"></span><span id="sptk::StatisticsAccumulation::GetDiagonalCovariance__StatisticsAccumulation::BufferCR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1StatisticsAccumulation_1a9aa41c584a85600bdfa118e80ebecee2"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetDiagonalCovariance</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulationE" title="sptk::StatisticsAccumulation"><span class="n"><span class="pre">StatisticsAccumulation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulation6BufferE" title="sptk::StatisticsAccumulation::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">buffer</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">variance</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk22StatisticsAccumulation21GetDiagonalCovarianceERKN22StatisticsAccumulation6BufferEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buffer</strong> – <strong>[in]</strong> <a class="reference internal" href="#classsptk_1_1StatisticsAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+<li><p><strong>variance</strong> – <strong>[out]</strong> Diagonal covariance of accumulated data. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk22StatisticsAccumulation20GetStandardDeviationERKN22StatisticsAccumulation6BufferEPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk22StatisticsAccumulation20GetStandardDeviationERKN22StatisticsAccumulation6BufferEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk22StatisticsAccumulation20GetStandardDeviationERKN22StatisticsAccumulation6BufferEPNSt6vectorIdEE"></span><span id="sptk::StatisticsAccumulation::GetStandardDeviation__StatisticsAccumulation::BufferCR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1StatisticsAccumulation_1ac2814efe9ca73152edbf1199be6c12c2"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetStandardDeviation</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulationE" title="sptk::StatisticsAccumulation"><span class="n"><span class="pre">StatisticsAccumulation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulation6BufferE" title="sptk::StatisticsAccumulation::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">buffer</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">standard_deviation</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk22StatisticsAccumulation20GetStandardDeviationERKN22StatisticsAccumulation6BufferEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buffer</strong> – <strong>[in]</strong> <a class="reference internal" href="#classsptk_1_1StatisticsAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+<li><p><strong>standard_deviation</strong> – <strong>[out]</strong> Standard deviation of accumulated data. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk22StatisticsAccumulation17GetFullCovarianceERKN22StatisticsAccumulation6BufferEP15SymmetricMatrix">
+<span id="_CPPv3NK4sptk22StatisticsAccumulation17GetFullCovarianceERKN22StatisticsAccumulation6BufferEP15SymmetricMatrix"></span><span id="_CPPv2NK4sptk22StatisticsAccumulation17GetFullCovarianceERKN22StatisticsAccumulation6BufferEP15SymmetricMatrix"></span><span id="sptk::StatisticsAccumulation::GetFullCovariance__StatisticsAccumulation::BufferCR.SymmetricMatrixPC"></span><span class="target" id="classsptk_1_1StatisticsAccumulation_1a35b2ec49bf9e40d9698c35ec442835ef"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFullCovariance</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulationE" title="sptk::StatisticsAccumulation"><span class="n"><span class="pre">StatisticsAccumulation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulation6BufferE" title="sptk::StatisticsAccumulation::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">buffer</span></span>, <a class="reference internal" href="../utils/math.html#_CPPv4N4sptk15SymmetricMatrixE" title="sptk::SymmetricMatrix"><span class="n"><span class="pre">SymmetricMatrix</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">full_covariance</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk22StatisticsAccumulation17GetFullCovarianceERKN22StatisticsAccumulation6BufferEP15SymmetricMatrix" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buffer</strong> – <strong>[in]</strong> <a class="reference internal" href="#classsptk_1_1StatisticsAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+<li><p><strong>full_covariance</strong> – <strong>[out]</strong> Full covariance of accumulated data. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk22StatisticsAccumulation21GetUnbiasedCovarianceERKN22StatisticsAccumulation6BufferEP15SymmetricMatrix">
+<span id="_CPPv3NK4sptk22StatisticsAccumulation21GetUnbiasedCovarianceERKN22StatisticsAccumulation6BufferEP15SymmetricMatrix"></span><span id="_CPPv2NK4sptk22StatisticsAccumulation21GetUnbiasedCovarianceERKN22StatisticsAccumulation6BufferEP15SymmetricMatrix"></span><span id="sptk::StatisticsAccumulation::GetUnbiasedCovariance__StatisticsAccumulation::BufferCR.SymmetricMatrixPC"></span><span class="target" id="classsptk_1_1StatisticsAccumulation_1a07d6972bdb860a2973af0b6eb76bb879"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetUnbiasedCovariance</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulationE" title="sptk::StatisticsAccumulation"><span class="n"><span class="pre">StatisticsAccumulation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulation6BufferE" title="sptk::StatisticsAccumulation::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">buffer</span></span>, <a class="reference internal" href="../utils/math.html#_CPPv4N4sptk15SymmetricMatrixE" title="sptk::SymmetricMatrix"><span class="n"><span class="pre">SymmetricMatrix</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">unbiased_covariance</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk22StatisticsAccumulation21GetUnbiasedCovarianceERKN22StatisticsAccumulation6BufferEP15SymmetricMatrix" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buffer</strong> – <strong>[in]</strong> <a class="reference internal" href="#classsptk_1_1StatisticsAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+<li><p><strong>unbiased_covariance</strong> – <strong>[out]</strong> Unbiased covariance of accumulated data. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk22StatisticsAccumulation14GetCorrelationERKN22StatisticsAccumulation6BufferEP15SymmetricMatrix">
+<span id="_CPPv3NK4sptk22StatisticsAccumulation14GetCorrelationERKN22StatisticsAccumulation6BufferEP15SymmetricMatrix"></span><span id="_CPPv2NK4sptk22StatisticsAccumulation14GetCorrelationERKN22StatisticsAccumulation6BufferEP15SymmetricMatrix"></span><span id="sptk::StatisticsAccumulation::GetCorrelation__StatisticsAccumulation::BufferCR.SymmetricMatrixPC"></span><span class="target" id="classsptk_1_1StatisticsAccumulation_1af6f76ea16005dccf71cfccc9bf0e2fbb"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetCorrelation</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulationE" title="sptk::StatisticsAccumulation"><span class="n"><span class="pre">StatisticsAccumulation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulation6BufferE" title="sptk::StatisticsAccumulation::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">buffer</span></span>, <a class="reference internal" href="../utils/math.html#_CPPv4N4sptk15SymmetricMatrixE" title="sptk::SymmetricMatrix"><span class="n"><span class="pre">SymmetricMatrix</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">correlation</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk22StatisticsAccumulation14GetCorrelationERKN22StatisticsAccumulation6BufferEP15SymmetricMatrix" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buffer</strong> – <strong>[in]</strong> <a class="reference internal" href="#classsptk_1_1StatisticsAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+<li><p><strong>correlation</strong> – <strong>[out]</strong> Correlation of accumulated data. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk22StatisticsAccumulation5ClearEPN22StatisticsAccumulation6BufferE">
+<span id="_CPPv3NK4sptk22StatisticsAccumulation5ClearEPN22StatisticsAccumulation6BufferE"></span><span id="_CPPv2NK4sptk22StatisticsAccumulation5ClearEPN22StatisticsAccumulation6BufferE"></span><span id="sptk::StatisticsAccumulation::Clear__StatisticsAccumulation::BufferPC"></span><span class="target" id="classsptk_1_1StatisticsAccumulation_1ae98f300e0b855447da488a1c08319164"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Clear</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulationE" title="sptk::StatisticsAccumulation"><span class="n"><span class="pre">StatisticsAccumulation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulation6BufferE" title="sptk::StatisticsAccumulation::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk22StatisticsAccumulation5ClearEPN22StatisticsAccumulation6BufferE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Clear buffer.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>buffer</strong> – <strong>[inout]</strong> <a class="reference internal" href="#classsptk_1_1StatisticsAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk22StatisticsAccumulation3RunERKNSt6vectorIdEEPN22StatisticsAccumulation6BufferE">
+<span id="_CPPv3NK4sptk22StatisticsAccumulation3RunERKNSt6vectorIdEEPN22StatisticsAccumulation6BufferE"></span><span id="_CPPv2NK4sptk22StatisticsAccumulation3RunERKNSt6vectorIdEEPN22StatisticsAccumulation6BufferE"></span><span id="sptk::StatisticsAccumulation::Run__std::vector:double:CR.StatisticsAccumulation::BufferPC"></span><span class="target" id="classsptk_1_1StatisticsAccumulation_1a8025c9755ad5081b3e2b075b9dae84a7"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">data</span></span>, <a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulationE" title="sptk::StatisticsAccumulation"><span class="n"><span class="pre">StatisticsAccumulation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulation6BufferE" title="sptk::StatisticsAccumulation::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk22StatisticsAccumulation3RunERKNSt6vectorIdEEPN22StatisticsAccumulation6BufferE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Accumulate statistics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order input vector. </p></li>
+<li><p><strong>buffer</strong> – <strong>[inout]</strong> <a class="reference internal" href="#classsptk_1_1StatisticsAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk22StatisticsAccumulation6BufferE">
+<span id="_CPPv3N4sptk22StatisticsAccumulation6BufferE"></span><span id="_CPPv2N4sptk22StatisticsAccumulation6BufferE"></span><span id="sptk::StatisticsAccumulation::Buffer"></span><span class="target" id="classsptk_1_1StatisticsAccumulation_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk22StatisticsAccumulation6BufferE" title="Permalink to this definition"></a><br /></dt>
+<dd><p><a class="reference internal" href="#classsptk_1_1StatisticsAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1StatisticsAccumulation"><span class="std std-ref">StatisticsAccumulation</span></a> class. </p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="vopr.html" class="btn btn-neutral float-left" title="vopr" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vsum.html" class="btn btn-neutral float-right" title="vsum" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, SPTK Working Group.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

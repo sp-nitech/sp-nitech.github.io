@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>b2mc &mdash; SPTK  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="bcp" href="bcp.html" />
+    <link rel="prev" title="average" href="average.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="../index.html" class="icon icon-home"> SPTK
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Command references</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">b2mc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcp.html">bcp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcut.html">bcut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2acr.html">c2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2ndps.html">c2ndps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdist.html">cdist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clip.html">clip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dct.html">dct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decimate.html">decimate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delay.html">delay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dequantize.html">dequantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df2.html">df2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dfs.html">dfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmp.html">dmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtw.html">dtw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtw_merge.html">dtw_merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html">extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fd.html">fd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fdrw.html">fdrw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft2.html">fft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr2.html">fftr2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glogsp.html">glogsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmm.html">gmm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmmp.html">gmmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpolezero.html">gpolezero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grlogsp.html">grlogsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gseries.html">gseries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gspecgram.html">gspecgram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gwave.html">gwave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="histogram.html">histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imglsadf.html">imglsadf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lbg.html">lbg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="levdur.html">levdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear_intpl.html">linear_intpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc.html">lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2lsp.html">lpc2lsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpccheck.html">lpccheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lsp2lpc.html">lsp2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspcheck.html">lspcheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspdf.html">lspdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcpf.html">mcpf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="median.html">median</a></li>
+<li class="toctree-l1"><a class="reference internal" href="merge.html">merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgc2mgc.html">mgc2mgc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgc2sp.html">mgc2sp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgcep.html">mgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsadf.html">mglsadf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsp2sp.html">mglsp2sp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minmax.html">minmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlsacheck.html">mlsacheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mpir2c.html">mpir2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msvq.html">msvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pcas.html">pcas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ramp.html">ramp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reverse.html">reverse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlevdur.html">rlevdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rmse.html">rmse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root_pol.html">root_pol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sin.html">sin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smcep.html">smcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snr.html">snr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sopr.html">sopr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spec.html">spec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step.html">step</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swab.html">swab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="symmetrize.html">symmetrize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="train.html">train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transpose.html">transpose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vc.html">vc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vopr.html">vopr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utility references</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../utils/math.html">math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/sptk.html">sptk</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SPTK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>b2mc</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/main/b2mc.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="b2mc">
+<span id="id1"></span><h1>b2mc<a class="headerlink" href="#b2mc" title="Permalink to this headline"></a></h1>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv44mainiA_Pc">
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="b2mc_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p><em>b2mc</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<p><ul class="simple">
+<li><p><strong>-m</strong> <em>int</em> <ul>
+<li><p>order of coefficients <span class="math notranslate nohighlight">\((0 \le M)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-a</strong> <em>double</em> <ul>
+<li><p>all-pass constant <span class="math notranslate nohighlight">\((|\alpha| &lt; 1)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>infile</strong> <em>str</em> <ul>
+<li><p>double-type MLSA digital filter coefficients</p></li>
+</ul>
+</p></li>
+<li><p><strong>stdout</strong> <ul>
+<li><p>double-type mel-cepstral coefficients</p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+<p>The below example converts MLSA digital filter coefficients into mel-cepstral coefficients:</p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">b2mc</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">b</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">mc</span>
+</pre></div>
+</div>
+</p>
+<p>The converted mel-cepstral coefficients can be reverted by</p>
+<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">mc2b</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">mc</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">b</span>
+</pre></div>
+</div>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
+<li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>0 on success, 1 on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="mc2b.html#mc2b"><span class="std std-ref">mc2b</span></a>  <a class="reference internal" href="mgcep.html#mgcep"><span class="std std-ref">mgcep</span></a></p>
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk42MlsaDigitalFilterCoefficientsToMelCepstrumE">
+<span id="_CPPv3N4sptk42MlsaDigitalFilterCoefficientsToMelCepstrumE"></span><span id="_CPPv2N4sptk42MlsaDigitalFilterCoefficientsToMelCepstrumE"></span><span id="sptk::MlsaDigitalFilterCoefficientsToMelCepstrum"></span><span class="target" id="classsptk_1_1MlsaDigitalFilterCoefficientsToMelCepstrum"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">MlsaDigitalFilterCoefficientsToMelCepstrum</span></span></span><a class="headerlink" href="#_CPPv4N4sptk42MlsaDigitalFilterCoefficientsToMelCepstrumE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Convert MLSA digital filter coefficients to mel-cepstral coefficients.</p>
+<p>The input is the <span class="math notranslate nohighlight">\(M\)</span>-th order MLSA digital filter coefficients: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} b(0), &amp; b(1), &amp; \ldots, &amp; b(M), \end{array} \]</div>
+ and the output is the <span class="math notranslate nohighlight">\(M\)</span>-th order mel-cepstral coefficients: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} \tilde{c}(0), &amp; \tilde{c}(1), &amp; \ldots, &amp; \tilde{c}(M). \end{array} \]</div>
+ The mel-cepstral coefficients can be obtained by the linear transformation of the MLSA digital filter coefficients: <div class="math notranslate nohighlight">
+\[ \tilde{\boldsymbol{c}} = \boldsymbol{A}\boldsymbol{b}, \]</div>
+ where <div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray} \boldsymbol{A} &amp;=&amp; \left[ \begin{array}{ccccc} 1 &amp; \alpha &amp; 0 &amp; \cdots &amp; 0 \\ 0 &amp; 1 &amp; \alpha &amp; \ddots &amp; \vdots \\ 0 &amp; 0 &amp; 1 &amp; \ddots &amp; 0 \\ \vdots &amp; \vdots &amp; \ddots &amp; \ddots &amp; \alpha \\ 0 &amp; 0 &amp; \cdots &amp; 0 &amp; 1 \\ \end{array} \right], \\ \tilde{\boldsymbol{c}} &amp;=&amp; \left[ \begin{array}{cccc} \tilde{c}(0) &amp; \tilde{c}(1) &amp; \cdots &amp; \tilde{c}(M) \end{array} \right]^{\mathsf{T}}, \\ \boldsymbol{b} &amp;=&amp; \left[ \begin{array}{cccc} b(0) &amp; b(1) &amp; \cdots &amp; b(M) \end{array} \right]^{\mathsf{T}}. \end{eqnarray}\end{split}\]</div>
+ The transformation is implemented with low computational complexity as follows: <div class="math notranslate nohighlight">
+\[\begin{split} \tilde{c}(m) = \left\{ \begin{array}{ll} b(m), &amp; m = M \\ b(m) + \alpha b(m + 1). &amp; 0 \le m &lt; M \end{array} \right. \end{split}\]</div>
+</p>
+<p>[1] K. Tokuda, T. Kobayashi, T. Chiba, and S. Imai, “Spectral estimation of speech by mel-generalized cepstral analysis,” Electronics and Communications in Japan, part 3, vol. 76, no. 2, pp. 30-43, 1993. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum42MlsaDigitalFilterCoefficientsToMelCepstrumEid">
+<span id="_CPPv3N4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum42MlsaDigitalFilterCoefficientsToMelCepstrumEid"></span><span id="_CPPv2N4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum42MlsaDigitalFilterCoefficientsToMelCepstrumEid"></span><span id="sptk::MlsaDigitalFilterCoefficientsToMelCepstrum::MlsaDigitalFilterCoefficientsToMelCepstrum__i.double"></span><span class="target" id="classsptk_1_1MlsaDigitalFilterCoefficientsToMelCepstrum_1a86fb19c20d193cddace79058c52259f1"></span><span class="sig-name descname"><span class="n"><span class="pre">MlsaDigitalFilterCoefficientsToMelCepstrum</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">alpha</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum42MlsaDigitalFilterCoefficientsToMelCepstrumEid" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_order</strong> – <strong>[in]</strong> Order of coefficients, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
+<li><p><strong>alpha</strong> – <strong>[in]</strong> Frequency warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum11GetNumOrderEv">
+<span id="_CPPv3NK4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum11GetNumOrderEv"></span><span id="_CPPv2NK4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum11GetNumOrderEv"></span><span id="sptk::MlsaDigitalFilterCoefficientsToMelCepstrum::GetNumOrderC"></span><span class="target" id="classsptk_1_1MlsaDigitalFilterCoefficientsToMelCepstrum_1ae81f09c94e4588ebf428a737c4a017ad"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum11GetNumOrderEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Order of coefficients. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum8GetAlphaEv">
+<span id="_CPPv3NK4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum8GetAlphaEv"></span><span id="_CPPv2NK4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum8GetAlphaEv"></span><span id="sptk::MlsaDigitalFilterCoefficientsToMelCepstrum::GetAlphaC"></span><span class="target" id="classsptk_1_1MlsaDigitalFilterCoefficientsToMelCepstrum_1a3bf9fb1d0434245c7efa764de72df836"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetAlpha</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum8GetAlphaEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Frequency warping factor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum7IsValidEv">
+<span id="_CPPv3NK4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum7IsValidEv"></span><span id="_CPPv2NK4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum7IsValidEv"></span><span id="sptk::MlsaDigitalFilterCoefficientsToMelCepstrum::IsValidC"></span><span class="target" id="classsptk_1_1MlsaDigitalFilterCoefficientsToMelCepstrum_1ae40e48ae3fe1a91867d1d2e57b92f0c5"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if this object is valid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum3RunERKNSt6vectorIdEEPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::MlsaDigitalFilterCoefficientsToMelCepstrum::Run__std::vector:double:CR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1MlsaDigitalFilterCoefficientsToMelCepstrum_1a99fcbf3ac7d426fef92186ca40712b12"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">mlsa_digital_filter_coefficients</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">mel_cepstrum</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum3RunERKNSt6vectorIdEEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>mlsa_digital_filter_coefficients</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order MLSA digital filter coefficients. </p></li>
+<li><p><strong>mel_cepstrum</strong> – <strong>[out]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order mel-cepstral coefficients. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum3RunEPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum3RunEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum3RunEPNSt6vectorIdEE"></span><span id="sptk::MlsaDigitalFilterCoefficientsToMelCepstrum::Run__std::vector:double:PC"></span><span class="target" id="classsptk_1_1MlsaDigitalFilterCoefficientsToMelCepstrum_1a00f658c49f26293bee5fe68e0e46d9db"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_and_output</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk42MlsaDigitalFilterCoefficientsToMelCepstrum3RunEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>input_and_output</strong> – <strong>[inout]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order coefficients. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="average.html" class="btn btn-neutral float-left" title="average" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="bcp.html" class="btn btn-neutral float-right" title="bcp" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, SPTK Working Group.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
