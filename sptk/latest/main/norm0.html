@@ -224,8 +224,8 @@
 </ul>
 </p>
 <p>The below example computes a LPC residual signal by inverse filtering.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span> <span class="o">|</span> <span class="n">window</span> <span class="o">|</span> <span class="n">lpc</span> <span class="o">-</span><span class="n">m</span> <span class="mi">20</span> <span class="o">|</span> <span class="n">norm0</span> <span class="o">-</span><span class="n">m</span> <span class="mi">20</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">b</span>
-<span class="n">zerodf</span> <span class="o">-</span><span class="n">m</span> <span class="mi">20</span> <span class="n">data</span><span class="o">.</span><span class="n">b</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">e</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>frame &lt; data.d <span class="p">|</span> window <span class="p">|</span> lpc -m <span class="m">20</span> <span class="p">|</span> norm0 -m <span class="m">20</span> &gt; data.b
+zerodf -m <span class="m">20</span> data.b &lt; data.d &gt; data.e
 </pre></div>
 </div>
 </p>

@@ -237,7 +237,7 @@
 </p>
 <p>This command generates an excitation sequence from the pitch period in <code class="docutils literal notranslate"><span class="pre">infile</span></code> (or standard input), and sends the result to standard output. When the pitch period is nonzero, the excitation is to be a pulse train. When the pitch period is zero (i.e., unvoiced), the excitation is to be a Gaussian or M-sequence noise.</p>
 <p>In the example below, the excitation is generated from the <code class="docutils literal notranslate"><span class="pre">data.p</span></code> and passed through an LPC synthesis filter. The speech signal is written to <code class="docutils literal notranslate"><span class="pre">data.syn</span></code> file.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">excite</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">p</span> <span class="o">|</span> <span class="n">poledf</span> <span class="n">data</span><span class="o">.</span><span class="n">lpc</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">syn</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>excite &lt; data.p <span class="p">|</span> poledf data.lpc &gt; data.syn
 </pre></div>
 </div>
 </p>

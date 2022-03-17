@@ -269,17 +269,17 @@
 <p>This command merges two data sequence in a frame-by-frame manner. The below figure shows the overview of the command.</p>
 <p><img alt="../_images/merge_1.png" src="../_images/merge_1.png" /></p>
 <p>Insert mode example:</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="k">as</span> <span class="o">&gt;</span> <span class="nb">input</span><span class="o">.</span><span class="n">s</span>
-<span class="n">echo</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span> <span class="mi">7</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="k">as</span> <span class="o">&gt;</span> <span class="n">insert</span><span class="o">.</span><span class="n">s</span>
-<span class="n">merge</span> <span class="o">-</span><span class="n">s</span> <span class="mi">2</span> <span class="o">-</span><span class="n">l</span> <span class="mi">2</span> <span class="o">-</span><span class="n">L</span> <span class="mi">1</span> <span class="o">+</span><span class="n">s</span> <span class="n">insert</span><span class="o">.</span><span class="n">s</span> <span class="o">&lt;</span> <span class="nb">input</span><span class="o">.</span><span class="n">s</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">sa</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">1</span> <span class="m">1</span> <span class="m">2</span> <span class="m">2</span> <span class="m">3</span> <span class="m">3</span> <span class="p">|</span> x2x +as &gt; input.s
+<span class="nb">echo</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span> <span class="m">7</span> <span class="p">|</span> x2x +as &gt; insert.s
+merge -s <span class="m">2</span> -l <span class="m">2</span> -L <span class="m">1</span> +s insert.s &lt; input.s <span class="p">|</span> x2x +sa
 <span class="c1"># 1, 1, 4, 2, 2, 5, 3, 3, 6</span>
 </pre></div>
 </div>
 </p>
 <p>Overwrite mode example:</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="k">as</span> <span class="o">&gt;</span> <span class="nb">input</span><span class="o">.</span><span class="n">s</span>
-<span class="n">echo</span> <span class="mi">4</span> <span class="mi">5</span> <span class="mi">6</span> <span class="mi">7</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="k">as</span> <span class="o">&gt;</span> <span class="n">insert</span><span class="o">.</span><span class="n">s</span>
-<span class="n">merge</span> <span class="o">-</span><span class="n">w</span> <span class="o">-</span><span class="n">s</span> <span class="mi">0</span> <span class="o">-</span><span class="n">l</span> <span class="mi">2</span> <span class="o">-</span><span class="n">L</span> <span class="mi">1</span> <span class="o">+</span><span class="n">s</span> <span class="n">insert</span><span class="o">.</span><span class="n">s</span> <span class="o">&lt;</span> <span class="nb">input</span><span class="o">.</span><span class="n">s</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">sa</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">1</span> <span class="m">1</span> <span class="m">2</span> <span class="m">2</span> <span class="m">3</span> <span class="m">3</span> <span class="p">|</span> x2x +as &gt; input.s
+<span class="nb">echo</span> <span class="m">4</span> <span class="m">5</span> <span class="m">6</span> <span class="m">7</span> <span class="p">|</span> x2x +as &gt; insert.s
+merge -w -s <span class="m">0</span> -l <span class="m">2</span> -L <span class="m">1</span> +s insert.s &lt; input.s <span class="p">|</span> x2x +sa
 <span class="c1"># 4, 1, 5, 2, 6, 3</span>
 </pre></div>
 </div>

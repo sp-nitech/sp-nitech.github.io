@@ -255,12 +255,12 @@
 <p>This command changes the byte order (from big-endian to little-endian or vice versa) of the input data read from <code class="docutils literal notranslate"><span class="pre">infile</span></code>.</p>
 <p>The beginning and the end of the swapping can be controlled. The beginning is <span class="math notranslate nohighlight">\(S + Ts\)</span> and the end is <span class="math notranslate nohighlight">\(\min(E, Te)\)</span>, where <span class="math notranslate nohighlight">\(T\)</span> is the size of the data type decided by <code class="docutils literal notranslate"><span class="pre">+type</span></code> option.</p>
 <p>The following example skips the header of 12 bytes long and changes the byte order.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">swab</span> <span class="o">+</span><span class="n">f</span> <span class="o">-</span><span class="n">S</span> <span class="mi">12</span> <span class="n">htk</span><span class="o">.</span><span class="n">mfcc</span> <span class="o">|</span> <span class="n">dmp</span> <span class="o">+</span><span class="n">f</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>swab +f -S <span class="m">12</span> htk.mfcc <span class="p">|</span> dmp +f
 </pre></div>
 </div>
 </p>
 <p>Swapped data can be reverted as below.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ramp</span> <span class="o">-</span><span class="n">l</span> <span class="mi">4</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">fs</span> <span class="o">|</span> <span class="n">swab</span> <span class="o">+</span><span class="n">s</span> <span class="o">|</span> <span class="n">swab</span> <span class="o">+</span><span class="n">s</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">sa</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ramp -l <span class="m">4</span> <span class="p">|</span> x2x +fs <span class="p">|</span> swab +s <span class="p">|</span> swab +s <span class="p">|</span> x2x +sa
 <span class="c1"># 0, 1, 2, 3</span>
 </pre></div>
 </div>

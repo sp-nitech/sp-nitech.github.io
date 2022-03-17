@@ -247,7 +247,7 @@
 \[ \begin{array}{cccc} \{x(t)\}_{t=0}^{t=L-1}, &amp; \{x(t)\}_{t=P}^{t=P+L-1}, &amp; \{x(t)\}_{t=2P}^{t=2P+L-1}, &amp; \ldots \end{array} \]</div>
 </p>
 <p>The below example extracts LPC coefficients with 25-ms length window and 5-ms shift.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span> <span class="o">-</span><span class="n">l</span> <span class="mi">400</span> <span class="o">-</span><span class="n">p</span> <span class="mi">80</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span> <span class="o">|</span> <span class="n">window</span> <span class="o">-</span><span class="n">l</span> <span class="mi">400</span> <span class="o">|</span> <span class="n">lpc</span> <span class="o">-</span><span class="n">l</span> <span class="mi">400</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">lpc</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>frame -l <span class="m">400</span> -p <span class="m">80</span> &lt; data.d <span class="p">|</span> window -l <span class="m">400</span> <span class="p">|</span> lpc -l <span class="m">400</span> &gt; data.lpc
 </pre></div>
 </div>
 </p>

@@ -259,21 +259,21 @@
 </p></li>
 </ul>
 </p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ramp</span> <span class="o">-</span><span class="n">l</span> <span class="mi">4</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ramp -l <span class="m">4</span> <span class="p">|</span> x2x +da
 <span class="c1"># 0</span>
 <span class="c1"># 1</span>
 <span class="c1"># 2</span>
 <span class="c1"># 3</span>
-<span class="n">ramp</span> <span class="o">-</span><span class="n">l</span> <span class="mi">4</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span> <span class="o">-</span><span class="n">c</span> <span class="mi">2</span>
+ramp -l <span class="m">4</span> <span class="p">|</span> x2x +da -c <span class="m">2</span>
 <span class="c1"># 0       1</span>
 <span class="c1"># 2       3</span>
-<span class="n">ramp</span> <span class="o">-</span><span class="n">l</span> <span class="mi">4</span> <span class="o">|</span> <span class="n">sopr</span> <span class="o">-</span><span class="n">a</span> <span class="mf">0.5</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">dc</span> <span class="o">-</span><span class="n">r</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">ca</span> <span class="o">-</span><span class="n">c</span> <span class="mi">2</span>
+ramp -l <span class="m">4</span> <span class="p">|</span> sopr -a <span class="m">0</span>.5 <span class="p">|</span> x2x +dc -r <span class="p">|</span> x2x +ca -c <span class="m">2</span>
 <span class="c1"># 1       2</span>
 <span class="c1"># 3       4</span>
-<span class="n">ramp</span> <span class="o">-</span><span class="n">l</span> <span class="mi">4</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span> <span class="o">-</span><span class="n">c</span> <span class="mi">2</span> <span class="o">-</span><span class="n">f</span> <span class="o">%</span><span class="mf">.1</span><span class="n">f</span>
+ramp -l <span class="m">4</span> <span class="p">|</span> x2x +da -c <span class="m">2</span> -f %.1f
 <span class="c1"># 0.0     1.0</span>
 <span class="c1"># 2.0     3.0</span>
-<span class="n">echo</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">1000</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">aC</span> <span class="o">-</span><span class="n">e</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">Ca</span>
+<span class="nb">echo</span> -1 <span class="m">1000</span> <span class="p">|</span> x2x +aC -e <span class="m">0</span> <span class="p">|</span> x2x +Ca
 <span class="c1"># 0</span>
 <span class="c1"># 255</span>
 </pre></div>

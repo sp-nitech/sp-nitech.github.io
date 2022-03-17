@@ -232,12 +232,12 @@
  and the output is <div class="math notranslate nohighlight">
 \[ \begin{array}{ccc} \underbrace{x_0(L-1), \; \ldots, \; x_0(0)}_L, &amp; \underbrace{x_1(L-1), \; \ldots, \; x_1(0)}_L, &amp; \ldots, \end{array} \]</div>
  where <span class="math notranslate nohighlight">\(L\)</span> is the block length. If <span class="math notranslate nohighlight">\(L\)</span> is not given, <span class="math notranslate nohighlight">\(L\)</span> is assumed to be the length of entire sequence.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ramp</span> <span class="o">-</span><span class="n">l</span> <span class="mi">9</span> <span class="o">|</span> <span class="n">reverse</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ramp -l <span class="m">9</span> <span class="p">|</span> reverse <span class="p">|</span> x2x +da
 <span class="c1"># 8, 7, 6, 5, 4, 3, 2, 1, 0</span>
 </pre></div>
 </div>
 </p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ramp</span> <span class="o">-</span><span class="n">l</span> <span class="mi">9</span> <span class="o">|</span> <span class="n">reverse</span> <span class="o">-</span><span class="n">l</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ramp -l <span class="m">9</span> <span class="p">|</span> reverse -l <span class="m">3</span> <span class="p">|</span> x2x +da
 <span class="c1"># 2, 1, 0, 5, 4, 3, 8, 7, 6</span>
 </pre></div>
 </div>

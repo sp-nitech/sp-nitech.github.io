@@ -236,13 +236,13 @@
 </ul>
 </p>
 <p>The below example applies a pre-emphasis filter to signals in <code class="docutils literal notranslate"><span class="pre">data.d</span></code> </p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span> <span class="o">-</span><span class="n">a</span> <span class="mi">1</span> <span class="o">-</span><span class="mf">0.97</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">d2</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dfs -a <span class="m">1</span> -0.97 &lt; data.d &gt; data.d2
 </pre></div>
 </div>
 </p>
 <p>This is equivalent to the following procedure.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="mi">1</span> <span class="o">-</span><span class="mf">0.97</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">ad</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">p</span>
-<span class="n">dfs</span> <span class="o">-</span><span class="n">p</span> <span class="n">data</span><span class="o">.</span><span class="n">p</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">d2</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">1</span> -0.97 <span class="p">|</span> x2x +ad &gt; data.p
+dfs -p data.p &lt; data.d &gt; data.d2
 </pre></div>
 </div>
 </p>

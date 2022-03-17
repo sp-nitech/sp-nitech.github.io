@@ -217,6 +217,17 @@
 <li><p>order of autocorrelation coefficients <span class="math notranslate nohighlight">\((0 \le M)\)</span></p></li>
 </ul>
 </p></li>
+<li><p><strong>-q</strong> <em>int</em> <ul>
+<li><p>input format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> amplitude spectrum in dB </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> log amplitude spectrum </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> amplitude spectrum </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> power spectrum </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4</span></code> windowed waveform</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
 <li><p><strong>-o</strong> <em>double</em> <ul>
 <li><p>output format <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> autocorrelation </p></li>
@@ -242,7 +253,7 @@
 \[ \begin{array}{cccc} 1, &amp; r(1)/r(0), &amp; \ldots, &amp; r(M)/r(0). \end{array} \]</div>
 </p>
 <p>The below example extracts 10-th order autocorrelation coefficients from windowed waveform.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">x2x</span> <span class="o">+</span><span class="n">sd</span> <span class="n">data</span><span class="o">.</span><span class="n">short</span> <span class="o">|</span> <span class="n">frame</span> <span class="o">|</span> <span class="n">window</span> <span class="o">|</span> <span class="n">acorr</span> <span class="o">-</span><span class="n">m</span> <span class="mi">10</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">acr</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>x2x +sd data.short <span class="p">|</span> frame <span class="p">|</span> window <span class="p">|</span> acorr -m <span class="m">10</span> &gt; data.acr
 </pre></div>
 </div>
 </p>
@@ -262,8 +273,64 @@
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="c2acr.html#c2acr"><span class="std std-ref">c2acr</span></a>  <a class="reference internal" href="levdur.html#levdur"><span class="std std-ref">levdur</span></a></p>
+<p><a class="reference internal" href="c2acr.html#c2acr"><span class="std std-ref">c2acr</span></a>  <a class="reference internal" href="levdur.html#levdur"><span class="std std-ref">levdur</span></a>  <a class="reference internal" href="lpc.html#lpc"><span class="std std-ref">lpc</span></a></p>
 </div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk23AutocorrelationAnalysisE">
+<span id="_CPPv3N4sptk23AutocorrelationAnalysisE"></span><span id="_CPPv2N4sptk23AutocorrelationAnalysisE"></span><span id="sptk::AutocorrelationAnalysis"></span><span class="target" id="classsptk_1_1AutocorrelationAnalysis"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">AutocorrelationAnalysis</span></span></span><a class="headerlink" href="#_CPPv4N4sptk23AutocorrelationAnalysisE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Calculate autocorrelation from waveform or spectrum. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk23AutocorrelationAnalysis23AutocorrelationAnalysisEiib">
+<span id="_CPPv3N4sptk23AutocorrelationAnalysis23AutocorrelationAnalysisEiib"></span><span id="_CPPv2N4sptk23AutocorrelationAnalysis23AutocorrelationAnalysisEiib"></span><span id="sptk::AutocorrelationAnalysis::AutocorrelationAnalysis__i.i.b"></span><span class="target" id="classsptk_1_1AutocorrelationAnalysis_1afb6b9665c6e1edf10def11aa7365bac2"></span><span class="sig-name descname"><span class="n"><span class="pre">AutocorrelationAnalysis</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">frame_length</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">waveform_input</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk23AutocorrelationAnalysis23AutocorrelationAnalysisEiib" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frame_length</strong> – <strong>[in]</strong> Frame length or number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>. </p></li>
+<li><p><strong>num_order</strong> – <strong>[in]</strong> Order of autocorrelation, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
+<li><p><strong>waveform_input</strong> – <strong>[in]</strong> If true, assume waveform input. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk23AutocorrelationAnalysis7IsValidEv">
+<span id="_CPPv3NK4sptk23AutocorrelationAnalysis7IsValidEv"></span><span id="_CPPv2NK4sptk23AutocorrelationAnalysis7IsValidEv"></span><span id="sptk::AutocorrelationAnalysis::IsValidC"></span><span class="target" id="classsptk_1_1AutocorrelationAnalysis_1aa67b3f0087ea06051ed2ba853aa4bb83"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk23AutocorrelationAnalysis7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if this object is valid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk23AutocorrelationAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN23AutocorrelationAnalysis6BufferE">
+<span id="_CPPv3NK4sptk23AutocorrelationAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN23AutocorrelationAnalysis6BufferE"></span><span id="_CPPv2NK4sptk23AutocorrelationAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN23AutocorrelationAnalysis6BufferE"></span><span id="sptk::AutocorrelationAnalysis::Run__std::vector:double:CR.std::vector:double:P.AutocorrelationAnalysis::BufferPC"></span><span class="target" id="classsptk_1_1AutocorrelationAnalysis_1a009cfefe14073ab47a1169f21ead674f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">input</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">autocorrelation</span></span>, <a class="reference internal" href="#_CPPv4N4sptk23AutocorrelationAnalysisE" title="sptk::AutocorrelationAnalysis"><span class="n"><span class="pre">AutocorrelationAnalysis</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk23AutocorrelationAnalysis6BufferE" title="sptk::AutocorrelationAnalysis::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk23AutocorrelationAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN23AutocorrelationAnalysis6BufferE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(L\)</span>-length waveform or <span class="math notranslate nohighlight">\((L/2+1)\)</span>-length power spectrum. </p></li>
+<li><p><strong>autocorrelation</strong> – <strong>[out]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order autocorrelation coefficients. </p></li>
+<li><p><strong>buffer</strong> – <strong>[out]</strong> <a class="reference internal" href="#classsptk_1_1AutocorrelationAnalysis_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk23AutocorrelationAnalysis6BufferE">
+<span id="_CPPv3N4sptk23AutocorrelationAnalysis6BufferE"></span><span id="_CPPv2N4sptk23AutocorrelationAnalysis6BufferE"></span><span id="sptk::AutocorrelationAnalysis::Buffer"></span><span class="target" id="classsptk_1_1AutocorrelationAnalysis_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk23AutocorrelationAnalysis6BufferE" title="Permalink to this definition"></a><br /></dt>
+<dd><p><a class="reference internal" href="#classsptk_1_1AutocorrelationAnalysis_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1AutocorrelationAnalysis"><span class="std std-ref">AutocorrelationAnalysis</span></a> class. </p>
+</dd></dl>
+
+</dd></dl>
+
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk25WaveformToAutocorrelationE">
 <span id="_CPPv3N4sptk25WaveformToAutocorrelationE"></span><span id="_CPPv2N4sptk25WaveformToAutocorrelationE"></span><span id="sptk::WaveformToAutocorrelation"></span><span class="target" id="classsptk_1_1WaveformToAutocorrelation"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">WaveformToAutocorrelation</span></span></span><a class="headerlink" href="#_CPPv4N4sptk25WaveformToAutocorrelationE" title="Permalink to this definition"></a><br /></dt>
@@ -334,6 +401,88 @@
 </dd></dl>
 
 </div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk25SpectrumToAutocorrelationE">
+<span id="_CPPv3N4sptk25SpectrumToAutocorrelationE"></span><span id="_CPPv2N4sptk25SpectrumToAutocorrelationE"></span><span id="sptk::SpectrumToAutocorrelation"></span><span class="target" id="classsptk_1_1SpectrumToAutocorrelation"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">SpectrumToAutocorrelation</span></span></span><a class="headerlink" href="#_CPPv4N4sptk25SpectrumToAutocorrelationE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Calculate autocorrelation from power spectrum.</p>
+<p>The input is the half of power spectrum: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} |X(0)|^2, &amp; |X(1)|^2, &amp; \ldots, &amp; |X(L/2)|^2, \end{array} \]</div>
+ where <span class="math notranslate nohighlight">\(L\)</span> is the FFT length. The output is the <span class="math notranslate nohighlight">\(M\)</span>-th order autocorrelation coefficients: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} r(0), &amp; r(1), &amp; \ldots, &amp; r(M). \end{array} \]</div>
+ The autocorrelation is given by <div class="math notranslate nohighlight">
+\[ r(m) = \frac{1}{L} \sum_{l=0}^{L-1} |X(l)|^2 e^{j \frac{2\pi}{L} lm}, \]</div>
+ where <span class="math notranslate nohighlight">\(m\)</span> is the lag. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk25SpectrumToAutocorrelation25SpectrumToAutocorrelationEii">
+<span id="_CPPv3N4sptk25SpectrumToAutocorrelation25SpectrumToAutocorrelationEii"></span><span id="_CPPv2N4sptk25SpectrumToAutocorrelation25SpectrumToAutocorrelationEii"></span><span id="sptk::SpectrumToAutocorrelation::SpectrumToAutocorrelation__i.i"></span><span class="target" id="classsptk_1_1SpectrumToAutocorrelation_1a4780230e3bbc16f9f3c75a8d540efad6"></span><span class="sig-name descname"><span class="n"><span class="pre">SpectrumToAutocorrelation</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk25SpectrumToAutocorrelation25SpectrumToAutocorrelationEii" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fft_length</strong> – <strong>[in]</strong> Number of FFT bins, <span class="math notranslate nohighlight">\(N\)</span>. </p></li>
+<li><p><strong>num_order</strong> – <strong>[in]</strong> Order of autocorrelation, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk25SpectrumToAutocorrelation12GetFftLengthEv">
+<span id="_CPPv3NK4sptk25SpectrumToAutocorrelation12GetFftLengthEv"></span><span id="_CPPv2NK4sptk25SpectrumToAutocorrelation12GetFftLengthEv"></span><span id="sptk::SpectrumToAutocorrelation::GetFftLengthC"></span><span class="target" id="classsptk_1_1SpectrumToAutocorrelation_1a5a190300dae672c834b235a8ed6ccc66"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25SpectrumToAutocorrelation12GetFftLengthEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>FFT length. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk25SpectrumToAutocorrelation11GetNumOrderEv">
+<span id="_CPPv3NK4sptk25SpectrumToAutocorrelation11GetNumOrderEv"></span><span id="_CPPv2NK4sptk25SpectrumToAutocorrelation11GetNumOrderEv"></span><span id="sptk::SpectrumToAutocorrelation::GetNumOrderC"></span><span class="target" id="classsptk_1_1SpectrumToAutocorrelation_1a2828e43f1075e8867e4a3ed8d2350741"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25SpectrumToAutocorrelation11GetNumOrderEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Order of autocorrelation. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk25SpectrumToAutocorrelation7IsValidEv">
+<span id="_CPPv3NK4sptk25SpectrumToAutocorrelation7IsValidEv"></span><span id="_CPPv2NK4sptk25SpectrumToAutocorrelation7IsValidEv"></span><span id="sptk::SpectrumToAutocorrelation::IsValidC"></span><span class="target" id="classsptk_1_1SpectrumToAutocorrelation_1af44e7cb0bc2a9ad71f393ade28c703dd"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25SpectrumToAutocorrelation7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if this object is valid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk25SpectrumToAutocorrelation3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN25SpectrumToAutocorrelation6BufferE">
+<span id="_CPPv3NK4sptk25SpectrumToAutocorrelation3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN25SpectrumToAutocorrelation6BufferE"></span><span id="_CPPv2NK4sptk25SpectrumToAutocorrelation3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN25SpectrumToAutocorrelation6BufferE"></span><span id="sptk::SpectrumToAutocorrelation::Run__std::vector:double:CR.std::vector:double:P.SpectrumToAutocorrelation::BufferPC"></span><span class="target" id="classsptk_1_1SpectrumToAutocorrelation_1a6147f70045415b490398ff2178c02109"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">power_spectrum</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">autocorrelation</span></span>, <a class="reference internal" href="#_CPPv4N4sptk25SpectrumToAutocorrelationE" title="sptk::SpectrumToAutocorrelation"><span class="n"><span class="pre">SpectrumToAutocorrelation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk25SpectrumToAutocorrelation6BufferE" title="sptk::SpectrumToAutocorrelation::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25SpectrumToAutocorrelation3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN25SpectrumToAutocorrelation6BufferE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>power_spectrum</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\((L/2+1)\)</span>-length power spectrum. </p></li>
+<li><p><strong>autocorrelation</strong> – <strong>[out]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order autocorrelation coefficients. </p></li>
+<li><p><strong>buffer</strong> – <strong>[out]</strong> <a class="reference internal" href="#classsptk_1_1SpectrumToAutocorrelation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk25SpectrumToAutocorrelation6BufferE">
+<span id="_CPPv3N4sptk25SpectrumToAutocorrelation6BufferE"></span><span id="_CPPv2N4sptk25SpectrumToAutocorrelation6BufferE"></span><span id="sptk::SpectrumToAutocorrelation::Buffer"></span><span class="target" id="classsptk_1_1SpectrumToAutocorrelation_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk25SpectrumToAutocorrelation6BufferE" title="Permalink to this definition"></a><br /></dt>
+<dd><p><a class="reference internal" href="#classsptk_1_1SpectrumToAutocorrelation_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1SpectrumToAutocorrelation"><span class="std std-ref">SpectrumToAutocorrelation</span></a> class. </p>
+</dd></dl>
+
 </dd></dl>
 
 </section>

@@ -247,8 +247,8 @@
 \[ p(\boldsymbol{x}(t)) = \sum_{k=0}^{K-1} w_k \mathcal{N}(\boldsymbol{x}(t) \, | \, \boldsymbol{\mu}_k, \boldsymbol{\varSigma}_k), \]</div>
  where <span class="math notranslate nohighlight">\(w_k\)</span>, <span class="math notranslate nohighlight">\(\boldsymbol{\mu}_k\)</span>, and <span class="math notranslate nohighlight">\(\boldsymbol{\varSigma}_k\)</span>, are the parameters of GMM.</p>
 <p>In the following example, the log-probabilities of input data read from <code class="docutils literal notranslate"><span class="pre">data.d</span></code> based on 4-mixture GMM are calculetaed and then averaged.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gmmp</span> <span class="o">-</span><span class="n">k</span> <span class="mi">4</span> <span class="n">data</span><span class="o">.</span><span class="n">gmm</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">p</span>
-<span class="n">vstat</span> <span class="o">-</span><span class="n">o</span> <span class="mi">1</span> <span class="n">data</span><span class="o">.</span><span class="n">p</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">p</span><span class="o">.</span><span class="n">avg</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmmp -k <span class="m">4</span> data.gmm &lt; data.d &gt; data.p
+vstat -o <span class="m">1</span> data.p &gt; data.p.avg
 </pre></div>
 </div>
 </p>

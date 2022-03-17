@@ -248,13 +248,13 @@
  where <div class="math notranslate nohighlight">
 \[ e_n = \sqrt{\frac{1}{L} \sum_{l=0}^{L-1} (x_n(l) - y_n(l))^2}. \]</div>
  If <code class="docutils literal notranslate"><span class="pre">-f</span></code> option is not specified, the average of RMSEs is calculated.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="mi">1</span> <span class="mi">2</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">ad</span> <span class="o">&gt;</span> <span class="n">data</span><span class="mf">.1</span>
-<span class="n">echo</span> <span class="mi">0</span> <span class="mi">4</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">ad</span> <span class="o">&gt;</span> <span class="n">data</span><span class="mf">.2</span>
-<span class="n">rmse</span> <span class="n">data</span><span class="mf">.1</span> <span class="n">data</span><span class="mf">.2</span> <span class="o">-</span><span class="n">l</span> <span class="mi">1</span> <span class="o">-</span><span class="n">f</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="p">|</span> x2x +ad &gt; data.1
+<span class="nb">echo</span> <span class="m">0</span> <span class="m">4</span> <span class="m">3</span> <span class="p">|</span> x2x +ad &gt; data.2
+rmse data.1 data.2 -l <span class="m">1</span> -f <span class="p">|</span> x2x +da
 <span class="c1"># 1 2 0</span>
-<span class="n">rmse</span> <span class="n">data</span><span class="mf">.1</span> <span class="n">data</span><span class="mf">.2</span> <span class="o">-</span><span class="n">l</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+rmse data.1 data.2 -l <span class="m">1</span> <span class="p">|</span> x2x +da
 <span class="c1"># 1</span>
-<span class="n">rmse</span> <span class="n">data</span><span class="mf">.1</span> <span class="n">data</span><span class="mf">.2</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+rmse data.1 data.2 <span class="p">|</span> x2x +da
 <span class="c1"># 1.29099</span>
 </pre></div>
 </div>

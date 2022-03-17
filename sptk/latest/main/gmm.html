@@ -268,16 +268,16 @@
 </ul>
 </p>
 <p>The following examples show four types of covariance.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gmm</span> <span class="o">-</span><span class="n">l</span> <span class="mi">10</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">diag</span><span class="o">.</span><span class="n">gmm</span>
-<span class="n">gmm</span> <span class="o">-</span><span class="n">l</span> <span class="mi">10</span> <span class="o">-</span><span class="n">f</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">full</span><span class="o">.</span><span class="n">gmm</span>
-<span class="n">gmm</span> <span class="o">-</span><span class="n">l</span> <span class="mi">10</span> <span class="o">-</span><span class="n">B</span> <span class="mi">5</span> <span class="mi">5</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">block</span><span class="o">-</span><span class="n">wise</span><span class="o">-</span><span class="n">diag</span><span class="o">.</span><span class="n">gmm</span>
-<span class="n">gmm</span> <span class="o">-</span><span class="n">l</span> <span class="mi">10</span> <span class="o">-</span><span class="n">f</span> <span class="o">-</span><span class="n">B</span> <span class="mi">5</span> <span class="mi">5</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">block</span><span class="o">-</span><span class="n">diag</span><span class="o">.</span><span class="n">gmm</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmm -l <span class="m">10</span> &lt; data.d &gt; diag.gmm
+gmm -l <span class="m">10</span> -f &lt; data.d &gt; full.gmm
+gmm -l <span class="m">10</span> -B <span class="m">5</span> <span class="m">5</span> &lt; data.d &gt; block-wise-diag.gmm
+gmm -l <span class="m">10</span> -f -B <span class="m">5</span> <span class="m">5</span> &lt; data.d &gt; block-diag.gmm
 </pre></div>
 </div>
 </p>
 <p>If -M option is specified, the MAP estimates of the GMM paramaeters are obtained using universal background model.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">gmm</span> <span class="o">-</span><span class="n">k</span> <span class="mi">8</span> <span class="o">&lt;</span> <span class="n">data1</span><span class="o">.</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">ubm</span><span class="o">.</span><span class="n">gmm</span>
-<span class="n">gmm</span> <span class="o">-</span><span class="n">k</span> <span class="mi">8</span> <span class="o">-</span><span class="n">U</span> <span class="n">ubm</span><span class="o">.</span><span class="n">gmm</span> <span class="o">-</span><span class="n">M</span> <span class="mf">0.1</span> <span class="o">&lt;</span> <span class="n">data2</span><span class="o">.</span><span class="n">d</span> <span class="o">&gt;</span> <span class="nb">map</span><span class="o">.</span><span class="n">gmm</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmm -k <span class="m">8</span> &lt; data1.d &gt; ubm.gmm
+gmm -k <span class="m">8</span> -U ubm.gmm -M <span class="m">0</span>.1 &lt; data2.d &gt; map.gmm
 </pre></div>
 </div>
 </p>

@@ -281,9 +281,9 @@
 </p>
 <p>The below example draws the poles and zeros of the transfer function: <div class="math notranslate nohighlight">
 \[ H(z) = \frac{2z^2 + 3z + 1}{z^2 + 0.8z + 0.5}. \]</div>
- <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="mi">2</span> <span class="mi">3</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">ad</span> <span class="o">|</span> <span class="n">root_pol</span> <span class="o">-</span><span class="n">m</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">z</span>
-<span class="n">echo</span> <span class="mi">1</span> <span class="mf">0.8</span> <span class="mf">0.5</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">ad</span> <span class="o">|</span> <span class="n">root_pol</span> <span class="o">-</span><span class="n">m</span> <span class="mi">2</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">p</span>
-<span class="n">gpolezero</span> <span class="o">-</span><span class="n">p</span> <span class="n">data</span><span class="o">.</span><span class="n">p</span> <span class="o">-</span><span class="n">z</span> <span class="n">data</span><span class="o">.</span><span class="n">z</span> <span class="n">out</span><span class="o">.</span><span class="n">png</span>
+ <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">2</span> <span class="m">3</span> <span class="m">1</span> <span class="p">|</span> x2x +ad <span class="p">|</span> root_pol -m <span class="m">2</span> &gt; data.z
+<span class="nb">echo</span> <span class="m">1</span> <span class="m">0</span>.8 <span class="m">0</span>.5 <span class="p">|</span> x2x +ad <span class="p">|</span> root_pol -m <span class="m">2</span> &gt; data.p
+gpolezero -p data.p -z data.z out.png
 </pre></div>
 </div>
  </p>

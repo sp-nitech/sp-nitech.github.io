@@ -244,18 +244,18 @@
 </ul>
 </p>
 <p>The below examples calculate the first and second order dynamic features from 15-dimensional coefficient vectors in <code class="docutils literal notranslate"><span class="pre">data.d</span></code>.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span> <span class="o">-</span><span class="n">l</span> <span class="mi">15</span> <span class="o">-</span><span class="n">d</span> <span class="o">-</span><span class="mf">0.5</span> <span class="mf">0.0</span> <span class="mf">0.5</span> <span class="o">-</span><span class="n">d</span> <span class="mf">1.0</span> <span class="o">-</span><span class="mf">2.0</span> <span class="mf">1.0</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">delta</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>delta -l <span class="m">15</span> -d -0.5 <span class="m">0</span>.0 <span class="m">0</span>.5 -d <span class="m">1</span>.0 -2.0 <span class="m">1</span>.0 &lt; data.d &gt; data.delta
 </pre></div>
 </div>
 </p>
 <p>This is equivalent to</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="o">-</span><span class="mf">0.5</span> <span class="mf">0.0</span> <span class="mf">0.5</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">ad</span> <span class="o">&gt;</span> <span class="n">delta</span><span class="o">.</span><span class="n">win</span>
-<span class="n">echo</span> <span class="mf">1.0</span> <span class="o">-</span><span class="mf">2.0</span> <span class="mf">1.0</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">ad</span> <span class="o">&gt;</span> <span class="n">accel</span><span class="o">.</span><span class="n">win</span>
-<span class="n">delta</span> <span class="o">-</span><span class="n">l</span> <span class="mi">15</span> <span class="o">-</span><span class="n">D</span> <span class="n">delta</span><span class="o">.</span><span class="n">win</span> <span class="o">-</span><span class="n">D</span> <span class="n">accel</span><span class="o">.</span><span class="n">win</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">delta</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> -0.5 <span class="m">0</span>.0 <span class="m">0</span>.5 <span class="p">|</span> x2x +ad &gt; delta.win
+<span class="nb">echo</span> <span class="m">1</span>.0 -2.0 <span class="m">1</span>.0 <span class="p">|</span> x2x +ad &gt; accel.win
+delta -l <span class="m">15</span> -D delta.win -D accel.win &lt; data.d &gt; data.delta
 </pre></div>
 </div>
 </p>
-<p>If data contains a special number such as an unvoiced symbol in a sequence of fundamental frequencies, use <strong>-magic</strong> option: <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">delta</span> <span class="o">-</span><span class="n">l</span> <span class="mi">15</span> <span class="o">-</span><span class="n">D</span> <span class="n">delta</span><span class="o">.</span><span class="n">win</span> <span class="o">-</span><span class="n">magic</span> <span class="o">-</span><span class="mf">1e+10</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">lf0</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">lf0</span><span class="o">.</span><span class="n">delta</span>
+<p>If data contains a special number such as an unvoiced symbol in a sequence of fundamental frequencies, use <strong>-magic</strong> option: <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>delta -l <span class="m">15</span> -D delta.win -magic -1e+10 &lt; data.lf0 &gt; data.lf0.delta
 </pre></div>
 </div>
 </p>

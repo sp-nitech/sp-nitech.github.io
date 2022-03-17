@@ -237,14 +237,14 @@
 \[ \begin{array}{cccc} x(-S), &amp; x(-S+1), &amp; \ldots, &amp; x(T-1). \end{array} \]</div>
 </p>
 <p>See the following examples.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># data: 1, 2, 3</span>
-<span class="n">ramp</span> <span class="o">-</span><span class="n">s</span> <span class="mi">1</span> <span class="o">-</span><span class="n">l</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">delay</span> <span class="o">-</span><span class="n">s</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># data: 1, 2, 3</span>
+ramp -s <span class="m">1</span> -l <span class="m">3</span> <span class="p">|</span> delay -s <span class="m">2</span> <span class="p">|</span> x2x +da
 <span class="c1"># 0, 0, 1, 2, 3</span>
-<span class="n">ramp</span> <span class="o">-</span><span class="n">s</span> <span class="mi">1</span> <span class="o">-</span><span class="n">l</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">delay</span> <span class="o">-</span><span class="n">s</span> <span class="mi">2</span> <span class="o">-</span><span class="n">k</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+ramp -s <span class="m">1</span> -l <span class="m">3</span> <span class="p">|</span> delay -s <span class="m">2</span> -k <span class="p">|</span> x2x +da
 <span class="c1"># 0, 0, 1</span>
-<span class="n">ramp</span> <span class="o">-</span><span class="n">s</span> <span class="mi">1</span> <span class="o">-</span><span class="n">l</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">delay</span> <span class="o">-</span><span class="n">s</span> <span class="o">-</span><span class="mi">2</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+ramp -s <span class="m">1</span> -l <span class="m">3</span> <span class="p">|</span> delay -s -2 <span class="p">|</span> x2x +da
 <span class="c1"># 3</span>
-<span class="n">ramp</span> <span class="o">-</span><span class="n">s</span> <span class="mi">1</span> <span class="o">-</span><span class="n">l</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">delay</span> <span class="o">-</span><span class="n">s</span> <span class="o">-</span><span class="mi">2</span> <span class="o">-</span><span class="n">k</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+ramp -s <span class="m">1</span> -l <span class="m">3</span> <span class="p">|</span> delay -s -2 -k <span class="p">|</span> x2x +da
 <span class="c1"># 3, 0, 0</span>
 </pre></div>
 </div>

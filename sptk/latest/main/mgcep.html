@@ -277,12 +277,12 @@
 </ul>
 </p>
 <p>In the example below, mel-cepstral coefficients are extracted from <code class="docutils literal notranslate"><span class="pre">data.d</span></code>.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span> <span class="o">|</span> <span class="n">window</span> <span class="o">|</span> <span class="n">mgcep</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">mcep</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>frame &lt; data.d <span class="p">|</span> window <span class="p">|</span> mgcep &gt; data.mcep
 </pre></div>
 </div>
 </p>
 <p>This is equivalents to the below line.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span> <span class="o">&lt;</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span> <span class="o">|</span> <span class="n">window</span> <span class="o">|</span> <span class="n">fftr</span> <span class="o">-</span><span class="n">o</span> <span class="mi">3</span> <span class="o">-</span><span class="n">H</span> <span class="o">|</span> <span class="n">mgcep</span> <span class="o">-</span><span class="n">q</span> <span class="mi">3</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">mcep</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>frame &lt; data.d <span class="p">|</span> window <span class="p">|</span> fftr -o <span class="m">3</span> -H <span class="p">|</span> mgcep -q <span class="m">3</span> &gt; data.mcep
 </pre></div>
 </div>
 </p>
@@ -318,7 +318,7 @@
  where <div class="math notranslate nohighlight">
 \[ \tilde{z}^{-1} = \frac{z^{-1} - \alpha}{1 - \alpha z^{-1}} \]</div>
  is first order all-pass function. The phase characteristic of the all-pass function is controlled by <span class="math notranslate nohighlight">\(\alpha\)</span>. The typical values that approximate the mel-scale are summarized below.</p>
-<p><p><table class="docutils align-default">
+<p><table class="docutils align-default">
 <colgroup>
 <col style="width: 73%" />
 <col style="width: 27%" />
@@ -355,7 +355,6 @@
 </tr>
 </tbody>
 </table>
-</p>
 </p>
 <p>Note that the implemenation is based on an unpublished paper. </p>
 <div class="breathe-sectiondef docutils container">

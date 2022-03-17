@@ -234,12 +234,12 @@
  where <div class="math notranslate nohighlight">
 \[ a_n = \frac{1}{L} \sum_{l=0}^{L-1} x_n(l). \]</div>
  If <span class="math notranslate nohighlight">\(L\)</span> is not given, the average of the whole input is computed.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ramp</span> <span class="o">-</span><span class="n">l</span> <span class="mi">10</span> <span class="o">|</span> <span class="n">average</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ramp -l <span class="m">10</span> <span class="p">|</span> average <span class="p">|</span> x2x +da
 <span class="c1"># 4.5</span>
 </pre></div>
 </div>
 </p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ramp</span> <span class="o">-</span><span class="n">l</span> <span class="mi">10</span> <span class="o">|</span> <span class="n">average</span> <span class="o">-</span><span class="n">l</span> <span class="mi">5</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ramp -l <span class="m">10</span> <span class="p">|</span> average -l <span class="m">5</span> <span class="p">|</span> x2x +da
 <span class="c1"># 2</span>
 <span class="c1"># 7</span>
 </pre></div>

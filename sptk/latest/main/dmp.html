@@ -251,8 +251,8 @@
 </ul>
 </p>
 <p>This command converts data from <code class="docutils literal notranslate"><span class="pre">infile</span></code> (or standard input) to a human readable form (one sample per line, with line numbers), and sends the result to standard output.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1, 2, 3, 4</span>
-<span class="n">ramp</span> <span class="o">-</span><span class="n">s</span> <span class="mi">1</span> <span class="o">-</span><span class="n">l</span> <span class="mi">4</span> <span class="o">|</span> <span class="n">dmp</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 1, 2, 3, 4</span>
+ramp -s <span class="m">1</span> -l <span class="m">4</span> <span class="p">|</span> dmp
 <span class="c1"># 0       1</span>
 <span class="c1"># 1       2</span>
 <span class="c1"># 2       3</span>
@@ -260,7 +260,7 @@
 </pre></div>
 </div>
 </p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ramp</span> <span class="o">-</span><span class="n">s</span> <span class="mi">1</span> <span class="o">-</span><span class="n">l</span> <span class="mi">4</span> <span class="o">|</span> <span class="n">dmp</span> <span class="o">-</span><span class="n">l</span> <span class="mi">2</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ramp -s <span class="m">1</span> -l <span class="m">4</span> <span class="p">|</span> dmp -l <span class="m">2</span>
 <span class="c1"># 1       1</span>
 <span class="c1"># 2       2</span>
 <span class="c1"># 1       3</span>
@@ -268,7 +268,7 @@
 </pre></div>
 </div>
 </p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ramp</span> <span class="o">-</span><span class="n">s</span> <span class="mi">1</span> <span class="o">-</span><span class="n">l</span> <span class="mi">4</span> <span class="o">|</span> <span class="n">dmp</span> <span class="o">-</span><span class="n">m</span> <span class="mi">2</span> <span class="o">-</span><span class="n">f</span> <span class="o">%</span><span class="mf">.1</span><span class="n">f</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ramp -s <span class="m">1</span> -l <span class="m">4</span> <span class="p">|</span> dmp -m <span class="m">2</span> -f %.1f
 <span class="c1"># 0       1.0</span>
 <span class="c1"># 1       2.0</span>
 <span class="c1"># 0       3.0</span>

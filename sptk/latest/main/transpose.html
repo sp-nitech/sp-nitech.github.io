@@ -232,9 +232,9 @@
  and the output is <div class="math notranslate nohighlight">
 \[\begin{split} \begin{array}{cccc} x(0,0) &amp; x(1,0) &amp; \cdots &amp; x(M-1,0) \\ x(0,1) &amp; x(1,1) &amp; \cdots &amp; x(M-1,1) \\ \vdots &amp; \vdots &amp; &amp; \vdots \\ x(0,N-1) &amp; x(1,N-1) &amp; \cdots &amp; x(M-1,N-1) \end{array} \end{split}\]</div>
  where <span class="math notranslate nohighlight">\(M\)</span> is the number of rows and <span class="math notranslate nohighlight">\(N\)</span> is the number of columns. Note that <span class="math notranslate nohighlight">\(x(m,n) \, \forall m \ge M\)</span> are discarded.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0 1 2</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0 1 2</span>
 <span class="c1"># 3 4 5</span>
-<span class="n">ramp</span> <span class="o">-</span><span class="n">l</span> <span class="mi">10</span> <span class="o">|</span> <span class="n">transpose</span> <span class="o">-</span><span class="n">r</span> <span class="mi">2</span> <span class="o">-</span><span class="n">c</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span> <span class="o">-</span><span class="n">c</span> <span class="mi">2</span>
+ramp -l <span class="m">10</span> <span class="p">|</span> transpose -r <span class="m">2</span> -c <span class="m">3</span> <span class="p">|</span> x2x +da -c <span class="m">2</span>
 <span class="c1"># 0 3</span>
 <span class="c1"># 1 4</span>
 <span class="c1"># 2 5</span>

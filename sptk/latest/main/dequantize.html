@@ -243,11 +243,11 @@
 </p></li>
 </ul>
 </p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">echo</span> <span class="o">-</span><span class="mi">2</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">ad</span> <span class="o">|</span> <span class="n">quantize</span> <span class="o">-</span><span class="n">b</span> <span class="mi">2</span> <span class="o">-</span><span class="n">v</span> <span class="mi">2</span> <span class="o">-</span><span class="n">t</span> <span class="mi">0</span> <span class="o">|</span>
-  <span class="n">dequantize</span> <span class="o">-</span><span class="n">b</span> <span class="mi">2</span> <span class="o">-</span><span class="n">v</span> <span class="mi">2</span> <span class="o">-</span><span class="n">t</span> <span class="mi">0</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> -2 -1 <span class="m">0</span> <span class="m">1</span> <span class="m">2</span> <span class="p">|</span> x2x +ad <span class="p">|</span> quantize -b <span class="m">2</span> -v <span class="m">2</span> -t <span class="m">0</span> <span class="p">|</span>
+  dequantize -b <span class="m">2</span> -v <span class="m">2</span> -t <span class="m">0</span> <span class="p">|</span> x2x +da
 <span class="c1"># -1.5, -0.5, 0.5, 1.5, 1.5</span>
-<span class="n">echo</span> <span class="o">-</span><span class="mi">2</span> <span class="o">-</span><span class="mi">1</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">ad</span> <span class="o">|</span> <span class="n">quantize</span> <span class="o">-</span><span class="n">b</span> <span class="mi">2</span> <span class="o">-</span><span class="n">v</span> <span class="mi">2</span> <span class="o">-</span><span class="n">t</span> <span class="mi">1</span> <span class="o">|</span>
-  <span class="n">dequantize</span> <span class="o">-</span><span class="n">b</span> <span class="mi">2</span> <span class="o">-</span><span class="n">v</span> <span class="mi">2</span> <span class="o">-</span><span class="n">t</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">x2x</span> <span class="o">+</span><span class="n">da</span>
+<span class="nb">echo</span> -2 -1 <span class="m">0</span> <span class="m">1</span> <span class="m">2</span> <span class="p">|</span> x2x +ad <span class="p">|</span> quantize -b <span class="m">2</span> -v <span class="m">2</span> -t <span class="m">1</span> <span class="p">|</span>
+  dequantize -b <span class="m">2</span> -v <span class="m">2</span> -t <span class="m">1</span> <span class="p">|</span> x2x +da
 <span class="c1"># -1.33333, -1.33333, 0, 1.33333, 1.33333</span>
 </pre></div>
 </div>

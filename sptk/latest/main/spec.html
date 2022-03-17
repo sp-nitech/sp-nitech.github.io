@@ -258,12 +258,12 @@
 </ul>
 </p>
 <p>The below example performs spectral analysis. To prevent <span class="math notranslate nohighlight">\(log(0)\)</span>, a small value is add to power spectrum using <code class="docutils literal notranslate"><span class="pre">-e</span></code> option.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">frame</span> <span class="o">-</span><span class="n">l</span> <span class="mi">400</span> <span class="n">data</span><span class="o">.</span><span class="n">d</span> <span class="o">|</span> <span class="n">window</span> <span class="o">-</span><span class="n">l</span> <span class="mi">400</span> <span class="o">-</span><span class="n">L</span> <span class="mi">512</span> <span class="o">|</span> <span class="n">spec</span> <span class="o">-</span><span class="n">l</span> <span class="mi">512</span> <span class="o">-</span><span class="n">e</span> <span class="mf">1e-6</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">sp</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>frame -l <span class="m">400</span> data.d <span class="p">|</span> window -l <span class="m">400</span> -L <span class="m">512</span> <span class="p">|</span> spec -l <span class="m">512</span> -e 1e-6 &gt; data.sp
 </pre></div>
 </div>
 </p>
 <p>Instead a relative floor value of spectrum can be set using <code class="docutils literal notranslate"><span class="pre">-E</span></code> option.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">spec</span> <span class="o">-</span><span class="n">E</span> <span class="o">-</span><span class="mi">30</span> <span class="n">data</span><span class="o">.</span><span class="n">d2</span> <span class="o">&gt;</span> <span class="n">data</span><span class="o">.</span><span class="n">sp</span>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spec -E -30 data.d2 &gt; data.sp
 </pre></div>
 </div>
 </p>
