@@ -109,6 +109,11 @@
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="acorr.html">
+   acorr
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="b2mc.html">
    b2mc
   </a>
@@ -149,8 +154,33 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="ipqmf.html">
+   ipqmf
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="iulaw.html">
+   iulaw
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="levdur.html">
+   levdur
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lpc.html">
+   lpc
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="mc2b.html">
    mc2b
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pqmf.html">
+   pqmf
   </a>
  </li>
  <li class="toctree-l1">
@@ -161,6 +191,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="stft.html">
    stft
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ulaw.html">
+   ulaw
   </a>
  </li>
  <li class="toctree-l1">
@@ -211,7 +246,7 @@
 <span id="id1"></span><h1>frame<a class="headerlink" href="#frame" title="Permalink to this headline">¶</a></h1>
 <span class="target" id="module-diffsptk.frame"></span><dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.frame.Frame">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.frame.</span></span><span class="sig-name descname"><span class="pre">Frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/frame.html#Frame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.frame.Frame" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.frame.</span></span><span class="sig-name descname"><span class="pre">Frame</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zmean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/frame.html#Frame"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.frame.Frame" title="Permalink to this definition">¶</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/frame.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
@@ -223,6 +258,8 @@ for details.</p>
 </dd>
 <dt><strong>center</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If true, assume that the center of data is the center of frame, otherwise
 assume that the center of data is the left edge of frame.</p>
+</dd>
+<dt><strong>zmean</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If true, perform mean subtraction on each frame.</p>
 </dd>
 </dl>
 </dd>

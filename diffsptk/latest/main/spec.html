@@ -36,7 +36,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="stft" href="stft.html" />
-    <link rel="prev" title="mc2b" href="mc2b.html" />
+    <link rel="prev" title="pqmf" href="pqmf.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -109,6 +109,11 @@
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="acorr.html">
+   acorr
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="b2mc.html">
    b2mc
   </a>
@@ -149,8 +154,33 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="ipqmf.html">
+   ipqmf
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="iulaw.html">
+   iulaw
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="levdur.html">
+   levdur
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lpc.html">
+   lpc
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="mc2b.html">
    mc2b
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pqmf.html">
+   pqmf
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -161,6 +191,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="stft.html">
    stft
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ulaw.html">
+   ulaw
   </a>
  </li>
  <li class="toctree-l1">
@@ -211,15 +246,15 @@
 <span id="id1"></span><h1>spec<a class="headerlink" href="#spec" title="Permalink to this headline">¶</a></h1>
 <span class="target" id="module-diffsptk.spec"></span><dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.spec.Spectrum">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.spec.</span></span><span class="sig-name descname"><span class="pre">Spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pow'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/spec.html#Spectrum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.spec.Spectrum" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.spec.</span></span><span class="sig-name descname"><span class="pre">Spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'power'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/spec.html#Spectrum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.spec.Spectrum" title="Permalink to this definition">¶</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/spec.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2 [scalar]</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2 [scalar]</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L_2\)</span>.</p>
 </dd>
-<dt><strong>out_format</strong><span class="classifier">[‘db’, ‘logamp’, ‘amp’, ‘pow’]</span></dt><dd><p>Output format.</p>
+<dt><strong>out_format</strong><span class="classifier">[‘db’, ‘log-magnitude’, ‘magnitude’, ‘power’]</span></dt><dd><p>Output format.</p>
 </dd>
 <dt><strong>eps</strong><span class="classifier">float &gt;= 0 [scalar]</span></dt><dd><p>A small value added to power spectrum.</p>
 </dd>
@@ -233,13 +268,13 @@ for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, L)]</span></dt><dd><p>Framed waveform.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, L1)]</span></dt><dd><p>Framed waveform.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>Spectrum.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, L2/2+1)]</span></dt><dd><p>Spectrum.</p>
 </dd>
 </dl>
 </dd>
@@ -260,11 +295,11 @@ for details.</p>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="mc2b.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="pqmf.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">mc2b</p>
+            <p class="prev-next-title">pqmf</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="stft.html" title="next page">

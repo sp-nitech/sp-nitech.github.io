@@ -32,9 +32,10 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="window" href="window.html" />
+    <link rel="next" title="ulaw" href="ulaw.html" />
     <link rel="prev" title="spec" href="spec.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -108,6 +109,11 @@
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="acorr.html">
+   acorr
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="b2mc.html">
    b2mc
   </a>
@@ -148,8 +154,33 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="ipqmf.html">
+   ipqmf
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="iulaw.html">
+   iulaw
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="levdur.html">
+   levdur
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lpc.html">
+   lpc
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="mc2b.html">
    mc2b
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pqmf.html">
+   pqmf
   </a>
  </li>
  <li class="toctree-l1">
@@ -160,6 +191,11 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    stft
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ulaw.html">
+   ulaw
   </a>
  </li>
  <li class="toctree-l1">
@@ -209,9 +245,29 @@
   <section id="stft">
 <span id="id1"></span><h1>stft<a class="headerlink" href="#stft" title="Permalink to this headline">¶</a></h1>
 <span class="target" id="module-diffsptk.stft"></span><dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.stft.STFT">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.stft.</span></span><span class="sig-name descname"><span class="pre">STFT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pow'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'blackman'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pow'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/stft.html#STFT"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.stft.STFT" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="diffsptk.stft.ShortTermFourierTransform">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.stft.</span></span><span class="sig-name descname"><span class="pre">ShortTermFourierTransform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'power'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'blackman'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'power'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/stft.html#ShortTermFourierTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.stft.ShortTermFourierTransform" title="Permalink to this definition">¶</a></dt>
 <dd><p>This module is a simple cascade of framing, windowing, and spectrum calculation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>frame_length</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Frame length, <span class="math notranslate nohighlight">\(L_1\)</span>.</p>
+</dd>
+<dt><strong>frame_peirod</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Frame period, <span class="math notranslate nohighlight">\(P\)</span>.</p>
+</dd>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= L1 [scalar]</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L_2\)</span>.</p>
+</dd>
+<dt><strong>norm</strong><span class="classifier">[‘none’, ‘power’, ‘magnitude’]</span></dt><dd><p>Normalization type of window.</p>
+</dd>
+<dt><strong>window</strong><span class="classifier">[‘blackman’, ‘hamming’, ‘hanning’, ‘bartlett’, ‘trapezoidal’,         ‘rectangular’]</span></dt><dd><p>Window type.</p>
+</dd>
+<dt><strong>out_format</strong><span class="classifier">[‘db’, ‘log-magnitude’, ‘magnitude’, ‘power’]</span></dt><dd><p>Output format.</p>
+</dd>
+<dt><strong>eps</strong><span class="classifier">float &gt;= 0 [scalar]</span></dt><dd><p>A small value added to power spectrum.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
 <dl class="simple">
@@ -219,8 +275,8 @@
 </dl>
 </div>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.stft.STFT.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/stft.html#STFT.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.stft.STFT.forward" title="Permalink to this definition">¶</a></dt>
+<dt class="sig sig-object py" id="diffsptk.stft.ShortTermFourierTransform.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/stft.html#ShortTermFourierTransform.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.stft.ShortTermFourierTransform.forward" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute short-term Fourier transform.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -255,10 +311,10 @@
             <p class="prev-next-title">spec</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="window.html" title="next page">
+    <a class='right-next' id="next-link" href="ulaw.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">window</p>
+        <p class="prev-next-title">ulaw</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

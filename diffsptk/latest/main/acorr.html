@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>freqt &#8212; diffsptk 0.1.0 documentation</title>
+    <title>acorr &#8212; diffsptk 0.1.0 documentation</title>
     
     <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -35,8 +35,8 @@
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="interpolate" href="interpolate.html" />
-    <link rel="prev" title="frame" href="frame.html" />
+    <link rel="next" title="b2mc" href="b2mc.html" />
+    <link rel="prev" title="diffsptk" href="index.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -108,8 +108,8 @@
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="acorr.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    acorr
   </a>
  </li>
@@ -143,8 +143,8 @@
    frame
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="freqt.html">
    freqt
   </a>
  </li>
@@ -242,39 +242,41 @@
               
               <div>
                 
-  <section id="freqt">
-<span id="id1"></span><h1>freqt<a class="headerlink" href="#freqt" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-diffsptk.freqt"></span><dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.freqt.FrequencyTransform">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.freqt.</span></span><span class="sig-name descname"><span class="pre">FrequencyTransform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/freqt.html#FrequencyTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.freqt.FrequencyTransform" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/freqt.html">this page</a>
-for details.</p>
+  <section id="acorr">
+<span id="id1"></span><h1>acorr<a class="headerlink" href="#acorr" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-diffsptk.acorr"></span><dl class="py class">
+<dt class="sig sig-object py" id="diffsptk.acorr.AutocorrelationAnalysis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.acorr.</span></span><span class="sig-name descname"><span class="pre">AutocorrelationAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">acr_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">acf</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'none'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/acorr.html#AutocorrelationAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.acorr.AutocorrelationAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/acorr.html">this page</a>
+for details. Currently, spectrum input is not supported.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>in_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of input sequence, <span class="math notranslate nohighlight">\(M_1\)</span>.</p>
+<dt><strong>acr_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of autocorrelation, <span class="math notranslate nohighlight">\(M\)</span>.</p>
 </dd>
-<dt><strong>out_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of output sequence, <span class="math notranslate nohighlight">\(M_2\)</span>.</p>
+<dt><strong>frame_length</strong><span class="classifier">int &gt; M [scalar]</span></dt><dd><p>Frame length, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
-<dt><strong>alpha</strong><span class="classifier">float [-1 &lt; alpha &lt; 1]</span></dt><dd><p>Frequency warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<dt><strong>norm</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If true, normalize autocorrelation.</p>
+</dd>
+<dt><strong>acf</strong><span class="classifier">[‘none’, ‘biased’, ‘unbiased’]</span></dt><dd><p>Type of autocorrelation function.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.freqt.FrequencyTransform.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/freqt.html#FrequencyTransform.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.freqt.FrequencyTransform.forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform frequency transform.</p>
+<dt class="sig sig-object py" id="diffsptk.acorr.AutocorrelationAnalysis.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/acorr.html#AutocorrelationAnalysis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.acorr.AutocorrelationAnalysis.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimate autocorrelation of input.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, M1+1)]</span></dt><dd><p>Input sequence.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, L)]</span></dt><dd><p>Framed waveform</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, M2+1)]</span></dt><dd><p>Warped sequence.</p>
+<dt><strong>r</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Autocorrelation.</p>
 </dd>
 </dl>
 </dd>
@@ -283,6 +285,10 @@ for details.</p>
 
 </dd></dl>
 
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="frame.html#frame"><span class="std std-ref">frame</span></a>  <a class="reference internal" href="levdur.html#levdur"><span class="std std-ref">levdur</span></a>  <a class="reference internal" href="lpc.html#lpc"><span class="std std-ref">lpc</span></a></p>
+</div>
 </section>
 
 
@@ -291,17 +297,17 @@ for details.</p>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="frame.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="index.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">frame</p>
+            <p class="prev-next-title">diffsptk</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="interpolate.html" title="next page">
+    <a class='right-next' id="next-link" href="b2mc.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">interpolate</p>
+        <p class="prev-next-title">b2mc</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

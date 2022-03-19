@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>freqt &#8212; diffsptk 0.1.0 documentation</title>
+    <title>lpc &#8212; diffsptk 0.1.0 documentation</title>
     
     <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -35,8 +35,8 @@
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="interpolate" href="interpolate.html" />
-    <link rel="prev" title="frame" href="frame.html" />
+    <link rel="next" title="mc2b" href="mc2b.html" />
+    <link rel="prev" title="levdur" href="levdur.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -143,8 +143,8 @@
    frame
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="freqt.html">
    freqt
   </a>
  </li>
@@ -168,8 +168,8 @@
    levdur
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lpc.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    lpc
   </a>
  </li>
@@ -242,39 +242,46 @@
               
               <div>
                 
-  <section id="freqt">
-<span id="id1"></span><h1>freqt<a class="headerlink" href="#freqt" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-diffsptk.freqt"></span><dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.freqt.FrequencyTransform">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.freqt.</span></span><span class="sig-name descname"><span class="pre">FrequencyTransform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/freqt.html#FrequencyTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.freqt.FrequencyTransform" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/freqt.html">this page</a>
-for details.</p>
+  <section id="lpc">
+<span id="id1"></span><h1>lpc<a class="headerlink" href="#lpc" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-diffsptk.lpc"></span><dl class="py class">
+<dt class="sig sig-object py" id="diffsptk.lpc.LinearPredictiveCodingAnalysis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.lpc.</span></span><span class="sig-name descname"><span class="pre">LinearPredictiveCodingAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">acr_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'K,a'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/lpc.html#LinearPredictiveCodingAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.lpc.LinearPredictiveCodingAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/lpc.html">this page</a>
+for details. This module is a simple cascade of acorr and levdur.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>in_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of input sequence, <span class="math notranslate nohighlight">\(M_1\)</span>.</p>
+<dt><strong>acr_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of autocorrelation, <span class="math notranslate nohighlight">\(M\)</span>.</p>
 </dd>
-<dt><strong>out_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of output sequence, <span class="math notranslate nohighlight">\(M_2\)</span>.</p>
+<dt><strong>frame_length</strong><span class="classifier">int &gt; M [scalar]</span></dt><dd><p>Frame length, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
-<dt><strong>alpha</strong><span class="classifier">float [-1 &lt; alpha &lt; 1]</span></dt><dd><p>Frequency warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<dt><strong>out_format</strong><span class="classifier">[‘K’, ‘a’, ‘Ka’, ‘K,a’]</span></dt><dd><p><cite>K</cite> is gain and <cite>a</cite> is LPC coefficients. If this is <cite>Ka</cite>, the two output
+tensors are concatenated and return the tensor instead of the tuple.</p>
 </dd>
 </dl>
 </dd>
 </dl>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<dl class="simple">
+<dt><a class="reference internal" href="acorr.html#module-diffsptk.acorr" title="diffsptk.acorr"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diffsptk.acorr</span></code></a>, <a class="reference internal" href="levdur.html#module-diffsptk.levdur" title="diffsptk.levdur"><code class="xref py py-obj docutils literal notranslate"><span class="pre">diffsptk.levdur</span></code></a></dt><dd></dd>
+</dl>
+</div>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.freqt.FrequencyTransform.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/freqt.html#FrequencyTransform.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.freqt.FrequencyTransform.forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform frequency transform.</p>
+<dt class="sig sig-object py" id="diffsptk.lpc.LinearPredictiveCodingAnalysis.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/lpc.html#LinearPredictiveCodingAnalysis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.lpc.LinearPredictiveCodingAnalysis.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform LPC analysis.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, M1+1)]</span></dt><dd><p>Input sequence.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, L)]</span></dt><dd><p>Framed waveform</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, M2+1)]</span></dt><dd><p>Warped sequence.</p>
+<dt><strong>a</strong><span class="classifier">Tensor or tuple[Tensor]</span></dt><dd><p>Gain and/or LPC coefficients.</p>
 </dd>
 </dl>
 </dd>
@@ -291,17 +298,17 @@ for details.</p>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="frame.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="levdur.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">frame</p>
+            <p class="prev-next-title">levdur</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="interpolate.html" title="next page">
+    <a class='right-next' id="next-link" href="mc2b.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">interpolate</p>
+        <p class="prev-next-title">mc2b</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

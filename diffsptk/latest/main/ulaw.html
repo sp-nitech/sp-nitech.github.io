@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>freqt &#8212; diffsptk 0.1.0 documentation</title>
+    <title>ulaw &#8212; diffsptk 0.1.0 documentation</title>
     
     <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -35,8 +35,8 @@
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="interpolate" href="interpolate.html" />
-    <link rel="prev" title="frame" href="frame.html" />
+    <link rel="next" title="window" href="window.html" />
+    <link rel="prev" title="stft" href="stft.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -143,8 +143,8 @@
    frame
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="freqt.html">
    freqt
   </a>
  </li>
@@ -193,8 +193,8 @@
    stft
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ulaw.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    ulaw
   </a>
  </li>
@@ -242,39 +242,37 @@
               
               <div>
                 
-  <section id="freqt">
-<span id="id1"></span><h1>freqt<a class="headerlink" href="#freqt" title="Permalink to this headline">¶</a></h1>
-<span class="target" id="module-diffsptk.freqt"></span><dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.freqt.FrequencyTransform">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.freqt.</span></span><span class="sig-name descname"><span class="pre">FrequencyTransform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/freqt.html#FrequencyTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.freqt.FrequencyTransform" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/freqt.html">this page</a>
+  <section id="ulaw">
+<span id="id1"></span><h1>ulaw<a class="headerlink" href="#ulaw" title="Permalink to this headline">¶</a></h1>
+<span class="target" id="module-diffsptk.ulaw"></span><dl class="py class">
+<dt class="sig sig-object py" id="diffsptk.ulaw.MuLawCompression">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.ulaw.</span></span><span class="sig-name descname"><span class="pre">MuLawCompression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">abs_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">255</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/ulaw.html#MuLawCompression"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.ulaw.MuLawCompression" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/ulaw.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>in_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of input sequence, <span class="math notranslate nohighlight">\(M_1\)</span>.</p>
+<dt><strong>abs_max</strong><span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Absolute maximum value of input.</p>
 </dd>
-<dt><strong>out_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of output sequence, <span class="math notranslate nohighlight">\(M_2\)</span>.</p>
-</dd>
-<dt><strong>alpha</strong><span class="classifier">float [-1 &lt; alpha &lt; 1]</span></dt><dd><p>Frequency warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<dt><strong>mu</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Compression factor, <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.freqt.FrequencyTransform.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/freqt.html#FrequencyTransform.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.freqt.FrequencyTransform.forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Perform frequency transform.</p>
+<dt class="sig sig-object py" id="diffsptk.ulaw.MuLawCompression.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/ulaw.html#MuLawCompression.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.ulaw.MuLawCompression.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compress waveform by <span class="math notranslate nohighlight">\(\mu\)</span>-law algorithm.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, M1+1)]</span></dt><dd><p>Input sequence.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Waveform.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, M2+1)]</span></dt><dd><p>Warped sequence.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Compressed waveform.</p>
 </dd>
 </dl>
 </dd>
@@ -283,6 +281,10 @@ for details.</p>
 
 </dd></dl>
 
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="iulaw.html#iulaw"><span class="std std-ref">iulaw</span></a></p>
+</div>
 </section>
 
 
@@ -291,17 +293,17 @@ for details.</p>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="frame.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="stft.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">frame</p>
+            <p class="prev-next-title">stft</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="interpolate.html" title="next page">
+    <a class='right-next' id="next-link" href="window.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">interpolate</p>
+        <p class="prev-next-title">window</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

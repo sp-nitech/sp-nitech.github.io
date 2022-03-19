@@ -35,7 +35,7 @@
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="stft" href="stft.html" />
+    <link rel="prev" title="ulaw" href="ulaw.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -108,6 +108,11 @@
   <div class="bd-toc-item active">
     <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="acorr.html">
+   acorr
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="b2mc.html">
    b2mc
   </a>
@@ -148,8 +153,33 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="ipqmf.html">
+   ipqmf
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="iulaw.html">
+   iulaw
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="levdur.html">
+   levdur
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lpc.html">
+   lpc
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="mc2b.html">
    mc2b
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pqmf.html">
+   pqmf
   </a>
  </li>
  <li class="toctree-l1">
@@ -160,6 +190,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="stft.html">
    stft
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ulaw.html">
+   ulaw
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -210,7 +245,7 @@
 <span id="id1"></span><h1>window<a class="headerlink" href="#window" title="Permalink to this headline">¶</a></h1>
 <span class="target" id="module-diffsptk.window"></span><dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.window.Window">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.window.</span></span><span class="sig-name descname"><span class="pre">Window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pow'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'blackman'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/window.html#Window"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.window.Window" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.window.</span></span><span class="sig-name descname"><span class="pre">Window</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'power'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'blackman'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/window.html#Window"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.window.Window" title="Permalink to this definition">¶</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/window.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
@@ -220,7 +255,7 @@ for details.</p>
 </dd>
 <dt><strong>out_length</strong><span class="classifier">int &gt;= L1 [scalar]</span></dt><dd><p>Output length, <span class="math notranslate nohighlight">\(L_2\)</span>. If <span class="math notranslate nohighlight">\(L_2 &gt; L_1\)</span>, output is zero-padded.</p>
 </dd>
-<dt><strong>norm</strong><span class="classifier">[‘none’, ‘pow’, ‘mag’]</span></dt><dd><p>Normalization type of window.</p>
+<dt><strong>norm</strong><span class="classifier">[‘none’, ‘power’, ‘magnitude’]</span></dt><dd><p>Normalization type of window.</p>
 </dd>
 <dt><strong>window</strong><span class="classifier">[‘blackman’, ‘hamming’, ‘hanning’, ‘bartlett’, ‘trapezoidal’,         ‘rectangular’]</span></dt><dd><p>Window type.</p>
 </dd>
@@ -261,11 +296,11 @@ for details.</p>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="stft.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="ulaw.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">stft</p>
+            <p class="prev-next-title">ulaw</p>
         </div>
     </a>
 </div>

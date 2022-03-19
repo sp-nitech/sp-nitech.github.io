@@ -171,35 +171,37 @@
         <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span>
         <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">impulse_response_length</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;arange&quot;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;ramp&quot;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
 
 <div class="viewcode-block" id="CepstrumToImpulseResponse.forward"><a class="viewcode-back" href="../../main/c2mpir.html#diffsptk.c2mpir.CepstrumToImpulseResponse.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Convert cepstrum to impulse response.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        c : Tensor [shape=(B, M+1)]</span>
+<span class="sd">        c : Tensor [shape=(..., M+1)]</span>
 <span class="sd">            Cepstral coefficients.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        h : Tensor [shape=(B, N)]</span>
+<span class="sd">        h : Tensor [shape=(..., N)]</span>
 <span class="sd">            Truncated impulse response.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">c0</span> <span class="o">=</span> <span class="n">c</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span>
-        <span class="n">c1</span> <span class="o">=</span> <span class="n">c</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">arange</span>
-        <span class="n">c1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">c0</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">c1</span> <span class="o">=</span> <span class="n">c</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">ramp</span>
+        <span class="n">c1</span> <span class="o">=</span> <span class="n">c1</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
-        <span class="n">h</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">c</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">impulse_response_length</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-        <span class="n">h</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">c0</span><span class="p">)</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span>
+            <span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]),</span> <span class="bp">self</span><span class="o">.</span><span class="n">impulse_response_length</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">device</span>
+        <span class="p">)</span>
+        <span class="n">h</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">c0</span><span class="p">)</span>
         <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">impulse_response_length</span><span class="p">):</span>
             <span class="n">s</span> <span class="o">=</span> <span class="n">n</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span>
-            <span class="n">h</span><span class="p">[:,</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">h</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">n</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
                 <span class="n">torch</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span>
-                    <span class="s2">&quot;bd,bd-&gt;b&quot;</span><span class="p">,</span>
-                    <span class="n">h</span><span class="p">[:,</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="p">:</span> <span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">clone</span><span class="p">(),</span>
-                    <span class="n">c1</span><span class="p">[:,</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">s</span><span class="p">)</span> <span class="p">:],</span>
+                    <span class="s2">&quot;...d,...d-&gt;...&quot;</span><span class="p">,</span>
+                    <span class="n">h</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span> <span class="p">:</span> <span class="n">n</span><span class="p">]</span><span class="o">.</span><span class="n">clone</span><span class="p">(),</span>
+                    <span class="n">c1</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="n">s</span><span class="p">)</span> <span class="p">:],</span>
                 <span class="p">)</span>
                 <span class="o">/</span> <span class="n">n</span>
             <span class="p">)</span>

@@ -151,8 +151,32 @@
 <span class="kn">from</span> <span class="nn">diffsptk.window</span> <span class="kn">import</span> <span class="n">Window</span>
 
 
-<div class="viewcode-block" id="STFT"><a class="viewcode-back" href="../../main/stft.html#diffsptk.stft.STFT">[docs]</a><span class="k">class</span> <span class="nc">STFT</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<div class="viewcode-block" id="ShortTermFourierTransform"><a class="viewcode-back" href="../../main/stft.html#diffsptk.stft.ShortTermFourierTransform">[docs]</a><span class="k">class</span> <span class="nc">ShortTermFourierTransform</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;This module is a simple cascade of framing, windowing, and spectrum calculation.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    frame_length : int &gt;= 1 [scalar]</span>
+<span class="sd">        Frame length, :math:`L_1`.</span>
+
+<span class="sd">    frame_peirod : int &gt;= 1 [scalar]</span>
+<span class="sd">        Frame period, :math:`P`.</span>
+
+<span class="sd">    fft_length : int &gt;= L1 [scalar]</span>
+<span class="sd">        Number of FFT bins, :math:`L_2`.</span>
+
+<span class="sd">    norm : [&#39;none&#39;, &#39;power&#39;, &#39;magnitude&#39;]</span>
+<span class="sd">        Normalization type of window.</span>
+
+<span class="sd">    window : [&#39;blackman&#39;, &#39;hamming&#39;, &#39;hanning&#39;, &#39;bartlett&#39;, &#39;trapezoidal&#39;, \</span>
+<span class="sd">        &#39;rectangular&#39;]</span>
+<span class="sd">        Window type.</span>
+
+<span class="sd">    out_format : [&#39;db&#39;, &#39;log-magnitude&#39;, &#39;magnitude&#39;, &#39;power&#39;]</span>
+<span class="sd">        Output format.</span>
+
+<span class="sd">    eps : float &gt;= 0 [scalar]</span>
+<span class="sd">        A small value added to power spectrum.</span>
 
 <span class="sd">    See also</span>
 <span class="sd">    --------</span>
@@ -165,12 +189,12 @@
         <span class="n">frame_length</span><span class="p">,</span>
         <span class="n">frame_period</span><span class="p">,</span>
         <span class="n">fft_length</span><span class="p">,</span>
-        <span class="n">norm</span><span class="o">=</span><span class="s2">&quot;pow&quot;</span><span class="p">,</span>
+        <span class="n">norm</span><span class="o">=</span><span class="s2">&quot;power&quot;</span><span class="p">,</span>
         <span class="n">window</span><span class="o">=</span><span class="s2">&quot;blackman&quot;</span><span class="p">,</span>
-        <span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;pow&quot;</span><span class="p">,</span>
+        <span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;power&quot;</span><span class="p">,</span>
         <span class="n">eps</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span>
     <span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">STFT</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ShortTermFourierTransform</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">stft</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
             <span class="n">Frame</span><span class="p">(</span><span class="n">frame_length</span><span class="p">,</span> <span class="n">frame_period</span><span class="p">),</span>
@@ -178,7 +202,7 @@
             <span class="n">Spectrum</span><span class="p">(</span><span class="n">fft_length</span><span class="p">,</span> <span class="n">out_format</span><span class="o">=</span><span class="n">out_format</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">),</span>
         <span class="p">)</span>
 
-<div class="viewcode-block" id="STFT.forward"><a class="viewcode-back" href="../../main/stft.html#diffsptk.stft.STFT.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<div class="viewcode-block" id="ShortTermFourierTransform.forward"><a class="viewcode-back" href="../../main/stft.html#diffsptk.stft.ShortTermFourierTransform.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Compute short-term Fourier transform.</span>
 
 <span class="sd">        Parameters</span>
@@ -192,7 +216,8 @@
 <span class="sd">            Spectrum.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">stft</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div></div>
+        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stft</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">y</span></div></div>
 </pre></div>
 
               </div>

@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.frame &#8212; diffsptk 0.1.0 documentation</title>
+    <title>diffsptk.ulaw &#8212; diffsptk 0.1.0 documentation</title>
     
     <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -127,7 +127,7 @@
               
               <div>
                 
-  <h1>Source code for diffsptk.frame</h1><div class="highlight"><pre>
+  <h1>Source code for diffsptk.ulaw</h1><div class="highlight"><pre>
 <span></span><span class="c1"># ------------------------------------------------------------------------ #</span>
 <span class="c1"># Copyright 2022 SPTK Working Group                                        #</span>
 <span class="c1">#                                                                          #</span>
@@ -144,68 +144,53 @@
 <span class="c1"># limitations under the License.                                           #</span>
 <span class="c1"># ------------------------------------------------------------------------ #</span>
 
+<span class="kn">import</span> <span class="nn">math</span>
+
+<span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
 
-<div class="viewcode-block" id="Frame"><a class="viewcode-back" href="../../main/frame.html#diffsptk.frame.Frame">[docs]</a><span class="k">class</span> <span class="nc">Frame</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/frame.html&gt;`_</span>
+<div class="viewcode-block" id="MuLawCompression"><a class="viewcode-back" href="../../main/ulaw.html#diffsptk.ulaw.MuLawCompression">[docs]</a><span class="k">class</span> <span class="nc">MuLawCompression</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/ulaw.html&gt;`_</span>
 <span class="sd">    for details.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    frame_length : int &gt;= 1 [scalar]</span>
-<span class="sd">        Frame length, :math:`L`.</span>
+<span class="sd">    abs_max : float &gt; 0 [scalar]</span>
+<span class="sd">        Absolute maximum value of input.</span>
 
-<span class="sd">    frame_peirod : int &gt;= 1 [scalar]</span>
-<span class="sd">        Frame period, :math:`P`.</span>
-
-<span class="sd">    center : bool [scalar]</span>
-<span class="sd">        If true, assume that the center of data is the center of frame, otherwise</span>
-<span class="sd">        assume that the center of data is the left edge of frame.</span>
-
-<span class="sd">    zmean : bool [scalar]</span>
-<span class="sd">        If true, perform mean subtraction on each frame.</span>
+<span class="sd">    mu : int &gt;= 1 [scalar]</span>
+<span class="sd">        Compression factor, :math:`\\mu`.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frame_length</span><span class="p">,</span> <span class="n">frame_period</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">zmean</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">Frame</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">abs_max</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">255</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MuLawCompression</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">frame_length</span> <span class="o">=</span> <span class="n">frame_length</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span> <span class="o">=</span> <span class="n">frame_period</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">zmean</span> <span class="o">=</span> <span class="n">zmean</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">abs_max</span> <span class="o">=</span> <span class="n">abs_max</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mu</span> <span class="o">=</span> <span class="n">mu</span>
 
-        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame_length</span>
-        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span>
+        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">abs_max</span>
+        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">mu</span>
 
-        <span class="c1"># Make padding module.</span>
-        <span class="k">if</span> <span class="n">center</span><span class="p">:</span>
-            <span class="n">left_pad_width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame_length</span> <span class="o">//</span> <span class="mi">2</span>
-            <span class="n">right_pad_width</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frame_length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">left_pad_width</span> <span class="o">=</span> <span class="mi">0</span>
-            <span class="n">right_pad_width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame_length</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">const</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">abs_max</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mu</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">pad</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ConstantPad1d</span><span class="p">((</span><span class="n">left_pad_width</span><span class="p">,</span> <span class="n">right_pad_width</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
-
-<div class="viewcode-block" id="Frame.forward"><a class="viewcode-back" href="../../main/frame.html#diffsptk.frame.Frame.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Apply framing to given waveform.</span>
+<div class="viewcode-block" id="MuLawCompression.forward"><a class="viewcode-back" href="../../main/ulaw.html#diffsptk.ulaw.MuLawCompression.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Compress waveform by :math:`\\mu`-law algorithm.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        x : Tensor [shape=(..., T)]</span>
+<span class="sd">        x : Tensor [shape=(...,)]</span>
 <span class="sd">            Waveform.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        y : Tensor [shape=(..., N, L)]</span>
-<span class="sd">            Framed waveform.</span>
+<span class="sd">        y : Tensor [shape=(...,)]</span>
+<span class="sd">            Compressed waveform.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">unfold</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame_length</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">zmean</span><span class="p">:</span>
-            <span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">y</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">x2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">abs_max</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">const</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mu</span> <span class="o">*</span> <span class="n">x2</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">y</span></div></div>
 </pre></div>
 
