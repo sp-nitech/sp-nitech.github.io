@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>b2mc &#8212; diffsptk 0.1.0 documentation</title>
+    <title>linear_intpl &#8212; diffsptk 0.1.0 documentation</title>
     
     <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -35,8 +35,8 @@
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="c2mpir" href="c2mpir.html" />
-    <link rel="prev" title="acorr" href="acorr.html" />
+    <link rel="next" title="lpc" href="lpc.html" />
+    <link rel="prev" title="levdur" href="levdur.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -119,8 +119,8 @@
    acorr
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="b2mc.html">
    b2mc
   </a>
  </li>
@@ -174,8 +174,8 @@
    levdur
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="linear_intpl.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    linear_intpl
   </a>
  </li>
@@ -263,48 +263,46 @@
               
               <div>
                 
-  <section id="b2mc">
-<span id="id1"></span><h1>b2mc<a class="headerlink" href="#b2mc" title="Permalink to this headline">¶</a></h1>
+  <section id="linear-intpl">
+<span id="id1"></span><h1>linear_intpl<a class="headerlink" href="#linear-intpl" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.MLSADigitalFilterCoefficientsToMelCepstrum">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MLSADigitalFilterCoefficientsToMelCepstrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cep_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/b2mc.html#MLSADigitalFilterCoefficientsToMelCepstrum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MLSADigitalFilterCoefficientsToMelCepstrum" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/b2mc.html">this page</a>
-for details.</p>
+<dt class="sig sig-object py" id="diffsptk.LinearInterpolation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">LinearInterpolation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">upsampling_factor</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/linear_intpl.html#LinearInterpolation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LinearInterpolation" title="Permalink to this definition">¶</a></dt>
+<dd><p>Perform linear interpolation.</p>
+<p>Note that this is not for lienar_intpl in C the version of SPTK, but for
+filter coefficients interpolation in digital filtering.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>cep_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of cepstrum, <span class="math notranslate nohighlight">\(M\)</span>.</p>
-</dd>
-<dt><strong>alpha</strong><span class="classifier">float [-1 &lt; alpha &lt; 1]</span></dt><dd><p>Frequency warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<dt><strong>upsampling_factor</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Upsampling factor, <span class="math notranslate nohighlight">\(P\)</span>.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.MLSADigitalFilterCoefficientsToMelCepstrum.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/b2mc.html#MLSADigitalFilterCoefficientsToMelCepstrum.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MLSADigitalFilterCoefficientsToMelCepstrum.forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert MLSA filter coefficients to mel-cepstrum.</p>
+<dt class="sig sig-object py" id="diffsptk.LinearInterpolation.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/linear_intpl.html#LinearInterpolation.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LinearInterpolation.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolate filter coefficients.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>b</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>MLSA filter coefficients.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(B, N, D)]</span></dt><dd><p>Filter coefficients.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>mc</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Mel-cepstral coefficients.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(B, NxP, D)]</span></dt><dd><p>Upsampled filter coefficients.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mc2b</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MelCepstrumToMLSADigitalFilterCoefficients</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b2mc</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MLSADigitalFilterCoefficientsToMelCepstrum</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b2</span> <span class="o">=</span> <span class="n">mc2b</span><span class="p">(</span><span class="n">b2mc</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b2</span>
-<span class="go">tensor([0.0000, 1.0000, 2.0000, 3.0000, 4.0000])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">linear_intpl</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">LinearInterpolation</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">linear_intpl</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="go">tensor([[0.0000, 0.5000, 1.0000, 1.5000, 2.0000, 2.0000]])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -313,7 +311,7 @@ for details.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="mc2b.html#mc2b"><span class="std std-ref">mc2b</span></a></p>
+<p><a class="reference internal" href="zerodf.html#zerodf"><span class="std std-ref">zerodf</span></a></p>
 </div>
 </section>
 
@@ -323,17 +321,17 @@ for details.</p>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="acorr.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="levdur.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">acorr</p>
+            <p class="prev-next-title">levdur</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="c2mpir.html" title="next page">
+    <a class='right-next' id="next-link" href="lpc.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">c2mpir</p>
+        <p class="prev-next-title">lpc</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

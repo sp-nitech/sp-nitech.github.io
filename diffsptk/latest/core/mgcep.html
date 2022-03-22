@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>b2mc &#8212; diffsptk 0.1.0 documentation</title>
+    <title>mgcep &#8212; diffsptk 0.1.0 documentation</title>
     
     <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -35,8 +35,8 @@
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="c2mpir" href="c2mpir.html" />
-    <link rel="prev" title="acorr" href="acorr.html" />
+    <link rel="next" title="pqmf" href="pqmf.html" />
+    <link rel="prev" title="mc2b" href="mc2b.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -119,8 +119,8 @@
    acorr
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="b2mc.html">
    b2mc
   </a>
  </li>
@@ -189,8 +189,8 @@
    mc2b
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="mgcep.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    mgcep
   </a>
  </li>
@@ -263,48 +263,53 @@
               
               <div>
                 
-  <section id="b2mc">
-<span id="id1"></span><h1>b2mc<a class="headerlink" href="#b2mc" title="Permalink to this headline">¶</a></h1>
+  <section id="mgcep">
+<span id="id1"></span><h1>mgcep<a class="headerlink" href="#mgcep" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.MLSADigitalFilterCoefficientsToMelCepstrum">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MLSADigitalFilterCoefficientsToMelCepstrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cep_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/b2mc.html#MLSADigitalFilterCoefficientsToMelCepstrum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MLSADigitalFilterCoefficientsToMelCepstrum" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/b2mc.html">this page</a>
+<dt class="sig sig-object py" id="diffsptk.MelCepstralAnalysis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MelCepstralAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cep_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mgcep.html#MelCepstralAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MelCepstralAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/mgcep.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>cep_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of cepstrum, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<dt><strong>cep_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of mel-cepstrum, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+</dd>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2M [scalar]</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
 <dt><strong>alpha</strong><span class="classifier">float [-1 &lt; alpha &lt; 1]</span></dt><dd><p>Frequency warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+</dd>
+<dt><strong>n_iter</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Number of iterations.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.MLSADigitalFilterCoefficientsToMelCepstrum.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/b2mc.html#MLSADigitalFilterCoefficientsToMelCepstrum.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MLSADigitalFilterCoefficientsToMelCepstrum.forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Convert MLSA filter coefficients to mel-cepstrum.</p>
+<dt class="sig sig-object py" id="diffsptk.MelCepstralAnalysis.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mgcep.html#MelCepstralAnalysis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MelCepstralAnalysis.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Estimate mel-cepstrum from spectrum.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>b</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>MLSA filter coefficients.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>Power spectrum.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>mc</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Mel-cepstral coefficients.</p>
+<dt><strong>mc</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Mel-cepstrum.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mc2b</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MelCepstrumToMLSADigitalFilterCoefficients</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b2mc</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MLSADigitalFilterCoefficientsToMelCepstrum</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b2</span> <span class="o">=</span> <span class="n">mc2b</span><span class="p">(</span><span class="n">b2mc</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b2</span>
-<span class="go">tensor([0.0000, 1.0000, 2.0000, 3.0000, 4.0000])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stft</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">STFT</span><span class="p">(</span><span class="n">frame_length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">frame_period</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fft_length</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mcep</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MelCepstralAnalysis</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mc</span> <span class="o">=</span> <span class="n">mcep</span><span class="p">(</span><span class="n">stft</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mc</span>
+<span class="go">tensor([[-0.8851,  0.7917, -0.1737,  0.0175],</span>
+<span class="go">        [-0.3522,  4.4222, -1.0882, -0.0511]])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -313,7 +318,7 @@ for details.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="mc2b.html#mc2b"><span class="std std-ref">mc2b</span></a></p>
+<p><a class="reference internal" href="cdist.html#cdist"><span class="std std-ref">cdist</span></a>  <a class="reference internal" href="stft.html#stft"><span class="std std-ref">stft</span></a>  <a class="reference internal" href="freqt.html#freqt"><span class="std std-ref">freqt</span></a></p>
 </div>
 </section>
 
@@ -323,17 +328,17 @@ for details.</p>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="acorr.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="mc2b.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">acorr</p>
+            <p class="prev-next-title">mc2b</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="c2mpir.html" title="next page">
+    <a class='right-next' id="next-link" href="pqmf.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">c2mpir</p>
+        <p class="prev-next-title">pqmf</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

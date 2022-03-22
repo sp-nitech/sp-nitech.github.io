@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.core.b2mc &#8212; diffsptk 0.1.0 documentation</title>
+    <title>diffsptk.core.zerodf &#8212; diffsptk 0.1.0 documentation</title>
     
     <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -133,7 +133,7 @@
               
               <div>
                 
-  <h1>Source code for diffsptk.core.b2mc</h1><div class="highlight"><pre>
+  <h1>Source code for diffsptk.core.zerodf</h1><div class="highlight"><pre>
 <span></span><span class="c1"># ------------------------------------------------------------------------ #</span>
 <span class="c1"># Copyright 2022 SPTK Working Group                                        #</span>
 <span class="c1">#                                                                          #</span>
@@ -150,64 +150,64 @@
 <span class="c1"># limitations under the License.                                           #</span>
 <span class="c1"># ------------------------------------------------------------------------ #</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
-<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">default_dtype</span>
+<span class="kn">from</span> <span class="nn">.linear_intpl</span> <span class="kn">import</span> <span class="n">LinearInterpolation</span>
 
 
-<div class="viewcode-block" id="MLSADigitalFilterCoefficientsToMelCepstrum"><a class="viewcode-back" href="../../../core/b2mc.html#diffsptk.MLSADigitalFilterCoefficientsToMelCepstrum">[docs]</a><span class="k">class</span> <span class="nc">MLSADigitalFilterCoefficientsToMelCepstrum</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/b2mc.html&gt;`_</span>
+<div class="viewcode-block" id="AllZeroDigitalFilter"><a class="viewcode-back" href="../../../core/zerodf.html#diffsptk.AllZeroDigitalFilter">[docs]</a><span class="k">class</span> <span class="nc">AllZeroDigitalFilter</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/zerodf.html&gt;`_</span>
 <span class="sd">    for details.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    cep_order : int &gt;= 0 [scalar]</span>
-<span class="sd">        Order of cepstrum, :math:`M`.</span>
+<span class="sd">    filter_order : int &gt;= 0 [scalar]</span>
+<span class="sd">        Order of filter coefficients, :math:`M`.</span>
 
-<span class="sd">    alpha : float [-1 &lt; alpha &lt; 1]</span>
-<span class="sd">        Frequency warping factor, :math:`\\alpha`.</span>
+<span class="sd">    frame_period : int &gt;= 1 [scalar]</span>
+<span class="sd">        Frame period, :math:`P`.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cep_order</span><span class="p">,</span> <span class="n">alpha</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">MLSADigitalFilterCoefficientsToMelCepstrum</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filter_order</span><span class="p">,</span> <span class="n">frame_period</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">AllZeroDigitalFilter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">cep_order</span>
-        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filter_order</span> <span class="o">=</span> <span class="n">filter_order</span>
+        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_order</span>
 
-        <span class="c1"># Make transform matrix.</span>
-        <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">cep_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">default_dtype</span><span class="p">())</span>
-        <span class="n">np</span><span class="o">.</span><span class="n">fill_diagonal</span><span class="p">(</span><span class="n">A</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">:],</span> <span class="n">alpha</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pad</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ConstantPad1d</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_order</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">intpl</span> <span class="o">=</span> <span class="n">LinearInterpolation</span><span class="p">(</span><span class="n">frame_period</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">t</span><span class="p">())</span>
-
-<div class="viewcode-block" id="MLSADigitalFilterCoefficientsToMelCepstrum.forward"><a class="viewcode-back" href="../../../core/b2mc.html#diffsptk.MLSADigitalFilterCoefficientsToMelCepstrum.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Convert MLSA filter coefficients to mel-cepstrum.</span>
+<div class="viewcode-block" id="AllZeroDigitalFilter.forward"><a class="viewcode-back" href="../../../core/zerodf.html#diffsptk.AllZeroDigitalFilter.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Apply an all-zero digital filter.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        b : Tensor [shape=(..., M+1)]</span>
-<span class="sd">            MLSA filter coefficients.</span>
+<span class="sd">        x : Tensor [shape=(B, T)]</span>
+<span class="sd">            Excitation signal.</span>
+
+<span class="sd">        h : Tensor [shape=(B, T/P, D)]</span>
+<span class="sd">            Filter coefficients.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        mc : Tensor [shape=(..., M+1)]</span>
-<span class="sd">            Mel-cepstral coefficients.</span>
+<span class="sd">        y : Tensor [shape=(B, T)]</span>
+<span class="sd">            Output signal.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        &gt;&gt;&gt; b = diffsptk.signal.ramp(4)</span>
-<span class="sd">        &gt;&gt;&gt; mc2b = diffsptk.MelCepstrumToMLSADigitalFilterCoefficients(4, 0.3)</span>
-<span class="sd">        &gt;&gt;&gt; b2mc = diffsptk.MLSADigitalFilterCoefficientsToMelCepstrum(4, 0.3)</span>
-<span class="sd">        &gt;&gt;&gt; b2 = mc2b(b2mc(b))</span>
-<span class="sd">        &gt;&gt;&gt; b2</span>
-<span class="sd">        tensor([0.0000, 1.0000, 2.0000, 3.0000, 4.0000])</span>
+<span class="sd">        &gt;&gt;&gt; x = diffsptk.signal.step(4)</span>
+<span class="sd">        &gt;&gt;&gt; h = diffsptk.signal.ramp(4)</span>
+<span class="sd">        &gt;&gt;&gt; zerodf = diffsptk.AllZeroDigitalFilter(0)</span>
+<span class="sd">        &gt;&gt;&gt; y = zerodf(x.view(1, -1), h.view(1, -1, 1))</span>
+<span class="sd">        &gt;&gt;&gt; y</span>
+<span class="sd">        tensor([[0., 1., 2., 3., 4.]])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">mc</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">mc</span></div></div>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">unfold</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">intpl</span><span class="p">(</span><span class="n">h</span><span class="p">))</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">y</span></div></div>
 </pre></div>
 
               </div>

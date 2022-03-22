@@ -160,6 +160,34 @@
   <section id="diffsptk-signal">
 <h1>diffsptk.signal<a class="headerlink" href="#diffsptk-signal" title="Permalink to this headline">¶</a></h1>
 <dl class="py function">
+<dt class="sig sig-object py" id="diffsptk.signal.impulse">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.signal.</span></span><span class="sig-name descname"><span class="pre">impulse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/signal/signals.html#impulse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.signal.impulse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generate impulse sequence.</p>
+<p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/impulse.html">impulse</a>
+for details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of sequence, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(M+1,)]</span></dt><dd><p>Impulse sequence.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">impulse</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">tensor([1., 0., 0., 0., 0.])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py function">
 <dt class="sig sig-object py" id="diffsptk.signal.step">
 <span class="sig-prename descclassname"><span class="pre">diffsptk.signal.</span></span><span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/signal/signals.html#step"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.signal.step" title="Permalink to this definition">¶</a></dt>
 <dd><p>Generate step sequence.</p>
