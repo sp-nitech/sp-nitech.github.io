@@ -329,7 +329,7 @@ tensors are concatenated and return the tensor instead of the tuple.</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nrand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="go">tensor([ 0.8226, -0.0284, -0.5715,  0.2127,  0.1217])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">acorr</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">AutocorrelationAnalysis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">levdur</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">LevinsonDurbinRecursion</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">levdur</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">LevinsonDurbinRecursion</span><span class="p">(</span><span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;K,a&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">levdur</span><span class="p">(</span><span class="n">acorr</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
 <span class="go">(tensor([0.8726]), tensor([0.1475, 0.5270]))</span>
