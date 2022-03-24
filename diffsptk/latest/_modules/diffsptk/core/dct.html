@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.signal.signals &#8212; diffsptk 0.1.0 documentation</title>
+    <title>diffsptk.core.dct &#8212; diffsptk 0.1.0 documentation</title>
     
     <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -133,7 +133,7 @@
               
               <div>
                 
-  <h1>Source code for diffsptk.signal.signals</h1><div class="highlight"><pre>
+  <h1>Source code for diffsptk.core.dct</h1><div class="highlight"><pre>
 <span></span><span class="c1"># ------------------------------------------------------------------------ #</span>
 <span class="c1"># Copyright 2022 SPTK Working Group                                        #</span>
 <span class="c1">#                                                                          #</span>
@@ -150,106 +150,66 @@
 <span class="c1"># limitations under the License.                                           #</span>
 <span class="c1"># ------------------------------------------------------------------------ #</span>
 
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+
+<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">default_dtype</span>
 
 
-<div class="viewcode-block" id="impulse"><a class="viewcode-back" href="../../../misc/signal.html#diffsptk.signal.impulse">[docs]</a><span class="k">def</span> <span class="nf">impulse</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Generate impulse sequence.</span>
+<span class="k">def</span> <span class="nf">make_dct_matrix</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+    <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">L</span><span class="p">,</span> <span class="n">L</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">default_dtype</span><span class="p">())</span>
+    <span class="n">n</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">L</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">L</span><span class="p">)</span>
+    <span class="n">c</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="n">L</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">L</span><span class="p">):</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">L</span><span class="p">)</span> <span class="k">if</span> <span class="n">k</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">c</span>
+        <span class="n">W</span><span class="p">[:,</span> <span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">z</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">k</span> <span class="o">*</span> <span class="n">n</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">W</span>
 
-<span class="sd">    See `impulse &lt;https://sp-nitech.github.io/sptk/latest/main/impulse.html&gt;`_</span>
+
+<div class="viewcode-block" id="DiscreteCosineTransform"><a class="viewcode-back" href="../../../core/dct.html#diffsptk.DiscreteCosineTransform">[docs]</a><span class="k">class</span> <span class="nc">DiscreteCosineTransform</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/dct.html&gt;`_</span>
 <span class="sd">    for details.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    order : int &gt;= 0 [scalar]</span>
-<span class="sd">        Order of sequence, :math:`M`.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    x : Tensor [shape=(M+1,)]</span>
-<span class="sd">        Impulse sequence.</span>
-
-<span class="sd">    Examples</span>
-<span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; x = diffsptk.signal.impulse(4)</span>
-<span class="sd">    &gt;&gt;&gt; x</span>
-<span class="sd">    tensor([1., 0., 0., 0., 0.])</span>
+<span class="sd">    dct_length : int &gt;= 1</span>
+<span class="sd">        DCT length, :math:`L`.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">m</span><span class="o">=</span><span class="n">order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dct_length</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">DiscreteCosineTransform</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-<div class="viewcode-block" id="step"><a class="viewcode-back" href="../../../misc/signal.html#diffsptk.signal.step">[docs]</a><span class="k">def</span> <span class="nf">step</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Generate step sequence.</span>
+        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">dct_length</span>
 
-<span class="sd">    See `step &lt;https://sp-nitech.github.io/sptk/latest/main/step.html&gt;`_</span>
-<span class="sd">    for details.</span>
+        <span class="n">W</span> <span class="o">=</span> <span class="n">make_dct_matrix</span><span class="p">(</span><span class="n">dct_length</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">W</span><span class="p">))</span>
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    order : int &gt;= 0 [scalar]</span>
-<span class="sd">        Order of sequence, :math:`M`.</span>
+<div class="viewcode-block" id="DiscreteCosineTransform.forward"><a class="viewcode-back" href="../../../core/dct.html#diffsptk.DiscreteCosineTransform.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Apply DCT to input.</span>
 
-<span class="sd">    value : float [scalar]</span>
-<span class="sd">        Step value.</span>
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x : Tensor [shape=(..., L)]</span>
+<span class="sd">            Input.</span>
 
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    x : Tensor [shape=(M+1,)]</span>
-<span class="sd">        Step sequence.</span>
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        y : Tensor [shape=(..., L)]</span>
+<span class="sd">            DCT output.</span>
 
-<span class="sd">    Examples</span>
-<span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; x = diffsptk.signal.step(4, 2)</span>
-<span class="sd">    &gt;&gt;&gt; x</span>
-<span class="sd">    tensor([2., 2., 2., 2., 2.])</span>
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; x = diffsptk.ramp(3)</span>
+<span class="sd">        &gt;&gt;&gt; dct = diffsptk.DCT(4)</span>
+<span class="sd">        &gt;&gt;&gt; y = dct(x)</span>
+<span class="sd">        &gt;&gt;&gt; y</span>
+<span class="sd">        tensor([ 3.0000, -2.2304,  0.0000, -0.1585])</span>
 
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,),</span> <span class="nb">float</span><span class="p">(</span><span class="n">value</span><span class="p">),</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
-
-
-<div class="viewcode-block" id="ramp"><a class="viewcode-back" href="../../../misc/signal.html#diffsptk.signal.ramp">[docs]</a><span class="k">def</span> <span class="nf">ramp</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Generate ramp sequence.</span>
-
-<span class="sd">    See `ramp &lt;https://sp-nitech.github.io/sptk/latest/main/ramp.html&gt;`_</span>
-<span class="sd">    for details.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    arg : float [scalar]</span>
-<span class="sd">        If `end` is `None` end value otherwise start value.</span>
-
-<span class="sd">    end : float [scalar]</span>
-<span class="sd">        End value.</span>
-
-<span class="sd">    step : float != 0 [scalar]</span>
-<span class="sd">        Slope.</span>
-
-<span class="sd">    eps : float [scalar]</span>
-<span class="sd">        A correction value.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    x : Tensor [shape=(?,)]</span>
-<span class="sd">        Ramp sequence.</span>
-
-<span class="sd">    Examples</span>
-<span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; x = diffsptk.signal.ramp(4)</span>
-<span class="sd">    &gt;&gt;&gt; x</span>
-<span class="sd">    tensor([0., 1., 2., 3., 4.])</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">end</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">end</span> <span class="o">=</span> <span class="n">arg</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">start</span> <span class="o">=</span> <span class="n">arg</span>
-    <span class="k">if</span> <span class="n">step</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">end</span> <span class="o">+=</span> <span class="n">eps</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">end</span> <span class="o">-=</span> <span class="n">eps</span>
-    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">W</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">y</span></div></div>
 </pre></div>
 
               </div>

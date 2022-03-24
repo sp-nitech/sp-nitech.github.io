@@ -135,8 +135,18 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="dct.html">
+   dct
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="decimate.html">
    decimate
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="fbank.html">
+   fbank
   </a>
  </li>
  <li class="toctree-l1">
@@ -152,6 +162,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="freqt.html">
    freqt
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="idct.html">
+   idct
   </a>
  </li>
  <li class="toctree-l1">
@@ -187,6 +202,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="mc2b.html">
    mc2b
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mfcc.html">
+   mfcc
   </a>
  </li>
  <li class="toctree-l1">
@@ -299,7 +319,7 @@ for details.</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">signal</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mc2b</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MelCepstrumToMLSADigitalFilterCoefficients</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b2mc</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MLSADigitalFilterCoefficientsToMelCepstrum</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b2</span> <span class="o">=</span> <span class="n">mc2b</span><span class="p">(</span><span class="n">b2mc</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>zerodf &#8212; diffsptk 0.1.0 documentation</title>
+    <title>idct &#8212; diffsptk 0.1.0 documentation</title>
     
     <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -35,8 +35,8 @@
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="misc" href="../misc/index.html" />
-    <link rel="prev" title="window" href="window.html" />
+    <link rel="next" title="interpolate" href="interpolate.html" />
+    <link rel="prev" title="freqt" href="freqt.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -164,8 +164,8 @@
    freqt
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="idct.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    idct
   </a>
  </li>
@@ -239,8 +239,8 @@
    window
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="zerodf.html">
    zerodf
   </a>
  </li>
@@ -283,52 +283,52 @@
               
               <div>
                 
-  <section id="zerodf">
-<span id="id1"></span><h1>zerodf<a class="headerlink" href="#zerodf" title="Permalink to this headline">¶</a></h1>
+  <section id="idct">
+<span id="id1"></span><h1>idct<a class="headerlink" href="#idct" title="Permalink to this headline">¶</a></h1>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diffsptk.IDCT">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">IDCT</span></span><a class="headerlink" href="#diffsptk.IDCT" title="Permalink to this definition">¶</a></dt>
+<dd><p>alias of <a class="reference internal" href="#diffsptk.InverseDiscreteCosineTransform" title="diffsptk.core.idct.InverseDiscreteCosineTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">diffsptk.core.idct.InverseDiscreteCosineTransform</span></code></a></p>
+</dd></dl>
+
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.AllZeroDigitalFilter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">AllZeroDigitalFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/zerodf.html#AllZeroDigitalFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.AllZeroDigitalFilter" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/zerodf.html">this page</a>
+<dt class="sig sig-object py" id="diffsptk.InverseDiscreteCosineTransform">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">InverseDiscreteCosineTransform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dct_length</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/idct.html#InverseDiscreteCosineTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.InverseDiscreteCosineTransform" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/idct.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>filter_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of filter coefficients, <span class="math notranslate nohighlight">\(M\)</span>.</p>
-</dd>
-<dt><strong>frame_period</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Frame period, <span class="math notranslate nohighlight">\(P\)</span>.</p>
-</dd>
-<dt><strong>ignore_gain</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If true, perform filtering without gain.</p>
+<dt><strong>dct_length</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>DCT length, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.AllZeroDigitalFilter.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">h</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/zerodf.html#AllZeroDigitalFilter.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.AllZeroDigitalFilter.forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Apply an all-zero digital filter.</p>
+<dt class="sig sig-object py" id="diffsptk.InverseDiscreteCosineTransform.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/idct.html#InverseDiscreteCosineTransform.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.InverseDiscreteCosineTransform.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Apply inverse DCT to input.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(B, T)]</span></dt><dd><p>Excitation signal.</p>
-</dd>
-<dt><strong>h</strong><span class="classifier">Tensor [shape=(B, T/P, D)]</span></dt><dd><p>Filter coefficients.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, L)]</span></dt><dd><p>Input.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(B, T)]</span></dt><dd><p>Output signal.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, L)]</span></dt><dd><p>Inverse DCT output.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">zerodf</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">AllZeroDigitalFilter</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">zerodf</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">h</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">tensor([[0., 1., 2., 3., 4.]])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dct</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">DCT</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">idct</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">IDCT</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span> <span class="o">=</span> <span class="n">idct</span><span class="p">(</span><span class="n">dct</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span>
+<span class="go">tensor([-4.4703e-08,  1.0000e+00,  2.0000e+00,  3.0000e+00])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -337,7 +337,7 @@ for details.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="linear_intpl.html#linear-intpl"><span class="std std-ref">linear_intpl</span></a>  <a class="reference internal" href="c2mpir.html#c2mpir"><span class="std std-ref">c2mpir</span></a></p>
+<p><a class="reference internal" href="dct.html#dct"><span class="std std-ref">dct</span></a></p>
 </div>
 </section>
 
@@ -347,17 +347,17 @@ for details.</p>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="window.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="freqt.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">window</p>
+            <p class="prev-next-title">freqt</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="../misc/index.html" title="next page">
+    <a class='right-next' id="next-link" href="interpolate.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">misc</p>
+        <p class="prev-next-title">interpolate</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

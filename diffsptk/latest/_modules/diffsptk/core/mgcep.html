@@ -186,7 +186,8 @@
 
 <div class="viewcode-block" id="MelCepstralAnalysis"><a class="viewcode-back" href="../../../core/mgcep.html#diffsptk.MelCepstralAnalysis">[docs]</a><span class="k">class</span> <span class="nc">MelCepstralAnalysis</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/mgcep.html&gt;`_</span>
-<span class="sd">    for details.</span>
+<span class="sd">    for details. Note that the current implementation does not use the efficient</span>
+<span class="sd">    Toeplitz-plus-Hankel system solver.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -240,7 +241,7 @@
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        &gt;&gt;&gt; x = diffsptk.signal.ramp(19)</span>
+<span class="sd">        &gt;&gt;&gt; x = diffsptk.ramp(19)</span>
 <span class="sd">        &gt;&gt;&gt; stft = diffsptk.STFT(frame_length=10, frame_period=10, fft_length=16)</span>
 <span class="sd">        &gt;&gt;&gt; mcep = diffsptk.MelCepstralAnalysis(3, 16, 0.1, n_iter=1)</span>
 <span class="sd">        &gt;&gt;&gt; mc = mcep(stft(x))</span>
