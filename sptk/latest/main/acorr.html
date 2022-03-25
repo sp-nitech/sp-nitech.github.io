@@ -231,8 +231,9 @@
 <li><p><strong>-o</strong> <em>double</em> <ul>
 <li><p>output format <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> autocorrelation </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> biased autocorrelation </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> normalized autocorrelation</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> normalized autocorrelation </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> biased autocorrelation </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> unbiased autocorrelation</p></li>
 </ul>
 </p></li>
 </ul>
@@ -247,10 +248,12 @@
 </p></li>
 </ul>
 </p>
-<p>If <code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">1</span></code>, output the biased autocorrelation: <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} r(0)/L, &amp; r(1)/L, &amp; \ldots, &amp; r(M)/L, \end{array} \]</div>
- where <span class="math notranslate nohighlight">\(r(m)\)</span> is the <span class="math notranslate nohighlight">\(m\)</span>-th autocorrelation coefficient. If <code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">2</span></code>, output the normalized autocorrelation: <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} 1, &amp; r(1)/r(0), &amp; \ldots, &amp; r(M)/r(0). \end{array} \]</div>
+<p>If <code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">1</span></code>, output the normalized autocorrelation: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} 1, &amp; r(1)/r(0), &amp; \ldots, &amp; r(M)/r(0), \end{array} \]</div>
+ where <span class="math notranslate nohighlight">\(r(m)\)</span> is the <span class="math notranslate nohighlight">\(m\)</span>-th autocorrelation coefficient. If <code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">2</span></code>, output the biased autocorrelation function: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} r(0)/L, &amp; r(1)/L, &amp; \ldots, &amp; r(M)/L. \end{array} \]</div>
+ If <code class="docutils literal notranslate"><span class="pre">-o</span> <span class="pre">3</span></code>, output the unbiased autocorrelation function: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} r(0)/L, &amp; r(1)/(L-1), &amp; \ldots, &amp; r(M)/(L-M). \end{array} \]</div>
 </p>
 <p>The below example extracts 10-th order autocorrelation coefficients from windowed waveform.</p>
 <p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>x2x +sd data.short <span class="p">|</span> frame <span class="p">|</span> window <span class="p">|</span> acorr -m <span class="m">10</span> &gt; data.acr
