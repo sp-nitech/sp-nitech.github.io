@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>mfcc &#8212; diffsptk 0.1.0 documentation</title>
+    <title>quantize &#8212; diffsptk 0.1.0 documentation</title>
     
     <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -32,11 +32,10 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="mgcep" href="mgcep.html" />
-    <link rel="prev" title="mc2b" href="mc2b.html" />
+    <link rel="next" title="spec" href="spec.html" />
+    <link rel="prev" title="pqmf" href="pqmf.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -234,8 +233,8 @@
    mc2b
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="mfcc.html">
    mfcc
   </a>
  </li>
@@ -254,8 +253,8 @@
    pqmf
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="quantize.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    quantize
   </a>
  </li>
@@ -323,74 +322,51 @@
               
               <div>
                 
-  <section id="mfcc">
-<span id="id1"></span><h1>mfcc<a class="headerlink" href="#mfcc" title="Permalink to this headline">¶</a></h1>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="diffsptk.MFCC">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MFCC</span></span><a class="headerlink" href="#diffsptk.MFCC" title="Permalink to this definition">¶</a></dt>
-<dd><p>alias of <a class="reference internal" href="#diffsptk.MelFrequencyCepstralCoefficientsAnalysis" title="diffsptk.core.mfcc.MelFrequencyCepstralCoefficientsAnalysis"><code class="xref py py-class docutils literal notranslate"><span class="pre">diffsptk.core.mfcc.MelFrequencyCepstralCoefficientsAnalysis</span></code></a></p>
-</dd></dl>
-
+  <section id="quantize">
+<span id="id1"></span><h1>quantize<a class="headerlink" href="#quantize" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.MelFrequencyCepstralCoefficientsAnalysis">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MelFrequencyCepstralCoefficientsAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mfcc_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lifter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'y'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">fbank_kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mfcc.html#MelFrequencyCepstralCoefficientsAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MelFrequencyCepstralCoefficientsAnalysis" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/mfcc.html">this page</a>
+<dt class="sig sig-object py" id="diffsptk.UniformQuantization">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">UniformQuantization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">abs_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantizer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mid-rise'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/quantize.html#UniformQuantization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.UniformQuantization" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/quantize.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>mfcc_order</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Order of MFCC, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<dt><strong>abs_max</strong><span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Absolute maximum value of input.</p>
 </dd>
-<dt><strong>n_channel</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Number of mel-filter banks, <span class="math notranslate nohighlight">\(C\)</span>.</p>
+<dt><strong>n_bit</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Number of quantization bits.</p>
 </dd>
-<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2 [scalar]</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
-</dd>
-<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Sample rate in Hz.</p>
-</dd>
-<dt><strong>lifter</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Liftering coefficient.</p>
-</dd>
-<dt><strong>f_min</strong><span class="classifier">float &gt;= 0 [scalar]</span></dt><dd><p>Minimum frequency in Hz.</p>
-</dd>
-<dt><strong>f_max</strong><span class="classifier">float &lt;= sample_rate // 2 [scalar]</span></dt><dd><p>Maximum frequency in Hz.</p>
-</dd>
-<dt><strong>floor</strong><span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Floor value of raw filter bank output.</p>
-</dd>
-<dt><strong>out_format</strong><span class="classifier">[‘y’, ‘yE’, ‘yc’, ‘y,E’, ‘y,c’]</span></dt><dd><p><cite>y</cite> is MFCC, <cite>c</cite> is C0, and <cite>E</cite> is energy. If this is <cite>y?</cite>, the two output
-tensors are concatenated and return the tensor instead of the tuple.</p>
+<dt><strong>quantizer</strong><span class="classifier">[‘mid-rise’, ‘mid-tread’]</span></dt><dd><p>Quantizer.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.MelFrequencyCepstralCoefficientsAnalysis.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mfcc.html#MelFrequencyCepstralCoefficientsAnalysis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MelFrequencyCepstralCoefficientsAnalysis.forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute MFCC.</p>
+<dt class="sig sig-object py" id="diffsptk.UniformQuantization.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">int_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/quantize.html#UniformQuantization.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.UniformQuantization.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Quantize input.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>Power spectrum.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Input.</p>
+</dd>
+<dt><strong>int_out</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If true, return int-type tensor.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, M)]</span></dt><dd><p>MFCC without C0.</p>
-</dd>
-<dt><strong>E</strong><span class="classifier">Tensor [shape=(…, 1)]</span></dt><dd><p>Energy.</p>
-</dd>
-<dt><strong>c</strong><span class="classifier">Tensor [shape=(…, 1)]</span></dt><dd><p>C0.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Quantized input.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stft</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">STFT</span><span class="p">(</span><span class="n">frame_length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">frame_period</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fft_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mfcc</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MFCC</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">8000</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">mfcc</span><span class="p">(</span><span class="n">stft</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">quantize</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">UniformQuantization</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">quantize</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">tensor([[-7.7745e-03, -1.4447e-02,  1.6157e-02,  1.1069e-03],</span>
-<span class="go">        [ 2.8049e+00, -1.6257e+00, -2.3566e-02,  1.2804e-01]])</span>
+<span class="go">tensor([0, 0, 1, 1, 2, 2, 3, 3, 3], dtype=torch.int32)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -399,7 +375,7 @@ tensors are concatenated and return the tensor instead of the tuple.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="stft.html#stft"><span class="std std-ref">stft</span></a>  <a class="reference internal" href="fbank.html#fbank"><span class="std std-ref">fbank</span></a></p>
+<p><a class="reference internal" href="ulaw.html#ulaw"><span class="std std-ref">ulaw</span></a>  <a class="reference internal" href="dequantize.html#dequantize"><span class="std std-ref">dequantize</span></a></p>
 </div>
 </section>
 
@@ -409,17 +385,17 @@ tensors are concatenated and return the tensor instead of the tuple.</p>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="mc2b.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="pqmf.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">mc2b</p>
+            <p class="prev-next-title">pqmf</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="mgcep.html" title="next page">
+    <a class='right-next' id="next-link" href="spec.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">mgcep</p>
+        <p class="prev-next-title">spec</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
