@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>diffsptk.core &#8212; diffsptk 0.1.0 documentation</title>
+    <title>delta &#8212; diffsptk 0.1.0 documentation</title>
     
     <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -34,8 +34,8 @@
     <script src="../_static/doctools.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="acorr" href="acorr.html" />
-    <link rel="prev" title="diffsptk" href="../index.html" />
+    <link rel="next" title="fbank" href="fbank.html" />
+    <link rel="prev" title="decimate" href="decimate.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -71,7 +71,7 @@
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 current active nav-item">
- <a class="current reference internal nav-link" href="#">
+ <a class="reference internal nav-link" href="index.html">
   Core API
  </a>
 </li>
@@ -112,7 +112,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
-    <ul class="nav bd-sidenav">
+    <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="acorr.html">
    acorr
@@ -153,8 +153,8 @@
    decimate
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="delta.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    delta
   </a>
  </li>
@@ -312,10 +312,63 @@
               
               <div>
                 
-  <section id="diffsptk-core">
-<h1>diffsptk.core<a class="headerlink" href="#diffsptk-core" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
+  <section id="delta">
+<span id="id1"></span><h1>delta<a class="headerlink" href="#delta" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="diffsptk.Delta">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">Delta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coefficients</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regression_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strip_static</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/delta.html#Delta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Delta" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/delta.html">this page</a>
+for details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>coefficients</strong><span class="classifier">list[float] or list[list[float]]</span></dt><dd><p>Delta coefficients.</p>
+</dd>
+<dt><strong>regression_width</strong><span class="classifier">int or [int, int]</span></dt><dd><p>Width of 1st (and 2nd) regression coefficients</p>
+</dd>
+<dt><strong>strip_static</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If true, output only delta components.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="diffsptk.Delta.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/delta.html#Delta.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Delta.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute delta components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(B, T, C)]</span></dt><dd><p>Input.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(B, T, CxD)]</span></dt><dd><p>Delta components (with input).</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">tensor([[[1., 2.],</span>
+<span class="go">         [3., 4.],</span>
+<span class="go">         [5., 6.],</span>
+<span class="go">         [7., 8.]]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">delta</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Delta</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">delta</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">tensor([[[ 1.0000,  2.0000, -0.5000, -1.0000,  1.5000,  2.0000],</span>
+<span class="go">         [ 3.0000,  4.0000, -0.5000, -1.0000,  2.5000,  3.0000],</span>
+<span class="go">         [ 5.0000,  6.0000, -1.5000, -2.0000,  3.5000,  4.0000],</span>
+<span class="go">         [ 7.0000,  8.0000, -2.5000, -3.0000,  3.5000,  4.0000]]])</span>
+</pre></div>
 </div>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 
 
@@ -324,17 +377,17 @@
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../index.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="decimate.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">diffsptk</p>
+            <p class="prev-next-title">decimate</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="acorr.html" title="next page">
+    <a class='right-next' id="next-link" href="fbank.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">acorr</p>
+        <p class="prev-next-title">fbank</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

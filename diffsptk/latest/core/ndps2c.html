@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>diffsptk.core &#8212; diffsptk 0.1.0 documentation</title>
+    <title>ndps2c &#8212; diffsptk 0.1.0 documentation</title>
     
     <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -32,10 +32,11 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="acorr" href="acorr.html" />
-    <link rel="prev" title="diffsptk" href="../index.html" />
+    <link rel="next" title="pqmf" href="pqmf.html" />
+    <link rel="prev" title="mgcep" href="mgcep.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -71,7 +72,7 @@
       <div class="navbar-center-item">
         <ul id="navbar-main-elements" class="navbar-nav">
     <li class="toctree-l1 current active nav-item">
- <a class="current reference internal nav-link" href="#">
+ <a class="reference internal nav-link" href="index.html">
   Core API
  </a>
 </li>
@@ -112,7 +113,7 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
   <div class="bd-toc-item active">
-    <ul class="nav bd-sidenav">
+    <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="acorr.html">
    acorr
@@ -154,11 +155,6 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="delta.html">
-   delta
-  </a>
- </li>
- <li class="toctree-l1">
   <a class="reference internal" href="fbank.html">
    fbank
   </a>
@@ -186,11 +182,6 @@
  <li class="toctree-l1">
   <a class="reference internal" href="idct.html">
    idct
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ignorm.html">
-   ignorm
   </a>
  </li>
  <li class="toctree-l1">
@@ -238,8 +229,8 @@
    mgcep
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="ndps2c.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    ndps2c
   </a>
  </li>
@@ -312,9 +303,56 @@
               
               <div>
                 
-  <section id="diffsptk-core">
-<h1>diffsptk.core<a class="headerlink" href="#diffsptk-core" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
+  <section id="ndps2c">
+<span id="id1"></span><h1>ndps2c<a class="headerlink" href="#ndps2c" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="diffsptk.NegativeDerivativeOfPhaseSpectrumToCepstrum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">NegativeDerivativeOfPhaseSpectrumToCepstrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cep_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/ndps2c.html#NegativeDerivativeOfPhaseSpectrumToCepstrum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.NegativeDerivativeOfPhaseSpectrumToCepstrum" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/ndps2c.html">this page</a>
+for details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>cep_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of cepstrum, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+</dd>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2 [scalar]</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="diffsptk.NegativeDerivativeOfPhaseSpectrumToCepstrum.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/ndps2c.html#NegativeDerivativeOfPhaseSpectrumToCepstrum.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.NegativeDerivativeOfPhaseSpectrumToCepstrum.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convert NPDS to cepstrum.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>n</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>NDPS.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>c</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Cepstrum.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ndps2c</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">NegativeDerivativeOfPhaseSpectrumToCepstrum</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">ndps2c</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span>
+<span class="go">tensor([ 0.0000, -1.7071,  0.0000, -0.0976,  0.0000])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="c2ndps.html#c2ndps"><span class="std std-ref">c2ndps</span></a></p>
 </div>
 </section>
 
@@ -324,17 +362,17 @@
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../index.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="mgcep.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">diffsptk</p>
+            <p class="prev-next-title">mgcep</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="acorr.html" title="next page">
+    <a class='right-next' id="next-link" href="pqmf.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">acorr</p>
+        <p class="prev-next-title">pqmf</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
