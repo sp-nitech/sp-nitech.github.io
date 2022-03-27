@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>dequantize &#8212; diffsptk 0.1.0 documentation</title>
+    <title>zcross &#8212; diffsptk 0.1.0 documentation</title>
     
     <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -32,10 +32,11 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="fbank" href="fbank.html" />
-    <link rel="prev" title="delta" href="delta.html" />
+    <link rel="next" title="zerodf" href="zerodf.html" />
+    <link rel="prev" title="window" href="window.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -158,8 +159,8 @@
    delta
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="dequantize.html">
    dequantize
   </a>
  </li>
@@ -278,8 +279,8 @@
    window
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="zcross.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    zcross
   </a>
  </li>
@@ -327,62 +328,55 @@
               
               <div>
                 
-  <section id="dequantize">
-<span id="id1"></span><h1>dequantize<a class="headerlink" href="#dequantize" title="Permalink to this headline">¶</a></h1>
+  <section id="zcross">
+<span id="id1"></span><h1>zcross<a class="headerlink" href="#zcross" title="Permalink to this headline">¶</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.InverseUniformQuantization">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">InverseUniformQuantization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">abs_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantizer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mid-rise'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/dequantize.html#InverseUniformQuantization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.InverseUniformQuantization" title="Permalink to this definition">¶</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/dequantize.html">this page</a>
+<dt class="sig sig-object py" id="diffsptk.ZeroCrossingAnalysis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">ZeroCrossingAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/zcross.html#ZeroCrossingAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.ZeroCrossingAnalysis" title="Permalink to this definition">¶</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/zcross.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>abs_max</strong><span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Absolute maximum value of input.</p>
+<dt><strong>frame_length</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Frame length, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
-<dt><strong>n_bit</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Number of quantization bits.</p>
-</dd>
-<dt><strong>quantizer</strong><span class="classifier">[‘mid-rise’, ‘mid-tread’]</span></dt><dd><p>Quantizer.</p>
+<dt><strong>norm</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If true, divide zero-crossing rate by frame length.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.InverseUniformQuantization.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/dequantize.html#InverseUniformQuantization.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.InverseUniformQuantization.forward" title="Permalink to this definition">¶</a></dt>
-<dd><p>Dequantize input.</p>
+<dt class="sig sig-object py" id="diffsptk.ZeroCrossingAnalysis.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/zcross.html#ZeroCrossingAnalysis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.ZeroCrossingAnalysis.forward" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute zero-crossing rate.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Quantized input.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Waveform.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Dequantized input.</p>
+<dt><strong>z</strong><span class="classifier">Tensor [shape=(…, T/L)]</span></dt><dd><p>Zero-crossing rate.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
-<span class="go">tensor([-4., -3., -2., -1.,  0.,  1.,  2.,  3.,  4.])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">quantize</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">UniformQuantization</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dequantize</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">InverseUniformQuantization</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span> <span class="o">=</span> <span class="n">dequantize</span><span class="p">(</span><span class="n">quantize</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span>
-<span class="go">tensor([-3., -3., -1., -1.,  1.,  1.,  3.,  3.,  3.])</span>
+<span class="go">tensor([-0.2388,  0.3587, -0.6606, -0.6929,  0.5239,  0.4501])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">zcross</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ZeroCrossingAnalysis</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">zcross</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span>
+<span class="go">tensor([2., 1.])</span>
 </pre></div>
 </div>
 </dd></dl>
 
 </dd></dl>
 
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="iulaw.html#iulaw"><span class="std std-ref">iulaw</span></a>  <a class="reference internal" href="quantize.html#quantize"><span class="std std-ref">quantize</span></a></p>
-</div>
 </section>
 
 
@@ -391,17 +385,17 @@ for details.</p>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="delta.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="window.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">delta</p>
+            <p class="prev-next-title">window</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="fbank.html" title="next page">
+    <a class='right-next' id="next-link" href="zerodf.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">fbank</p>
+        <p class="prev-next-title">zerodf</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
