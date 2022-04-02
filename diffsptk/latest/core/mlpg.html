@@ -1,0 +1,531 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>mlpg &#8212; diffsptk 0.2.0 documentation</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="ndps2c" href="ndps2c.html" />
+    <link rel="prev" title="mgcep" href="mgcep.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+    <nav class="navbar navbar-light navbar-expand-lg bg-light fixed-top bd-navbar" id="navbar-main"><div class="container-xl">
+
+  <div id="navbar-start">
+    
+    
+<a class="navbar-brand" href="../index.html">
+<p class="title">diffsptk</p>
+</a>
+
+    
+  </div>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapsible" aria-controls="navbar-collapsible" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  
+  <div id="navbar-collapsible" class="col-lg-9 collapse navbar-collapse">
+    <div id="navbar-center" class="mr-auto">
+      
+      <div class="navbar-center-item">
+        <ul id="navbar-main-elements" class="navbar-nav">
+    <li class="toctree-l1 current active nav-item">
+ <a class="reference internal nav-link" href="index.html">
+  Core API
+ </a>
+</li>
+
+<li class="toctree-l1 nav-item">
+ <a class="reference internal nav-link" href="../misc/index.html">
+  Misc
+ </a>
+</li>
+
+    
+</ul>
+      </div>
+      
+    </div>
+
+    <div id="navbar-end">
+      
+      <div class="navbar-end-item">
+        <ul id="navbar-icon-links" class="navbar-nav" aria-label="Icon Links">
+      </ul>
+      </div>
+      
+    </div>
+  </div>
+</div>
+    </nav>
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+            
+            <!-- Only show if we have sidebars configured, else just a small margin  -->
+            <div class="col-12 col-md-3 bd-sidebar">
+              <div class="sidebar-start-items"><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <div class="bd-toc-item active">
+    <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="acorr.html">
+   acorr
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="b2mc.html">
+   b2mc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="c2acr.html">
+   c2acr
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="c2mpir.html">
+   c2mpir
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="c2ndps.html">
+   c2ndps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cdist.html">
+   cdist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dct.html">
+   dct
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="decimate.html">
+   decimate
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="delta.html">
+   delta
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="dequantize.html">
+   dequantize
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="fbank.html">
+   fbank
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="fftcep.html">
+   fftcep
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="frame.html">
+   frame
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="freqt.html">
+   freqt
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="gnorm.html">
+   gnorm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="idct.html">
+   idct
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ignorm.html">
+   ignorm
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="interpolate.html">
+   interpolate
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ipqmf.html">
+   ipqmf
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="iulaw.html">
+   iulaw
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="levdur.html">
+   levdur
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="linear_intpl.html">
+   linear_intpl
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="lpc.html">
+   lpc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mc2b.html">
+   mc2b
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mfcc.html">
+   mfcc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mgcep.html">
+   mgcep
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   mlpg
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ndps2c.html">
+   ndps2c
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="norm0.html">
+   norm0
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="pqmf.html">
+   pqmf
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="quantize.html">
+   quantize
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="spec.html">
+   spec
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="stft.html">
+   stft
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="ulaw.html">
+   ulaw
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="window.html">
+   window
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="zcross.html">
+   zcross
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="zerodf.html">
+   zerodf
+  </a>
+ </li>
+</ul>
+
+  </div>
+</nav>
+              </div>
+              <div class="sidebar-end-items">
+              </div>
+            </div>
+            
+          
+
+          
+          <div class="d-none d-xl-block col-xl-2 bd-toc">
+            
+              
+              <div class="toc-item">
+                
+
+<nav id="bd-toc-nav">
+    
+</nav>
+              </div>
+              
+              <div class="toc-item">
+                
+              </div>
+              
+            
+          </div>
+          
+
+          
+          
+            
+          
+          <main class="col-12 col-md-9 col-xl-7 py-md-5 pl-md-5 pr-md-4 bd-content" role="main">
+              
+              <div>
+                
+  <section id="mlpg">
+<span id="id1"></span><h1>mlpg<a class="headerlink" href="#mlpg" title="Permalink to this headline">#</a></h1>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diffsptk.MLPG">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MLPG</span></span><a class="headerlink" href="#diffsptk.MLPG" title="Permalink to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="#diffsptk.MaximumLikelihoodParameterGeneration" title="diffsptk.core.mlpg.MaximumLikelihoodParameterGeneration"><code class="xref py py-class docutils literal notranslate"><span class="pre">diffsptk.core.mlpg.MaximumLikelihoodParameterGeneration</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="diffsptk.MaximumLikelihoodParameterGeneration">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MaximumLikelihoodParameterGeneration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[[-</span> <span class="pre">0.5,</span> <span class="pre">0,</span> <span class="pre">0.5],</span> <span class="pre">[1,</span> <span class="pre">-</span> <span class="pre">2,</span> <span class="pre">1]]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mlpg.html#MaximumLikelihoodParameterGeneration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MaximumLikelihoodParameterGeneration" title="Permalink to this definition">#</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/mlpg.html">this page</a>
+for details. Currently, only global unit variance is supported.</p>
+<p>Note that this module may require large memory due to huge matrix multiplication.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>size</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Length of input, <span class="math notranslate nohighlight">\(T\)</span>.</p>
+</dd>
+<dt><strong>seed</strong><span class="classifier">list[list[float]] or list[int]</span></dt><dd><p>Delta coefficients or width of 1st (and 2nd) regression coefficients.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="diffsptk.MaximumLikelihoodParameterGeneration.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mean</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mlpg.html#MaximumLikelihoodParameterGeneration.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MaximumLikelihoodParameterGeneration.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Perform MLPG to obtain static sequence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>mean</strong><span class="classifier">Tensor [shape=(B, T, DxH)]</span></dt><dd><p>Time-variant mean vectors with delta components.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>c</strong><span class="classifier">Tensor [shape=(B, T, D)]</span></dt><dd><p>Static components.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">tensor([[[1., 2.],</span>
+<span class="go">         [3., 4.],</span>
+<span class="go">         [5., 6.],</span>
+<span class="go">         [7., 8.]]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">delta</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Delta</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">delta</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">tensor([[[ 1.0000,  2.0000, -0.5000, -1.0000,  1.5000,  2.0000],</span>
+<span class="go">         [ 3.0000,  4.0000, -0.5000, -1.0000,  2.5000,  3.0000],</span>
+<span class="go">         [ 5.0000,  6.0000, -1.5000, -2.0000,  3.5000,  4.0000],</span>
+<span class="go">         [ 7.0000,  8.0000, -2.5000, -3.0000,  3.5000,  4.0000]]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mlpg</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MLPG</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="p">[[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">mlpg</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span>
+<span class="go">tensor([[[1., 2.],</span>
+<span class="go">         [3., 4.],</span>
+<span class="go">         [5., 6.],</span>
+<span class="go">         [7., 8.]]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="diffsptk.ConvolutionalMaximumLikelihoodParameterGeneration">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">ConvolutionalMaximumLikelihoodParameterGeneration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kernel_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">39</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[[-</span> <span class="pre">0.5,</span> <span class="pre">0,</span> <span class="pre">0.5],</span> <span class="pre">[1,</span> <span class="pre">-</span> <span class="pre">2,</span> <span class="pre">1]]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mlpg.html#ConvolutionalMaximumLikelihoodParameterGeneration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.ConvolutionalMaximumLikelihoodParameterGeneration" title="Permalink to this definition">#</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/mlpg.html">this page</a>
+for details. Currently, only global variance is supported.</p>
+<p>Note that this module cannot accurately compute the both edges of static components.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>kernel_size</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Base kernel size.</p>
+</dd>
+<dt><strong>seed</strong><span class="classifier">list[list[float]] or list[int]</span></dt><dd><p>Delta coefficients or width of 1st (and 2nd) regression coefficients.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<dl class="citation">
+<dt class="label" id="r9029c8f0f6e5-1"><span class="brackets">1</span></dt>
+<dd><p>V. Klimkov, A. Moinet, A. Nadolski, and T. Drugman, “Parameter generation
+algorithms for text-to-speech synthesis with recurrent neural networks,” 2018
+IEEE Spoken Language Technology Workshop (SLT), 2018, pp. 626-631.</p>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="diffsptk.ConvolutionalMaximumLikelihoodParameterGeneration.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mean</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mlpg.html#ConvolutionalMaximumLikelihoodParameterGeneration.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.ConvolutionalMaximumLikelihoodParameterGeneration.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Perform MLPG to obtain static sequence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>mean</strong><span class="classifier">Tensor [shape=(B, T, DxH)]</span></dt><dd><p>Time-variant mean vectors with delta components.</p>
+</dd>
+<dt><strong>trim</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Trimming length, <span class="math notranslate nohighlight">\(E\)</span>.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>c</strong><span class="classifier">Tensor [shape=(B, T-2E, D)]</span></dt><dd><p>Static components.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">tensor([[[1., 2.],</span>
+<span class="go">         [3., 4.],</span>
+<span class="go">         [5., 6.],</span>
+<span class="go">         [7., 8.]]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">delta</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Delta</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">delta</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">tensor([[[ 1.0000,  2.0000, -0.5000, -1.0000,  1.5000,  2.0000],</span>
+<span class="go">         [ 3.0000,  4.0000, -0.5000, -1.0000,  2.5000,  3.0000],</span>
+<span class="go">         [ 5.0000,  6.0000, -1.5000, -2.0000,  3.5000,  4.0000],</span>
+<span class="go">         [ 7.0000,  8.0000, -2.5000, -3.0000,  3.5000,  4.0000]]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mlpg</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ConvolutionalMaximumLikelihoodParameterGeneration</span><span class="p">(</span>
+<span class="gp">&gt;&gt;&gt; </span>    <span class="mi">3</span><span class="p">,</span> <span class="p">[[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">mlpg</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">trim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span>
+<span class="go">tensor([[[3.0000, 4.0000],</span>
+<span class="go">         [5.0000, 6.0000]]])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="delta.html#delta"><span class="std std-ref">delta</span></a></p>
+</div>
+</section>
+
+
+              </div>
+              
+              
+              <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="mgcep.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">mgcep</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="ndps2c.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">ndps2c</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+              
+          </main>
+          
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+<footer class="footer mt-5 mt-md-0">
+  <div class="container">
+    
+    <div class="footer-item">
+      <p class="copyright">
+    &copy; Copyright 2022, SPTK Working Group.<br>
+</p>
+    </div>
+    
+    <div class="footer-item">
+      <p class="sphinx-version">
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 4.5.0.<br>
+</p>
+    </div>
+    
+  </div>
+</footer>
+  </body>
+</html>

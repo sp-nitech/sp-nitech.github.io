@@ -147,8 +147,6 @@
 <span class="c1"># limitations under the License.                                           #</span>
 <span class="c1"># ------------------------------------------------------------------------ #</span>
 
-<span class="kn">import</span> <span class="nn">warnings</span>
-
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
@@ -157,107 +155,103 @@
 <span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">default_dtype</span>
 
 
+<span class="k">def</span> <span class="nf">make_window</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="n">static_out</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="nb">list</span><span class="p">)):</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;seed must be tuple or list&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">seed</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">seed</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
+        <span class="c1"># Make window from delta coefficients.</span>
+        <span class="k">if</span> <span class="n">static_out</span><span class="p">:</span>
+            <span class="n">seed</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+</span> <span class="n">seed</span>
+
+        <span class="n">max_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">coefficients</span><span class="p">)</span> <span class="k">for</span> <span class="n">coefficients</span> <span class="ow">in</span> <span class="n">seed</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">max_len</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">max_len</span> <span class="o">+=</span> <span class="mi">1</span>
+
+        <span class="n">window</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">coefficients</span> <span class="ow">in</span> <span class="n">seed</span><span class="p">:</span>
+            <span class="n">diff</span> <span class="o">=</span> <span class="n">max_len</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">coefficients</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">diff</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">left_pad</span> <span class="o">=</span> <span class="n">diff</span> <span class="o">//</span> <span class="mi">2</span>
+                <span class="n">right_pad</span> <span class="o">=</span> <span class="n">diff</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">left_pad</span> <span class="o">=</span> <span class="p">(</span><span class="n">diff</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+                <span class="n">right_pad</span> <span class="o">=</span> <span class="p">(</span><span class="n">diff</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="n">window</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">left_pad</span> <span class="o">+</span> <span class="n">coefficients</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">right_pad</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="c1"># Make window from width of regression coefficients.</span>
+        <span class="n">max_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
+
+        <span class="n">window</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">if</span> <span class="n">static_out</span><span class="p">:</span>
+            <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">max_len</span><span class="p">)</span>
+            <span class="n">w</span><span class="p">[(</span><span class="n">max_len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">window</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+
+        <span class="c1"># Compute 1st order coefficients.</span>
+        <span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">seed</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">pad_width</span> <span class="o">=</span> <span class="p">(</span><span class="n">max_len</span> <span class="o">-</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="n">window</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">j</span> <span class="o">*</span> <span class="n">z</span><span class="p">,</span> <span class="n">pad_width</span><span class="p">))</span>
+
+        <span class="c1"># Compute 2nd order coefficients.</span>
+        <span class="k">if</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seed</span><span class="p">):</span>
+            <span class="n">n</span> <span class="o">=</span> <span class="n">seed</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">a0</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
+            <span class="n">a1</span> <span class="o">=</span> <span class="n">a0</span> <span class="o">*</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span>
+            <span class="n">a2</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">n</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">5</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">a2</span> <span class="o">*</span> <span class="n">a0</span> <span class="o">-</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">a1</span><span class="p">)</span>
+            <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">pad_width</span> <span class="o">=</span> <span class="p">(</span><span class="n">max_len</span> <span class="o">-</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">//</span> <span class="mi">2</span>
+            <span class="n">window</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">((</span><span class="n">a0</span> <span class="o">*</span> <span class="n">j</span> <span class="o">*</span> <span class="n">j</span> <span class="o">-</span> <span class="n">a1</span><span class="p">)</span> <span class="o">*</span> <span class="n">z</span><span class="p">,</span> <span class="n">pad_width</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="mi">3</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">seed</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+    <span class="n">window</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">default_dtype</span><span class="p">())</span>
+    <span class="k">return</span> <span class="n">window</span>
+
+
 <div class="viewcode-block" id="Delta"><a class="viewcode-back" href="../../../core/delta.html#diffsptk.Delta">[docs]</a><span class="k">class</span> <span class="nc">Delta</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/delta.html&gt;`_</span>
 <span class="sd">    for details.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    coefficients : list[float] or list[list[float]]</span>
-<span class="sd">        Delta coefficients.</span>
+<span class="sd">    seed : list[list[float]] or list[int]</span>
+<span class="sd">        Delta coefficients or width of 1st (and 2nd) regression coefficients.</span>
 
-<span class="sd">    regression_width : int or [int, int]</span>
-<span class="sd">        Width of 1st (and 2nd) regression coefficients</span>
-
-<span class="sd">    strip_static : bool [scalar]</span>
-<span class="sd">        If true, output only delta components.</span>
+<span class="sd">    static_out : bool [scalar]</span>
+<span class="sd">        If false, output only delta components.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coefficients</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">regression_width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">strip_static</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="p">[[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">]],</span> <span class="n">static_out</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Delta</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="k">if</span> <span class="n">coefficients</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">regression_width</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;regression_width is given, but not used&quot;</span><span class="p">)</span>
-
-            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span>
-                <span class="nb">isinstance</span><span class="p">(</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coefficients</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">)</span>
-            <span class="p">):</span>
-                <span class="n">coefficients</span> <span class="o">=</span> <span class="p">[</span><span class="n">coefficients</span><span class="p">]</span>
-
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">strip_static</span><span class="p">:</span>
-                <span class="n">coefficients</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+</span> <span class="n">coefficients</span>
-
-            <span class="n">max_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">coefficients</span><span class="p">])</span>
-            <span class="k">if</span> <span class="n">max_len</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">max_len</span> <span class="o">+=</span> <span class="mi">1</span>
-
-            <span class="n">window</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">coefficients</span><span class="p">:</span>
-                <span class="n">diff</span> <span class="o">=</span> <span class="n">max_len</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">diff</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-                    <span class="n">left_pad</span> <span class="o">=</span> <span class="n">diff</span> <span class="o">//</span> <span class="mi">2</span>
-                    <span class="n">right_pad</span> <span class="o">=</span> <span class="n">diff</span> <span class="o">//</span> <span class="mi">2</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">left_pad</span> <span class="o">=</span> <span class="p">(</span><span class="n">diff</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-                    <span class="n">right_pad</span> <span class="o">=</span> <span class="p">(</span><span class="n">diff</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-                <span class="n">window</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">left_pad</span> <span class="o">+</span> <span class="n">c</span> <span class="o">+</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">right_pad</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="n">regression_width</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span>
-                <span class="nb">isinstance</span><span class="p">(</span><span class="n">regression_width</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span>
-                <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">regression_width</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span>
-            <span class="p">):</span>
-                <span class="n">regression_width</span> <span class="o">=</span> <span class="p">[</span><span class="n">regression_width</span><span class="p">]</span>
-
-            <span class="n">max_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">regression_width</span><span class="p">)</span>
-            <span class="n">max_len</span> <span class="o">=</span> <span class="n">max_len</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
-
-            <span class="n">window</span> <span class="o">=</span> <span class="p">[]</span>
-            <span class="k">if</span> <span class="ow">not</span> <span class="n">strip_static</span><span class="p">:</span>
-                <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">max_len</span><span class="p">)</span>
-                <span class="n">w</span><span class="p">[</span><span class="n">max_len</span> <span class="o">//</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-                <span class="n">window</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
-
-            <span class="c1"># Compute 1st order coefficients</span>
-            <span class="k">if</span> <span class="kc">True</span><span class="p">:</span>
-                <span class="n">n</span> <span class="o">=</span> <span class="n">regression_width</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-                <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span><span class="p">)</span>
-                <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-                <span class="n">pad_width</span> <span class="o">=</span> <span class="p">(</span><span class="n">max_len</span> <span class="o">-</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">//</span> <span class="mi">2</span>
-                <span class="n">window</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">j</span> <span class="o">*</span> <span class="n">z</span><span class="p">,</span> <span class="n">pad_width</span><span class="p">))</span>
-
-            <span class="c1"># Compute 2nd order coefficients</span>
-            <span class="k">if</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">regression_width</span><span class="p">):</span>
-                <span class="n">n</span> <span class="o">=</span> <span class="n">regression_width</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-                <span class="n">a0</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span>
-                <span class="n">a1</span> <span class="o">=</span> <span class="n">a0</span> <span class="o">*</span> <span class="n">n</span> <span class="o">*</span> <span class="p">(</span><span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">3</span>
-                <span class="n">a2</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">*</span> <span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">n</span> <span class="o">*</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">5</span>
-                <span class="n">z</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">/</span> <span class="p">(</span><span class="n">a2</span> <span class="o">*</span> <span class="n">a0</span> <span class="o">-</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">a1</span><span class="p">)</span>
-                <span class="n">j</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-                <span class="n">pad_width</span> <span class="o">=</span> <span class="p">(</span><span class="n">max_len</span> <span class="o">-</span> <span class="p">(</span><span class="n">n</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span> <span class="o">//</span> <span class="mi">2</span>
-                <span class="n">window</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">((</span><span class="n">a0</span> <span class="o">*</span> <span class="n">j</span> <span class="o">*</span> <span class="n">j</span> <span class="o">-</span> <span class="n">a1</span><span class="p">)</span> <span class="o">*</span> <span class="n">z</span><span class="p">,</span> <span class="n">pad_width</span><span class="p">))</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;coefficients or regression_width must be given&quot;</span><span class="p">)</span>
-
-        <span class="n">window</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">default_dtype</span><span class="p">())</span>
-        <span class="n">window</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">max_len</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="c1"># Make window.</span>
+        <span class="n">window</span> <span class="o">=</span> <span class="n">make_window</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="n">static_out</span><span class="o">=</span><span class="n">static_out</span><span class="p">)</span>
+        <span class="n">width</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">window</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">window</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;window&quot;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">window</span><span class="p">))</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">pad</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReplicationPad2d</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">max_len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">max_len</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">))</span>
+        <span class="c1"># Make padding module to be compatible with SPTK.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pad</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReplicationPad2d</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">(</span><span class="n">width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">width</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">))</span>
 
 <div class="viewcode-block" id="Delta.forward"><a class="viewcode-back" href="../../../core/delta.html#diffsptk.Delta.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Compute delta components.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        x : Tensor [shape=(B, T, C)]</span>
-<span class="sd">            Input.</span>
+<span class="sd">        x : Tensor [shape=(B, T, D)]</span>
+<span class="sd">            Static components.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        y : Tensor [shape=(B, T, CxD)]</span>
-<span class="sd">            Delta components (with input).</span>
+<span class="sd">        y : Tensor [shape=(B, T, DxH)]</span>
+<span class="sd">            Delta (and static) components.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -281,7 +275,7 @@
 
         <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s2">&quot;valid&quot;</span><span class="p">)</span>  <span class="c1"># (B, D, T, C)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="s2">&quot;valid&quot;</span><span class="p">)</span>  <span class="c1"># (B, H, T, D)</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">y</span></div></div>

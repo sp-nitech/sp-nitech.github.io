@@ -241,6 +241,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="mlpg.html">
+   mlpg
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="ndps2c.html">
    ndps2c
   </a>
@@ -333,17 +338,15 @@
 <span id="id1"></span><h1>delta<a class="headerlink" href="#delta" title="Permalink to this headline">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.Delta">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">Delta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">coefficients</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">regression_width</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strip_static</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/delta.html#Delta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Delta" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">Delta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[[-</span> <span class="pre">0.5,</span> <span class="pre">0,</span> <span class="pre">0.5],</span> <span class="pre">[1,</span> <span class="pre">-</span> <span class="pre">2,</span> <span class="pre">1]]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">static_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/delta.html#Delta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Delta" title="Permalink to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/delta.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>coefficients</strong><span class="classifier">list[float] or list[list[float]]</span></dt><dd><p>Delta coefficients.</p>
+<dt><strong>seed</strong><span class="classifier">list[list[float]] or list[int]</span></dt><dd><p>Delta coefficients or width of 1st (and 2nd) regression coefficients.</p>
 </dd>
-<dt><strong>regression_width</strong><span class="classifier">int or [int, int]</span></dt><dd><p>Width of 1st (and 2nd) regression coefficients</p>
-</dd>
-<dt><strong>strip_static</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If true, output only delta components.</p>
+<dt><strong>static_out</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If false, output only delta components.</p>
 </dd>
 </dl>
 </dd>
@@ -355,13 +358,13 @@ for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(B, T, C)]</span></dt><dd><p>Input.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(B, T, D)]</span></dt><dd><p>Static components.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(B, T, CxD)]</span></dt><dd><p>Delta components (with input).</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(B, T, DxH)]</span></dt><dd><p>Delta (and static) components.</p>
 </dd>
 </dl>
 </dd>
@@ -386,6 +389,10 @@ for details.</p>
 
 </dd></dl>
 
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="mlpg.html#mlpg"><span class="std std-ref">mlpg</span></a></p>
+</div>
 </section>
 
 
