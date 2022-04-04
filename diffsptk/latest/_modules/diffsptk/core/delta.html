@@ -162,7 +162,7 @@
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">seed</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">seed</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
         <span class="c1"># Make window from delta coefficients.</span>
         <span class="k">if</span> <span class="n">static_out</span><span class="p">:</span>
-            <span class="n">seed</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+</span> <span class="n">seed</span>
+            <span class="n">seed</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
 
         <span class="n">max_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">([</span><span class="nb">len</span><span class="p">(</span><span class="n">coefficients</span><span class="p">)</span> <span class="k">for</span> <span class="n">coefficients</span> <span class="ow">in</span> <span class="n">seed</span><span class="p">])</span>
         <span class="k">if</span> <span class="n">max_len</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -181,6 +181,7 @@
     <span class="k">else</span><span class="p">:</span>
         <span class="c1"># Make window from width of regression coefficients.</span>
         <span class="n">max_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">seed</span><span class="p">),</span> <span class="s2">&quot;width must be greater than zero&quot;</span>
 
         <span class="n">window</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="k">if</span> <span class="n">static_out</span><span class="p">:</span>
@@ -221,7 +222,7 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    seed : list[list[float]] or list[int]</span>
-<span class="sd">        Delta coefficients or width of 1st (and 2nd) regression coefficients.</span>
+<span class="sd">        Delta coefficients or width(s) of 1st (and 2nd) regression coefficients.</span>
 
 <span class="sd">    static_out : bool [scalar]</span>
 <span class="sd">        If false, output only delta components.</span>
