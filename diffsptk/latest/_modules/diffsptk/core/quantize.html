@@ -153,9 +153,29 @@
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
 
+<span class="k">class</span> <span class="nc">Floor</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Function</span><span class="p">):</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">.</span><span class="n">floor</span><span class="p">()</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">backward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">grad</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">grad</span>
+
+
+<span class="k">class</span> <span class="nc">Round</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">autograd</span><span class="o">.</span><span class="n">Function</span><span class="p">):</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">trunc</span><span class="p">()</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">backward</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">grad</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">grad</span>
+
+
 <div class="viewcode-block" id="UniformQuantization"><a class="viewcode-back" href="../../../core/quantize.html#diffsptk.UniformQuantization">[docs]</a><span class="k">class</span> <span class="nc">UniformQuantization</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/quantize.html&gt;`_</span>
-<span class="sd">    for details. **Note that this module cannot compute gradient**.</span>
+<span class="sd">    for details. The gradient is copied from the next module.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -188,7 +208,7 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;quantizer </span><span class="si">{quantizer}</span><span class="s2"> is not supported&quot;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="UniformQuantization.forward"><a class="viewcode-back" href="../../../core/quantize.html#diffsptk.UniformQuantization.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">int_out</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="viewcode-block" id="UniformQuantization.forward"><a class="viewcode-back" href="../../../core/quantize.html#diffsptk.UniformQuantization.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">int_out</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Quantize input.</span>
 
 <span class="sd">        Parameters</span>
@@ -197,7 +217,7 @@
 <span class="sd">            Input.</span>
 
 <span class="sd">        int_out : bool [scalar]</span>
-<span class="sd">            If true, return int-type tensor.</span>
+<span class="sd">            If True, return int-type tensor.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -208,7 +228,7 @@
 <span class="sd">        --------</span>
 <span class="sd">        &gt;&gt;&gt; x = diffsptk.ramp(-4, 4)</span>
 <span class="sd">        &gt;&gt;&gt; quantize = diffsptk.UniformQuantization(4, 2)</span>
-<span class="sd">        &gt;&gt;&gt; y = quantize(x)</span>
+<span class="sd">        &gt;&gt;&gt; y = quantize(x, int_out=True)</span>
 <span class="sd">        &gt;&gt;&gt; y</span>
 <span class="sd">        tensor([0, 0, 1, 1, 2, 2, 3, 3, 3], dtype=torch.int32)</span>
 
@@ -216,10 +236,10 @@
         <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">level</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">abs_max</span><span class="p">)</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantizer</span> <span class="o">==</span> <span class="s2">&quot;mid-rise&quot;</span><span class="p">:</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">level</span> <span class="o">//</span> <span class="mi">2</span>
-            <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">floor</span><span class="p">()</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">Floor</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">quantizer</span> <span class="o">==</span> <span class="s2">&quot;mid-tread&quot;</span><span class="p">:</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">level</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-            <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">trunc</span><span class="p">()</span>  <span class="c1"># round</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">Round</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span>
 

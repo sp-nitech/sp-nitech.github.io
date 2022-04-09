@@ -226,6 +226,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="lpc2par.html">
+   lpc2par
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="mc2b.html">
    mc2b
   </a>
@@ -233,6 +238,16 @@
  <li class="toctree-l1">
   <a class="reference internal" href="mfcc.html">
    mfcc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mgc2mgc.html">
+   mgc2mgc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mgc2sp.html">
+   mgc2sp
   </a>
  </li>
  <li class="toctree-l1">
@@ -253,6 +268,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="norm0.html">
    norm0
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="par2lpc.html">
+   par2lpc
   </a>
  </li>
  <li class="toctree-l1">
@@ -354,19 +374,10 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.PseudoLevinsonDurbinRecursion">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">PseudoLevinsonDurbinRecursion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'K,a'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/levdur.html#PseudoLevinsonDurbinRecursion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PseudoLevinsonDurbinRecursion" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">PseudoLevinsonDurbinRecursion</span></span><a class="reference internal" href="../_modules/diffsptk/core/levdur.html#PseudoLevinsonDurbinRecursion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PseudoLevinsonDurbinRecursion" title="Permalink to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/levdur.html">this page</a>
 for details. Note that the current implementation does not use the Durbin’s
 algorithm though the class name includes it.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>out_format</strong><span class="classifier">[‘K’, ‘a’, ‘Ka’, ‘K,a’]</span></dt><dd><p><cite>K</cite> is gain and <cite>a</cite> is LPC coefficients. If this is <cite>Ka</cite>, the two output
-tensors are concatenated and return the tensor instead of the tuple.</p>
-</dd>
-</dl>
-</dd>
-</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="diffsptk.PseudoLevinsonDurbinRecursion.forward">
 <span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/levdur.html#PseudoLevinsonDurbinRecursion.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PseudoLevinsonDurbinRecursion.forward" title="Permalink to this definition">#</a></dt>
@@ -380,21 +391,19 @@ tensors are concatenated and return the tensor instead of the tuple.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>K</strong><span class="classifier">Tensor [shape=(…, 1)]</span></dt><dd><p>Gain.</p>
-</dd>
-<dt><strong>a</strong><span class="classifier">Tensor [shape=(…, M)]</span></dt><dd><p>LPC coefficients.</p>
+<dt><strong>a</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Gain and LPC coefficients.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nrand</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 <span class="go">tensor([ 0.8226, -0.0284, -0.5715,  0.2127,  0.1217])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">acorr</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">AutocorrelationAnalysis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">levdur</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">LevinsonDurbinRecursion</span><span class="p">(</span><span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;K,a&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">levdur</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">LevinsonDurbinRecursion</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">levdur</span><span class="p">(</span><span class="n">acorr</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
-<span class="go">(tensor([0.8726]), tensor([0.1475, 0.5270]))</span>
+<span class="go">tensor([0.8726, 0.1475, 0.5270])</span>
 </pre></div>
 </div>
 </dd></dl>

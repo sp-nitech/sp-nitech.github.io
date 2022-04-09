@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>gnorm &#8212; diffsptk 0.2.0 documentation</title>
+    <title>lpc2par &#8212; diffsptk 0.2.0 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -32,8 +32,8 @@
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="idct" href="idct.html" />
-    <link rel="prev" title="freqt" href="freqt.html" />
+    <link rel="next" title="mc2b" href="mc2b.html" />
+    <link rel="prev" title="lpc" href="lpc.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -181,8 +181,8 @@
    freqt
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="gnorm.html">
    gnorm
   </a>
  </li>
@@ -226,8 +226,8 @@
    lpc
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="lpc2par.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    lpc2par
   </a>
  </li>
@@ -365,49 +365,54 @@
               
               <div>
                 
-  <section id="gnorm">
-<span id="id1"></span><h1>gnorm<a class="headerlink" href="#gnorm" title="Permalink to this headline">#</a></h1>
+  <section id="lpc2par">
+<span id="id1"></span><h1>lpc2par<a class="headerlink" href="#lpc2par" title="Permalink to this headline">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.GeneralizedCepstrumGainNormalization">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">GeneralizedCepstrumGainNormalization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cep_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/gnorm.html#GeneralizedCepstrumGainNormalization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.GeneralizedCepstrumGainNormalization" title="Permalink to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/gnorm.html">this page</a>
-for details.</p>
+<dt class="sig sig-object py" id="diffsptk.LinearPredictiveCoefficientsToParcorCoefficients">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">LinearPredictiveCoefficientsToParcorCoefficients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lpc_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warn_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'warn'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/lpc2par.html#LinearPredictiveCoefficientsToParcorCoefficients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LinearPredictiveCoefficientsToParcorCoefficients" title="Permalink to this definition">#</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/lpc2par.html">this page</a>
+for details. This module may be slow due to recursive computation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>cep_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of cepstrum, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<dt><strong>lpc_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of LPC, <span class="math notranslate nohighlight">\(M\)</span>.</p>
 </dd>
-<dt><strong>gamma</strong><span class="classifier">float [-1 &lt;= gamma &lt;= 1]</span></dt><dd><p>Gamma.</p>
+<dt><strong>gamma</strong><span class="classifier">float [-1 &lt;= float &lt;= 1]</span></dt><dd><p>Gamma, <span class="math notranslate nohighlight">\(\gamma\)</span>.</p>
 </dd>
-<dt><strong>c</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Inverse gamma.</p>
+<dt><strong>warn_type</strong><span class="classifier">[‘ignore’, ‘warn’, ‘exit’]</span></dt><dd><p>Behavior for unstable LPC.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.GeneralizedCepstrumGainNormalization.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/gnorm.html#GeneralizedCepstrumGainNormalization.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.GeneralizedCepstrumGainNormalization.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Perform cepstrum gain normalization.</p>
+<dt class="sig sig-object py" id="diffsptk.LinearPredictiveCoefficientsToParcorCoefficients.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/lpc2par.html#LinearPredictiveCoefficientsToParcorCoefficients.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LinearPredictiveCoefficientsToParcorCoefficients.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert LPC to PARCOR.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Generalized cepstrum</p>
+<dt><strong>a</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>LPC coefficients.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Normalized generalized cepstrum.</p>
+<dt><strong>k</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>PARCOR coefficients.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gnorm</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">GeneralizedCepstrumGainNormalization</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">gnorm</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">tensor([2.2500, 1.3333, 2.0000, 2.6667])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="go">tensor([ 0.7829, -0.2028,  1.6912,  0.1454,  0.4861])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lpc</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">LPC</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">lpc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">tensor([ 1.6036,  0.0573, -0.5615, -0.0638])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lpc2par</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">LinearPredictiveCoefficientsToParcorCoefficients</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span> <span class="o">=</span> <span class="n">lpc2par</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span>
+<span class="go">tensor([ 1.6036,  0.0491, -0.5601, -0.0638])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -416,7 +421,7 @@ for details.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="ignorm.html#ignorm"><span class="std std-ref">ignorm</span></a>  <a class="reference internal" href="mgc2mgc.html#mgc2mgc"><span class="std std-ref">mgc2mgc</span></a></p>
+<p><a class="reference internal" href="lpc.html#lpc"><span class="std std-ref">lpc</span></a>  <a class="reference internal" href="par2lpc.html#par2lpc"><span class="std std-ref">par2lpc</span></a></p>
 </div>
 </section>
 
@@ -426,17 +431,17 @@ for details.</p>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="freqt.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="lpc.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">freqt</p>
+            <p class="prev-next-title">lpc</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="idct.html" title="next page">
+    <a class='right-next' id="next-link" href="mc2b.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">idct</p>
+        <p class="prev-next-title">mc2b</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

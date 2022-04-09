@@ -154,21 +154,27 @@
 <div class="viewcode-block" id="AllPoleToAllZeroDigitalFilterCoefficients"><a class="viewcode-back" href="../../../core/norm0.html#diffsptk.AllPoleToAllZeroDigitalFilterCoefficients">[docs]</a><span class="k">class</span> <span class="nc">AllPoleToAllZeroDigitalFilterCoefficients</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/norm0.html&gt;`_</span>
 <span class="sd">    for details.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    filter_order : int &gt;= 0 [scalar]</span>
+<span class="sd">        Order of filter coefficients, :math:`M`.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filter_order</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">AllPoleToAllZeroDigitalFilterCoefficients</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-<div class="viewcode-block" id="AllPoleToAllZeroDigitalFilterCoefficients.forward"><a class="viewcode-back" href="../../../core/norm0.html#diffsptk.AllPoleToAllZeroDigitalFilterCoefficients.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filter_order</span> <span class="o">=</span> <span class="n">filter_order</span>
+        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_order</span>
+
+<div class="viewcode-block" id="AllPoleToAllZeroDigitalFilterCoefficients.forward"><a class="viewcode-back" href="../../../core/norm0.html#diffsptk.AllPoleToAllZeroDigitalFilterCoefficients.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Convert all-pole to all-zero filter coefficients vice versa.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        a : Tensor [shape=(..., M+1, ...)]</span>
 <span class="sd">            All-pole or all-zero filter coefficients.</span>
-
-<span class="sd">        dim : int [scalar]</span>
-<span class="sd">            The axis to be converted.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -178,16 +184,16 @@
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
 <span class="sd">        &gt;&gt;&gt; a = diffsptk.ramp(4, 1, -1)</span>
-<span class="sd">        &gt;&gt;&gt; norm0 = diffsptk.AllPoleToAllZeroDigitalFilterCoefficients()</span>
+<span class="sd">        &gt;&gt;&gt; norm0 = diffsptk.AllPoleToAllZeroDigitalFilterCoefficients(3)</span>
 <span class="sd">        &gt;&gt;&gt; b = norm0(a)</span>
 <span class="sd">        &gt;&gt;&gt; b</span>
 <span class="sd">        tensor([0.2500, 0.7500, 0.5000, 0.2500])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">K</span><span class="p">,</span> <span class="n">a1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="n">dim</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span>
+        <span class="n">K</span><span class="p">,</span> <span class="n">a1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_order</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">b0</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">reciprocal</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
         <span class="n">b1</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">b0</span>
-        <span class="n">b</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">b0</span><span class="p">,</span> <span class="n">b1</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">b0</span><span class="p">,</span> <span class="n">b1</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">b</span></div></div>
 </pre></div>
 

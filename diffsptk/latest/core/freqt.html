@@ -227,6 +227,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="lpc2par.html">
+   lpc2par
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="mc2b.html">
    mc2b
   </a>
@@ -234,6 +239,16 @@
  <li class="toctree-l1">
   <a class="reference internal" href="mfcc.html">
    mfcc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mgc2mgc.html">
+   mgc2mgc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mgc2sp.html">
+   mgc2sp
   </a>
  </li>
  <li class="toctree-l1">
@@ -254,6 +269,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="norm0.html">
    norm0
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="par2lpc.html">
+   par2lpc
   </a>
  </li>
  <li class="toctree-l1">
@@ -366,32 +386,32 @@ for details.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="diffsptk.FrequencyTransform.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/freqt.html#FrequencyTransform.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.FrequencyTransform.forward" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/freqt.html#FrequencyTransform.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.FrequencyTransform.forward" title="Permalink to this definition">#</a></dt>
 <dd><p>Perform frequency transform.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, M1+1)]</span></dt><dd><p>Input sequence.</p>
+<dt><strong>c1</strong><span class="classifier">Tensor [shape=(…, M1+1)]</span></dt><dd><p>Input sequence.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, M2+1)]</span></dt><dd><p>Warped sequence.</p>
+<dt><strong>c2</strong><span class="classifier">Tensor [shape=(…, M2+1)]</span></dt><dd><p>Warped sequence.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="go">tensor([0., 1., 2., 3.])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">freqt</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">FrequencyTransform</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">freqt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span> <span class="o">=</span> <span class="n">freqt</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span>
 <span class="go">tensor([ 0.0208,  1.0832,  2.1566,  2.9097, -0.1772])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">freqt2</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">FrequencyTransform</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.02</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span> <span class="o">=</span> <span class="n">freqt2</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c3</span> <span class="o">=</span> <span class="n">freqt2</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c3</span>
 <span class="go">tensor([-9.8953e-10,  1.0000e+00,  2.0000e+00,  3.0000e+00])</span>
 </pre></div>
 </div>
@@ -401,7 +421,7 @@ for details.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="mgcep.html#mgcep"><span class="std std-ref">mgcep</span></a></p>
+<p><a class="reference internal" href="mgc2mgc.html#mgc2mgc"><span class="std std-ref">mgc2mgc</span></a>  <a class="reference internal" href="mgcep.html#mgcep"><span class="std std-ref">mgcep</span></a></p>
 </div>
 </section>
 

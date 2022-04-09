@@ -226,6 +226,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="lpc2par.html">
+   lpc2par
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="mc2b.html">
    mc2b
   </a>
@@ -233,6 +238,16 @@
  <li class="toctree-l1">
   <a class="reference internal" href="mfcc.html">
    mfcc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mgc2mgc.html">
+   mgc2mgc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mgc2sp.html">
+   mgc2sp
   </a>
  </li>
  <li class="toctree-l1">
@@ -253,6 +268,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="norm0.html">
    norm0
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="par2lpc.html">
+   par2lpc
   </a>
  </li>
  <li class="toctree-l1">
@@ -350,7 +370,7 @@
 <dt class="sig sig-object py" id="diffsptk.UniformQuantization">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">UniformQuantization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">abs_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantizer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mid-rise'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/quantize.html#UniformQuantization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.UniformQuantization" title="Permalink to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/quantize.html">this page</a>
-for details. <strong>Note that this module cannot compute gradient</strong>.</p>
+for details. The gradient is copied from the next module.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -365,14 +385,14 @@ for details. <strong>Note that this module cannot compute gradient</strong>.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="diffsptk.UniformQuantization.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">int_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/quantize.html#UniformQuantization.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.UniformQuantization.forward" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">int_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/quantize.html#UniformQuantization.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.UniformQuantization.forward" title="Permalink to this definition">#</a></dt>
 <dd><p>Quantize input.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Input.</p>
 </dd>
-<dt><strong>int_out</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If true, return int-type tensor.</p>
+<dt><strong>int_out</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If True, return int-type tensor.</p>
 </dd>
 </dl>
 </dd>
@@ -386,7 +406,7 @@ for details. <strong>Note that this module cannot compute gradient</strong>.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">quantize</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">UniformQuantization</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">quantize</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">quantize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">int_out</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
 <span class="go">tensor([0, 0, 1, 1, 2, 2, 3, 3, 3], dtype=torch.int32)</span>
 </pre></div>

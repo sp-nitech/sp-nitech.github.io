@@ -29,9 +29,10 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="pqmf" href="pqmf.html" />
+    <link rel="next" title="par2lpc" href="par2lpc.html" />
     <link rel="prev" title="ndps2c" href="ndps2c.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
@@ -226,6 +227,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="lpc2par.html">
+   lpc2par
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="mc2b.html">
    mc2b
   </a>
@@ -233,6 +239,16 @@
  <li class="toctree-l1">
   <a class="reference internal" href="mfcc.html">
    mfcc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mgc2mgc.html">
+   mgc2mgc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mgc2sp.html">
+   mgc2sp
   </a>
  </li>
  <li class="toctree-l1">
@@ -253,6 +269,11 @@
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
    norm0
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="par2lpc.html">
+   par2lpc
   </a>
  </li>
  <li class="toctree-l1">
@@ -348,19 +369,25 @@
 <span id="id1"></span><h1>norm0<a class="headerlink" href="#norm0" title="Permalink to this headline">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.AllPoleToAllZeroDigitalFilterCoefficients">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">AllPoleToAllZeroDigitalFilterCoefficients</span></span><a class="reference internal" href="../_modules/diffsptk/core/norm0.html#AllPoleToAllZeroDigitalFilterCoefficients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.AllPoleToAllZeroDigitalFilterCoefficients" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">AllPoleToAllZeroDigitalFilterCoefficients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter_order</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/norm0.html#AllPoleToAllZeroDigitalFilterCoefficients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.AllPoleToAllZeroDigitalFilterCoefficients" title="Permalink to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/norm0.html">this page</a>
 for details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filter_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of filter coefficients, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="diffsptk.AllPoleToAllZeroDigitalFilterCoefficients.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-</span> <span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/norm0.html#AllPoleToAllZeroDigitalFilterCoefficients.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.AllPoleToAllZeroDigitalFilterCoefficients.forward" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/norm0.html#AllPoleToAllZeroDigitalFilterCoefficients.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.AllPoleToAllZeroDigitalFilterCoefficients.forward" title="Permalink to this definition">#</a></dt>
 <dd><p>Convert all-pole to all-zero filter coefficients vice versa.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>a</strong><span class="classifier">Tensor [shape=(…, M+1, …)]</span></dt><dd><p>All-pole or all-zero filter coefficients.</p>
-</dd>
-<dt><strong>dim</strong><span class="classifier">int [scalar]</span></dt><dd><p>The axis to be converted.</p>
 </dd>
 </dl>
 </dd>
@@ -373,7 +400,7 @@ for details.</p>
 </dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">norm0</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">AllPoleToAllZeroDigitalFilterCoefficients</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">norm0</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">AllPoleToAllZeroDigitalFilterCoefficients</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">norm0</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">b</span>
 <span class="go">tensor([0.2500, 0.7500, 0.5000, 0.2500])</span>
@@ -402,10 +429,10 @@ for details.</p>
             <p class="prev-next-title">ndps2c</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="pqmf.html" title="next page">
+    <a class='right-next' id="next-link" href="par2lpc.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">pqmf</p>
+        <p class="prev-next-title">par2lpc</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

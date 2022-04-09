@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>gnorm &#8212; diffsptk 0.2.0 documentation</title>
+    <title>mgc2sp &#8212; diffsptk 0.2.0 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -32,8 +32,8 @@
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="idct" href="idct.html" />
-    <link rel="prev" title="freqt" href="freqt.html" />
+    <link rel="next" title="mgcep" href="mgcep.html" />
+    <link rel="prev" title="mgc2mgc" href="mgc2mgc.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -181,8 +181,8 @@
    freqt
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="gnorm.html">
    gnorm
   </a>
  </li>
@@ -246,8 +246,8 @@
    mgc2mgc
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="mgc2sp.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    mgc2sp
   </a>
  </li>
@@ -365,49 +365,64 @@
               
               <div>
                 
-  <section id="gnorm">
-<span id="id1"></span><h1>gnorm<a class="headerlink" href="#gnorm" title="Permalink to this headline">#</a></h1>
+  <section id="mgc2sp">
+<span id="id1"></span><h1>mgc2sp<a class="headerlink" href="#mgc2sp" title="Permalink to this headline">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.GeneralizedCepstrumGainNormalization">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">GeneralizedCepstrumGainNormalization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cep_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/gnorm.html#GeneralizedCepstrumGainNormalization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.GeneralizedCepstrumGainNormalization" title="Permalink to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/gnorm.html">this page</a>
+<dt class="sig sig-object py" id="diffsptk.MelGeneralizedCepstrumToSpectrum">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MelGeneralizedCepstrumToSpectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cep_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mul</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'power'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mgc2sp.html#MelGeneralizedCepstrumToSpectrum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MelGeneralizedCepstrumToSpectrum" title="Permalink to this definition">#</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/mgc2sp.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>cep_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of cepstrum, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<dt><strong>cep_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of mel-cepstrum, <span class="math notranslate nohighlight">\(M\)</span>.</p>
 </dd>
-<dt><strong>gamma</strong><span class="classifier">float [-1 &lt;= gamma &lt;= 1]</span></dt><dd><p>Gamma.</p>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2 [scalar]</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
-<dt><strong>c</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Inverse gamma.</p>
+<dt><strong>alpha</strong><span class="classifier">float [-1 &lt; alpha &lt; 1]</span></dt><dd><p>Warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+</dd>
+<dt><strong>gamma</strong><span class="classifier">float [-1 &lt;= gamma &lt;= 1]</span></dt><dd><p>Gamma, <span class="math notranslate nohighlight">\(\gamma\)</span>.</p>
+</dd>
+<dt><strong>norm</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If True, assume normalized cepstrum.</p>
+</dd>
+<dt><strong>mul</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If True, assume gamma-multiplied cepstrum.</p>
+</dd>
+<dt><strong>out_format</strong><span class="classifier">[‘db’, ‘log-magnitude’, ‘magnitude’, ‘power’,                   ‘cycle’, ‘radian’, ‘degree’]</span></dt><dd><p>Output format.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.GeneralizedCepstrumGainNormalization.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/gnorm.html#GeneralizedCepstrumGainNormalization.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.GeneralizedCepstrumGainNormalization.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Perform cepstrum gain normalization.</p>
+<dt class="sig sig-object py" id="diffsptk.MelGeneralizedCepstrumToSpectrum.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mgc2sp.html#MelGeneralizedCepstrumToSpectrum.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MelGeneralizedCepstrumToSpectrum.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert mel-cepstrum to spectrum.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Generalized cepstrum</p>
+<dt><strong>mc</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Mel-cepstrum.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Normalized generalized cepstrum.</p>
+<dt><strong>sp</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>Amplitude spectrum or phase spectrum.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gnorm</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">GeneralizedCepstrumGainNormalization</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">gnorm</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">tensor([2.2500, 1.3333, 2.0000, 2.6667])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stft</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">STFT</span><span class="p">(</span><span class="n">frame_length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">frame_period</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fft_length</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mcep</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MelCepstralAnalysis</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mc</span> <span class="o">=</span> <span class="n">mcep</span><span class="p">(</span><span class="n">stft</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mc</span>
+<span class="go">tensor([[-0.8851,  0.7917, -0.1737,  0.0175],</span>
+<span class="go">        [-0.3522,  4.4222, -1.0882, -0.0511]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mc2sp</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MelGeneralizedCepstrumToSpectrum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sp</span> <span class="o">=</span> <span class="n">mc2sp</span><span class="p">(</span><span class="n">mc</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sp</span>
+<span class="go">tensor([[6.0634e-01, 4.6702e-01, 1.7489e-01, 4.4821e-02, 2.3869e-02],</span>
+<span class="go">        [3.5677e+02, 1.9435e+02, 6.0078e-01, 2.4278e-04, 8.8537e-06]])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -416,7 +431,7 @@ for details.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="ignorm.html#ignorm"><span class="std std-ref">ignorm</span></a>  <a class="reference internal" href="mgc2mgc.html#mgc2mgc"><span class="std std-ref">mgc2mgc</span></a></p>
+<p><a class="reference internal" href="mgc2mgc.html#mgc2mgc"><span class="std std-ref">mgc2mgc</span></a></p>
 </div>
 </section>
 
@@ -426,17 +441,17 @@ for details.</p>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="freqt.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="mgc2mgc.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">freqt</p>
+            <p class="prev-next-title">mgc2mgc</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="idct.html" title="next page">
+    <a class='right-next' id="next-link" href="mgcep.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">idct</p>
+        <p class="prev-next-title">mgcep</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>

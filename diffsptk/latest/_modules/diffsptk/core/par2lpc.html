@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.core.gnorm &#8212; diffsptk 0.2.0 documentation</title>
+    <title>diffsptk.core.par2lpc &#8212; diffsptk 0.2.0 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -130,7 +130,7 @@
               
               <div>
                 
-  <h1>Source code for diffsptk.core.gnorm</h1><div class="highlight"><pre>
+  <h1>Source code for diffsptk.core.par2lpc</h1><div class="highlight"><pre>
 <span></span><span class="c1"># ------------------------------------------------------------------------ #</span>
 <span class="c1"># Copyright 2022 SPTK Working Group                                        #</span>
 <span class="c1">#                                                                          #</span>
@@ -147,77 +147,63 @@
 <span class="c1"># limitations under the License.                                           #</span>
 <span class="c1"># ------------------------------------------------------------------------ #</span>
 
-<span class="kn">import</span> <span class="nn">warnings</span>
-
-<span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
 
-<div class="viewcode-block" id="GeneralizedCepstrumGainNormalization"><a class="viewcode-back" href="../../../core/gnorm.html#diffsptk.GeneralizedCepstrumGainNormalization">[docs]</a><span class="k">class</span> <span class="nc">GeneralizedCepstrumGainNormalization</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/gnorm.html&gt;`_</span>
-<span class="sd">    for details.</span>
+<div class="viewcode-block" id="ParcorCoefficientsToLinearPredictiveCoefficients"><a class="viewcode-back" href="../../../core/par2lpc.html#diffsptk.ParcorCoefficientsToLinearPredictiveCoefficients">[docs]</a><span class="k">class</span> <span class="nc">ParcorCoefficientsToLinearPredictiveCoefficients</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/par2lpc.html&gt;`_</span>
+<span class="sd">    for details. This module may be slow due to recursive computation.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    cep_order : int &gt;= 0 [scalar]</span>
-<span class="sd">        Order of cepstrum, :math:`M`.</span>
-
-<span class="sd">    gamma : float [-1 &lt;= gamma &lt;= 1]</span>
-<span class="sd">        Gamma.</span>
-
-<span class="sd">    c : int &gt;= 1</span>
-<span class="sd">        Inverse gamma.</span>
+<span class="sd">    lpc_order : int &gt;= 0 [scalar]</span>
+<span class="sd">        Order of LPC, :math:`M`.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cep_order</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">GeneralizedCepstrumGainNormalization</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lpc_order</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">ParcorCoefficientsToLinearPredictiveCoefficients</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span> <span class="o">=</span> <span class="n">cep_order</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lpc_order</span> <span class="o">=</span> <span class="n">lpc_order</span>
+        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lpc_order</span>
 
-        <span class="k">if</span> <span class="n">c</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">=</span> <span class="n">gamma</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">gamma</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;gamma is given, but not used&quot;</span><span class="p">)</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">c</span>
-
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span>
-        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">gamma</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span>
-
-<div class="viewcode-block" id="GeneralizedCepstrumGainNormalization.forward"><a class="viewcode-back" href="../../../core/gnorm.html#diffsptk.GeneralizedCepstrumGainNormalization.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Perform cepstrum gain normalization.</span>
+<div class="viewcode-block" id="ParcorCoefficientsToLinearPredictiveCoefficients.forward"><a class="viewcode-back" href="../../../core/par2lpc.html#diffsptk.ParcorCoefficientsToLinearPredictiveCoefficients.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">k</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Convert PARCOR to LPC.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        x : Tensor [shape=(..., M+1)]</span>
-<span class="sd">            Generalized cepstrum</span>
+<span class="sd">        k : Tensor [shape=(..., M+1)]</span>
+<span class="sd">            PARCOR coefficients.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        y : Tensor [shape=(..., M+1)]</span>
-<span class="sd">            Normalized generalized cepstrum.</span>
+<span class="sd">        a : Tensor [shape=(..., M+1)]</span>
+<span class="sd">            LPC coefficients.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        &gt;&gt;&gt; x = diffsptk.ramp(1, 4)</span>
-<span class="sd">        &gt;&gt;&gt; gnorm = diffsptk.GeneralizedCepstrumGainNormalization(3, c=2)</span>
-<span class="sd">        &gt;&gt;&gt; y = gnorm(x)</span>
-<span class="sd">        &gt;&gt;&gt; y</span>
-<span class="sd">        tensor([2.2500, 1.3333, 2.0000, 2.6667])</span>
+<span class="sd">        &gt;&gt;&gt; x = torch.randn(5)</span>
+<span class="sd">        tensor([ 0.7829, -0.2028,  1.6912,  0.1454,  0.4861])</span>
+<span class="sd">        &gt;&gt;&gt; lpc = diffsptk.LPC(3, 5)</span>
+<span class="sd">        &gt;&gt;&gt; a = lpc(x)</span>
+<span class="sd">        &gt;&gt;&gt; a</span>
+<span class="sd">        tensor([ 1.6036,  0.0573, -0.5615, -0.0638])</span>
+<span class="sd">        &gt;&gt;&gt; lpc2par = diffsptk.LinearPredictiveCoefficientsToParcorCoefficients(3)</span>
+<span class="sd">        &gt;&gt;&gt; k = lpc2par(a)</span>
+<span class="sd">        &gt;&gt;&gt; k</span>
+<span class="sd">        tensor([ 1.6036,  0.0491, -0.5601, -0.0638])</span>
+<span class="sd">        &gt;&gt;&gt; par2lpc = diffsptk.ParcorCoefficientsToLinearPredictiveCoefficients(3)</span>
+<span class="sd">        &gt;&gt;&gt; a2 = par2lpc(k)</span>
+<span class="sd">        &gt;&gt;&gt; a2</span>
+<span class="sd">        tensor([ 1.6036,  0.0573, -0.5615, -0.0638])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">K</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
-            <span class="n">y</span> <span class="o">=</span> <span class="n">x1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">*</span> <span class="n">x0</span>
-            <span class="n">K</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span><span class="p">)</span>
-            <span class="n">y</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">/</span> <span class="n">z</span>
-
-        <span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">K</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">y</span></div></div>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lpc_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+            <span class="n">km</span> <span class="o">=</span> <span class="n">k</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">m</span> <span class="p">:</span> <span class="n">m</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
+            <span class="n">am</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">]</span>
+            <span class="n">a</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="n">m</span><span class="p">]</span> <span class="o">=</span> <span class="n">am</span> <span class="o">+</span> <span class="n">km</span> <span class="o">*</span> <span class="n">am</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">a</span></div></div>
 </pre></div>
 
               </div>
