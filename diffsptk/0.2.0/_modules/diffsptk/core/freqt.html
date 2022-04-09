@@ -195,35 +195,35 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">t</span><span class="p">())</span>
 
-<div class="viewcode-block" id="FrequencyTransform.forward"><a class="viewcode-back" href="../../../core/freqt.html#diffsptk.FrequencyTransform.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<div class="viewcode-block" id="FrequencyTransform.forward"><a class="viewcode-back" href="../../../core/freqt.html#diffsptk.FrequencyTransform.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c1</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Perform frequency transform.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        x : Tensor [shape=(..., M1+1)]</span>
+<span class="sd">        c1 : Tensor [shape=(..., M1+1)]</span>
 <span class="sd">            Input sequence.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        y : Tensor [shape=(..., M2+1)]</span>
+<span class="sd">        c2 : Tensor [shape=(..., M2+1)]</span>
 <span class="sd">            Warped sequence.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        &gt;&gt;&gt; x = diffsptk.ramp(3)</span>
+<span class="sd">        &gt;&gt;&gt; c1 = diffsptk.ramp(3)</span>
 <span class="sd">        tensor([0., 1., 2., 3.])</span>
 <span class="sd">        &gt;&gt;&gt; freqt = diffsptk.FrequencyTransform(3, 4, 0.02)</span>
-<span class="sd">        &gt;&gt;&gt; y = freqt(x)</span>
-<span class="sd">        &gt;&gt;&gt; y</span>
+<span class="sd">        &gt;&gt;&gt; c2 = freqt(c1)</span>
+<span class="sd">        &gt;&gt;&gt; c2</span>
 <span class="sd">        tensor([ 0.0208,  1.0832,  2.1566,  2.9097, -0.1772])</span>
 <span class="sd">        &gt;&gt;&gt; freqt2 = diffsptk.FrequencyTransform(4, 3, -0.02)</span>
-<span class="sd">        &gt;&gt;&gt; x2 = freqt2(y)</span>
-<span class="sd">        &gt;&gt;&gt; x2</span>
+<span class="sd">        &gt;&gt;&gt; c3 = freqt2(c2)</span>
+<span class="sd">        &gt;&gt;&gt; c3</span>
 <span class="sd">        tensor([-9.8953e-10,  1.0000e+00,  2.0000e+00,  3.0000e+00])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">y</span></div></div>
+        <span class="n">c2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">c2</span></div></div>
 </pre></div>
 
               </div>

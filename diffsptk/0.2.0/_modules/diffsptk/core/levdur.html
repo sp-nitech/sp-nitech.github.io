@@ -150,7 +150,6 @@
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
-<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">is_in</span>
 <span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">symmetric_toeplitz</span>
 
 
@@ -158,20 +157,10 @@
     <span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/levdur.html&gt;`_</span>
 <span class="sd">    for details. Note that the current implementation does not use the Durbin&#39;s</span>
 <span class="sd">    algorithm though the class name includes it.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    out_format : [&#39;K&#39;, &#39;a&#39;, &#39;Ka&#39;, &#39;K,a&#39;]</span>
-<span class="sd">        `K` is gain and `a` is LPC coefficients. If this is `Ka`, the two output</span>
-<span class="sd">        tensors are concatenated and return the tensor instead of the tuple.</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;K,a&quot;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">PseudoLevinsonDurbinRecursion</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">out_format</span> <span class="o">=</span> <span class="n">out_format</span>
-        <span class="k">assert</span> <span class="n">is_in</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">out_format</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;K&quot;</span><span class="p">,</span> <span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;Ka&quot;</span><span class="p">,</span> <span class="s2">&quot;K,a&quot;</span><span class="p">])</span>
 
 <div class="viewcode-block" id="PseudoLevinsonDurbinRecursion.forward"><a class="viewcode-back" href="../../../core/levdur.html#diffsptk.PseudoLevinsonDurbinRecursion.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Solve a Yule-Walker linear system.</span>
@@ -183,21 +172,18 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        K : Tensor [shape=(..., 1)]</span>
-<span class="sd">            Gain.</span>
-
-<span class="sd">        a : Tensor [shape=(..., M)]</span>
-<span class="sd">            LPC coefficients.</span>
+<span class="sd">        a : Tensor [shape=(..., M+1)]</span>
+<span class="sd">            Gain and LPC coefficients.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        &gt;&gt;&gt; x = torch.nrand(5)</span>
+<span class="sd">        &gt;&gt;&gt; x = torch.randn(5)</span>
 <span class="sd">        tensor([ 0.8226, -0.0284, -0.5715,  0.2127,  0.1217])</span>
 <span class="sd">        &gt;&gt;&gt; acorr = diffsptk.AutocorrelationAnalysis(2, 5)</span>
-<span class="sd">        &gt;&gt;&gt; levdur = diffsptk.LevinsonDurbinRecursion(out_format=&quot;K,a&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; levdur = diffsptk.LevinsonDurbinRecursion()</span>
 <span class="sd">        &gt;&gt;&gt; a = levdur(acorr(x))</span>
 <span class="sd">        &gt;&gt;&gt; a</span>
-<span class="sd">        (tensor([0.8726]), tensor([0.1475, 0.5270]))</span>
+<span class="sd">        tensor([0.8726, 0.1475, 0.5270])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Make Toeplitz matrix.</span>
@@ -208,21 +194,12 @@
         <span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;...mn,...m-&gt;...n&quot;</span><span class="p">,</span> <span class="n">R</span><span class="o">.</span><span class="n">inverse</span><span class="p">(),</span> <span class="o">-</span><span class="n">r1</span><span class="p">)</span>
 
         <span class="c1"># Compute gain.</span>
-        <span class="k">if</span> <span class="s2">&quot;K&quot;</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_format</span><span class="p">:</span>
-            <span class="n">r0</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-            <span class="n">K</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;...m,...m-&gt;...&quot;</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="n">r0</span><span class="p">)</span>
-            <span class="n">K</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">r0</span> <span class="o">=</span> <span class="n">r</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+        <span class="n">K</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;...m,...m-&gt;...&quot;</span><span class="p">,</span> <span class="n">r1</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span> <span class="o">+</span> <span class="n">r0</span><span class="p">)</span>
+        <span class="n">K</span> <span class="o">=</span> <span class="n">K</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;K&quot;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">K</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;a&quot;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">a</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;Ka&quot;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">K</span><span class="p">,</span> <span class="n">a</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;K,a&quot;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">K</span><span class="p">,</span> <span class="n">a</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">RuntimeError</span></div></div>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">K</span><span class="p">,</span> <span class="n">a</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">a</span></div></div>
 </pre></div>
 
               </div>

@@ -159,24 +159,20 @@
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    acr_order : int &gt;= 0 [scalar]</span>
-<span class="sd">        Order of autocorrelation, :math:`M`.</span>
+<span class="sd">    lpc_order : int &gt;= 0 [scalar]</span>
+<span class="sd">        Order of LPC, :math:`M`.</span>
 
 <span class="sd">    frame_length : int &gt; M [scalar]</span>
 <span class="sd">        Frame length, :math:`L`.</span>
 
-<span class="sd">    out_format : [&#39;K&#39;, &#39;a&#39;, &#39;Ka&#39;, &#39;K,a&#39;]</span>
-<span class="sd">        `K` is gain and `a` is LPC coefficients. If this is `Ka`, the two output</span>
-<span class="sd">        tensors are concatenated and return the tensor instead of the tuple.</span>
-
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">acr_order</span><span class="p">,</span> <span class="n">frame_length</span><span class="p">,</span> <span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;K,a&quot;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lpc_order</span><span class="p">,</span> <span class="n">frame_length</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">LinearPredictiveCodingAnalysis</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">lpc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
-            <span class="n">AutocorrelationAnalysis</span><span class="p">(</span><span class="n">acr_order</span><span class="p">,</span> <span class="n">frame_length</span><span class="p">),</span>
-            <span class="n">PseudoLevinsonDurbinRecursion</span><span class="p">(</span><span class="n">out_format</span><span class="p">),</span>
+            <span class="n">AutocorrelationAnalysis</span><span class="p">(</span><span class="n">lpc_order</span><span class="p">,</span> <span class="n">frame_length</span><span class="p">),</span>
+            <span class="n">PseudoLevinsonDurbinRecursion</span><span class="p">(),</span>
         <span class="p">)</span>
 
 <div class="viewcode-block" id="LinearPredictiveCodingAnalysis.forward"><a class="viewcode-back" href="../../../core/lpc.html#diffsptk.LinearPredictiveCodingAnalysis.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
@@ -189,17 +185,17 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        a : Tensor or tuple[Tensor]</span>
-<span class="sd">            Gain and/or LPC coefficients.</span>
+<span class="sd">        a : Tensor [shape=(..., M+1)]</span>
+<span class="sd">            Gain and LPC coefficients.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        &gt;&gt;&gt; x = torch.nrand(5)</span>
+<span class="sd">        &gt;&gt;&gt; x = torch.randn(5)</span>
 <span class="sd">        tensor([ 0.8226, -0.0284, -0.5715,  0.2127,  0.1217])</span>
 <span class="sd">        &gt;&gt;&gt; lpc = diffsptk.LPC(2, 5)</span>
 <span class="sd">        &gt;&gt;&gt; a = lpc(x)</span>
 <span class="sd">        &gt;&gt;&gt; a</span>
-<span class="sd">        (tensor([0.8726]), tensor([0.1475, 0.5270]))</span>
+<span class="sd">        tensor([0.8726, 0.1475, 0.5270])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">a</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lpc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>

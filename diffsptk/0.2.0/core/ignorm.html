@@ -29,6 +29,7 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="interpolate" href="interpolate.html" />
@@ -226,6 +227,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="lpc2par.html">
+   lpc2par
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="mc2b.html">
    mc2b
   </a>
@@ -233,6 +239,16 @@
  <li class="toctree-l1">
   <a class="reference internal" href="mfcc.html">
    mfcc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mgc2mgc.html">
+   mgc2mgc
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mgc2sp.html">
+   mgc2sp
   </a>
  </li>
  <li class="toctree-l1">
@@ -253,6 +269,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="norm0.html">
    norm0
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="par2lpc.html">
+   par2lpc
   </a>
  </li>
  <li class="toctree-l1">
@@ -348,12 +369,14 @@
 <span id="id1"></span><h1>ignorm<a class="headerlink" href="#ignorm" title="Permalink to this headline">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.GeneralizedCepstrumInverseGainNormalization">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">GeneralizedCepstrumInverseGainNormalization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/ignorm.html#GeneralizedCepstrumInverseGainNormalization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.GeneralizedCepstrumInverseGainNormalization" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">GeneralizedCepstrumInverseGainNormalization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cep_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/ignorm.html#GeneralizedCepstrumInverseGainNormalization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.GeneralizedCepstrumInverseGainNormalization" title="Permalink to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/ignorm.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
+<dt><strong>cep_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of cepstrum, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+</dd>
 <dt><strong>gamma</strong><span class="classifier">float [-1 &lt;= gamma &lt;= 1]</span></dt><dd><p>Gamma.</p>
 </dd>
 <dt><strong>c</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Inverse gamma.</p>
@@ -381,8 +404,8 @@ for details.</p>
 </dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gnorm</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">GeneralizedCepstrumGainNormalization</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ignorm</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">GeneralizedCepstrumInverseGainNormalization</span><span class="p">(</span><span class="n">c</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gnorm</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">GeneralizedCepstrumGainNormalization</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ignorm</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">GeneralizedCepstrumInverseGainNormalization</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span> <span class="o">=</span> <span class="n">ignorm</span><span class="p">(</span><span class="n">gnorm</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span>
 <span class="go">tensor([1., 2., 3., 4.])</span>
@@ -394,7 +417,7 @@ for details.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="gnorm.html#gnorm"><span class="std std-ref">gnorm</span></a></p>
+<p><a class="reference internal" href="gnorm.html#gnorm"><span class="std std-ref">gnorm</span></a>  <a class="reference internal" href="mgc2mgc.html#mgc2mgc"><span class="std std-ref">mgc2mgc</span></a></p>
 </div>
 </section>
 
