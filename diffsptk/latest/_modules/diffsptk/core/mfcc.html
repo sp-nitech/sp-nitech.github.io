@@ -152,7 +152,6 @@
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
 <span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">default_dtype</span>
-<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">is_in</span>
 <span class="kn">from</span> <span class="nn">.dct</span> <span class="kn">import</span> <span class="n">DiscreteCosineTransform</span>
 <span class="kn">from</span> <span class="nn">.fbank</span> <span class="kn">import</span> <span class="n">MelFilterBankAnalysis</span>
 
@@ -187,9 +186,8 @@
 <span class="sd">    floor : float &gt; 0 [scalar]</span>
 <span class="sd">        Floor value of raw filter bank output.</span>
 
-<span class="sd">    out_format : [&#39;y&#39;, &#39;yE&#39;, &#39;yc&#39;, &#39;y,E&#39;, &#39;y,c&#39;]</span>
-<span class="sd">        `y` is MFCC, `c` is C0, and `E` is energy. If this is `y?`, the two output</span>
-<span class="sd">        tensors are concatenated and return the tensor instead of the tuple.</span>
+<span class="sd">    out_format : [&#39;y&#39;, &#39;yE&#39;, &#39;yc&#39;, &#39;ycE&#39;]</span>
+<span class="sd">        `y` is MFCC, `c` is C0, and `E` is energy.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -206,17 +204,27 @@
         <span class="nb">super</span><span class="p">(</span><span class="n">MelFrequencyCepstralCoefficientsAnalysis</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">mfcc_order</span> <span class="o">=</span> <span class="n">mfcc_order</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">out_format</span> <span class="o">=</span> <span class="n">out_format</span>
 
-        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mfcc_order</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">mfcc_order</span> <span class="o">&lt;</span> <span class="n">n_channel</span>
-        <span class="k">assert</span> <span class="n">is_in</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">out_format</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;y&quot;</span><span class="p">,</span> <span class="s2">&quot;yE&quot;</span><span class="p">,</span> <span class="s2">&quot;yc&quot;</span><span class="p">,</span> <span class="s2">&quot;y,E&quot;</span><span class="p">,</span> <span class="s2">&quot;y,c&quot;</span><span class="p">])</span>
+        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mfcc_order</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">mfcc_order</span> <span class="o">&lt;</span> <span class="n">n_channel</span>
+
+        <span class="k">if</span> <span class="n">out_format</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">format_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">E</span><span class="p">:</span> <span class="n">y</span>
+        <span class="k">elif</span> <span class="n">out_format</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;yE&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">format_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">E</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">y</span><span class="p">,</span> <span class="n">E</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">out_format</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;yc&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">format_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">E</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">out_format</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">or</span> <span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;ycE&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">format_func</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">E</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">E</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;out_format </span><span class="si">{</span><span class="n">out_format</span><span class="si">}</span><span class="s2"> is not supported&quot;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">fbank</span> <span class="o">=</span> <span class="n">MelFilterBankAnalysis</span><span class="p">(</span>
             <span class="n">n_channel</span><span class="p">,</span> <span class="n">fft_length</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">,</span> <span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;y,E&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">fbank_kwargs</span>
         <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">dct</span> <span class="o">=</span> <span class="n">DiscreteCosineTransform</span><span class="p">(</span><span class="n">n_channel</span><span class="p">)</span>
 
-        <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">mfcc_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">default_dtype</span><span class="p">())</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mfcc_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">default_dtype</span><span class="p">())</span>
         <span class="n">liftering_vector</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">lifter</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">((</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">lifter</span><span class="p">)</span> <span class="o">*</span> <span class="n">m</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;liftering_vector&quot;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">liftering_vector</span><span class="p">))</span>
 
@@ -254,19 +262,7 @@
         <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dct</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
         <span class="n">c</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">mfcc_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">liftering_vector</span>
-
-        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;y&quot;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">y</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;yE&quot;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">y</span><span class="p">,</span> <span class="n">E</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;yc&quot;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;y,E&quot;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">y</span><span class="p">,</span> <span class="n">E</span>
-        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;y,c&quot;</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">y</span><span class="p">,</span> <span class="n">c</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">RuntimeError</span></div></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">format_func</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">E</span><span class="p">)</span></div></div>
 </pre></div>
 
               </div>

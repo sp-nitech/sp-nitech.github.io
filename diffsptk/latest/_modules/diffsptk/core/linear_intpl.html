@@ -189,27 +189,34 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        x : Tensor [shape=(B, N, D)]</span>
+<span class="sd">        x : Tensor [shape=(B, N, D) or (N, D) or (N,)]</span>
 <span class="sd">            Filter coefficients.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        y : Tensor [shape=(B, NxP, D)]</span>
+<span class="sd">        y : Tensor [shape=(B, NxP, D) or (NxP, D) or (NxP,)]</span>
 <span class="sd">            Upsampled filter coefficients.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
 <span class="sd">        &gt;&gt;&gt; x = diffsptk.ramp(2)</span>
+<span class="sd">        &gt;&gt;&gt; x</span>
+<span class="sd">        tensor([0., 1., 2.])</span>
 <span class="sd">        &gt;&gt;&gt; linear_intpl = diffsptk.LinearInterpolation(2)</span>
-<span class="sd">        &gt;&gt;&gt; y = linear_intpl(x.view(1, -1, 1))</span>
-<span class="sd">        &gt;&gt;&gt; y.reshape(-1)</span>
-<span class="sd">        tensor([[0.0000, 0.5000, 1.0000, 1.5000, 2.0000, 2.0000]])</span>
+<span class="sd">        &gt;&gt;&gt; y = linear_intpl(x)</span>
+<span class="sd">        &gt;&gt;&gt; y</span>
+<span class="sd">        tensor([0.0000, 0.5000, 1.0000, 1.5000, 2.0000, 2.0000])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># Return copy if upsampling factor is one.</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">upsampling_filter</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">x</span>
 
+        <span class="n">d</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
         <span class="k">assert</span> <span class="n">x</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Input must be 3D tensor&quot;</span>
         <span class="n">B</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">D</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
 
@@ -218,6 +225,11 @@
 
         <span class="n">y</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">conv2d</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">upsampling_filter</span><span class="p">)</span>  <span class="c1"># (B, P, N, D)</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">D</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">y</span></div></div>
 </pre></div>
 

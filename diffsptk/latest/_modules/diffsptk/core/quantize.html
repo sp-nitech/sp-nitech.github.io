@@ -208,16 +208,13 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;quantizer </span><span class="si">{quantizer}</span><span class="s2"> is not supported&quot;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="UniformQuantization.forward"><a class="viewcode-back" href="../../../core/quantize.html#diffsptk.UniformQuantization.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">int_out</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="UniformQuantization.forward"><a class="viewcode-back" href="../../../core/quantize.html#diffsptk.UniformQuantization.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Quantize input.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        x : Tensor [shape=(...,)]</span>
 <span class="sd">            Input.</span>
-
-<span class="sd">        int_out : bool [scalar]</span>
-<span class="sd">            If True, return int-type tensor.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
@@ -228,7 +225,7 @@
 <span class="sd">        --------</span>
 <span class="sd">        &gt;&gt;&gt; x = diffsptk.ramp(-4, 4)</span>
 <span class="sd">        &gt;&gt;&gt; quantize = diffsptk.UniformQuantization(4, 2)</span>
-<span class="sd">        &gt;&gt;&gt; y = quantize(x, int_out=True)</span>
+<span class="sd">        &gt;&gt;&gt; y = quantize(x).int()</span>
 <span class="sd">        &gt;&gt;&gt; y</span>
 <span class="sd">        tensor([0, 0, 1, 1, 2, 2, 3, 3, 3], dtype=torch.int32)</span>
 
@@ -243,8 +240,6 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span>
 
-        <span class="k">if</span> <span class="n">int_out</span><span class="p">:</span>
-            <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">int</span><span class="p">()</span>
         <span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">level</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">y</span></div></div>
 </pre></div>

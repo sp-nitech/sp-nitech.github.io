@@ -388,23 +388,25 @@ filter coefficients interpolation in digital filtering.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(B, N, D)]</span></dt><dd><p>Filter coefficients.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(B, N, D) or (N, D) or (N,)]</span></dt><dd><p>Filter coefficients.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(B, NxP, D)]</span></dt><dd><p>Upsampled filter coefficients.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(B, NxP, D) or (NxP, D) or (NxP,)]</span></dt><dd><p>Upsampled filter coefficients.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">tensor([0., 1., 2.])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">linear_intpl</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">LinearInterpolation</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">linear_intpl</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span class="go">tensor([[0.0000, 0.5000, 1.0000, 1.5000, 2.0000, 2.0000]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">linear_intpl</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">tensor([0.0000, 0.5000, 1.0000, 1.5000, 2.0000, 2.0000])</span>
 </pre></div>
 </div>
 </dd></dl>

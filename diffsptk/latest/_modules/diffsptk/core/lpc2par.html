@@ -152,6 +152,7 @@
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
+<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">check_size</span>
 <span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">is_in</span>
 
 
@@ -180,7 +181,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">warn_type</span> <span class="o">=</span> <span class="n">warn_type</span>
 
         <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lpc_order</span>
-        <span class="k">assert</span> <span class="o">-</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">&lt;=</span> <span class="mi">1</span>
+        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gamma</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span>
         <span class="k">assert</span> <span class="n">is_in</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">warn_type</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="s2">&quot;warn&quot;</span><span class="p">,</span> <span class="s2">&quot;exit&quot;</span><span class="p">])</span>
 
 <div class="viewcode-block" id="LinearPredictiveCoefficientsToParcorCoefficients.forward"><a class="viewcode-back" href="../../../core/lpc2par.html#diffsptk.LinearPredictiveCoefficientsToParcorCoefficients.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">):</span>
@@ -210,6 +211,8 @@
 <span class="sd">        tensor([ 1.6036,  0.0491, -0.5601, -0.0638])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_size</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">lpc_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;dimension of LPC&quot;</span><span class="p">)</span>
+
         <span class="n">K</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">lpc_order</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
 
         <span class="n">ks</span> <span class="o">=</span> <span class="p">[]</span>
@@ -219,14 +222,14 @@
             <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">km</span><span class="p">)):</span>
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_type</span> <span class="o">==</span> <span class="s2">&quot;ignore&quot;</span><span class="p">:</span>
                     <span class="k">pass</span>
-                <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_type</span> <span class="o">==</span> <span class="s2">&quot;warn&quot;</span><span class="p">:</span>
-                    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;detect unstable LPC&quot;</span><span class="p">)</span>
-                <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_type</span> <span class="o">==</span> <span class="s2">&quot;exit&quot;</span><span class="p">:</span>
-                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;unstable LPC&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_type</span> <span class="o">==</span> <span class="s2">&quot;warn&quot;</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+                    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Unstable LPC is detected&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_type</span> <span class="o">==</span> <span class="s2">&quot;exit&quot;</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Unstable LPC is detected&quot;</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="k">raise</span> <span class="ne">RuntimeError</span>
-            <span class="n">ks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">km</span><span class="p">)</span>
 
+            <span class="n">ks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">km</span><span class="p">)</span>
             <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">km</span> <span class="o">*</span> <span class="n">km</span>
             <span class="n">k</span> <span class="o">=</span> <span class="n">a</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
             <span class="n">a</span> <span class="o">=</span> <span class="p">(</span><span class="n">k</span> <span class="o">-</span> <span class="n">km</span> <span class="o">*</span> <span class="n">k</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">/</span> <span class="n">z</span>

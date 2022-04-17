@@ -202,7 +202,7 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        y : Tensor [shape=(B, K, T)]</span>
+<span class="sd">        y : Tensor [shape=(B, K, T) or (K, T)]</span>
 <span class="sd">            Subband waveforms.</span>
 
 <span class="sd">        keep_dims : bool [scalar]</span>
@@ -210,7 +210,7 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        x : Tensor [shape=(B, 1, T) or shape=(B, T)]</span>
+<span class="sd">        x : Tensor [shape=(B, 1, T) or (B, T)]</span>
 <span class="sd">            Reconstructed waveform.</span>
 
 <span class="sd">        Examples</span>
@@ -225,6 +225,8 @@
 <span class="sd">        tensor([[[8.1887e-04, 2.4754e-01, 5.0066e-01, 7.4732e-01, 9.9419e-01]]])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">y</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
         <span class="k">assert</span> <span class="n">y</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Input must be 3D tensor&quot;</span>
 
         <span class="n">x</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">conv1d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">filters</span><span class="p">)</span>

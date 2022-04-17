@@ -385,14 +385,12 @@ for details. The gradient is copied from the next module.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="diffsptk.UniformQuantization.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">int_out</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/quantize.html#UniformQuantization.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.UniformQuantization.forward" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/quantize.html#UniformQuantization.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.UniformQuantization.forward" title="Permalink to this definition">#</a></dt>
 <dd><p>Quantize input.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Input.</p>
-</dd>
-<dt><strong>int_out</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If True, return int-type tensor.</p>
 </dd>
 </dl>
 </dd>
@@ -406,7 +404,7 @@ for details. The gradient is copied from the next module.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">quantize</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">UniformQuantization</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">quantize</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">int_out</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">quantize</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">int</span><span class="p">()</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
 <span class="go">tensor([0, 0, 1, 1, 2, 2, 3, 3, 3], dtype=torch.int32)</span>
 </pre></div>

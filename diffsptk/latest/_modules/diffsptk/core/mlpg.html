@@ -173,31 +173,31 @@
 
         <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">size</span>
 
-        <span class="c1"># Make window matrix.</span>
+        <span class="c1"># Make window.</span>
         <span class="n">window</span> <span class="o">=</span> <span class="n">make_window</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
 
-        <span class="c1"># Make window used at edges.</span>
+        <span class="c1"># Compute threshold.</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">seed</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">seed</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">):</span>
-            <span class="n">seed</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
-            <span class="n">static_only</span> <span class="o">=</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">coefficients</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">coefficients</span> <span class="ow">in</span> <span class="n">seed</span><span class="p">]</span>
+            <span class="n">th</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="nb">len</span><span class="p">(</span><span class="n">coefficients</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">coefficients</span> <span class="ow">in</span> <span class="n">seed</span><span class="p">]</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">static_only</span> <span class="o">=</span> <span class="p">[</span><span class="kc">True</span><span class="p">]</span> <span class="o">+</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
-        <span class="n">edge_window</span> <span class="o">=</span> <span class="n">window</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">static_only</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">th</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
+        <span class="n">th</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">th</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
 
         <span class="n">H</span><span class="p">,</span> <span class="n">L</span> <span class="o">=</span> <span class="n">window</span><span class="o">.</span><span class="n">shape</span>
         <span class="n">N</span> <span class="o">=</span> <span class="p">(</span><span class="n">L</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
         <span class="n">T</span> <span class="o">=</span> <span class="n">size</span>
         <span class="n">W</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">T</span> <span class="o">*</span> <span class="n">H</span><span class="p">,</span> <span class="n">T</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">window</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 
+        <span class="c1"># Make window matrix</span>
         <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">T</span><span class="p">):</span>
             <span class="n">hs</span> <span class="o">=</span> <span class="n">H</span> <span class="o">*</span> <span class="n">t</span>
             <span class="n">he</span> <span class="o">=</span> <span class="n">hs</span> <span class="o">+</span> <span class="n">H</span>
             <span class="n">ts</span> <span class="o">=</span> <span class="n">t</span> <span class="o">-</span> <span class="n">N</span>
             <span class="n">te</span> <span class="o">=</span> <span class="n">ts</span> <span class="o">+</span> <span class="n">L</span>
             <span class="k">if</span> <span class="n">ts</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-                <span class="n">W</span><span class="p">[</span><span class="n">hs</span><span class="p">:</span><span class="n">he</span><span class="p">,</span> <span class="p">:</span><span class="n">te</span><span class="p">]</span> <span class="o">=</span> <span class="n">edge_window</span><span class="p">[:,</span> <span class="o">-</span><span class="n">ts</span><span class="p">:]</span>
+                <span class="n">W</span><span class="p">[</span><span class="n">hs</span><span class="p">:</span><span class="n">he</span><span class="p">,</span> <span class="p">:</span><span class="n">te</span><span class="p">]</span> <span class="o">=</span> <span class="n">window</span><span class="p">[:,</span> <span class="o">-</span><span class="n">ts</span><span class="p">:]</span> <span class="o">*</span> <span class="p">(</span><span class="n">th</span> <span class="o">&lt;=</span> <span class="n">t</span><span class="p">)</span>
             <span class="k">elif</span> <span class="n">T</span> <span class="o">&lt;</span> <span class="n">te</span><span class="p">:</span>
-                <span class="n">W</span><span class="p">[</span><span class="n">hs</span><span class="p">:</span><span class="n">he</span><span class="p">,</span> <span class="n">ts</span><span class="p">:]</span> <span class="o">=</span> <span class="n">edge_window</span><span class="p">[:,</span> <span class="p">:</span> <span class="n">T</span> <span class="o">-</span> <span class="n">ts</span><span class="p">]</span>
+                <span class="n">W</span><span class="p">[</span><span class="n">hs</span><span class="p">:</span><span class="n">he</span><span class="p">,</span> <span class="n">ts</span><span class="p">:]</span> <span class="o">=</span> <span class="n">window</span><span class="p">[:,</span> <span class="p">:</span> <span class="n">T</span> <span class="o">-</span> <span class="n">ts</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="n">th</span> <span class="o">&lt;</span> <span class="n">T</span> <span class="o">-</span> <span class="n">t</span><span class="p">)</span>
             <span class="k">else</span><span class="p">:</span>
                 <span class="n">W</span><span class="p">[</span><span class="n">hs</span><span class="p">:</span><span class="n">he</span><span class="p">,</span> <span class="n">ts</span><span class="p">:</span><span class="n">te</span><span class="p">]</span> <span class="o">=</span> <span class="n">window</span>
 
@@ -215,12 +215,12 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        mean : Tensor [shape=(B, T, DxH)]</span>
+<span class="sd">        mean : Tensor [shape=(..., T, DxH)]</span>
 <span class="sd">            Time-variant mean vectors with delta components.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        c : Tensor [shape=(B, T, D)]</span>
+<span class="sd">        c : Tensor [shape=(..., T, D)]</span>
 <span class="sd">            Static components.</span>
 
 <span class="sd">        Examples</span>
@@ -247,9 +247,9 @@
 <span class="sd">                 [7., 8.]]])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">B</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">mean</span><span class="o">.</span><span class="n">shape</span>
-        <span class="n">mean</span> <span class="o">=</span> <span class="n">mean</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">T</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">H</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;bTd,tT-&gt;btd&quot;</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="p">)</span>
+        <span class="n">T</span> <span class="o">=</span> <span class="n">mean</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">mean</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">*</span><span class="n">mean</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="o">-</span><span class="mi">2</span><span class="p">],</span> <span class="n">T</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">H</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">einsum</span><span class="p">(</span><span class="s2">&quot;...Td,tT-&gt;...td&quot;</span><span class="p">,</span> <span class="n">u</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">M</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">c</span></div></div>
 </pre></div>
 

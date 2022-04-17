@@ -151,6 +151,8 @@
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
+<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">check_size</span>
+
 
 <div class="viewcode-block" id="Window"><a class="viewcode-back" href="../../../core/window.html#diffsptk.Window">[docs]</a><span class="k">class</span> <span class="nc">Window</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/window.html&gt;`_</span>
@@ -176,6 +178,8 @@
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_length</span><span class="p">,</span> <span class="n">out_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="s2">&quot;power&quot;</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s2">&quot;blackman&quot;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Window</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
+        <span class="bp">self</span><span class="o">.</span><span class="n">in_length</span> <span class="o">=</span> <span class="n">in_length</span>
+
         <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">in_length</span>
 
         <span class="c1"># Make window.</span>
@@ -197,14 +201,13 @@
 
         <span class="c1"># Normalize window.</span>
         <span class="k">if</span> <span class="n">norm</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">norm</span> <span class="o">==</span> <span class="s2">&quot;none&quot;</span><span class="p">:</span>
-            <span class="k">pass</span>
+            <span class="n">w</span> <span class="o">/=</span> <span class="mi">1</span>
         <span class="k">elif</span> <span class="n">norm</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">norm</span> <span class="o">==</span> <span class="s2">&quot;power&quot;</span><span class="p">:</span>
             <span class="n">w</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">w</span><span class="o">**</span><span class="mi">2</span><span class="p">))</span>
         <span class="k">elif</span> <span class="n">norm</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">norm</span> <span class="o">==</span> <span class="s2">&quot;magnitude&quot;</span><span class="p">:</span>
             <span class="n">w</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;norm </span><span class="si">{</span><span class="n">norm</span><span class="si">}</span><span class="s2"> is not supported&quot;</span><span class="p">)</span>
-
         <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;window&quot;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)))</span>
 
         <span class="c1"># Make padding module.</span>
@@ -236,6 +239,8 @@
 <span class="sd">        tensor([0.0800, 0.5400, 1.0000, 0.5400, 0.0800, 0.0000, 0.0000])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_size</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">in_length</span><span class="p">,</span> <span class="s2">&quot;input length&quot;</span><span class="p">)</span>
+
         <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">y</span></div></div>
 </pre></div>

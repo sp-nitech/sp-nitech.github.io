@@ -150,6 +150,8 @@
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
+<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">check_size</span>
+
 
 <div class="viewcode-block" id="AllPoleToAllZeroDigitalFilterCoefficients"><a class="viewcode-back" href="../../../core/norm0.html#diffsptk.AllPoleToAllZeroDigitalFilterCoefficients">[docs]</a><span class="k">class</span> <span class="nc">AllPoleToAllZeroDigitalFilterCoefficients</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/norm0.html&gt;`_</span>
@@ -173,12 +175,12 @@
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        a : Tensor [shape=(..., M+1, ...)]</span>
+<span class="sd">        a : Tensor [shape=(..., M+1)]</span>
 <span class="sd">            All-pole or all-zero filter coefficients.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        b : Tensor [shape=(..., M+1, ...)]</span>
+<span class="sd">        b : Tensor [shape=(..., M+1)]</span>
 <span class="sd">            All-zero or all-pole filter coefficients.</span>
 
 <span class="sd">        Examples</span>
@@ -190,6 +192,8 @@
 <span class="sd">        tensor([0.2500, 0.7500, 0.5000, 0.2500])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_size</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;dimension of coefficients&quot;</span><span class="p">)</span>
+
         <span class="n">K</span><span class="p">,</span> <span class="n">a1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_order</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">b0</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">reciprocal</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
         <span class="n">b1</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">b0</span>

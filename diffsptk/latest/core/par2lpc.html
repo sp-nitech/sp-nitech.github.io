@@ -406,11 +406,8 @@ for details. This module may be slow due to recursive computation.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
 <span class="go">tensor([ 1.6036,  0.0573, -0.5615, -0.0638])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">lpc2par</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">LinearPredictiveCoefficientsToParcorCoefficients</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span> <span class="o">=</span> <span class="n">lpc2par</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">k</span>
-<span class="go">tensor([ 1.6036,  0.0491, -0.5601, -0.0638])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">par2lpc</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ParcorCoefficientsToLinearPredictiveCoefficients</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a2</span> <span class="o">=</span> <span class="n">par2lpc</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a2</span> <span class="o">=</span> <span class="n">par2lpc</span><span class="p">(</span><span class="n">lpc2par</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a2</span>
 <span class="go">tensor([ 1.6036,  0.0573, -0.5615, -0.0638])</span>
 </pre></div>

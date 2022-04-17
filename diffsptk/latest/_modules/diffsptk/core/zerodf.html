@@ -149,6 +149,7 @@
 
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
+<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">check_size</span>
 <span class="kn">from</span> <span class="nn">.linear_intpl</span> <span class="kn">import</span> <span class="n">LinearInterpolation</span>
 
 
@@ -173,28 +174,28 @@
         <span class="nb">super</span><span class="p">(</span><span class="n">AllZeroDigitalFilter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">filter_order</span> <span class="o">=</span> <span class="n">filter_order</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span> <span class="o">=</span> <span class="n">frame_period</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">ignore_gain</span> <span class="o">=</span> <span class="n">ignore_gain</span>
 
         <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_order</span>
-        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">frame_period</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">pad</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ConstantPad1d</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">filter_order</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">intpl</span> <span class="o">=</span> <span class="n">LinearInterpolation</span><span class="p">(</span><span class="n">frame_period</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">linear_intpl</span> <span class="o">=</span> <span class="n">LinearInterpolation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span><span class="p">)</span>
 
 <div class="viewcode-block" id="AllZeroDigitalFilter.forward"><a class="viewcode-back" href="../../../core/zerodf.html#diffsptk.AllZeroDigitalFilter.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Apply an all-zero digital filter.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        x : Tensor [shape=(B, T)]</span>
+<span class="sd">        x : Tensor [shape=(..., T)]</span>
 <span class="sd">            Excitation signal.</span>
 
-<span class="sd">        h : Tensor [shape=(B, T/P, D)]</span>
+<span class="sd">        h : Tensor [shape=(..., T/P, M+1)]</span>
 <span class="sd">            Filter coefficients.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        y : Tensor [shape=(B, T)]</span>
+<span class="sd">        y : Tensor [shape=(..., T)]</span>
 <span class="sd">            Output signal.</span>
 
 <span class="sd">        Examples</span>
@@ -202,16 +203,19 @@
 <span class="sd">        &gt;&gt;&gt; x = diffsptk.step(4)</span>
 <span class="sd">        &gt;&gt;&gt; h = diffsptk.ramp(4)</span>
 <span class="sd">        &gt;&gt;&gt; zerodf = diffsptk.AllZeroDigitalFilter(0)</span>
-<span class="sd">        &gt;&gt;&gt; y = zerodf(x.view(1, -1), h.view(1, -1, 1))</span>
+<span class="sd">        &gt;&gt;&gt; y = zerodf(x, h.view(-1, 1))</span>
 <span class="sd">        &gt;&gt;&gt; y</span>
 <span class="sd">        tensor([[0., 1., 2., 3., 4.]])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_size</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;dimension of impulse response&quot;</span><span class="p">)</span>
+        <span class="n">check_size</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">h</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span><span class="p">,</span> <span class="s2">&quot;sequence length&quot;</span><span class="p">)</span>
+
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">unfold</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">intpl</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">unfold</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_intpl</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ignore_gain</span><span class="p">:</span>
-            <span class="n">h</span> <span class="o">=</span> <span class="n">h</span> <span class="o">/</span> <span class="n">h</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">h</span> <span class="o">=</span> <span class="n">h</span> <span class="o">/</span> <span class="n">h</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:]</span>
         <span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">h</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">y</span></div></div>
 </pre></div>
