@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>freqt &#8212; diffsptk 0.2.0 documentation</title>
+    <title>phase &#8212; diffsptk 0.2.0 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -32,8 +32,8 @@
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="gnorm" href="gnorm.html" />
-    <link rel="prev" title="frame" href="frame.html" />
+    <link rel="next" title="pqmf" href="pqmf.html" />
+    <link rel="prev" title="par2lpc" href="par2lpc.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -176,8 +176,8 @@
    frame
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="freqt.html">
    freqt
   </a>
  </li>
@@ -281,8 +281,8 @@
    par2lpc
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="phase.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    phase
   </a>
  </li>
@@ -375,54 +375,49 @@
               
               <div>
                 
-  <section id="freqt">
-<span id="id1"></span><h1>freqt<a class="headerlink" href="#freqt" title="Permalink to this headline">#</a></h1>
+  <section id="phase">
+<span id="id1"></span><h1>phase<a class="headerlink" href="#phase" title="Permalink to this headline">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.FrequencyTransform">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">FrequencyTransform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/freqt.html#FrequencyTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.FrequencyTransform" title="Permalink to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/freqt.html">this page</a>
+<dt class="sig sig-object py" id="diffsptk.Phase">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">Phase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unwrap</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/phase.html#Phase"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Phase" title="Permalink to this definition">#</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/phase.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>in_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of input sequence, <span class="math notranslate nohighlight">\(M_1\)</span>.</p>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2 [scalar]</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
-<dt><strong>out_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of output sequence, <span class="math notranslate nohighlight">\(M_2\)</span>.</p>
-</dd>
-<dt><strong>alpha</strong><span class="classifier">float [-1 &lt; alpha &lt; 1]</span></dt><dd><p>Frequency warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<dt><strong>unwrap</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If True, perform phase unwrapping.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.FrequencyTransform.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/freqt.html#FrequencyTransform.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.FrequencyTransform.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Perform frequency transform.</p>
+<dt class="sig sig-object py" id="diffsptk.Phase.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/phase.html#Phase.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Phase.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Compute phase spectrum.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>c1</strong><span class="classifier">Tensor [shape=(…, M1+1)]</span></dt><dd><p>Input sequence.</p>
+<dt><strong>b</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Numerator coefficients.</p>
+</dd>
+<dt><strong>a</strong><span class="classifier">Tensor [shape=(…, N+1)]</span></dt><dd><p>Denominator coefficients.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>c2</strong><span class="classifier">Tensor [shape=(…, M2+1)]</span></dt><dd><p>Warped sequence.</p>
+<dt><strong>p</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>Phase spectrum [<span class="math notranslate nohighlight">\(\pi\)</span> rad].</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="go">tensor([0., 1., 2., 3.])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">freqt</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">FrequencyTransform</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">0.02</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span> <span class="o">=</span> <span class="n">freqt</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span>
-<span class="go">tensor([ 0.0208,  1.0832,  2.1566,  2.9097, -0.1772])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">freqt2</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">FrequencyTransform</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.02</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c3</span> <span class="o">=</span> <span class="n">freqt2</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c3</span>
-<span class="go">tensor([-9.8953e-10,  1.0000e+00,  2.0000e+00,  3.0000e+00])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">phase</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Phase</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">phase</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span>
+<span class="go">tensor([ 0.0000, -0.5907,  0.7500, -0.1687,  1.0000])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -431,7 +426,7 @@ for details.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="mgc2mgc.html#mgc2mgc"><span class="std std-ref">mgc2mgc</span></a>  <a class="reference internal" href="mgcep.html#mgcep"><span class="std std-ref">mgcep</span></a></p>
+<p><a class="reference internal" href="spec.html#spec"><span class="std std-ref">spec</span></a></p>
 </div>
 </section>
 
@@ -441,17 +436,17 @@ for details.</p>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="frame.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="par2lpc.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">frame</p>
+            <p class="prev-next-title">par2lpc</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="gnorm.html" title="next page">
+    <a class='right-next' id="next-link" href="pqmf.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">gnorm</p>
+        <p class="prev-next-title">pqmf</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
