@@ -187,6 +187,11 @@
   </a>
  </li>
  <li class="toctree-l1">
+  <a class="reference internal" href="grpdelay.html">
+   grpdelay
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="idct.html">
    idct
   </a>
@@ -264,6 +269,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="mlpg.html">
    mlpg
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="mpir2c.html">
+   mpir2c
   </a>
  </li>
  <li class="toctree-l1">
@@ -378,14 +388,14 @@
   <section id="c2mpir">
 <span id="id1"></span><h1>c2mpir<a class="headerlink" href="#c2mpir" title="Permalink to this headline">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.CepstrumToImpulseResponse">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">CepstrumToImpulseResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cep_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impulse_response_length</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/c2mpir.html#CepstrumToImpulseResponse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.CepstrumToImpulseResponse" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="diffsptk.CepstrumToMinimumPhaseImpulseResponse">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">CepstrumToMinimumPhaseImpulseResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cep_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impulse_response_length</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/c2mpir.html#CepstrumToMinimumPhaseImpulseResponse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.CepstrumToMinimumPhaseImpulseResponse" title="Permalink to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/c2mpir.html">this page</a>
 for details. This module may be slow due to recursive computation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>cep_order</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Order of cepstrum, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<dt><strong>cep_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of cepstrum, <span class="math notranslate nohighlight">\(M\)</span>.</p>
 </dd>
 <dt><strong>impulse_response_length</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Length of impulse response, <span class="math notranslate nohighlight">\(N\)</span>.</p>
 </dd>
@@ -393,8 +403,8 @@ for details. This module may be slow due to recursive computation.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.CepstrumToImpulseResponse.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/c2mpir.html#CepstrumToImpulseResponse.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.CepstrumToImpulseResponse.forward" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="diffsptk.CepstrumToMinimumPhaseImpulseResponse.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/c2mpir.html#CepstrumToMinimumPhaseImpulseResponse.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.CepstrumToMinimumPhaseImpulseResponse.forward" title="Permalink to this definition">#</a></dt>
 <dd><p>Convert cepstrum to impulse response.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
@@ -412,7 +422,7 @@ for details. This module may be slow due to recursive computation.</p>
 </dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c2mpir</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">CepstrumToImpulseResponse</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c2mpir</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">CepstrumToMinimumPhaseImpulseResponse</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">c2mpir</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h</span>
 <span class="go">tensor([1.0000, 1.0000, 2.5000, 5.1667, 6.0417])</span>
@@ -422,6 +432,10 @@ for details. This module may be slow due to recursive computation.</p>
 
 </dd></dl>
 
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="mpir2c.html#mpir2c"><span class="std std-ref">mpir2c</span></a>  <a class="reference internal" href="mgc2mgc.html#mgc2mgc"><span class="std std-ref">mgc2mgc</span></a></p>
+</div>
 </section>
 
 

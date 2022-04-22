@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>c2acr &#8212; diffsptk 0.2.0 documentation</title>
+    <title>grpdelay &#8212; diffsptk 0.2.0 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -32,8 +32,8 @@
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="c2mpir" href="c2mpir.html" />
-    <link rel="prev" title="b2mc" href="b2mc.html" />
+    <link rel="next" title="idct" href="idct.html" />
+    <link rel="prev" title="gnorm" href="gnorm.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -121,8 +121,8 @@
    b2mc
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="c2acr.html">
    c2acr
   </a>
  </li>
@@ -186,8 +186,8 @@
    gnorm
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="grpdelay.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    grpdelay
   </a>
  </li>
@@ -385,49 +385,51 @@
               
               <div>
                 
-  <section id="c2acr">
-<span id="id1"></span><h1>c2acr<a class="headerlink" href="#c2acr" title="Permalink to this headline">#</a></h1>
+  <section id="grpdelay">
+<span id="id1"></span><h1>grpdelay<a class="headerlink" href="#grpdelay" title="Permalink to this headline">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.CepstrumToAutocorrelation">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">CepstrumToAutocorrelation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">acr_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/c2acr.html#CepstrumToAutocorrelation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.CepstrumToAutocorrelation" title="Permalink to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/c2acr.html">this page</a>
+<dt class="sig sig-object py" id="diffsptk.GroupDelay">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">GroupDelay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/grpdelay.html#GroupDelay"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.GroupDelay" title="Permalink to this definition">#</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/grpdelay.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>acr_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of autocorrelation, <span class="math notranslate nohighlight">\(M_2\)</span>.</p>
-</dd>
 <dt><strong>fft_length</strong><span class="classifier">int &gt;= 2 [scalar]</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+</dd>
+<dt><strong>alpha</strong><span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Tuning parameter, <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+</dd>
+<dt><strong>gamma</strong><span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Tuning parameter, <span class="math notranslate nohighlight">\(\gamma\)</span>.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.CepstrumToAutocorrelation.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/c2acr.html#CepstrumToAutocorrelation.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.CepstrumToAutocorrelation.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Convert cepstrum to autocorrelation.</p>
+<dt class="sig sig-object py" id="diffsptk.GroupDelay.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/grpdelay.html#GroupDelay.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.GroupDelay.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Compute group delay.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>c</strong><span class="classifier">Tensor [shape=(…, M1+1)]</span></dt><dd><p>Cepstrum.</p>
+<dt><strong>b</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Numerator coefficients.</p>
+</dd>
+<dt><strong>a</strong><span class="classifier">Tensor [shape=(…, N+1)]</span></dt><dd><p>Denominator coefficients.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>r</strong><span class="classifier">Tensor [shape=(…, M2+1)]</span></dt><dd><p>Autocorrelation.</p>
+<dt><strong>g</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>Group delay or modified group delay function.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span>
-<span class="go">tensor([-0.1751,  0.1950, -0.3211,  0.3523, -0.5453])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c2acr</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">CepstrumToAutocorrelation</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span> <span class="o">=</span> <span class="n">c2acr</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">r</span>
-<span class="go">tensor([ 1.0672, -0.0485, -0.1564,  0.2666, -0.4551])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">grpdelay</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">GroupDelay</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">grpdelay</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span>
+<span class="go">tensor([2.3333, 2.4278, 3.0000, 3.9252, 3.0000])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -436,7 +438,7 @@ for details.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="acorr.html#acorr"><span class="std std-ref">acorr</span></a></p>
+<p><a class="reference internal" href="phase.html#phase"><span class="std std-ref">phase</span></a></p>
 </div>
 </section>
 
@@ -446,17 +448,17 @@ for details.</p>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="b2mc.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="gnorm.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">b2mc</p>
+            <p class="prev-next-title">gnorm</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="c2mpir.html" title="next page">
+    <a class='right-next' id="next-link" href="idct.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">c2mpir</p>
+        <p class="prev-next-title">idct</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
