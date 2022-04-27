@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>fbank &#8212; diffsptk 0.2.0 documentation</title>
+    <title>df2 &#8212; diffsptk 0.2.0 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -29,11 +29,10 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="fftcep" href="fftcep.html" />
-    <link rel="prev" title="dfs" href="dfs.html" />
+    <link rel="next" title="dfs" href="dfs.html" />
+    <link rel="prev" title="dequantize" href="dequantize.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -161,8 +160,8 @@
    dequantize
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="df2.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    df2
   </a>
  </li>
@@ -171,8 +170,8 @@
    dfs
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="fbank.html">
    fbank
   </a>
  </li>
@@ -400,62 +399,55 @@
               
               <div>
                 
-  <section id="fbank">
-<span id="id1"></span><h1>fbank<a class="headerlink" href="#fbank" title="Permalink to this headline">#</a></h1>
+  <section id="df2">
+<span id="id1"></span><h1>df2<a class="headerlink" href="#df2" title="Permalink to this headline">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.MelFilterBankAnalysis">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MelFilterBankAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">floor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'y'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/fbank.html#MelFilterBankAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MelFilterBankAnalysis" title="Permalink to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/fbank.html">this page</a>
+<dt class="sig sig-object py" id="diffsptk.SecondOrderDigitalFilter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">SecondOrderDigitalFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pole_frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pole_bandwidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zero_frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zero_bandwidth</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impulse_response_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/df2.html#SecondOrderDigitalFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.SecondOrderDigitalFilter" title="Permalink to this definition">#</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/df2.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>n_channel</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Number of mel-filter banks, <span class="math notranslate nohighlight">\(C\)</span>.</p>
-</dd>
-<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2 [scalar]</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
-</dd>
 <dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Sample rate in Hz.</p>
 </dd>
-<dt><strong>f_min</strong><span class="classifier">float &gt;= 0 [scalar]</span></dt><dd><p>Minimum frequency in Hz.</p>
+<dt><strong>pole_frequency</strong><span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Pole frequency in Hz.</p>
 </dd>
-<dt><strong>f_max</strong><span class="classifier">float &lt;= sample_rate // 2 [scalar]</span></dt><dd><p>Maximum frequency in Hz.</p>
+<dt><strong>pole_bandwidth</strong><span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Pole bandwidth in Hz.</p>
 </dd>
-<dt><strong>floor</strong><span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Floor value to prevent NaN.</p>
+<dt><strong>zero_frequency</strong><span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Zero frequency in Hz.</p>
 </dd>
-<dt><strong>out_format</strong><span class="classifier">[‘y’, ‘yE’, ‘y,E’]</span></dt><dd><p><cite>y</cite> is mel-filber bank outpus and <cite>E</cite> is energy. If this is <cite>yE</cite>, the two output
-tensors are concatenated and return the tensor instead of the tuple.</p>
+<dt><strong>zero_bandwidth</strong><span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Zero bandwidth in Hz.</p>
+</dd>
+<dt><strong>impulse_response_length</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Length of impulse response.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.MelFilterBankAnalysis.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/fbank.html#MelFilterBankAnalysis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MelFilterBankAnalysis.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Apply mel-filter banks to STFT.</p>
+<dt class="sig sig-object py" id="diffsptk.SecondOrderDigitalFilter.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/df2.html#SecondOrderDigitalFilter.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.SecondOrderDigitalFilter.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Apply a second order digital filter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>Power spectrum.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(B, 1, T) or (B, T) or (T,)]</span></dt><dd><p>Input waveform.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, C)]</span></dt><dd><p>Mel-filter bank output.</p>
-</dd>
-<dt><strong>E</strong><span class="classifier">Tensor [shape=(…, 1)]</span></dt><dd><p>Energy.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(B, 1, T) or (B, T) or (T,)]</span></dt><dd><p>Filterd waveform.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stft</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">STFT</span><span class="p">(</span><span class="n">frame_length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">frame_period</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fft_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fbank</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MelFilterBankAnalysis</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">8000</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">fbank</span><span class="p">(</span><span class="n">stft</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">df2</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">SecondOrderDigitalFilter</span><span class="p">(</span><span class="mi">16000</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">df2</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">tensor([[0.1214, 0.4825, 0.6072, 0.3589],</span>
-<span class="go">        [3.3640, 3.4518, 2.7717, 0.5088]])</span>
+<span class="go">tensor([0.0000, 1.0000, 2.0918, 3.4161, 5.1021])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -464,7 +456,7 @@ tensors are concatenated and return the tensor instead of the tuple.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="stft.html#stft"><span class="std std-ref">stft</span></a>  <a class="reference internal" href="mfcc.html#mfcc"><span class="std std-ref">mfcc</span></a></p>
+<p><a class="reference internal" href="dfs.html#dfs"><span class="std std-ref">dfs</span></a></p>
 </div>
 </section>
 
@@ -474,17 +466,17 @@ tensors are concatenated and return the tensor instead of the tuple.</p>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="dfs.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="dequantize.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">dfs</p>
+            <p class="prev-next-title">dequantize</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="fftcep.html" title="next page">
+    <a class='right-next' id="next-link" href="dfs.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">fftcep</p>
+        <p class="prev-next-title">dfs</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
