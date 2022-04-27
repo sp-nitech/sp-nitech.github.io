@@ -260,7 +260,7 @@ delta -l <span class="m">15</span> -D delta.win -D accel.win &lt; data.d &gt; da
 </div>
 </p>
 <p><strong>-r</strong> option specifies the width of regression coefficients, <span class="math notranslate nohighlight">\(L^{(1)}\)</span> and <span class="math notranslate nohighlight">\(L^{(2)}\)</span>. The first and second derivatives are then calculated as follows: <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray} \Delta^{(1)} x_t &amp;=&amp; \frac{\displaystyle\sum_{\tau=-L^{(1)}}^{L^{(1)}} \tau \, x_{t+\tau}} {\displaystyle\sum_{\tau=-L^{(1)}}^{L^{(1)}} \tau^2}, \\ \Delta^{(2)} x_t &amp;=&amp; \frac{\displaystyle\sum_{\tau=-L^{(2)}}^{L^{(2)}} 2 (a_0 \tau^2 - a_1) x_{t+\tau}} {a_2 a_0 - a_1^2}, \end{eqnarray}\end{split}\]</div>
+\[\begin{split}\begin{eqnarray} \Delta^{(1)} x_t &amp;=&amp; \frac{\displaystyle\sum_{\tau=-L^{(1)}}^{L^{(1)}} \tau \, x_{t+\tau}} {\displaystyle\sum_{\tau=-L^{(1)}}^{L^{(1)}} \tau^2}, \\ \Delta^{(2)} x_t &amp;=&amp; \frac{\displaystyle\sum_{\tau=-L^{(2)}}^{L^{(2)}} (a_0 \tau^2 - a_1) x_{t+\tau}} {2 \cdot (a_2 a_0 - a_1^2)}, \end{eqnarray}\end{split}\]</div>
  where <div class="math notranslate nohighlight">
 \[\begin{split}\begin{eqnarray} a_0 &amp;=&amp; \displaystyle\sum_{\tau=-L^{(2)}}^{L^{(2)}} 1, \\ a_1 &amp;=&amp; \displaystyle\sum_{\tau=-L^{(2)}}^{L^{(2)}} \tau^2, \\ a_2 &amp;=&amp; \displaystyle\sum_{\tau=-L^{(2)}}^{L^{(2)}} \tau^4. \end{eqnarray}\end{split}\]</div>
 </p>
