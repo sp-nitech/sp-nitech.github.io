@@ -402,9 +402,15 @@
                 
   <section id="mgcep">
 <span id="id1"></span><h1>mgcep<a class="headerlink" href="#mgcep" title="Permalink to this headline">#</a></h1>
-<dl class="py class">
+<dl class="py attribute">
 <dt class="sig sig-object py" id="diffsptk.MelCepstralAnalysis">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MelCepstralAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cep_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mcep.html#MelCepstralAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MelCepstralAnalysis" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MelCepstralAnalysis</span></span><a class="headerlink" href="#diffsptk.MelCepstralAnalysis" title="Permalink to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="#diffsptk.MelGeneralizedCepstralAnalysis" title="diffsptk.core.mgcep.MelGeneralizedCepstralAnalysis"><code class="xref py py-class docutils literal notranslate"><span class="pre">diffsptk.core.mgcep.MelGeneralizedCepstralAnalysis</span></code></a></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="diffsptk.MelGeneralizedCepstralAnalysis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MelGeneralizedCepstralAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cep_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mgcep.html#MelGeneralizedCepstralAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MelGeneralizedCepstralAnalysis" title="Permalink to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/mgcep.html">this page</a>
 for details. Note that the current implementation does not use the efficient
 Toeplitz-plus-Hankel system solver.</p>
@@ -417,15 +423,17 @@ Toeplitz-plus-Hankel system solver.</p>
 </dd>
 <dt><strong>alpha</strong><span class="classifier">float [-1 &lt; alpha &lt; 1]</span></dt><dd><p>Frequency warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
 </dd>
+<dt><strong>gamma</strong><span class="classifier">float [-1 &lt;= gamma &lt;= 0]</span></dt><dd><p>Gamma, <span class="math notranslate nohighlight">\(\gamma\)</span>.</p>
+</dd>
 <dt><strong>n_iter</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Number of iterations.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.MelCepstralAnalysis.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mcep.html#MelCepstralAnalysis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MelCepstralAnalysis.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Estimate mel-cepstrum from spectrum.</p>
+<dt class="sig sig-object py" id="diffsptk.MelGeneralizedCepstralAnalysis.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mgcep.html#MelGeneralizedCepstralAnalysis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MelGeneralizedCepstralAnalysis.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Estimate mel-generalized cepstrum from spectrum.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -435,7 +443,7 @@ Toeplitz-plus-Hankel system solver.</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>mc</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Mel-cepstrum.</p>
+<dt><strong>mc</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Mel-generalized cepstrum.</p>
 </dd>
 </dl>
 </dd>
@@ -443,8 +451,8 @@ Toeplitz-plus-Hankel system solver.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">stft</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">STFT</span><span class="p">(</span><span class="n">frame_length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">frame_period</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fft_length</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mcep</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MelCepstralAnalysis</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mc</span> <span class="o">=</span> <span class="n">mcep</span><span class="p">(</span><span class="n">stft</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mgcep</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MelGeneralizedCepstralAnalysis</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mc</span> <span class="o">=</span> <span class="n">mgcep</span><span class="p">(</span><span class="n">stft</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mc</span>
 <span class="go">tensor([[-0.8851,  0.7917, -0.1737,  0.0175],</span>
 <span class="go">        [-0.3522,  4.4222, -1.0882, -0.0511]])</span>

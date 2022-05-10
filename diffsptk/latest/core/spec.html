@@ -410,7 +410,7 @@ for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2 [scalar]</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L_2\)</span>.</p>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2 [scalar]</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
 <dt><strong>out_format</strong><span class="classifier">[‘db’, ‘log-magnitude’, ‘magnitude’, ‘power’]</span></dt><dd><p>Output format.</p>
 </dd>
@@ -421,18 +421,20 @@ for details.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="diffsptk.Spectrum.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/spec.html#Spectrum.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Spectrum.forward" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/spec.html#Spectrum.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Spectrum.forward" title="Permalink to this definition">#</a></dt>
 <dd><p>Convert waveform to spectrum.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, L1)]</span></dt><dd><p>Framed waveform.</p>
+<dt><strong>b</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Framed waveform or numerator coefficients.</p>
+</dd>
+<dt><strong>a</strong><span class="classifier">Tensor [shape=(…, N+1)]</span></dt><dd><p>Denominator coefficients.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, L2/2+1)]</span></dt><dd><p>Spectrum.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>Spectrum.</p>
 </dd>
 </dl>
 </dd>
