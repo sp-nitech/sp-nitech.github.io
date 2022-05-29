@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>dequantize &#8212; diffsptk 0.3.0 documentation</title>
+    <title>pitch &#8212; diffsptk 0.3.0 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -29,10 +29,11 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="df2" href="df2.html" />
-    <link rel="prev" title="delta" href="delta.html" />
+    <link rel="next" title="pqmf" href="pqmf.html" />
+    <link rel="prev" title="phase" href="phase.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -160,8 +161,8 @@
    delta
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="dequantize.html">
    dequantize
   </a>
  </li>
@@ -325,8 +326,8 @@
    phase
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="pitch.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    pitch
   </a>
  </li>
@@ -419,62 +420,92 @@
               
               <div>
                 
-  <section id="dequantize">
-<span id="id1"></span><h1>dequantize<a class="headerlink" href="#dequantize" title="Permalink to this headline">#</a></h1>
+  <section id="pitch">
+<span id="id1"></span><h1>pitch<a class="headerlink" href="#pitch" title="Permalink to this headline">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.InverseUniformQuantization">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">InverseUniformQuantization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">abs_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bit</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantizer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mid-rise'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/dequantize.html#InverseUniformQuantization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.InverseUniformQuantization" title="Permalink to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/dequantize.html">this page</a>
-for details.</p>
+<dt class="sig sig-object py" id="diffsptk.Pitch">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">Pitch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'crepe'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'f0'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">opt</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/pitch.html#Pitch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Pitch" title="Permalink to this definition">#</a></dt>
+<dd><p>Pitch extraction module using external neural models.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>abs_max</strong><span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Absolute maximum value of input.</p>
+<dt><strong>frame_period</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Frame period, <span class="math notranslate nohighlight">\(P\)</span>.</p>
 </dd>
-<dt><strong>n_bit</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Number of quantization bits.</p>
+<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Sample rate in Hz.</p>
 </dd>
-<dt><strong>quantizer</strong><span class="classifier">[‘mid-rise’, ‘mid-tread’]</span></dt><dd><p>Quantizer.</p>
+<dt><strong>f_min</strong><span class="classifier">float &gt;= 0 [scalar]</span></dt><dd><p>Minimum frequency in Hz.</p>
+</dd>
+<dt><strong>f_max</strong><span class="classifier">float &lt;= sample_rate // 2 [scalar]</span></dt><dd><p>Maximum frequency in Hz.</p>
+</dd>
+<dt><strong>algorithm</strong><span class="classifier">[‘crepe’]</span></dt><dd><p>Algorithm.</p>
+</dd>
+<dt><strong>opt</strong><span class="classifier">str, Any [dict]</span></dt><dd><p>Algorithm-dependent options.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.InverseUniformQuantization.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/dequantize.html#InverseUniformQuantization.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.InverseUniformQuantization.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Dequantize input.</p>
+<dt class="sig sig-object py" id="diffsptk.Pitch.decode">
+<span class="sig-name descname"><span class="pre">decode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">prob</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/pitch.html#Pitch.decode"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Pitch.decode" title="Permalink to this definition">#</a></dt>
+<dd><p>Get appropriate pitch contour from pitch probabilities.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Quantized input.</p>
+<dt><strong>prob</strong><span class="classifier">Tensor [shape=(B, N, C) or (N, C)]</span></dt><dd><p>Pitch probabilitiy.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Dequantized input.</p>
+<dt><strong>pitch</strong><span class="classifier">Tensor [shape=(B, N) or (N,)]</span></dt><dd><p>Pitch in seconds, Hz, or log Hz.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
-<span class="go">tensor([-4., -3., -2., -1.,  0.,  1.,  2.,  3.,  4.])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">quantize</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">UniformQuantization</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">dequantize</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">InverseUniformQuantization</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span> <span class="o">=</span> <span class="n">dequantize</span><span class="p">(</span><span class="n">quantize</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span>
-<span class="go">tensor([-3., -3., -1., -1.,  1.,  1.,  3.,  3.,  3.])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pitch</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">pitch</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">16000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prob</span> <span class="o">=</span> <span class="n">pitch</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">pitch</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">prob</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">result</span>
+<span class="go">tensor([1586.6013, 1593.9536])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diffsptk.Pitch.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">embed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/pitch.html#Pitch.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Pitch.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Compute pitch representation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(B, T) or (T,)]</span></dt><dd><p>Waveform.</p>
+</dd>
+<dt><strong>embed</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If True, return embedding instead of probability.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(B, N, C) or (N, C)]</span></dt><dd><p>Pitch probability or embedding, where N is the number of frames and
+C is the number of classes or the dimension of embedding.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pitch</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">pitch</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">16000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prob</span> <span class="o">=</span> <span class="n">pitch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">prob</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">torch.Size([2, 360])</span>
 </pre></div>
 </div>
 </dd></dl>
 
 </dd></dl>
 
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="iulaw.html#iulaw"><span class="std std-ref">iulaw</span></a>  <a class="reference internal" href="quantize.html#quantize"><span class="std std-ref">quantize</span></a></p>
-</div>
 </section>
 
 
@@ -483,17 +514,17 @@ for details.</p>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="delta.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="phase.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">delta</p>
+            <p class="prev-next-title">phase</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="df2.html" title="next page">
+    <a class='right-next' id="next-link" href="pqmf.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">df2</p>
+        <p class="prev-next-title">pqmf</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
