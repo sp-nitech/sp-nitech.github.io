@@ -174,7 +174,7 @@
 <span class="sd">    algorithm : [&#39;crepe&#39;]</span>
 <span class="sd">        Algorithm.</span>
 
-<span class="sd">    opt : str, Any [dict]</span>
+<span class="sd">    option : str -&gt; Any [dict]</span>
 <span class="sd">        Algorithm-dependent options.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -187,7 +187,7 @@
         <span class="n">f_max</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">algorithm</span><span class="o">=</span><span class="s2">&quot;crepe&quot;</span><span class="p">,</span>
         <span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;f0&quot;</span><span class="p">,</span>
-        <span class="o">**</span><span class="n">opt</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">option</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Pitch</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
@@ -204,7 +204,7 @@
                 <span class="n">sample_rate</span><span class="p">,</span>
                 <span class="n">f_min</span><span class="o">=</span><span class="n">f_min</span><span class="p">,</span>
                 <span class="n">f_max</span><span class="o">=</span><span class="n">f_max</span><span class="p">,</span>
-                <span class="o">**</span><span class="n">opt</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">option</span><span class="p">,</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;algorithm </span><span class="si">{</span><span class="n">algorithm</span><span class="si">}</span><span class="s2"> is not supported&quot;</span><span class="p">)</span>

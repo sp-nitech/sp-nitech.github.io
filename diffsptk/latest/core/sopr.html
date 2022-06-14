@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>fftcep &#8212; diffsptk 0.3.0 documentation</title>
+    <title>sopr &#8212; diffsptk 0.3.0 documentation</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -29,11 +29,10 @@
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
     <script src="../_static/doctools.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="frame" href="frame.html" />
-    <link rel="prev" title="fbank" href="fbank.html" />
+    <link rel="next" title="spec" href="spec.html" />
+    <link rel="prev" title="snr" href="snr.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -181,8 +180,8 @@
    fbank
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="fftcep.html">
    fftcep
   </a>
  </li>
@@ -356,8 +355,8 @@
    snr
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="sopr.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    sopr
   </a>
  </li>
@@ -430,63 +429,53 @@
               
               <div>
                 
-  <section id="fftcep">
-<span id="id1"></span><h1>fftcep<a class="headerlink" href="#fftcep" title="Permalink to this headline">#</a></h1>
+  <section id="sopr">
+<span id="id1"></span><h1>sopr<a class="headerlink" href="#sopr" title="Permalink to this headline">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.CepstralAnalysis">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">CepstralAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cep_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">accel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/fftcep.html#CepstralAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.CepstralAnalysis" title="Permalink to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/fftcep.html">this page</a>
+<dt class="sig sig-object py" id="diffsptk.ScalarOperation">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">ScalarOperation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">operation</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">opt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/sopr.html#ScalarOperation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.ScalarOperation" title="Permalink to this definition">#</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/sopr.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>cep_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of cepstrum, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<dt><strong>operation</strong><span class="classifier">[‘Addition’, ‘Subtraction’, ‘Multiplication’, ‘Division’, ‘Remainder’,                  ‘Power’, ‘LowerBouding’, ‘UpperBouding’, ‘Absolute’, ‘Reciprocal’,                  ‘Square’, ‘SquareRoot’, ‘NaturalLogarithm’, ‘Logarithm2’,                  ‘Logarithm10’, ‘Logarithm’, ‘NaturalExponential’, ‘Exponential2’,                  ‘Exponential10’, ‘Exponential’, ‘Sine’, ‘Coine’, ‘Tangent’]</span></dt><dd><p>Operation.</p>
 </dd>
-<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2M [scalar]</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
-</dd>
-<dt><strong>n_iter</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Number of iterations.</p>
-</dd>
-<dt><strong>accel</strong><span class="classifier">float &gt;= 0 [scalar]</span></dt><dd><p>Acceleration factor.</p>
+<dt><strong>option</strong><span class="classifier">float [scalar]</span></dt><dd><p>Optional argument.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.CepstralAnalysis.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/fftcep.html#CepstralAnalysis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.CepstralAnalysis.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Estimate cepstrum from spectrum.</p>
+<dt class="sig sig-object py" id="diffsptk.ScalarOperation.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/sopr.html#ScalarOperation.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.ScalarOperation.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Perform scalar operation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>Power spectrum.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Input.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>v</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Cepstrum.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Output.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">stft</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">STFT</span><span class="p">(</span><span class="n">frame_length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">frame_period</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fft_length</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">fftcep</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">CepstralAnalysis</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">16</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">fftcep</span><span class="p">(</span><span class="n">stft</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c</span>
-<span class="go">tensor([[-0.9663,  0.8190, -0.0932, -0.0152],</span>
-<span class="go">        [-0.8539,  4.6173, -0.5496, -0.3207]])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sopr</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ScalarOperation</span><span class="p">(</span><span class="s2">&quot;Multiplication&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">sopr</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">tensor([0., 2., 4., 6., 8.])</span>
 </pre></div>
 </div>
 </dd></dl>
 
 </dd></dl>
 
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="cdist.html#cdist"><span class="std std-ref">cdist</span></a>  <a class="reference internal" href="stft.html#stft"><span class="std std-ref">stft</span></a>  <a class="reference internal" href="freqt.html#freqt"><span class="std std-ref">freqt</span></a>  <a class="reference internal" href="mgcep.html#mgcep"><span class="std std-ref">mgcep</span></a></p>
-</div>
 </section>
 
 
@@ -495,17 +484,17 @@ for details.</p>
               
               <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="fbank.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="snr.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">fbank</p>
+            <p class="prev-next-title">snr</p>
         </div>
     </a>
-    <a class='right-next' id="next-link" href="frame.html" title="next page">
+    <a class='right-next' id="next-link" href="spec.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">frame</p>
+        <p class="prev-next-title">spec</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
