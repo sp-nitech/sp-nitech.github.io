@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>spec &#8212; diffsptk 0.4.0 documentation</title>
 <script>
@@ -160,6 +160,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="cdist.html">
    cdist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cqt.html">
+   cqt
   </a>
  </li>
  <li class="toctree-l1">
@@ -459,17 +464,19 @@
 <span id="id1"></span><h1>spec<a class="headerlink" href="#spec" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.Spectrum">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">Spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'power'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/spec.html#Spectrum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Spectrum" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">Spectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'power'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative_floor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/spec.html#Spectrum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Spectrum" title="Permalink to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/spec.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>fft_length</strong><span class="classifier">int &gt;= 2 [scalar]</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
 <dt><strong>out_format</strong><span class="classifier">[‘db’, ‘log-magnitude’, ‘magnitude’, ‘power’]</span></dt><dd><p>Output format.</p>
 </dd>
 <dt><strong>eps</strong><span class="classifier">float &gt;= 0 [scalar]</span></dt><dd><p>A small value added to power spectrum.</p>
+</dd>
+<dt><strong>relative_floor</strong><span class="classifier">float &lt; 0 [scalar]</span></dt><dd><p>Relative floor in decibels.</p>
 </dd>
 </dl>
 </dd>
@@ -479,7 +486,7 @@ for details.</p>
 <span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">b</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">a</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/spec.html#Spectrum.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Spectrum.forward" title="Permalink to this definition">#</a></dt>
 <dd><p>Convert waveform to spectrum.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>b</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Framed waveform or numerator coefficients.</p>
 </dd>
@@ -487,7 +494,7 @@ for details.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>y</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>Spectrum.</p>
 </dd>
@@ -559,7 +566,7 @@ for details.</p>
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
 </p>
   </div>
   

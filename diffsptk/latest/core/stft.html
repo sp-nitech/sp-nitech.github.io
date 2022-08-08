@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>stft &#8212; diffsptk 0.4.0 documentation</title>
 <script>
@@ -160,6 +160,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="cdist.html">
    cdist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cqt.html">
+   cqt
   </a>
  </li>
  <li class="toctree-l1">
@@ -465,10 +470,10 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.ShortTermFourierTransform">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">ShortTermFourierTransform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zmean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'power'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'blackman'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'power'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-09</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/stft.html#ShortTermFourierTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.ShortTermFourierTransform" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">ShortTermFourierTransform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">zmean</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'power'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'blackman'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'power'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-09</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">relative_floor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/stft.html#ShortTermFourierTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.ShortTermFourierTransform" title="Permalink to this definition">#</a></dt>
 <dd><p>This module is a simple cascade of framing, windowing, and spectrum calculation.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>frame_length</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Frame length, <span class="math notranslate nohighlight">\(L_1\)</span>.</p>
 </dd>
@@ -486,6 +491,8 @@
 </dd>
 <dt><strong>eps</strong><span class="classifier">float &gt;= 0 [scalar]</span></dt><dd><p>A small value added to power spectrum.</p>
 </dd>
+<dt><strong>relative_floor</strong><span class="classifier">float &lt; 0 [scalar]</span></dt><dd><p>Relative floor in decibels.</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -494,13 +501,13 @@
 <span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/stft.html#ShortTermFourierTransform.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.ShortTermFourierTransform.forward" title="Permalink to this definition">#</a></dt>
 <dd><p>Compute short-term Fourier transform.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Waveform.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>y</strong><span class="classifier">Tensor [shape=(…, N, L/2+1)]</span></dt><dd><p>Spectrum.</p>
 </dd>
@@ -574,7 +581,7 @@
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
 </p>
   </div>
   

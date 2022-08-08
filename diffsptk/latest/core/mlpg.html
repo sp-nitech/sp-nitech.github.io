@@ -4,7 +4,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>mlpg &#8212; diffsptk 0.4.0 documentation</title>
 <script>
@@ -160,6 +160,11 @@
  <li class="toctree-l1">
   <a class="reference internal" href="cdist.html">
    cdist
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="cqt.html">
+   cqt
   </a>
  </li>
  <li class="toctree-l1">
@@ -465,11 +470,11 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.MaximumLikelihoodParameterGeneration">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MaximumLikelihoodParameterGeneration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[[-</span> <span class="pre">0.5,</span> <span class="pre">0,</span> <span class="pre">0.5],</span> <span class="pre">[1,</span> <span class="pre">-</span> <span class="pre">2,</span> <span class="pre">1]]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mlpg.html#MaximumLikelihoodParameterGeneration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MaximumLikelihoodParameterGeneration" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MaximumLikelihoodParameterGeneration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[[-0.5,</span> <span class="pre">0,</span> <span class="pre">0.5],</span> <span class="pre">[1,</span> <span class="pre">-2,</span> <span class="pre">1]]</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mlpg.html#MaximumLikelihoodParameterGeneration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MaximumLikelihoodParameterGeneration" title="Permalink to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/mlpg.html">this page</a>
 for details. Currently, only global unit variance is supported.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>size</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Length of input, <span class="math notranslate nohighlight">\(T\)</span>.</p>
 </dd>
@@ -483,13 +488,13 @@ for details. Currently, only global unit variance is supported.</p>
 <span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mean</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mlpg.html#MaximumLikelihoodParameterGeneration.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MaximumLikelihoodParameterGeneration.forward" title="Permalink to this definition">#</a></dt>
 <dd><p>Perform MLPG to obtain static sequence.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>mean</strong><span class="classifier">Tensor [shape=(…, T, DxH)]</span></dt><dd><p>Time-variant mean vectors with delta components.</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>c</strong><span class="classifier">Tensor [shape=(…, T, D)]</span></dt><dd><p>Static components.</p>
 </dd>
@@ -574,7 +579,7 @@ for details. Currently, only global unit variance is supported.</p>
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
 </p>
   </div>
   

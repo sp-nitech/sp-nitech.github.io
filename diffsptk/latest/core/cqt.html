@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>decimate &#8212; diffsptk 0.4.0 documentation</title>
+    <title>cqt &#8212; diffsptk 0.4.0 documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -37,8 +37,8 @@
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="delay" href="delay.html" />
-    <link rel="prev" title="dct" href="dct.html" />
+    <link rel="next" title="dct" href="dct.html" />
+    <link rel="prev" title="cdist" href="cdist.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="docsearch:language" content="en">
   </head>
@@ -162,8 +162,8 @@
    cdist
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="cqt.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    cqt
   </a>
  </li>
@@ -172,8 +172,8 @@
    dct
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="decimate.html">
    decimate
   </a>
  </li>
@@ -460,49 +460,68 @@
               
               <article class="bd-article" role="main">
                 
-  <section id="decimate">
-<span id="id1"></span><h1>decimate<a class="headerlink" href="#decimate" title="Permalink to this heading">#</a></h1>
+  <section id="cqt">
+<span id="id1"></span><h1>cqt<a class="headerlink" href="#cqt" title="Permalink to this heading">#</a></h1>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diffsptk.CQT">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">CQT</span></span><a class="headerlink" href="#diffsptk.CQT" title="Permalink to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="#diffsptk.ConstantQTransform" title="diffsptk.core.cqt.ConstantQTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">ConstantQTransform</span></code></a></p>
+</dd></dl>
+
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.Decimation">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">Decimation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/decimate.html#Decimation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Decimation" title="Permalink to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/decimate.html">this page</a>
-for details.</p>
+<dt class="sig sig-object py" id="diffsptk.ConstantQTransform">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">ConstantQTransform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">32.7</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bin_per_octave</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/cqt.html#ConstantQTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.ConstantQTransform" title="Permalink to this definition">#</a></dt>
+<dd><p>Perform constant-Q transform. The implementation is based on the simple
+matrix multiplication.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>period</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Decimation period, <span class="math notranslate nohighlight">\(P\)</span>.</p>
+<dt><strong>frame_peirod</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Frame period in samples.</p>
 </dd>
-<dt><strong>start</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Start point, <span class="math notranslate nohighlight">\(S\)</span>.</p>
+<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Sample rate in Hz.</p>
+</dd>
+<dt><strong>f_min</strong><span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Minimum center frequency in Hz.</p>
+</dd>
+<dt><strong>f_max</strong><span class="classifier">float &lt;= sample_rate // 2 [scalar]</span></dt><dd><p>Maximum center frequency in Hz.</p>
+</dd>
+<dt><strong>n_bin_per_octave</strong><span class="classifier">int &gt;= 1  [scalar]</span></dt><dd><p>number of bins per octave, <span class="math notranslate nohighlight">\(B\)</span>.</p>
 </dd>
 </dl>
 </dd>
 </dl>
+<p class="rubric">References</p>
+<div role="list" class="citation-list">
+<div class="citation" id="rfe917f9a50bb-1" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<p>J. C. Brown and M. S. Puckette, “An efficient algorithm for the
+calculation of a constant Q transform,” <em>Journal of the Acoustical
+Society of America</em>, vol. 92, no. 5, pp. 2698-2701, 1992.</p>
+</div>
+</div>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.Decimation.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/decimate.html#Decimation.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Decimation.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Decimate signal.</p>
+<dt class="sig sig-object py" id="diffsptk.ConstantQTransform.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/cqt.html#ConstantQTransform.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.ConstantQTransform.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Apply CQT to signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T, …)]</span></dt><dd><p>Signal.</p>
-</dd>
-<dt><strong>dim</strong><span class="classifier">int [scalar]</span></dt><dd><p>Dimension along which to decimate the tensors.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Signal.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, T/P-S, …)]</span></dt><dd><p>Decimated signal.</p>
+<dt><strong>X</strong><span class="classifier">Tensor [shape=(…, N, K)]</span></dt><dd><p>CQT complex output, where N is the number of frames and K is CQ-bin.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">decimate</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Decimation</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">decimate</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">tensor([1, 4, 7])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">99</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cqt</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">CQT</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="n">n_bin_per_octave</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">cqt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span>
+<span class="go">tensor([[0.1054, 0.1479, 0.1113, 0.0604, 0.0327, 0.0160, 0.0076]])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -511,7 +530,7 @@ for details.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="interpolate.html#interpolate"><span class="std std-ref">interpolate</span></a></p>
+<p><a class="reference internal" href="stft.html#stft"><span class="std std-ref">stft</span></a></p>
 </div>
 </section>
 
@@ -523,17 +542,17 @@ for details.</p>
               <footer class="bd-footer-article">
                   <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="dct.html" title="previous page">
+  <a class='left-prev' id="prev-link" href="cdist.html" title="previous page">
       <i class="fas fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">dct</p>
+          <p class="prev-next-title">cdist</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="delay.html" title="next page">
+  <a class='right-next' id="next-link" href="dct.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">delay</p>
+      <p class="prev-next-title">dct</p>
   </div>
   <i class="fas fa-angle-right"></i>
   </a>

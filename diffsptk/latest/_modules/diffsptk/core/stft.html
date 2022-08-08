@@ -204,6 +204,9 @@
 <span class="sd">    eps : float &gt;= 0 [scalar]</span>
 <span class="sd">        A small value added to power spectrum.</span>
 
+<span class="sd">    relative_floor : float &lt; 0 [scalar]</span>
+<span class="sd">        Relative floor in decibels.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
@@ -216,13 +219,19 @@
         <span class="n">window</span><span class="o">=</span><span class="s2">&quot;blackman&quot;</span><span class="p">,</span>
         <span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;power&quot;</span><span class="p">,</span>
         <span class="n">eps</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">,</span>
+        <span class="n">relative_floor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">ShortTermFourierTransform</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">stft</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
             <span class="n">Frame</span><span class="p">(</span><span class="n">frame_length</span><span class="p">,</span> <span class="n">frame_period</span><span class="p">,</span> <span class="n">zmean</span><span class="o">=</span><span class="n">zmean</span><span class="p">),</span>
             <span class="n">Window</span><span class="p">(</span><span class="n">frame_length</span><span class="p">,</span> <span class="n">fft_length</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">),</span>
-            <span class="n">Spectrum</span><span class="p">(</span><span class="n">fft_length</span><span class="p">,</span> <span class="n">out_format</span><span class="o">=</span><span class="n">out_format</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">),</span>
+            <span class="n">Spectrum</span><span class="p">(</span>
+                <span class="n">fft_length</span><span class="p">,</span>
+                <span class="n">out_format</span><span class="o">=</span><span class="n">out_format</span><span class="p">,</span>
+                <span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">,</span>
+                <span class="n">relative_floor</span><span class="o">=</span><span class="n">relative_floor</span><span class="p">,</span>
+            <span class="p">),</span>
         <span class="p">)</span>
 
 <div class="viewcode-block" id="ShortTermFourierTransform.forward"><a class="viewcode-back" href="../../../core/stft.html#diffsptk.ShortTermFourierTransform.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
@@ -285,7 +294,7 @@
   
   <div class="footer-item">
     <p class="sphinx-version">
-Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.0.2.<br>
+Created using <a href="http://sphinx-doc.org/">Sphinx</a> 5.1.1.<br>
 </p>
   </div>
   
