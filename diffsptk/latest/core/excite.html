@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>lpc &#8212; diffsptk 0.4.0 documentation</title>
+    <title>excite &#8212; diffsptk 0.4.0 documentation</title>
 <script>
   document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
   document.documentElement.dataset.theme = localStorage.getItem("theme") || "light"
@@ -37,8 +37,8 @@
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="lpc2par" href="lpc2par.html" />
-    <link rel="prev" title="linear_intpl" href="linear_intpl.html" />
+    <link rel="next" title="fbank" href="fbank.html" />
+    <link rel="prev" title="dfs" href="dfs.html" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <meta name="docsearch:language" content="en">
   </head>
@@ -202,8 +202,8 @@
    dfs
   </a>
  </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="excite.html">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
    excite
   </a>
  </li>
@@ -277,8 +277,8 @@
    linear_intpl
   </a>
  </li>
- <li class="toctree-l1 current active">
-  <a class="current reference internal" href="#">
+ <li class="toctree-l1">
+  <a class="reference internal" href="lpc.html">
    lpc
   </a>
  </li>
@@ -465,54 +465,47 @@
               
               <article class="bd-article" role="main">
                 
-  <section id="lpc">
-<span id="id1"></span><h1>lpc<a class="headerlink" href="#lpc" title="Permalink to this heading">#</a></h1>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="diffsptk.LPC">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">LPC</span></span><a class="headerlink" href="#diffsptk.LPC" title="Permalink to this definition">#</a></dt>
-<dd><p>alias of <a class="reference internal" href="#diffsptk.LinearPredictiveCodingAnalysis" title="diffsptk.core.lpc.LinearPredictiveCodingAnalysis"><code class="xref py py-class docutils literal notranslate"><span class="pre">LinearPredictiveCodingAnalysis</span></code></a></p>
-</dd></dl>
-
+  <section id="excite">
+<span id="id1"></span><h1>excite<a class="headerlink" href="#excite" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.LinearPredictiveCodingAnalysis">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">LinearPredictiveCodingAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lpc_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_length</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/lpc.html#LinearPredictiveCodingAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LinearPredictiveCodingAnalysis" title="Permalink to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/lpc.html">this page</a>
-for details. This module is a simple cascade of acorr and levdur.</p>
+<dt class="sig sig-object py" id="diffsptk.ExcitationGeneration">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">ExcitationGeneration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unvoiced_region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gauss'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/excite.html#ExcitationGeneration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.ExcitationGeneration" title="Permalink to this definition">#</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/excite.html">this page</a>
+for details. <strong>Note that this module cannot compute gradient</strong>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>lpc_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of LPC, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<dt><strong>frame_period</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Frame period in samples, <span class="math notranslate nohighlight">\(P\)</span>.</p>
 </dd>
-<dt><strong>frame_length</strong><span class="classifier">int &gt; M [scalar]</span></dt><dd><p>Frame length, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+<dt><strong>unvoiced_region</strong><span class="classifier">[‘gauss’, ‘zeros’]</span></dt><dd><p>Value on unvoiced region.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.LinearPredictiveCodingAnalysis.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/lpc.html#LinearPredictiveCodingAnalysis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LinearPredictiveCodingAnalysis.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Perform LPC analysis.</p>
+<dt class="sig sig-object py" id="diffsptk.ExcitationGeneration.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/excite.html#ExcitationGeneration.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.ExcitationGeneration.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Generate a simple excitation signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, L)]</span></dt><dd><p>Framed waveform</p>
+<dt><strong>p</strong><span class="classifier">Tensor [shape=(…, N)]</span></dt><dd><p>Pitch in seconds.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>a</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Gain and LPC coefficients.</p>
+<dt><strong>e</strong><span class="classifier">Tensor [shape=(…, NxP)]</span></dt><dd><p>Excitation signal.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="go">tensor([ 0.8226, -0.0284, -0.5715,  0.2127,  0.1217])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">lpc</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">LPC</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">lpc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
-<span class="go">tensor([0.8726, 0.1475, 0.5270])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">excite</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ExcitationGeneration</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="n">excite</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span>
+<span class="go">tensor([1.4142, 0.0000, 1.6330, 0.0000, 0.0000, 1.7321])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -521,7 +514,7 @@ for details. This module is a simple cascade of acorr and levdur.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="acorr.html#acorr"><span class="std std-ref">acorr</span></a>  <a class="reference internal" href="levdur.html#levdur"><span class="std std-ref">levdur</span></a>  <a class="reference internal" href="lpc2par.html#lpc2par"><span class="std std-ref">lpc2par</span></a>  <a class="reference internal" href="lpccheck.html#lpccheck"><span class="std std-ref">lpccheck</span></a></p>
+<p><a class="reference internal" href="pitch.html#pitch"><span class="std std-ref">pitch</span></a></p>
 </div>
 </section>
 
@@ -533,17 +526,17 @@ for details. This module is a simple cascade of acorr and levdur.</p>
               <footer class="bd-footer-article">
                   <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="linear_intpl.html" title="previous page">
+  <a class='left-prev' id="prev-link" href="dfs.html" title="previous page">
       <i class="fas fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">linear_intpl</p>
+          <p class="prev-next-title">dfs</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="lpc2par.html" title="next page">
+  <a class='right-next' id="next-link" href="fbank.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">lpc2par</p>
+      <p class="prev-next-title">fbank</p>
   </div>
   <i class="fas fa-angle-right"></i>
   </a>
