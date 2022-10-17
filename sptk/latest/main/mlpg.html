@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -201,7 +203,7 @@
            <div itemprop="articleBody">
              
   <section id="mlpg">
-<span id="id1"></span><h1>mlpg<a class="headerlink" href="#mlpg" title="Permalink to this headline"></a></h1>
+<span id="id1"></span><h1>mlpg<a class="headerlink" href="#mlpg" title="Permalink to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
@@ -273,7 +275,7 @@
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk45RecursiveMaximumLikelihoodParameterGenerationE">
-<span id="_CPPv3N4sptk45RecursiveMaximumLikelihoodParameterGenerationE"></span><span id="_CPPv2N4sptk45RecursiveMaximumLikelihoodParameterGenerationE"></span><span id="sptk::RecursiveMaximumLikelihoodParameterGeneration"></span><span class="target" id="classsptk_1_1RecursiveMaximumLikelihoodParameterGeneration"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">RecursiveMaximumLikelihoodParameterGeneration</span></span></span><a class="headerlink" href="#_CPPv4N4sptk45RecursiveMaximumLikelihoodParameterGenerationE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk45RecursiveMaximumLikelihoodParameterGenerationE"></span><span id="_CPPv2N4sptk45RecursiveMaximumLikelihoodParameterGenerationE"></span><span id="sptk::RecursiveMaximumLikelihoodParameterGeneration"></span><span class="target" id="classsptk_1_1RecursiveMaximumLikelihoodParameterGeneration"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">RecursiveMaximumLikelihoodParameterGeneration</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">InputSourceInterface</span></span><a class="headerlink" href="#_CPPv4N4sptk45RecursiveMaximumLikelihoodParameterGenerationE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Estimate the maximum likelihood parameters from the means and the diagonal covariances of Gaussian distributions.</p>
 <p>The input is the sequence of the mean and the diagnoal covariance of <span class="math notranslate nohighlight">\(M\)</span>-th order static and <span class="math notranslate nohighlight">\(DM\)</span>-th order dynamic feature components: <div class="math notranslate nohighlight">
 \[ \begin{array}{ccccc} \boldsymbol{\mu}_1, &amp; \boldsymbol{\varSigma}_1, &amp; \ldots, &amp; \boldsymbol{\mu}_T, &amp; \boldsymbol{\varSigma}_T, \end{array} \]</div>
@@ -321,8 +323,18 @@
 </dd></dl>
 
 <dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7GetSizeEv">
+<span id="_CPPv3NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7GetSizeEv"></span><span id="_CPPv2NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7GetSizeEv"></span><span id="sptk::RecursiveMaximumLikelihoodParameterGeneration::GetSizeC"></span><span class="target" id="classsptk_1_1RecursiveMaximumLikelihoodParameterGeneration_1a9565cc08abb118cd0647c7541a6ab03d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetSize</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7GetSizeEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Output size. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7IsValidEv">
-<span id="_CPPv3NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7IsValidEv"></span><span id="_CPPv2NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7IsValidEv"></span><span id="sptk::RecursiveMaximumLikelihoodParameterGeneration::IsValidC"></span><span class="target" id="classsptk_1_1RecursiveMaximumLikelihoodParameterGeneration_1acdbcc3ed2f5dd79ecfd5e1c17e18b874"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7IsValidEv"></span><span id="_CPPv2NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7IsValidEv"></span><span id="sptk::RecursiveMaximumLikelihoodParameterGeneration::IsValidC"></span><span class="target" id="classsptk_1_1RecursiveMaximumLikelihoodParameterGeneration_1a6a801738666bc0ccac605032d4405916"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -332,7 +344,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk45RecursiveMaximumLikelihoodParameterGeneration3GetEPNSt6vectorIdEE">
-<span id="_CPPv3N4sptk45RecursiveMaximumLikelihoodParameterGeneration3GetEPNSt6vectorIdEE"></span><span id="_CPPv2N4sptk45RecursiveMaximumLikelihoodParameterGeneration3GetEPNSt6vectorIdEE"></span><span id="sptk::RecursiveMaximumLikelihoodParameterGeneration::Get__std::vector:double:P"></span><span class="target" id="classsptk_1_1RecursiveMaximumLikelihoodParameterGeneration_1ade65f5d778ca516fd3a5762620f68dd2"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">smoothed_static_parameters</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk45RecursiveMaximumLikelihoodParameterGeneration3GetEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk45RecursiveMaximumLikelihoodParameterGeneration3GetEPNSt6vectorIdEE"></span><span id="_CPPv2N4sptk45RecursiveMaximumLikelihoodParameterGeneration3GetEPNSt6vectorIdEE"></span><span id="sptk::RecursiveMaximumLikelihoodParameterGeneration::Get__std::vector:double:P"></span><span class="target" id="classsptk_1_1RecursiveMaximumLikelihoodParameterGeneration_1a5da3f55fc10890d359e7beb7dd172594"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">smoothed_static_parameters</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk45RecursiveMaximumLikelihoodParameterGeneration3GetEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>smoothed_static_parameters</strong> – <strong>[out]</strong> Smoothed static parameters. </p>
@@ -348,7 +360,7 @@
 
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk48NonrecursiveMaximumLikelihoodParameterGenerationE">
-<span id="_CPPv3N4sptk48NonrecursiveMaximumLikelihoodParameterGenerationE"></span><span id="_CPPv2N4sptk48NonrecursiveMaximumLikelihoodParameterGenerationE"></span><span id="sptk::NonrecursiveMaximumLikelihoodParameterGeneration"></span><span class="target" id="classsptk_1_1NonrecursiveMaximumLikelihoodParameterGeneration"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">NonrecursiveMaximumLikelihoodParameterGeneration</span></span></span><a class="headerlink" href="#_CPPv4N4sptk48NonrecursiveMaximumLikelihoodParameterGenerationE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk48NonrecursiveMaximumLikelihoodParameterGenerationE"></span><span id="_CPPv2N4sptk48NonrecursiveMaximumLikelihoodParameterGenerationE"></span><span id="sptk::NonrecursiveMaximumLikelihoodParameterGeneration"></span><span class="target" id="classsptk_1_1NonrecursiveMaximumLikelihoodParameterGeneration"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NonrecursiveMaximumLikelihoodParameterGeneration</span></span></span><a class="headerlink" href="#_CPPv4N4sptk48NonrecursiveMaximumLikelihoodParameterGenerationE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Estimate the maximum likelihood parameters from the means and the diagonal covariances of Gaussian distributions.</p>
 <p>The input is the sequence of the mean and the diagnoal covariance of <span class="math notranslate nohighlight">\(M\)</span>-th order static and <span class="math notranslate nohighlight">\(DM\)</span>-th order dynamic feature components: <div class="math notranslate nohighlight">
 \[ \begin{array}{ccccc} \boldsymbol{\mu}_1, &amp; \boldsymbol{\varSigma}_1, &amp; \ldots, &amp; \boldsymbol{\mu}_T, &amp; \boldsymbol{\varSigma}_T, \end{array} \]</div>

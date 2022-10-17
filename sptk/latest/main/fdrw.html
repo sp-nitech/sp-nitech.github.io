@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -68,7 +70,14 @@
 <li class="toctree-l1"><a class="reference internal" href="extract.html">extract</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fd.html">fd</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">fdrw</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">fdrw</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">fdrw</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#fdrw.get_arguments"><code class="docutils literal notranslate"><span class="pre">fdrw.get_arguments()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fdrw.main"><code class="docutils literal notranslate"><span class="pre">fdrw.main()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fft2.html">fft2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
@@ -200,7 +209,7 @@
            <div itemprop="articleBody">
              
   <section id="fdrw">
-<span id="id1"></span><h1>fdrw<a class="headerlink" href="#fdrw" title="Permalink to this headline"></a></h1>
+<span id="id1"></span><h1>fdrw<a class="headerlink" href="#fdrw" title="Permalink to this heading"></a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="id0">
 <span class="target" id="namespacefdrw"></span><em class="property"><span class="pre">module</span> </em><span class="sig-name descname"><span class="pre">fdrw</span></span><a class="headerlink" href="#id0" title="Permalink to this definition"></a></dt>
@@ -268,8 +277,12 @@
 <li><p>comma-separated graph names</p></li>
 </ul>
 </p></li>
+<li><p><strong>-xbias</strong> <em>float</em> <ul>
+<li><p>bias of x-axis</p></li>
+</ul>
+</p></li>
 <li><p><strong>-xscale</strong> <em>float</em> <ul>
-<li><p>scale of x-axis (upper limit value)</p></li>
+<li><p>scale of x-axis</p></li>
 </ul>
 </p></li>
 <li><p><strong>-ls</strong> <em>str</em> <ul>
@@ -280,7 +293,7 @@
 <li><p>line color</p></li>
 </ul>
 </p></li>
-<li><p><strong>-lw</strong> <em>int</em> <ul>
+<li><p><strong>-lw</strong> <em>float</em> <ul>
 <li><p>line width</p></li>
 </ul>
 </p></li>
@@ -292,7 +305,7 @@
 <li><p>marker color</p></li>
 </ul>
 </p></li>
-<li><p><strong>-mw</strong> <em>int</em> <ul>
+<li><p><strong>-mw</strong> <em>float</em> <ul>
 <li><p>marker size</p></li>
 </ul>
 </p></li>
@@ -300,8 +313,16 @@
 <li><p>marker line color</p></li>
 </ul>
 </p></li>
-<li><p><strong>-mlw</strong> <em>int</em> <ul>
+<li><p><strong>-mlw</strong> <em>float</em> <ul>
 <li><p>marker line width</p></li>
+</ul>
+</p></li>
+<li><p><strong>-ff</strong> <em>str</em> <ul>
+<li><p>font family</p></li>
+</ul>
+</p></li>
+<li><p><strong>-fs</strong> <em>int</em> <ul>
+<li><p>font size</p></li>
 </ul>
 </p></li>
 <li><p><strong>infile</strong> <em>str</em> <ul>

@@ -14,7 +14,9 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -201,7 +203,7 @@
            <div itemprop="articleBody">
              
   <section id="delta">
-<span id="id1"></span><h1>delta<a class="headerlink" href="#delta" title="Permalink to this headline"></a></h1>
+<span id="id1"></span><h1>delta<a class="headerlink" href="#delta" title="Permalink to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
@@ -284,7 +286,7 @@ delta -l <span class="m">15</span> -D delta.win -D accel.win &lt; data.d &gt; da
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk16DeltaCalculationE">
-<span id="_CPPv3N4sptk16DeltaCalculationE"></span><span id="_CPPv2N4sptk16DeltaCalculationE"></span><span id="sptk::DeltaCalculation"></span><span class="target" id="classsptk_1_1DeltaCalculation"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-prename descclassname"><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span></span><span class="sig-name descname"><span class="n"><span class="pre">DeltaCalculation</span></span></span><a class="headerlink" href="#_CPPv4N4sptk16DeltaCalculationE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk16DeltaCalculationE"></span><span id="_CPPv2N4sptk16DeltaCalculationE"></span><span id="sptk::DeltaCalculation"></span><span class="target" id="classsptk_1_1DeltaCalculation"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DeltaCalculation</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">InputSourceInterface</span></span><a class="headerlink" href="#_CPPv4N4sptk16DeltaCalculationE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Calculate derivatives.</p>
 <p>The input is the <span class="math notranslate nohighlight">\(M\)</span>-th order static feature components: <div class="math notranslate nohighlight">
 \[ \begin{array}{cccc} x_t(0), &amp; x_t(1), &amp; \ldots, &amp; x_t(M), \end{array} \]</div>
@@ -333,8 +335,18 @@ delta -l <span class="m">15</span> -D delta.win -D accel.win &lt; data.d &gt; da
 </dd></dl>
 
 <dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk16DeltaCalculation7GetSizeEv">
+<span id="_CPPv3NK4sptk16DeltaCalculation7GetSizeEv"></span><span id="_CPPv2NK4sptk16DeltaCalculation7GetSizeEv"></span><span id="sptk::DeltaCalculation::GetSizeC"></span><span class="target" id="classsptk_1_1DeltaCalculation_1acdb89ff48f930fdb6b94639d3d9d4a8a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetSize</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16DeltaCalculation7GetSizeEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Output size. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk16DeltaCalculation7IsValidEv">
-<span id="_CPPv3NK4sptk16DeltaCalculation7IsValidEv"></span><span id="_CPPv2NK4sptk16DeltaCalculation7IsValidEv"></span><span id="sptk::DeltaCalculation::IsValidC"></span><span class="target" id="classsptk_1_1DeltaCalculation_1ae0683059f99153a17ee3a81721c30243"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16DeltaCalculation7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk16DeltaCalculation7IsValidEv"></span><span id="_CPPv2NK4sptk16DeltaCalculation7IsValidEv"></span><span id="sptk::DeltaCalculation::IsValidC"></span><span class="target" id="classsptk_1_1DeltaCalculation_1a17f30fa8b371c70f997872c9ac4c9e87"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16DeltaCalculation7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -344,7 +356,7 @@ delta -l <span class="m">15</span> -D delta.win -D accel.win &lt; data.d &gt; da
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk16DeltaCalculation3GetEPNSt6vectorIdEE">
-<span id="_CPPv3N4sptk16DeltaCalculation3GetEPNSt6vectorIdEE"></span><span id="_CPPv2N4sptk16DeltaCalculation3GetEPNSt6vectorIdEE"></span><span id="sptk::DeltaCalculation::Get__std::vector:double:P"></span><span class="target" id="classsptk_1_1DeltaCalculation_1ae368710f06a5a3d9a351263daa386df7"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">delta</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk16DeltaCalculation3GetEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk16DeltaCalculation3GetEPNSt6vectorIdEE"></span><span id="_CPPv2N4sptk16DeltaCalculation3GetEPNSt6vectorIdEE"></span><span id="sptk::DeltaCalculation::Get__std::vector:double:P"></span><span class="target" id="classsptk_1_1DeltaCalculation_1a5f0ad998c8b98a3803e3619b583420b9"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">delta</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk16DeltaCalculation3GetEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><p><strong>delta</strong> – <strong>[out]</strong> Delta components. </p>
