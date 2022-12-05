@@ -6,29 +6,30 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>diffsptk.core.pitch &#8212; diffsptk 0.5.0 documentation</title>
-  <script>
+  
+  
+  
+  <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
     document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../../_static/styles/theme.css?digest=1e1de1a1873e13ef5536" rel="stylesheet">
-<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=1e1de1a1873e13ef5536" rel="stylesheet">
+  <link href="../../../_static/styles/theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../../_static/styles/bootstrap.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=796348d33e8b1d947c94" rel="stylesheet">
 
   
-  <link rel="stylesheet"
-    href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
+  <link href="../../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=796348d33e8b1d947c94" rel="stylesheet">
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2">
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2">
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=1e1de1a1873e13ef5536">
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94">
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94">
 
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/jquery.js"></script>
@@ -45,6 +46,10 @@
   
   
   <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="180" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
   
   <input type="checkbox" class="sidebar-toggle" name="__primary" id="__primary">
@@ -107,18 +112,18 @@
     </p>
     <ul id="navbar-main-elements" class="navbar-nav">
         
-                <li class="nav-item">
-                    <a class="nav-link" href="../../../core/index.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../core/index.html">
                         Core API
-                    </a>
-                </li>
+                      </a>
+                    </li>
                 
 
-                <li class="nav-item">
-                    <a class="nav-link" href="../../../misc/index.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../misc/index.html">
                         Misc
-                    </a>
-                </li>
+                      </a>
+                    </li>
                 
     </ul>
 </nav>
@@ -127,19 +132,21 @@
     </div>
 
     <div id="navbar-end">
-      <div class="navbar-end-item navbar-end__search-button-container">
-        
-<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" data-toggle="tooltip">
+      
+        <div class="navbar-end-item navbar-persistent--container">
+          
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
   <i class="fa-solid fa-magnifying-glass"></i>
 </button>
-      </div>
+        </div>
+      
       
       <div class="navbar-end-item">
-        <span class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" data-toggle="tooltip">
-    <a class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></a>
-    <a class="theme-switch" data-mode="dark"><i class="fa-regular fa-moon"></i></a>
-    <a class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></a>
-</span>
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
       </div>
       
       <div class="navbar-end-item">
@@ -152,11 +159,13 @@
 
 
   
-  <div class="search-button-container--mobile">
-<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" data-toggle="tooltip">
+  
+    <div class="navbar-persistent--mobile">
+<button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-toggle="tooltip">
   <i class="fa-solid fa-magnifying-glass"></i>
 </button>
-  </div>
+    </div>
+  
 
   
   <label class="sidebar-toggle secondary-toggle" for="__secondary">
@@ -186,18 +195,18 @@
     </p>
     <ul id="navbar-main-elements" class="navbar-nav">
         
-                <li class="nav-item">
-                    <a class="nav-link" href="../../../core/index.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../core/index.html">
                         Core API
-                    </a>
-                </li>
+                      </a>
+                    </li>
                 
 
-                <li class="nav-item">
-                    <a class="nav-link" href="../../../misc/index.html">
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../../../misc/index.html">
                         Misc
-                    </a>
-                </li>
+                      </a>
+                    </li>
                 
     </ul>
 </nav>
@@ -211,11 +220,11 @@
     <div class="sidebar-header-items__end">
       
       <div class="navbar-end-item">
-        <span class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" data-toggle="tooltip">
-    <a class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></a>
-    <a class="theme-switch" data-mode="dark"><i class="fa-regular fa-moon"></i></a>
-    <a class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></a>
-</span>
+        <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+</button>
       </div>
       
       <div class="navbar-end-item">
@@ -235,8 +244,11 @@
     </div>
   </div>
 
+  
+  <div id="rtd-footer-container"></div>
+
       </div>
-      <main class="bd-main">
+      <main id="main-content" class="bd-main">
         
         
         <div class="bd-content">
@@ -266,11 +278,18 @@
 <span class="c1"># limitations under the License.                                           #</span>
 <span class="c1"># ------------------------------------------------------------------------ #</span>
 
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">ABCMeta</span>
+<span class="kn">from</span> <span class="nn">abc</span> <span class="kn">import</span> <span class="n">abstractmethod</span>
+
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 <span class="kn">import</span> <span class="nn">torchcrepe</span>
 
+<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">is_in</span>
 <span class="kn">from</span> <span class="nn">.frame</span> <span class="kn">import</span> <span class="n">Frame</span>
+<span class="kn">from</span> <span class="nn">.stft</span> <span class="kn">import</span> <span class="n">ShortTermFourierTransform</span>
+
+<span class="n">MAGIC_NUMBER_FOR_UNVOICED_FRAME</span> <span class="o">=</span> <span class="mi">0</span>
 
 
 <div class="viewcode-block" id="Pitch"><a class="viewcode-back" href="../../../core/pitch.html#diffsptk.Pitch">[docs]</a><span class="k">class</span> <span class="nc">Pitch</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
@@ -284,17 +303,29 @@
 <span class="sd">    sample_rate : int &gt;= 1 [scalar]</span>
 <span class="sd">        Sample rate in Hz.</span>
 
+<span class="sd">    algorithm : [&#39;crepe&#39;]</span>
+<span class="sd">        Algorithm.</span>
+
+<span class="sd">    out_format : [&#39;prob&#39;, &#39;embed&#39;, &#39;pitch&#39;, &#39;f0&#39;, &#39;lf0&#39;]</span>
+<span class="sd">        Output format.</span>
+
 <span class="sd">    f_min : float &gt;= 0 [scalar]</span>
 <span class="sd">        Minimum frequency in Hz.</span>
 
 <span class="sd">    f_max : float &lt;= sample_rate // 2 [scalar]</span>
 <span class="sd">        Maximum frequency in Hz.</span>
 
-<span class="sd">    algorithm : [&#39;crepe&#39;]</span>
-<span class="sd">        Algorithm.</span>
+<span class="sd">    threshold : float [scalar]</span>
+<span class="sd">        Voiced/unvoiced threshold.</span>
 
-<span class="sd">    option : str -&gt; Any [dict]</span>
-<span class="sd">        Algorithm-dependent options.</span>
+<span class="sd">    silence_threshold : float [scalar]</span>
+<span class="sd">        Silence threshold in dB.</span>
+
+<span class="sd">    filter_length : int &gt;= 1 [scalar]</span>
+<span class="sd">        Window length of median and moving average filters.</span>
+
+<span class="sd">    model : [&#39;tiny&#39;, &#39;full&#39;]</span>
+<span class="sd">        Model size.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -302,42 +333,35 @@
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">frame_period</span><span class="p">,</span>
         <span class="n">sample_rate</span><span class="p">,</span>
-        <span class="n">f_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-        <span class="n">f_max</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">algorithm</span><span class="o">=</span><span class="s2">&quot;crepe&quot;</span><span class="p">,</span>
-        <span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;f0&quot;</span><span class="p">,</span>
-        <span class="o">**</span><span class="n">option</span><span class="p">,</span>
+        <span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;pitch&quot;</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">Pitch</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">frame_period</span>
         <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">sample_rate</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">f_min</span>
-        <span class="k">if</span> <span class="n">f_max</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="k">assert</span> <span class="n">f_min</span> <span class="o">&lt;</span> <span class="n">f_max</span>
-            <span class="k">assert</span> <span class="n">f_max</span> <span class="o">&lt;=</span> <span class="n">sample_rate</span> <span class="o">/</span> <span class="mi">2</span>
 
         <span class="k">if</span> <span class="n">algorithm</span> <span class="o">==</span> <span class="s2">&quot;crepe&quot;</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">algorithm</span> <span class="o">=</span> <span class="n">PitchExtractionByCrepe</span><span class="p">(</span>
-                <span class="n">frame_period</span><span class="p">,</span>
-                <span class="n">sample_rate</span><span class="p">,</span>
-                <span class="n">f_min</span><span class="o">=</span><span class="n">f_min</span><span class="p">,</span>
-                <span class="n">f_max</span><span class="o">=</span><span class="n">f_max</span><span class="p">,</span>
-                <span class="o">**</span><span class="n">option</span><span class="p">,</span>
-            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">extractor</span> <span class="o">=</span> <span class="n">PitchExtractionByCrepe</span><span class="p">(</span><span class="n">frame_period</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;algorithm </span><span class="si">{</span><span class="n">algorithm</span><span class="si">}</span><span class="s2"> is not supported&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">out_format</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;pitch&quot;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">convert</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">sample_rate</span> <span class="o">/</span> <span class="n">x</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">out_format</span> <span class="o">=</span> <span class="s2">&quot;pitch&quot;</span>
         <span class="k">elif</span> <span class="n">out_format</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;f0&quot;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">convert</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">out_format</span> <span class="o">=</span> <span class="s2">&quot;f0&quot;</span>
         <span class="k">elif</span> <span class="n">out_format</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;lf0&quot;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">convert</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">out_format</span> <span class="o">=</span> <span class="s2">&quot;lf0&quot;</span>
+        <span class="k">elif</span> <span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;prob&quot;</span> <span class="ow">or</span> <span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;embed&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">out_format</span> <span class="o">=</span> <span class="n">out_format</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;out_format </span><span class="si">{</span><span class="n">out_format</span><span class="si">}</span><span class="s2"> is not supported&quot;</span><span class="p">)</span>
 
-<div class="viewcode-block" id="Pitch.forward"><a class="viewcode-back" href="../../../core/pitch.html#diffsptk.Pitch.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="Pitch.forward"><a class="viewcode-back" href="../../../core/pitch.html#diffsptk.Pitch.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Compute pitch representation.</span>
 
 <span class="sd">        Parameters</span>
@@ -345,82 +369,136 @@
 <span class="sd">        x : Tensor [shape=(B, T) or (T,)]</span>
 <span class="sd">            Waveform.</span>
 
-<span class="sd">        embed : bool [scalar]</span>
-<span class="sd">            If True, return embedding instead of probability.</span>
-
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        y : Tensor [shape=(B, N, C) or (N, C)]</span>
-<span class="sd">            Pitch probability or embedding, where N is the number of frames and</span>
-<span class="sd">            C is the number of classes or the dimension of embedding.</span>
+<span class="sd">        y : Tensor [shape=(B, N, C) or (N, C) or (B, N) or (N,)]</span>
+<span class="sd">            Pitch probability, embedding, or pitch, where N is the number of frames</span>
+<span class="sd">            and C is the number of pitch classes or the dimension of embedding.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
 <span class="sd">        &gt;&gt;&gt; x = diffsptk.sin(100, 10)</span>
-<span class="sd">        &gt;&gt;&gt; pitch = diffsptk.pitch(80, 16000)</span>
-<span class="sd">        &gt;&gt;&gt; prob = pitch(x)</span>
-<span class="sd">        &gt;&gt;&gt; prob.shape</span>
-<span class="sd">        torch.Size([2, 360])</span>
+<span class="sd">        &gt;&gt;&gt; pitch = diffsptk.Pitch(80, 16000)</span>
+<span class="sd">        &gt;&gt;&gt; y = pitch(x)</span>
+<span class="sd">        &gt;&gt;&gt; y</span>
+<span class="sd">        tensor([1586.6013, 1593.9536])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">d</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
         <span class="k">assert</span> <span class="n">x</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">algorithm</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="n">embed</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;prob&quot;</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extractor</span><span class="o">.</span><span class="n">calc_prob</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;embed&quot;</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extractor</span><span class="o">.</span><span class="n">calc_embed</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extractor</span><span class="o">.</span><span class="n">calc_pitch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+                <span class="n">mask</span> <span class="o">=</span> <span class="n">y</span> <span class="o">!=</span> <span class="n">MAGIC_NUMBER_FOR_UNVOICED_FRAME</span>
+                <span class="n">y</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="n">mask</span><span class="p">])</span>
+                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;lf0&quot;</span><span class="p">:</span>
+                    <span class="n">y</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1e10</span>
+
         <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">y</span></div>
+        <span class="k">return</span> <span class="n">y</span></div></div>
 
-<div class="viewcode-block" id="Pitch.decode"><a class="viewcode-back" href="../../../core/pitch.html#diffsptk.Pitch.decode">[docs]</a>    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prob</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Get appropriate pitch contour from pitch probabilities.</span>
+
+<span class="k">class</span> <span class="nc">PitchExtractionInterface</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">ABCMeta</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Abstract class for pitch extraction.&quot;&quot;&quot;</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">calc_prob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculate pitch probability.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        prob : Tensor [shape=(B, N, C) or (N, C)]</span>
-<span class="sd">            Pitch probabilitiy.</span>
+<span class="sd">        x : Tensor [shape=(B, T)]</span>
+<span class="sd">            Waveform.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        pitch : Tensor [shape=(B, N) or (N,)]</span>
-<span class="sd">            Pitch in seconds, Hz, or log Hz.</span>
-
-<span class="sd">        Examples</span>
-<span class="sd">        --------</span>
-<span class="sd">        &gt;&gt;&gt; x = diffsptk.sin(100, 10)</span>
-<span class="sd">        &gt;&gt;&gt; pitch = diffsptk.pitch(80, 16000)</span>
-<span class="sd">        &gt;&gt;&gt; prob = pitch.forward(x)</span>
-<span class="sd">        &gt;&gt;&gt; result = pitch.decode(prob)</span>
-<span class="sd">        &gt;&gt;&gt; result</span>
-<span class="sd">        tensor([1586.6013, 1593.9536])</span>
+<span class="sd">        y : Tensor [shape=(B, N, C)]</span>
+<span class="sd">            Probability, where C is the number of pitch classes.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
-            <span class="n">d</span> <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span>
-            <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-                <span class="n">prob</span> <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-            <span class="k">assert</span> <span class="n">prob</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span>
-            <span class="n">pitch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">algorithm</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="n">prob</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
-                <span class="n">pitch</span> <span class="o">=</span> <span class="n">pitch</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-            <span class="n">pitch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="n">pitch</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">pitch</span></div></div>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">calc_embed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculate embedding.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x : Tensor [shape=(B, T)]</span>
+<span class="sd">            Waveform.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        y : Tensor [shape=(B, N, D)]</span>
+<span class="sd">            Embedding, where D is the dimension of embedding.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+    <span class="nd">@abstractmethod</span>
+    <span class="k">def</span> <span class="nf">calc_pitch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Calculate pitch sequence.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x : Tensor [shape=(B, T)]</span>
+<span class="sd">            Waveform.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        y : Tensor [shape=(B, N)]</span>
+<span class="sd">            F0 sequence.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
 
 
-<span class="k">class</span> <span class="nc">PitchExtractionByCrepe</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frame_period</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">,</span> <span class="n">f_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">f_max</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">&quot;full&quot;</span><span class="p">):</span>
+<span class="k">class</span> <span class="nc">PitchExtractionByCrepe</span><span class="p">(</span><span class="n">PitchExtractionInterface</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Pitch extraction by CREPE.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">frame_period</span><span class="p">,</span>
+        <span class="n">sample_rate</span><span class="p">,</span>
+        <span class="n">f_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">f_max</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">threshold</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span>
+        <span class="n">silence_threshold</span><span class="o">=-</span><span class="mi">60</span><span class="p">,</span>
+        <span class="n">filter_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+        <span class="n">model</span><span class="o">=</span><span class="s2">&quot;full&quot;</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">PitchExtractionByCrepe</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">f_min</span> <span class="o">=</span> <span class="n">f_min</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">f_max</span> <span class="o">=</span> <span class="n">torchcrepe</span><span class="o">.</span><span class="n">MAX_FMAX</span> <span class="k">if</span> <span class="n">f_max</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">f_max</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span> <span class="o">=</span> <span class="n">threshold</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">silence_threshold</span> <span class="o">=</span> <span class="n">silence_threshold</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">filter_length</span> <span class="o">=</span> <span class="n">filter_length</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
+
+        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">f_min</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">f_max</span> <span class="o">&lt;=</span> <span class="n">sample_rate</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="k">assert</span> <span class="n">is_in</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;tiny&quot;</span><span class="p">,</span> <span class="s2">&quot;full&quot;</span><span class="p">])</span>
 
         <span class="k">if</span> <span class="n">sample_rate</span> <span class="o">!=</span> <span class="n">torchcrepe</span><span class="o">.</span><span class="n">SAMPLE_RATE</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Only </span><span class="si">{</span><span class="n">torchcrepe</span><span class="o">.</span><span class="n">SAMPLE_RATE</span><span class="si">}</span><span class="s2"> Hz is supported&quot;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="n">torchcrepe</span><span class="o">.</span><span class="n">WINDOW_SIZE</span><span class="p">,</span> <span class="n">frame_period</span><span class="p">,</span> <span class="n">zmean</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">stft</span> <span class="o">=</span> <span class="n">ShortTermFourierTransform</span><span class="p">(</span>
+            <span class="n">torchcrepe</span><span class="o">.</span><span class="n">WINDOW_SIZE</span><span class="p">,</span>
+            <span class="n">frame_period</span><span class="p">,</span>
+            <span class="n">torchcrepe</span><span class="o">.</span><span class="n">WINDOW_SIZE</span><span class="p">,</span>
+            <span class="n">norm</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+            <span class="n">window</span><span class="o">=</span><span class="s2">&quot;hanning&quot;</span><span class="p">,</span>
+            <span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;db&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="n">torchcrepe</span><span class="o">.</span><span class="n">loudness</span><span class="o">.</span><span class="n">perceptual_weights</span><span class="p">()</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
         <span class="c1"># torchcrepe.preprocess</span>
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">/</span> <span class="n">torch</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="nb">min</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">)</span>
@@ -432,9 +510,38 @@
         <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="n">B</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">y</span>
 
-    <span class="k">def</span> <span class="nf">decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prob</span><span class="p">):</span>
-        <span class="n">prob</span> <span class="o">=</span> <span class="n">prob</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-        <span class="n">pitch</span> <span class="o">=</span> <span class="n">torchcrepe</span><span class="o">.</span><span class="n">postprocess</span><span class="p">(</span><span class="n">prob</span><span class="p">,</span> <span class="n">fmin</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">f_min</span><span class="p">,</span> <span class="n">fmax</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">f_max</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">calc_prob</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">calc_embed</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">calc_pitch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+        <span class="c1"># Compute pitch probabilities.</span>
+        <span class="n">prob</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">calc_prob</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="c1"># Decode pitch probabilities.</span>
+        <span class="n">pitch</span><span class="p">,</span> <span class="n">periodicity</span> <span class="o">=</span> <span class="n">torchcrepe</span><span class="o">.</span><span class="n">postprocess</span><span class="p">(</span>
+            <span class="n">prob</span><span class="p">,</span>
+            <span class="n">fmin</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">f_min</span><span class="p">,</span>
+            <span class="n">fmax</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">f_max</span><span class="p">,</span>
+            <span class="n">decoder</span><span class="o">=</span><span class="n">torchcrepe</span><span class="o">.</span><span class="n">decode</span><span class="o">.</span><span class="n">viterbi</span><span class="p">,</span>
+            <span class="n">return_harmonicity</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">return_periodicity</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Apply filters.</span>
+        <span class="n">periodicity</span> <span class="o">=</span> <span class="n">torchcrepe</span><span class="o">.</span><span class="n">filter</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">periodicity</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_length</span><span class="p">)</span>
+        <span class="n">pitch</span> <span class="o">=</span> <span class="n">torchcrepe</span><span class="o">.</span><span class="n">filter</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">pitch</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">filter_length</span><span class="p">)</span>
+
+        <span class="c1"># Decide voiced/unvoiced.</span>
+        <span class="n">loudness</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">stft</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">weights</span>
+        <span class="n">loudness</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">loudness</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="n">torchcrepe</span><span class="o">.</span><span class="n">loudness</span><span class="o">.</span><span class="n">MIN_DB</span><span class="p">)</span>
+        <span class="n">loudness</span> <span class="o">=</span> <span class="n">loudness</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span>
+            <span class="n">periodicity</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span><span class="p">,</span> <span class="n">loudness</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">silence_threshold</span>
+        <span class="p">)</span>
+        <span class="n">pitch</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">MAGIC_NUMBER_FOR_UNVOICED_FRAME</span>
         <span class="k">return</span> <span class="n">pitch</span>
 </pre></div>
 
@@ -484,7 +591,8 @@
   
     
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=1e1de1a1873e13ef5536"></script>
+  <script src="../../../_static/scripts/bootstrap.js?digest=796348d33e8b1d947c94"></script>
+<script src="../../../_static/scripts/pydata-sphinx-theme.js?digest=796348d33e8b1d947c94"></script>
 
   <footer class="bd-footer"><div class="bd-footer__inner container">
   
@@ -496,6 +604,16 @@
 
 </p>
 
+  </div>
+  
+  <div class="footer-item">
+    <p class="theme-version">
+    Built with the
+    <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">
+        PyData Sphinx Theme
+    </a>
+    0.12.0.
+</p>
   </div>
   
   <div class="footer-item">
