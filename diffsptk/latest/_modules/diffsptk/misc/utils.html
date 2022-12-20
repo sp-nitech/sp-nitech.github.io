@@ -317,6 +317,81 @@
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Unknown default dtype: </span><span class="si">{t}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
+<span class="k">def</span> <span class="nf">get_alpha</span><span class="p">(</span><span class="n">sr</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;hts&quot;</span><span class="p">,</span> <span class="n">n_freq</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_alpha</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Compute frequency warping factor under given sample rate.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    sr : int &gt;= 1 [scalar]</span>
+<span class="sd">        Sample rate in Hz.</span>
+
+<span class="sd">    mode : [&#39;hts&#39;, &#39;auto&#39;]</span>
+<span class="sd">        &#39;hts&#39; returns traditional alpha used in HTS. &#39;auto&#39; computes appropriate</span>
+<span class="sd">        alpha in L2 sense.</span>
+
+<span class="sd">    n_freq : int &gt;= 2 [scalar]</span>
+<span class="sd">        Number of sample points in the frequency domain.</span>
+
+<span class="sd">    n_alpha : int &gt;= 1 [scalar]</span>
+<span class="sd">        Number of sample points to search alpha.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    alpha : 0 &lt;= float &lt;= 1 [scalar]</span>
+<span class="sd">        Frequency warping factor.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">get_hts_alpha</span><span class="p">(</span><span class="n">sr</span><span class="p">):</span>
+        <span class="n">sr_to_alpha</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;8000&quot;</span><span class="p">:</span> <span class="mf">0.31</span><span class="p">,</span>
+            <span class="s2">&quot;10000&quot;</span><span class="p">:</span> <span class="mf">0.35</span><span class="p">,</span>
+            <span class="s2">&quot;12000&quot;</span><span class="p">:</span> <span class="mf">0.37</span><span class="p">,</span>
+            <span class="s2">&quot;16000&quot;</span><span class="p">:</span> <span class="mf">0.42</span><span class="p">,</span>
+            <span class="s2">&quot;22050&quot;</span><span class="p">:</span> <span class="mf">0.45</span><span class="p">,</span>
+            <span class="s2">&quot;32000&quot;</span><span class="p">:</span> <span class="mf">0.50</span><span class="p">,</span>
+            <span class="s2">&quot;44100&quot;</span><span class="p">:</span> <span class="mf">0.53</span><span class="p">,</span>
+            <span class="s2">&quot;48000&quot;</span><span class="p">:</span> <span class="mf">0.55</span><span class="p">,</span>
+        <span class="p">}</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sr</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sr_to_alpha</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+        <span class="n">selected_alpha</span> <span class="o">=</span> <span class="n">sr_to_alpha</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">selected_alpha</span>
+
+    <span class="k">def</span> <span class="nf">get_auto_alpha</span><span class="p">(</span><span class="n">sr</span><span class="p">,</span> <span class="n">n_freq</span><span class="p">,</span> <span class="n">n_alpha</span><span class="p">):</span>
+        <span class="c1"># Compute target mel-frequencies.</span>
+        <span class="n">freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_freq</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mf">0.5</span> <span class="o">*</span> <span class="n">sr</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_freq</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">mel_freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">freq</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+        <span class="n">mel_freq</span> <span class="o">=</span> <span class="n">mel_freq</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">mel_freq</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+        <span class="n">mel_freq</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">mel_freq</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="c1"># Compute phase characteristic of the 1st order all-pass filter.</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">n_alpha</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">alpha</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">alpha2</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">alpha</span>
+        <span class="n">omega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_freq</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_freq</span> <span class="o">-</span> <span class="mi">1</span><span class="p">))</span>
+        <span class="n">omega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">numer</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">omega</span><span class="p">)</span>
+        <span class="n">denom</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">alpha2</span><span class="p">)</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">omega</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">alpha</span>
+        <span class="n">warped_omega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan</span><span class="p">(</span><span class="n">numer</span> <span class="o">/</span> <span class="n">denom</span><span class="p">)</span>
+        <span class="n">warped_omega</span><span class="p">[</span><span class="n">warped_omega</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+
+        <span class="c1"># Select appropriate alpha in terms of L2 distance.</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">mel_freq</span> <span class="o">-</span> <span class="n">warped_omega</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">selected_alpha</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="n">alpha</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">distance</span><span class="p">)])</span>
+        <span class="k">return</span> <span class="n">selected_alpha</span>
+
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;hts&quot;</span><span class="p">:</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">get_hts_alpha</span><span class="p">(</span><span class="n">sr</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;auto&quot;</span><span class="p">:</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">get_auto_alpha</span><span class="p">(</span><span class="n">sr</span><span class="p">,</span> <span class="n">n_freq</span><span class="p">,</span> <span class="n">n_alpha</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+    <span class="k">return</span> <span class="n">alpha</span>
+
+
 <span class="k">def</span> <span class="nf">get_gamma</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">c</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="n">gamma</span>

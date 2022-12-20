@@ -345,13 +345,15 @@
 <span id="id1"></span><h1>excite<a class="headerlink" href="#excite" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.ExcitationGeneration">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">ExcitationGeneration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unvoiced_region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gauss'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/excite.html#ExcitationGeneration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.ExcitationGeneration" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">ExcitationGeneration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voiced_region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pulse'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">unvoiced_region</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gauss'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/excite.html#ExcitationGeneration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.ExcitationGeneration" title="Permalink to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/excite.html">this page</a>
-for details. <strong>Note that this module cannot compute gradient</strong>.</p>
+for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>frame_period</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Frame period in samples, <span class="math notranslate nohighlight">\(P\)</span>.</p>
+</dd>
+<dt><strong>voiced_region</strong><span class="classifier">[‘pulse’, ‘sinusoidal’]</span></dt><dd><p>Value on voiced region.</p>
 </dd>
 <dt><strong>unvoiced_region</strong><span class="classifier">[‘gauss’, ‘zeros’]</span></dt><dd><p>Value on unvoiced region.</p>
 </dd>

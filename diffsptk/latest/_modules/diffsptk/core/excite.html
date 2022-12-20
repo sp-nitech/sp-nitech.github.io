@@ -284,30 +284,33 @@
 <span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">is_in</span>
 <span class="kn">from</span> <span class="nn">.linear_intpl</span> <span class="kn">import</span> <span class="n">LinearInterpolation</span>
 
-<span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-8</span>
-
 
 <div class="viewcode-block" id="ExcitationGeneration"><a class="viewcode-back" href="../../../core/excite.html#diffsptk.ExcitationGeneration">[docs]</a><span class="k">class</span> <span class="nc">ExcitationGeneration</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/excite.html&gt;`_</span>
-<span class="sd">    for details. **Note that this module cannot compute gradient**.</span>
+<span class="sd">    for details.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    frame_period : int &gt;= 1 [scalar]</span>
 <span class="sd">        Frame period in samples, :math:`P`.</span>
 
+<span class="sd">    voiced_region : [&#39;pulse&#39;, &#39;sinusoidal&#39;]</span>
+<span class="sd">        Value on voiced region.</span>
+
 <span class="sd">    unvoiced_region : [&#39;gauss&#39;, &#39;zeros&#39;]</span>
 <span class="sd">        Value on unvoiced region.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frame_period</span><span class="p">,</span> <span class="n">unvoiced_region</span><span class="o">=</span><span class="s2">&quot;gauss&quot;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frame_period</span><span class="p">,</span> <span class="n">voiced_region</span><span class="o">=</span><span class="s2">&quot;pulse&quot;</span><span class="p">,</span> <span class="n">unvoiced_region</span><span class="o">=</span><span class="s2">&quot;gauss&quot;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">ExcitationGeneration</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span> <span class="o">=</span> <span class="n">frame_period</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">voiced_region</span> <span class="o">=</span> <span class="n">voiced_region</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">unvoiced_region</span> <span class="o">=</span> <span class="n">unvoiced_region</span>
 
         <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span>
+        <span class="k">assert</span> <span class="n">is_in</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">voiced_region</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;pulse&quot;</span><span class="p">,</span> <span class="s2">&quot;sinusoidal&quot;</span><span class="p">])</span>
         <span class="k">assert</span> <span class="n">is_in</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">unvoiced_region</span><span class="p">,</span> <span class="p">[</span><span class="s2">&quot;gauss&quot;</span><span class="p">,</span> <span class="s2">&quot;zeros&quot;</span><span class="p">])</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">linear_intpl</span> <span class="o">=</span> <span class="n">LinearInterpolation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span><span class="p">)</span>
@@ -340,7 +343,7 @@
         <span class="n">signal_shape</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">base_mask</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
         <span class="n">signal_shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span>
 
-        <span class="n">mask</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">eq</span><span class="p">(</span><span class="n">base_mask</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ne</span><span class="p">(</span><span class="n">base_mask</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">size</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">mask</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span>
         <span class="n">size</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span>
         <span class="n">mask</span> <span class="o">=</span> <span class="n">mask</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
@@ -360,21 +363,30 @@
             <span class="n">p</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">)</span>
         <span class="n">p</span> <span class="o">*=</span> <span class="n">mask</span>
 
-        <span class="c1"># Seek pulse position.</span>
+        <span class="c1"># Compute phase.</span>
         <span class="n">q</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">reciprocal</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">posinf</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">training</span><span class="p">:</span>
-            <span class="n">q</span> <span class="o">=</span> <span class="n">q</span><span class="o">.</span><span class="n">double</span><span class="p">()</span>
-        <span class="n">s</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">q</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">double</span><span class="p">(),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">bias</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cummax</span><span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="o">~</span><span class="n">mask</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">s</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">bias</span> <span class="o">-</span> <span class="n">eps</span><span class="p">)</span>
-        <span class="n">s</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">s</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">0</span><span class="p">,</span> <span class="n">s</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">pulse_pos</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ge</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">s</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">phase</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">bias</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
 
-        <span class="c1"># Make excitation signal.</span>
-        <span class="n">e</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="o">*</span><span class="n">signal_shape</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">e</span><span class="p">[</span><span class="n">pulse_pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">pulse_pos</span><span class="p">])</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">voiced_region</span> <span class="o">==</span> <span class="s2">&quot;pulse&quot;</span><span class="p">:</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">phase</span><span class="p">)</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">r</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">0</span><span class="p">,</span> <span class="n">r</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">pulse_pos</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ge</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">r</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="o">*</span><span class="n">signal_shape</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">p</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+            <span class="n">e</span><span class="p">[</span><span class="n">pulse_pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">pulse_pos</span><span class="p">])</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">voiced_region</span> <span class="o">==</span> <span class="s2">&quot;sinusoidal&quot;</span><span class="p">:</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sin</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">phase</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">unvoiced_region</span> <span class="o">==</span> <span class="s2">&quot;gauss&quot;</span><span class="p">:</span>
             <span class="n">e</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">~</span><span class="n">mask</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">unvoiced_region</span> <span class="o">==</span> <span class="s2">&quot;zeros&quot;</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
         <span class="k">return</span> <span class="n">e</span></div></div>
 </pre></div>
 
