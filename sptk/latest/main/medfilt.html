@@ -266,6 +266,95 @@
 <p class="admonition-title">See also</p>
 <p><a class="reference internal" href="median.html#median"><span class="std std-ref">median</span></a></p>
 </div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk12MedianFilterE">
+<span id="_CPPv3N4sptk12MedianFilterE"></span><span id="_CPPv2N4sptk12MedianFilterE"></span><span id="sptk::MedianFilter"></span><span class="target" id="classsptk_1_1MedianFilter"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MedianFilter</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">InputSourceInterface</span></span><a class="headerlink" href="#_CPPv4N4sptk12MedianFilterE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Apply a median filter to signals. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk12MedianFilter12MedianFilterEiiP20InputSourceInterfacebbd">
+<span id="_CPPv3N4sptk12MedianFilter12MedianFilterEiiP20InputSourceInterfacebbd"></span><span id="_CPPv2N4sptk12MedianFilter12MedianFilterEiiP20InputSourceInterfacebbd"></span><span id="sptk::MedianFilter::MedianFilter__i.i.InputSourceInterfaceP.b.b.double"></span><span class="target" id="classsptk_1_1MedianFilter_1afbe1436c2201f3d581a7f6e59ed1f274"></span><span class="sig-name descname"><span class="n"><span class="pre">MedianFilter</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_input_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_filter_order</span></span>, <span class="n"><span class="pre">InputSourceInterface</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_source</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">apply_each_dimension</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">use_magic_number</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">magic_number</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.0</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk12MedianFilter12MedianFilterEiiP20InputSourceInterfacebbd" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_input_order</strong> – <strong>[in]</strong> Order of input, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
+<li><p><strong>num_filter_order</strong> – <strong>[in]</strong> Order of filter. </p></li>
+<li><p><strong>input_source</strong> – <strong>[in]</strong> Input data sequence. </p></li>
+<li><p><strong>apply_each_dimension</strong> – <strong>[in]</strong> Whether to apply filter to each dimension. </p></li>
+<li><p><strong>use_magic_number</strong> – <strong>[in]</strong> Whether to use a magic number. </p></li>
+<li><p><strong>magic_number</strong> – <strong>[in]</strong> A magic number. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk12MedianFilter16GetNumInputOrderEv">
+<span id="_CPPv3NK4sptk12MedianFilter16GetNumInputOrderEv"></span><span id="_CPPv2NK4sptk12MedianFilter16GetNumInputOrderEv"></span><span id="sptk::MedianFilter::GetNumInputOrderC"></span><span class="target" id="classsptk_1_1MedianFilter_1a725b3f2f890bca72a450b9ed04d0eeb1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumInputOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk12MedianFilter16GetNumInputOrderEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Order of input. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk12MedianFilter17GetNumFilterOrderEv">
+<span id="_CPPv3NK4sptk12MedianFilter17GetNumFilterOrderEv"></span><span id="_CPPv2NK4sptk12MedianFilter17GetNumFilterOrderEv"></span><span id="sptk::MedianFilter::GetNumFilterOrderC"></span><span class="target" id="classsptk_1_1MedianFilter_1adffe6ab7ae8f631c5732d6c6c51f9c87"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumFilterOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk12MedianFilter17GetNumFilterOrderEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Order of median filter. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk12MedianFilter14GetMagicNumberEv">
+<span id="_CPPv3NK4sptk12MedianFilter14GetMagicNumberEv"></span><span id="_CPPv2NK4sptk12MedianFilter14GetMagicNumberEv"></span><span id="sptk::MedianFilter::GetMagicNumberC"></span><span class="target" id="classsptk_1_1MedianFilter_1a08350d7b32fa5635ccb6ae7163a141e7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetMagicNumber</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk12MedianFilter14GetMagicNumberEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Magic number. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk12MedianFilter7GetSizeEv">
+<span id="_CPPv3NK4sptk12MedianFilter7GetSizeEv"></span><span id="_CPPv2NK4sptk12MedianFilter7GetSizeEv"></span><span id="sptk::MedianFilter::GetSizeC"></span><span class="target" id="classsptk_1_1MedianFilter_1a0ed83b3e57b4a9d2b2534758c0c73606"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetSize</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk12MedianFilter7GetSizeEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Output size. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk12MedianFilter7IsValidEv">
+<span id="_CPPv3NK4sptk12MedianFilter7IsValidEv"></span><span id="_CPPv2NK4sptk12MedianFilter7IsValidEv"></span><span id="sptk::MedianFilter::IsValidC"></span><span class="target" id="classsptk_1_1MedianFilter_1a014b46906f78df8550d9cb1871c0d783"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk12MedianFilter7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>True if this object is valid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk12MedianFilter3GetEPNSt6vectorIdEE">
+<span id="_CPPv3N4sptk12MedianFilter3GetEPNSt6vectorIdEE"></span><span id="_CPPv2N4sptk12MedianFilter3GetEPNSt6vectorIdEE"></span><span id="sptk::MedianFilter::Get__std::vector:double:P"></span><span class="target" id="classsptk_1_1MedianFilter_1a130ffeea9f84295eeed6820cc2795fda"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">output</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk12MedianFilter3GetEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>output</strong> – <strong>[out]</strong> Filtered input. </p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
 </section>
 
 
