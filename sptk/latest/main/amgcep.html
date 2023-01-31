@@ -238,7 +238,7 @@
 <li><p>forgetting factor <span class="math notranslate nohighlight">\((0 \le \lambda &lt; 1)\)</span></p></li>
 </ul>
 </p></li>
-<li><p><strong>-k</strong> <em>double</em> <ul>
+<li><p><strong>-s</strong> <em>double</em> <ul>
 <li><p>step-size factor <span class="math notranslate nohighlight">\((0 &lt; a &lt; 1)\)</span></p></li>
 </ul>
 </p></li>
@@ -252,6 +252,10 @@
 </p></li>
 <li><p><strong>-E</strong> <em>str</em> <ul>
 <li><p>double-type prediction errors</p></li>
+</ul>
+</p></li>
+<li><p><strong>-k</strong> <ul>
+<li><p>filtering without gain (valid with -E)</p></li>
 </ul>
 </p></li>
 <li><p><strong>infile</strong> <em>str</em> <ul>
@@ -308,7 +312,7 @@
 \[\begin{split}\begin{eqnarray} \mu^{(n)} &amp;=&amp; \frac{a}{M \epsilon^{(n)}}, \\ \epsilon^{(n)} &amp;=&amp; \lambda \epsilon^{(n-1)} + (1-\lambda) e^2(n), \end{eqnarray}\end{split}\]</div>
  and <span class="math notranslate nohighlight">\(a\)</span> is the step-size factor and <span class="math notranslate nohighlight">\(\lambda\)</span> is the forgetting factor. If <span class="math notranslate nohighlight">\(\epsilon^{(n)}\)</span> is less than <span class="math notranslate nohighlight">\(\epsilon_{min}\)</span>, <span class="math notranslate nohighlight">\(\epsilon^{(n)}\)</span> is set to <span class="math notranslate nohighlight">\(\epsilon_{min}\)</span>. The estimate of <span class="math notranslate nohighlight">\(\nabla \epsilon\)</span> is <div class="math notranslate nohighlight">
 \[ \bar{\nabla} \epsilon^{(n)} = \tau \bar{\nabla} \epsilon^{(n-1)} -2 (1-\tau) e(n) \boldsymbol{e}^{(n)}_{\Phi} \]</div>
- where <span class="math notranslate nohighlight">\(\tau\)</span> is the moment and <span class="math notranslate nohighlight">\(\boldsymbol{e}^{(n)}_{\Phi}=[e_1(n),e_2(n),\ldots,e_M(n)]^{\mathsf{T}}\)</span> is the set of outputs of the filter <span class="math notranslate nohighlight">\(\Phi_m(z)\)</span>: <img alt="../_images/amcep_2.png" src="../_images/amcep_2.png" /></p>
+ where <span class="math notranslate nohighlight">\(\tau\)</span> is the momentum and <span class="math notranslate nohighlight">\(\boldsymbol{e}^{(n)}_{\Phi}=[e_1(n),e_2(n),\ldots,e_M(n)]^{\mathsf{T}}\)</span> is the set of outputs of the filter <span class="math notranslate nohighlight">\(\Phi_m(z)\)</span>: <img alt="../_images/amcep_2.png" src="../_images/amcep_2.png" /></p>
 <p>The coefficients of the MLSA filter are converted to the mel-cepstral coefficients by a linear transformation.</p>
 <p><div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -318,8 +322,8 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4sptk27AdaptiveMelCepstralAnalysis27AdaptiveMelCepstralAnalysisEiiddddd">
-<span id="_CPPv3N4sptk27AdaptiveMelCepstralAnalysis27AdaptiveMelCepstralAnalysisEiiddddd"></span><span id="_CPPv2N4sptk27AdaptiveMelCepstralAnalysis27AdaptiveMelCepstralAnalysisEiiddddd"></span><span id="sptk::AdaptiveMelCepstralAnalysis::AdaptiveMelCepstralAnalysis__i.i.double.double.double.double.double"></span><span class="target" id="classsptk_1_1AdaptiveMelCepstralAnalysis_1a8c265e01c18cb87fdf185f63e24c1bf0"></span><span class="sig-name descname"><span class="n"><span class="pre">AdaptiveMelCepstralAnalysis</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_pade_order</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">alpha</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">min_epsilon</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">momentum</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">forgetting_factor</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">step_size_factor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk27AdaptiveMelCepstralAnalysis27AdaptiveMelCepstralAnalysisEiiddddd" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk27AdaptiveMelCepstralAnalysis27AdaptiveMelCepstralAnalysisEiidddddb">
+<span id="_CPPv3N4sptk27AdaptiveMelCepstralAnalysis27AdaptiveMelCepstralAnalysisEiidddddb"></span><span id="_CPPv2N4sptk27AdaptiveMelCepstralAnalysis27AdaptiveMelCepstralAnalysisEiidddddb"></span><span id="sptk::AdaptiveMelCepstralAnalysis::AdaptiveMelCepstralAnalysis__i.i.double.double.double.double.double.b"></span><span class="target" id="classsptk_1_1AdaptiveMelCepstralAnalysis_1a84b3e74c5ae0830419bcc6f649b0dd08"></span><span class="sig-name descname"><span class="n"><span class="pre">AdaptiveMelCepstralAnalysis</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_pade_order</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">alpha</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">min_epsilon</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">momentum</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">forgetting_factor</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">step_size_factor</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">gain_flag</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk27AdaptiveMelCepstralAnalysis27AdaptiveMelCepstralAnalysisEiidddddb" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -330,6 +334,7 @@
 <li><p><strong>momentum</strong> – <strong>[in]</strong> Momentum, <span class="math notranslate nohighlight">\(\tau\)</span>. </p></li>
 <li><p><strong>forgetting_factor</strong> – <strong>[in]</strong> Forgetting factor, <span class="math notranslate nohighlight">\(\lambda\)</span>. </p></li>
 <li><p><strong>step_size_factor</strong> – <strong>[in]</strong> Step-size factor, <span class="math notranslate nohighlight">\(a\)</span>. </p></li>
+<li><p><strong>gain_flag</strong> – <strong>[in]</strong> If true, perform filtering with gain. </p></li>
 </ul>
 </dd>
 </dl>
@@ -406,6 +411,16 @@
 </dd></dl>
 
 <dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk27AdaptiveMelCepstralAnalysis11GetGainFlagEv">
+<span id="_CPPv3NK4sptk27AdaptiveMelCepstralAnalysis11GetGainFlagEv"></span><span id="_CPPv2NK4sptk27AdaptiveMelCepstralAnalysis11GetGainFlagEv"></span><span id="sptk::AdaptiveMelCepstralAnalysis::GetGainFlagC"></span><span class="target" id="classsptk_1_1AdaptiveMelCepstralAnalysis_1a35d53547b96d12809b79133bd20d1737"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetGainFlag</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk27AdaptiveMelCepstralAnalysis11GetGainFlagEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Gain flag. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk27AdaptiveMelCepstralAnalysis7IsValidEv">
 <span id="_CPPv3NK4sptk27AdaptiveMelCepstralAnalysis7IsValidEv"></span><span id="_CPPv2NK4sptk27AdaptiveMelCepstralAnalysis7IsValidEv"></span><span id="sptk::AdaptiveMelCepstralAnalysis::IsValidC"></span><span class="target" id="classsptk_1_1AdaptiveMelCepstralAnalysis_1a3a858c61d219b701b6c3309c3a113e0b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk27AdaptiveMelCepstralAnalysis7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
@@ -455,7 +470,7 @@
 \[\begin{split}\begin{eqnarray} \mu^{(n)} &amp;=&amp; \frac{a}{M \epsilon^{(n)}}, \\ \epsilon^{(n)} &amp;=&amp; \lambda \epsilon^{(n-1)} + (1-\lambda) e_\gamma^2(n), \end{eqnarray}\end{split}\]</div>
  and <span class="math notranslate nohighlight">\(a\)</span> is the step-size factor and <span class="math notranslate nohighlight">\(\lambda\)</span> is the forgetting factor. If <span class="math notranslate nohighlight">\(\epsilon^{(n)}\)</span> is less than <span class="math notranslate nohighlight">\(\epsilon_{min}\)</span>, <span class="math notranslate nohighlight">\(\epsilon^{(n)}\)</span> is set to <span class="math notranslate nohighlight">\(\epsilon_{min}\)</span>. The estimate of <span class="math notranslate nohighlight">\(\nabla \epsilon\)</span> is <div class="math notranslate nohighlight">
 \[ \bar{\nabla} \epsilon^{(n)} = \tau \bar{\nabla} \epsilon^{(n-1)} -2 (1-\tau) e_\gamma(n) \boldsymbol{e}^{(n)}_{\gamma} \]</div>
- where <span class="math notranslate nohighlight">\(\tau\)</span> is the moment and <span class="math notranslate nohighlight">\(\boldsymbol{e}^{(n)}_{\gamma} = [e_\gamma(n-1),\ldots,e_\gamma(n-M)]^{\mathsf{T}}\)</span> is the set of outputs of the filter <span class="math notranslate nohighlight">\((1+\gamma F(z))^{-\frac{1}{\gamma}-1}\)</span>.</p>
+ where <span class="math notranslate nohighlight">\(\tau\)</span> is the momentum and <span class="math notranslate nohighlight">\(\boldsymbol{e}^{(n)}_{\gamma} = [e_\gamma(n-1),\ldots,e_\gamma(n-M)]^{\mathsf{T}}\)</span> is the set of outputs of the filter <span class="math notranslate nohighlight">\((1+\gamma F(z))^{-\frac{1}{\gamma}-1}\)</span>.</p>
 <p>The coefficients of the filter <span class="math notranslate nohighlight">\(F(z)\)</span> are denormalized to obtain the generalized cepstral coefficients.</p>
 <p><div class="admonition seealso">
 <p class="admonition-title">See also</p>
@@ -465,8 +480,8 @@
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4sptk35AdaptiveGeneralizedCepstralAnalysis35AdaptiveGeneralizedCepstralAnalysisEiidddd">
-<span id="_CPPv3N4sptk35AdaptiveGeneralizedCepstralAnalysis35AdaptiveGeneralizedCepstralAnalysisEiidddd"></span><span id="_CPPv2N4sptk35AdaptiveGeneralizedCepstralAnalysis35AdaptiveGeneralizedCepstralAnalysisEiidddd"></span><span id="sptk::AdaptiveGeneralizedCepstralAnalysis::AdaptiveGeneralizedCepstralAnalysis__i.i.double.double.double.double"></span><span class="target" id="classsptk_1_1AdaptiveGeneralizedCepstralAnalysis_1abe1c7d9fe02cbbbd4fd071dbc4d7d4c4"></span><span class="sig-name descname"><span class="n"><span class="pre">AdaptiveGeneralizedCepstralAnalysis</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_stage</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">min_epsilon</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">momentum</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">forgetting_factor</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">step_size_factor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk35AdaptiveGeneralizedCepstralAnalysis35AdaptiveGeneralizedCepstralAnalysisEiidddd" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk35AdaptiveGeneralizedCepstralAnalysis35AdaptiveGeneralizedCepstralAnalysisEiiddddb">
+<span id="_CPPv3N4sptk35AdaptiveGeneralizedCepstralAnalysis35AdaptiveGeneralizedCepstralAnalysisEiiddddb"></span><span id="_CPPv2N4sptk35AdaptiveGeneralizedCepstralAnalysis35AdaptiveGeneralizedCepstralAnalysisEiiddddb"></span><span id="sptk::AdaptiveGeneralizedCepstralAnalysis::AdaptiveGeneralizedCepstralAnalysis__i.i.double.double.double.double.b"></span><span class="target" id="classsptk_1_1AdaptiveGeneralizedCepstralAnalysis_1abed5e7db0e5f01955f6aa3fb8ed6d642"></span><span class="sig-name descname"><span class="n"><span class="pre">AdaptiveGeneralizedCepstralAnalysis</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_stage</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">min_epsilon</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">momentum</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">forgetting_factor</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">step_size_factor</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">gain_flag</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk35AdaptiveGeneralizedCepstralAnalysis35AdaptiveGeneralizedCepstralAnalysisEiiddddb" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -476,6 +491,7 @@
 <li><p><strong>momentum</strong> – <strong>[in]</strong> Momentum, <span class="math notranslate nohighlight">\(\tau\)</span>. </p></li>
 <li><p><strong>forgetting_factor</strong> – <strong>[in]</strong> Forgetting factor, <span class="math notranslate nohighlight">\(\lambda\)</span>. </p></li>
 <li><p><strong>step_size_factor</strong> – <strong>[in]</strong> Step-size factor, <span class="math notranslate nohighlight">\(a\)</span>. </p></li>
+<li><p><strong>gain_flag</strong> – <strong>[in]</strong> If true, perform filtering with gain. </p></li>
 </ul>
 </dd>
 </dl>
@@ -547,6 +563,16 @@
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>Step-size factor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk35AdaptiveGeneralizedCepstralAnalysis11GetGainFlagEv">
+<span id="_CPPv3NK4sptk35AdaptiveGeneralizedCepstralAnalysis11GetGainFlagEv"></span><span id="_CPPv2NK4sptk35AdaptiveGeneralizedCepstralAnalysis11GetGainFlagEv"></span><span id="sptk::AdaptiveGeneralizedCepstralAnalysis::GetGainFlagC"></span><span class="target" id="classsptk_1_1AdaptiveGeneralizedCepstralAnalysis_1a52a0b29f4892e12f7fb25d85f3aaa2d6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetGainFlag</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk35AdaptiveGeneralizedCepstralAnalysis11GetGainFlagEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>Gain flag. </p>
 </dd>
 </dl>
 </dd></dl>
