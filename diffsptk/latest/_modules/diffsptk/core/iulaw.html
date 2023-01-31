@@ -283,7 +283,7 @@
 
 
 <div class="viewcode-block" id="MuLawExpansion"><a class="viewcode-back" href="../../../core/iulaw.html#diffsptk.MuLawExpansion">[docs]</a><span class="k">class</span> <span class="nc">MuLawExpansion</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/iulaw.html&gt;`_</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/iulaw.html&gt;`_</span>
 <span class="sd">    for details.</span>
 
 <span class="sd">    Parameters</span>
@@ -308,7 +308,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">const</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">abs_max</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">mu</span>
 
 <div class="viewcode-block" id="MuLawExpansion.forward"><a class="viewcode-back" href="../../../core/iulaw.html#diffsptk.MuLawExpansion.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Expand waveform by :math:`\\mu`-law algorithm.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Expand waveform by :math:`\\mu`-law algorithm.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
@@ -330,7 +330,7 @@
 <span class="sd">        tensor([0.0000, 1.0000, 2.0000, 3.0000, 4.0000])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">y2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">abs_max</span>
+        <span class="n">y2</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">abs_max</span>
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">const</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">sign</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">mu</span><span class="p">,</span> <span class="n">y2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">x</span></div></div>
 </pre></div>

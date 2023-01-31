@@ -282,11 +282,11 @@
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
-<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">default_dtype</span>
+<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">numpy_to_torch</span>
 
 
 <div class="viewcode-block" id="CepstrumToNegativeDerivativeOfPhaseSpectrum"><a class="viewcode-back" href="../../../core/c2ndps.html#diffsptk.CepstrumToNegativeDerivativeOfPhaseSpectrum">[docs]</a><span class="k">class</span> <span class="nc">CepstrumToNegativeDerivativeOfPhaseSpectrum</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/c2ndps.html&gt;`_</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/c2ndps.html&gt;`_</span>
 <span class="sd">    for details.</span>
 
 <span class="sd">    Parameters</span>
@@ -309,13 +309,13 @@
         <span class="k">assert</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span>
         <span class="k">assert</span> <span class="n">cep_order</span> <span class="o">&lt;=</span> <span class="n">half_fft_length</span>
 
-        <span class="n">ramp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">cep_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">default_dtype</span><span class="p">())</span> <span class="o">*</span> <span class="mf">0.5</span>
+        <span class="n">ramp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">cep_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="mf">0.5</span>
         <span class="k">if</span> <span class="n">cep_order</span> <span class="o">==</span> <span class="n">half_fft_length</span><span class="p">:</span>
             <span class="n">ramp</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">2</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;ramp&quot;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">ramp</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;ramp&quot;</span><span class="p">,</span> <span class="n">numpy_to_torch</span><span class="p">(</span><span class="n">ramp</span><span class="p">))</span>
 
 <div class="viewcode-block" id="CepstrumToNegativeDerivativeOfPhaseSpectrum.forward"><a class="viewcode-back" href="../../../core/c2ndps.html#diffsptk.CepstrumToNegativeDerivativeOfPhaseSpectrum.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Convert cepstrum to NDPS.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert cepstrum to NDPS.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>

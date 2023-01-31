@@ -279,15 +279,14 @@
 <span class="c1"># ------------------------------------------------------------------------ #</span>
 
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 <span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
 
-<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">default_dtype</span>
+<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">numpy_to_torch</span>
 
 
 <div class="viewcode-block" id="LinearInterpolation"><a class="viewcode-back" href="../../../core/linear_intpl.html#diffsptk.LinearInterpolation">[docs]</a><span class="k">class</span> <span class="nc">LinearInterpolation</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Perform linear interpolation.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Perform linear interpolation.</span>
 
 <span class="sd">    Note that this is not for lienar_intpl in C the version of SPTK, but for</span>
 <span class="sd">    filter coefficients interpolation in digital filtering.</span>
@@ -305,18 +304,18 @@
         <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">upsampling_factor</span>
 
         <span class="c1"># Make upsampling filter.</span>
-        <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">upsampling_factor</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">default_dtype</span><span class="p">())[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">w</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">upsampling_factor</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">upsampling_filter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">((</span><span class="n">w</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">w</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">upsampling_filter</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span>
             <span class="n">upsampling_filter</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
         <span class="p">)</span>  <span class="c1"># (Out, In, Height, Width)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;upsampling_filter&quot;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">upsampling_filter</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;upsampling_filter&quot;</span><span class="p">,</span> <span class="n">numpy_to_torch</span><span class="p">(</span><span class="n">upsampling_filter</span><span class="p">))</span>
 
         <span class="c1"># Make padding module.</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">pad</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReplicationPad2d</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
 
 <div class="viewcode-block" id="LinearInterpolation.forward"><a class="viewcode-back" href="../../../core/linear_intpl.html#diffsptk.LinearInterpolation.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Interpolate filter coefficients.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Interpolate filter coefficients.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>

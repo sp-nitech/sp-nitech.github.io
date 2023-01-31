@@ -282,7 +282,7 @@
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
-<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">default_dtype</span>
+<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">numpy_to_torch</span>
 <span class="kn">from</span> <span class="nn">.b2mc</span> <span class="kn">import</span> <span class="n">MLSADigitalFilterCoefficientsToMelCepstrum</span>
 <span class="kn">from</span> <span class="nn">.c2acr</span> <span class="kn">import</span> <span class="n">CepstrumToAutocorrelation</span>
 <span class="kn">from</span> <span class="nn">.freqt</span> <span class="kn">import</span> <span class="n">FrequencyTransform</span>
@@ -290,7 +290,7 @@
 
 
 <div class="viewcode-block" id="MelCepstrumPostfiltering"><a class="viewcode-back" href="../../../core/mcpf.html#diffsptk.MelCepstrumPostfiltering">[docs]</a><span class="k">class</span> <span class="nc">MelCepstrumPostfiltering</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/mcpf.html&gt;`_</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/mcpf.html&gt;`_</span>
 <span class="sd">    for details.</span>
 
 <span class="sd">    Parameters</span>
@@ -326,12 +326,12 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">mc2b</span> <span class="o">=</span> <span class="n">MelCepstrumToMLSADigitalFilterCoefficients</span><span class="p">(</span><span class="n">cep_order</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">b2mc</span> <span class="o">=</span> <span class="n">MLSADigitalFilterCoefficientsToMelCepstrum</span><span class="p">(</span><span class="n">cep_order</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span>
 
-        <span class="n">weight</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">cep_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">beta</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">default_dtype</span><span class="p">())</span>
+        <span class="n">weight</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full</span><span class="p">(</span><span class="n">cep_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">beta</span><span class="p">)</span>
         <span class="n">weight</span><span class="p">[:</span><span class="n">onset</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">weight</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;weight&quot;</span><span class="p">,</span> <span class="n">numpy_to_torch</span><span class="p">(</span><span class="n">weight</span><span class="p">))</span>
 
 <div class="viewcode-block" id="MelCepstrumPostfiltering.forward"><a class="viewcode-back" href="../../../core/mcpf.html#diffsptk.MelCepstrumPostfiltering.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mc1</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;Perform mel-cesptrum postfiltering.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform mel-cesptrum postfiltering.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>

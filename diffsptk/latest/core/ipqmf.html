@@ -301,6 +301,7 @@
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rmse.html">rmse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root_pol.html">root_pol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="smcep.html">smcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="snr.html">snr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sopr.html">sopr</a></li>
@@ -368,14 +369,14 @@ for details.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="diffsptk.InversePseudoQuadratureMirrorFilterBanks.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_dims</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/ipqmf.html#InversePseudoQuadratureMirrorFilterBanks.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.InversePseudoQuadratureMirrorFilterBanks.forward" title="Permalink to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/ipqmf.html#InversePseudoQuadratureMirrorFilterBanks.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.InversePseudoQuadratureMirrorFilterBanks.forward" title="Permalink to this definition">#</a></dt>
 <dd><p>Reconstruct waveform from subband waveforms.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>y</strong><span class="classifier">Tensor [shape=(B, K, T) or (K, T)]</span></dt><dd><p>Subband waveforms.</p>
 </dd>
-<dt><strong>keep_dims</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If True, the output shape is (B, 1, T) instead (B, T).</p>
+<dt><strong>keepdim</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If True, the output shape is (B, 1, T) instead (B, T).</p>
 </dd>
 </dl>
 </dd>
@@ -392,7 +393,7 @@ for details.</p>
 <span class="go">tensor([0.0000, 0.2500, 0.5000, 0.7500, 1.0000])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pqmf</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">PQMF</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ipqmf</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">IPQMF</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span> <span class="o">=</span> <span class="n">ipqmf</span><span class="p">(</span><span class="n">pmqf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">keep_dims</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span> <span class="o">=</span> <span class="n">ipqmf</span><span class="p">(</span><span class="n">pmqf</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span>
 <span class="go">tensor([[[8.1887e-04, 2.4754e-01, 5.0066e-01, 7.4732e-01, 9.9419e-01]]])</span>
 </pre></div>

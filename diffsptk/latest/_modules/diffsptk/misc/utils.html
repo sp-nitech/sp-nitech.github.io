@@ -317,8 +317,15 @@
         <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Unknown default dtype: </span><span class="si">{t}</span><span class="s2">&quot;</span><span class="p">)</span>
 
 
+<span class="k">def</span> <span class="nf">numpy_to_torch</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">iscomplexobj</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">default_complex_dtype</span><span class="p">()))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">default_dtype</span><span class="p">()))</span>
+
+
 <div class="viewcode-block" id="get_alpha"><a class="viewcode-back" href="../../../misc/utils.html#diffsptk.get_alpha">[docs]</a><span class="k">def</span> <span class="nf">get_alpha</span><span class="p">(</span><span class="n">sr</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;hts&quot;</span><span class="p">,</span> <span class="n">n_freq</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">n_alpha</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Compute frequency warping factor under given sample rate.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute frequency warping factor under given sample rate.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -422,6 +429,16 @@
     <span class="k">return</span> <span class="n">X</span>
 
 
+<span class="k">def</span> <span class="nf">vander</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">):</span>
+    <span class="n">target_shape</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+    <span class="n">target_shape</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">repeat_interleave</span><span class="p">(</span><span class="n">N</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">*</span><span class="n">target_shape</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">X</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">0</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">X</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">X</span>
+
+
 <span class="k">def</span> <span class="nf">cexp</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">polar</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">real</span><span class="p">),</span> <span class="n">x</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>
 
@@ -435,7 +452,7 @@
 
 
 <div class="viewcode-block" id="read"><a class="viewcode-back" href="../../../misc/utils.html#diffsptk.read">[docs]</a><span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">double</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Read waveform from file.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Read waveform from file.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -468,7 +485,7 @@
 
 
 <div class="viewcode-block" id="write"><a class="viewcode-back" href="../../../misc/utils.html#diffsptk.write">[docs]</a><span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">sr</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;Write waveform to file.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Write waveform to file.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
