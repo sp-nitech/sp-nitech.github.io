@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.core.vq &#8212; diffsptk 0.5.0 documentation</title>
+    <title>diffsptk.core.msvq &#8212; diffsptk 0.5.0 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
     <script src="../../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/sphinx_highlight.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/core/vq';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/core/msvq';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -261,7 +261,7 @@
             
             <article class="bd-article" role="main">
               
-  <h1>Source code for diffsptk.core.vq</h1><div class="highlight"><pre>
+  <h1>Source code for diffsptk.core.msvq</h1><div class="highlight"><pre>
 <span></span><span class="c1"># ------------------------------------------------------------------------ #</span>
 <span class="c1"># Copyright 2022 SPTK Working Group                                        #</span>
 <span class="c1">#                                                                          #</span>
@@ -283,10 +283,10 @@
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
 <span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="ne">UserWarning</span><span class="p">)</span>
-<span class="kn">from</span> <span class="nn">vector_quantize_pytorch</span> <span class="kn">import</span> <span class="n">VectorQuantize</span>  <span class="c1"># noqa: E402</span>
+<span class="kn">from</span> <span class="nn">vector_quantize_pytorch</span> <span class="kn">import</span> <span class="n">ResidualVQ</span>  <span class="c1"># noqa: E402</span>
 
 
-<div class="viewcode-block" id="VectorQuantization"><a class="viewcode-back" href="../../../core/vq.html#diffsptk.VectorQuantization">[docs]</a><span class="k">class</span> <span class="nc">VectorQuantization</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<div class="viewcode-block" id="MultiStageVectorQuantization"><a class="viewcode-back" href="../../../core/msvq.html#diffsptk.MultiStageVectorQuantization">[docs]</a><span class="k">class</span> <span class="nc">MultiStageVectorQuantization</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;See `this page &lt;https://github.com/lucidrains/vector-quantize-pytorch&gt;`_</span>
 <span class="sd">    for details.</span>
 
@@ -298,35 +298,39 @@
 <span class="sd">    codebook_size : int &gt;= 1 [scalar]</span>
 <span class="sd">        Codebook size, :math:`K`.</span>
 
+<span class="sd">    n_stage : int &gt;= 1 [scalar]</span>
+<span class="sd">        Number of stages (quantizers), :math:`Q`.</span>
+
 <span class="sd">    **kwargs : additional keyword arguments</span>
 <span class="sd">        See vector-quantize-pytorch repository for details.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">codebook_size</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">VectorQuantization</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">order</span><span class="p">,</span> <span class="n">codebook_size</span><span class="p">,</span> <span class="n">n_stage</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">MultiStageVectorQuantization</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">order</span>
         <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">codebook_size</span>
+        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">n_stage</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">vq</span> <span class="o">=</span> <span class="n">VectorQuantize</span><span class="p">(</span>
-            <span class="n">dim</span><span class="o">=</span><span class="n">order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">codebook_size</span><span class="o">=</span><span class="n">codebook_size</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">vq</span> <span class="o">=</span> <span class="n">ResidualVQ</span><span class="p">(</span>
+            <span class="n">dim</span><span class="o">=</span><span class="n">order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">codebook_size</span><span class="o">=</span><span class="n">codebook_size</span><span class="p">,</span> <span class="n">num_quantizers</span><span class="o">=</span><span class="n">n_stage</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
         <span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
 
     <span class="nd">@property</span>
-    <span class="k">def</span> <span class="nf">codebook</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">vq</span><span class="o">.</span><span class="n">codebook</span>
+    <span class="k">def</span> <span class="nf">codebooks</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">vq</span><span class="o">.</span><span class="n">codebooks</span>
 
-<div class="viewcode-block" id="VectorQuantization.forward"><a class="viewcode-back" href="../../../core/vq.html#diffsptk.VectorQuantization.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">codebook</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform vector quantization.</span>
+<div class="viewcode-block" id="MultiStageVectorQuantization.forward"><a class="viewcode-back" href="../../../core/msvq.html#diffsptk.MultiStageVectorQuantization.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">codebooks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform residual vector quantization.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        x : Tensor [shape=(..., M+1)]</span>
 <span class="sd">            Input vectors.</span>
 
-<span class="sd">        codebook : Tensor [shape=(K, M+1)]</span>
-<span class="sd">            External codebook. If None, use internal codebook.</span>
+<span class="sd">        codebooks : Tensor [shape=(Q, K, M+1)]</span>
+<span class="sd">            External codebooks. If None, use internal codebooks.</span>
 
 <span class="sd">        **kwargs : additional keyword arguments</span>
 <span class="sd">            See vector-quantize-pytorch repository for details.</span>
@@ -336,38 +340,42 @@
 <span class="sd">        xq : Tensor [shape=(..., M+1)]</span>
 <span class="sd">            Quantized vectors.</span>
 
-<span class="sd">        indices : Tensor [shape=(...,)]</span>
+<span class="sd">        indices : Tensor [shape=(..., Q)]</span>
 <span class="sd">            Codebook indices.</span>
 
-<span class="sd">        loss : Tensor [scalar]</span>
-<span class="sd">            Commitment loss.</span>
+<span class="sd">        losses : Tensor [shape=(Q,)]</span>
+<span class="sd">            Commitment losses.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
 <span class="sd">        &gt;&gt;&gt; x = diffsptk.nrand(4)</span>
 <span class="sd">        &gt;&gt;&gt; x</span>
-<span class="sd">        tensor([ 0.7947,  0.1007,  1.2290, -0.5019,  1.5552])</span>
-<span class="sd">        &gt;&gt;&gt; vq = diffsptk.VectorQuantization(4, 2).eval()</span>
-<span class="sd">        &gt;&gt;&gt; xq, _, _ = vq(x)</span>
+<span class="sd">        tensor([-0.5206,  1.0048, -0.3370,  1.3364, -0.2933])</span>
+<span class="sd">        &gt;&gt;&gt; msvq = diffsptk.MultiStageVectorQuantization(4, 3, 2).eval()</span>
+<span class="sd">        &gt;&gt;&gt; xq, indices, _ = msvq(x)</span>
 <span class="sd">        &gt;&gt;&gt; xq</span>
-<span class="sd">        tensor([0.3620, 0.2736, 0.7098, 0.7106, 0.6494]</span>
+<span class="sd">        tensor([-0.4561,  0.9835, -0.3787, -0.1488, -0.8025])</span>
+<span class="sd">        &gt;&gt;&gt; indices</span>
+<span class="sd">        tensor([0, 2])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">codebook</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">codebook</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">codebook</span><span class="o">.</span><span class="n">view_as</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vq</span><span class="o">.</span><span class="n">codebook</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">codebooks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">cb</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">codebooks</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">layer</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vq</span><span class="o">.</span><span class="n">layers</span><span class="p">):</span>
+                <span class="n">layer</span><span class="o">.</span><span class="n">_codebook</span><span class="o">.</span><span class="n">embed</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">codebooks</span><span class="o">.</span><span class="n">view_as</span><span class="p">(</span><span class="n">cb</span><span class="p">)[</span><span class="n">i</span><span class="p">]</span>
 
         <span class="n">d</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
-        <span class="n">xq</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vq</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">xq</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">losses</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vq</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">xq</span> <span class="o">=</span> <span class="n">xq</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
             <span class="n">indices</span> <span class="o">=</span> <span class="n">indices</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="n">loss</span> <span class="o">=</span> <span class="n">loss</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
+        <span class="n">losses</span> <span class="o">=</span> <span class="n">losses</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
 
-        <span class="k">return</span> <span class="n">xq</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">loss</span></div></div>
+        <span class="k">return</span> <span class="n">xq</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">losses</span></div></div>
 </pre></div>
 
             </article>

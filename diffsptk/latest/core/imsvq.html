@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>mglsadf &#8212; diffsptk 0.5.0 documentation</title>
+    <title>imsvq &#8212; diffsptk 0.5.0 documentation</title>
   
   
   
@@ -38,12 +38,11 @@
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'core/mglsadf';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'core/imsvq';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="mlpg" href="mlpg.html" />
-    <link rel="prev" title="mgcep" href="mgcep.html" />
+    <link rel="next" title="interpolate" href="interpolate.html" />
+    <link rel="prev" title="imglsadf" href="imglsadf.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -273,7 +272,7 @@
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imglsadf.html">imglsadf</a></li>
-<li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">imsvq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
@@ -290,7 +289,7 @@
 <li class="toctree-l1"><a class="reference internal" href="mgc2mgc.html">mgc2mgc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mgc2sp.html">mgc2sp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mgcep.html">mgcep</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">mglsadf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsadf.html">mglsadf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mpir2c.html">mpir2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="msvq.html">msvq</a></li>
@@ -346,88 +345,41 @@
             
             <article class="bd-article" role="main">
               
-  <section id="mglsadf">
-<span id="id1"></span><h1>mglsadf<a class="headerlink" href="#mglsadf" title="Permalink to this heading">#</a></h1>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="diffsptk.MLSA">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MLSA</span></span><a class="headerlink" href="#diffsptk.MLSA" title="Permalink to this definition">#</a></dt>
-<dd><p>alias of <a class="reference internal" href="#diffsptk.PseudoMGLSADigitalFilter" title="diffsptk.core.mglsadf.PseudoMGLSADigitalFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">PseudoMGLSADigitalFilter</span></code></a></p>
-</dd></dl>
-
+  <section id="imsvq">
+<span id="id1"></span><h1>imsvq<a class="headerlink" href="#imsvq" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.PseudoMGLSADigitalFilter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">PseudoMGLSADigitalFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'minimum'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cascade</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mglsadf.html#PseudoMGLSADigitalFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PseudoMGLSADigitalFilter" title="Permalink to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/mglsadf.html">this page</a>
+<dt class="sig sig-object py" id="diffsptk.InverseMultiStageVectorQuantization">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">InverseMultiStageVectorQuantization</span></span><a class="reference internal" href="../_modules/diffsptk/core/imsvq.html#InverseMultiStageVectorQuantization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.InverseMultiStageVectorQuantization" title="Permalink to this definition">#</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/imsvq.html">this page</a>
 for details.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>filter_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of filter coefficients, <span class="math notranslate nohighlight">\(M\)</span>.</p>
-</dd>
-<dt><strong>alpha</strong><span class="classifier">float [-1 &lt; alpha &lt; 1]</span></dt><dd><p>Frequency warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
-</dd>
-<dt><strong>gamma</strong><span class="classifier">float [-1 &lt;= gamma &lt;= 1]</span></dt><dd><p>Gamma, <span class="math notranslate nohighlight">\(\gamma\)</span>.</p>
-</dd>
-<dt><strong>c</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Number of stages.</p>
-</dd>
-<dt><strong>frame_period</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Frame period, <span class="math notranslate nohighlight">\(P\)</span>.</p>
-</dd>
-<dt><strong>ignore_gain</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If True, perform filtering without gain.</p>
-</dd>
-<dt><strong>phase</strong><span class="classifier">[‘minimum’, ‘maximum’, ‘zero’]</span></dt><dd><p>Filter type.</p>
-</dd>
-<dt><strong>cascade</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If True, use multi-stage FIR filter.</p>
-</dd>
-<dt><strong>cep_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of linear cepstrum (valid only if <strong>cascade</strong> is True).</p>
-</dd>
-<dt><strong>taylor_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of Taylor series expansion (valid only if <strong>cascade</strong> is True).</p>
-</dd>
-<dt><strong>impulse_response_length</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Length of impulse response (valid only if <strong>cascade</strong> is False).</p>
-</dd>
-<dt><strong>n_fft</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Number of FFT bins for conversion (valid only if <strong>cascade</strong> is False).</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">References</p>
-<div role="list" class="citation-list">
-<div class="citation" id="r2a6eee13d4d1-1" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
-<p>T. Yoshimura et al., “Embedding a differentiable mel-cepstral synthesis
-filter to a neural speech synthesis system,” <em>arXiv:2211.11222</em>, 2022.</p>
-</div>
-</div>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.PseudoMGLSADigitalFilter.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mglsadf.html#PseudoMGLSADigitalFilter.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PseudoMGLSADigitalFilter.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Apply an MGLSA digital filter.</p>
+<dt class="sig sig-object py" id="diffsptk.InverseMultiStageVectorQuantization.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">codebooks</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/imsvq.html#InverseMultiStageVectorQuantization.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.InverseMultiStageVectorQuantization.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Perform inverse residual vector quantization.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Excitation signal.</p>
+<dt><strong>indices</strong><span class="classifier">Tensor [shape=(…, Q)]</span></dt><dd><p>Codebook indices.</p>
 </dd>
-<dt><strong>mc</strong><span class="classifier">Tensor [shape=(…, T/P, M+1)]</span></dt><dd><p>Mel-generalized cepstrum, not MLSA digital filter coefficients.</p>
+<dt><strong>codebooks</strong><span class="classifier">Tensor [shape=(Q, K, M+1)]</span></dt><dd><p>Codebooks.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Output signal.</p>
+<dt><strong>xq</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Quantized vectors.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mc</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">M</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mc</span>
-<span class="go">tensor([[-0.9134, -0.5774, -0.4567,  0.7423, -0.5782],</span>
-<span class="go">        [ 0.6904,  0.5175,  0.8765,  0.1677,  2.4624]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mglsadf</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">PseudoMGLSADigitalFilter</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">frame_period</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">mglsadf</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">mc</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">M</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">tensor([[0.4011, 0.8760, 3.5677, 4.8725]])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">msvq</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MultiStageVectorQuantization</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">imsvq</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">InverseMultiStageVectorQuantization</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">indices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xq</span> <span class="o">=</span> <span class="n">imsvq</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="n">msvq</span><span class="o">.</span><span class="n">codebooks</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xq</span>
+<span class="go">tensor([[-0.8029, -0.1674,  0.5697,  0.9734,  0.1920],</span>
+<span class="go">        [ 0.0720, -1.0491, -0.4491, -0.2043, -0.3582]])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -436,7 +388,7 @@ filter to a neural speech synthesis system,” <em>arXiv:2211.11222</em>, 2022.<
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="mgcep.html#mgcep"><span class="std std-ref">mgcep</span></a>  <a class="reference internal" href="imglsadf.html#imglsadf"><span class="std std-ref">imglsadf</span></a></p>
+<p><a class="reference internal" href="ivq.html#ivq"><span class="std std-ref">ivq</span></a>  <a class="reference internal" href="msvq.html#msvq"><span class="std std-ref">msvq</span></a></p>
 </div>
 </section>
 
@@ -448,17 +400,17 @@ filter to a neural speech synthesis system,” <em>arXiv:2211.11222</em>, 2022.<
             <footer class="bd-footer-article">
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="mgcep.html" title="previous page">
+  <a class='left-prev' id="prev-link" href="imglsadf.html" title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">mgcep</p>
+          <p class="prev-next-title">imglsadf</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="mlpg.html" title="next page">
+  <a class='right-next' id="next-link" href="interpolate.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">mlpg</p>
+      <p class="prev-next-title">interpolate</p>
   </div>
   <i class="fa-solid fa-angle-right"></i>
   </a>
@@ -479,28 +431,19 @@ filter to a neural speech synthesis system,” <em>arXiv:2211.11222</em>, 2022.<
 <nav id="bd-toc-nav" class="page-toc">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#diffsptk.MLSA">
+  <a class="reference internal nav-link" href="#diffsptk.InverseMultiStageVectorQuantization">
    <code class="docutils literal notranslate">
     <span class="pre">
-     MLSA
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#diffsptk.PseudoMGLSADigitalFilter">
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     PseudoMGLSADigitalFilter
+     InverseMultiStageVectorQuantization
     </span>
    </code>
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#diffsptk.PseudoMGLSADigitalFilter.forward">
+    <a class="reference internal nav-link" href="#diffsptk.InverseMultiStageVectorQuantization.forward">
      <code class="docutils literal notranslate">
       <span class="pre">
-       PseudoMGLSADigitalFilter.forward()
+       InverseMultiStageVectorQuantization.forward()
       </span>
      </code>
     </a>
@@ -524,7 +467,7 @@ filter to a neural speech synthesis system,” <em>arXiv:2211.11222</em>, 2022.<
 <div class="toc-item">
   
 <div class="tocsection sourcelink">
-    <a href="../_sources/core/mglsadf.rst.txt">
+    <a href="../_sources/core/imsvq.rst.txt">
         <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
 </div>
