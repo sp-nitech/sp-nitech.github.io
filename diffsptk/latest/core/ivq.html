@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>rmse &#8212; diffsptk 0.5.0 documentation</title>
+    <title>ivq &#8212; diffsptk 0.5.0 documentation</title>
   
   
   
@@ -38,11 +38,11 @@
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'core/rmse';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'core/ivq';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="root_pol" href="root_pol.html" />
-    <link rel="prev" title="quantize" href="quantize.html" />
+    <link rel="next" title="lar2par" href="lar2par.html" />
+    <link rel="prev" title="iulaw" href="iulaw.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -275,7 +275,7 @@
 <li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ivq.html">ivq</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">ivq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="levdur.html">levdur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linear_intpl.html">linear_intpl</a></li>
@@ -300,7 +300,7 @@
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">rmse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rmse.html">rmse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="root_pol.html">root_pol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="smcep.html">smcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="snr.html">snr</a></li>
@@ -343,60 +343,43 @@
             
             <article class="bd-article" role="main">
               
-  <section id="rmse">
-<span id="id1"></span><h1>rmse<a class="headerlink" href="#rmse" title="Permalink to this heading">#</a></h1>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="diffsptk.RMSE">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">RMSE</span></span><a class="headerlink" href="#diffsptk.RMSE" title="Permalink to this definition">#</a></dt>
-<dd><p>alias of <a class="reference internal" href="#diffsptk.RootMeanSquaredError" title="diffsptk.core.rmse.RootMeanSquaredError"><code class="xref py py-class docutils literal notranslate"><span class="pre">RootMeanSquaredError</span></code></a></p>
-</dd></dl>
-
+  <section id="ivq">
+<span id="id1"></span><h1>ivq<a class="headerlink" href="#ivq" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.RootMeanSquaredError">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">RootMeanSquaredError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reduction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/rmse.html#RootMeanSquaredError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.RootMeanSquaredError" title="Permalink to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/rmse.html">this page</a>
+<dt class="sig sig-object py" id="diffsptk.InverseVectorQuantization">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">InverseVectorQuantization</span></span><a class="reference internal" href="../_modules/diffsptk/core/ivq.html#InverseVectorQuantization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.InverseVectorQuantization" title="Permalink to this definition">#</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/imsvq.html">this page</a>
 for details.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>reduction</strong><span class="classifier">[‘none’, ‘mean’, ‘sum’]</span></dt><dd><p>Reduction type.</p>
-</dd>
-<dt><strong>eps</strong><span class="classifier">float &gt;= 0 [scalar]</span></dt><dd><p>A small value to prevent NaN.</p>
-</dd>
-</dl>
-</dd>
-</dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.RootMeanSquaredError.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/rmse.html#RootMeanSquaredError.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.RootMeanSquaredError.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Calculate RMSE.</p>
+<dt class="sig sig-object py" id="diffsptk.InverseVectorQuantization.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">indices</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">codebook</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/ivq.html#InverseVectorQuantization.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.InverseVectorQuantization.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Perform inverse vector quantization.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Input.</p>
+<dt><strong>indices</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Codebook indices.</p>
 </dd>
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Target.</p>
+<dt><strong>codebook</strong><span class="classifier">Tensor [shape=(K, M+1)]</span></dt><dd><p>Codebook.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>e</strong><span class="classifier">Tensor [shape=(…,) or scalar]</span></dt><dd><p>RMSE.</p>
+<dt><strong>xq</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Quantized vectors.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
-<span class="go">tensor([-0.5945, -0.2401,  0.8633, -0.6464,  0.4515])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">tensor([-0.4025,  0.9367,  1.1299,  3.1986, -0.2832])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">rmse</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">RootMeanSquaredError</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span> <span class="o">=</span> <span class="n">rmse</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span>
-<span class="go">tensor(1.8340)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">vq</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">VectorQuantization</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ivq</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">InverseVectorQuantization</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">indices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xq</span> <span class="o">=</span> <span class="n">ivq</span><span class="p">(</span><span class="n">indices</span><span class="p">,</span> <span class="n">vq</span><span class="o">.</span><span class="n">codebook</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xq</span>
+<span class="go">tensor([[[ 1.9246, -1.4498, -0.9959,  0.3809,  0.0478],</span>
+<span class="go">         [-0.3040,  0.0568,  0.0113, -0.7284, -0.5103]],</span>
+<span class="go">        [[-0.3040,  0.0568,  0.0113, -0.7284, -0.5103],</span>
+<span class="go">         [ 1.9246, -1.4498, -0.9959,  0.3809,  0.0478]]])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -405,7 +388,7 @@ for details.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="snr.html#snr"><span class="std std-ref">snr</span></a></p>
+<p><a class="reference internal" href="vq.html#vq"><span class="std std-ref">vq</span></a></p>
 </div>
 </section>
 
@@ -417,17 +400,17 @@ for details.</p>
             <footer class="bd-footer-article">
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="quantize.html" title="previous page">
+  <a class='left-prev' id="prev-link" href="iulaw.html" title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">quantize</p>
+          <p class="prev-next-title">iulaw</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="root_pol.html" title="next page">
+  <a class='right-next' id="next-link" href="lar2par.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">root_pol</p>
+      <p class="prev-next-title">lar2par</p>
   </div>
   <i class="fa-solid fa-angle-right"></i>
   </a>
@@ -448,28 +431,19 @@ for details.</p>
 <nav id="bd-toc-nav" class="page-toc">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#diffsptk.RMSE">
+  <a class="reference internal nav-link" href="#diffsptk.InverseVectorQuantization">
    <code class="docutils literal notranslate">
     <span class="pre">
-     RMSE
-    </span>
-   </code>
-  </a>
- </li>
- <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#diffsptk.RootMeanSquaredError">
-   <code class="docutils literal notranslate">
-    <span class="pre">
-     RootMeanSquaredError
+     InverseVectorQuantization
     </span>
    </code>
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#diffsptk.RootMeanSquaredError.forward">
+    <a class="reference internal nav-link" href="#diffsptk.InverseVectorQuantization.forward">
      <code class="docutils literal notranslate">
       <span class="pre">
-       RootMeanSquaredError.forward()
+       InverseVectorQuantization.forward()
       </span>
      </code>
     </a>
@@ -493,7 +467,7 @@ for details.</p>
 <div class="toc-item">
   
 <div class="tocsection sourcelink">
-    <a href="../_sources/core/rmse.rst.txt">
+    <a href="../_sources/core/ivq.rst.txt">
         <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
 </div>
