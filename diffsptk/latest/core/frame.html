@@ -276,6 +276,7 @@
 <li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="istft.html">istft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ivq.html">ivq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
@@ -311,6 +312,7 @@
 <li class="toctree-l1"><a class="reference internal" href="spec.html">spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stft.html">stft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unframe.html">unframe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vq.html">vq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
@@ -381,21 +383,21 @@ assume that the center of data is the left edge of frame.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, N, L)]</span></dt><dd><p>Framed waveform.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, T/P, L)]</span></dt><dd><p>Framed waveform.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">frame</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">frame</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">frame</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">tensor([[0, 0, 1, 2, 3],</span>
-<span class="go">        [1, 2, 3, 4, 5],</span>
-<span class="go">        [3, 4, 5, 6, 7],</span>
-<span class="go">        [5, 6, 7, 8, 9],</span>
-<span class="go">        [7, 8, 9, 0, 0]])</span>
+<span class="go">tensor([[0., 0., 1., 2., 3.],</span>
+<span class="go">        [1., 2., 3., 4., 5.],</span>
+<span class="go">        [3., 4., 5., 6., 7.],</span>
+<span class="go">        [5., 6., 7., 8., 9.],</span>
+<span class="go">        [7., 8., 9., 0., 0.]])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -404,7 +406,7 @@ assume that the center of data is the left edge of frame.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="window.html#window"><span class="std std-ref">window</span></a></p>
+<p><a class="reference internal" href="unframe.html#unframe"><span class="std std-ref">unframe</span></a>  <a class="reference internal" href="window.html#window"><span class="std std-ref">window</span></a></p>
 </div>
 </section>
 

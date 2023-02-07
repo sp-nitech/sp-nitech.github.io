@@ -278,8 +278,10 @@
 <span class="c1"># limitations under the License.                                           #</span>
 <span class="c1"># ------------------------------------------------------------------------ #</span>
 
+<span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
+<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">Lambda</span>
 <span class="kn">from</span> <span class="nn">.frame</span> <span class="kn">import</span> <span class="n">Frame</span>
 <span class="kn">from</span> <span class="nn">.spec</span> <span class="kn">import</span> <span class="n">Spectrum</span>
 <span class="kn">from</span> <span class="nn">.window</span> <span class="kn">import</span> <span class="n">Window</span>
@@ -291,13 +293,13 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    frame_length : int &gt;= 1 [scalar]</span>
-<span class="sd">        Frame length, :math:`L_1`.</span>
+<span class="sd">        Frame length, :math:`L`.</span>
 
 <span class="sd">    frame_peirod : int &gt;= 1 [scalar]</span>
 <span class="sd">        Frame period, :math:`P`.</span>
 
-<span class="sd">    fft_length : int &gt;= L1 [scalar]</span>
-<span class="sd">        Number of FFT bins, :math:`L_2`.</span>
+<span class="sd">    fft_length : int &gt;= L [scalar]</span>
+<span class="sd">        Number of FFT bins, :math:`N`.</span>
 
 <span class="sd">    zmean : bool [scalar]</span>
 <span class="sd">        If True, perform mean subtraction on each frame.</span>
@@ -309,7 +311,7 @@
 <span class="sd">        &#39;rectangular&#39;]</span>
 <span class="sd">        Window type.</span>
 
-<span class="sd">    out_format : [&#39;db&#39;, &#39;log-magnitude&#39;, &#39;magnitude&#39;, &#39;power&#39;]</span>
+<span class="sd">    out_format : [&#39;db&#39;, &#39;log-magnitude&#39;, &#39;magnitude&#39;, &#39;power&#39;, &#39;complex&#39;]</span>
 <span class="sd">        Output format.</span>
 
 <span class="sd">    eps : float &gt;= 0 [scalar]</span>
@@ -337,7 +339,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">stft</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
             <span class="n">Frame</span><span class="p">(</span><span class="n">frame_length</span><span class="p">,</span> <span class="n">frame_period</span><span class="p">,</span> <span class="n">zmean</span><span class="o">=</span><span class="n">zmean</span><span class="p">),</span>
             <span class="n">Window</span><span class="p">(</span><span class="n">frame_length</span><span class="p">,</span> <span class="n">fft_length</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">),</span>
-            <span class="n">Spectrum</span><span class="p">(</span>
+            <span class="n">Lambda</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;complex&quot;</span>
+            <span class="k">else</span> <span class="n">Spectrum</span><span class="p">(</span>
                 <span class="n">fft_length</span><span class="p">,</span>
                 <span class="n">out_format</span><span class="o">=</span><span class="n">out_format</span><span class="p">,</span>
                 <span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">,</span>
@@ -355,7 +359,7 @@
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        y : Tensor [shape=(..., N, L/2+1)]</span>
+<span class="sd">        y : Tensor [shape=(..., T/P, N/2+1)]</span>
 <span class="sd">            Spectrum.</span>
 
 <span class="sd">        Examples</span>

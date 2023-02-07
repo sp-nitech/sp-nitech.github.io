@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>levdur &#8212; diffsptk 0.5.0 documentation</title>
+    <title>istft &#8212; diffsptk 0.5.0 documentation</title>
   
   
   
@@ -38,11 +38,12 @@
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'core/levdur';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'core/istft';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="linear_intpl" href="linear_intpl.html" />
-    <link rel="prev" title="lar2par" href="lar2par.html" />
+    <link rel="next" title="iulaw" href="iulaw.html" />
+    <link rel="prev" title="ipqmf" href="ipqmf.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="docsearch:language" content="en">
   </head>
@@ -275,11 +276,11 @@
 <li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
-<li class="toctree-l1"><a class="reference internal" href="istft.html">istft</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">istft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ivq.html">ivq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">levdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="levdur.html">levdur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linear_intpl.html">linear_intpl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc.html">lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
@@ -347,46 +348,62 @@
             
             <article class="bd-article" role="main">
               
-  <section id="levdur">
-<span id="id1"></span><h1>levdur<a class="headerlink" href="#levdur" title="Permalink to this heading">#</a></h1>
+  <section id="istft">
+<span id="id1"></span><h1>istft<a class="headerlink" href="#istft" title="Permalink to this heading">#</a></h1>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="diffsptk.LevinsonDurbinRecursion">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">LevinsonDurbinRecursion</span></span><a class="headerlink" href="#diffsptk.LevinsonDurbinRecursion" title="Permalink to this definition">#</a></dt>
-<dd><p>alias of <a class="reference internal" href="#diffsptk.PseudoLevinsonDurbinRecursion" title="diffsptk.core.levdur.PseudoLevinsonDurbinRecursion"><code class="xref py py-class docutils literal notranslate"><span class="pre">PseudoLevinsonDurbinRecursion</span></code></a></p>
+<dt class="sig sig-object py" id="diffsptk.ISTFT">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">ISTFT</span></span><a class="headerlink" href="#diffsptk.ISTFT" title="Permalink to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="#diffsptk.InverseShortTermFourierTransform" title="diffsptk.core.istft.InverseShortTermFourierTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">InverseShortTermFourierTransform</span></code></a></p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.PseudoLevinsonDurbinRecursion">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">PseudoLevinsonDurbinRecursion</span></span><a class="reference internal" href="../_modules/diffsptk/core/levdur.html#PseudoLevinsonDurbinRecursion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PseudoLevinsonDurbinRecursion" title="Permalink to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/levdur.html">this page</a>
-for details. Note that the current implementation does not use the Durbin’s
-algorithm though the class name includes it.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.PseudoLevinsonDurbinRecursion.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">r</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/levdur.html#PseudoLevinsonDurbinRecursion.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PseudoLevinsonDurbinRecursion.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Solve a Yule-Walker linear system.</p>
+<dt class="sig sig-object py" id="diffsptk.InverseShortTermFourierTransform">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">InverseShortTermFourierTransform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'power'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'blackman'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/istft.html#InverseShortTermFourierTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.InverseShortTermFourierTransform" title="Permalink to this definition">#</a></dt>
+<dd><p>This is the opposite module to ShortTermFourierTransform.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>r</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Autocorrelation.</p>
+<dt><strong>frame_length</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Frame length, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+</dd>
+<dt><strong>frame_peirod</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Frame period, <span class="math notranslate nohighlight">\(P\)</span>.</p>
+</dd>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= L [scalar]</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(N\)</span>.</p>
+</dd>
+<dt><strong>norm</strong><span class="classifier">[‘none’, ‘power’, ‘magnitude’]</span></dt><dd><p>Normalization type of window.</p>
+</dd>
+<dt><strong>window</strong><span class="classifier">[‘blackman’, ‘hamming’, ‘hanning’, ‘bartlett’, ‘trapezoidal’,               ‘rectangular’]</span></dt><dd><p>Window type.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="diffsptk.InverseShortTermFourierTransform.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/istft.html#InverseShortTermFourierTransform.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.InverseShortTermFourierTransform.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Compute inverse short-term Fourier transform.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, T/P, N/2+1)]</span></dt><dd><p>Complex spectrum.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>a</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Gain and LPC coefficients.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Waveform.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-<span class="go">tensor([ 0.8226, -0.0284, -0.5715,  0.2127,  0.1217])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">acorr</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">AutocorrelationAnalysis</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">levdur</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">LevinsonDurbinRecursion</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">levdur</span><span class="p">(</span><span class="n">acorr</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
-<span class="go">tensor([0.8726, 0.1475, 0.5270])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">tensor([1., 2., 3.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stft_params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;frame_length&quot;</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;frame_period&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;fft_length&quot;</span><span class="p">:</span> <span class="mi">8</span><span class="p">}</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stft</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">STFT</span><span class="p">(</span><span class="o">**</span><span class="n">stft_params</span><span class="p">,</span> <span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;complex&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">istft</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ISTFT</span><span class="p">(</span><span class="o">**</span><span class="n">stft_params</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">istft</span><span class="p">(</span><span class="n">stft</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">out_length</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">tensor([1., 2., 3.])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -395,7 +412,7 @@ algorithm though the class name includes it.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="acorr.html#acorr"><span class="std std-ref">acorr</span></a>  <a class="reference internal" href="lpc.html#lpc"><span class="std std-ref">lpc</span></a></p>
+<p><a class="reference internal" href="frame.html#frame"><span class="std std-ref">frame</span></a>  <a class="reference internal" href="window.html#window"><span class="std std-ref">window</span></a>  <a class="reference internal" href="spec.html#spec"><span class="std std-ref">spec</span></a>  <a class="reference internal" href="stft.html#stft"><span class="std std-ref">stft</span></a></p>
 </div>
 </section>
 
@@ -407,17 +424,17 @@ algorithm though the class name includes it.</p>
             <footer class="bd-footer-article">
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-  <a class='left-prev' id="prev-link" href="lar2par.html" title="previous page">
+  <a class='left-prev' id="prev-link" href="ipqmf.html" title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
           <p class="prev-next-subtitle">previous</p>
-          <p class="prev-next-title">lar2par</p>
+          <p class="prev-next-title">ipqmf</p>
       </div>
   </a>
-  <a class='right-next' id="next-link" href="linear_intpl.html" title="next page">
+  <a class='right-next' id="next-link" href="iulaw.html" title="next page">
   <div class="prev-next-info">
       <p class="prev-next-subtitle">next</p>
-      <p class="prev-next-title">linear_intpl</p>
+      <p class="prev-next-title">iulaw</p>
   </div>
   <i class="fa-solid fa-angle-right"></i>
   </a>
@@ -438,28 +455,28 @@ algorithm though the class name includes it.</p>
 <nav id="bd-toc-nav" class="page-toc">
     <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#diffsptk.LevinsonDurbinRecursion">
+  <a class="reference internal nav-link" href="#diffsptk.ISTFT">
    <code class="docutils literal notranslate">
     <span class="pre">
-     LevinsonDurbinRecursion
+     ISTFT
     </span>
    </code>
   </a>
  </li>
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#diffsptk.PseudoLevinsonDurbinRecursion">
+  <a class="reference internal nav-link" href="#diffsptk.InverseShortTermFourierTransform">
    <code class="docutils literal notranslate">
     <span class="pre">
-     PseudoLevinsonDurbinRecursion
+     InverseShortTermFourierTransform
     </span>
    </code>
   </a>
   <ul class="nav section-nav flex-column">
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#diffsptk.PseudoLevinsonDurbinRecursion.forward">
+    <a class="reference internal nav-link" href="#diffsptk.InverseShortTermFourierTransform.forward">
      <code class="docutils literal notranslate">
       <span class="pre">
-       PseudoLevinsonDurbinRecursion.forward()
+       InverseShortTermFourierTransform.forward()
       </span>
      </code>
     </a>
@@ -483,7 +500,7 @@ algorithm though the class name includes it.</p>
 <div class="toc-item">
   
 <div class="tocsection sourcelink">
-    <a href="../_sources/core/levdur.rst.txt">
+    <a href="../_sources/core/istft.rst.txt">
         <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
 </div>

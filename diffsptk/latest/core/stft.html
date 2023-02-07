@@ -276,6 +276,7 @@
 <li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="istft.html">istft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ivq.html">ivq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
@@ -311,6 +312,7 @@
 <li class="toctree-l1"><a class="reference internal" href="spec.html">spec</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">stft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unframe.html">unframe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vq.html">vq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
@@ -361,11 +363,11 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>frame_length</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Frame length, <span class="math notranslate nohighlight">\(L_1\)</span>.</p>
+<dt><strong>frame_length</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Frame length, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
 <dt><strong>frame_peirod</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Frame period, <span class="math notranslate nohighlight">\(P\)</span>.</p>
 </dd>
-<dt><strong>fft_length</strong><span class="classifier">int &gt;= L1 [scalar]</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L_2\)</span>.</p>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= L [scalar]</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(N\)</span>.</p>
 </dd>
 <dt><strong>zmean</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If True, perform mean subtraction on each frame.</p>
 </dd>
@@ -373,7 +375,7 @@
 </dd>
 <dt><strong>window</strong><span class="classifier">[‘blackman’, ‘hamming’, ‘hanning’, ‘bartlett’, ‘trapezoidal’,         ‘rectangular’]</span></dt><dd><p>Window type.</p>
 </dd>
-<dt><strong>out_format</strong><span class="classifier">[‘db’, ‘log-magnitude’, ‘magnitude’, ‘power’]</span></dt><dd><p>Output format.</p>
+<dt><strong>out_format</strong><span class="classifier">[‘db’, ‘log-magnitude’, ‘magnitude’, ‘power’, ‘complex’]</span></dt><dd><p>Output format.</p>
 </dd>
 <dt><strong>eps</strong><span class="classifier">float &gt;= 0 [scalar]</span></dt><dd><p>A small value added to power spectrum.</p>
 </dd>
@@ -395,7 +397,7 @@
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, N, L/2+1)]</span></dt><dd><p>Spectrum.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, T/P, N/2+1)]</span></dt><dd><p>Spectrum.</p>
 </dd>
 </dl>
 </dd>
@@ -418,7 +420,7 @@
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="frame.html#frame"><span class="std std-ref">frame</span></a>  <a class="reference internal" href="window.html#window"><span class="std std-ref">window</span></a>  <a class="reference internal" href="spec.html#spec"><span class="std std-ref">spec</span></a></p>
+<p><a class="reference internal" href="frame.html#frame"><span class="std std-ref">frame</span></a>  <a class="reference internal" href="window.html#window"><span class="std std-ref">window</span></a>  <a class="reference internal" href="spec.html#spec"><span class="std std-ref">spec</span></a>  <a class="reference internal" href="istft.html#istft"><span class="std std-ref">istft</span></a></p>
 </div>
 </section>
 

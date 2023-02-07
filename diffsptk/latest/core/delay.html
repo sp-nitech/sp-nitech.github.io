@@ -276,6 +276,7 @@
 <li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="istft.html">istft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ivq.html">ivq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
@@ -311,6 +312,7 @@
 <li class="toctree-l1"><a class="reference internal" href="spec.html">spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stft.html">stft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="unframe.html">unframe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vq.html">vq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
@@ -350,7 +352,7 @@
 <span id="id1"></span><h1>delay<a class="headerlink" href="#delay" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.Delay">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">Delay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keep_len</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/delay.html#Delay"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Delay" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">Delay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keeplen</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/delay.html#Delay"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Delay" title="Permalink to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/delay.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
@@ -358,7 +360,7 @@ for details.</p>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>start</strong><span class="classifier">int [scalar]</span></dt><dd><p>Start point, <span class="math notranslate nohighlight">\(S\)</span>. If negative, advance signal.</p>
 </dd>
-<dt><strong>keep_len</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If True, output has the same length of input.</p>
+<dt><strong>keeplen</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If True, output has the same length of input.</p>
 </dd>
 </dl>
 </dd>
@@ -389,7 +391,7 @@ for details.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">delay</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
 <span class="go">tensor([0., 0., 1., 2., 3.])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">delay</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Delay</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">keep_len</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">delay</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Delay</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">keeplen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">delay</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
 <span class="go">tensor([0., 0., 1.])</span>
