@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ulaw &mdash; SPTK  documentation</title>
+  <title>ap &mdash; SPTK  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -21,8 +21,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="vc" href="vc.html" />
-    <link rel="prev" title="transpose" href="transpose.html" /> 
+    <link rel="next" title="average" href="average.html" />
+    <link rel="prev" title="amgcep" href="amgcep.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -46,7 +46,7 @@
 <li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ap.html">ap</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
 <li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bcp.html">bcp</a></li>
@@ -165,7 +165,7 @@
 <li class="toctree-l1"><a class="reference internal" href="symmetrize.html">symmetrize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="train.html">train</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transpose.html">transpose</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vc.html">vc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vopr.html">vopr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
@@ -196,9 +196,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home"></a></li>
-      <li class="breadcrumb-item active">ulaw</li>
+      <li class="breadcrumb-item active">ap</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/main/ulaw.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/main/ap.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -206,35 +206,79 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="ulaw">
-<span id="id1"></span><h1>ulaw<a class="headerlink" href="#ulaw" title="Permalink to this heading"></a></h1>
+  <section id="ap">
+<span id="id1"></span><h1>ap<a class="headerlink" href="#ap" title="Permalink to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv44mainiA_Pc">
-<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="ulaw_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
-<dd><p><em>ulaw</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="ap_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p><em>ap</em> [ <em>option</em> ] <em>f0file</em> [ <em>infile</em> ]</p>
 <p><ul class="simple">
-<li><p><strong>-v</strong> <em>double</em> <ul>
-<li><p>absolute maximum value of input <span class="math notranslate nohighlight">\((0 &lt; V)\)</span></p></li>
+<li><p><strong>-a</strong> <em>int</em> <ul>
+<li><p>algorithm used for aperiodicity extraction <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> TANDEM-STRAIGHT </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> WORLD (D4C)</p></li>
 </ul>
 </p></li>
-<li><p><strong>-u</strong> <em>double</em> <ul>
-<li><p>compression factor <span class="math notranslate nohighlight">\((0 &lt; \mu)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-l</strong> <em>int</em> <ul>
+<li><p>FFT length</p></li>
+</ul>
+</p></li>
+<li><p><strong>-p</strong> <em>int</em> <ul>
+<li><p>frame shift [point] <span class="math notranslate nohighlight">\((1 \le P)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-s</strong> <em>double</em> <ul>
+<li><p>sampling rate [kHz] <span class="math notranslate nohighlight">\((8 \le F_s \le 98)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-L</strong> <em>double</em> <ul>
+<li><p>lower bound of aperiodicity <span class="math notranslate nohighlight">\((0 \le L &lt; H)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-H</strong> <em>double</em> <ul>
+<li><p>upper bound of aperiodicity <span class="math notranslate nohighlight">\((L &lt; H \le 1)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-q</strong> <em>int</em> <ul>
+<li><p>f0 input format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> pitch <span class="math notranslate nohighlight">\((F_s / F_0)\)</span> </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> F0 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> log F0</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>-o</strong> <em>int</em> <ul>
+<li><p>output format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> Ha </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> Hp </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> Ha/Hp </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> Hp/Ha</p></li>
+</ul>
+</p></li>
 </ul>
 </p></li>
 <li><p><strong>infile</strong> <em>str</em> <ul>
-<li><p>double-type input data sequence</p></li>
+<li><p>double-type waveform</p></li>
+</ul>
+</p></li>
+<li><p><strong>f0file</strong> <em>str</em> <ul>
+<li><p>double-type pitch</p></li>
 </ul>
 </p></li>
 <li><p><strong>stdout</strong> <ul>
-<li><p>double-type compressed data sequence</p></li>
+<li><p>double-type aperiodicity</p></li>
 </ul>
 </p></li>
 </ul>
 </p>
-<p>In the below example, 16-bit data read from <code class="docutils literal notranslate"><span class="pre">data.short</span></code> is compressed to 8-bit ulaw format.</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>x2x +sd data.short <span class="p">|</span> ulaw <span class="p">|</span> quantize &gt; data.ulaw
+<p>The below is a simple example to extract aperiodicity from <code class="docutils literal notranslate"><span class="pre">data.d</span></code> </p>
+<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pitch -s <span class="m">16</span> -p <span class="m">80</span> -L <span class="m">80</span> -H <span class="m">200</span> -o <span class="m">0</span> &lt; data.d &gt; data.f0
+ap -s <span class="m">16</span> -p <span class="m">80</span> -q <span class="m">0</span> data.f0 &lt; data.d &gt; data.ap
 </pre></div>
 </div>
 </p>
@@ -252,55 +296,58 @@
 </dd></dl>
 
 </div>
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="iulaw.html#iulaw"><span class="std std-ref">iulaw</span></a></p>
-</div>
 <dl class="cpp class">
-<dt class="sig sig-object cpp" id="_CPPv4N4sptk16MuLawCompressionE">
-<span id="_CPPv3N4sptk16MuLawCompressionE"></span><span id="_CPPv2N4sptk16MuLawCompressionE"></span><span id="sptk::MuLawCompression"></span><span class="target" id="classsptk_1_1MuLawCompression"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MuLawCompression</span></span></span><a class="headerlink" href="#_CPPv4N4sptk16MuLawCompressionE" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Nonlinearly compress data based on <span class="math notranslate nohighlight">\(\mu\)</span>-law algorithm.</p>
-<p>Given the input data <span class="math notranslate nohighlight">\(x(n)\)</span>, the compression is performed as follows: <div class="math notranslate nohighlight">
-\[ y(n) = V \, \mathrm{sgn}(x(n)) \frac{\log (1 + \mu \frac{|x(n)|}{V})}{\log (1 + \mu)} \]</div>
- where <span class="math notranslate nohighlight">\(V\)</span> is the absolute maximum value of the input data and <span class="math notranslate nohighlight">\(\mu\)</span> is the compression factor, which is typically set to 255. </p>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk22AperiodicityExtractionE">
+<span id="_CPPv3N4sptk22AperiodicityExtractionE"></span><span id="_CPPv2N4sptk22AperiodicityExtractionE"></span><span id="sptk::AperiodicityExtraction"></span><span class="target" id="classsptk_1_1AperiodicityExtraction"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AperiodicityExtraction</span></span></span><a class="headerlink" href="#_CPPv4N4sptk22AperiodicityExtractionE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Extract aperiodicity from waveform.</p>
+<p>The input is whole audio waveform and the output is the sequence of the aperiodicity measure. The implemented algorithms of the extraction are TANDEM-STRAIGHT and D4C.</p>
+<p>[1] H. Kawahara et al., “Simplification and extension of non-periodic excitation source representations for high-quality speech manipulation systems,” Proc. of Interspeech, pp. 38-41, 2010.</p>
+<p>[2] M. Morise, “D4C, a band-aperiodicity estimator for high-quality speech synthesis,” Proc. of Speech Communication, vol. 84, pp. 57-65, 2016. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk22AperiodicityExtraction10AlgorithmsE">
+<span id="_CPPv3N4sptk22AperiodicityExtraction10AlgorithmsE"></span><span id="_CPPv2N4sptk22AperiodicityExtraction10AlgorithmsE"></span><span class="target" id="classsptk_1_1AperiodicityExtraction_1a64a2698e1843676015c61a2c99d48639"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Algorithms</span></span></span><a class="headerlink" href="#_CPPv4N4sptk22AperiodicityExtraction10AlgorithmsE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Aperiodicity extraction algorithms. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk22AperiodicityExtraction10Algorithms7kTandemE">
+<span id="_CPPv3N4sptk22AperiodicityExtraction10Algorithms7kTandemE"></span><span id="_CPPv2N4sptk22AperiodicityExtraction10Algorithms7kTandemE"></span><span class="target" id="classsptk_1_1AperiodicityExtraction_1a64a2698e1843676015c61a2c99d48639a3b4ea27b705b3cb63819c33e8d4bda66"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kTandem</span></span></span><a class="headerlink" href="#_CPPv4N4sptk22AperiodicityExtraction10Algorithms7kTandemE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk22AperiodicityExtraction10Algorithms6kWorldE">
+<span id="_CPPv3N4sptk22AperiodicityExtraction10Algorithms6kWorldE"></span><span id="_CPPv2N4sptk22AperiodicityExtraction10Algorithms6kWorldE"></span><span class="target" id="classsptk_1_1AperiodicityExtraction_1a64a2698e1843676015c61a2c99d48639a8a2d669dfee1241e9e428c5f5965dc5e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kWorld</span></span></span><a class="headerlink" href="#_CPPv4N4sptk22AperiodicityExtraction10Algorithms6kWorldE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk22AperiodicityExtraction10Algorithms14kNumAlgorithmsE">
+<span id="_CPPv3N4sptk22AperiodicityExtraction10Algorithms14kNumAlgorithmsE"></span><span id="_CPPv2N4sptk22AperiodicityExtraction10Algorithms14kNumAlgorithmsE"></span><span class="target" id="classsptk_1_1AperiodicityExtraction_1a64a2698e1843676015c61a2c99d48639a0b9b367ced2757c4cbced911a8db6d65"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kNumAlgorithms</span></span></span><a class="headerlink" href="#_CPPv4N4sptk22AperiodicityExtraction10Algorithms14kNumAlgorithmsE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4sptk16MuLawCompression16MuLawCompressionEdd">
-<span id="_CPPv3N4sptk16MuLawCompression16MuLawCompressionEdd"></span><span id="_CPPv2N4sptk16MuLawCompression16MuLawCompressionEdd"></span><span id="sptk::MuLawCompression::MuLawCompression__double.double"></span><span class="target" id="classsptk_1_1MuLawCompression_1aaab19dc7fddc3e013caa76f17322bee6"></span><span class="sig-name descname"><span class="n"><span class="pre">MuLawCompression</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">abs_max_value</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">compression_factor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk16MuLawCompression16MuLawCompressionEdd" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk22AperiodicityExtraction22AperiodicityExtractionEiid10Algorithms">
+<span id="_CPPv3N4sptk22AperiodicityExtraction22AperiodicityExtractionEiid10Algorithms"></span><span id="_CPPv2N4sptk22AperiodicityExtraction22AperiodicityExtractionEiid10Algorithms"></span><span id="sptk::AperiodicityExtraction::AperiodicityExtraction__i.i.double.Algorithms"></span><span class="target" id="classsptk_1_1AperiodicityExtraction_1a96369ecff9a67d8f7436e9a07ad5ba03"></span><span class="sig-name descname"><span class="n"><span class="pre">AperiodicityExtraction</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">frame_shift</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sampling_rate</span></span>, <a class="reference internal" href="#_CPPv4N4sptk22AperiodicityExtraction10AlgorithmsE" title="sptk::AperiodicityExtraction::Algorithms"><span class="n"><span class="pre">Algorithms</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">algorithm</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk22AperiodicityExtraction22AperiodicityExtractionEiid10Algorithms" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>abs_max_value</strong> – <strong>[in]</strong> Absolute maximum value. </p></li>
-<li><p><strong>compression_factor</strong> – <strong>[in]</strong> Compression factor, <span class="math notranslate nohighlight">\(\mu\)</span>. </p></li>
+<li><p><strong>fft_length</strong> – <strong>[in]</strong> FFT length. </p></li>
+<li><p><strong>frame_shift</strong> – <strong>[in]</strong> Frame shift in point. </p></li>
+<li><p><strong>sampling_rate</strong> – <strong>[in]</strong> Sampling rate in Hz. </p></li>
+<li><p><strong>algorithm</strong> – <strong>[in]</strong> Algorithm used for aperiodicity extraction. </p></li>
 </ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk16MuLawCompression14GetAbsMaxValueEv">
-<span id="_CPPv3NK4sptk16MuLawCompression14GetAbsMaxValueEv"></span><span id="_CPPv2NK4sptk16MuLawCompression14GetAbsMaxValueEv"></span><span id="sptk::MuLawCompression::GetAbsMaxValueC"></span><span class="target" id="classsptk_1_1MuLawCompression_1ad1024bcc4f7287e757519abe9e8ca125"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetAbsMaxValue</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16MuLawCompression14GetAbsMaxValueEv" title="Permalink to this definition"></a><br /></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Absolute maximum value. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk16MuLawCompression20GetCompressionFactorEv">
-<span id="_CPPv3NK4sptk16MuLawCompression20GetCompressionFactorEv"></span><span id="_CPPv2NK4sptk16MuLawCompression20GetCompressionFactorEv"></span><span id="sptk::MuLawCompression::GetCompressionFactorC"></span><span class="target" id="classsptk_1_1MuLawCompression_1aae5024603a475fca0fc18680c5647a59"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetCompressionFactor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16MuLawCompression20GetCompressionFactorEv" title="Permalink to this definition"></a><br /></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
-<dd class="field-odd"><p>Compression factor. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk16MuLawCompression7IsValidEv">
-<span id="_CPPv3NK4sptk16MuLawCompression7IsValidEv"></span><span id="_CPPv2NK4sptk16MuLawCompression7IsValidEv"></span><span id="sptk::MuLawCompression::IsValidC"></span><span class="target" id="classsptk_1_1MuLawCompression_1a584cfc1786dafef3e56413ad642102a9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16MuLawCompression7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk22AperiodicityExtraction7IsValidEv">
+<span id="_CPPv3NK4sptk22AperiodicityExtraction7IsValidEv"></span><span id="_CPPv2NK4sptk22AperiodicityExtraction7IsValidEv"></span><span id="sptk::AperiodicityExtraction::IsValidC"></span><span class="target" id="classsptk_1_1AperiodicityExtraction_1aa9b88e84eb49429148b874f23ac7cfb3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk22AperiodicityExtraction7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns</dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -309,27 +356,15 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk16MuLawCompression3RunEdPd">
-<span id="_CPPv3NK4sptk16MuLawCompression3RunEdPd"></span><span id="_CPPv2NK4sptk16MuLawCompression3RunEdPd"></span><span id="sptk::MuLawCompression::Run__double.doublePC"></span><span class="target" id="classsptk_1_1MuLawCompression_1a0733400060445a947075da36bc7e9db4"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">input</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">output</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16MuLawCompression3RunEdPd" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk22AperiodicityExtraction3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEE">
+<span id="_CPPv3NK4sptk22AperiodicityExtraction3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEE"></span><span id="_CPPv2NK4sptk22AperiodicityExtraction3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEE"></span><span id="sptk::AperiodicityExtraction::Run__std::vector:double:CR.std::vector:double:CR.std::vector:std::vector:double::PC"></span><span class="target" id="classsptk_1_1AperiodicityExtraction_1af483ec160e8ae6a53ffb85f16f3d2fc1"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">waveform</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">f0</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aperiodicity</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk22AperiodicityExtraction3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEE" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>input</strong> – <strong>[in]</strong> Input data. </p></li>
-<li><p><strong>output</strong> – <strong>[out]</strong> Output data. </p></li>
+<li><p><strong>waveform</strong> – <strong>[in]</strong> Waveform. </p></li>
+<li><p><strong>f0</strong> – <strong>[in]</strong> Fundamental frequency in Hz. </p></li>
+<li><p><strong>aperiodicity</strong> – <strong>[out]</strong> Aperiodicity measure. </p></li>
 </ul>
-</dd>
-<dt class="field-even">Returns</dt>
-<dd class="field-even"><p>True on success, false on failure. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk16MuLawCompression3RunEPd">
-<span id="_CPPv3NK4sptk16MuLawCompression3RunEPd"></span><span id="_CPPv2NK4sptk16MuLawCompression3RunEPd"></span><span id="sptk::MuLawCompression::Run__doublePC"></span><span class="target" id="classsptk_1_1MuLawCompression_1ae1cc803828506f687f13b9642361330f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_and_output</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16MuLawCompression3RunEPd" title="Permalink to this definition"></a><br /></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
-<dd class="field-odd"><p><strong>input_and_output</strong> – <strong>[inout]</strong> Input/output data. </p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
@@ -346,8 +381,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="transpose.html" class="btn btn-neutral float-left" title="transpose" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="vc.html" class="btn btn-neutral float-right" title="vc" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="amgcep.html" class="btn btn-neutral float-left" title="amgcep" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="average.html" class="btn btn-neutral float-right" title="average" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
