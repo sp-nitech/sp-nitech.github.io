@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>mcpf &#8212; diffsptk 0.6.0 documentation</title>
+    <title>ifreqt2 &#8212; diffsptk 0.6.0 documentation</title>
   
   
   
@@ -39,11 +39,11 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'core/mcpf';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'core/ifreqt2';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="mfcc" href="mfcc.html" />
-    <link rel="prev" title="mc2b" href="mc2b.html" />
+    <link rel="next" title="ignorm" href="ignorm.html" />
+    <link rel="prev" title="idct" href="idct.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -281,7 +281,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ifreqt2.html">ifreqt2</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">ifreqt2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imglsadf.html">imglsadf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
@@ -298,7 +298,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpccheck.html">lpccheck</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">mcpf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcpf.html">mcpf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mgc2mgc.html">mgc2mgc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mgc2sp.html">mgc2sp</a></li>
@@ -368,7 +368,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">diffsptk.core</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">mcpf</li>
+    <li class="breadcrumb-item active" aria-current="page">ifreqt2</li>
   </ul>
 </nav>
 </div>
@@ -385,59 +385,58 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="mcpf">
-<span id="id1"></span><h1>mcpf<a class="headerlink" href="#mcpf" title="Permalink to this heading">#</a></h1>
+  <section id="ifreqt2">
+<span id="id1"></span><h1>ifreqt2<a class="headerlink" href="#ifreqt2" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.MelCepstrumPostfiltering">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MelCepstrumPostfiltering</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cep_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">onset</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">impulse_response_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1024</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mcpf.html#MelCepstrumPostfiltering"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MelCepstrumPostfiltering" title="Permalink to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/mcpf.html">this page</a>
-for details.</p>
-<dl class="field-list simple">
+<dt class="sig sig-object py" id="diffsptk.SecondOrderAllPassInverseFrequencyTransform">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">SecondOrderAllPassInverseFrequencyTransform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">in_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">theta</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_fft</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/ifreqt2.html#SecondOrderAllPassInverseFrequencyTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.SecondOrderAllPassInverseFrequencyTransform" title="Permalink to this definition">#</a></dt>
+<dd><p>Second-order all-pass inverse frequecy transform module.</p>
+<dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>cep_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of mel-cepstrum, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<dd class="field-odd"><dl>
+<dt><strong>in_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of input sequence, <span class="math notranslate nohighlight">\(M_1\)</span>.</p>
+</dd>
+<dt><strong>out_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of output sequence, <span class="math notranslate nohighlight">\(M_2\)</span>.</p>
 </dd>
 <dt><strong>alpha</strong><span class="classifier">float [-1 &lt; alpha &lt; 1]</span></dt><dd><p>Frequency warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
 </dd>
-<dt><strong>beta</strong><span class="classifier">float [scalar]</span></dt><dd><p>Intensity parameter, <span class="math notranslate nohighlight">\(\beta\)</span>.</p>
+<dt><strong>theta</strong><span class="classifier">float [0 &lt;= theta &lt;= 1]</span></dt><dd><p>Emphasis frequency, <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
 </dd>
-<dt><strong>onset</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Onset index.</p>
-</dd>
-<dt><strong>impulse_response_length</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Length of impulse response.</p>
+<dt><strong>n_fft</strong><span class="classifier">int &gt;&gt; math:<cite>M_1</cite> [scalar]</span></dt><dd><p>Number of FFT bins. Accurate conversion requires the large value.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.MelCepstrumPostfiltering.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mc1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mcpf.html#MelCepstrumPostfiltering.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MelCepstrumPostfiltering.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Perform mel-cesptrum postfiltering.</p>
+<dt class="sig sig-object py" id="diffsptk.SecondOrderAllPassInverseFrequencyTransform.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/ifreqt2.html#SecondOrderAllPassInverseFrequencyTransform.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.SecondOrderAllPassInverseFrequencyTransform.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Perform second-order all-pass inverse frequency transform.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>mc1</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Mel-cepstral coefficients.</p>
+<dt><strong>c1</strong><span class="classifier">Tensor [shape=(…, M1+1)]</span></dt><dd><p>Warped sequence.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>mc2</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Postfiltered mel-cepstral coefficients.</p>
+<dt><strong>c2</strong><span class="classifier">Tensor [shape=(…, M2+1)]</span></dt><dd><p>Output sequence.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">nrand</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">square</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span>
-<span class="go">tensor([0.2725, 2.5650, 0.3552, 0.3757, 0.1904])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mcep</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MelCepstralAnalysis</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mcpf</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MelCepstrumPostfiltering</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mc1</span> <span class="o">=</span> <span class="n">mcep</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mc1</span>
-<span class="go">tensor([-0.2819,  0.3486, -0.2487, -0.3600])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mc2</span> <span class="o">=</span> <span class="n">mcpf</span><span class="p">(</span><span class="n">mc1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mc2</span>
-<span class="go">tensor([-0.3256,  0.3486, -0.2984, -0.4320])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">nrand</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span>
+<span class="go">tensor([ 0.0304,  0.5849, -0.8668, -0.7278])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">freqt2</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">SecondOrderAllPassFrequencyTransform</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mf">.1</span><span class="p">,</span> <span class="mf">.3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span> <span class="o">=</span> <span class="n">freqt2</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span>
+<span class="go">tensor([ 0.0682,  0.4790, -1.0168, -0.6026,  0.1094])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ifreqt2</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">SecondOrderAllPassInverseFrequencyTransform</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">.1</span><span class="p">,</span> <span class="mf">.3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c3</span> <span class="o">=</span> <span class="n">ifreqt2</span><span class="p">(</span><span class="n">c2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c3</span>
+<span class="go">tensor([ 0.0682,  0.4790, -1.0168, -0.6026,  0.1094])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -446,7 +445,7 @@ for details.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="mgcep.html#mgcep"><span class="std std-ref">mgcep</span></a></p>
+<p><a class="reference internal" href="freqt.html#freqt"><span class="std std-ref">freqt</span></a>  <a class="reference internal" href="freqt2.html#freqt2"><span class="std std-ref">freqt2</span></a>  <a class="reference internal" href="smcep.html#smcep"><span class="std std-ref">smcep</span></a></p>
 </div>
 </section>
 
@@ -459,20 +458,20 @@ for details.</p>
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="mc2b.html"
+       href="idct.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">mc2b</p>
+        <p class="prev-next-title">idct</p>
       </div>
     </a>
     <a class="right-next"
-       href="mfcc.html"
+       href="ignorm.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">mfcc</p>
+        <p class="prev-next-title">ignorm</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -491,8 +490,8 @@ for details.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.MelCepstrumPostfiltering"><code class="docutils literal notranslate"><span class="pre">MelCepstrumPostfiltering</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.MelCepstrumPostfiltering.forward"><code class="docutils literal notranslate"><span class="pre">MelCepstrumPostfiltering.forward()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.SecondOrderAllPassInverseFrequencyTransform"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassInverseFrequencyTransform</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.SecondOrderAllPassInverseFrequencyTransform.forward"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassInverseFrequencyTransform.forward()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -500,7 +499,7 @@ for details.</p>
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
-    <a href="../_sources/core/mcpf.rst.txt">
+    <a href="../_sources/core/ifreqt2.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

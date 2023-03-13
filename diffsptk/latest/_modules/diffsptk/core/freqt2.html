@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.core.smcep &#8212; diffsptk 0.6.0 documentation</title>
+    <title>diffsptk.core.freqt2 &#8212; diffsptk 0.6.0 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/sphinx_highlight.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/core/smcep';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/core/freqt2';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -279,7 +279,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">diffsptk.core.smcep</li>
+    <li class="breadcrumb-item active" aria-current="page">diffsptk.core.freqt2</li>
   </ul>
 </nav>
 </div>
@@ -296,7 +296,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <h1>Source code for diffsptk.core.smcep</h1><div class="highlight"><pre>
+  <h1>Source code for diffsptk.core.freqt2</h1><div class="highlight"><pre>
 <span></span><span class="c1"># ------------------------------------------------------------------------ #</span>
 <span class="c1"># Copyright 2022 SPTK Working Group                                        #</span>
 <span class="c1">#                                                                          #</span>
@@ -317,60 +317,29 @@ document.write(`
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
-<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">check_size</span>
-<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">hankel</span>
-<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">is_power_of_two</span>
 <span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">numpy_to_torch</span>
-<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">symmetric_toeplitz</span>
-<span class="kn">from</span> <span class="nn">.freqt2</span> <span class="kn">import</span> <span class="n">SecondOrderAllPassFrequencyTransform</span>
-<span class="kn">from</span> <span class="nn">.freqt2</span> <span class="kn">import</span> <span class="n">warp</span>
-<span class="kn">from</span> <span class="nn">.ifreqt2</span> <span class="kn">import</span> <span class="n">SecondOrderAllPassInverseFrequencyTransform</span>
 
 
-<span class="k">class</span> <span class="nc">CoefficientsFrequencyTransform</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_order</span><span class="p">,</span> <span class="n">out_order</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">n_fft</span><span class="o">=</span><span class="mi">512</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">CoefficientsFrequencyTransform</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">in_order</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">out_order</span>
-        <span class="k">assert</span> <span class="n">out_order</span> <span class="o">&lt;</span> <span class="n">n_fft</span>
-        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">theta</span> <span class="o">&lt;=</span> <span class="mi">1</span>
-
-        <span class="n">theta</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
-        <span class="n">delta</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">n_fft</span>
-        <span class="n">omega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_fft</span><span class="p">)</span> <span class="o">*</span> <span class="n">delta</span>
-        <span class="n">ww</span> <span class="o">=</span> <span class="n">warp</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
-
-        <span class="n">m2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">out_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
-        <span class="n">wwm2</span> <span class="o">=</span> <span class="n">ww</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">m2</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">real</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">wwm2</span><span class="p">)</span>
-        <span class="n">imag</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">wwm2</span><span class="p">)</span>
-
-        <span class="n">M1</span> <span class="o">=</span> <span class="n">in_order</span> <span class="o">+</span> <span class="mi">1</span>
-        <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft</span><span class="p">(</span><span class="n">real</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">imag</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">real</span>
-        <span class="k">if</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">M1</span><span class="p">:</span>
-            <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">M1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="n">M1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-        <span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:</span><span class="n">M1</span><span class="p">]</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">numpy_to_torch</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
-
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c1</span><span class="p">):</span>
-        <span class="n">c2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">c2</span>
+<span class="k">def</span> <span class="nf">warp</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">omega</span> <span class="o">-</span> <span class="n">theta</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">omega</span> <span class="o">+</span> <span class="n">theta</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">omega</span>
+        <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+        <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
+    <span class="p">)</span>
 
 
-<div class="viewcode-block" id="SecondOrderAllPassMelCepstralAnalysis"><a class="viewcode-back" href="../../../core/smcep.html#diffsptk.SecondOrderAllPassMelCepstralAnalysis">[docs]</a><span class="k">class</span> <span class="nc">SecondOrderAllPassMelCepstralAnalysis</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/smcep.html&gt;`_</span>
-<span class="sd">    for details. Note that the current implementation does not use the efficient</span>
-<span class="sd">    Toeplitz-plus-Hankel system solver.</span>
+<div class="viewcode-block" id="SecondOrderAllPassFrequencyTransform"><a class="viewcode-back" href="../../../core/freqt2.html#diffsptk.SecondOrderAllPassFrequencyTransform">[docs]</a><span class="k">class</span> <span class="nc">SecondOrderAllPassFrequencyTransform</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Second-order all-pass frequecy transform module.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    cep_order : int &gt;= 0 [scalar]</span>
-<span class="sd">        Order of mel-cepstrum, :math:`M`.</span>
+<span class="sd">    in_order : int &gt;= 0 [scalar]</span>
+<span class="sd">        Order of input sequence, :math:`M_1`.</span>
 
-<span class="sd">    fft_length : int &gt;= 2M [scalar]</span>
-<span class="sd">        Number of FFT bins, :math:`L`.</span>
+<span class="sd">    out_order : int &gt;= 0 [scalar]</span>
+<span class="sd">        Order of output sequence, :math:`M_2`.</span>
 
 <span class="sd">    alpha : float [-1 &lt; alpha &lt; 1]</span>
 <span class="sd">        Frequency warping factor, :math:`\\alpha`.</span>
@@ -378,110 +347,82 @@ document.write(`
 <span class="sd">    theta : float [0 &lt;= theta &lt;= 1]</span>
 <span class="sd">        Emphasis frequency, :math:`\\theta`.</span>
 
-<span class="sd">    n_iter : int &gt;= 0 [scalar]</span>
-<span class="sd">        Number of iterations.</span>
-
-<span class="sd">    accuracy_factor : int &gt;= 1 [scalar]</span>
-<span class="sd">        Accuracy factor multiplied by FFT length.</span>
+<span class="sd">    n_fft : int &gt;&gt; :math:`M_2` [scalar]</span>
+<span class="sd">        Number of FFT bins. Accurate conversion requires the large value.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span> <span class="n">cep_order</span><span class="p">,</span> <span class="n">fft_length</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">theta</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">accuracy_factor</span><span class="o">=</span><span class="mi">4</span>
-    <span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">SecondOrderAllPassMelCepstralAnalysis</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_order</span><span class="p">,</span> <span class="n">out_order</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">n_fft</span><span class="o">=</span><span class="mi">512</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SecondOrderAllPassFrequencyTransform</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span> <span class="o">=</span> <span class="n">cep_order</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span> <span class="o">=</span> <span class="n">fft_length</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span> <span class="o">=</span> <span class="n">n_iter</span>
+        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">in_order</span>
+        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">out_order</span>
+        <span class="k">assert</span> <span class="n">out_order</span> <span class="o">&lt;</span> <span class="n">n_fft</span>
+        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span>
+        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">theta</span> <span class="o">&lt;=</span> <span class="mi">1</span>
 
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span>
-        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span> <span class="o">//</span> <span class="mi">2</span>
-        <span class="k">assert</span> <span class="n">is_power_of_two</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span><span class="p">)</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span>
+        <span class="k">def</span> <span class="nf">diff_warp</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">omega</span> <span class="o">-</span> <span class="n">theta</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">omega</span> <span class="o">+</span> <span class="n">theta</span>
+            <span class="n">a1</span> <span class="o">=</span> <span class="n">alpha</span>
+            <span class="n">a2</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">+</span> <span class="n">alpha</span>
+            <span class="n">aa</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">alpha</span>
+            <span class="k">return</span> <span class="p">(</span>
+                <span class="mi">1</span>
+                <span class="o">+</span> <span class="p">(</span><span class="n">a1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="n">aa</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">a2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">aa</span><span class="p">)</span>
+                <span class="o">+</span> <span class="p">(</span><span class="n">a1</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">-</span> <span class="n">aa</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">a2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="n">aa</span><span class="p">)</span>
+            <span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">freqt</span> <span class="o">=</span> <span class="n">SecondOrderAllPassFrequencyTransform</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span><span class="p">,</span>
-            <span class="n">alpha</span><span class="p">,</span>
-            <span class="n">theta</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span> <span class="o">*</span> <span class="n">accuracy_factor</span><span class="p">,</span>
-        <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">ifreqt</span> <span class="o">=</span> <span class="n">SecondOrderAllPassInverseFrequencyTransform</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span>
-            <span class="n">alpha</span><span class="p">,</span>
-            <span class="n">theta</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span> <span class="o">*</span> <span class="n">accuracy_factor</span><span class="p">,</span>
-        <span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">rfreqt</span> <span class="o">=</span> <span class="n">CoefficientsFrequencyTransform</span><span class="p">(</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span> <span class="o">//</span> <span class="mi">2</span><span class="p">,</span>
-            <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span><span class="p">,</span>
-            <span class="n">alpha</span><span class="p">,</span>
-            <span class="n">theta</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span> <span class="o">*</span> <span class="n">accuracy_factor</span><span class="p">,</span>
-        <span class="p">)</span>
+        <span class="n">theta</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">n_fft</span>
+        <span class="n">omega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_fft</span><span class="p">)</span> <span class="o">*</span> <span class="n">delta</span>
+        <span class="n">ww</span> <span class="o">=</span> <span class="n">warp</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
+        <span class="n">dw</span> <span class="o">=</span> <span class="n">diff_warp</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
 
-        <span class="n">seed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">alpha_vector</span> <span class="o">=</span> <span class="n">CoefficientsFrequencyTransform</span><span class="p">(</span>
-            <span class="mi">0</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span><span class="p">,</span>
-            <span class="n">alpha</span><span class="p">,</span>
-            <span class="n">theta</span><span class="p">,</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span> <span class="o">*</span> <span class="n">accuracy_factor</span><span class="p">,</span>
-        <span class="p">)(</span><span class="n">numpy_to_torch</span><span class="p">(</span><span class="n">seed</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;alpha_vector&quot;</span><span class="p">,</span> <span class="n">alpha_vector</span><span class="p">)</span>
+        <span class="n">m2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">out_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">wwm2</span> <span class="o">=</span> <span class="n">ww</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">m2</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">real</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">wwm2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dw</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">imag</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">wwm2</span><span class="p">)</span> <span class="o">*</span> <span class="n">dw</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-<div class="viewcode-block" id="SecondOrderAllPassMelCepstralAnalysis.forward"><a class="viewcode-back" href="../../../core/smcep.html#diffsptk.SecondOrderAllPassMelCepstralAnalysis.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Estimate mel-cepstrum from spectrum.</span>
+        <span class="n">M1</span> <span class="o">=</span> <span class="n">in_order</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft</span><span class="p">(</span><span class="n">real</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">imag</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">real</span>
+        <span class="k">if</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">M1</span><span class="p">:</span>
+            <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">M1</span><span class="p">]</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">A</span><span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="n">M1</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:</span><span class="n">M1</span><span class="p">]</span>
+        <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">/=</span> <span class="mi">2</span>
+        <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">*=</span> <span class="mi">2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">numpy_to_torch</span><span class="p">(</span><span class="n">A</span><span class="p">))</span>
+
+<div class="viewcode-block" id="SecondOrderAllPassFrequencyTransform.forward"><a class="viewcode-back" href="../../../core/freqt2.html#diffsptk.SecondOrderAllPassFrequencyTransform.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c1</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform second-order all-pass frequency transform.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        x : Tensor [shape=(..., L/2+1)]</span>
-<span class="sd">            Power spectrum.</span>
+<span class="sd">        c1 : Tensor [shape=(..., M1+1)]</span>
+<span class="sd">            Input sequence.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        mc : Tensor [shape=(..., M+1)]</span>
-<span class="sd">            Mel-cepstrum.</span>
+<span class="sd">        c2 : Tensor [shape=(..., M2+1)]</span>
+<span class="sd">            Warped sequence.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        &gt;&gt;&gt; x = diffsptk.ramp(19)</span>
-<span class="sd">        &gt;&gt;&gt; stft = diffsptk.STFT(frame_length=10, frame_period=10, fft_length=16)</span>
-<span class="sd">        &gt;&gt;&gt; smcep = diffsptk.SecondOrderAllPassMelCepstralAnalysis(3, 16, 0.1, n_iter=1)</span>
-<span class="sd">        &gt;&gt;&gt; mc = smcep(stft(x))</span>
-<span class="sd">        &gt;&gt;&gt; mc</span>
-<span class="sd">        tensor([[-0.8851,  0.7917, -0.1737,  0.0175],</span>
-<span class="sd">                [-0.3523,  4.4223, -1.0883, -0.0510]])</span>
+<span class="sd">        &gt;&gt;&gt; c1 = diffsptk.nrand(3)</span>
+<span class="sd">        &gt;&gt;&gt; c1</span>
+<span class="sd">        tensor([ 0.0304,  0.5849, -0.8668, -0.7278])</span>
+<span class="sd">        &gt;&gt;&gt; freqt2 = diffsptk.SecondOrderAllPassFrequencyTransform(3, 4, .1, .3)</span>
+<span class="sd">        &gt;&gt;&gt; c2 = freqt2(c1)</span>
+<span class="sd">        &gt;&gt;&gt; c2</span>
+<span class="sd">        tensor([ 0.0682,  0.4790, -1.0168, -0.6026,  0.1094])</span>
+<span class="sd">        &gt;&gt;&gt; ifreqt2 = diffsptk.SecondOrderAllPassInverseFrequencyTransform(4, 3, .1, .3)</span>
+<span class="sd">        &gt;&gt;&gt; c3 = ifreqt2(c2)</span>
+<span class="sd">        &gt;&gt;&gt; c3</span>
+<span class="sd">        tensor([ 0.0682,  0.4790, -1.0168, -0.6026,  0.1094])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">M</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span>
-        <span class="n">H</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span> <span class="o">//</span> <span class="mi">2</span>
-        <span class="n">check_size</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">H</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;dimension of spectrum&quot;</span><span class="p">)</span>
-
-        <span class="n">log_x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">irfft</span><span class="p">(</span><span class="n">log_x</span><span class="p">)</span>
-        <span class="n">c</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">0.5</span>
-        <span class="n">c</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">H</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">0.5</span>
-        <span class="n">mc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">freqt</span><span class="p">(</span><span class="n">c</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span> <span class="n">H</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
-
-        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span><span class="p">):</span>
-            <span class="n">c</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ifreqt</span><span class="p">(</span><span class="n">mc</span><span class="p">)</span>
-            <span class="n">d</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span><span class="p">)</span><span class="o">.</span><span class="n">real</span>
-            <span class="n">d</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">log_x</span> <span class="o">-</span> <span class="n">d</span> <span class="o">-</span> <span class="n">d</span><span class="p">)</span>
-
-            <span class="n">rd</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">irfft</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
-            <span class="n">rt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rfreqt</span><span class="p">(</span><span class="n">rd</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span> <span class="n">H</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span>
-            <span class="n">r</span> <span class="o">=</span> <span class="n">rt</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span> <span class="n">M</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span>
-            <span class="n">ra</span> <span class="o">=</span> <span class="n">r</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha_vector</span>
-
-            <span class="n">R</span> <span class="o">=</span> <span class="n">symmetric_toeplitz</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
-            <span class="n">Q</span> <span class="o">=</span> <span class="n">hankel</span><span class="p">(</span><span class="n">rt</span><span class="p">)</span>
-            <span class="n">gradient</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">R</span> <span class="o">+</span> <span class="n">Q</span><span class="p">,</span> <span class="n">ra</span><span class="p">)</span>
-            <span class="n">mc</span> <span class="o">=</span> <span class="n">mc</span> <span class="o">+</span> <span class="n">gradient</span>
-
-        <span class="k">return</span> <span class="n">mc</span></div></div>
+        <span class="n">c2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">c2</span></div></div>
 </pre></div>
 
                 </article>

@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.core.mpir2c &#8212; diffsptk 0.6.0 documentation</title>
+    <title>diffsptk.core.ifreqt2 &#8212; diffsptk 0.6.0 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
     <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js"></script>
     <script src="../../../_static/doctools.js"></script>
     <script src="../../../_static/sphinx_highlight.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/core/mpir2c';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/core/ifreqt2';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -279,7 +279,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">diffsptk.core.mpir2c</li>
+    <li class="breadcrumb-item active" aria-current="page">diffsptk.core.ifreqt2</li>
   </ul>
 </nav>
 </div>
@@ -296,7 +296,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <h1>Source code for diffsptk.core.mpir2c</h1><div class="highlight"><pre>
+  <h1>Source code for diffsptk.core.ifreqt2</h1><div class="highlight"><pre>
 <span></span><span class="c1"># ------------------------------------------------------------------------ #</span>
 <span class="c1"># Copyright 2022 SPTK Working Group                                        #</span>
 <span class="c1">#                                                                          #</span>
@@ -313,69 +313,93 @@ document.write(`
 <span class="c1"># limitations under the License.                                           #</span>
 <span class="c1"># ------------------------------------------------------------------------ #</span>
 
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
-<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">check_size</span>
-<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">clog</span>
+<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">numpy_to_torch</span>
+<span class="kn">from</span> <span class="nn">.freqt2</span> <span class="kn">import</span> <span class="n">warp</span>
 
 
-<div class="viewcode-block" id="MinimumPhaseImpulseResponseToCepstrum"><a class="viewcode-back" href="../../../core/mpir2c.html#diffsptk.MinimumPhaseImpulseResponseToCepstrum">[docs]</a><span class="k">class</span> <span class="nc">MinimumPhaseImpulseResponseToCepstrum</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/mpir2c.html&gt;`_</span>
-<span class="sd">    for details. The conversion uses FFT instead of recursive formula.</span>
+<div class="viewcode-block" id="SecondOrderAllPassInverseFrequencyTransform"><a class="viewcode-back" href="../../../core/ifreqt2.html#diffsptk.SecondOrderAllPassInverseFrequencyTransform">[docs]</a><span class="k">class</span> <span class="nc">SecondOrderAllPassInverseFrequencyTransform</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Second-order all-pass inverse frequecy transform module.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    cep_order : int &gt;= 0 [scalar]</span>
-<span class="sd">        Order of cepstrum, :math:`M`.</span>
+<span class="sd">    in_order : int &gt;= 0 [scalar]</span>
+<span class="sd">        Order of input sequence, :math:`M_1`.</span>
 
-<span class="sd">    impulse_response_length : int &gt;= 1 [scalar]</span>
-<span class="sd">        Length of impulse response, :math:`N`.</span>
+<span class="sd">    out_order : int &gt;= 0 [scalar]</span>
+<span class="sd">        Order of output sequence, :math:`M_2`.</span>
 
-<span class="sd">    n_fft : int &gt;&gt; :math:`N` [scalar]</span>
+<span class="sd">    alpha : float [-1 &lt; alpha &lt; 1]</span>
+<span class="sd">        Frequency warping factor, :math:`\\alpha`.</span>
+
+<span class="sd">    theta : float [0 &lt;= theta &lt;= 1]</span>
+<span class="sd">        Emphasis frequency, :math:`\\theta`.</span>
+
+<span class="sd">    n_fft : int &gt;&gt; math:`M_1` [scalar]</span>
 <span class="sd">        Number of FFT bins. Accurate conversion requires the large value.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cep_order</span><span class="p">,</span> <span class="n">impulse_response_length</span><span class="p">,</span> <span class="n">n_fft</span><span class="o">=</span><span class="mi">512</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">MinimumPhaseImpulseResponseToCepstrum</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_order</span><span class="p">,</span> <span class="n">out_order</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">n_fft</span><span class="o">=</span><span class="mi">512</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">SecondOrderAllPassInverseFrequencyTransform</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span> <span class="o">=</span> <span class="n">cep_order</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">impulse_response_length</span> <span class="o">=</span> <span class="n">impulse_response_length</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">n_fft</span> <span class="o">=</span> <span class="n">n_fft</span>
+        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">in_order</span>
+        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">out_order</span>
+        <span class="k">assert</span> <span class="n">in_order</span> <span class="o">&lt;</span> <span class="n">n_fft</span>
+        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span>
+        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">theta</span> <span class="o">&lt;=</span> <span class="mi">1</span>
 
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span>
-        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">impulse_response_length</span>
-        <span class="k">assert</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">impulse_response_length</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_fft</span>
+        <span class="n">theta</span> <span class="o">*=</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span>
+        <span class="n">delta</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">n_fft</span>
+        <span class="n">omega</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_fft</span><span class="p">)</span> <span class="o">*</span> <span class="n">delta</span>
+        <span class="n">ww</span> <span class="o">=</span> <span class="n">warp</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
 
-<div class="viewcode-block" id="MinimumPhaseImpulseResponseToCepstrum.forward"><a class="viewcode-back" href="../../../core/mpir2c.html#diffsptk.MinimumPhaseImpulseResponseToCepstrum.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert minimum phase impulse response to cepstrum.</span>
+        <span class="n">m1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">in_order</span><span class="p">,</span> <span class="n">in_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">wwm1</span> <span class="o">=</span> <span class="n">ww</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">m1</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">real</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">wwm1</span><span class="p">)</span>
+        <span class="n">imag</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">wwm1</span><span class="p">)</span>
+
+        <span class="n">M2</span> <span class="o">=</span> <span class="n">out_order</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft</span><span class="p">(</span><span class="n">real</span> <span class="o">+</span> <span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">imag</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">real</span>
+        <span class="n">A</span><span class="p">[:</span><span class="n">M2</span><span class="p">,</span> <span class="n">in_order</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">:]</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">A</span><span class="p">[:</span><span class="n">M2</span><span class="p">,</span> <span class="p">:</span><span class="n">in_order</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:</span><span class="n">M2</span><span class="p">,</span> <span class="n">in_order</span><span class="p">:]</span>
+        <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">/=</span> <span class="mi">2</span>
+        <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">numpy_to_torch</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">))</span>
+
+<div class="viewcode-block" id="SecondOrderAllPassInverseFrequencyTransform.forward"><a class="viewcode-back" href="../../../core/ifreqt2.html#diffsptk.SecondOrderAllPassInverseFrequencyTransform.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c1</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform second-order all-pass inverse frequency transform.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        h : Tensor [shape=(..., N)]</span>
-<span class="sd">            Truncated minimum phase impulse response.</span>
+<span class="sd">        c1 : Tensor [shape=(..., M1+1)]</span>
+<span class="sd">            Warped sequence.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        c : Tensor [shape=(..., M+1)]</span>
-<span class="sd">            Cepstral coefficients.</span>
+<span class="sd">        c2 : Tensor [shape=(..., M2+1)]</span>
+<span class="sd">            Output sequence.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        &gt;&gt;&gt; h = diffsptk.ramp(4, 0, -1)</span>
-<span class="sd">        &gt;&gt;&gt; mpir2c = diffsptk.MinimumPhaseImpulseResponseToCepstrum(3, 5)</span>
-<span class="sd">        &gt;&gt;&gt; c = mpir2c(h)</span>
-<span class="sd">        &gt;&gt;&gt; c</span>
-<span class="sd">        tensor([1.3863, 0.7500, 0.2188, 0.0156])</span>
+<span class="sd">        &gt;&gt;&gt; c1 = diffsptk.nrand(3)</span>
+<span class="sd">        &gt;&gt;&gt; c1</span>
+<span class="sd">        tensor([ 0.0304,  0.5849, -0.8668, -0.7278])</span>
+<span class="sd">        &gt;&gt;&gt; freqt2 = diffsptk.SecondOrderAllPassFrequencyTransform(3, 4, .1, .3)</span>
+<span class="sd">        &gt;&gt;&gt; c2 = freqt2(c1)</span>
+<span class="sd">        &gt;&gt;&gt; c2</span>
+<span class="sd">        tensor([ 0.0682,  0.4790, -1.0168, -0.6026,  0.1094])</span>
+<span class="sd">        &gt;&gt;&gt; ifreqt2 = diffsptk.SecondOrderAllPassInverseFrequencyTransform(4, 3, .1, .3)</span>
+<span class="sd">        &gt;&gt;&gt; c3 = ifreqt2(c2)</span>
+<span class="sd">        &gt;&gt;&gt; c3</span>
+<span class="sd">        tensor([ 0.0682,  0.4790, -1.0168, -0.6026,  0.1094])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">check_size</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">impulse_response_length</span><span class="p">,</span> <span class="s2">&quot;impulse response length&quot;</span><span class="p">)</span>
-
-        <span class="n">H</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_fft</span><span class="p">)</span>
-        <span class="n">c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft</span><span class="p">(</span><span class="n">clog</span><span class="p">(</span><span class="n">H</span><span class="p">))[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">real</span>
-        <span class="n">c</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">*=</span> <span class="mi">2</span>
-        <span class="k">return</span> <span class="n">c</span></div></div>
+        <span class="n">c2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">c2</span></div></div>
 </pre></div>
 
                 </article>
