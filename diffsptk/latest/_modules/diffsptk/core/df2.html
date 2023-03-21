@@ -341,7 +341,7 @@ document.write(`
 <span class="sd">    zero_bandwidth : float &gt; 0 [scalar]</span>
 <span class="sd">        Zero bandwidth in Hz.</span>
 
-<span class="sd">    impulse_response_length : int &gt;= 1 [scalar]</span>
+<span class="sd">    ir_length : int &gt;= 1 [scalar]</span>
 <span class="sd">        Length of impulse response.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -353,7 +353,7 @@ document.write(`
         <span class="n">pole_bandwidth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">zero_frequency</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">zero_bandwidth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">impulse_response_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">ir_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">SecondOrderDigitalFilter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
@@ -375,8 +375,8 @@ document.write(`
             <span class="n">param</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_filter_coefficients</span><span class="p">(</span>
                 <span class="n">zero_frequency</span><span class="p">,</span> <span class="n">zero_bandwidth</span><span class="p">,</span> <span class="n">sample_rate</span>
             <span class="p">)</span>
-        <span class="k">if</span> <span class="n">impulse_response_length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">param</span><span class="p">[</span><span class="s2">&quot;impulse_response_length&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">impulse_response_length</span>
+        <span class="k">if</span> <span class="n">ir_length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">param</span><span class="p">[</span><span class="s2">&quot;ir_length&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ir_length</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">dfs</span> <span class="o">=</span> <span class="n">InfiniteImpulseResponseDigitalFilter</span><span class="p">(</span><span class="o">**</span><span class="n">param</span><span class="p">)</span>
 

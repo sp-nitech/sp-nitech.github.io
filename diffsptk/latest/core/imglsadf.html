@@ -417,13 +417,13 @@ for details.</p>
 </dd>
 <dt><strong>cascade</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If True, use multi-stage FIR filter.</p>
 </dd>
-<dt><strong>cep_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of linear cepstrum (valid only if <strong>cascade</strong> is True).</p>
-</dd>
 <dt><strong>taylor_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of Taylor series expansion (valid only if <strong>cascade</strong> is True).</p>
 </dd>
-<dt><strong>impulse_response_length</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Length of impulse response (valid only if <strong>cascade</strong> is False).</p>
+<dt><strong>ir_length</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Length of impulse response (valid only if <strong>cascade</strong> is False).</p>
 </dd>
 <dt><strong>n_fft</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Number of FFT bins for conversion (valid only if <strong>cascade</strong> is False).</p>
+</dd>
+<dt><strong>cep_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of linear cepstrum (used to convert input to cepstrum).</p>
 </dd>
 </dl>
 </dd>
@@ -455,7 +455,7 @@ for details.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mc</span>
 <span class="go">tensor([[ 0.8457,  1.5812,  0.1379,  1.6558,  1.4591],</span>
 <span class="go">        [-1.3714, -0.9669, -1.2025, -1.3683, -0.2352]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">imglsadf</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">PseudoInverseMGLSADigitalFilter</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">frame_period</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">imglsadf</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">IMLSA</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">frame_period</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">imglsadf</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">mc</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">M</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
 <span class="go">tensor([[ 0.4293,  1.0592,  7.9349, 14.9794]])</span>

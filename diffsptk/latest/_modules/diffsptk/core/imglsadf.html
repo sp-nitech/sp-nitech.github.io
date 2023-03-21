@@ -348,25 +348,21 @@ document.write(`
 <span class="sd">    cascade : bool [scalar]</span>
 <span class="sd">        If True, use multi-stage FIR filter.</span>
 
-<span class="sd">    cep_order : int &gt;= 0 [scalar]</span>
-<span class="sd">        Order of linear cepstrum (valid only if **cascade** is True).</span>
-
 <span class="sd">    taylor_order : int &gt;= 0 [scalar]</span>
 <span class="sd">        Order of Taylor series expansion (valid only if **cascade** is True).</span>
 
-<span class="sd">    impulse_response_length : int &gt;= 1 [scalar]</span>
+<span class="sd">    ir_length : int &gt;= 1 [scalar]</span>
 <span class="sd">        Length of impulse response (valid only if **cascade** is False).</span>
 
 <span class="sd">    n_fft : int &gt;= 1 [scalar]</span>
 <span class="sd">        Number of FFT bins for conversion (valid only if **cascade** is False).</span>
 
+<span class="sd">    cep_order : int &gt;= 0 [scalar]</span>
+<span class="sd">        Order of linear cepstrum (used to convert input to cepstrum).</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
-        <span class="bp">self</span><span class="p">,</span>
-        <span class="n">filter_order</span><span class="p">,</span>
-        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-    <span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filter_order</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">PseudoInverseMGLSADigitalFilter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">mglsadf</span> <span class="o">=</span> <span class="n">PseudoMGLSADigitalFilter</span><span class="p">(</span><span class="n">filter_order</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -395,7 +391,7 @@ document.write(`
 <span class="sd">        &gt;&gt;&gt; mc</span>
 <span class="sd">        tensor([[ 0.8457,  1.5812,  0.1379,  1.6558,  1.4591],</span>
 <span class="sd">                [-1.3714, -0.9669, -1.2025, -1.3683, -0.2352]])</span>
-<span class="sd">        &gt;&gt;&gt; imglsadf = diffsptk.PseudoInverseMGLSADigitalFilter(M, frame_period=2)</span>
+<span class="sd">        &gt;&gt;&gt; imglsadf = diffsptk.IMLSA(M, frame_period=2)</span>
 <span class="sd">        &gt;&gt;&gt; x = imglsadf(y.view(1, -1), mc.view(1, 2, M + 1))</span>
 <span class="sd">        &gt;&gt;&gt; x</span>
 <span class="sd">        tensor([[ 0.4293,  1.0592,  7.9349, 14.9794]])</span>

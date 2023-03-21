@@ -329,7 +329,7 @@ document.write(`
 <span class="sd">    cep_order : int &gt;= 0 [scalar]</span>
 <span class="sd">        Order of cepstrum, :math:`M`.</span>
 
-<span class="sd">    impulse_response_length : int &gt;= 1 [scalar]</span>
+<span class="sd">    ir_length : int &gt;= 1 [scalar]</span>
 <span class="sd">        Length of impulse response, :math:`N`.</span>
 
 <span class="sd">    n_fft : int &gt;&gt; :math:`N` [scalar]</span>
@@ -337,16 +337,16 @@ document.write(`
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cep_order</span><span class="p">,</span> <span class="n">impulse_response_length</span><span class="p">,</span> <span class="n">n_fft</span><span class="o">=</span><span class="mi">512</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cep_order</span><span class="p">,</span> <span class="n">ir_length</span><span class="p">,</span> <span class="n">n_fft</span><span class="o">=</span><span class="mi">512</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">MinimumPhaseImpulseResponseToCepstrum</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span> <span class="o">=</span> <span class="n">cep_order</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">impulse_response_length</span> <span class="o">=</span> <span class="n">impulse_response_length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">ir_length</span> <span class="o">=</span> <span class="n">ir_length</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_fft</span> <span class="o">=</span> <span class="n">n_fft</span>
 
         <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span>
-        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">impulse_response_length</span>
-        <span class="k">assert</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">impulse_response_length</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_fft</span>
+        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ir_length</span>
+        <span class="k">assert</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ir_length</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_fft</span>
 
 <div class="viewcode-block" id="MinimumPhaseImpulseResponseToCepstrum.forward"><a class="viewcode-back" href="../../../core/mpir2c.html#diffsptk.MinimumPhaseImpulseResponseToCepstrum.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Convert minimum phase impulse response to cepstrum.</span>
@@ -370,7 +370,7 @@ document.write(`
 <span class="sd">        tensor([1.3863, 0.7500, 0.2188, 0.0156])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">check_size</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">impulse_response_length</span><span class="p">,</span> <span class="s2">&quot;impulse response length&quot;</span><span class="p">)</span>
+        <span class="n">check_size</span><span class="p">(</span><span class="n">h</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">ir_length</span><span class="p">,</span> <span class="s2">&quot;impulse response length&quot;</span><span class="p">)</span>
 
         <span class="n">H</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_fft</span><span class="p">)</span>
         <span class="n">c</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft</span><span class="p">(</span><span class="n">clog</span><span class="p">(</span><span class="n">H</span><span class="p">))[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">real</span>
