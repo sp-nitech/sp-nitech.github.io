@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>ulaw &#8212; diffsptk 0.6.0 documentation</title>
+    <title>mlsacheck &#8212; diffsptk 0.6.0 documentation</title>
   
   
   
@@ -39,11 +39,11 @@
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'core/ulaw';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'core/mlsacheck';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="unframe" href="unframe.html" />
-    <link rel="prev" title="stft" href="stft.html" />
+    <link rel="next" title="mpir2c" href="mpir2c.html" />
+    <link rel="prev" title="mlpg" href="mlpg.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -305,7 +305,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="mgcep.html">mgcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mglsadf.html">mglsadf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mlsacheck.html">mlsacheck</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">mlsacheck</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mpir2c.html">mpir2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="msvq.html">msvq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
@@ -323,7 +323,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="snr.html">snr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="spec.html">spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stft.html">stft</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unframe.html">unframe</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vq.html">vq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
@@ -370,7 +370,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">diffsptk.core</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">ulaw</li>
+    <li class="breadcrumb-item active" aria-current="page">mlsacheck</li>
   </ul>
 </nav>
 </div>
@@ -387,47 +387,63 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="ulaw">
-<span id="id1"></span><h1>ulaw<a class="headerlink" href="#ulaw" title="Permalink to this heading">#</a></h1>
+  <section id="mlsacheck">
+<span id="id1"></span><h1>mlsacheck<a class="headerlink" href="#mlsacheck" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.MuLawCompression">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MuLawCompression</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">abs_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">255</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/ulaw.html#MuLawCompression"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MuLawCompression" title="Permalink to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/ulaw.html">this page</a>
+<dt class="sig sig-object py" id="diffsptk.MLSADigitalFilterStabilityCheck">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MLSADigitalFilterStabilityCheck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cep_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">256</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pade_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'scale'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warn_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'warn'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mlsacheck.html#MLSADigitalFilterStabilityCheck"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MLSADigitalFilterStabilityCheck" title="Permalink to this definition">#</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/mlsacheck.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>abs_max</strong><span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Absolute maximum value of input.</p>
+<dt><strong>cep_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of mel-cepstrum, <span class="math notranslate nohighlight">\(M\)</span>.</p>
 </dd>
-<dt><strong>mu</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Compression factor, <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<dt><strong>alpha</strong><span class="classifier">float [-1 &lt; alpha &lt; 1]</span></dt><dd><p>Frequency warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+</dd>
+<dt><strong>fft_length</strong><span class="classifier">int &gt; M [scalar]</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+</dd>
+<dt><strong>pade_order</strong><span class="classifier">[4 &lt;= int &lt;= 7].</span></dt><dd><p>Order of Pade approximation.</p>
+</dd>
+<dt><strong>strict</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If True, keep maximum log approximation error rather than MLSA filter stability.</p>
+</dd>
+<dt><strong>fast</strong><span class="classifier">bool [scalar]</span></dt><dd><p>Fast mode.</p>
+</dd>
+<dt><strong>threshold</strong><span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Threshold value. If not given, automatically computed.</p>
+</dd>
+<dt><strong>mod_type</strong><span class="classifier">[‘clip’, ‘scale’]</span></dt><dd><p>Modification type.</p>
+</dd>
+<dt><strong>warn_type</strong><span class="classifier">[‘ignore’, ‘warn’, ‘exit’]</span></dt><dd><p>Behavior for unstable MLSA.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.MuLawCompression.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/ulaw.html#MuLawCompression.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MuLawCompression.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Compress waveform by <span class="math notranslate nohighlight">\(\mu\)</span>-law algorithm.</p>
+<dt class="sig sig-object py" id="diffsptk.MLSADigitalFilterStabilityCheck.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mlsacheck.html#MLSADigitalFilterStabilityCheck.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MLSADigitalFilterStabilityCheck.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Check stability of MLSA filter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Waveform.</p>
+<dt><strong>c1</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Mel-cepstrum.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Compressed waveform.</p>
+<dt><strong>c2</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Modified mel-cepstrum.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ulaw</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MuLawCompression</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">ulaw</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">tensor([0.0000, 3.0084, 3.5028, 3.7934, 4.0000])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">nrand</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">stdv</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span>
+<span class="go">tensor([ 1.8963,  7.6629,  4.4804,  8.0669, -1.2768])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mlsacheck</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MLSADigitalFilterStabilityCheck</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">warn_type</span><span class="o">=</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span> <span class="o">=</span> <span class="n">mlsacheck</span><span class="p">(</span><span class="n">c1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span>
+<span class="go">tensor([ 1.3336,  1.7537,  1.0254,  1.8462, -0.2922])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -436,7 +452,7 @@ for details.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="iulaw.html#iulaw"><span class="std std-ref">iulaw</span></a></p>
+<p><a class="reference internal" href="mglsadf.html#mglsadf"><span class="std std-ref">mglsadf</span></a>  <a class="reference internal" href="imglsadf.html#imglsadf"><span class="std std-ref">imglsadf</span></a></p>
 </div>
 </section>
 
@@ -449,20 +465,20 @@ for details.</p>
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="stft.html"
+       href="mlpg.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">stft</p>
+        <p class="prev-next-title">mlpg</p>
       </div>
     </a>
     <a class="right-next"
-       href="unframe.html"
+       href="mpir2c.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">unframe</p>
+        <p class="prev-next-title">mpir2c</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -481,8 +497,8 @@ for details.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.MuLawCompression"><code class="docutils literal notranslate"><span class="pre">MuLawCompression</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.MuLawCompression.forward"><code class="docutils literal notranslate"><span class="pre">MuLawCompression.forward()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.MLSADigitalFilterStabilityCheck"><code class="docutils literal notranslate"><span class="pre">MLSADigitalFilterStabilityCheck</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.MLSADigitalFilterStabilityCheck.forward"><code class="docutils literal notranslate"><span class="pre">MLSADigitalFilterStabilityCheck.forward()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -490,7 +506,7 @@ for details.</p>
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
-    <a href="../_sources/core/ulaw.rst.txt">
+    <a href="../_sources/core/mlsacheck.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

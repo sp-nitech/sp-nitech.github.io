@@ -387,10 +387,10 @@ document.write(`
             <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">km</span><span class="p">)):</span>
                 <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_type</span> <span class="o">==</span> <span class="s2">&quot;ignore&quot;</span><span class="p">:</span>
                     <span class="k">pass</span>
-                <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_type</span> <span class="o">==</span> <span class="s2">&quot;warn&quot;</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
-                    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Unstable LPC is detected&quot;</span><span class="p">)</span>
-                <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_type</span> <span class="o">==</span> <span class="s2">&quot;exit&quot;</span><span class="p">:</span>  <span class="c1"># pragma: no cover</span>
-                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Unstable LPC is detected&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_type</span> <span class="o">==</span> <span class="s2">&quot;warn&quot;</span><span class="p">:</span>
+                    <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Unstable LPC coefficients&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_type</span> <span class="o">==</span> <span class="s2">&quot;exit&quot;</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Unstable LPC coefficients&quot;</span><span class="p">)</span>
                 <span class="k">else</span><span class="p">:</span>
                     <span class="k">raise</span> <span class="ne">RuntimeError</span>
 
