@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -195,7 +199,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">mgc2mgc</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/mgc2mgc.rst.txt" rel="nofollow"> View page source</a>
@@ -275,17 +279,15 @@
 </p>
 <p>If <code class="docutils literal notranslate"><span class="pre">-u</span></code> without <code class="docutils literal notranslate"><span class="pre">-n</span></code>, the 0th input is regarded as <span class="math notranslate nohighlight">\(1 + \gamma_1 c_{\alpha_1,\gamma_1}(0)\)</span>. If <code class="docutils literal notranslate"><span class="pre">-U</span></code> without <code class="docutils literal notranslate"><span class="pre">-N</span></code>, the 0th output is regarded as <span class="math notranslate nohighlight">\(1 + \gamma_2 c_{\alpha_2,\gamma_2}(0)\)</span>.</p>
 <p>In the example below, 12-th order LPC coefficients in <code class="docutils literal notranslate"><span class="pre">data.lpc</span></code> are converted to 30-th order mel-cepstral coefficients.</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mgc2mgc -m <span class="m">12</span> -a <span class="m">0</span> -g -1 -M <span class="m">30</span> -A <span class="m">0</span>.31 -G <span class="m">0</span> &lt; data.lpc &gt; data.mcep
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mgc2mgc<span class="w"> </span>-m<span class="w"> </span><span class="m">12</span><span class="w"> </span>-a<span class="w"> </span><span class="m">0</span><span class="w"> </span>-g<span class="w"> </span>-1<span class="w"> </span>-M<span class="w"> </span><span class="m">30</span><span class="w"> </span>-A<span class="w"> </span><span class="m">0</span>.31<span class="w"> </span>-G<span class="w"> </span><span class="m">0</span><span class="w"> </span>&lt;<span class="w"> </span>data.lpc<span class="w"> </span>&gt;<span class="w"> </span>data.mcep
 </pre></div>
 </div>
-</p>
 <p>Impulse response can be calculated using this command instead of <code class="docutils literal notranslate"><span class="pre">c2mpir</span></code>.</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mgc2mgc -m <span class="m">10</span> -a <span class="m">0</span>.4 -g <span class="m">0</span> -M <span class="m">30</span> -A <span class="m">0</span>.0 -G <span class="m">1</span> -U &lt; data.mcep &gt; data.ir
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>mgc2mgc<span class="w"> </span>-m<span class="w"> </span><span class="m">10</span><span class="w"> </span>-a<span class="w"> </span><span class="m">0</span>.4<span class="w"> </span>-g<span class="w"> </span><span class="m">0</span><span class="w"> </span>-M<span class="w"> </span><span class="m">30</span><span class="w"> </span>-A<span class="w"> </span><span class="m">0</span>.0<span class="w"> </span>-G<span class="w"> </span><span class="m">1</span><span class="w"> </span>-U<span class="w"> </span>&lt;<span class="w"> </span>data.mcep<span class="w"> </span>&gt;<span class="w"> </span>data.ir
 <span class="c1"># This is equivalent to that:</span>
 <span class="c1"># freqt -a 0.4 -A 0.0 -m 10 -M 30 data.mcep | c2mpir -m 30 -M 30 &gt; data.ir</span>
 </pre></div>
 </div>
-</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

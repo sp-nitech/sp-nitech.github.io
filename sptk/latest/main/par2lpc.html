@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -195,7 +199,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">par2lpc</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/par2lpc.rst.txt" rel="nofollow"> View page source</a>
@@ -230,15 +234,13 @@
 </ul>
 </p>
 <p>The below example converts PARCOR coefficients into LPC coefficients:</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>par2lpc &lt; data.rc &gt; data.lpc
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>par2lpc<span class="w"> </span>&lt;<span class="w"> </span>data.rc<span class="w"> </span>&gt;<span class="w"> </span>data.lpc
 </pre></div>
 </div>
-</p>
 <p>The converted LPC coefficients can be reverted by</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lpc2par &lt; data.lpc &gt; data.rc
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lpc2par<span class="w"> </span>&lt;<span class="w"> </span>data.lpc<span class="w"> </span>&gt;<span class="w"> </span>data.rc
 </pre></div>
 </div>
-</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -269,7 +271,7 @@
 \[\begin{split} a^{(i)}(m) = a^{(i-1)}(m) + k(i) a^{(i-1)}(i-m) \\ i = 2,\ldots,M \end{split}\]</div>
  with the initial condition <span class="math notranslate nohighlight">\(a^{(i)}(i)=k(i)\)</span> for <span class="math notranslate nohighlight">\(i = 1,\ldots,M-1\)</span>. The outputs can then be written as <div class="math notranslate nohighlight">
 \[\begin{split} a(m) = \left\{ \begin{array}{ll} a^{(M)}(m), &amp; 1 \le m &lt; M \\ k(m). &amp; m = M \end{array} \right. \end{split}\]</div>
- </p>
+</p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">

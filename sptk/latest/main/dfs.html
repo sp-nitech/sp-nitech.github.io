@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -195,7 +199,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">dfs</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/dfs.rst.txt" rel="nofollow"> View page source</a>
@@ -241,17 +245,15 @@
 </p></li>
 </ul>
 </p>
-<p>The below example applies a pre-emphasis filter to signals in <code class="docutils literal notranslate"><span class="pre">data.d</span></code> </p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dfs -a <span class="m">1</span> -0.97 &lt; data.d &gt; data.d2
+<p>The below example applies a pre-emphasis filter to signals in <code class="docutils literal notranslate"><span class="pre">data.d</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dfs<span class="w"> </span>-a<span class="w"> </span><span class="m">1</span><span class="w"> </span>-0.97<span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span>&gt;<span class="w"> </span>data.d2
 </pre></div>
 </div>
-</p>
 <p>This is equivalent to the following procedure.</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">1</span> -0.97 <span class="p">|</span> x2x +ad &gt; data.p
-dfs -p data.p &lt; data.d &gt; data.d2
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span>-0.97<span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+ad<span class="w"> </span>&gt;<span class="w"> </span>data.p
+dfs<span class="w"> </span>-p<span class="w"> </span>data.p<span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span>&gt;<span class="w"> </span>data.d2
 </pre></div>
 </div>
-</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

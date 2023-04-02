@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -195,7 +199,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">rmse</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/rmse.rst.txt" rel="nofollow"> View page source</a>
@@ -254,17 +258,16 @@
  where <div class="math notranslate nohighlight">
 \[ e_n = \sqrt{\frac{1}{L} \sum_{l=0}^{L-1} (x_n(l) - y_n(l))^2}. \]</div>
  If <code class="docutils literal notranslate"><span class="pre">-f</span></code> option is not specified, the average of RMSEs is calculated.</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> <span class="m">1</span> <span class="m">2</span> <span class="m">3</span> <span class="p">|</span> x2x +ad &gt; data.1
-<span class="nb">echo</span> <span class="m">0</span> <span class="m">4</span> <span class="m">3</span> <span class="p">|</span> x2x +ad &gt; data.2
-rmse data.1 data.2 -l <span class="m">1</span> -f <span class="p">|</span> x2x +da
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+ad<span class="w"> </span>&gt;<span class="w"> </span>data.1
+<span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+ad<span class="w"> </span>&gt;<span class="w"> </span>data.2
+rmse<span class="w"> </span>data.1<span class="w"> </span>data.2<span class="w"> </span>-l<span class="w"> </span><span class="m">1</span><span class="w"> </span>-f<span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da
 <span class="c1"># 1 2 0</span>
-rmse data.1 data.2 -l <span class="m">1</span> <span class="p">|</span> x2x +da
+rmse<span class="w"> </span>data.1<span class="w"> </span>data.2<span class="w"> </span>-l<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da
 <span class="c1"># 1</span>
-rmse data.1 data.2 <span class="p">|</span> x2x +da
+rmse<span class="w"> </span>data.1<span class="w"> </span>data.2<span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da
 <span class="c1"># 1.29099</span>
 </pre></div>
 </div>
- </p>
 </dd></dl>
 
 </div>

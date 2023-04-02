@@ -29,11 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -194,7 +198,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">x2x</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/x2x.rst.txt" rel="nofollow"> View page source</a>
@@ -265,26 +269,25 @@
 </p></li>
 </ul>
 </p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ramp -l <span class="m">4</span> <span class="p">|</span> x2x +da
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da
 <span class="c1"># 0</span>
 <span class="c1"># 1</span>
 <span class="c1"># 2</span>
 <span class="c1"># 3</span>
-ramp -l <span class="m">4</span> <span class="p">|</span> x2x +da -c <span class="m">2</span>
+ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span>
 <span class="c1"># 0       1</span>
 <span class="c1"># 2       3</span>
-ramp -l <span class="m">4</span> <span class="p">|</span> sopr -a <span class="m">0</span>.5 <span class="p">|</span> x2x +dc -r <span class="p">|</span> x2x +ca -c <span class="m">2</span>
+ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sopr<span class="w"> </span>-a<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+dc<span class="w"> </span>-r<span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+ca<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span>
 <span class="c1"># 1       2</span>
 <span class="c1"># 3       4</span>
-ramp -l <span class="m">4</span> <span class="p">|</span> x2x +da -c <span class="m">2</span> -f %.1f
+ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>-f<span class="w"> </span>%.1f
 <span class="c1"># 0.0     1.0</span>
 <span class="c1"># 2.0     3.0</span>
-<span class="nb">echo</span> -1 <span class="m">1000</span> <span class="p">|</span> x2x +aC -e <span class="m">0</span> <span class="p">|</span> x2x +Ca
+<span class="nb">echo</span><span class="w"> </span>-1<span class="w"> </span><span class="m">1000</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+aC<span class="w"> </span>-e<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+Ca
 <span class="c1"># 0</span>
 <span class="c1"># 255</span>
 </pre></div>
 </div>
-</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

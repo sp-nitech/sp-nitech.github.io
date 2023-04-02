@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -195,7 +199,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">acorr</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/acorr.rst.txt" rel="nofollow"> View page source</a>
@@ -262,10 +266,9 @@
 \[ \begin{array}{cccc} r(0)/L, &amp; r(1)/(L-1), &amp; \ldots, &amp; r(M)/(L-M). \end{array} \]</div>
 </p>
 <p>The below example extracts 10-th order autocorrelation coefficients from windowed waveform.</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>x2x +sd data.short <span class="p">|</span> frame <span class="p">|</span> window <span class="p">|</span> acorr -m <span class="m">10</span> &gt; data.acr
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>x2x<span class="w"> </span>+sd<span class="w"> </span>data.short<span class="w"> </span><span class="p">|</span><span class="w"> </span>frame<span class="w"> </span><span class="p">|</span><span class="w"> </span>window<span class="w"> </span><span class="p">|</span><span class="w"> </span>acorr<span class="w"> </span>-m<span class="w"> </span><span class="m">10</span><span class="w"> </span>&gt;<span class="w"> </span>data.acr
 </pre></div>
 </div>
-</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

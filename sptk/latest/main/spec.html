@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -195,7 +199,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">spec</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/spec.rst.txt" rel="nofollow"> View page source</a>
@@ -264,15 +268,13 @@
 </ul>
 </p>
 <p>The below example performs spectral analysis. To prevent <span class="math notranslate nohighlight">\(log(0)\)</span>, a small value is add to power spectrum using <code class="docutils literal notranslate"><span class="pre">-e</span></code> option.</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>frame -l <span class="m">400</span> data.d <span class="p">|</span> window -l <span class="m">400</span> -L <span class="m">512</span> <span class="p">|</span> spec -l <span class="m">512</span> -e 1e-6 &gt; data.sp
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>frame<span class="w"> </span>-l<span class="w"> </span><span class="m">400</span><span class="w"> </span>data.d<span class="w"> </span><span class="p">|</span><span class="w"> </span>window<span class="w"> </span>-l<span class="w"> </span><span class="m">400</span><span class="w"> </span>-L<span class="w"> </span><span class="m">512</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>spec<span class="w"> </span>-l<span class="w"> </span><span class="m">512</span><span class="w"> </span>-e<span class="w"> </span>1e-6<span class="w"> </span>&gt;<span class="w"> </span>data.sp
 </pre></div>
 </div>
-</p>
 <p>Instead a relative floor value of spectrum can be set using <code class="docutils literal notranslate"><span class="pre">-E</span></code> option.</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spec -E -30 data.d2 &gt; data.sp
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>spec<span class="w"> </span>-E<span class="w"> </span>-30<span class="w"> </span>data.d2<span class="w"> </span>&gt;<span class="w"> </span>data.sp
 </pre></div>
 </div>
-</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

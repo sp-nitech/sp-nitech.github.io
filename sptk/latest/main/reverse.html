@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -195,7 +199,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">reverse</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/reverse.rst.txt" rel="nofollow"> View page source</a>
@@ -238,16 +242,14 @@
  and the output is <div class="math notranslate nohighlight">
 \[ \begin{array}{ccc} \underbrace{x_0(L-1), \; \ldots, \; x_0(0)}_L, &amp; \underbrace{x_1(L-1), \; \ldots, \; x_1(0)}_L, &amp; \ldots, \end{array} \]</div>
  where <span class="math notranslate nohighlight">\(L\)</span> is the block length. If <span class="math notranslate nohighlight">\(L\)</span> is not given, <span class="math notranslate nohighlight">\(L\)</span> is assumed to be the length of entire sequence.</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ramp -l <span class="m">9</span> <span class="p">|</span> reverse <span class="p">|</span> x2x +da
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>reverse<span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da
 <span class="c1"># 8, 7, 6, 5, 4, 3, 2, 1, 0</span>
 </pre></div>
 </div>
-</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ramp -l <span class="m">9</span> <span class="p">|</span> reverse -l <span class="m">3</span> <span class="p">|</span> x2x +da
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>reverse<span class="w"> </span>-l<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da
 <span class="c1"># 2, 1, 0, 5, 4, 3, 8, 7, 6</span>
 </pre></div>
 </div>
-</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

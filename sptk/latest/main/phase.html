@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -195,7 +199,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">phase</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/phase.rst.txt" rel="nofollow"> View page source</a>
@@ -250,15 +254,13 @@
 </ul>
 </p>
 <p>The below example calculates phase spectrum from 10-th order filter coefficients:</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>phase -z data.z -m <span class="m">10</span> -p data.p -n <span class="m">10</span> -l <span class="m">16</span> &gt; data.ph
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>phase<span class="w"> </span>-z<span class="w"> </span>data.z<span class="w"> </span>-m<span class="w"> </span><span class="m">10</span><span class="w"> </span>-p<span class="w"> </span>data.p<span class="w"> </span>-n<span class="w"> </span><span class="m">10</span><span class="w"> </span>-l<span class="w"> </span><span class="m">16</span><span class="w"> </span>&gt;<span class="w"> </span>data.ph
 </pre></div>
 </div>
-</p>
 <p>If the filter coefficients are stable, the below example gives the same result:</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>impulse -l <span class="m">16</span> <span class="p">|</span> dfs -z data.z -p data.p <span class="p">|</span> phase -l <span class="m">16</span> &gt; data.ph
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>impulse<span class="w"> </span>-l<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>dfs<span class="w"> </span>-z<span class="w"> </span>data.z<span class="w"> </span>-p<span class="w"> </span>data.p<span class="w"> </span><span class="p">|</span><span class="w"> </span>phase<span class="w"> </span>-l<span class="w"> </span><span class="m">16</span><span class="w"> </span>&gt;<span class="w"> </span>data.ph
 </pre></div>
 </div>
-</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -292,7 +294,7 @@
 \[\begin{split}\begin{eqnarray} H(z) &amp;=&amp; \frac{B_R(z) + i B_I(z)}{A_R(z) + i A_I(z)} \\ &amp;=&amp; \frac{B_R(z) + i B_I(z)}{A_R(z) + i A_I(z)} \cdot \frac{A_R(z) - i A_I(z)}{A_R(z) - i A_I(z)} \\ &amp;=&amp; \frac{B_R(z) A_R(z) + B_I(z) A_I(z)}{A_R^2(z) + A_I^2(z)} +i \frac{B_I(z) A_R(z) - B_R(z) A_I(z)}{A_R^2(z) + A_I^2(z)}. \end{eqnarray}\end{split}\]</div>
  where the subscripts <span class="math notranslate nohighlight">\(R\)</span> and <span class="math notranslate nohighlight">\(I\)</span> denote the real and imaginary parts. Thus <div class="math notranslate nohighlight">
 \[\begin{split}\begin{eqnarray} \angle H(z) &amp;=&amp; \tan^{-1} \left(\frac{H_I(z)}{H_R(z)}\right) \\ &amp;=&amp; \tan^{-1} \left( \frac{B_I(z) A_R(z) - B_R(z) A_I(z)} {B_R(z) A_R(z) + B_I(z) A_I(z)} \right). \end{eqnarray}\end{split}\]</div>
- </p>
+</p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">

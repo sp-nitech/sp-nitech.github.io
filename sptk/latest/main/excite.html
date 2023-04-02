@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -195,7 +199,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">excite</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/excite.rst.txt" rel="nofollow"> View page source</a>
@@ -248,10 +252,9 @@
 </p>
 <p>This command generates an excitation sequence from the pitch period in <code class="docutils literal notranslate"><span class="pre">infile</span></code> (or standard input), and sends the result to standard output. When the pitch period is nonzero, the excitation is to be a pulse train. When the pitch period is zero (i.e., unvoiced), the excitation is to be a Gaussian or M-sequence noise.</p>
 <p>In the example below, the excitation is generated from the <code class="docutils literal notranslate"><span class="pre">data.p</span></code> and passed through an LPC synthesis filter. The speech signal is written to <code class="docutils literal notranslate"><span class="pre">data.syn</span></code> file.</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>excite &lt; data.p <span class="p">|</span> poledf data.lpc &gt; data.syn
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>excite<span class="w"> </span>&lt;<span class="w"> </span>data.p<span class="w"> </span><span class="p">|</span><span class="w"> </span>poledf<span class="w"> </span>data.lpc<span class="w"> </span>&gt;<span class="w"> </span>data.syn
 </pre></div>
 </div>
-</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

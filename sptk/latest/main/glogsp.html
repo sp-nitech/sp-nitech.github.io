@@ -29,11 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -201,7 +205,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">glogsp</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/glogsp.rst.txt" rel="nofollow"> View page source</a>
@@ -227,7 +231,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="glogsp.main">
 <span class="target" id="glogsp_8py_1a4120a7eb49dbf4d234f4eee4d450b3a1"></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#glogsp.main" title="Permalink to this definition"></a></dt>
-<dd><p><em>glogsp</em> [ <em>option</em> ] [ <em>infile</em> ] <em>outfile</em> </p>
+<dd><p><em>glogsp</em> [ <em>option</em> ] [ <em>infile</em> ] <em>outfile</em></p>
 <p><ul class="simple">
 <li><p><strong>-F</strong> <em>float</em> <ul>
 <li><p>scale of figure</p></li>
@@ -239,6 +243,10 @@
 </p></li>
 <li><p><strong>-H</strong> <em>int</em> <ul>
 <li><p>height of figure in pixels</p></li>
+</ul>
+</p></li>
+<li><p><strong>-M</strong> <em>int</em> or str<ul>
+<li><p>margin around image in pixels</p></li>
 </ul>
 </p></li>
 <li><p><strong>-g</strong> <ul>
@@ -291,11 +299,11 @@
 </p></li>
 </ul>
 </p>
-<p>The below example draws 100th log spectrum on <code class="docutils literal notranslate"><span class="pre">out.jpg</span></code>. <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>x2x +sd data.short <span class="p">|</span> frame -p <span class="m">80</span> -l <span class="m">400</span> <span class="p">|</span> window -l <span class="m">400</span> -L <span class="m">512</span> <span class="p">|</span> spec -l <span class="m">512</span> <span class="p">|</span>
-  glogsp -l <span class="m">512</span> -s <span class="m">100</span> out.jpg
+<p>The below example draws 100th log spectrum on <code class="docutils literal notranslate"><span class="pre">out.jpg</span></code>. <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>x2x<span class="w"> </span>+sd<span class="w"> </span>data.short<span class="w"> </span><span class="p">|</span><span class="w"> </span>frame<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span><span class="w"> </span>-l<span class="w"> </span><span class="m">400</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>window<span class="w"> </span>-l<span class="w"> </span><span class="m">400</span><span class="w"> </span>-L<span class="w"> </span><span class="m">512</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>spec<span class="w"> </span>-l<span class="w"> </span><span class="m">512</span><span class="w"> </span><span class="p">|</span>
+<span class="w">  </span>glogsp<span class="w"> </span>-l<span class="w"> </span><span class="m">512</span><span class="w"> </span>-s<span class="w"> </span><span class="m">100</span><span class="w"> </span>out.jpg
 </pre></div>
 </div>
- </p>
+</p>
 </dd></dl>
 
 </div>

@@ -29,11 +29,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -201,7 +205,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">fdrw</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/fdrw.rst.txt" rel="nofollow"> View page source</a>
@@ -227,7 +231,7 @@
 <dl class="py function">
 <dt class="sig sig-object py" id="fdrw.main">
 <span class="target" id="fdrw_8py_1a2c3a10967308bac8c3cdc32930dac4a6"></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#fdrw.main" title="Permalink to this definition"></a></dt>
-<dd><p><em>fdrw</em> [ <em>option</em> ] [ <em>infile</em> ] <em>outfile</em> </p>
+<dd><p><em>fdrw</em> [ <em>option</em> ] [ <em>infile</em> ] <em>outfile</em></p>
 <p><ul class="simple">
 <li><p><strong>-F</strong> <em>float</em> <ul>
 <li><p>scale of figure</p></li>
@@ -239,6 +243,10 @@
 </p></li>
 <li><p><strong>-H</strong> <em>int</em> <ul>
 <li><p>height of figure in pixels</p></li>
+</ul>
+</p></li>
+<li><p><strong>-M</strong> <em>int</em> or str<ul>
+<li><p>margin around image in pixels</p></li>
 </ul>
 </p></li>
 <li><p><strong>-g</strong> <ul>
@@ -339,14 +347,14 @@
 </p></li>
 </ul>
 </p>
-<p>The below example draws the impulse response of a digital filter on <code class="docutils literal notranslate"><span class="pre">out.png</span></code>. <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>impulse -l <span class="m">256</span> <span class="p">|</span> dfs -a <span class="m">1</span> <span class="m">0</span>.8 <span class="m">0</span>.5 <span class="p">|</span> fdrw out.png
+<p>The below example draws the impulse response of a digital filter on <code class="docutils literal notranslate"><span class="pre">out.png</span></code>. <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>impulse<span class="w"> </span>-l<span class="w"> </span><span class="m">256</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>dfs<span class="w"> </span>-a<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">0</span>.8<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span><span class="p">|</span><span class="w"> </span>fdrw<span class="w"> </span>out.png
 </pre></div>
 </div>
 </p>
-<p>The below example draws two sinusoidal lines from an input sequence. <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sin -l <span class="m">256</span> -p <span class="m">50</span> <span class="p">|</span> fdrw -n <span class="m">128</span> -names 1st,2nd out.png
+<p>The below example draws two sinusoidal lines from an input sequence. <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>sin<span class="w"> </span>-l<span class="w"> </span><span class="m">256</span><span class="w"> </span>-p<span class="w"> </span><span class="m">50</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>fdrw<span class="w"> </span>-n<span class="w"> </span><span class="m">128</span><span class="w"> </span>-names<span class="w"> </span>1st,2nd<span class="w"> </span>out.png
 </pre></div>
 </div>
- </p>
+</p>
 </dd></dl>
 
 </div>

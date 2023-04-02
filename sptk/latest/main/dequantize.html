@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -195,7 +199,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">dequantize</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/dequantize.rst.txt" rel="nofollow"> View page source</a>
@@ -249,15 +253,14 @@
 </p></li>
 </ul>
 </p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> -2 -1 <span class="m">0</span> <span class="m">1</span> <span class="m">2</span> <span class="p">|</span> x2x +ad <span class="p">|</span> quantize -b <span class="m">2</span> -v <span class="m">2</span> -t <span class="m">0</span> <span class="p">|</span>
-  dequantize -b <span class="m">2</span> -v <span class="m">2</span> -t <span class="m">0</span> <span class="p">|</span> x2x +da
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span>-2<span class="w"> </span>-1<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+ad<span class="w"> </span><span class="p">|</span><span class="w"> </span>quantize<span class="w"> </span>-b<span class="w"> </span><span class="m">2</span><span class="w"> </span>-v<span class="w"> </span><span class="m">2</span><span class="w"> </span>-t<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="p">|</span>
+<span class="w">  </span>dequantize<span class="w"> </span>-b<span class="w"> </span><span class="m">2</span><span class="w"> </span>-v<span class="w"> </span><span class="m">2</span><span class="w"> </span>-t<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da
 <span class="c1"># -1.5, -0.5, 0.5, 1.5, 1.5</span>
-<span class="nb">echo</span> -2 -1 <span class="m">0</span> <span class="m">1</span> <span class="m">2</span> <span class="p">|</span> x2x +ad <span class="p">|</span> quantize -b <span class="m">2</span> -v <span class="m">2</span> -t <span class="m">1</span> <span class="p">|</span>
-  dequantize -b <span class="m">2</span> -v <span class="m">2</span> -t <span class="m">1</span> <span class="p">|</span> x2x +da
+<span class="nb">echo</span><span class="w"> </span>-2<span class="w"> </span>-1<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+ad<span class="w"> </span><span class="p">|</span><span class="w"> </span>quantize<span class="w"> </span>-b<span class="w"> </span><span class="m">2</span><span class="w"> </span>-v<span class="w"> </span><span class="m">2</span><span class="w"> </span>-t<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">|</span>
+<span class="w">  </span>dequantize<span class="w"> </span>-b<span class="w"> </span><span class="m">2</span><span class="w"> </span>-v<span class="w"> </span><span class="m">2</span><span class="w"> </span>-t<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da
 <span class="c1"># -1.33333, -1.33333, 0, 1.33333, 1.33333</span>
 </pre></div>
 </div>
-</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

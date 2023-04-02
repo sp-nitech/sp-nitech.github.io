@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -195,7 +199,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">fd</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/fd.rst.txt" rel="nofollow"> View page source</a>
@@ -245,13 +249,12 @@
 </p>
 <p>This command converts data from <code class="docutils literal notranslate"><span class="pre">infile</span></code> (or standard input) to a human readable multi-column form, and sends the result to standard output.</p>
 <p>The below example displays the speech data in <code class="docutils literal notranslate"><span class="pre">sample.wav</span></code> with the corresponding addresses.</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fd -o <span class="m">1</span> sample.wav
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>fd<span class="w"> </span>-o<span class="w"> </span><span class="m">1</span><span class="w"> </span>sample.wav
 <span class="c1"># 000000  52 49 46 46 5e 9d 05 00 57 41 56 45 66 6d 74 20 |RIFF^...WAVEfmt |</span>
 <span class="c1"># 000010  10 00 00 00 01 00 01 00 22 56 00 00 44 ac 00 00 |........&quot;V..D...|</span>
 <span class="c1"># 000020  02 00 10 00 64 61 74 61 3a 9d 05 00 05 00 03 00 |....data:.......|</span>
 </pre></div>
 </div>
-</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

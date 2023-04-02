@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -195,7 +199,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">levdur</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/levdur.rst.txt" rel="nofollow"> View page source</a>
@@ -239,10 +243,9 @@
 </ul>
 </p>
 <p>The below example calculates the LPC coefficients of <code class="docutils literal notranslate"><span class="pre">data.d</span></code>.</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>frame &lt; data.d <span class="p">|</span> window <span class="p">|</span> acorr -m <span class="m">20</span> <span class="p">|</span> levdur -m <span class="m">20</span> &gt; data.lpc
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>frame<span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span><span class="p">|</span><span class="w"> </span>window<span class="w"> </span><span class="p">|</span><span class="w"> </span>acorr<span class="w"> </span>-m<span class="w"> </span><span class="m">20</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>levdur<span class="w"> </span>-m<span class="w"> </span><span class="m">20</span><span class="w"> </span>&gt;<span class="w"> </span>data.lpc
 </pre></div>
 </div>
-</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -275,7 +278,7 @@
 \[\begin{split}\begin{eqnarray} k(i) &amp;=&amp; \frac{-r(i)-\displaystyle\sum_{j=1}^i a^{(i-1)}(j)r(i-j)} {E^{(i-1)}}, \\ a^{(i)}(j) &amp;=&amp; a^{(i-1)}(j) + k(i) a^{(i-1)}(i-j), \quad (1 \le j &lt; i) \\ a^{(i)}(i) &amp;=&amp; k(i), \\ E^{(i)} &amp;=&amp; (1-k^2(i)) E^{(i-1)}, \\ &amp;&amp; \qquad \qquad \qquad \qquad i = 1,2,\ldots,M \end{eqnarray}\end{split}\]</div>
  where the initial condition is <span class="math notranslate nohighlight">\(E^{(0)} = r(0)\)</span> and <span class="math notranslate nohighlight">\(a^{(0)}(1) = 0\)</span>. The gain <span class="math notranslate nohighlight">\(K\)</span> is calculated as <div class="math notranslate nohighlight">
 \[ K = \sqrt{E^{(M)}}. \]</div>
- </p>
+</p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">

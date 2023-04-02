@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -195,7 +199,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">par2lar</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/par2lar.rst.txt" rel="nofollow"> View page source</a>
@@ -230,15 +234,13 @@
 </ul>
 </p>
 <p>The below example converts PARCOR coefficients into LAR coefficients:</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>par2lar &lt; data.rc &gt; data.lar
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>par2lar<span class="w"> </span>&lt;<span class="w"> </span>data.rc<span class="w"> </span>&gt;<span class="w"> </span>data.lar
 </pre></div>
 </div>
-</p>
 <p>The converted LAR coefficients can be reverted by</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lar2par &lt; data.lar &gt; data.rc
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>lar2par<span class="w"> </span>&lt;<span class="w"> </span>data.lar<span class="w"> </span>&gt;<span class="w"> </span>data.rc
 </pre></div>
 </div>
-</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -267,7 +269,7 @@
 \[ \begin{array}{cccc} K, &amp; g(1), &amp; \ldots, &amp; g(M), \end{array} \]</div>
  where <span class="math notranslate nohighlight">\(K\)</span> is the gain. The conversion is performed by <div class="math notranslate nohighlight">
 \[\begin{split}\begin{eqnarray} g(m) &amp;=&amp; \frac{1 + k(m)}{1 - k(m)} \\ &amp;=&amp; 2\tanh^{-1}(k(m)). \end{eqnarray}\end{split}\]</div>
- </p>
+</p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">

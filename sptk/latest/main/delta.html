@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -195,7 +199,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">delta</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/delta.rst.txt" rel="nofollow"> View page source</a>
@@ -250,18 +254,16 @@
 </ul>
 </p>
 <p>The below examples calculate the first and second order dynamic features from 15-dimensional coefficient vectors in <code class="docutils literal notranslate"><span class="pre">data.d</span></code>.</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>delta -l <span class="m">15</span> -d -0.5 <span class="m">0</span>.0 <span class="m">0</span>.5 -d <span class="m">1</span>.0 -2.0 <span class="m">1</span>.0 &lt; data.d &gt; data.delta
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>delta<span class="w"> </span>-l<span class="w"> </span><span class="m">15</span><span class="w"> </span>-d<span class="w"> </span>-0.5<span class="w"> </span><span class="m">0</span>.0<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span>-d<span class="w"> </span><span class="m">1</span>.0<span class="w"> </span>-2.0<span class="w"> </span><span class="m">1</span>.0<span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span>&gt;<span class="w"> </span>data.delta
 </pre></div>
 </div>
-</p>
 <p>This is equivalent to</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span> -0.5 <span class="m">0</span>.0 <span class="m">0</span>.5 <span class="p">|</span> x2x +ad &gt; delta.win
-<span class="nb">echo</span> <span class="m">1</span>.0 -2.0 <span class="m">1</span>.0 <span class="p">|</span> x2x +ad &gt; accel.win
-delta -l <span class="m">15</span> -D delta.win -D accel.win &lt; data.d &gt; data.delta
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span>-0.5<span class="w"> </span><span class="m">0</span>.0<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+ad<span class="w"> </span>&gt;<span class="w"> </span>delta.win
+<span class="nb">echo</span><span class="w"> </span><span class="m">1</span>.0<span class="w"> </span>-2.0<span class="w"> </span><span class="m">1</span>.0<span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+ad<span class="w"> </span>&gt;<span class="w"> </span>accel.win
+delta<span class="w"> </span>-l<span class="w"> </span><span class="m">15</span><span class="w"> </span>-D<span class="w"> </span>delta.win<span class="w"> </span>-D<span class="w"> </span>accel.win<span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span>&gt;<span class="w"> </span>data.delta
 </pre></div>
 </div>
-</p>
-<p>If data contains a special number such as an unvoiced symbol in a sequence of fundamental frequencies, use <strong>-magic</strong> option: <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>delta -l <span class="m">15</span> -D delta.win -magic -1e+10 &lt; data.lf0 &gt; data.lf0.delta
+<p>If data contains a special number such as an unvoiced symbol in a sequence of fundamental frequencies, use <strong>-magic</strong> option: <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>delta<span class="w"> </span>-l<span class="w"> </span><span class="m">15</span><span class="w"> </span>-D<span class="w"> </span>delta.win<span class="w"> </span>-magic<span class="w"> </span>-1e+10<span class="w"> </span>&lt;<span class="w"> </span>data.lf0<span class="w"> </span>&gt;<span class="w"> </span>data.lf0.delta
 </pre></div>
 </div>
 </p>

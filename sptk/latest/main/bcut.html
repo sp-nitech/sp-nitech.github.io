@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -195,7 +199,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">bcut</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/bcut.rst.txt" rel="nofollow"> View page source</a>
@@ -265,16 +269,14 @@
  and the output is <div class="math notranslate nohighlight">
 \[ \begin{array}{cccc} x_S, &amp; x_{S+1}, &amp; \ldots, &amp; x_E, \end{array} \]</div>
  where <span class="math notranslate nohighlight">\(L\)</span> is the block length.</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ramp -l <span class="m">7</span> <span class="p">|</span> bcut +d -s <span class="m">3</span> -e <span class="m">5</span> <span class="p">|</span> x2x +da
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bcut<span class="w"> </span>+d<span class="w"> </span>-s<span class="w"> </span><span class="m">3</span><span class="w"> </span>-e<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da
 <span class="c1"># 3, 4, 5</span>
 </pre></div>
 </div>
-</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ramp -l <span class="m">7</span> <span class="p">|</span> bcut +d -l <span class="m">2</span> -s <span class="m">1</span> -e <span class="m">1</span> <span class="p">|</span> x2x +da
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bcut<span class="w"> </span>+d<span class="w"> </span>-l<span class="w"> </span><span class="m">2</span><span class="w"> </span>-s<span class="w"> </span><span class="m">1</span><span class="w"> </span>-e<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da
 <span class="c1"># 2, 3</span>
 </pre></div>
 </div>
- </p>
 </dd></dl>
 
 </div>

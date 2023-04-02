@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -195,7 +199,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">gmm</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/gmm.rst.txt" rel="nofollow"> View page source</a>
@@ -274,19 +278,17 @@
 </ul>
 </p>
 <p>The following examples show four types of covariance.</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmm -l <span class="m">10</span> &lt; data.d &gt; diag.gmm
-gmm -l <span class="m">10</span> -f &lt; data.d &gt; full.gmm
-gmm -l <span class="m">10</span> -B <span class="m">5</span> <span class="m">5</span> &lt; data.d &gt; block-wise-diag.gmm
-gmm -l <span class="m">10</span> -f -B <span class="m">5</span> <span class="m">5</span> &lt; data.d &gt; block-diag.gmm
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmm<span class="w"> </span>-l<span class="w"> </span><span class="m">10</span><span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span>&gt;<span class="w"> </span>diag.gmm
+gmm<span class="w"> </span>-l<span class="w"> </span><span class="m">10</span><span class="w"> </span>-f<span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span>&gt;<span class="w"> </span>full.gmm
+gmm<span class="w"> </span>-l<span class="w"> </span><span class="m">10</span><span class="w"> </span>-B<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">5</span><span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span>&gt;<span class="w"> </span>block-wise-diag.gmm
+gmm<span class="w"> </span>-l<span class="w"> </span><span class="m">10</span><span class="w"> </span>-f<span class="w"> </span>-B<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">5</span><span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span>&gt;<span class="w"> </span>block-diag.gmm
 </pre></div>
 </div>
-</p>
 <p>If -M option is specified, the MAP estimates of the GMM paramaeters are obtained using universal background model.</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmm -k <span class="m">8</span> &lt; data1.d &gt; ubm.gmm
-gmm -k <span class="m">8</span> -U ubm.gmm -M <span class="m">0</span>.1 &lt; data2.d &gt; map.gmm
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmm<span class="w"> </span>-k<span class="w"> </span><span class="m">8</span><span class="w"> </span>&lt;<span class="w"> </span>data1.d<span class="w"> </span>&gt;<span class="w"> </span>ubm.gmm
+gmm<span class="w"> </span>-k<span class="w"> </span><span class="m">8</span><span class="w"> </span>-U<span class="w"> </span>ubm.gmm<span class="w"> </span>-M<span class="w"> </span><span class="m">0</span>.1<span class="w"> </span>&lt;<span class="w"> </span>data2.d<span class="w"> </span>&gt;<span class="w"> </span>map.gmm
 </pre></div>
 </div>
-</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

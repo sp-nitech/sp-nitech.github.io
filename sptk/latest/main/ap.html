@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -195,7 +199,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">ap</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/ap.rst.txt" rel="nofollow"> View page source</a>
@@ -245,7 +249,7 @@
 </p></li>
 <li><p><strong>-q</strong> <em>int</em> <ul>
 <li><p>f0 input format <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> pitch <span class="math notranslate nohighlight">\((F_s / F_0)\)</span> </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> pitch <span class="math notranslate nohighlight">\((F_s / F_0)\)</span></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> F0 </p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> log F0</p></li>
 </ul>
@@ -276,12 +280,11 @@
 </p></li>
 </ul>
 </p>
-<p>The below is a simple example to extract aperiodicity from <code class="docutils literal notranslate"><span class="pre">data.d</span></code> </p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pitch -s <span class="m">16</span> -p <span class="m">80</span> -L <span class="m">80</span> -H <span class="m">200</span> -o <span class="m">0</span> &lt; data.d &gt; data.f0
-ap -s <span class="m">16</span> -p <span class="m">80</span> -q <span class="m">0</span> data.f0 &lt; data.d &gt; data.ap
+<p>The below is a simple example to extract aperiodicity from <code class="docutils literal notranslate"><span class="pre">data.d</span></code></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pitch<span class="w"> </span>-s<span class="w"> </span><span class="m">16</span><span class="w"> </span>-p<span class="w"> </span><span class="m">80</span><span class="w"> </span>-L<span class="w"> </span><span class="m">80</span><span class="w"> </span>-H<span class="w"> </span><span class="m">200</span><span class="w"> </span>-o<span class="w"> </span><span class="m">0</span><span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span>&gt;<span class="w"> </span>data.f0
+ap<span class="w"> </span>-s<span class="w"> </span><span class="m">16</span><span class="w"> </span>-p<span class="w"> </span><span class="m">80</span><span class="w"> </span>-q<span class="w"> </span><span class="m">0</span><span class="w"> </span>data.f0<span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span>&gt;<span class="w"> </span>data.ap
 </pre></div>
 </div>
-</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

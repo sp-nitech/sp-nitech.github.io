@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -195,7 +199,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">swab</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/swab.rst.txt" rel="nofollow"> View page source</a>
@@ -261,16 +265,14 @@
 <p>This command changes the byte order (from big-endian to little-endian or vice versa) of the input data read from <code class="docutils literal notranslate"><span class="pre">infile</span></code>.</p>
 <p>The beginning and the end of the swapping can be controlled. The beginning is <span class="math notranslate nohighlight">\(S + Ts\)</span> and the end is <span class="math notranslate nohighlight">\(\min(E, Te)\)</span>, where <span class="math notranslate nohighlight">\(T\)</span> is the size of the data type decided by <code class="docutils literal notranslate"><span class="pre">+type</span></code> option.</p>
 <p>The following example skips the header of 12 bytes long and changes the byte order.</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>swab +f -S <span class="m">12</span> htk.mfcc <span class="p">|</span> dmp +f
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>swab<span class="w"> </span>+f<span class="w"> </span>-S<span class="w"> </span><span class="m">12</span><span class="w"> </span>htk.mfcc<span class="w"> </span><span class="p">|</span><span class="w"> </span>dmp<span class="w"> </span>+f
 </pre></div>
 </div>
-</p>
 <p>Swapped data can be reverted as below.</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ramp -l <span class="m">4</span> <span class="p">|</span> x2x +fs <span class="p">|</span> swab +s <span class="p">|</span> swab +s <span class="p">|</span> x2x +sa
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+fs<span class="w"> </span><span class="p">|</span><span class="w"> </span>swab<span class="w"> </span>+s<span class="w"> </span><span class="p">|</span><span class="w"> </span>swab<span class="w"> </span>+s<span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+sa
 <span class="c1"># 0, 1, 2, 3</span>
 </pre></div>
 </div>
-</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">

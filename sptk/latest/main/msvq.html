@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -195,7 +199,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">msvq</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/msvq.rst.txt" rel="nofollow"> View page source</a>
@@ -238,10 +242,9 @@
 </ul>
 </p>
 <p>The below example quantizes and reconstructs vectors in <code class="docutils literal notranslate"><span class="pre">data.d</span></code>.</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>msvq -s cbfile &lt; data.d <span class="p">|</span> imsvq -s cbfile &gt; data.q
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>msvq<span class="w"> </span>-s<span class="w"> </span>cbfile<span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span><span class="p">|</span><span class="w"> </span>imsvq<span class="w"> </span>-s<span class="w"> </span>cbfile<span class="w"> </span>&gt;<span class="w"> </span>data.q
 </pre></div>
 </div>
-</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -272,7 +275,7 @@
 \[ i(n) = \mathop{\mathrm{argmin}}_j \sum_{j=0}^{I-1} \sum_{m=0}^M (e^{(n)}(m) - c_j^{(n)}(m))^2, \]</div>
  and the quantization error is <div class="math notranslate nohighlight">
 \[\begin{split} e^{(n)}(m) = \left\{ \begin{array}{ll} x(m), &amp; n = 1 \\ e^{(n-1)}(m) - c_j^{(n-1)}(m). &amp; n &gt; 1 \\ \end{array} \right. \end{split}\]</div>
- </p>
+</p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
@@ -355,7 +358,7 @@
 \[ \begin{array}{cccc} \boldsymbol{c}_0, &amp; \boldsymbol{c}_1, &amp; \ldots, &amp; \boldsymbol{c}_{I-1}. \end{array} \]</div>
  The output is the index of the codebook vector that minimizes the distance between the input vector and the codebook vector in an Euclidean sense: <div class="math notranslate nohighlight">
 \[ \mathop{\mathrm{argmin}}_i \sum_{i=0}^{I-1} \sum_{m=0}^M (x(m) - c_i(m))^2. \]</div>
- </p>
+</p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">

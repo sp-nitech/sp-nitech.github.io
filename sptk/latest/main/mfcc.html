@@ -30,11 +30,15 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-            <a href="../index.html" class="icon icon-home"> SPTK
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
           </a>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
@@ -195,7 +199,7 @@
         <div class="rst-content">
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home"></a></li>
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
       <li class="breadcrumb-item active">mfcc</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../_sources/main/mfcc.rst.txt" rel="nofollow"> View page source</a>
@@ -279,17 +283,16 @@
 </ul>
 </p>
 <p>The below example extracts the 12-th order MFCCs from <code class="docutils literal notranslate"><span class="pre">data.short</span></code>. The analysis condition is that: frame length is 10 ms, frame shift is 25 ms, and sampling rate is 16 kHz. A pre-emphais filter and the hamming window are applied to the input signal.</p>
-<p><div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>x2x +sd data.short <span class="p">|</span>
-  frame -l <span class="m">400</span> -p <span class="m">160</span> -n <span class="p">|</span>
-  dfs -b <span class="m">1</span> -0.97 <span class="p">|</span>
-  window -l <span class="m">400</span> -L <span class="m">512</span> -w <span class="m">1</span> -n <span class="m">0</span> <span class="p">|</span>
-  mfcc -l <span class="m">512</span> -n <span class="m">40</span> -c <span class="m">22</span> -m <span class="m">12</span> -L <span class="m">64</span> -H <span class="m">4000</span> -o <span class="m">1</span> <span class="p">|</span>
-  delta -m <span class="m">12</span> -d -0.5 <span class="m">0</span>.0 <span class="m">0</span>.5 -d <span class="m">0</span>.25 <span class="m">0</span>.0 -0.5 <span class="m">0</span>.0 <span class="m">0</span>.25 &gt; data.mfcc
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>x2x<span class="w"> </span>+sd<span class="w"> </span>data.short<span class="w"> </span><span class="p">|</span>
+<span class="w">  </span>frame<span class="w"> </span>-l<span class="w"> </span><span class="m">400</span><span class="w"> </span>-p<span class="w"> </span><span class="m">160</span><span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">|</span>
+<span class="w">  </span>dfs<span class="w"> </span>-b<span class="w"> </span><span class="m">1</span><span class="w"> </span>-0.97<span class="w"> </span><span class="p">|</span>
+<span class="w">  </span>window<span class="w"> </span>-l<span class="w"> </span><span class="m">400</span><span class="w"> </span>-L<span class="w"> </span><span class="m">512</span><span class="w"> </span>-w<span class="w"> </span><span class="m">1</span><span class="w"> </span>-n<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="p">|</span>
+<span class="w">  </span>mfcc<span class="w"> </span>-l<span class="w"> </span><span class="m">512</span><span class="w"> </span>-n<span class="w"> </span><span class="m">40</span><span class="w"> </span>-c<span class="w"> </span><span class="m">22</span><span class="w"> </span>-m<span class="w"> </span><span class="m">12</span><span class="w"> </span>-L<span class="w"> </span><span class="m">64</span><span class="w"> </span>-H<span class="w"> </span><span class="m">4000</span><span class="w"> </span>-o<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">|</span>
+<span class="w">  </span>delta<span class="w"> </span>-m<span class="w"> </span><span class="m">12</span><span class="w"> </span>-d<span class="w"> </span>-0.5<span class="w"> </span><span class="m">0</span>.0<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span>-d<span class="w"> </span><span class="m">0</span>.25<span class="w"> </span><span class="m">0</span>.0<span class="w"> </span>-0.5<span class="w"> </span><span class="m">0</span>.0<span class="w"> </span><span class="m">0</span>.25<span class="w"> </span>&gt;<span class="w"> </span>data.mfcc
 </pre></div>
 </div>
-</p>
 <p>The corresponding HTK config file is shown as below.</p>
-<p><div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SOURCEFORMAT</span> <span class="o">=</span> <span class="n">NOHEAD</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SOURCEFORMAT</span> <span class="o">=</span> <span class="n">NOHEAD</span>
 <span class="n">SOURCEKIND</span>   <span class="o">=</span> <span class="n">WAVEFORM</span>
 <span class="n">SOURCERATE</span>   <span class="o">=</span> <span class="mf">625.0</span>
 <span class="n">TARGETKIND</span>   <span class="o">=</span> <span class="n">MFCC_E_D_A</span>
@@ -308,7 +311,6 @@
 <span class="n">ACCWINDOW</span>    <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
-</p>
 <p>The correspondence between the HTK’s configuration and the SPTK’s command option for extracting MFCC is shown in the following table.</p>
 <p><table class="docutils align-default">
 <colgroup>
