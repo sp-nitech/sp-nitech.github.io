@@ -333,6 +333,43 @@ document.write(`
     <span class="n">decay</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
     <span class="n">eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">,</span>
 <span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Make filter-bank coefficients.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    n_band : int &gt;= 1 [scalar]</span>
+<span class="sd">        Number of subbands, :math:`K`.</span>
+
+<span class="sd">    filter_order : int &gt;= 1 [scalar]</span>
+<span class="sd">        Order of filter, :math:`M`.</span>
+
+<span class="sd">    mode : [&#39;analysis&#39; or &#39;synthesis&#39;]</span>
+<span class="sd">        Analysis or synthesis.</span>
+
+<span class="sd">    alpha : float &gt; 0 [scalar]</span>
+<span class="sd">        Stopband attenuation in dB.</span>
+
+<span class="sd">    n_iter : int &gt;= 1 [scalar]</span>
+<span class="sd">        Number of iterations.</span>
+
+<span class="sd">    step_size : float &gt; 0 [scalar]</span>
+<span class="sd">        Step size.</span>
+
+<span class="sd">    decay : float &gt; 0 [scalar]</span>
+<span class="sd">        Decay factor of step size.</span>
+
+<span class="sd">    eps : float &gt;= 0 [scalar]</span>
+<span class="sd">        Tolerance.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    filters : ndarray [shape=(K, M + 1)]</span>
+<span class="sd">        Filter-bank coefficients.</span>
+
+<span class="sd">    is_converged : bool</span>
+<span class="sd">        Whether the algorithm converged.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">n_band</span>
     <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">filter_order</span>
     <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">n_iter</span>
@@ -396,8 +433,9 @@ document.write(`
         <span class="n">b</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="mi">4</span><span class="p">)</span> <span class="o">*</span> <span class="n">sign</span>
         <span class="n">c</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">prototype_filter</span>
         <span class="n">filters</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">c</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">))</span>
+    <span class="n">filters</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">filters</span><span class="p">)</span>
 
-    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">filters</span><span class="p">),</span> <span class="n">is_converged</span>
+    <span class="k">return</span> <span class="n">filters</span><span class="p">,</span> <span class="n">is_converged</span>
 
 
 <div class="viewcode-block" id="PseudoQuadratureMirrorFilterBanks"><a class="viewcode-back" href="../../../core/pqmf.html#diffsptk.PseudoQuadratureMirrorFilterBanks">[docs]</a><span class="k">class</span> <span class="nc">PseudoQuadratureMirrorFilterBanks</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
@@ -416,7 +454,7 @@ document.write(`
 <span class="sd">        Stopband attenuation in dB.</span>
 
 <span class="sd">    **kwargs : additional keyword arguments</span>
-<span class="sd">        Parameters to find optimal filter bank coefficients.</span>
+<span class="sd">        Parameters to find optimal filter-bank coefficients.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 

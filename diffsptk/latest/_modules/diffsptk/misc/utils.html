@@ -412,7 +412,7 @@ document.write(`
         <span class="p">}</span>
         <span class="n">key</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">sr</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">key</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">sr_to_alpha</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;unsupported sample rate: </span><span class="si">{sr}</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="n">selected_alpha</span> <span class="o">=</span> <span class="n">sr_to_alpha</span><span class="p">[</span><span class="n">key</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">selected_alpha</span>
 
@@ -444,7 +444,7 @@ document.write(`
     <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;auto&quot;</span><span class="p">:</span>
         <span class="n">alpha</span> <span class="o">=</span> <span class="n">get_auto_alpha</span><span class="p">(</span><span class="n">sr</span><span class="p">,</span> <span class="n">n_freq</span><span class="p">,</span> <span class="n">n_alpha</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;only hts and auto are supported&quot;</span><span class="p">)</span>
 
     <span class="k">return</span> <span class="n">alpha</span></div>
 

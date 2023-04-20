@@ -397,7 +397,7 @@ document.write(`
 
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.PseudoMGLSADigitalFilter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">PseudoMGLSADigitalFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_period</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'minimum'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cascade</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mglsadf.html#PseudoMGLSADigitalFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PseudoMGLSADigitalFilter" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">PseudoMGLSADigitalFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'minimum'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'multi-stage'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/mglsadf.html#PseudoMGLSADigitalFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PseudoMGLSADigitalFilter" title="Permalink to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/mglsadf.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
@@ -405,27 +405,29 @@ for details.</p>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>filter_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of filter coefficients, <span class="math notranslate nohighlight">\(M\)</span>.</p>
 </dd>
+<dt><strong>frame_period</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Frame period, <span class="math notranslate nohighlight">\(P\)</span>.</p>
+</dd>
 <dt><strong>alpha</strong><span class="classifier">float [-1 &lt; alpha &lt; 1]</span></dt><dd><p>Frequency warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
 </dd>
 <dt><strong>gamma</strong><span class="classifier">float [-1 &lt;= gamma &lt;= 1]</span></dt><dd><p>Gamma, <span class="math notranslate nohighlight">\(\gamma\)</span>.</p>
 </dd>
 <dt><strong>c</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Number of stages.</p>
 </dd>
-<dt><strong>frame_period</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Frame period, <span class="math notranslate nohighlight">\(P\)</span>.</p>
-</dd>
 <dt><strong>ignore_gain</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If True, perform filtering without gain.</p>
 </dd>
 <dt><strong>phase</strong><span class="classifier">[‘minimum’, ‘maximum’, ‘zero’]</span></dt><dd><p>Filter type.</p>
 </dd>
-<dt><strong>cascade</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If True, use multi-stage FIR filter.</p>
+<dt><strong>mode</strong><span class="classifier">[‘multi-stage’, ‘single-stage’]</span></dt><dd><p>‘multi-stage’ approximates the MLSA filter by cascading FIR filters based on the
+Taylor series expansion. ‘single-stage’ uses a FIR filter whose coefficients are
+the impulse response converted from input mel-cepstral coefficients using FFT.</p>
 </dd>
-<dt><strong>taylor_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of Taylor series expansion (valid only if <strong>cascade</strong> is True).</p>
+<dt><strong>taylor_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of Taylor series expansion (valid only if <strong>mode</strong> is ‘multi-stage’).</p>
 </dd>
-<dt><strong>ir_length</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Length of impulse response (valid only if <strong>cascade</strong> is False).</p>
+<dt><strong>cep_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of linear cepstrum (valid only if <strong>mode</strong> is ‘multi-stage’).</p>
 </dd>
-<dt><strong>n_fft</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Number of FFT bins for conversion (valid only if <strong>cascade</strong> is False).</p>
+<dt><strong>ir_length</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Length of impulse response (valid only if <strong>mode</strong> is ‘single-stage’).</p>
 </dd>
-<dt><strong>cep_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of linear cepstrum (used to convert input to cepstrum).</p>
+<dt><strong>n_fft</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Number of FFT bins for conversion (valid only if <strong>mode</strong> is ‘single-stage’).</p>
 </dd>
 </dl>
 </dd>

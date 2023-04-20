@@ -329,7 +329,7 @@ document.write(`
 <span class="sd">    frame_period : int &gt;= 1 [scalar]</span>
 <span class="sd">        Frame period in samples, :math:`P`.</span>
 
-<span class="sd">    voiced_region : [&#39;pulse&#39;, &#39;sinusoidal&#39;]</span>
+<span class="sd">    voiced_region : [&#39;pulse&#39;, &#39;sinusoidal&#39;, &#39;sawtooth&#39;]</span>
 <span class="sd">        Value on voiced region.</span>
 
 <span class="sd">    unvoiced_region : [&#39;gauss&#39;, &#39;zeros&#39;]</span>
@@ -345,7 +345,7 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">unvoiced_region</span> <span class="o">=</span> <span class="n">unvoiced_region</span>
 
         <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span>
-        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">voiced_region</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;pulse&quot;</span><span class="p">,</span> <span class="s2">&quot;sinusoidal&quot;</span><span class="p">)</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">voiced_region</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;pulse&quot;</span><span class="p">,</span> <span class="s2">&quot;sinusoidal&quot;</span><span class="p">,</span> <span class="s2">&quot;sawtooth&quot;</span><span class="p">)</span>
         <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">unvoiced_region</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;gauss&quot;</span><span class="p">,</span> <span class="s2">&quot;zeros&quot;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">linear_intpl</span> <span class="o">=</span> <span class="n">LinearInterpolation</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span><span class="p">)</span>
@@ -391,7 +391,9 @@ document.write(`
         <span class="n">p</span> <span class="o">*=</span> <span class="n">mask</span>
 
         <span class="c1"># Compute phase.</span>
-        <span class="n">q</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">reciprocal</span><span class="p">(</span><span class="n">p</span><span class="p">),</span> <span class="n">posinf</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">voiced_pos</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">gt</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">q</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+        <span class="n">q</span><span class="p">[</span><span class="n">voiced_pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">reciprocal</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">voiced_pos</span><span class="p">])</span>
         <span class="n">s</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">q</span><span class="o">.</span><span class="n">double</span><span class="p">(),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">bias</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cummax</span><span class="p">(</span><span class="n">s</span> <span class="o">*</span> <span class="o">~</span><span class="n">mask</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">phase</span> <span class="o">=</span> <span class="p">(</span><span class="n">s</span> <span class="o">-</span> <span class="n">bias</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
@@ -404,6 +406,8 @@ document.write(`
             <span class="n">e</span><span class="p">[</span><span class="n">pulse_pos</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="n">pulse_pos</span><span class="p">])</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">voiced_region</span> <span class="o">==</span> <span class="s2">&quot;sinusoidal&quot;</span><span class="p">:</span>
             <span class="n">e</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sin</span><span class="p">((</span><span class="mi">2</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">pi</span><span class="p">)</span> <span class="o">*</span> <span class="n">phase</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">voiced_region</span> <span class="o">==</span> <span class="s2">&quot;sawtooth&quot;</span><span class="p">:</span>
+            <span class="n">e</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">fmod</span><span class="p">(</span><span class="n">phase</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span>
 

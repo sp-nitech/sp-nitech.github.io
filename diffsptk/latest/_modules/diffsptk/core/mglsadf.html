@@ -324,11 +324,27 @@ document.write(`
 
 
 <span class="k">def</span> <span class="nf">mirror</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">half</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Mirror the input tensor.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : Tensor [shape=(..., L)]</span>
+<span class="sd">        Input tensor.</span>
+
+<span class="sd">    half : bool [scalar]</span>
+<span class="sd">        If True, multiply all elements except the first one by 0.5.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    y : Tensor [shape=(..., 2L-1)]</span>
+<span class="sd">        Output tensor.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">half</span><span class="p">:</span>
         <span class="n">x1</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">*</span> <span class="mf">0.5</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">x1</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">x</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">x1</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">y</span>
 
 
 <div class="viewcode-block" id="PseudoMGLSADigitalFilter"><a class="viewcode-back" href="../../../core/mglsadf.html#diffsptk.PseudoMGLSADigitalFilter">[docs]</a><span class="k">class</span> <span class="nc">PseudoMGLSADigitalFilter</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
@@ -340,6 +356,9 @@ document.write(`
 <span class="sd">    filter_order : int &gt;= 0 [scalar]</span>
 <span class="sd">        Order of filter coefficients, :math:`M`.</span>
 
+<span class="sd">    frame_period : int &gt;= 1 [scalar]</span>
+<span class="sd">        Frame period, :math:`P`.</span>
+
 <span class="sd">    alpha : float [-1 &lt; alpha &lt; 1]</span>
 <span class="sd">        Frequency warping factor, :math:`\\alpha`.</span>
 
@@ -349,29 +368,28 @@ document.write(`
 <span class="sd">    c : int &gt;= 1 [scalar]</span>
 <span class="sd">        Number of stages.</span>
 
-<span class="sd">    frame_period : int &gt;= 1 [scalar]</span>
-<span class="sd">        Frame period, :math:`P`.</span>
-
 <span class="sd">    ignore_gain : bool [scalar]</span>
 <span class="sd">        If True, perform filtering without gain.</span>
 
 <span class="sd">    phase : [&#39;minimum&#39;, &#39;maximum&#39;, &#39;zero&#39;]</span>
 <span class="sd">        Filter type.</span>
 
-<span class="sd">    cascade : bool [scalar]</span>
-<span class="sd">        If True, use multi-stage FIR filter.</span>
+<span class="sd">    mode : [&#39;multi-stage&#39;, &#39;single-stage&#39;]</span>
+<span class="sd">        &#39;multi-stage&#39; approximates the MLSA filter by cascading FIR filters based on the</span>
+<span class="sd">        Taylor series expansion. &#39;single-stage&#39; uses a FIR filter whose coefficients are</span>
+<span class="sd">        the impulse response converted from input mel-cepstral coefficients using FFT.</span>
 
 <span class="sd">    taylor_order : int &gt;= 0 [scalar]</span>
-<span class="sd">        Order of Taylor series expansion (valid only if **cascade** is True).</span>
-
-<span class="sd">    ir_length : int &gt;= 1 [scalar]</span>
-<span class="sd">        Length of impulse response (valid only if **cascade** is False).</span>
-
-<span class="sd">    n_fft : int &gt;= 1 [scalar]</span>
-<span class="sd">        Number of FFT bins for conversion (valid only if **cascade** is False).</span>
+<span class="sd">        Order of Taylor series expansion (valid only if **mode** is &#39;multi-stage&#39;).</span>
 
 <span class="sd">    cep_order : int &gt;= 0 [scalar]</span>
-<span class="sd">        Order of linear cepstrum (used to convert input to cepstrum).</span>
+<span class="sd">        Order of linear cepstrum (valid only if **mode** is &#39;multi-stage&#39;).</span>
+
+<span class="sd">    ir_length : int &gt;= 1 [scalar]</span>
+<span class="sd">        Length of impulse response (valid only if **mode** is &#39;single-stage&#39;).</span>
+
+<span class="sd">    n_fft : int &gt;= 1 [scalar]</span>
+<span class="sd">        Number of FFT bins for conversion (valid only if **mode** is &#39;single-stage&#39;).</span>
 
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
@@ -383,13 +401,14 @@ document.write(`
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">filter_order</span><span class="p">,</span>
+        <span class="n">frame_period</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
         <span class="n">alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
         <span class="n">gamma</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
         <span class="n">c</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">frame_period</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
         <span class="n">ignore_gain</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">phase</span><span class="o">=</span><span class="s2">&quot;minimum&quot;</span><span class="p">,</span>
-        <span class="n">cascade</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;multi-stage&quot;</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">PseudoMGLSADigitalFilter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -399,26 +418,28 @@ document.write(`
 
         <span class="n">gamma</span> <span class="o">=</span> <span class="n">get_gamma</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">cascade</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;multi-stage&quot;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mglsadf</span> <span class="o">=</span> <span class="n">MultiStageFIRFilter</span><span class="p">(</span>
                 <span class="n">filter_order</span><span class="p">,</span>
+                <span class="n">frame_period</span><span class="p">,</span>
                 <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span>
                 <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">,</span>
-                <span class="n">frame_period</span><span class="o">=</span><span class="n">frame_period</span><span class="p">,</span>
+                <span class="n">ignore_gain</span><span class="o">=</span><span class="n">ignore_gain</span><span class="p">,</span>
+                <span class="n">phase</span><span class="o">=</span><span class="n">phase</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;single-stage&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">mglsadf</span> <span class="o">=</span> <span class="n">SingleStageFIRFilter</span><span class="p">(</span>
+                <span class="n">filter_order</span><span class="p">,</span>
+                <span class="n">frame_period</span><span class="p">,</span>
+                <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span>
+                <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">,</span>
                 <span class="n">ignore_gain</span><span class="o">=</span><span class="n">ignore_gain</span><span class="p">,</span>
                 <span class="n">phase</span><span class="o">=</span><span class="n">phase</span><span class="p">,</span>
                 <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">mglsadf</span> <span class="o">=</span> <span class="n">SingleStageFIRFilter</span><span class="p">(</span>
-                <span class="n">filter_order</span><span class="p">,</span>
-                <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span>
-                <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">,</span>
-                <span class="n">frame_period</span><span class="o">=</span><span class="n">frame_period</span><span class="p">,</span>
-                <span class="n">ignore_gain</span><span class="o">=</span><span class="n">ignore_gain</span><span class="p">,</span>
-                <span class="n">phase</span><span class="o">=</span><span class="n">phase</span><span class="p">,</span>
-                <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-            <span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;mode </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2"> is not supported&quot;</span><span class="p">)</span>
 
 <div class="viewcode-block" id="PseudoMGLSADigitalFilter.forward"><a class="viewcode-back" href="../../../core/mglsadf.html#diffsptk.PseudoMGLSADigitalFilter.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">mc</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Apply an MGLSA digital filter.</span>
@@ -461,9 +482,10 @@ document.write(`
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">filter_order</span><span class="p">,</span>
+        <span class="n">frame_period</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
         <span class="n">alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
         <span class="n">gamma</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-        <span class="n">frame_period</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
         <span class="n">ignore_gain</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">phase</span><span class="o">=</span><span class="s2">&quot;minimum&quot;</span><span class="p">,</span>
         <span class="n">taylor_order</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span>
@@ -523,14 +545,14 @@ document.write(`
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">filter_order</span><span class="p">,</span>
+        <span class="n">frame_period</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
         <span class="n">alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
         <span class="n">gamma</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-        <span class="n">frame_period</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
         <span class="n">ignore_gain</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
         <span class="n">phase</span><span class="o">=</span><span class="s2">&quot;minimum&quot;</span><span class="p">,</span>
         <span class="n">ir_length</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span>
         <span class="n">n_fft</span><span class="o">=</span><span class="mi">4096</span><span class="p">,</span>
-        <span class="n">cep_order</span><span class="o">=</span><span class="mi">199</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">SingleStageFIRFilter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
@@ -560,9 +582,10 @@ document.write(`
         <span class="k">else</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">mgc2c</span> <span class="o">=</span> <span class="n">MelGeneralizedCepstrumToMelGeneralizedCepstrum</span><span class="p">(</span>
                 <span class="n">filter_order</span><span class="p">,</span>
-                <span class="n">cep_order</span><span class="p">,</span>
+                <span class="n">ir_length</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span>
                 <span class="n">in_alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">,</span>
                 <span class="n">in_gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">,</span>
+                <span class="n">n_fft</span><span class="o">=</span><span class="n">n_fft</span><span class="p">,</span>
             <span class="p">)</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">c2ir</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
                 <span class="n">Lambda</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">hfft</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">n_fft</span><span class="p">)),</span>
@@ -589,7 +612,6 @@ document.write(`
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span>
 
-        <span class="c1"># FIXME: linear interpolation of impulse response seems inappropriate.</span>
         <span class="n">h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">linear_intpl</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ignore_gain</span><span class="p">:</span>
@@ -597,6 +619,10 @@ document.write(`
                 <span class="n">h</span> <span class="o">=</span> <span class="n">h</span> <span class="o">/</span> <span class="n">h</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:]</span>
             <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">phase</span> <span class="o">==</span> <span class="s2">&quot;maximum&quot;</span><span class="p">:</span>
                 <span class="n">h</span> <span class="o">=</span> <span class="n">h</span> <span class="o">/</span> <span class="n">h</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">phase</span> <span class="o">==</span> <span class="s2">&quot;zero&quot;</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">RuntimeError</span>
 
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">unfold</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">h</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>

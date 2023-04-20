@@ -319,53 +319,20 @@ document.write(`
 
 
 <div class="viewcode-block" id="PseudoInverseMGLSADigitalFilter"><a class="viewcode-back" href="../../../core/imglsadf.html#diffsptk.PseudoInverseMGLSADigitalFilter">[docs]</a><span class="k">class</span> <span class="nc">PseudoInverseMGLSADigitalFilter</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/imglsadf.html&gt;`_</span>
-<span class="sd">    for details.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;See :func:`~diffsptk.PseudoMGLSADigitalFilter` for details.&quot;&quot;&quot;</span>
 
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    filter_order : int &gt;= 0 [scalar]</span>
-<span class="sd">        Order of filter coefficients, :math:`M`.</span>
-
-<span class="sd">    alpha : float [-1 &lt; alpha &lt; 1]</span>
-<span class="sd">        Frequency warping factor, :math:`\\alpha`.</span>
-
-<span class="sd">    gamma : float [-1 &lt;= gamma &lt;= 1]</span>
-<span class="sd">        Gamma, :math:`\\gamma`.</span>
-
-<span class="sd">    c : int &gt;= 1 [scalar]</span>
-<span class="sd">        Number of stages.</span>
-
-<span class="sd">    frame_period : int &gt;= 1 [scalar]</span>
-<span class="sd">        Frame period, :math:`P`.</span>
-
-<span class="sd">    ignore_gain : bool [scalar]</span>
-<span class="sd">        If True, perform filtering without gain.</span>
-
-<span class="sd">    phase : [&#39;minimum&#39;, &#39;maximum&#39;, &#39;zero&#39;]</span>
-<span class="sd">        Filter type.</span>
-
-<span class="sd">    cascade : bool [scalar]</span>
-<span class="sd">        If True, use multi-stage FIR filter.</span>
-
-<span class="sd">    taylor_order : int &gt;= 0 [scalar]</span>
-<span class="sd">        Order of Taylor series expansion (valid only if **cascade** is True).</span>
-
-<span class="sd">    ir_length : int &gt;= 1 [scalar]</span>
-<span class="sd">        Length of impulse response (valid only if **cascade** is False).</span>
-
-<span class="sd">    n_fft : int &gt;= 1 [scalar]</span>
-<span class="sd">        Number of FFT bins for conversion (valid only if **cascade** is False).</span>
-
-<span class="sd">    cep_order : int &gt;= 0 [scalar]</span>
-<span class="sd">        Order of linear cepstrum (used to convert input to cepstrum).</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filter_order</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filter_order</span><span class="p">,</span> <span class="n">frame_period</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">PseudoInverseMGLSADigitalFilter</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">mglsadf</span> <span class="o">=</span> <span class="n">PseudoMGLSADigitalFilter</span><span class="p">(</span><span class="n">filter_order</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="c1"># Change the default value of the order of Taylor series.</span>
+        <span class="c1"># This is because inverse filtering requires the large value.</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;mode&quot;</span><span class="p">,</span> <span class="s2">&quot;multi-stage&quot;</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;multi-stage&quot;</span>
+            <span class="ow">and</span> <span class="s2">&quot;taylor_order&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">kwargs</span>
+        <span class="p">):</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;taylor_order&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">40</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">mglsadf</span> <span class="o">=</span> <span class="n">PseudoMGLSADigitalFilter</span><span class="p">(</span><span class="n">filter_order</span><span class="p">,</span> <span class="n">frame_period</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
 <div class="viewcode-block" id="PseudoInverseMGLSADigitalFilter.forward"><a class="viewcode-back" href="../../../core/imglsadf.html#diffsptk.PseudoInverseMGLSADigitalFilter.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">mc</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Apply an inverse MGLSA digital filter.</span>

@@ -328,7 +328,28 @@ document.write(`
 
 
 <span class="k">class</span> <span class="nc">GeneralizedCepstrumToGeneralizedCepstrum</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_order</span><span class="p">,</span> <span class="n">out_order</span><span class="p">,</span> <span class="n">in_gamma</span><span class="p">,</span> <span class="n">out_gamma</span><span class="p">,</span> <span class="n">n_fft</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generalized cepstral transformation module.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    in_order : int &gt;= 0 [scalar]</span>
+<span class="sd">        Order of input cepstrum, :math:`M_1`.</span>
+
+<span class="sd">    out_order : int &gt;= 0 [scalar]</span>
+<span class="sd">        Order of output cepstrum, :math:`M_2`.</span>
+
+<span class="sd">    in_gamma : float [-1 &lt;= in_gamma &lt;= 1]</span>
+<span class="sd">        Input gamma, :math:`\\gamma_1`.</span>
+
+<span class="sd">    out_gamma : float [-1 &lt;= out_gamma &lt;= 1]</span>
+<span class="sd">        Output gamma, :math:`\\gamma_2`.</span>
+
+<span class="sd">    n_fft : int &gt;&gt; :math:`M_1, M_2` [scalar]</span>
+<span class="sd">        Number of FFT bins. Accurate conversion requires the large value.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_order</span><span class="p">,</span> <span class="n">out_order</span><span class="p">,</span> <span class="n">in_gamma</span><span class="p">,</span> <span class="n">out_gamma</span><span class="p">,</span> <span class="n">n_fft</span><span class="o">=</span><span class="mi">512</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">GeneralizedCepstrumToGeneralizedCepstrum</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">in_order</span> <span class="o">=</span> <span class="n">in_order</span>
@@ -344,6 +365,19 @@ document.write(`
         <span class="k">assert</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">in_order</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_order</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_fft</span>
 
     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c1</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform generalized cepstral transformation.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        c1 : Tensor [shape=(..., M1+1)]</span>
+<span class="sd">            Input cepstrum.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        c2 : Tensor [shape=(..., M2+1)]</span>
+<span class="sd">            Output cepstrum.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">c01</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">c1</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">0</span><span class="p">,</span> <span class="n">c1</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">C1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">c01</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_fft</span><span class="p">)</span>
 

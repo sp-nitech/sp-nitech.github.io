@@ -346,7 +346,7 @@ document.write(`
 <span class="sd">        If True, assume gamma-multiplied cepstrum.</span>
 
 <span class="sd">    out_format : [&#39;db&#39;, &#39;log-magnitude&#39;, &#39;magnitude&#39;, &#39;power&#39;, \</span>
-<span class="sd">                  &#39;cycle&#39;, &#39;radian&#39;, &#39;degree&#39;]</span>
+<span class="sd">                  &#39;cycle&#39;, &#39;radian&#39;, &#39;degree&#39;, &#39;complex&#39;]</span>
 <span class="sd">        Output format.</span>
 
 <span class="sd">    n_fft : int &gt;&gt; :math:`L` [scalar]</span>
@@ -387,6 +387,8 @@ document.write(`
         <span class="k">elif</span> <span class="n">out_format</span> <span class="o">==</span> <span class="mi">6</span> <span class="ow">or</span> <span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;degree&quot;</span><span class="p">:</span>
             <span class="n">c</span> <span class="o">=</span> <span class="mi">180</span> <span class="o">/</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">convert</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">imag</span> <span class="o">*</span> <span class="n">c</span>
+        <span class="k">elif</span> <span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;complex&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">convert</span> <span class="o">=</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">polar</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">real</span><span class="p">),</span> <span class="n">x</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;out_format </span><span class="si">{</span><span class="n">out_format</span><span class="si">}</span><span class="s2"> is not supported&quot;</span><span class="p">)</span>
 

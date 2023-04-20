@@ -321,13 +321,33 @@ document.write(`
 
 
 <span class="k">def</span> <span class="nf">warp</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">theta</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Warp frequency.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    omega : float [0 &lt;= omega &lt;= 2pi]</span>
+<span class="sd">        Frequency.</span>
+
+<span class="sd">    alpha : float [-1 &lt; alpha &lt; 1]</span>
+<span class="sd">        Frequency warping factor, :math:`\\alpha`.</span>
+
+<span class="sd">    theta : float [0 &lt;= theta &lt;= 1]</span>
+<span class="sd">        Emphasis frequency, :math:`\\theta`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    w : float</span>
+<span class="sd">        Warped frequency.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">omega</span> <span class="o">-</span> <span class="n">theta</span>
     <span class="n">y</span> <span class="o">=</span> <span class="n">omega</span> <span class="o">+</span> <span class="n">theta</span>
-    <span class="k">return</span> <span class="p">(</span>
+    <span class="n">w</span> <span class="o">=</span> <span class="p">(</span>
         <span class="n">omega</span>
         <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
         <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">arctan2</span><span class="p">(</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">y</span><span class="p">),</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>
     <span class="p">)</span>
+    <span class="k">return</span> <span class="n">w</span>
 
 
 <div class="viewcode-block" id="SecondOrderAllPassFrequencyTransform"><a class="viewcode-back" href="../../../core/freqt2.html#diffsptk.SecondOrderAllPassFrequencyTransform">[docs]</a><span class="k">class</span> <span class="nc">SecondOrderAllPassFrequencyTransform</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
