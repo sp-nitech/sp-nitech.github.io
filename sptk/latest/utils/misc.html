@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>misc &mdash; SPTK  documentation</title>
@@ -12,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -150,6 +147,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../main/phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../main/pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../main/pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/pitch_spec.html">pitch_spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../main/poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../main/pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../main/quantize.html">quantize</a></li>
@@ -174,6 +172,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../main/vstat.html">vstat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../main/vsum.html">vsum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../main/window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/world_synth.html">world_synth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../main/x2x.html">x2x</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../main/zcross.html">zcross</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../main/zerodf.html">zerodf</a></li>
@@ -222,13 +221,13 @@
 <dd><p>Compute the percentage point of the standard normal distribution using the formula for the approximation by Toda and Ono.</p>
 <p>[1] H. Toda and H. Ono, “The minimax approximation for percentage points of the standard normal distribution,” Japanese journal of applied statistics, vol. 22, no. 1, pp. 13-21, 1993.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>probability</strong> – <strong>[in]</strong> Probability. </p></li>
 <li><p><strong>percentage_point</strong> – <strong>[out]</strong> Percentage point. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -239,14 +238,14 @@
 <span id="_CPPv3N4sptk33ComputeProbabilityOfTDistributionEdiPd"></span><span id="_CPPv2N4sptk33ComputeProbabilityOfTDistributionEdiPd"></span><span id="sptk::ComputeProbabilityOfTDistribution__double.i.doubleP"></span><span class="target" id="misc__utils_8h_1aed0f39e2f5fa0a0662de197b2402d75d"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ComputeProbabilityOfTDistribution</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">percentage_point</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">degrees_of_freedom</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">probability</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk33ComputeProbabilityOfTDistributionEdiPd" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Compute the probablity of the t-distribution.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>percentage_point</strong> – <strong>[in]</strong> Percentage point. </p></li>
 <li><p><strong>degrees_of_freedom</strong> – <strong>[in]</strong> Degrees of freedom. </p></li>
 <li><p><strong>probability</strong> – <strong>[out]</strong> Probability. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -258,14 +257,14 @@
 <dd><p>Compute the percentage point of the t-distribution using the Cornish-Fisher expansion in the percentage point of the standard normal distribution.</p>
 <p>[1] R. A. Fisher and E. A. Cornish, “The percentile points of distributions having known cumulants,” Technometrics, vol. 2, no. 2, pp. 209-225, 1960.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>probability</strong> – <strong>[in]</strong> Probability. </p></li>
 <li><p><strong>degrees_of_freedom</strong> – <strong>[in]</strong> Degrees of freedom. </p></li>
 <li><p><strong>percentage_point</strong> – <strong>[out]</strong> Percentage point. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -279,7 +278,7 @@
 <p>[2] Y.-P. Lin and P. P. Vaidyanathan, “A Kaiser window approach for the design of prototype filters of cosine modulated filterbanks,” IEEE Signal Processing Letters, vol. 5, no. 6, pp. 132-134, 1998.</p>
 <p>[3] F. Cruz-Roldan, P. Amo-Lopez, S. Maldonado-Bascon, and S. S. Lawson, “An efficient and simple method for designing prototype filters for cosine-modulated pseudo-QMF banks,” IEEE Signal Processing Letters, vol. 9, no. 1, pp. 29-31, 2002.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>inverse</strong> – <strong>[in]</strong> If true, filter banks for synthesis is calculated. </p></li>
 <li><p><strong>num_subband</strong> – <strong>[in]</strong> Number of subbands. </p></li>
@@ -292,7 +291,7 @@
 <li><p><strong>is_converged</strong> – <strong>[out]</strong> True if convergence is reached (optional). </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -303,14 +302,14 @@
 <span id="_CPPv3N4sptk20Perform1DConvolutionERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2N4sptk20Perform1DConvolutionERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::Perform1DConvolution__std::vector:double:CR.std::vector:double:CR.std::vector:double:P"></span><span class="target" id="misc__utils_8h_1aa86bd713707339d1ad09f64f1960dbde"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Perform1DConvolution</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">f</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">g</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">result</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk20Perform1DConvolutionERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Perform 1D convolution.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>f</strong> – <strong>[in]</strong> First input signal. </p></li>
 <li><p><strong>g</strong> – <strong>[in]</strong> Second Input signal. </p></li>
 <li><p><strong>result</strong> – <strong>[out]</strong> Output signal. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -321,13 +320,13 @@
 <span id="_CPPv3N4sptk39ComputeFirstOrderRegressionCoefficientsEiPNSt6vectorIdEE"></span><span id="_CPPv2N4sptk39ComputeFirstOrderRegressionCoefficientsEiPNSt6vectorIdEE"></span><span id="sptk::ComputeFirstOrderRegressionCoefficients__i.std::vector:double:P"></span><span class="target" id="misc__utils_8h_1ad47c2afcae328ddb0f07aa10449fe927"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ComputeFirstOrderRegressionCoefficients</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">coefficients</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk39ComputeFirstOrderRegressionCoefficientsEiPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Compute 1st order regression coefficients.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>n</strong> – <strong>[in]</strong> Width of regression coefficients. </p></li>
 <li><p><strong>coefficients</strong> – <strong>[out]</strong> Regression coefficients. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -338,13 +337,13 @@
 <span id="_CPPv3N4sptk40ComputeSecondOrderRegressionCoefficientsEiPNSt6vectorIdEE"></span><span id="_CPPv2N4sptk40ComputeSecondOrderRegressionCoefficientsEiPNSt6vectorIdEE"></span><span id="sptk::ComputeSecondOrderRegressionCoefficients__i.std::vector:double:P"></span><span class="target" id="misc__utils_8h_1a31df1732b6004833aff9e24fbe267b70"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ComputeSecondOrderRegressionCoefficients</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">n</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">coefficients</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk40ComputeSecondOrderRegressionCoefficientsEiPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Compute 2nd order regression coefficients.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>n</strong> – <strong>[in]</strong> Width of regression coefficients. </p></li>
 <li><p><strong>coefficients</strong> – <strong>[out]</strong> Regression coefficients. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>

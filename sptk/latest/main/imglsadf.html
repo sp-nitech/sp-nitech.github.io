@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>imglsadf &mdash; SPTK  documentation</title>
@@ -12,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -151,6 +148,7 @@
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
@@ -175,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_synth.html">world_synth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
@@ -266,13 +265,13 @@
 </ul>
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
 <li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>0 on success, 1 on failure. </p>
 </dd>
 </dl>
@@ -293,7 +292,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk25InverseMglsaDigitalFilter25InverseMglsaDigitalFilterEiiidb">
 <span id="_CPPv3N4sptk25InverseMglsaDigitalFilter25InverseMglsaDigitalFilterEiiidb"></span><span id="_CPPv2N4sptk25InverseMglsaDigitalFilter25InverseMglsaDigitalFilterEiiidb"></span><span id="sptk::InverseMglsaDigitalFilter::InverseMglsaDigitalFilter__i.i.i.double.b"></span><span class="target" id="classsptk_1_1InverseMglsaDigitalFilter_1a2ac68e8efedc4b6afef7d7a4084fb6a6"></span><span class="sig-name descname"><span class="n"><span class="pre">InverseMglsaDigitalFilter</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_filter_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_pade_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_stage</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">alpha</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">transposition</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk25InverseMglsaDigitalFilter25InverseMglsaDigitalFilterEiiidb" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>num_filter_order</strong> – <strong>[in]</strong> Order of filter coefficients, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
 <li><p><strong>num_pade_order</strong> – <strong>[in]</strong> Order of Pade approximation, <span class="math notranslate nohighlight">\(L\)</span>. </p></li>
@@ -309,7 +308,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk25InverseMglsaDigitalFilter17GetNumFilterOrderEv">
 <span id="_CPPv3NK4sptk25InverseMglsaDigitalFilter17GetNumFilterOrderEv"></span><span id="_CPPv2NK4sptk25InverseMglsaDigitalFilter17GetNumFilterOrderEv"></span><span id="sptk::InverseMglsaDigitalFilter::GetNumFilterOrderC"></span><span class="target" id="classsptk_1_1InverseMglsaDigitalFilter_1add5d2cab0a0bf60ffc04f8429037f9e7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumFilterOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25InverseMglsaDigitalFilter17GetNumFilterOrderEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of coefficients. </p>
 </dd>
 </dl>
@@ -319,7 +318,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk25InverseMglsaDigitalFilter15GetNumPadeOrderEv">
 <span id="_CPPv3NK4sptk25InverseMglsaDigitalFilter15GetNumPadeOrderEv"></span><span id="_CPPv2NK4sptk25InverseMglsaDigitalFilter15GetNumPadeOrderEv"></span><span id="sptk::InverseMglsaDigitalFilter::GetNumPadeOrderC"></span><span class="target" id="classsptk_1_1InverseMglsaDigitalFilter_1a181a82cb21cfc44c0aaacb1c9c4b8c1f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumPadeOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25InverseMglsaDigitalFilter15GetNumPadeOrderEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of Pade approximation. </p>
 </dd>
 </dl>
@@ -329,7 +328,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk25InverseMglsaDigitalFilter11GetNumStageEv">
 <span id="_CPPv3NK4sptk25InverseMglsaDigitalFilter11GetNumStageEv"></span><span id="_CPPv2NK4sptk25InverseMglsaDigitalFilter11GetNumStageEv"></span><span id="sptk::InverseMglsaDigitalFilter::GetNumStageC"></span><span class="target" id="classsptk_1_1InverseMglsaDigitalFilter_1a094d740d7c065f4c4f0e6db15b7e2b0b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumStage</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25InverseMglsaDigitalFilter11GetNumStageEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Number of stages. </p>
 </dd>
 </dl>
@@ -339,7 +338,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk25InverseMglsaDigitalFilter8GetAlphaEv">
 <span id="_CPPv3NK4sptk25InverseMglsaDigitalFilter8GetAlphaEv"></span><span id="_CPPv2NK4sptk25InverseMglsaDigitalFilter8GetAlphaEv"></span><span id="sptk::InverseMglsaDigitalFilter::GetAlphaC"></span><span class="target" id="classsptk_1_1InverseMglsaDigitalFilter_1a5aef0e2f88dd0241776d61edc7b3c70e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetAlpha</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25InverseMglsaDigitalFilter8GetAlphaEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>All-pass constant. </p>
 </dd>
 </dl>
@@ -349,7 +348,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk25InverseMglsaDigitalFilter20GetTranspositionFlagEv">
 <span id="_CPPv3NK4sptk25InverseMglsaDigitalFilter20GetTranspositionFlagEv"></span><span id="_CPPv2NK4sptk25InverseMglsaDigitalFilter20GetTranspositionFlagEv"></span><span id="sptk::InverseMglsaDigitalFilter::GetTranspositionFlagC"></span><span class="target" id="classsptk_1_1InverseMglsaDigitalFilter_1ad8d2e61033d7dfff01a2264c4efcb32c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetTranspositionFlag</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25InverseMglsaDigitalFilter20GetTranspositionFlagEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if transposed form is used. </p>
 </dd>
 </dl>
@@ -359,7 +358,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk25InverseMglsaDigitalFilter7IsValidEv">
 <span id="_CPPv3NK4sptk25InverseMglsaDigitalFilter7IsValidEv"></span><span id="_CPPv2NK4sptk25InverseMglsaDigitalFilter7IsValidEv"></span><span id="sptk::InverseMglsaDigitalFilter::IsValidC"></span><span class="target" id="classsptk_1_1InverseMglsaDigitalFilter_1aeb78a4cef829d60b5143ba331c42f92c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25InverseMglsaDigitalFilter7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
 </dd>
 </dl>
@@ -369,7 +368,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk25InverseMglsaDigitalFilter3RunERKNSt6vectorIdEEdPdPN25InverseMglsaDigitalFilter6BufferE">
 <span id="_CPPv3NK4sptk25InverseMglsaDigitalFilter3RunERKNSt6vectorIdEEdPdPN25InverseMglsaDigitalFilter6BufferE"></span><span id="_CPPv2NK4sptk25InverseMglsaDigitalFilter3RunERKNSt6vectorIdEEdPdPN25InverseMglsaDigitalFilter6BufferE"></span><span id="sptk::InverseMglsaDigitalFilter::Run__std::vector:double:CR.double.doubleP.InverseMglsaDigitalFilter::BufferPC"></span><span class="target" id="classsptk_1_1InverseMglsaDigitalFilter_1a42bb0fb43a01088989a52ccb80f43bb9"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">filter_coefficients</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">filter_input</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">filter_output</span></span>, <a class="reference internal" href="#_CPPv4N4sptk25InverseMglsaDigitalFilterE" title="sptk::InverseMglsaDigitalFilter"><span class="n"><span class="pre">InverseMglsaDigitalFilter</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk25InverseMglsaDigitalFilter6BufferE" title="sptk::InverseMglsaDigitalFilter::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25InverseMglsaDigitalFilter3RunERKNSt6vectorIdEEdPdPN25InverseMglsaDigitalFilter6BufferE" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filter_coefficients</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order MGLSA filter coefficients. </p></li>
 <li><p><strong>filter_input</strong> – <strong>[in]</strong> Input signal. </p></li>
@@ -377,7 +376,7 @@
 <li><p><strong>buffer</strong> – <strong>[inout]</strong> <a class="reference internal" href="#classsptk_1_1InverseMglsaDigitalFilter_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -387,14 +386,14 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk25InverseMglsaDigitalFilter3RunERKNSt6vectorIdEEPdPN25InverseMglsaDigitalFilter6BufferE">
 <span id="_CPPv3NK4sptk25InverseMglsaDigitalFilter3RunERKNSt6vectorIdEEPdPN25InverseMglsaDigitalFilter6BufferE"></span><span id="_CPPv2NK4sptk25InverseMglsaDigitalFilter3RunERKNSt6vectorIdEEPdPN25InverseMglsaDigitalFilter6BufferE"></span><span id="sptk::InverseMglsaDigitalFilter::Run__std::vector:double:CR.doubleP.InverseMglsaDigitalFilter::BufferPC"></span><span class="target" id="classsptk_1_1InverseMglsaDigitalFilter_1af91a7c14cf8f53fc98c5bfce4651c614"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">filter_coefficients</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_and_output</span></span>, <a class="reference internal" href="#_CPPv4N4sptk25InverseMglsaDigitalFilterE" title="sptk::InverseMglsaDigitalFilter"><span class="n"><span class="pre">InverseMglsaDigitalFilter</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk25InverseMglsaDigitalFilter6BufferE" title="sptk::InverseMglsaDigitalFilter::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25InverseMglsaDigitalFilter3RunERKNSt6vectorIdEEPdPN25InverseMglsaDigitalFilter6BufferE" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filter_coefficients</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order MGLSA filter coefficients. </p></li>
 <li><p><strong>input_and_output</strong> – <strong>[inout]</strong> Input/output signal. </p></li>
 <li><p><strong>buffer</strong> – <strong>[inout]</strong> <a class="reference internal" href="#classsptk_1_1InverseMglsaDigitalFilter_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>

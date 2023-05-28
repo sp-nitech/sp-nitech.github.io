@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>mlpg &mdash; SPTK  documentation</title>
@@ -12,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -151,6 +148,7 @@
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
@@ -175,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_synth.html">world_synth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
@@ -299,7 +298,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk45RecursiveMaximumLikelihoodParameterGeneration45RecursiveMaximumLikelihoodParameterGenerationEiiRKNSt6vectorINSt6vectorIdEEEEP20InputSourceInterface">
 <span id="_CPPv3N4sptk45RecursiveMaximumLikelihoodParameterGeneration45RecursiveMaximumLikelihoodParameterGenerationEiiRKNSt6vectorINSt6vectorIdEEEEP20InputSourceInterface"></span><span id="_CPPv2N4sptk45RecursiveMaximumLikelihoodParameterGeneration45RecursiveMaximumLikelihoodParameterGenerationEiiRKNSt6vectorINSt6vectorIdEEEEP20InputSourceInterface"></span><span id="sptk::RecursiveMaximumLikelihoodParameterGeneration::RecursiveMaximumLikelihoodParameterGeneration__i.i.std::vector:std::vector:double::CR.InputSourceInterfaceP"></span><span class="target" id="classsptk_1_1RecursiveMaximumLikelihoodParameterGeneration_1a55a59e581dfe7f84957ee9fe595c2caf"></span><span class="sig-name descname"><span class="n"><span class="pre">RecursiveMaximumLikelihoodParameterGeneration</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_past_frame</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">window_coefficients</span></span>, <span class="n"><span class="pre">InputSourceInterface</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_source</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk45RecursiveMaximumLikelihoodParameterGeneration45RecursiveMaximumLikelihoodParameterGenerationEiiRKNSt6vectorINSt6vectorIdEEEEP20InputSourceInterface" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>num_order</strong> – <strong>[in]</strong> Order of coefficients, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
 <li><p><strong>num_past_frame</strong> – <strong>[in]</strong> Number of past frames, <span class="math notranslate nohighlight">\(S\)</span>. </p></li>
@@ -314,7 +313,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk45RecursiveMaximumLikelihoodParameterGeneration11GetNumOrderEv">
 <span id="_CPPv3NK4sptk45RecursiveMaximumLikelihoodParameterGeneration11GetNumOrderEv"></span><span id="_CPPv2NK4sptk45RecursiveMaximumLikelihoodParameterGeneration11GetNumOrderEv"></span><span id="sptk::RecursiveMaximumLikelihoodParameterGeneration::GetNumOrderC"></span><span class="target" id="classsptk_1_1RecursiveMaximumLikelihoodParameterGeneration_1af7a6d07e1495f30eabb90a3fa846dcf9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk45RecursiveMaximumLikelihoodParameterGeneration11GetNumOrderEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of coefficients. </p>
 </dd>
 </dl>
@@ -324,7 +323,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk45RecursiveMaximumLikelihoodParameterGeneration15GetNumPastFrameEv">
 <span id="_CPPv3NK4sptk45RecursiveMaximumLikelihoodParameterGeneration15GetNumPastFrameEv"></span><span id="_CPPv2NK4sptk45RecursiveMaximumLikelihoodParameterGeneration15GetNumPastFrameEv"></span><span id="sptk::RecursiveMaximumLikelihoodParameterGeneration::GetNumPastFrameC"></span><span class="target" id="classsptk_1_1RecursiveMaximumLikelihoodParameterGeneration_1ac0f196f85f4cf04f129240dd305d180f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumPastFrame</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk45RecursiveMaximumLikelihoodParameterGeneration15GetNumPastFrameEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Number of past frames. </p>
 </dd>
 </dl>
@@ -334,7 +333,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7GetSizeEv">
 <span id="_CPPv3NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7GetSizeEv"></span><span id="_CPPv2NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7GetSizeEv"></span><span id="sptk::RecursiveMaximumLikelihoodParameterGeneration::GetSizeC"></span><span class="target" id="classsptk_1_1RecursiveMaximumLikelihoodParameterGeneration_1a9565cc08abb118cd0647c7541a6ab03d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetSize</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7GetSizeEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Output size. </p>
 </dd>
 </dl>
@@ -344,7 +343,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7IsValidEv">
 <span id="_CPPv3NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7IsValidEv"></span><span id="_CPPv2NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7IsValidEv"></span><span id="sptk::RecursiveMaximumLikelihoodParameterGeneration::IsValidC"></span><span class="target" id="classsptk_1_1RecursiveMaximumLikelihoodParameterGeneration_1a6a801738666bc0ccac605032d4405916"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk45RecursiveMaximumLikelihoodParameterGeneration7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
 </dd>
 </dl>
@@ -354,10 +353,10 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk45RecursiveMaximumLikelihoodParameterGeneration3GetEPNSt6vectorIdEE">
 <span id="_CPPv3N4sptk45RecursiveMaximumLikelihoodParameterGeneration3GetEPNSt6vectorIdEE"></span><span id="_CPPv2N4sptk45RecursiveMaximumLikelihoodParameterGeneration3GetEPNSt6vectorIdEE"></span><span id="sptk::RecursiveMaximumLikelihoodParameterGeneration::Get__std::vector:double:P"></span><span class="target" id="classsptk_1_1RecursiveMaximumLikelihoodParameterGeneration_1a5da3f55fc10890d359e7beb7dd172594"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">smoothed_static_parameters</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk45RecursiveMaximumLikelihoodParameterGeneration3GetEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>smoothed_static_parameters</strong> – <strong>[out]</strong> Smoothed static parameters. </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -383,7 +382,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk48NonrecursiveMaximumLikelihoodParameterGeneration48NonrecursiveMaximumLikelihoodParameterGenerationEiRKNSt6vectorINSt6vectorIdEEEEbd">
 <span id="_CPPv3N4sptk48NonrecursiveMaximumLikelihoodParameterGeneration48NonrecursiveMaximumLikelihoodParameterGenerationEiRKNSt6vectorINSt6vectorIdEEEEbd"></span><span id="_CPPv2N4sptk48NonrecursiveMaximumLikelihoodParameterGeneration48NonrecursiveMaximumLikelihoodParameterGenerationEiRKNSt6vectorINSt6vectorIdEEEEbd"></span><span id="sptk::NonrecursiveMaximumLikelihoodParameterGeneration::NonrecursiveMaximumLikelihoodParameterGeneration__i.std::vector:std::vector:double::CR.b.double"></span><span class="target" id="classsptk_1_1NonrecursiveMaximumLikelihoodParameterGeneration_1a5a19393b3363af489e388637d8b31ef7"></span><span class="sig-name descname"><span class="n"><span class="pre">NonrecursiveMaximumLikelihoodParameterGeneration</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">window_coefficients</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">use_magic_number</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">magic_number</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.0</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk48NonrecursiveMaximumLikelihoodParameterGeneration48NonrecursiveMaximumLikelihoodParameterGenerationEiRKNSt6vectorINSt6vectorIdEEEEbd" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>num_order</strong> – <strong>[in]</strong> Order of coefficients, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
 <li><p><strong>window_coefficients</strong> – <strong>[in]</strong> Window coefficients. e.g.) { {-0.5, 0.0, 0.5}, {1.0, -2.0, 1.0} } </p></li>
@@ -398,7 +397,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk48NonrecursiveMaximumLikelihoodParameterGeneration11GetNumOrderEv">
 <span id="_CPPv3NK4sptk48NonrecursiveMaximumLikelihoodParameterGeneration11GetNumOrderEv"></span><span id="_CPPv2NK4sptk48NonrecursiveMaximumLikelihoodParameterGeneration11GetNumOrderEv"></span><span id="sptk::NonrecursiveMaximumLikelihoodParameterGeneration::GetNumOrderC"></span><span class="target" id="classsptk_1_1NonrecursiveMaximumLikelihoodParameterGeneration_1a4c511ca8974ef2d1470a73546767eef8"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk48NonrecursiveMaximumLikelihoodParameterGeneration11GetNumOrderEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of coefficients. </p>
 </dd>
 </dl>
@@ -408,7 +407,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk48NonrecursiveMaximumLikelihoodParameterGeneration14GetMagicNumberEv">
 <span id="_CPPv3NK4sptk48NonrecursiveMaximumLikelihoodParameterGeneration14GetMagicNumberEv"></span><span id="_CPPv2NK4sptk48NonrecursiveMaximumLikelihoodParameterGeneration14GetMagicNumberEv"></span><span id="sptk::NonrecursiveMaximumLikelihoodParameterGeneration::GetMagicNumberC"></span><span class="target" id="classsptk_1_1NonrecursiveMaximumLikelihoodParameterGeneration_1ab0248cf39cb200e07d568d7732f0a77b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetMagicNumber</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk48NonrecursiveMaximumLikelihoodParameterGeneration14GetMagicNumberEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Magic number. </p>
 </dd>
 </dl>
@@ -418,7 +417,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk48NonrecursiveMaximumLikelihoodParameterGeneration7IsValidEv">
 <span id="_CPPv3NK4sptk48NonrecursiveMaximumLikelihoodParameterGeneration7IsValidEv"></span><span id="_CPPv2NK4sptk48NonrecursiveMaximumLikelihoodParameterGeneration7IsValidEv"></span><span id="sptk::NonrecursiveMaximumLikelihoodParameterGeneration::IsValidC"></span><span class="target" id="classsptk_1_1NonrecursiveMaximumLikelihoodParameterGeneration_1aa8e36ba0f7c863642c71399e8dcb1a63"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk48NonrecursiveMaximumLikelihoodParameterGeneration7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
 </dd>
 </dl>
@@ -428,14 +427,14 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk48NonrecursiveMaximumLikelihoodParameterGeneration3RunERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorINSt6vectorIdEEEE">
 <span id="_CPPv3NK4sptk48NonrecursiveMaximumLikelihoodParameterGeneration3RunERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorINSt6vectorIdEEEE"></span><span id="_CPPv2NK4sptk48NonrecursiveMaximumLikelihoodParameterGeneration3RunERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorINSt6vectorIdEEEE"></span><span id="sptk::NonrecursiveMaximumLikelihoodParameterGeneration::Run__std::vector:std::vector:double::CR.std::vector:std::vector:double::CR.std::vector:std::vector:double::PC"></span><span class="target" id="classsptk_1_1NonrecursiveMaximumLikelihoodParameterGeneration_1a3349e46c7c67b06246bb64220cf9906c"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">mean_vectors</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">variance_vectors</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">smoothed_static_parameters</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk48NonrecursiveMaximumLikelihoodParameterGeneration3RunERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorINSt6vectorIdEEEE" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mean_vectors</strong> – <strong>[in]</strong> Mean vector sequence. The shape is <span class="math notranslate nohighlight">\([T, DM]\)</span>. </p></li>
 <li><p><strong>variance_vectors</strong> – <strong>[in]</strong> Variance vector sequence. The shape is <span class="math notranslate nohighlight">\([T, DM]\)</span>. </p></li>
 <li><p><strong>smoothed_static_parameters</strong> – <strong>[out]</strong> Smoothed static parameters. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -445,14 +444,14 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk48NonrecursiveMaximumLikelihoodParameterGeneration3RunERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorI15SymmetricMatrixEEPNSt6vectorINSt6vectorIdEEEE">
 <span id="_CPPv3NK4sptk48NonrecursiveMaximumLikelihoodParameterGeneration3RunERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorI15SymmetricMatrixEEPNSt6vectorINSt6vectorIdEEEE"></span><span id="_CPPv2NK4sptk48NonrecursiveMaximumLikelihoodParameterGeneration3RunERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorI15SymmetricMatrixEEPNSt6vectorINSt6vectorIdEEEE"></span><span id="sptk::NonrecursiveMaximumLikelihoodParameterGeneration::Run__std::vector:std::vector:double::CR.std::vector:SymmetricMatrix:CR.std::vector:std::vector:double::PC"></span><span class="target" id="classsptk_1_1NonrecursiveMaximumLikelihoodParameterGeneration_1a390cf5415f2e68dc7f839858401ebf9b"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">mean_vectors</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../utils/math.html#_CPPv4N4sptk15SymmetricMatrixE" title="sptk::SymmetricMatrix"><span class="n"><span class="pre">SymmetricMatrix</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">covariance_matrices</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">smoothed_static_parameters</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk48NonrecursiveMaximumLikelihoodParameterGeneration3RunERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorI15SymmetricMatrixEEPNSt6vectorINSt6vectorIdEEEE" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mean_vectors</strong> – <strong>[in]</strong> Mean vector sequence. The shape is <span class="math notranslate nohighlight">\([T, DM]\)</span>. </p></li>
 <li><p><strong>covariance_matrices</strong> – <strong>[in]</strong> Covariance matrix sequence. The shape is <span class="math notranslate nohighlight">\([T, DM, DM]\)</span>. </p></li>
 <li><p><strong>smoothed_static_parameters</strong> – <strong>[out]</strong> Smoothed static parameters. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>

@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>csm2acr &mdash; SPTK  documentation</title>
+  <title>pitch_spec &mdash; SPTK  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -18,8 +18,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="dct" href="dct.html" />
-    <link rel="prev" title="clip" href="clip.html" /> 
+    <link rel="next" title="poledf" href="poledf.html" />
+    <link rel="prev" title="pitch_mark" href="pitch_mark.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -57,7 +57,7 @@
 <li class="toctree-l1"><a class="reference internal" href="c2ndps.html">c2ndps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cdist.html">cdist</a></li>
 <li class="toctree-l1"><a class="reference internal" href="clip.html">clip</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">csm2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dct.html">dct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="decimate.html">decimate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="delay.html">delay</a></li>
@@ -148,7 +148,7 @@
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pitch_spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
@@ -199,9 +199,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">csm2acr</li>
+      <li class="breadcrumb-item active">pitch_spec</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/main/csm2acr.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/main/pitch_spec.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -209,35 +209,70 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="csm2acr">
-<span id="id1"></span><h1>csm2acr<a class="headerlink" href="#csm2acr" title="Permalink to this heading"></a></h1>
+  <section id="pitch-spec">
+<span id="id1"></span><h1>pitch_spec<a class="headerlink" href="#pitch-spec" title="Permalink to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv44mainiA_Pc">
-<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="csm2acr_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
-<dd><p><em>csm2acr</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="pitch__spec_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p><em>pitch_spec</em> [ <em>option</em> ] <em>f0file</em> [ <em>infile</em> ]</p>
 <p><ul class="simple">
-<li><p><strong>-m</strong> <em>int</em> <ul>
-<li><p>order of autocorrelation <span class="math notranslate nohighlight">\((1 \le M)\)</span></p></li>
+<li><p><strong>-a</strong> <em>int</em> <ul>
+<li><p>algorithm used for spectrum extraction <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> WORLD (CheapTrick)</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>-l</strong> <em>int</em> <ul>
+<li><p>FFT length</p></li>
+</ul>
+</p></li>
+<li><p><strong>-p</strong> <em>int</em> <ul>
+<li><p>frame shift [point] <span class="math notranslate nohighlight">\((1 \le P)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-s</strong> <em>double</em> <ul>
+<li><p>sampling rate [kHz] <span class="math notranslate nohighlight">\((8 \le F_s \le 98)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-q</strong> <em>int</em> <ul>
+<li><p>f0 input format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> pitch <span class="math notranslate nohighlight">\((F_s / F_0)\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> F0 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> log F0</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>-o</strong> <em>int</em> <ul>
+<li><p>output format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> <span class="math notranslate nohighlight">\(20 \log_{10} |H(z)|\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> <span class="math notranslate nohighlight">\(\log |H(z)|\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> <span class="math notranslate nohighlight">\(|H(z)|\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> <span class="math notranslate nohighlight">\(|H(z)|^2\)</span></p></li>
+</ul>
+</p></li>
 </ul>
 </p></li>
 <li><p><strong>infile</strong> <em>str</em> <ul>
-<li><p>double-type CSM parameters</p></li>
+<li><p>double-type waveform</p></li>
+</ul>
+</p></li>
+<li><p><strong>f0file</strong> <em>str</em> <ul>
+<li><p>double-type pitch</p></li>
 </ul>
 </p></li>
 <li><p><strong>stdout</strong> <ul>
-<li><p>double-type autocorrelation</p></li>
+<li><p>double-type spectrum</p></li>
 </ul>
 </p></li>
 </ul>
 </p>
-<p>The below example converts CSM parameters into autocorrelation coefficients:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>csm2acr<span class="w"> </span>&lt;<span class="w"> </span>data.csm<span class="w"> </span>&gt;<span class="w"> </span>data.acr
-</pre></div>
-</div>
-<p>The converted autocorrelation coefficients can be reverted by</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>acr2csm<span class="w"> </span>&lt;<span class="w"> </span>data.acr<span class="w"> </span>&gt;<span class="w"> </span>data.csm
+<p>The below is a simple example to extract spectrum from <code class="docutils literal notranslate"><span class="pre">data.d</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pitch<span class="w"> </span>-s<span class="w"> </span><span class="m">16</span><span class="w"> </span>-p<span class="w"> </span><span class="m">80</span><span class="w"> </span>-L<span class="w"> </span><span class="m">80</span><span class="w"> </span>-H<span class="w"> </span><span class="m">200</span><span class="w"> </span>-o<span class="w"> </span><span class="m">1</span><span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span>&gt;<span class="w"> </span>data.f0
+pitch_spec<span class="w"> </span>-s<span class="w"> </span><span class="m">16</span><span class="w"> </span>-p<span class="w"> </span><span class="m">80</span><span class="w"> </span>-q<span class="w"> </span><span class="m">1</span><span class="w"> </span>data.f0<span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span>&gt;<span class="w"> </span>data.sp
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -256,45 +291,54 @@
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="acr2csm.html#acr2csm"><span class="std std-ref">acr2csm</span></a>  <a class="reference internal" href="acorr.html#acorr"><span class="std std-ref">acorr</span></a></p>
+<p><a class="reference internal" href="spec.html#spec"><span class="std std-ref">spec</span></a>  <a class="reference internal" href="pitch.html#pitch"><span class="std std-ref">pitch</span></a></p>
 </div>
 <dl class="cpp class">
-<dt class="sig sig-object cpp" id="_CPPv4N4sptk44CompositeSinusoidalModelingToAutocorrelationE">
-<span id="_CPPv3N4sptk44CompositeSinusoidalModelingToAutocorrelationE"></span><span id="_CPPv2N4sptk44CompositeSinusoidalModelingToAutocorrelationE"></span><span id="sptk::CompositeSinusoidalModelingToAutocorrelation"></span><span class="target" id="classsptk_1_1CompositeSinusoidalModelingToAutocorrelation"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CompositeSinusoidalModelingToAutocorrelation</span></span></span><a class="headerlink" href="#_CPPv4N4sptk44CompositeSinusoidalModelingToAutocorrelationE" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Convert CSM parameters to autocorrelation.</p>
-<p>The input is the <span class="math notranslate nohighlight">\(2N\)</span> CSM parameters: <div class="math notranslate nohighlight">
-\[\begin{split} \begin{array}{cccc} \omega(1), &amp; \omega(2), &amp; \ldots, &amp; \omega(N), \\ m(1), &amp; m(2), &amp; \ldots, &amp; m(N), \end{array} \end{split}\]</div>
- where <span class="math notranslate nohighlight">\(\omega(n)\)</span> is the CSM frequency and <span class="math notranslate nohighlight">\(m(n)\)</span> is the CSM intensity. The output is the <span class="math notranslate nohighlight">\((2N-1)\)</span>-th order biased sample autocorrelation coefficients: <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} v(0), &amp; v(1), &amp; \ldots, &amp; v(2N-1). \end{array} \]</div>
- The sample autocorrelation is given by <div class="math notranslate nohighlight">
-\[ v(l) = \sum_{i=1}^N m(i) \cos(l \, \omega(i)). \]</div>
-</p>
-<p>[1] S. Sagayama and F. Itakura, “Duality theory of composite sinusoidal modeling and linear prediction,” Proc. of ICASSP 1986, pp. 1261-1264, 1986. </p>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk18SpectrumExtractionE">
+<span id="_CPPv3N4sptk18SpectrumExtractionE"></span><span id="_CPPv2N4sptk18SpectrumExtractionE"></span><span id="sptk::SpectrumExtraction"></span><span class="target" id="classsptk_1_1SpectrumExtraction"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SpectrumExtraction</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumExtractionE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Extract spectrum from waveform.</p>
+<p>The input is whole audio waveform and the output is the sequence of the spectrum measure. The implemented algorithm of the extraction is CheapTrick.</p>
+<p>[1] M. Morise, “CheapTrick, a spectral envelope estimator for high-quality speech synthesis,” Proc. of Speech Communication, vol. 67, pp. 1-7, 2015. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk18SpectrumExtraction10AlgorithmsE">
+<span id="_CPPv3N4sptk18SpectrumExtraction10AlgorithmsE"></span><span id="_CPPv2N4sptk18SpectrumExtraction10AlgorithmsE"></span><span class="target" id="classsptk_1_1SpectrumExtraction_1a75ec73bdac950bcdc91b104483f3c768"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Algorithms</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumExtraction10AlgorithmsE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Spectrum extraction algorithm type. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk18SpectrumExtraction10Algorithms6kWorldE">
+<span id="_CPPv3N4sptk18SpectrumExtraction10Algorithms6kWorldE"></span><span id="_CPPv2N4sptk18SpectrumExtraction10Algorithms6kWorldE"></span><span class="target" id="classsptk_1_1SpectrumExtraction_1a75ec73bdac950bcdc91b104483f3c768ac38df366f6510f28ebf8dbe1a0140ffc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kWorld</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumExtraction10Algorithms6kWorldE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk18SpectrumExtraction10Algorithms14kNumAlgorithmsE">
+<span id="_CPPv3N4sptk18SpectrumExtraction10Algorithms14kNumAlgorithmsE"></span><span id="_CPPv2N4sptk18SpectrumExtraction10Algorithms14kNumAlgorithmsE"></span><span class="target" id="classsptk_1_1SpectrumExtraction_1a75ec73bdac950bcdc91b104483f3c768a3081d90089acaab96efeaf91d4b27e4c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kNumAlgorithms</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumExtraction10Algorithms14kNumAlgorithmsE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4sptk44CompositeSinusoidalModelingToAutocorrelation44CompositeSinusoidalModelingToAutocorrelationEi">
-<span id="_CPPv3N4sptk44CompositeSinusoidalModelingToAutocorrelation44CompositeSinusoidalModelingToAutocorrelationEi"></span><span id="_CPPv2N4sptk44CompositeSinusoidalModelingToAutocorrelation44CompositeSinusoidalModelingToAutocorrelationEi"></span><span id="sptk::CompositeSinusoidalModelingToAutocorrelation::CompositeSinusoidalModelingToAutocorrelation__i"></span><span class="target" id="classsptk_1_1CompositeSinusoidalModelingToAutocorrelation_1abca842798725ba2ab4563bb4749cc890"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CompositeSinusoidalModelingToAutocorrelation</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_sine_wave</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk44CompositeSinusoidalModelingToAutocorrelation44CompositeSinusoidalModelingToAutocorrelationEi" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk18SpectrumExtraction18SpectrumExtractionEiid10Algorithms">
+<span id="_CPPv3N4sptk18SpectrumExtraction18SpectrumExtractionEiid10Algorithms"></span><span id="_CPPv2N4sptk18SpectrumExtraction18SpectrumExtractionEiid10Algorithms"></span><span id="sptk::SpectrumExtraction::SpectrumExtraction__i.i.double.Algorithms"></span><span class="target" id="classsptk_1_1SpectrumExtraction_1a9f0b8b73c985b5bde4179b8231a11758"></span><span class="sig-name descname"><span class="n"><span class="pre">SpectrumExtraction</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">frame_shift</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sampling_rate</span></span>, <a class="reference internal" href="#_CPPv4N4sptk18SpectrumExtraction10AlgorithmsE" title="sptk::SpectrumExtraction::Algorithms"><span class="n"><span class="pre">Algorithms</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">algorithm</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumExtraction18SpectrumExtractionEiid10Algorithms" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>num_sine_wave</strong> – <strong>[in]</strong> Number of sine waves, <span class="math notranslate nohighlight">\(N\)</span>. </p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fft_length</strong> – <strong>[in]</strong> FFT length. </p></li>
+<li><p><strong>frame_shift</strong> – <strong>[in]</strong> Frame shift in point. </p></li>
+<li><p><strong>sampling_rate</strong> – <strong>[in]</strong> Sampling rate in Hz. </p></li>
+<li><p><strong>algorithm</strong> – <strong>[in]</strong> Algorithm used for spectrum extraction. </p></li>
+</ul>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk44CompositeSinusoidalModelingToAutocorrelation15GetNumSineWavesEv">
-<span id="_CPPv3NK4sptk44CompositeSinusoidalModelingToAutocorrelation15GetNumSineWavesEv"></span><span id="_CPPv2NK4sptk44CompositeSinusoidalModelingToAutocorrelation15GetNumSineWavesEv"></span><span id="sptk::CompositeSinusoidalModelingToAutocorrelation::GetNumSineWavesC"></span><span class="target" id="classsptk_1_1CompositeSinusoidalModelingToAutocorrelation_1a9d9f70284df1b14ef444e46a82da0312"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumSineWaves</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk44CompositeSinusoidalModelingToAutocorrelation15GetNumSineWavesEv" title="Permalink to this definition"></a><br /></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Number of sine waves. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk44CompositeSinusoidalModelingToAutocorrelation7IsValidEv">
-<span id="_CPPv3NK4sptk44CompositeSinusoidalModelingToAutocorrelation7IsValidEv"></span><span id="_CPPv2NK4sptk44CompositeSinusoidalModelingToAutocorrelation7IsValidEv"></span><span id="sptk::CompositeSinusoidalModelingToAutocorrelation::IsValidC"></span><span class="target" id="classsptk_1_1CompositeSinusoidalModelingToAutocorrelation_1a565372d4d74ea8f6f7042d436d18e869"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk44CompositeSinusoidalModelingToAutocorrelation7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk18SpectrumExtraction7IsValidEv">
+<span id="_CPPv3NK4sptk18SpectrumExtraction7IsValidEv"></span><span id="_CPPv2NK4sptk18SpectrumExtraction7IsValidEv"></span><span id="sptk::SpectrumExtraction::IsValidC"></span><span class="target" id="classsptk_1_1SpectrumExtraction_1a7c2ba67c03d546ada25b702b49b4687a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18SpectrumExtraction7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -303,27 +347,15 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk44CompositeSinusoidalModelingToAutocorrelation3RunERKNSt6vectorIdEEPNSt6vectorIdEE">
-<span id="_CPPv3NK4sptk44CompositeSinusoidalModelingToAutocorrelation3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk44CompositeSinusoidalModelingToAutocorrelation3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::CompositeSinusoidalModelingToAutocorrelation::Run__std::vector:double:CR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1CompositeSinusoidalModelingToAutocorrelation_1a2b5d785d877b01041fda63a431c7545a"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">composite_sinusoidal_modeling</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">autocorrelation</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk44CompositeSinusoidalModelingToAutocorrelation3RunERKNSt6vectorIdEEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk18SpectrumExtraction3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEE">
+<span id="_CPPv3NK4sptk18SpectrumExtraction3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEE"></span><span id="_CPPv2NK4sptk18SpectrumExtraction3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEE"></span><span id="sptk::SpectrumExtraction::Run__std::vector:double:CR.std::vector:double:CR.std::vector:std::vector:double::PC"></span><span class="target" id="classsptk_1_1SpectrumExtraction_1a6e132b90a412278165ef1b530644fe2e"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">waveform</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">f0</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">spectrum</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18SpectrumExtraction3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEE" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>composite_sinusoidal_modeling</strong> – <strong>[in]</strong> CSM parameters. </p></li>
-<li><p><strong>autocorrelation</strong> – <strong>[out]</strong> Autocorrelation coefficients. </p></li>
+<li><p><strong>waveform</strong> – <strong>[in]</strong> Waveform. </p></li>
+<li><p><strong>f0</strong> – <strong>[in]</strong> Fundamental frequency in Hz. </p></li>
+<li><p><strong>spectrum</strong> – <strong>[out]</strong> Power spectrum. </p></li>
 </ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>True on success, false on failure. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk44CompositeSinusoidalModelingToAutocorrelation3RunEPNSt6vectorIdEE">
-<span id="_CPPv3NK4sptk44CompositeSinusoidalModelingToAutocorrelation3RunEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk44CompositeSinusoidalModelingToAutocorrelation3RunEPNSt6vectorIdEE"></span><span id="sptk::CompositeSinusoidalModelingToAutocorrelation::Run__std::vector:double:PC"></span><span class="target" id="classsptk_1_1CompositeSinusoidalModelingToAutocorrelation_1af7cd1f3c7a8fd549985b24b186fd9533"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_and_output</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk44CompositeSinusoidalModelingToAutocorrelation3RunEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>input_and_output</strong> – <strong>[inout]</strong> Input and output. </p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
@@ -340,8 +372,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="clip.html" class="btn btn-neutral float-left" title="clip" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="dct.html" class="btn btn-neutral float-right" title="dct" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pitch_mark.html" class="btn btn-neutral float-left" title="pitch_mark" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="poledf.html" class="btn btn-neutral float-right" title="poledf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

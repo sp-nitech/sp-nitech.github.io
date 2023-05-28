@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>window &mdash; SPTK  documentation</title>
@@ -12,16 +12,13 @@
   <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="x2x" href="x2x.html" />
+    <link rel="next" title="world_synth" href="world_synth.html" />
     <link rel="prev" title="vsum" href="vsum.html" /> 
 </head>
 
@@ -151,6 +148,7 @@
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
@@ -175,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_synth.html">world_synth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
@@ -263,13 +262,13 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
 <li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>0 on success, 1 on failure. </p>
 </dd>
 </dl>
@@ -332,7 +331,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk13DataWindowing13DataWindowingEP15WindowInterfacei17NormalizationType">
 <span id="_CPPv3N4sptk13DataWindowing13DataWindowingEP15WindowInterfacei17NormalizationType"></span><span id="_CPPv2N4sptk13DataWindowing13DataWindowingEP15WindowInterfacei17NormalizationType"></span><span id="sptk::DataWindowing::DataWindowing__WindowInterfaceP.i.NormalizationType"></span><span class="target" id="classsptk_1_1DataWindowing_1a5997cf9ede842ec9c48ac09bc3d607c7"></span><span class="sig-name descname"><span class="n"><span class="pre">DataWindowing</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">WindowInterface</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">window</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">output_length</span></span>, <a class="reference internal" href="#_CPPv4N4sptk13DataWindowing17NormalizationTypeE" title="sptk::DataWindowing::NormalizationType"><span class="n"><span class="pre">NormalizationType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">normalization_type</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk13DataWindowing13DataWindowingEP15WindowInterfacei17NormalizationType" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>window</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(L_1\)</span>-length window to be used. </p></li>
 <li><p><strong>output_length</strong> – <strong>[in]</strong> Output length, <span class="math notranslate nohighlight">\(L_2\)</span>. </p></li>
@@ -346,7 +345,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk13DataWindowing14GetInputLengthEv">
 <span id="_CPPv3NK4sptk13DataWindowing14GetInputLengthEv"></span><span id="_CPPv2NK4sptk13DataWindowing14GetInputLengthEv"></span><span id="sptk::DataWindowing::GetInputLengthC"></span><span class="target" id="classsptk_1_1DataWindowing_1ad6d11e81c5b10bca455152c94ec07e57"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetInputLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk13DataWindowing14GetInputLengthEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Input length. </p>
 </dd>
 </dl>
@@ -356,7 +355,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk13DataWindowing15GetOutputLengthEv">
 <span id="_CPPv3NK4sptk13DataWindowing15GetOutputLengthEv"></span><span id="_CPPv2NK4sptk13DataWindowing15GetOutputLengthEv"></span><span id="sptk::DataWindowing::GetOutputLengthC"></span><span class="target" id="classsptk_1_1DataWindowing_1a4e3c54830b03099e6238f73c8472fbd5"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetOutputLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk13DataWindowing15GetOutputLengthEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Output length. </p>
 </dd>
 </dl>
@@ -366,7 +365,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk13DataWindowing7IsValidEv">
 <span id="_CPPv3NK4sptk13DataWindowing7IsValidEv"></span><span id="_CPPv2NK4sptk13DataWindowing7IsValidEv"></span><span id="sptk::DataWindowing::IsValidC"></span><span class="target" id="classsptk_1_1DataWindowing_1a3ad620a9d8c2f03342e7575a49c0c162"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk13DataWindowing7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
 </dd>
 </dl>
@@ -376,7 +375,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk13DataWindowing3RunERKNSt6vectorIdEEPNSt6vectorIdEE">
 <span id="_CPPv3NK4sptk13DataWindowing3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk13DataWindowing3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::DataWindowing::Run__std::vector:double:CR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1DataWindowing_1a913bc78a653d8720f0bcc7542fbd4ca7"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">windowed_data</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk13DataWindowing3RunERKNSt6vectorIdEEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(L_1\)</span>-length input data. </p></li>
 <li><p><strong>windowed_data</strong> – <strong>[out]</strong> <span class="math notranslate nohighlight">\(L_2\)</span>-length output data. </p></li>
@@ -395,7 +394,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="vsum.html" class="btn btn-neutral float-left" title="vsum" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="x2x.html" class="btn btn-neutral float-right" title="x2x" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="world_synth.html" class="btn btn-neutral float-right" title="world_synth" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

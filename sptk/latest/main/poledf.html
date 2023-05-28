@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>poledf &mdash; SPTK  documentation</title>
@@ -12,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -22,7 +19,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="pqmf" href="pqmf.html" />
-    <link rel="prev" title="pitch_mark" href="pitch_mark.html" /> 
+    <link rel="prev" title="pitch_spec" href="pitch_spec.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -151,6 +148,7 @@
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
@@ -175,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_synth.html">world_synth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
@@ -258,13 +257,13 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
 <li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>0 on success, 1 on failure. </p>
 </dd>
 </dl>
@@ -291,7 +290,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk20AllPoleDigitalFilter20AllPoleDigitalFilterEib">
 <span id="_CPPv3N4sptk20AllPoleDigitalFilter20AllPoleDigitalFilterEib"></span><span id="_CPPv2N4sptk20AllPoleDigitalFilter20AllPoleDigitalFilterEib"></span><span id="sptk::AllPoleDigitalFilter::AllPoleDigitalFilter__i.b"></span><span class="target" id="classsptk_1_1AllPoleDigitalFilter_1a2f47ed1af0bc95c3a9b95bc6a11e3771"></span><span class="sig-name descname"><span class="n"><span class="pre">AllPoleDigitalFilter</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_filter_order</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">transposition</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk20AllPoleDigitalFilter20AllPoleDigitalFilterEib" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>num_filter_order</strong> – <strong>[in]</strong> Order of filter coefficients, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
 <li><p><strong>transposition</strong> – <strong>[in]</strong> If true, use transposed form filter. </p></li>
@@ -304,7 +303,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk20AllPoleDigitalFilter17GetNumFilterOrderEv">
 <span id="_CPPv3NK4sptk20AllPoleDigitalFilter17GetNumFilterOrderEv"></span><span id="_CPPv2NK4sptk20AllPoleDigitalFilter17GetNumFilterOrderEv"></span><span id="sptk::AllPoleDigitalFilter::GetNumFilterOrderC"></span><span class="target" id="classsptk_1_1AllPoleDigitalFilter_1a027fee62700606d591db08e339b85b53"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumFilterOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk20AllPoleDigitalFilter17GetNumFilterOrderEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of coefficients. </p>
 </dd>
 </dl>
@@ -314,7 +313,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk20AllPoleDigitalFilter15IsTranspositionEv">
 <span id="_CPPv3NK4sptk20AllPoleDigitalFilter15IsTranspositionEv"></span><span id="_CPPv2NK4sptk20AllPoleDigitalFilter15IsTranspositionEv"></span><span id="sptk::AllPoleDigitalFilter::IsTranspositionC"></span><span class="target" id="classsptk_1_1AllPoleDigitalFilter_1a8e858832f9e62e0a8ceb79e04bbf1ff9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsTransposition</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk20AllPoleDigitalFilter15IsTranspositionEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if transposed form is used. </p>
 </dd>
 </dl>
@@ -324,7 +323,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk20AllPoleDigitalFilter7IsValidEv">
 <span id="_CPPv3NK4sptk20AllPoleDigitalFilter7IsValidEv"></span><span id="_CPPv2NK4sptk20AllPoleDigitalFilter7IsValidEv"></span><span id="sptk::AllPoleDigitalFilter::IsValidC"></span><span class="target" id="classsptk_1_1AllPoleDigitalFilter_1a6c152558655e919b2756779e7ea19bc5"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk20AllPoleDigitalFilter7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
 </dd>
 </dl>
@@ -334,7 +333,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk20AllPoleDigitalFilter3RunERKNSt6vectorIdEEdPdPN20AllPoleDigitalFilter6BufferE">
 <span id="_CPPv3NK4sptk20AllPoleDigitalFilter3RunERKNSt6vectorIdEEdPdPN20AllPoleDigitalFilter6BufferE"></span><span id="_CPPv2NK4sptk20AllPoleDigitalFilter3RunERKNSt6vectorIdEEdPdPN20AllPoleDigitalFilter6BufferE"></span><span id="sptk::AllPoleDigitalFilter::Run__std::vector:double:CR.double.doubleP.AllPoleDigitalFilter::BufferPC"></span><span class="target" id="classsptk_1_1AllPoleDigitalFilter_1ab1d66597f44051c87e7098d23e4d2062"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">filter_coefficients</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">filter_input</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">filter_output</span></span>, <a class="reference internal" href="#_CPPv4N4sptk20AllPoleDigitalFilterE" title="sptk::AllPoleDigitalFilter"><span class="n"><span class="pre">AllPoleDigitalFilter</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk20AllPoleDigitalFilter6BufferE" title="sptk::AllPoleDigitalFilter::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk20AllPoleDigitalFilter3RunERKNSt6vectorIdEEdPdPN20AllPoleDigitalFilter6BufferE" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filter_coefficients</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order LPC coefficients. </p></li>
 <li><p><strong>filter_input</strong> – <strong>[in]</strong> Input signal. </p></li>
@@ -342,7 +341,7 @@
 <li><p><strong>buffer</strong> – <strong>[inout]</strong> <a class="reference internal" href="#classsptk_1_1AllPoleDigitalFilter_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -352,14 +351,14 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk20AllPoleDigitalFilter3RunERKNSt6vectorIdEEPdPN20AllPoleDigitalFilter6BufferE">
 <span id="_CPPv3NK4sptk20AllPoleDigitalFilter3RunERKNSt6vectorIdEEPdPN20AllPoleDigitalFilter6BufferE"></span><span id="_CPPv2NK4sptk20AllPoleDigitalFilter3RunERKNSt6vectorIdEEPdPN20AllPoleDigitalFilter6BufferE"></span><span id="sptk::AllPoleDigitalFilter::Run__std::vector:double:CR.doubleP.AllPoleDigitalFilter::BufferPC"></span><span class="target" id="classsptk_1_1AllPoleDigitalFilter_1a48775483fc89b14842603a69391d3358"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">filter_coefficients</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_and_output</span></span>, <a class="reference internal" href="#_CPPv4N4sptk20AllPoleDigitalFilterE" title="sptk::AllPoleDigitalFilter"><span class="n"><span class="pre">AllPoleDigitalFilter</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk20AllPoleDigitalFilter6BufferE" title="sptk::AllPoleDigitalFilter::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk20AllPoleDigitalFilter3RunERKNSt6vectorIdEEPdPN20AllPoleDigitalFilter6BufferE" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>filter_coefficients</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order LPC coefficients. </p></li>
 <li><p><strong>input_and_output</strong> – <strong>[inout]</strong> Input/output signal. </p></li>
 <li><p><strong>buffer</strong> – <strong>[inout]</strong> <a class="reference internal" href="#classsptk_1_1AllPoleDigitalFilter_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -380,7 +379,7 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="pitch_mark.html" class="btn btn-neutral float-left" title="pitch_mark" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pitch_spec.html" class="btn btn-neutral float-left" title="pitch_spec" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="pqmf.html" class="btn btn-neutral float-right" title="pqmf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

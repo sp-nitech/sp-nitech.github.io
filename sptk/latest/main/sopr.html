@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>sopr &mdash; SPTK  documentation</title>
@@ -12,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -151,6 +148,7 @@
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
@@ -175,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_synth.html">world_synth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
@@ -379,13 +378,13 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
 <li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>0 on success, 1 on failure. </p>
 </dd>
 </dl>
@@ -407,10 +406,10 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation20AddAdditionOperationEd"></span><span id="_CPPv2N4sptk15ScalarOperation20AddAdditionOperationEd"></span><span id="sptk::ScalarOperation::AddAdditionOperation__double"></span><span class="target" id="classsptk_1_1ScalarOperation_1a419ff53a04f5f49274c4bacf7b0bff2b"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddAdditionOperation</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">addend</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation20AddAdditionOperationEd" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(x + a\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>addend</strong> – <strong>[in]</strong> Addend, <span class="math notranslate nohighlight">\(a\)</span>. </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -421,10 +420,10 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation23AddSubtractionOperationEd"></span><span id="_CPPv2N4sptk15ScalarOperation23AddSubtractionOperationEd"></span><span id="sptk::ScalarOperation::AddSubtractionOperation__double"></span><span class="target" id="classsptk_1_1ScalarOperation_1a8b9292a26ddea61dae128f0aad147822"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddSubtractionOperation</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">subtrahend</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation23AddSubtractionOperationEd" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(x - s\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>subtrahend</strong> – <strong>[in]</strong> Subtrahend, <span class="math notranslate nohighlight">\(s\)</span>. </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -435,10 +434,10 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation26AddMultiplicationOperationEd"></span><span id="_CPPv2N4sptk15ScalarOperation26AddMultiplicationOperationEd"></span><span id="sptk::ScalarOperation::AddMultiplicationOperation__double"></span><span class="target" id="classsptk_1_1ScalarOperation_1adaf86b8c2ed637874d40ec78b8dfc4d4"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddMultiplicationOperation</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">multiplier</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation26AddMultiplicationOperationEd" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(x * m\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>multiplier</strong> – <strong>[in]</strong> Multiplier, <span class="math notranslate nohighlight">\(m\)</span>. </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -449,10 +448,10 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation20AddDivisionOperationEd"></span><span id="_CPPv2N4sptk15ScalarOperation20AddDivisionOperationEd"></span><span id="sptk::ScalarOperation::AddDivisionOperation__double"></span><span class="target" id="classsptk_1_1ScalarOperation_1aca7c129ca72314aabdadd13c777beb5b"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddDivisionOperation</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">divisor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation20AddDivisionOperationEd" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(x / d\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>divisor</strong> – <strong>[in]</strong> Divisor, <span class="math notranslate nohighlight">\(d\)</span>. </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -463,10 +462,10 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation18AddModuloOperationEd"></span><span id="_CPPv2N4sptk15ScalarOperation18AddModuloOperationEd"></span><span id="sptk::ScalarOperation::AddModuloOperation__double"></span><span class="target" id="classsptk_1_1ScalarOperation_1a7fbf7c68080e6ad506eb50fe87fd3457"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddModuloOperation</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">divisor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation18AddModuloOperationEd" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(x \bmod n\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>divisor</strong> – <strong>[in]</strong> Divisor, <span class="math notranslate nohighlight">\(n\)</span>. </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -477,10 +476,10 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation17AddPowerOperationEd"></span><span id="_CPPv2N4sptk15ScalarOperation17AddPowerOperationEd"></span><span id="sptk::ScalarOperation::AddPowerOperation__double"></span><span class="target" id="classsptk_1_1ScalarOperation_1a9e3622b5f97eeb4487d0faf8d11a098c"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddPowerOperation</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">exponent</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation17AddPowerOperationEd" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(x^n\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>exponent</strong> – <strong>[in]</strong> Exponent, <span class="math notranslate nohighlight">\(n\)</span>. </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -491,10 +490,10 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation25AddLowerBoundingOperationEd"></span><span id="_CPPv2N4sptk15ScalarOperation25AddLowerBoundingOperationEd"></span><span id="sptk::ScalarOperation::AddLowerBoundingOperation__double"></span><span class="target" id="classsptk_1_1ScalarOperation_1aee58be2ae5786533eb52363c34f01849"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddLowerBoundingOperation</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">lower_bound</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation25AddLowerBoundingOperationEd" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(\max(x, l)\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>lower_bound</strong> – <strong>[in]</strong> Lower bound, <span class="math notranslate nohighlight">\(l\)</span>. </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -505,10 +504,10 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation25AddUpperBoundingOperationEd"></span><span id="_CPPv2N4sptk15ScalarOperation25AddUpperBoundingOperationEd"></span><span id="sptk::ScalarOperation::AddUpperBoundingOperation__double"></span><span class="target" id="classsptk_1_1ScalarOperation_1aa5399f60c0be5467cb439ead027aaac5"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddUpperBoundingOperation</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">upper_bound</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation25AddUpperBoundingOperationEd" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(\min(x, u)\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>upper_bound</strong> – <strong>[in]</strong> Upper bound, <span class="math notranslate nohighlight">\(u\)</span>. </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -519,7 +518,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation20AddAbsoluteOperationEv"></span><span id="_CPPv2N4sptk15ScalarOperation20AddAbsoluteOperationEv"></span><span id="sptk::ScalarOperation::AddAbsoluteOperation"></span><span class="target" id="classsptk_1_1ScalarOperation_1a90b99847a2b57a7e5017e3825e2684ed"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddAbsoluteOperation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation20AddAbsoluteOperationEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(|x|\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -530,7 +529,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation22AddReciprocalOperationEv"></span><span id="_CPPv2N4sptk15ScalarOperation22AddReciprocalOperationEv"></span><span id="sptk::ScalarOperation::AddReciprocalOperation"></span><span class="target" id="classsptk_1_1ScalarOperation_1a42f1d49966cd2251063d80f8462d10bc"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddReciprocalOperation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation22AddReciprocalOperationEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(1/x\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -541,7 +540,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation18AddSquareOperationEv"></span><span id="_CPPv2N4sptk15ScalarOperation18AddSquareOperationEv"></span><span id="sptk::ScalarOperation::AddSquareOperation"></span><span class="target" id="classsptk_1_1ScalarOperation_1a1c207e85fd9138a1950f1dfba8416966"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddSquareOperation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation18AddSquareOperationEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(x^2\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -552,7 +551,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation22AddSquareRootOperationEv"></span><span id="_CPPv2N4sptk15ScalarOperation22AddSquareRootOperationEv"></span><span id="sptk::ScalarOperation::AddSquareRootOperation"></span><span class="target" id="classsptk_1_1ScalarOperation_1adaf045dcb71cbe29b917e470d128dcff"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddSquareRootOperation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation22AddSquareRootOperationEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(\sqrt{x}\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -563,7 +562,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation28AddNaturalLogarithmOperationEv"></span><span id="_CPPv2N4sptk15ScalarOperation28AddNaturalLogarithmOperationEv"></span><span id="sptk::ScalarOperation::AddNaturalLogarithmOperation"></span><span class="target" id="classsptk_1_1ScalarOperation_1a948b1b9042fb79c9c2263f6ec7444335"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddNaturalLogarithmOperation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation28AddNaturalLogarithmOperationEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(\ln{x}\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -574,10 +573,10 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation21AddLogarithmOperationEd"></span><span id="_CPPv2N4sptk15ScalarOperation21AddLogarithmOperationEd"></span><span id="sptk::ScalarOperation::AddLogarithmOperation__double"></span><span class="target" id="classsptk_1_1ScalarOperation_1a699ef97d719e994ab2d227c54eb7ee2a"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddLogarithmOperation</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">base</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation21AddLogarithmOperationEd" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(\log_b{x}\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>base</strong> – <strong>[in]</strong> Base of logarithm function, <span class="math notranslate nohighlight">\(b\)</span>. </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -588,7 +587,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation30AddNaturalExponentialOperationEv"></span><span id="_CPPv2N4sptk15ScalarOperation30AddNaturalExponentialOperationEv"></span><span id="sptk::ScalarOperation::AddNaturalExponentialOperation"></span><span class="target" id="classsptk_1_1ScalarOperation_1a8787ea2937432520348bffcf6e194dcf"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddNaturalExponentialOperation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation30AddNaturalExponentialOperationEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(\exp{x}\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -599,10 +598,10 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation23AddExponentialOperationEd"></span><span id="_CPPv2N4sptk15ScalarOperation23AddExponentialOperationEd"></span><span id="sptk::ScalarOperation::AddExponentialOperation__double"></span><span class="target" id="classsptk_1_1ScalarOperation_1af34902b7233b2cfd66336773e27d3818"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddExponentialOperation</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">base</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation23AddExponentialOperationEd" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(b^x\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>base</strong> – <strong>[in]</strong> Base of exponential function, <span class="math notranslate nohighlight">\(b\)</span>. </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -613,7 +612,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation20AddFlooringOperationEv"></span><span id="_CPPv2N4sptk15ScalarOperation20AddFlooringOperationEv"></span><span id="sptk::ScalarOperation::AddFlooringOperation"></span><span class="target" id="classsptk_1_1ScalarOperation_1a5f7c667c3c647ac163712b6fa2952dd4"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddFlooringOperation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation20AddFlooringOperationEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(\lfloor x \rfloor\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -624,7 +623,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation19AddCeilingOperationEv"></span><span id="_CPPv2N4sptk15ScalarOperation19AddCeilingOperationEv"></span><span id="sptk::ScalarOperation::AddCeilingOperation"></span><span class="target" id="classsptk_1_1ScalarOperation_1a6533b6e23a804668dee86db07383d7be"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddCeilingOperation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation19AddCeilingOperationEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(\lceil x \rceil\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -635,7 +634,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation20AddRoundingOperationEv"></span><span id="_CPPv2N4sptk15ScalarOperation20AddRoundingOperationEv"></span><span id="sptk::ScalarOperation::AddRoundingOperation"></span><span class="target" id="classsptk_1_1ScalarOperation_1a12e4f9943ef4ba95b2c390ddbc228ebe"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddRoundingOperation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation20AddRoundingOperationEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(\mathrm{nint}(x)\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -646,7 +645,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation22AddRoundingUpOperationEv"></span><span id="_CPPv2N4sptk15ScalarOperation22AddRoundingUpOperationEv"></span><span id="sptk::ScalarOperation::AddRoundingUpOperation"></span><span class="target" id="classsptk_1_1ScalarOperation_1a67f437d92eee571a97391fb05f8d0bbf"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddRoundingUpOperation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation22AddRoundingUpOperationEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(\mathrm{sgn}(x) \lceil |x| \rceil\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -657,7 +656,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation24AddRoundingDownOperationEv"></span><span id="_CPPv2N4sptk15ScalarOperation24AddRoundingDownOperationEv"></span><span id="sptk::ScalarOperation::AddRoundingDownOperation"></span><span class="target" id="classsptk_1_1ScalarOperation_1a50f4d822c8b18f31796bfe493895a644"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddRoundingDownOperation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation24AddRoundingDownOperationEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(\mathrm{sgn}(x) \lfloor |x| \rfloor\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -668,7 +667,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation20AddUnitStepOperationEv"></span><span id="_CPPv2N4sptk15ScalarOperation20AddUnitStepOperationEv"></span><span id="sptk::ScalarOperation::AddUnitStepOperation"></span><span class="target" id="classsptk_1_1ScalarOperation_1a2b82cfc6c52ba77db079de09fc13143a"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddUnitStepOperation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation20AddUnitStepOperationEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(u(x)\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -679,7 +678,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation16AddSignOperationEv"></span><span id="_CPPv2N4sptk15ScalarOperation16AddSignOperationEv"></span><span id="sptk::ScalarOperation::AddSignOperation"></span><span class="target" id="classsptk_1_1ScalarOperation_1aca6d925d1e347cda6f4c8b0daf649a4b"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddSignOperation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation16AddSignOperationEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(\mathrm{sgn}(x)\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -690,7 +689,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation16AddSineOperationEv"></span><span id="_CPPv2N4sptk15ScalarOperation16AddSineOperationEv"></span><span id="sptk::ScalarOperation::AddSineOperation"></span><span class="target" id="classsptk_1_1ScalarOperation_1adab67b4f37053b7bc5b89d85f2d72829"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddSineOperation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation16AddSineOperationEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(\sin x\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -701,7 +700,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation18AddCosineOperationEv"></span><span id="_CPPv2N4sptk15ScalarOperation18AddCosineOperationEv"></span><span id="sptk::ScalarOperation::AddCosineOperation"></span><span class="target" id="classsptk_1_1ScalarOperation_1a5f37591f88a29f7162974f2d270ebc3a"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddCosineOperation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation18AddCosineOperationEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(\cos x\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -712,7 +711,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation19AddTangentOperationEv"></span><span id="_CPPv2N4sptk15ScalarOperation19AddTangentOperationEv"></span><span id="sptk::ScalarOperation::AddTangentOperation"></span><span class="target" id="classsptk_1_1ScalarOperation_1a590bd31950be628573f3435596ea9d47"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddTangentOperation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation19AddTangentOperationEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(\tan x\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -723,7 +722,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation22AddArctangentOperationEv"></span><span id="_CPPv2N4sptk15ScalarOperation22AddArctangentOperationEv"></span><span id="sptk::ScalarOperation::AddArctangentOperation"></span><span class="target" id="classsptk_1_1ScalarOperation_1a258f9b37e9aefae9fdc41ccfaf61df90"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddArctangentOperation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation22AddArctangentOperationEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(\tan^{-1} x\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -734,7 +733,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation29AddHyperbolicTangentOperationEv"></span><span id="_CPPv2N4sptk15ScalarOperation29AddHyperbolicTangentOperationEv"></span><span id="sptk::ScalarOperation::AddHyperbolicTangentOperation"></span><span class="target" id="classsptk_1_1ScalarOperation_1a3900afea31e01ad36191301c4d132dff"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddHyperbolicTangentOperation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation29AddHyperbolicTangentOperationEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(\tanh x\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -745,7 +744,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation32AddHyperbolicArctangentOperationEv"></span><span id="_CPPv2N4sptk15ScalarOperation32AddHyperbolicArctangentOperationEv"></span><span id="sptk::ScalarOperation::AddHyperbolicArctangentOperation"></span><span class="target" id="classsptk_1_1ScalarOperation_1a12e4b312b9475362b91d164dce1c14e3"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddHyperbolicArctangentOperation</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation32AddHyperbolicArctangentOperationEv" title="Permalink to this definition"></a><br /></dt>
 <dd><p><span class="math notranslate nohighlight">\(\tanh^{-1} x\)</span></p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -756,10 +755,10 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation21AddMagicNumberRemoverEd"></span><span id="_CPPv2N4sptk15ScalarOperation21AddMagicNumberRemoverEd"></span><span id="sptk::ScalarOperation::AddMagicNumberRemover__double"></span><span class="target" id="classsptk_1_1ScalarOperation_1acb3a5cd31d3ce12bde6d0a7cb7c30448"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddMagicNumberRemover</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">magic_number</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation21AddMagicNumberRemoverEd" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Remove magic number.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>magic_number</strong> – <strong>[in]</strong> A magic number. </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -770,10 +769,10 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <span id="_CPPv3N4sptk15ScalarOperation22AddMagicNumberReplacerEd"></span><span id="_CPPv2N4sptk15ScalarOperation22AddMagicNumberReplacerEd"></span><span id="sptk::ScalarOperation::AddMagicNumberReplacer__double"></span><span class="target" id="classsptk_1_1ScalarOperation_1af5cb1ed3d89ceb0c7513f823177f4d70"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AddMagicNumberReplacer</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">replacement_number</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15ScalarOperation22AddMagicNumberReplacerEd" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Replace magic number.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>replacement_number</strong> – <strong>[in]</strong> A replacement for magic number. </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -783,13 +782,13 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk15ScalarOperation3RunEPdPb">
 <span id="_CPPv3NK4sptk15ScalarOperation3RunEPdPb"></span><span id="_CPPv2NK4sptk15ScalarOperation3RunEPdPb"></span><span id="sptk::ScalarOperation::Run__doubleP.bPC"></span><span class="target" id="classsptk_1_1ScalarOperation_1a02baa3233b115054457ee59b157292c1"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">number</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">is_magic_number</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk15ScalarOperation3RunEPdPb" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>number</strong> – <strong>[inout]</strong> Input/output number. </p></li>
 <li><p><strong>is_magic_number</strong> – <strong>[out]</strong> True if output is magic number. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -806,7 +805,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk15ScalarOperation15ModuleInterface3RunEPdPb">
 <span id="_CPPv3NK4sptk15ScalarOperation15ModuleInterface3RunEPdPb"></span><span id="_CPPv2NK4sptk15ScalarOperation15ModuleInterface3RunEPdPb"></span><span id="sptk::ScalarOperation::ModuleInterface::Run__doubleP.bPC"></span><span class="target" id="classsptk_1_1ScalarOperation_1_1ModuleInterface_1ab562402eaec05c7535b21fc3cb8f33af"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">number</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">is_magic_number</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0</span></span><a class="headerlink" href="#_CPPv4NK4sptk15ScalarOperation15ModuleInterface3RunEPdPb" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>number</strong> – <strong>[inout]</strong> Input/output number. </p></li>
 <li><p><strong>is_magic_number</strong> – <strong>[inout]</strong> True if output is magic number. </p></li>

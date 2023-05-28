@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>lspcheck &mdash; SPTK  documentation</title>
@@ -12,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -151,6 +148,7 @@
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
@@ -175,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_synth.html">world_synth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
@@ -292,13 +291,13 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
 <li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>0 on success, 1 on failure. </p>
 </dd>
 </dl>
@@ -326,7 +325,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk31LineSpectralPairsStabilityCheck31LineSpectralPairsStabilityCheckEid">
 <span id="_CPPv3N4sptk31LineSpectralPairsStabilityCheck31LineSpectralPairsStabilityCheckEid"></span><span id="_CPPv2N4sptk31LineSpectralPairsStabilityCheck31LineSpectralPairsStabilityCheckEid"></span><span id="sptk::LineSpectralPairsStabilityCheck::LineSpectralPairsStabilityCheck__i.double"></span><span class="target" id="classsptk_1_1LineSpectralPairsStabilityCheck_1a6f745c2d4922d8f45bed7d2f267e1266"></span><span class="sig-name descname"><span class="n"><span class="pre">LineSpectralPairsStabilityCheck</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">minimum_distance</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk31LineSpectralPairsStabilityCheck31LineSpectralPairsStabilityCheckEid" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>num_order</strong> – <strong>[in]</strong> Order of LSP, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
 <li><p><strong>minimum_distance</strong> – <strong>[in]</strong> Minimum distance between lines, <span class="math notranslate nohighlight">\(\delta\)</span>. </p></li>
@@ -339,7 +338,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk31LineSpectralPairsStabilityCheck11GetNumOrderEv">
 <span id="_CPPv3NK4sptk31LineSpectralPairsStabilityCheck11GetNumOrderEv"></span><span id="_CPPv2NK4sptk31LineSpectralPairsStabilityCheck11GetNumOrderEv"></span><span id="sptk::LineSpectralPairsStabilityCheck::GetNumOrderC"></span><span class="target" id="classsptk_1_1LineSpectralPairsStabilityCheck_1a37bc960b2f454834f2d9743aa52d7fe2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk31LineSpectralPairsStabilityCheck11GetNumOrderEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of coefficients. </p>
 </dd>
 </dl>
@@ -349,7 +348,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk31LineSpectralPairsStabilityCheck18GetMinimumDistanceEv">
 <span id="_CPPv3NK4sptk31LineSpectralPairsStabilityCheck18GetMinimumDistanceEv"></span><span id="_CPPv2NK4sptk31LineSpectralPairsStabilityCheck18GetMinimumDistanceEv"></span><span id="sptk::LineSpectralPairsStabilityCheck::GetMinimumDistanceC"></span><span class="target" id="classsptk_1_1LineSpectralPairsStabilityCheck_1a3c2ecf72fc6c56673c531cfb6faa8bd1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetMinimumDistance</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk31LineSpectralPairsStabilityCheck18GetMinimumDistanceEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Minimum distance between lines. </p>
 </dd>
 </dl>
@@ -359,7 +358,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk31LineSpectralPairsStabilityCheck7IsValidEv">
 <span id="_CPPv3NK4sptk31LineSpectralPairsStabilityCheck7IsValidEv"></span><span id="_CPPv2NK4sptk31LineSpectralPairsStabilityCheck7IsValidEv"></span><span id="sptk::LineSpectralPairsStabilityCheck::IsValidC"></span><span class="target" id="classsptk_1_1LineSpectralPairsStabilityCheck_1a38a7a725a0be82187700203227e8b5ec"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk31LineSpectralPairsStabilityCheck7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
 </dd>
 </dl>
@@ -369,14 +368,14 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk31LineSpectralPairsStabilityCheck3RunERKNSt6vectorIdEEPNSt6vectorIdEEPb">
 <span id="_CPPv3NK4sptk31LineSpectralPairsStabilityCheck3RunERKNSt6vectorIdEEPNSt6vectorIdEEPb"></span><span id="_CPPv2NK4sptk31LineSpectralPairsStabilityCheck3RunERKNSt6vectorIdEEPNSt6vectorIdEEPb"></span><span id="sptk::LineSpectralPairsStabilityCheck::Run__std::vector:double:CR.std::vector:double:P.bPC"></span><span class="target" id="classsptk_1_1LineSpectralPairsStabilityCheck_1a2d68a03c86597b641a1c41a7cdc997f9"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">line_spectral_pairs</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">modified_line_spectral_pairs</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">is_stable</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk31LineSpectralPairsStabilityCheck3RunERKNSt6vectorIdEEPNSt6vectorIdEEPb" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>line_spectral_pairs</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order LSP. </p></li>
 <li><p><strong>modified_line_spectral_pairs</strong> – <strong>[out]</strong> Modified <span class="math notranslate nohighlight">\(M\)</span>-th order LSP (optional). </p></li>
 <li><p><strong>is_stable</strong> – <strong>[out]</strong> True if the given coefficients are stable. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -386,13 +385,13 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk31LineSpectralPairsStabilityCheck3RunEPNSt6vectorIdEEPb">
 <span id="_CPPv3NK4sptk31LineSpectralPairsStabilityCheck3RunEPNSt6vectorIdEEPb"></span><span id="_CPPv2NK4sptk31LineSpectralPairsStabilityCheck3RunEPNSt6vectorIdEEPb"></span><span id="sptk::LineSpectralPairsStabilityCheck::Run__std::vector:double:P.bPC"></span><span class="target" id="classsptk_1_1LineSpectralPairsStabilityCheck_1ad71b7af74ee720c18319611c0c88d3fe"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_and_output</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">is_stable</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk31LineSpectralPairsStabilityCheck3RunEPNSt6vectorIdEEPb" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>input_and_output</strong> – <strong>[inout]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order coefficients. </p></li>
 <li><p><strong>is_stable</strong> – <strong>[out]</strong> True if the given coefficients are stable. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>

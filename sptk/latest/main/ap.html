@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ap &mdash; SPTK  documentation</title>
@@ -12,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -151,6 +148,7 @@
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
@@ -175,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_synth.html">world_synth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
@@ -280,24 +279,28 @@
 </p></li>
 </ul>
 </p>
-<p>The below is a simple example to extract aperiodicity from <code class="docutils literal notranslate"><span class="pre">data.d</span></code></p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pitch<span class="w"> </span>-s<span class="w"> </span><span class="m">16</span><span class="w"> </span>-p<span class="w"> </span><span class="m">80</span><span class="w"> </span>-L<span class="w"> </span><span class="m">80</span><span class="w"> </span>-H<span class="w"> </span><span class="m">200</span><span class="w"> </span>-o<span class="w"> </span><span class="m">0</span><span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span>&gt;<span class="w"> </span>data.f0
-ap<span class="w"> </span>-s<span class="w"> </span><span class="m">16</span><span class="w"> </span>-p<span class="w"> </span><span class="m">80</span><span class="w"> </span>-q<span class="w"> </span><span class="m">0</span><span class="w"> </span>data.f0<span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span>&gt;<span class="w"> </span>data.ap
+<p>The below is a simple example to extract aperiodicity from <code class="docutils literal notranslate"><span class="pre">data.d</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pitch<span class="w"> </span>-s<span class="w"> </span><span class="m">16</span><span class="w"> </span>-p<span class="w"> </span><span class="m">80</span><span class="w"> </span>-L<span class="w"> </span><span class="m">80</span><span class="w"> </span>-H<span class="w"> </span><span class="m">200</span><span class="w"> </span>-o<span class="w"> </span><span class="m">1</span><span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span>&gt;<span class="w"> </span>data.f0
+ap<span class="w"> </span>-s<span class="w"> </span><span class="m">16</span><span class="w"> </span>-p<span class="w"> </span><span class="m">80</span><span class="w"> </span>-q<span class="w"> </span><span class="m">1</span><span class="w"> </span>data.f0<span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span>&gt;<span class="w"> </span>data.ap
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
 <li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>0 on success, 1 on failure. </p>
 </dd>
 </dl>
 </dd></dl>
 
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="pitch.html#pitch"><span class="std std-ref">pitch</span></a></p>
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk22AperiodicityExtractionE">
@@ -337,7 +340,7 @@ ap<span class="w"> </span>-s<span class="w"> </span><span class="m">16</span><sp
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk22AperiodicityExtraction22AperiodicityExtractionEiid10Algorithms">
 <span id="_CPPv3N4sptk22AperiodicityExtraction22AperiodicityExtractionEiid10Algorithms"></span><span id="_CPPv2N4sptk22AperiodicityExtraction22AperiodicityExtractionEiid10Algorithms"></span><span id="sptk::AperiodicityExtraction::AperiodicityExtraction__i.i.double.Algorithms"></span><span class="target" id="classsptk_1_1AperiodicityExtraction_1a96369ecff9a67d8f7436e9a07ad5ba03"></span><span class="sig-name descname"><span class="n"><span class="pre">AperiodicityExtraction</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">frame_shift</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sampling_rate</span></span>, <a class="reference internal" href="#_CPPv4N4sptk22AperiodicityExtraction10AlgorithmsE" title="sptk::AperiodicityExtraction::Algorithms"><span class="n"><span class="pre">Algorithms</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">algorithm</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk22AperiodicityExtraction22AperiodicityExtractionEiid10Algorithms" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>fft_length</strong> – <strong>[in]</strong> FFT length. </p></li>
 <li><p><strong>frame_shift</strong> – <strong>[in]</strong> Frame shift in point. </p></li>
@@ -352,7 +355,7 @@ ap<span class="w"> </span>-s<span class="w"> </span><span class="m">16</span><sp
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk22AperiodicityExtraction7IsValidEv">
 <span id="_CPPv3NK4sptk22AperiodicityExtraction7IsValidEv"></span><span id="_CPPv2NK4sptk22AperiodicityExtraction7IsValidEv"></span><span id="sptk::AperiodicityExtraction::IsValidC"></span><span class="target" id="classsptk_1_1AperiodicityExtraction_1aa9b88e84eb49429148b874f23ac7cfb3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk22AperiodicityExtraction7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
 </dd>
 </dl>
@@ -362,14 +365,14 @@ ap<span class="w"> </span>-s<span class="w"> </span><span class="m">16</span><sp
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk22AperiodicityExtraction3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEE">
 <span id="_CPPv3NK4sptk22AperiodicityExtraction3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEE"></span><span id="_CPPv2NK4sptk22AperiodicityExtraction3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEE"></span><span id="sptk::AperiodicityExtraction::Run__std::vector:double:CR.std::vector:double:CR.std::vector:std::vector:double::PC"></span><span class="target" id="classsptk_1_1AperiodicityExtraction_1af483ec160e8ae6a53ffb85f16f3d2fc1"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">waveform</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">f0</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">aperiodicity</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk22AperiodicityExtraction3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEE" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>waveform</strong> – <strong>[in]</strong> Waveform. </p></li>
 <li><p><strong>f0</strong> – <strong>[in]</strong> Fundamental frequency in Hz. </p></li>
 <li><p><strong>aperiodicity</strong> – <strong>[out]</strong> Aperiodicity measure. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>

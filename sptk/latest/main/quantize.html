@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>quantize &mdash; SPTK  documentation</title>
@@ -12,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -151,6 +148,7 @@
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">quantize</a></li>
@@ -175,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_synth.html">world_synth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
@@ -260,13 +259,13 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
 <li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>0 on success, 1 on failure. </p>
 </dd>
 </dl>
@@ -313,7 +312,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk19UniformQuantization19UniformQuantizationEdi16QuantizationType">
 <span id="_CPPv3N4sptk19UniformQuantization19UniformQuantizationEdi16QuantizationType"></span><span id="_CPPv2N4sptk19UniformQuantization19UniformQuantizationEdi16QuantizationType"></span><span id="sptk::UniformQuantization::UniformQuantization__double.i.QuantizationType"></span><span class="target" id="classsptk_1_1UniformQuantization_1a95e68978dbaeb132bf5d54c66c330ca7"></span><span class="sig-name descname"><span class="n"><span class="pre">UniformQuantization</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">absolute_maximum_value</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_bit</span></span>, <a class="reference internal" href="#_CPPv4N4sptk19UniformQuantization16QuantizationTypeE" title="sptk::UniformQuantization::QuantizationType"><span class="n"><span class="pre">QuantizationType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">quantization_type</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk19UniformQuantization19UniformQuantizationEdi16QuantizationType" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>absolute_maximum_value</strong> – <strong>[in]</strong> Absolute maximum value. </p></li>
 <li><p><strong>num_bit</strong> – <strong>[in]</strong> Number of quantization bits. </p></li>
@@ -327,7 +326,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk19UniformQuantization23GetAbsoluteMaximumValueEv">
 <span id="_CPPv3NK4sptk19UniformQuantization23GetAbsoluteMaximumValueEv"></span><span id="_CPPv2NK4sptk19UniformQuantization23GetAbsoluteMaximumValueEv"></span><span id="sptk::UniformQuantization::GetAbsoluteMaximumValueC"></span><span class="target" id="classsptk_1_1UniformQuantization_1aadebbf34677cc6729e577574ecfefbfe"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetAbsoluteMaximumValue</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk19UniformQuantization23GetAbsoluteMaximumValueEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Absolute maximum value. </p>
 </dd>
 </dl>
@@ -337,7 +336,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk19UniformQuantization9GetNumBitEv">
 <span id="_CPPv3NK4sptk19UniformQuantization9GetNumBitEv"></span><span id="_CPPv2NK4sptk19UniformQuantization9GetNumBitEv"></span><span id="sptk::UniformQuantization::GetNumBitC"></span><span class="target" id="classsptk_1_1UniformQuantization_1ad40e370035edc5c59de99fb6ff2167c7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumBit</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk19UniformQuantization9GetNumBitEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Number of quantization bits. </p>
 </dd>
 </dl>
@@ -347,7 +346,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk19UniformQuantization19GetQuantizationTypeEv">
 <span id="_CPPv3NK4sptk19UniformQuantization19GetQuantizationTypeEv"></span><span id="_CPPv2NK4sptk19UniformQuantization19GetQuantizationTypeEv"></span><span id="sptk::UniformQuantization::GetQuantizationTypeC"></span><span class="target" id="classsptk_1_1UniformQuantization_1addcd166ca2cf20857450c97ca2fa3ffb"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk19UniformQuantization16QuantizationTypeE" title="sptk::UniformQuantization::QuantizationType"><span class="n"><span class="pre">QuantizationType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetQuantizationType</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk19UniformQuantization19GetQuantizationTypeEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Quantization type. </p>
 </dd>
 </dl>
@@ -357,7 +356,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk19UniformQuantization7IsValidEv">
 <span id="_CPPv3NK4sptk19UniformQuantization7IsValidEv"></span><span id="_CPPv2NK4sptk19UniformQuantization7IsValidEv"></span><span id="sptk::UniformQuantization::IsValidC"></span><span class="target" id="classsptk_1_1UniformQuantization_1aa0facf69467b6580baecf66b3fbc0c9b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk19UniformQuantization7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
 </dd>
 </dl>
@@ -367,7 +366,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk19UniformQuantization21GetQuantizationLevelsEv">
 <span id="_CPPv3NK4sptk19UniformQuantization21GetQuantizationLevelsEv"></span><span id="_CPPv2NK4sptk19UniformQuantization21GetQuantizationLevelsEv"></span><span id="sptk::UniformQuantization::GetQuantizationLevelsC"></span><span class="target" id="classsptk_1_1UniformQuantization_1ab8eaf887d353c4921f8e935edd08627f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetQuantizationLevels</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk19UniformQuantization21GetQuantizationLevelsEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Quantization levels. </p>
 </dd>
 </dl>
@@ -377,13 +376,13 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk19UniformQuantization3RunEdPi">
 <span id="_CPPv3NK4sptk19UniformQuantization3RunEdPi"></span><span id="_CPPv2NK4sptk19UniformQuantization3RunEdPi"></span><span id="sptk::UniformQuantization::Run__double.iPC"></span><span class="target" id="classsptk_1_1UniformQuantization_1ac63c57ca18bb5aa11ffa0989e53e1c22"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">input</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">output</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk19UniformQuantization3RunEdPi" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>input</strong> – <strong>[in]</strong> Input value. </p></li>
 <li><p><strong>output</strong> – <strong>[out]</strong> Output index. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>

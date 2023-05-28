@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>medfilt &mdash; SPTK  documentation</title>
@@ -12,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -151,6 +148,7 @@
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
@@ -175,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_synth.html">world_synth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
@@ -253,14 +252,26 @@
 </p></li>
 </ul>
 </p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+ad<span class="w"> </span><span class="p">|</span><span class="w"> </span>medfilt<span class="w"> </span>-w<span class="w"> </span><span class="m">0</span><span class="w"> </span>-l<span class="w"> </span><span class="m">1</span><span class="w"> </span>-k<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da
+<span class="c1"># 2 3 5 6</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+ad<span class="w"> </span><span class="p">|</span><span class="w"> </span>medfilt<span class="w"> </span>-w<span class="w"> </span><span class="m">0</span><span class="w"> </span>-l<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da
+<span class="c1"># 2 3 3 4 5 6 6 7</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+ad<span class="w"> </span><span class="p">|</span><span class="w"> </span>medfilt<span class="w"> </span>-w<span class="w"> </span><span class="m">1</span><span class="w"> </span>-l<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da
+<span class="c1"># 2.5 3.5 5.5 6.5</span>
+</pre></div>
+</div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
 <li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>0 on success, 1 on failure. </p>
 </dd>
 </dl>
@@ -281,7 +292,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk12MedianFilter12MedianFilterEiiP20InputSourceInterfacebbd">
 <span id="_CPPv3N4sptk12MedianFilter12MedianFilterEiiP20InputSourceInterfacebbd"></span><span id="_CPPv2N4sptk12MedianFilter12MedianFilterEiiP20InputSourceInterfacebbd"></span><span id="sptk::MedianFilter::MedianFilter__i.i.InputSourceInterfaceP.b.b.double"></span><span class="target" id="classsptk_1_1MedianFilter_1afbe1436c2201f3d581a7f6e59ed1f274"></span><span class="sig-name descname"><span class="n"><span class="pre">MedianFilter</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_input_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_filter_order</span></span>, <span class="n"><span class="pre">InputSourceInterface</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_source</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">apply_each_dimension</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">use_magic_number</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">magic_number</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.0</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk12MedianFilter12MedianFilterEiiP20InputSourceInterfacebbd" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>num_input_order</strong> – <strong>[in]</strong> Order of input, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
 <li><p><strong>num_filter_order</strong> – <strong>[in]</strong> Order of filter. </p></li>
@@ -298,7 +309,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk12MedianFilter16GetNumInputOrderEv">
 <span id="_CPPv3NK4sptk12MedianFilter16GetNumInputOrderEv"></span><span id="_CPPv2NK4sptk12MedianFilter16GetNumInputOrderEv"></span><span id="sptk::MedianFilter::GetNumInputOrderC"></span><span class="target" id="classsptk_1_1MedianFilter_1a725b3f2f890bca72a450b9ed04d0eeb1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumInputOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk12MedianFilter16GetNumInputOrderEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of input. </p>
 </dd>
 </dl>
@@ -308,7 +319,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk12MedianFilter17GetNumFilterOrderEv">
 <span id="_CPPv3NK4sptk12MedianFilter17GetNumFilterOrderEv"></span><span id="_CPPv2NK4sptk12MedianFilter17GetNumFilterOrderEv"></span><span id="sptk::MedianFilter::GetNumFilterOrderC"></span><span class="target" id="classsptk_1_1MedianFilter_1adffe6ab7ae8f631c5732d6c6c51f9c87"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumFilterOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk12MedianFilter17GetNumFilterOrderEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of median filter. </p>
 </dd>
 </dl>
@@ -318,7 +329,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk12MedianFilter14GetMagicNumberEv">
 <span id="_CPPv3NK4sptk12MedianFilter14GetMagicNumberEv"></span><span id="_CPPv2NK4sptk12MedianFilter14GetMagicNumberEv"></span><span id="sptk::MedianFilter::GetMagicNumberC"></span><span class="target" id="classsptk_1_1MedianFilter_1a08350d7b32fa5635ccb6ae7163a141e7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetMagicNumber</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk12MedianFilter14GetMagicNumberEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Magic number. </p>
 </dd>
 </dl>
@@ -328,7 +339,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk12MedianFilter7GetSizeEv">
 <span id="_CPPv3NK4sptk12MedianFilter7GetSizeEv"></span><span id="_CPPv2NK4sptk12MedianFilter7GetSizeEv"></span><span id="sptk::MedianFilter::GetSizeC"></span><span class="target" id="classsptk_1_1MedianFilter_1a0ed83b3e57b4a9d2b2534758c0c73606"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetSize</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk12MedianFilter7GetSizeEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Output size. </p>
 </dd>
 </dl>
@@ -338,7 +349,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk12MedianFilter7IsValidEv">
 <span id="_CPPv3NK4sptk12MedianFilter7IsValidEv"></span><span id="_CPPv2NK4sptk12MedianFilter7IsValidEv"></span><span id="sptk::MedianFilter::IsValidC"></span><span class="target" id="classsptk_1_1MedianFilter_1a014b46906f78df8550d9cb1871c0d783"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk12MedianFilter7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
 </dd>
 </dl>
@@ -348,10 +359,10 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk12MedianFilter3GetEPNSt6vectorIdEE">
 <span id="_CPPv3N4sptk12MedianFilter3GetEPNSt6vectorIdEE"></span><span id="_CPPv2N4sptk12MedianFilter3GetEPNSt6vectorIdEE"></span><span id="sptk::MedianFilter::Get__std::vector:double:P"></span><span class="target" id="classsptk_1_1MedianFilter_1a130ffeea9f84295eeed6820cc2795fda"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Get</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">output</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk12MedianFilter3GetEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>output</strong> – <strong>[out]</strong> Filtered input. </p>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>

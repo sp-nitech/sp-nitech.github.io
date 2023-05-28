@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>mcpf &mdash; SPTK  documentation</title>
@@ -12,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -151,6 +148,7 @@
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
@@ -175,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_synth.html">world_synth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
@@ -250,13 +249,13 @@
 </ul>
 </p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
 <li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>0 on success, 1 on failure. </p>
 </dd>
 </dl>
@@ -283,7 +282,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk21MelCepstrumPostfilter21MelCepstrumPostfilterEiiidd">
 <span id="_CPPv3N4sptk21MelCepstrumPostfilter21MelCepstrumPostfilterEiiidd"></span><span id="_CPPv2N4sptk21MelCepstrumPostfilter21MelCepstrumPostfilterEiiidd"></span><span id="sptk::MelCepstrumPostfilter::MelCepstrumPostfilter__i.i.i.double.double"></span><span class="target" id="classsptk_1_1MelCepstrumPostfilter_1aa043e787a3254dd876ffb27ba9939f10"></span><span class="sig-name descname"><span class="n"><span class="pre">MelCepstrumPostfilter</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">impulse_response_length</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">onset_index</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">alpha</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">beta</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk21MelCepstrumPostfilter21MelCepstrumPostfilterEiiidd" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>num_order</strong> – <strong>[in]</strong> Order of mel-cepstral coefficients, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
 <li><p><strong>impulse_response_length</strong> – <strong>[in]</strong> Length of impulse response, <span class="math notranslate nohighlight">\(L\)</span>. </p></li>
@@ -299,7 +298,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk21MelCepstrumPostfilter11GetNumOrderEv">
 <span id="_CPPv3NK4sptk21MelCepstrumPostfilter11GetNumOrderEv"></span><span id="_CPPv2NK4sptk21MelCepstrumPostfilter11GetNumOrderEv"></span><span id="sptk::MelCepstrumPostfilter::GetNumOrderC"></span><span class="target" id="classsptk_1_1MelCepstrumPostfilter_1ade83580f5989a43bc17b4e8d0fa7a28c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk21MelCepstrumPostfilter11GetNumOrderEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of mel-cepstral coefficients. </p>
 </dd>
 </dl>
@@ -309,7 +308,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk21MelCepstrumPostfilter24GetImpulseResponseLengthEv">
 <span id="_CPPv3NK4sptk21MelCepstrumPostfilter24GetImpulseResponseLengthEv"></span><span id="_CPPv2NK4sptk21MelCepstrumPostfilter24GetImpulseResponseLengthEv"></span><span id="sptk::MelCepstrumPostfilter::GetImpulseResponseLengthC"></span><span class="target" id="classsptk_1_1MelCepstrumPostfilter_1afc705e0a694f6346389b054caf97eeaf"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetImpulseResponseLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk21MelCepstrumPostfilter24GetImpulseResponseLengthEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Impulse response length. </p>
 </dd>
 </dl>
@@ -319,7 +318,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk21MelCepstrumPostfilter13GetOnsetIndexEv">
 <span id="_CPPv3NK4sptk21MelCepstrumPostfilter13GetOnsetIndexEv"></span><span id="_CPPv2NK4sptk21MelCepstrumPostfilter13GetOnsetIndexEv"></span><span id="sptk::MelCepstrumPostfilter::GetOnsetIndexC"></span><span class="target" id="classsptk_1_1MelCepstrumPostfilter_1aa017d89ddabdfcbf1147482eb6f09d71"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetOnsetIndex</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk21MelCepstrumPostfilter13GetOnsetIndexEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Onset index. </p>
 </dd>
 </dl>
@@ -329,7 +328,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk21MelCepstrumPostfilter8GetAlphaEv">
 <span id="_CPPv3NK4sptk21MelCepstrumPostfilter8GetAlphaEv"></span><span id="_CPPv2NK4sptk21MelCepstrumPostfilter8GetAlphaEv"></span><span id="sptk::MelCepstrumPostfilter::GetAlphaC"></span><span class="target" id="classsptk_1_1MelCepstrumPostfilter_1af9fd75134c9fb45591a113a6c34d243f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetAlpha</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk21MelCepstrumPostfilter8GetAlphaEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Alpha. </p>
 </dd>
 </dl>
@@ -339,7 +338,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk21MelCepstrumPostfilter7GetBetaEv">
 <span id="_CPPv3NK4sptk21MelCepstrumPostfilter7GetBetaEv"></span><span id="_CPPv2NK4sptk21MelCepstrumPostfilter7GetBetaEv"></span><span id="sptk::MelCepstrumPostfilter::GetBetaC"></span><span class="target" id="classsptk_1_1MelCepstrumPostfilter_1a4cc50abb0b9d5260c317e950576c06e0"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetBeta</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk21MelCepstrumPostfilter7GetBetaEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Beta. </p>
 </dd>
 </dl>
@@ -349,7 +348,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk21MelCepstrumPostfilter7IsValidEv">
 <span id="_CPPv3NK4sptk21MelCepstrumPostfilter7IsValidEv"></span><span id="_CPPv2NK4sptk21MelCepstrumPostfilter7IsValidEv"></span><span id="sptk::MelCepstrumPostfilter::IsValidC"></span><span class="target" id="classsptk_1_1MelCepstrumPostfilter_1ad30ab86830c9e5f03aebcec9036ebbe3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk21MelCepstrumPostfilter7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
 </dd>
 </dl>
@@ -359,14 +358,14 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk21MelCepstrumPostfilter3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN21MelCepstrumPostfilter6BufferE">
 <span id="_CPPv3NK4sptk21MelCepstrumPostfilter3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN21MelCepstrumPostfilter6BufferE"></span><span id="_CPPv2NK4sptk21MelCepstrumPostfilter3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN21MelCepstrumPostfilter6BufferE"></span><span id="sptk::MelCepstrumPostfilter::Run__std::vector:double:CR.std::vector:double:P.MelCepstrumPostfilter::BufferPC"></span><span class="target" id="classsptk_1_1MelCepstrumPostfilter_1a54293170062a70182f2bb8a8abc16947"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">mel_cepstrum</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">postfiltered_mel_cepstrum</span></span>, <a class="reference internal" href="#_CPPv4N4sptk21MelCepstrumPostfilterE" title="sptk::MelCepstrumPostfilter"><span class="n"><span class="pre">MelCepstrumPostfilter</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk21MelCepstrumPostfilter6BufferE" title="sptk::MelCepstrumPostfilter::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk21MelCepstrumPostfilter3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN21MelCepstrumPostfilter6BufferE" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>mel_cepstrum</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order mel-cepstral coefficients. </p></li>
 <li><p><strong>postfiltered_mel_cepstrum</strong> – <strong>[out]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order postfiltered ones. </p></li>
 <li><p><strong>buffer</strong> – <strong>[out]</strong> <a class="reference internal" href="#classsptk_1_1MelCepstrumPostfilter_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -376,13 +375,13 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk21MelCepstrumPostfilter3RunEPNSt6vectorIdEEPN21MelCepstrumPostfilter6BufferE">
 <span id="_CPPv3NK4sptk21MelCepstrumPostfilter3RunEPNSt6vectorIdEEPN21MelCepstrumPostfilter6BufferE"></span><span id="_CPPv2NK4sptk21MelCepstrumPostfilter3RunEPNSt6vectorIdEEPN21MelCepstrumPostfilter6BufferE"></span><span id="sptk::MelCepstrumPostfilter::Run__std::vector:double:P.MelCepstrumPostfilter::BufferPC"></span><span class="target" id="classsptk_1_1MelCepstrumPostfilter_1add97d2e29e05e93ac29d802129dfde49"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_and_output</span></span>, <a class="reference internal" href="#_CPPv4N4sptk21MelCepstrumPostfilterE" title="sptk::MelCepstrumPostfilter"><span class="n"><span class="pre">MelCepstrumPostfilter</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk21MelCepstrumPostfilter6BufferE" title="sptk::MelCepstrumPostfilter::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk21MelCepstrumPostfilter3RunEPNSt6vectorIdEEPN21MelCepstrumPostfilter6BufferE" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>input_and_output</strong> – <strong>[inout]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order mel-cepstral coefficients. </p></li>
 <li><p><strong>buffer</strong> – <strong>[out]</strong> <a class="reference internal" href="#classsptk_1_1MelCepstrumPostfilter_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>

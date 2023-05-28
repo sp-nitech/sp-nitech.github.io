@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>minmax &mdash; SPTK  documentation</title>
@@ -12,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -151,6 +148,7 @@
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
@@ -175,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_synth.html">world_synth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
@@ -271,13 +270,13 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
 <li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>0 on success, 1 on failure. </p>
 </dd>
 </dl>
@@ -294,7 +293,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk18MinMaxAccumulation18MinMaxAccumulationEi">
 <span id="_CPPv3N4sptk18MinMaxAccumulation18MinMaxAccumulationEi"></span><span id="_CPPv2N4sptk18MinMaxAccumulation18MinMaxAccumulationEi"></span><span id="sptk::MinMaxAccumulation::MinMaxAccumulation__i"></span><span class="target" id="classsptk_1_1MinMaxAccumulation_1a2926009ea71ce944104ac7004e4ed850"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MinMaxAccumulation</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_best</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk18MinMaxAccumulation18MinMaxAccumulationEi" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>num_best</strong> – <strong>[in]</strong> Number of minimum/maximum numbers. </p>
 </dd>
 </dl>
@@ -304,7 +303,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk18MinMaxAccumulation10GetNumBestEv">
 <span id="_CPPv3NK4sptk18MinMaxAccumulation10GetNumBestEv"></span><span id="_CPPv2NK4sptk18MinMaxAccumulation10GetNumBestEv"></span><span id="sptk::MinMaxAccumulation::GetNumBestC"></span><span class="target" id="classsptk_1_1MinMaxAccumulation_1adbb1d9d7e3d72bdab52b0cd7648031e1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumBest</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18MinMaxAccumulation10GetNumBestEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Number of minimum/maximum numbers. </p>
 </dd>
 </dl>
@@ -314,7 +313,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk18MinMaxAccumulation7IsValidEv">
 <span id="_CPPv3NK4sptk18MinMaxAccumulation7IsValidEv"></span><span id="_CPPv2NK4sptk18MinMaxAccumulation7IsValidEv"></span><span id="sptk::MinMaxAccumulation::IsValidC"></span><span class="target" id="classsptk_1_1MinMaxAccumulation_1a8a4234fe979b95a5dd30087ec7f5aeb1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18MinMaxAccumulation7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
 </dd>
 </dl>
@@ -325,7 +324,7 @@
 <span id="_CPPv3NK4sptk18MinMaxAccumulation10GetMinimumERKN18MinMaxAccumulation6BufferEiPiPd"></span><span id="_CPPv2NK4sptk18MinMaxAccumulation10GetMinimumERKN18MinMaxAccumulation6BufferEiPiPd"></span><span id="sptk::MinMaxAccumulation::GetMinimum__MinMaxAccumulation::BufferCR.i.iP.doublePC"></span><span class="target" id="classsptk_1_1MinMaxAccumulation_1a99e38971ab007c985d82a6aa578b7abd"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetMinimum</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk18MinMaxAccumulationE" title="sptk::MinMaxAccumulation"><span class="n"><span class="pre">MinMaxAccumulation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk18MinMaxAccumulation6BufferE" title="sptk::MinMaxAccumulation::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">buffer</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rank</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">position</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18MinMaxAccumulation10GetMinimumERKN18MinMaxAccumulation6BufferEiPiPd" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Get <span class="math notranslate nohighlight">\(n\)</span>-th minimum value and its position.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>buffer</strong> – <strong>[in]</strong> <a class="reference internal" href="#classsptk_1_1MinMaxAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
 <li><p><strong>rank</strong> – <strong>[in]</strong> Rank <span class="math notranslate nohighlight">\(n\)</span>. </p></li>
@@ -333,7 +332,7 @@
 <li><p><strong>value</strong> – <strong>[out]</strong> Minimum value. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -344,7 +343,7 @@
 <span id="_CPPv3NK4sptk18MinMaxAccumulation10GetMaximumERKN18MinMaxAccumulation6BufferEiPiPd"></span><span id="_CPPv2NK4sptk18MinMaxAccumulation10GetMaximumERKN18MinMaxAccumulation6BufferEiPiPd"></span><span id="sptk::MinMaxAccumulation::GetMaximum__MinMaxAccumulation::BufferCR.i.iP.doublePC"></span><span class="target" id="classsptk_1_1MinMaxAccumulation_1a0ed3449b54b2bd75c4fbf1560d2be3b9"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetMaximum</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk18MinMaxAccumulationE" title="sptk::MinMaxAccumulation"><span class="n"><span class="pre">MinMaxAccumulation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk18MinMaxAccumulation6BufferE" title="sptk::MinMaxAccumulation::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">buffer</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">rank</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">position</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">value</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18MinMaxAccumulation10GetMaximumERKN18MinMaxAccumulation6BufferEiPiPd" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Get <span class="math notranslate nohighlight">\(n\)</span>-th maximum value and its position.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>buffer</strong> – <strong>[in]</strong> <a class="reference internal" href="#classsptk_1_1MinMaxAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
 <li><p><strong>rank</strong> – <strong>[in]</strong> Rank <span class="math notranslate nohighlight">\(n\)</span>. </p></li>
@@ -352,7 +351,7 @@
 <li><p><strong>value</strong> – <strong>[out]</strong> Maximum value. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -363,7 +362,7 @@
 <span id="_CPPv3NK4sptk18MinMaxAccumulation5ClearEPN18MinMaxAccumulation6BufferE"></span><span id="_CPPv2NK4sptk18MinMaxAccumulation5ClearEPN18MinMaxAccumulation6BufferE"></span><span id="sptk::MinMaxAccumulation::Clear__MinMaxAccumulation::BufferPC"></span><span class="target" id="classsptk_1_1MinMaxAccumulation_1a252d023128c1a8c6532471050e51476f"></span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Clear</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="#_CPPv4N4sptk18MinMaxAccumulationE" title="sptk::MinMaxAccumulation"><span class="n"><span class="pre">MinMaxAccumulation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk18MinMaxAccumulation6BufferE" title="sptk::MinMaxAccumulation::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18MinMaxAccumulation5ClearEPN18MinMaxAccumulation6BufferE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Clear buffer.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>buffer</strong> – <strong>[out]</strong> <a class="reference internal" href="#classsptk_1_1MinMaxAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p>
 </dd>
 </dl>
@@ -374,13 +373,13 @@
 <span id="_CPPv3NK4sptk18MinMaxAccumulation3RunEdPN18MinMaxAccumulation6BufferE"></span><span id="_CPPv2NK4sptk18MinMaxAccumulation3RunEdPN18MinMaxAccumulation6BufferE"></span><span id="sptk::MinMaxAccumulation::Run__double.MinMaxAccumulation::BufferPC"></span><span class="target" id="classsptk_1_1MinMaxAccumulation_1a07c0d357b593b46928f8b1273eff4eb4"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">data</span></span>, <a class="reference internal" href="#_CPPv4N4sptk18MinMaxAccumulationE" title="sptk::MinMaxAccumulation"><span class="n"><span class="pre">MinMaxAccumulation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk18MinMaxAccumulation6BufferE" title="sptk::MinMaxAccumulation::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18MinMaxAccumulation3RunEdPN18MinMaxAccumulation6BufferE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Accumulate minimum and maximum.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> – <strong>[in]</strong> Input data. </p></li>
 <li><p><strong>buffer</strong> – <strong>[inout]</strong> <a class="reference internal" href="#classsptk_1_1MinMaxAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>

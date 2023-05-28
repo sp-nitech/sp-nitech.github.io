@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pitch &mdash; SPTK  documentation</title>
@@ -12,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -151,6 +148,7 @@
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
@@ -175,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_synth.html">world_synth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
@@ -224,7 +223,8 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> RAPT </p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> SWIPE’ </p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> REAPER </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> WORLD (DIO)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> DIO </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4</span></code> Harvest</p></li>
 </ul>
 </p></li>
 </ul>
@@ -258,7 +258,11 @@
 </ul>
 </p></li>
 <li><p><strong>-t3</strong> <em>double</em> <ul>
-<li><p>voicing threshold for WORLD <span class="math notranslate nohighlight">\((0.02 \le T \le 0.2)\)</span></p></li>
+<li><p>voicing threshold for DIO <span class="math notranslate nohighlight">\((0.02 \le T \le 0.2)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-t4</strong> <em>double</em> <ul>
+<li><p>voicing threshold for Harvest <span class="math notranslate nohighlight">\((0.0 \le T \le 0.2)\)</span></p></li>
 </ul>
 </p></li>
 <li><p><strong>-o</strong> <em>int</em> <ul>
@@ -286,13 +290,13 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
 <li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>0 on success, 1 on failure. </p>
 </dd>
 </dl>
@@ -307,11 +311,12 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk15PitchExtractionE">
 <span id="_CPPv3N4sptk15PitchExtractionE"></span><span id="_CPPv2N4sptk15PitchExtractionE"></span><span id="sptk::PitchExtraction"></span><span class="target" id="classsptk_1_1PitchExtraction"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PitchExtraction</span></span></span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtractionE" title="Permalink to this definition"></a><br /></dt>
 <dd><p>Extract pitch (fundamental frequency) from waveform.</p>
-<p>The input is whole audio waveform and the output is the sequence of the fundamental frequency. The implemented algorithms of the extraction are RAPT, SWIPE, REAPER, and DIO.</p>
+<p>The input is whole audio waveform and the output is the sequence of the fundamental frequency. The implemented algorithms of the extraction are RAPT, SWIPE, REAPER, DIO, and harvest.</p>
 <p>[1] D. Talkin, “A robust algorithm for pitch tracking,” Speech Coding and Synthesis, pp. 497-518, 1995.</p>
 <p>[2] A. Camacho, “SWIPE: A sawtooth waveform inspired pitch estimator for speech and music,” Doctoral dissertation, 2007.</p>
 <p>[3] D. Talkin, “REAPER: Robust epoch and pitch estimator,” <a class="reference external" href="https://github.com/google/REAPER">https://github.com/google/REAPER</a>, 2015.</p>
-<p>[4] M. Morise, H. Kawahara and H. Katayose, “Fast and reliable F0 estimation method based on the period extraction of vocal fold vibration of singing voice and speech,” Proc. of AES 35th International Conference, 2009. </p>
+<p>[4] M. Morise, H. Kawahara and H. Katayose, “Fast and reliable F0 estimation method based on the period extraction of vocal fold vibration of singing voice and speech,” Proc. of AES 35th International Conference, 2009.</p>
+<p>[5] M. Morise, “Harvest: A high-performance fundamental frequency estimator from speech signals,” Proc. of Interspeech, pp. 2321-2325, 2017. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
 <dl class="cpp enum">
@@ -335,8 +340,13 @@
 <dd></dd></dl>
 
 <dl class="cpp enumerator">
-<dt class="sig sig-object cpp" id="_CPPv4N4sptk15PitchExtraction10Algorithms6kWorldE">
-<span id="_CPPv3N4sptk15PitchExtraction10Algorithms6kWorldE"></span><span id="_CPPv2N4sptk15PitchExtraction10Algorithms6kWorldE"></span><span class="target" id="classsptk_1_1PitchExtraction_1a2b0c3429741149d46cf4dfbf5eed0037a6f840ac2107c8104bce12b1cae55f6b9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kWorld</span></span></span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtraction10Algorithms6kWorldE" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk15PitchExtraction10Algorithms4kDioE">
+<span id="_CPPv3N4sptk15PitchExtraction10Algorithms4kDioE"></span><span id="_CPPv2N4sptk15PitchExtraction10Algorithms4kDioE"></span><span class="target" id="classsptk_1_1PitchExtraction_1a2b0c3429741149d46cf4dfbf5eed0037a765fc672851f7dafb10452b3087e734d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kDio</span></span></span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtraction10Algorithms4kDioE" title="Permalink to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk15PitchExtraction10Algorithms8kHarvestE">
+<span id="_CPPv3N4sptk15PitchExtraction10Algorithms8kHarvestE"></span><span id="_CPPv2N4sptk15PitchExtraction10Algorithms8kHarvestE"></span><span class="target" id="classsptk_1_1PitchExtraction_1a2b0c3429741149d46cf4dfbf5eed0037a4de2999d3692c8c68db0825e652066f8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kHarvest</span></span></span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtraction10Algorithms8kHarvestE" title="Permalink to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp enumerator">
@@ -353,7 +363,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk15PitchExtraction15PitchExtractionEidddd10Algorithms">
 <span id="_CPPv3N4sptk15PitchExtraction15PitchExtractionEidddd10Algorithms"></span><span id="_CPPv2N4sptk15PitchExtraction15PitchExtractionEidddd10Algorithms"></span><span id="sptk::PitchExtraction::PitchExtraction__i.double.double.double.double.Algorithms"></span><span class="target" id="classsptk_1_1PitchExtraction_1a66d19f5e034f51bca5d79e0ff562d123"></span><span class="sig-name descname"><span class="n"><span class="pre">PitchExtraction</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">frame_shift</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sampling_rate</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">lower_f0</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">upper_f0</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">voicing_threshold</span></span>, <a class="reference internal" href="#_CPPv4N4sptk15PitchExtraction10AlgorithmsE" title="sptk::PitchExtraction::Algorithms"><span class="n"><span class="pre">Algorithms</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">algorithm</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtraction15PitchExtractionEidddd10Algorithms" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>frame_shift</strong> – <strong>[in]</strong> Frame shift in point. </p></li>
 <li><p><strong>sampling_rate</strong> – <strong>[in]</strong> Sampling rate in Hz. </p></li>
@@ -370,7 +380,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk15PitchExtraction7IsValidEv">
 <span id="_CPPv3NK4sptk15PitchExtraction7IsValidEv"></span><span id="_CPPv2NK4sptk15PitchExtraction7IsValidEv"></span><span id="sptk::PitchExtraction::IsValidC"></span><span class="target" id="classsptk_1_1PitchExtraction_1a82cedaf602130b7e11f3f394fd13e536"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk15PitchExtraction7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
 </dd>
 </dl>
@@ -380,7 +390,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk15PitchExtraction3RunERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN24PitchExtractionInterface8PolarityE">
 <span id="_CPPv3NK4sptk15PitchExtraction3RunERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN24PitchExtractionInterface8PolarityE"></span><span id="_CPPv2NK4sptk15PitchExtraction3RunERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN24PitchExtractionInterface8PolarityE"></span><span id="sptk::PitchExtraction::Run__std::vector:double:CR.std::vector:double:P.std::vector:double:P.PitchExtractionInterface::PolarityPC"></span><span class="target" id="classsptk_1_1PitchExtraction_1a9f173d62c3e5bc5c8653365bc0de3773"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">waveform</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">f0</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">epochs</span></span>, <span class="n"><span class="pre">PitchExtractionInterface</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Polarity</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">polarity</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk15PitchExtraction3RunERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN24PitchExtractionInterface8PolarityE" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>waveform</strong> – <strong>[in]</strong> Waveform. </p></li>
 <li><p><strong>f0</strong> – <strong>[out]</strong> Extracted pitch in Hz. </p></li>
@@ -388,7 +398,7 @@
 <li><p><strong>polarity</strong> – <strong>[out]</strong> Polarity (valid only for REAPER). </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>

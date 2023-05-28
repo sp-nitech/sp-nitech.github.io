@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>msvq &mdash; SPTK  documentation</title>
@@ -12,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -151,6 +148,7 @@
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
@@ -175,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_synth.html">world_synth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
@@ -246,13 +245,13 @@
 </pre></div>
 </div>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
 <li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>0 on success, 1 on failure. </p>
 </dd>
 </dl>
@@ -282,7 +281,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk28MultistageVectorQuantization28MultistageVectorQuantizationEii">
 <span id="_CPPv3N4sptk28MultistageVectorQuantization28MultistageVectorQuantizationEii"></span><span id="_CPPv2N4sptk28MultistageVectorQuantization28MultistageVectorQuantizationEii"></span><span id="sptk::MultistageVectorQuantization::MultistageVectorQuantization__i.i"></span><span class="target" id="classsptk_1_1MultistageVectorQuantization_1ab5f85a359bc20b78d05e7facfa06389b"></span><span class="sig-name descname"><span class="n"><span class="pre">MultistageVectorQuantization</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_stage</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk28MultistageVectorQuantization28MultistageVectorQuantizationEii" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>num_order</strong> – <strong>[in]</strong> Order of vector, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
 <li><p><strong>num_stage</strong> – <strong>[in]</strong> Number of quantization stages, <span class="math notranslate nohighlight">\(N\)</span>. </p></li>
@@ -295,7 +294,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk28MultistageVectorQuantization11GetNumOrderEv">
 <span id="_CPPv3NK4sptk28MultistageVectorQuantization11GetNumOrderEv"></span><span id="_CPPv2NK4sptk28MultistageVectorQuantization11GetNumOrderEv"></span><span id="sptk::MultistageVectorQuantization::GetNumOrderC"></span><span class="target" id="classsptk_1_1MultistageVectorQuantization_1abe6f4be9dd417409c808c6811b287c16"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk28MultistageVectorQuantization11GetNumOrderEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of vector. </p>
 </dd>
 </dl>
@@ -305,7 +304,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk28MultistageVectorQuantization11GetNumStageEv">
 <span id="_CPPv3NK4sptk28MultistageVectorQuantization11GetNumStageEv"></span><span id="_CPPv2NK4sptk28MultistageVectorQuantization11GetNumStageEv"></span><span id="sptk::MultistageVectorQuantization::GetNumStageC"></span><span class="target" id="classsptk_1_1MultistageVectorQuantization_1aa3e124c5cbd368d73660626e907a05a6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumStage</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk28MultistageVectorQuantization11GetNumStageEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Number of stages. </p>
 </dd>
 </dl>
@@ -315,7 +314,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk28MultistageVectorQuantization7IsValidEv">
 <span id="_CPPv3NK4sptk28MultistageVectorQuantization7IsValidEv"></span><span id="_CPPv2NK4sptk28MultistageVectorQuantization7IsValidEv"></span><span id="sptk::MultistageVectorQuantization::IsValidC"></span><span class="target" id="classsptk_1_1MultistageVectorQuantization_1ab3103247fd457b0930bd27312add75c8"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk28MultistageVectorQuantization7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
 </dd>
 </dl>
@@ -325,7 +324,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk28MultistageVectorQuantization3RunERKNSt6vectorIdEERKNSt6vectorINSt6vectorINSt6vectorIdEEEEEEPNSt6vectorIiEEPN28MultistageVectorQuantization6BufferE">
 <span id="_CPPv3NK4sptk28MultistageVectorQuantization3RunERKNSt6vectorIdEERKNSt6vectorINSt6vectorINSt6vectorIdEEEEEEPNSt6vectorIiEEPN28MultistageVectorQuantization6BufferE"></span><span id="_CPPv2NK4sptk28MultistageVectorQuantization3RunERKNSt6vectorIdEERKNSt6vectorINSt6vectorINSt6vectorIdEEEEEEPNSt6vectorIiEEPN28MultistageVectorQuantization6BufferE"></span><span id="sptk::MultistageVectorQuantization::Run__std::vector:double:CR.std::vector:std::vector:std::vector:double:::CR.std::vector:i:P.MultistageVectorQuantization::BufferPC"></span><span class="target" id="classsptk_1_1MultistageVectorQuantization_1aaeb98881398bd78df76b70f42630c402"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">input_vector</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">codebook_vectors</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">codebook_indices</span></span>, <a class="reference internal" href="#_CPPv4N4sptk28MultistageVectorQuantizationE" title="sptk::MultistageVectorQuantization"><span class="n"><span class="pre">MultistageVectorQuantization</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk28MultistageVectorQuantization6BufferE" title="sptk::MultistageVectorQuantization::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk28MultistageVectorQuantization3RunERKNSt6vectorIdEERKNSt6vectorINSt6vectorINSt6vectorIdEEEEEEPNSt6vectorIiEEPN28MultistageVectorQuantization6BufferE" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>input_vector</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order input vector. </p></li>
 <li><p><strong>codebook_vectors</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order <span class="math notranslate nohighlight">\(I\)</span> codebook vectors. The shape is <span class="math notranslate nohighlight">\([N, I, M+1]\)</span>. </p></li>
@@ -333,7 +332,7 @@
 <li><p><strong>buffer</strong> – <strong>[out]</strong> <a class="reference internal" href="#classsptk_1_1MultistageVectorQuantization_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -365,7 +364,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk18VectorQuantization18VectorQuantizationEi">
 <span id="_CPPv3N4sptk18VectorQuantization18VectorQuantizationEi"></span><span id="_CPPv2N4sptk18VectorQuantization18VectorQuantizationEi"></span><span id="sptk::VectorQuantization::VectorQuantization__i"></span><span class="target" id="classsptk_1_1VectorQuantization_1ab41ca5123625af364ec8d873e3e6db66"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">VectorQuantization</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk18VectorQuantization18VectorQuantizationEi" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>num_order</strong> – <strong>[in]</strong> Order of vector, <span class="math notranslate nohighlight">\(M\)</span>. </p>
 </dd>
 </dl>
@@ -375,7 +374,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk18VectorQuantization11GetNumOrderEv">
 <span id="_CPPv3NK4sptk18VectorQuantization11GetNumOrderEv"></span><span id="_CPPv2NK4sptk18VectorQuantization11GetNumOrderEv"></span><span id="sptk::VectorQuantization::GetNumOrderC"></span><span class="target" id="classsptk_1_1VectorQuantization_1a068d79a0d1b93e98326a1bf07562d29b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18VectorQuantization11GetNumOrderEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of vector. </p>
 </dd>
 </dl>
@@ -385,7 +384,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk18VectorQuantization7IsValidEv">
 <span id="_CPPv3NK4sptk18VectorQuantization7IsValidEv"></span><span id="_CPPv2NK4sptk18VectorQuantization7IsValidEv"></span><span id="sptk::VectorQuantization::IsValidC"></span><span class="target" id="classsptk_1_1VectorQuantization_1a5cf558e1421ae3e6bd9359dd3cb30aa2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18VectorQuantization7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
 </dd>
 </dl>
@@ -395,14 +394,14 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk18VectorQuantization3RunERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEEPi">
 <span id="_CPPv3NK4sptk18VectorQuantization3RunERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEEPi"></span><span id="_CPPv2NK4sptk18VectorQuantization3RunERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEEPi"></span><span id="sptk::VectorQuantization::Run__std::vector:double:CR.std::vector:std::vector:double::CR.iPC"></span><span class="target" id="classsptk_1_1VectorQuantization_1af71a2824c4b1b5cbb87d5229ba728a95"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">input_vector</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">codebook_vectors</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">codebook_index</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18VectorQuantization3RunERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEEPi" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>input_vector</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order input vector. </p></li>
 <li><p><strong>codebook_vectors</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order <span class="math notranslate nohighlight">\(I\)</span> codebook vectors. The shape is <span class="math notranslate nohighlight">\([I, M+1]\)</span>. </p></li>
 <li><p><strong>codebook_index</strong> – <strong>[out]</strong> Codebook index. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>

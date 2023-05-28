@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>root_pol &mdash; SPTK  documentation</title>
@@ -12,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -151,6 +148,7 @@
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
@@ -175,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_synth.html">world_synth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
@@ -293,7 +292,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk18DurandKernerMethod18DurandKernerMethodEiid">
 <span id="_CPPv3N4sptk18DurandKernerMethod18DurandKernerMethodEiid"></span><span id="_CPPv2N4sptk18DurandKernerMethod18DurandKernerMethodEiid"></span><span id="sptk::DurandKernerMethod::DurandKernerMethod__i.i.double"></span><span class="target" id="classsptk_1_1DurandKernerMethod_1ab360b6c6baa6e3c6c24b4015426a348b"></span><span class="sig-name descname"><span class="n"><span class="pre">DurandKernerMethod</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_iteration</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">convergence_threshold</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk18DurandKernerMethod18DurandKernerMethodEiid" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>num_order</strong> – <strong>[in]</strong> Order of coefficients, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
 <li><p><strong>num_iteration</strong> – <strong>[in]</strong> Number of iterations. </p></li>
@@ -307,7 +306,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk18DurandKernerMethod11GetNumOrderEv">
 <span id="_CPPv3NK4sptk18DurandKernerMethod11GetNumOrderEv"></span><span id="_CPPv2NK4sptk18DurandKernerMethod11GetNumOrderEv"></span><span id="sptk::DurandKernerMethod::GetNumOrderC"></span><span class="target" id="classsptk_1_1DurandKernerMethod_1abe4763f65a84bf121ab6e88870cf3d42"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18DurandKernerMethod11GetNumOrderEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of coefficients. </p>
 </dd>
 </dl>
@@ -317,7 +316,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk18DurandKernerMethod15GetNumIterationEv">
 <span id="_CPPv3NK4sptk18DurandKernerMethod15GetNumIterationEv"></span><span id="_CPPv2NK4sptk18DurandKernerMethod15GetNumIterationEv"></span><span id="sptk::DurandKernerMethod::GetNumIterationC"></span><span class="target" id="classsptk_1_1DurandKernerMethod_1a31e40d3e5b0ceaf95308421b11726252"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumIteration</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18DurandKernerMethod15GetNumIterationEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Number of iterations. </p>
 </dd>
 </dl>
@@ -327,7 +326,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk18DurandKernerMethod23GetConvergenceThresholdEv">
 <span id="_CPPv3NK4sptk18DurandKernerMethod23GetConvergenceThresholdEv"></span><span id="_CPPv2NK4sptk18DurandKernerMethod23GetConvergenceThresholdEv"></span><span id="sptk::DurandKernerMethod::GetConvergenceThresholdC"></span><span class="target" id="classsptk_1_1DurandKernerMethod_1aa6bd9c188d8752ad2ca5f7097af1cf74"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetConvergenceThreshold</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18DurandKernerMethod23GetConvergenceThresholdEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Convergence threshold. </p>
 </dd>
 </dl>
@@ -337,7 +336,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk18DurandKernerMethod7IsValidEv">
 <span id="_CPPv3NK4sptk18DurandKernerMethod7IsValidEv"></span><span id="_CPPv2NK4sptk18DurandKernerMethod7IsValidEv"></span><span id="sptk::DurandKernerMethod::IsValidC"></span><span class="target" id="classsptk_1_1DurandKernerMethod_1a91bd9e4eda001525bb82f16f9b0c0ff7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18DurandKernerMethod7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
 </dd>
 </dl>
@@ -347,14 +346,14 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk18DurandKernerMethod3RunERKNSt6vectorIdEEPNSt6vectorINSt7complexIdEEEEPb">
 <span id="_CPPv3NK4sptk18DurandKernerMethod3RunERKNSt6vectorIdEEPNSt6vectorINSt7complexIdEEEEPb"></span><span id="_CPPv2NK4sptk18DurandKernerMethod3RunERKNSt6vectorIdEEPNSt6vectorINSt7complexIdEEEEPb"></span><span id="sptk::DurandKernerMethod::Run__std::vector:double:CR.std::vector:std::complex:double::P.bPC"></span><span class="target" id="classsptk_1_1DurandKernerMethod_1ab9429004b92a7a7805874b22c1aad9d5"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">coefficients</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">complex</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">roots</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">is_converged</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18DurandKernerMethod3RunERKNSt6vectorIdEEPNSt6vectorINSt7complexIdEEEEPb" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>coefficients</strong> – <strong>[in]</strong> Coefficients of polynomial. </p></li>
 <li><p><strong>roots</strong> – <strong>[out]</strong> Root of the polynomial. </p></li>
 <li><p><strong>is_converged</strong> – <strong>[out]</strong> True if convergence is reached. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>

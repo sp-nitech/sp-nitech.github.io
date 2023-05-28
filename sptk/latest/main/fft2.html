@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>fft2 &mdash; SPTK  documentation</title>
@@ -12,9 +12,6 @@
   <![endif]-->
   
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
-        <script src="../_static/jquery.js"></script>
-        <script src="../_static/underscore.js"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -151,6 +148,7 @@
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
@@ -175,6 +173,7 @@
 <li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_synth.html">world_synth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
@@ -267,13 +266,13 @@
 <p>The output are reshaped by <code class="docutils literal notranslate"><span class="pre">-p</span></code> option.</p>
 <p><img alt="../_images/fft2_2.png" src="../_images/fft2_2.png" /></p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
 <li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>0 on success, 1 on failure. </p>
 </dd>
 </dl>
@@ -299,7 +298,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk34TwoDimensionalFastFourierTransform34TwoDimensionalFastFourierTransformEiii">
 <span id="_CPPv3N4sptk34TwoDimensionalFastFourierTransform34TwoDimensionalFastFourierTransformEiii"></span><span id="_CPPv2N4sptk34TwoDimensionalFastFourierTransform34TwoDimensionalFastFourierTransformEiii"></span><span id="sptk::TwoDimensionalFastFourierTransform::TwoDimensionalFastFourierTransform__i.i.i"></span><span class="target" id="classsptk_1_1TwoDimensionalFastFourierTransform_1a9aae77ad1791fa4ea31bf4ea82b3a4b7"></span><span class="sig-name descname"><span class="n"><span class="pre">TwoDimensionalFastFourierTransform</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_row</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_column</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk34TwoDimensionalFastFourierTransform34TwoDimensionalFastFourierTransformEiii" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>num_row</strong> – <strong>[in]</strong> Number of rows, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
 <li><p><strong>num_column</strong> – <strong>[in]</strong> Number of columns, <span class="math notranslate nohighlight">\(N\)</span>. </p></li>
@@ -313,7 +312,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk34TwoDimensionalFastFourierTransform9GetNumRowEv">
 <span id="_CPPv3NK4sptk34TwoDimensionalFastFourierTransform9GetNumRowEv"></span><span id="_CPPv2NK4sptk34TwoDimensionalFastFourierTransform9GetNumRowEv"></span><span id="sptk::TwoDimensionalFastFourierTransform::GetNumRowC"></span><span class="target" id="classsptk_1_1TwoDimensionalFastFourierTransform_1a5eecb94877941f0947f2211a698e24c0"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumRow</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk34TwoDimensionalFastFourierTransform9GetNumRowEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Number of rows of input. </p>
 </dd>
 </dl>
@@ -323,7 +322,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk34TwoDimensionalFastFourierTransform12GetNumColumnEv">
 <span id="_CPPv3NK4sptk34TwoDimensionalFastFourierTransform12GetNumColumnEv"></span><span id="_CPPv2NK4sptk34TwoDimensionalFastFourierTransform12GetNumColumnEv"></span><span id="sptk::TwoDimensionalFastFourierTransform::GetNumColumnC"></span><span class="target" id="classsptk_1_1TwoDimensionalFastFourierTransform_1a8f84e6dd7ff8b36510bd61718feae4c8"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumColumn</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk34TwoDimensionalFastFourierTransform12GetNumColumnEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Number of columns of input. </p>
 </dd>
 </dl>
@@ -333,7 +332,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk34TwoDimensionalFastFourierTransform12GetFftLengthEv">
 <span id="_CPPv3NK4sptk34TwoDimensionalFastFourierTransform12GetFftLengthEv"></span><span id="_CPPv2NK4sptk34TwoDimensionalFastFourierTransform12GetFftLengthEv"></span><span id="sptk::TwoDimensionalFastFourierTransform::GetFftLengthC"></span><span class="target" id="classsptk_1_1TwoDimensionalFastFourierTransform_1aa189d0dc68c20697079eb043ebacee38"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk34TwoDimensionalFastFourierTransform12GetFftLengthEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>FFT length. </p>
 </dd>
 </dl>
@@ -343,7 +342,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk34TwoDimensionalFastFourierTransform7IsValidEv">
 <span id="_CPPv3NK4sptk34TwoDimensionalFastFourierTransform7IsValidEv"></span><span id="_CPPv2NK4sptk34TwoDimensionalFastFourierTransform7IsValidEv"></span><span id="sptk::TwoDimensionalFastFourierTransform::IsValidC"></span><span class="target" id="classsptk_1_1TwoDimensionalFastFourierTransform_1a7f9ef7dd0b356eebf4c6902aeecd0cb4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk34TwoDimensionalFastFourierTransform7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
 </dd>
 </dl>
@@ -353,7 +352,7 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk34TwoDimensionalFastFourierTransform3RunERK6MatrixRK6MatrixP6MatrixP6MatrixPN34TwoDimensionalFastFourierTransform6BufferE">
 <span id="_CPPv3NK4sptk34TwoDimensionalFastFourierTransform3RunERK6MatrixRK6MatrixP6MatrixP6MatrixPN34TwoDimensionalFastFourierTransform6BufferE"></span><span id="_CPPv2NK4sptk34TwoDimensionalFastFourierTransform3RunERK6MatrixRK6MatrixP6MatrixP6MatrixPN34TwoDimensionalFastFourierTransform6BufferE"></span><span id="sptk::TwoDimensionalFastFourierTransform::Run__MatrixCR.MatrixCR.MatrixP.MatrixP.TwoDimensionalFastFourierTransform::BufferPC"></span><span class="target" id="classsptk_1_1TwoDimensionalFastFourierTransform_1a9b433e960ea72268a7b912a909fb25b5"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../utils/math.html#_CPPv4N4sptk6MatrixE" title="sptk::Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">real_part_input</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../utils/math.html#_CPPv4N4sptk6MatrixE" title="sptk::Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">imag_part_input</span></span>, <a class="reference internal" href="../utils/math.html#_CPPv4N4sptk6MatrixE" title="sptk::Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">real_part_output</span></span>, <a class="reference internal" href="../utils/math.html#_CPPv4N4sptk6MatrixE" title="sptk::Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">imag_part_output</span></span>, <a class="reference internal" href="#_CPPv4N4sptk34TwoDimensionalFastFourierTransformE" title="sptk::TwoDimensionalFastFourierTransform"><span class="n"><span class="pre">TwoDimensionalFastFourierTransform</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk34TwoDimensionalFastFourierTransform6BufferE" title="sptk::TwoDimensionalFastFourierTransform::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk34TwoDimensionalFastFourierTransform3RunERK6MatrixRK6MatrixP6MatrixP6MatrixPN34TwoDimensionalFastFourierTransform6BufferE" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>real_part_input</strong> – <strong>[in]</strong> Real part of input. </p></li>
 <li><p><strong>imag_part_input</strong> – <strong>[in]</strong> Imaginary part of input. </p></li>
@@ -362,7 +361,7 @@
 <li><p><strong>buffer</strong> – <strong>[out]</strong> <a class="reference internal" href="#classsptk_1_1TwoDimensionalFastFourierTransform_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
@@ -372,14 +371,14 @@
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk34TwoDimensionalFastFourierTransform3RunEP6MatrixP6MatrixPN34TwoDimensionalFastFourierTransform6BufferE">
 <span id="_CPPv3NK4sptk34TwoDimensionalFastFourierTransform3RunEP6MatrixP6MatrixPN34TwoDimensionalFastFourierTransform6BufferE"></span><span id="_CPPv2NK4sptk34TwoDimensionalFastFourierTransform3RunEP6MatrixP6MatrixPN34TwoDimensionalFastFourierTransform6BufferE"></span><span id="sptk::TwoDimensionalFastFourierTransform::Run__MatrixP.MatrixP.TwoDimensionalFastFourierTransform::BufferPC"></span><span class="target" id="classsptk_1_1TwoDimensionalFastFourierTransform_1a2abc25ce9def3c5b0ab77a35f4979f31"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><a class="reference internal" href="../utils/math.html#_CPPv4N4sptk6MatrixE" title="sptk::Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">real_part</span></span>, <a class="reference internal" href="../utils/math.html#_CPPv4N4sptk6MatrixE" title="sptk::Matrix"><span class="n"><span class="pre">Matrix</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">imag_part</span></span>, <a class="reference internal" href="#_CPPv4N4sptk34TwoDimensionalFastFourierTransformE" title="sptk::TwoDimensionalFastFourierTransform"><span class="n"><span class="pre">TwoDimensionalFastFourierTransform</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk34TwoDimensionalFastFourierTransform6BufferE" title="sptk::TwoDimensionalFastFourierTransform::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk34TwoDimensionalFastFourierTransform3RunEP6MatrixP6MatrixPN34TwoDimensionalFastFourierTransform6BufferE" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>real_part</strong> – <strong>[inout]</strong> Real part. </p></li>
 <li><p><strong>imag_part</strong> – <strong>[inout]</strong> Imaginary part. </p></li>
 <li><p><strong>buffer</strong> – <strong>[out]</strong> <a class="reference internal" href="#classsptk_1_1TwoDimensionalFastFourierTransform_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><p>True on success, false on failure. </p>
 </dd>
 </dl>
