@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>lbg &#8212; diffsptk 0.6.0 documentation</title>
+    <title>gmm &#8212; diffsptk 0.6.0 documentation</title>
   
   
   
@@ -37,11 +37,11 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/sphinx_highlight.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'core/lbg';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'core/gmm';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="levdur" href="levdur.html" />
-    <link rel="prev" title="lar2par" href="lar2par.html" />
+    <link rel="next" title="gnorm" href="gnorm.html" />
+    <link rel="prev" title="freqt2" href="freqt2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -276,7 +276,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
 <li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="freqt2.html">freqt2</a></li>
-<li class="toctree-l1"><a class="reference internal" href="gmm.html">gmm</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">gmm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
@@ -290,7 +290,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ivq.html">ivq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">lbg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lbg.html">lbg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="levdur.html">levdur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linear_intpl.html">linear_intpl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc.html">lpc</a></li>
@@ -369,7 +369,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">diffsptk.core</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">lbg</li>
+    <li class="breadcrumb-item active" aria-current="page">gmm</li>
   </ul>
 </nav>
 </div>
@@ -386,39 +386,47 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="lbg">
-<span id="id1"></span><h1>lbg<a class="headerlink" href="#lbg" title="Permalink to this heading">#</a></h1>
+  <section id="gmm">
+<span id="id1"></span><h1>gmm<a class="headerlink" href="#gmm" title="Permalink to this heading">#</a></h1>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="diffsptk.LBG">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">LBG</span></span><a class="headerlink" href="#diffsptk.LBG" title="Permalink to this definition">#</a></dt>
-<dd><p>alias of <a class="reference internal" href="#diffsptk.LindeBuzoGrayAlgorithm" title="diffsptk.core.lbg.LindeBuzoGrayAlgorithm"><code class="xref py py-class docutils literal notranslate"><span class="pre">LindeBuzoGrayAlgorithm</span></code></a></p>
+<dt class="sig sig-object py" id="diffsptk.GMM">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">GMM</span></span><a class="headerlink" href="#diffsptk.GMM" title="Permalink to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="#diffsptk.GaussianMixtureModeling" title="diffsptk.core.gmm.GaussianMixtureModeling"><code class="xref py py-class docutils literal notranslate"><span class="pre">GaussianMixtureModeling</span></code></a></p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.LindeBuzoGrayAlgorithm">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">LindeBuzoGrayAlgorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">codebook_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_data_per_cluster</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perturb_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/lbg.html#LindeBuzoGrayAlgorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LindeBuzoGrayAlgorithm" title="Permalink to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/lbg.html">this page</a>
+<dt class="sig sig-object py" id="diffsptk.GaussianMixtureModeling">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">GaussianMixtureModeling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_mixture</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_floor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_floor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'diag'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ubm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/gmm.html#GaussianMixtureModeling"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.GaussianMixtureModeling" title="Permalink to this definition">#</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/gmm.html">this page</a>
 for details. This module is not differentiable.</p>
 <dl class="simple">
 <dt>order<span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of vector.</p>
 </dd>
-<dt>codebook_size<span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Target codebook size, must be power of two.</p>
-</dd>
-<dt>min_data_per_cluster<span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Minimum number of data points in a cluster.</p>
+<dt>n_mixture<span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Number of mixture components.</p>
 </dd>
 <dt>n_iter<span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Number of iterations.</p>
 </dd>
 <dt>eps<span class="classifier">float &gt;= 0 [scalar]</span></dt><dd><p>Convergence threshold.</p>
 </dd>
-<dt>perturb_factor<span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Perturbation factor.</p>
+<dt>weight_floor<span class="classifier">float &gt;= 0 [scalar]</span></dt><dd><p>Floor value for mixture weights.</p>
+</dd>
+<dt>var_floor<span class="classifier">float &gt;= 0 [scalar]</span></dt><dd><p>Floor value for variance.</p>
+</dd>
+<dt>var_type<span class="classifier">[‘diag’, ‘full’]</span></dt><dd><p>Type of covariance.</p>
+</dd>
+<dt>block_size<span class="classifier">list[int]</span></dt><dd><p>Block size of covariance matrix.</p>
+</dd>
+<dt>ubm<span class="classifier">tuple of Tensors</span></dt><dd><p>Parameters of universal background model.</p>
+</dd>
+<dt>alpha<span class="classifier">float [ 0 &lt;= alpha &lt;= 1 ]</span></dt><dd><p>Smoothing parameter.</p>
 </dd>
 <dt>verbose<span class="classifier">bool [scalar]</span></dt><dd><p>If True, print progress.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.LindeBuzoGrayAlgorithm.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/lbg.html#LindeBuzoGrayAlgorithm.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LindeBuzoGrayAlgorithm.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Design a codebook.</p>
+<dt class="sig sig-object py" id="diffsptk.GaussianMixtureModeling.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/gmm.html#GaussianMixtureModeling.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.GaussianMixtureModeling.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Train Gaussian mixture models.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -428,35 +436,75 @@ for details. This module is not differentiable.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>codebook</strong><span class="classifier">Tensor [shape=(K, M+1)]</span></dt><dd><p>Codebook.</p>
+<dt><strong>params</strong><span class="classifier">tuple of Tensors [shape=((K,), (K, M+1), (K, M+1, M+1))]</span></dt><dd><p>GMM parameters.</p>
 </dd>
-<dt><strong>indices</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Codebook indices.</p>
-</dd>
-<dt><strong>distance</strong><span class="classifier">Tensor [scalar]</span></dt><dd><p>Distance.</p>
+<dt><strong>log_likelihood</strong><span class="classifier">Tensor [scalar]</span></dt><dd><p>Total log-likelihood.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">nrand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">lbg</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">LBG</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">codebook</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">lbg</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">codebook</span>
-<span class="go">tensor([[-0.5277],</span>
-<span class="go">        [ 0.6747]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">indices</span>
-<span class="go">tensor([0, 0, 0, 1, 0, 1, 1, 1, 1, 0])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">distance</span>
-<span class="go">tensor(0.2331)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">nrand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gmm</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">GMM</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">params</span><span class="p">,</span> <span class="n">log_likelihood</span> <span class="o">=</span> <span class="n">gmm</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">w</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="n">params</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">w</span>
+<span class="go">tensor([0.1917, 0.8083])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mu</span>
+<span class="go">tensor([[ 1.2321,  0.2058],</span>
+<span class="go">        [-0.1326, -0.7006]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sigma</span>
+<span class="go">tensor([[[3.4010e-01, 0.0000e+00],</span>
+<span class="go">         [0.0000e+00, 6.2351e-04]],</span>
 </pre></div>
 </div>
+<blockquote>
+<div><dl class="simple">
+<dt>[[3.0944e-01, 0.0000e+00],</dt><dd><p>[0.0000e+00, 8.6096e-01]]])</p>
+</dd>
+</dl>
+</div></blockquote>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">log_likelihood</span>
+<span class="go">tensor(-19.5235)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diffsptk.GaussianMixtureModeling.set_params">
+<span class="sig-name descname"><span class="pre">set_params</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/gmm.html#GaussianMixtureModeling.set_params"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.GaussianMixtureModeling.set_params" title="Permalink to this definition">#</a></dt>
+<dd><p>Set model parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>params</strong><span class="classifier">tuple of Tensors</span></dt><dd><p>Parameters of Gaussian mixture model.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diffsptk.GaussianMixtureModeling.warmup">
+<span class="sig-name descname"><span class="pre">warmup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">lbg_params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/gmm.html#GaussianMixtureModeling.warmup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.GaussianMixtureModeling.warmup" title="Permalink to this definition">#</a></dt>
+<dd><p>Initialize model parameters by K-means clustering.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Training data.</p>
+</dd>
+<dt><strong>lbg_params</strong><span class="classifier">additional keyword arguments</span></dt><dd><p>Parameters for Linde-Buzo-Gray algorithm.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="vq.html#vq"><span class="std std-ref">vq</span></a>  <a class="reference internal" href="ivq.html#ivq"><span class="std std-ref">ivq</span></a>  <a class="reference internal" href="gmm.html#gmm"><span class="std std-ref">gmm</span></a></p>
+<p><a class="reference internal" href="lbg.html#lbg"><span class="std std-ref">lbg</span></a></p>
 </div>
 </section>
 
@@ -472,20 +520,20 @@ for details. This module is not differentiable.</p>
     <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="lar2par.html"
+       href="freqt2.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">lar2par</p>
+        <p class="prev-next-title">freqt2</p>
       </div>
     </a>
     <a class="right-next"
-       href="levdur.html"
+       href="gnorm.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">levdur</p>
+        <p class="prev-next-title">gnorm</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -507,9 +555,11 @@ for details. This module is not differentiable.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.LBG"><code class="docutils literal notranslate"><span class="pre">LBG</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.LindeBuzoGrayAlgorithm"><code class="docutils literal notranslate"><span class="pre">LindeBuzoGrayAlgorithm</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.LindeBuzoGrayAlgorithm.forward"><code class="docutils literal notranslate"><span class="pre">LindeBuzoGrayAlgorithm.forward()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.GMM"><code class="docutils literal notranslate"><span class="pre">GMM</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.GaussianMixtureModeling"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.GaussianMixtureModeling.forward"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling.forward()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.GaussianMixtureModeling.set_params"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling.set_params()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.GaussianMixtureModeling.warmup"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling.warmup()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -517,7 +567,7 @@ for details. This module is not differentiable.</p>
 
   <div class="sidebar-secondary-item">
   <div class="tocsection sourcelink">
-    <a href="../_sources/core/lbg.rst.txt">
+    <a href="../_sources/core/gmm.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
