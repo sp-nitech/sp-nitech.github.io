@@ -350,7 +350,7 @@ document.write(`
 <span class="sd">    block_size : list[int]</span>
 <span class="sd">        Block size of covariance matrix.</span>
 
-<span class="sd">    ubm : tuple of Tensors</span>
+<span class="sd">    ubm : tuple of Tensors [shape=((K,), (K, M+1), (K, M+1, M+1))]</span>
 <span class="sd">        Parameters of universal background model.</span>
 
 <span class="sd">    alpha : float [ 0 &lt;= alpha &lt;= 1 ]</span>
@@ -450,7 +450,7 @@ document.write(`
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        params : tuple of Tensors</span>
+<span class="sd">        params : tuple of Tensors [shape=((K,), (K, M+1), (K, M+1, M+1))]</span>
 <span class="sd">            Parameters of Gaussian mixture model.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -524,7 +524,6 @@ document.write(`
 <span class="sd">        &gt;&gt;&gt; sigma</span>
 <span class="sd">        tensor([[[3.4010e-01, 0.0000e+00],</span>
 <span class="sd">                 [0.0000e+00, 6.2351e-04]],</span>
-
 <span class="sd">                [[3.0944e-01, 0.0000e+00],</span>
 <span class="sd">                 [0.0000e+00, 8.6096e-01]]])</span>
 <span class="sd">        &gt;&gt;&gt; log_likelihood</span>

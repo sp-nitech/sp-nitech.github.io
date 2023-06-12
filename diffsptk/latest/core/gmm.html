@@ -416,7 +416,7 @@ for details. This module is not differentiable.</p>
 </dd>
 <dt>block_size<span class="classifier">list[int]</span></dt><dd><p>Block size of covariance matrix.</p>
 </dd>
-<dt>ubm<span class="classifier">tuple of Tensors</span></dt><dd><p>Parameters of universal background model.</p>
+<dt>ubm<span class="classifier">tuple of Tensors [shape=((K,), (K, M+1), (K, M+1, M+1))]</span></dt><dd><p>Parameters of universal background model.</p>
 </dd>
 <dt>alpha<span class="classifier">float [ 0 &lt;= alpha &lt;= 1 ]</span></dt><dd><p>Smoothing parameter.</p>
 </dd>
@@ -456,15 +456,9 @@ for details. This module is not differentiable.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">sigma</span>
 <span class="go">tensor([[[3.4010e-01, 0.0000e+00],</span>
 <span class="go">         [0.0000e+00, 6.2351e-04]],</span>
-</pre></div>
-</div>
-<blockquote>
-<div><dl class="simple">
-<dt>[[3.0944e-01, 0.0000e+00],</dt><dd><p>[0.0000e+00, 8.6096e-01]]])</p>
-</dd>
-</dl>
-</div></blockquote>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">log_likelihood</span>
+<span class="go">        [[3.0944e-01, 0.0000e+00],</span>
+<span class="go">         [0.0000e+00, 8.6096e-01]]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">log_likelihood</span>
 <span class="go">tensor(-19.5235)</span>
 </pre></div>
 </div>
@@ -477,7 +471,7 @@ for details. This module is not differentiable.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>params</strong><span class="classifier">tuple of Tensors</span></dt><dd><p>Parameters of Gaussian mixture model.</p>
+<dt><strong>params</strong><span class="classifier">tuple of Tensors [shape=((K,), (K, M+1), (K, M+1, M+1))]</span></dt><dd><p>Parameters of Gaussian mixture model.</p>
 </dd>
 </dl>
 </dd>
