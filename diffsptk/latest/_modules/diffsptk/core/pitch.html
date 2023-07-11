@@ -348,7 +348,7 @@ document.write(`
 <span class="sd">    f_max : float &lt;= sample_rate // 2 [scalar]</span>
 <span class="sd">        Maximum frequency in Hz.</span>
 
-<span class="sd">    threshold : float [scalar]</span>
+<span class="sd">    voicing_threshold : float [scalar]</span>
 <span class="sd">        Voiced/unvoiced threshold.</span>
 
 <span class="sd">    silence_threshold : float [scalar]</span>
@@ -498,7 +498,7 @@ document.write(`
         <span class="n">sample_rate</span><span class="p">,</span>
         <span class="n">f_min</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
         <span class="n">f_max</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="n">threshold</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span>
+        <span class="n">voicing_threshold</span><span class="o">=</span><span class="mf">1e-2</span><span class="p">,</span>
         <span class="n">silence_threshold</span><span class="o">=-</span><span class="mi">60</span><span class="p">,</span>
         <span class="n">filter_length</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
         <span class="n">model</span><span class="o">=</span><span class="s2">&quot;full&quot;</span><span class="p">,</span>
@@ -509,7 +509,7 @@ document.write(`
 
         <span class="bp">self</span><span class="o">.</span><span class="n">f_min</span> <span class="o">=</span> <span class="n">f_min</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">f_max</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">torchcrepe</span><span class="o">.</span><span class="n">MAX_FMAX</span> <span class="k">if</span> <span class="n">f_max</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">f_max</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span> <span class="o">=</span> <span class="n">threshold</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">voicing_threshold</span> <span class="o">=</span> <span class="n">voicing_threshold</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">silence_threshold</span> <span class="o">=</span> <span class="n">silence_threshold</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">filter_length</span> <span class="o">=</span> <span class="n">filter_length</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">model</span>
@@ -574,7 +574,7 @@ document.write(`
         <span class="n">loudness</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">loudness</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">torchcrepe</span><span class="o">.</span><span class="n">loudness</span><span class="o">.</span><span class="n">MIN_DB</span><span class="p">)</span>
         <span class="n">loudness</span> <span class="o">=</span> <span class="n">loudness</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">mask</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">logical_or</span><span class="p">(</span>
-            <span class="n">periodicity</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">threshold</span><span class="p">,</span> <span class="n">loudness</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">silence_threshold</span>
+            <span class="n">periodicity</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">voicing_threshold</span><span class="p">,</span> <span class="n">loudness</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">silence_threshold</span>
         <span class="p">)</span>
         <span class="n">pitch</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">UNVOICED_SYMBOL</span>
         <span class="k">return</span> <span class="n">pitch</span>

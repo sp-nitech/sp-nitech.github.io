@@ -493,7 +493,7 @@ document.write(`
     <span class="k">assert</span> <span class="n">x</span> <span class="o">==</span> <span class="n">y</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;Unexpected </span><span class="si">{</span><span class="n">cause</span><span class="si">}</span><span class="s2"> (input </span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> vs target </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">)&quot;</span>
 
 
-<div class="viewcode-block" id="read"><a class="viewcode-back" href="../../../misc/utils.html#diffsptk.read">[docs]</a><span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">double</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="viewcode-block" id="read"><a class="viewcode-back" href="../../../misc/utils.html#diffsptk.read">[docs]</a><span class="k">def</span> <span class="nf">read</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">double</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Read waveform from file.</span>
 
 <span class="sd">    Parameters</span>
@@ -503,6 +503,9 @@ document.write(`
 
 <span class="sd">    double : bool [scalar]</span>
 <span class="sd">        If True, return double-type tensor.</span>
+
+<span class="sd">    kwargs : additional keyword arguments</span>
+<span class="sd">        Additional arguments passed to `soundfile.read`.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -518,7 +521,7 @@ document.write(`
 <span class="sd">    16000</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">double</span><span class="p">:</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">DoubleTensor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
@@ -526,7 +529,7 @@ document.write(`
     <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">sr</span></div>
 
 
-<div class="viewcode-block" id="write"><a class="viewcode-back" href="../../../misc/utils.html#diffsptk.write">[docs]</a><span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">sr</span><span class="p">):</span>
+<div class="viewcode-block" id="write"><a class="viewcode-back" href="../../../misc/utils.html#diffsptk.write">[docs]</a><span class="k">def</span> <span class="nf">write</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Write waveform to file.</span>
 
 <span class="sd">    Parameters</span>
@@ -540,13 +543,16 @@ document.write(`
 <span class="sd">    sr : int [scalar]</span>
 <span class="sd">        Sample rate in Hz.</span>
 
+<span class="sd">    kwargs : additional keyword arguments</span>
+<span class="sd">        Additional arguments passed to `soundfile.write`.</span>
+
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
 <span class="sd">    &gt;&gt;&gt; x, sr = diffsptk.read(&quot;assets/data.wav&quot;)</span>
 <span class="sd">    &gt;&gt;&gt; diffsptk.write(&quot;out.wav&quot;, x, sr)</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">sf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">sr</span><span class="p">)</span></div>
+    <span class="n">sf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span> <span class="n">sr</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 </pre></div>
 
                 </article>

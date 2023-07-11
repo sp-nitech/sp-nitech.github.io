@@ -452,12 +452,15 @@ document.write(`
 <span class="sd">    alpha : float &gt; 0 [scalar]</span>
 <span class="sd">        Stopband attenuation in dB.</span>
 
+<span class="sd">    learnable : bool [scalar]</span>
+<span class="sd">        Whether to make filter-bank coefficients learnable.</span>
+
 <span class="sd">    **kwargs : additional keyword arguments</span>
 <span class="sd">        Parameters to find optimal filter-bank coefficients.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_band</span><span class="p">,</span> <span class="n">filter_order</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_band</span><span class="p">,</span> <span class="n">filter_order</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">learnable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">PseudoQuadratureMirrorFilterBanks</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">n_band</span>
@@ -472,7 +475,11 @@ document.write(`
             <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s2">&quot;Failed to find PQMF coefficients&quot;</span><span class="p">)</span>
         <span class="n">filters</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">expand_dims</span><span class="p">(</span><span class="n">filters</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
         <span class="n">filters</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">filters</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;filters&quot;</span><span class="p">,</span> <span class="n">numpy_to_torch</span><span class="p">(</span><span class="n">filters</span><span class="p">))</span>
+        <span class="n">filters</span> <span class="o">=</span> <span class="n">numpy_to_torch</span><span class="p">(</span><span class="n">filters</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">learnable</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">filters</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">filters</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;filters&quot;</span><span class="p">,</span> <span class="n">filters</span><span class="p">)</span>
 
         <span class="c1"># Make padding module.</span>
         <span class="k">if</span> <span class="n">filter_order</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
