@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.core.levdur &#8212; diffsptk 0.6.0 documentation</title>
+    <title>diffsptk.core.levdur &#8212; diffsptk 1.0.0 documentation</title>
   
   
   
@@ -100,7 +100,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 0.6.0 documentation</p>
+    <p class="title logo__title">diffsptk 1.0.0 documentation</p>
   
 </a></div>
     
@@ -315,20 +315,29 @@ document.write(`
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
+<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">check_size</span>
 <span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">symmetric_toeplitz</span>
 
 
-<div class="viewcode-block" id="PseudoLevinsonDurbinRecursion"><a class="viewcode-back" href="../../../core/levdur.html#diffsptk.PseudoLevinsonDurbinRecursion">[docs]</a><span class="k">class</span> <span class="nc">PseudoLevinsonDurbinRecursion</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<div class="viewcode-block" id="LevinsonDurbin"><a class="viewcode-back" href="../../../core/levdur.html#diffsptk.LevinsonDurbin">[docs]</a><span class="k">class</span> <span class="nc">LevinsonDurbin</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/levdur.html&gt;`_</span>
-<span class="sd">    for details. Note that the current implementation does not use the Durbin&#39;s</span>
-<span class="sd">    algorithm though the class name includes it.</span>
+<span class="sd">    for details.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    lpc_order : int &gt;= 0 [scalar]</span>
+<span class="sd">        Order of LPC coefficients, :math:`M`.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">PseudoLevinsonDurbinRecursion</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lpc_order</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">LevinsonDurbin</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-<div class="viewcode-block" id="PseudoLevinsonDurbinRecursion.forward"><a class="viewcode-back" href="../../../core/levdur.html#diffsptk.PseudoLevinsonDurbinRecursion.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lpc_order</span> <span class="o">=</span> <span class="n">lpc_order</span>
+
+        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lpc_order</span>
+
+<div class="viewcode-block" id="LevinsonDurbin.forward"><a class="viewcode-back" href="../../../core/levdur.html#diffsptk.LevinsonDurbin.forward">[docs]</a>    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">r</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Solve a Yule-Walker linear system.</span>
 
 <span class="sd">        Parameters</span>
@@ -346,12 +355,14 @@ document.write(`
 <span class="sd">        &gt;&gt;&gt; x = diffsptk.nrand(4)</span>
 <span class="sd">        tensor([ 0.8226, -0.0284, -0.5715,  0.2127,  0.1217])</span>
 <span class="sd">        &gt;&gt;&gt; acorr = diffsptk.AutocorrelationAnalysis(2, 5)</span>
-<span class="sd">        &gt;&gt;&gt; levdur = diffsptk.LevinsonDurbinRecursion()</span>
+<span class="sd">        &gt;&gt;&gt; levdur = diffsptk.LevinsonDurbin(2)</span>
 <span class="sd">        &gt;&gt;&gt; a = levdur(acorr(x))</span>
 <span class="sd">        &gt;&gt;&gt; a</span>
 <span class="sd">        tensor([0.8726, 0.1475, 0.5270])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">check_size</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">lpc_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;dimension of autocorrelation&quot;</span><span class="p">)</span>
+
         <span class="c1"># Make Toeplitz matrix.</span>
         <span class="n">R</span> <span class="o">=</span> <span class="n">symmetric_toeplitz</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 

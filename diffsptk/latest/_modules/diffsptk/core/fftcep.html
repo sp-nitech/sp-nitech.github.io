@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.core.fftcep &#8212; diffsptk 0.6.0 documentation</title>
+    <title>diffsptk.core.fftcep &#8212; diffsptk 1.0.0 documentation</title>
   
   
   
@@ -100,7 +100,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 0.6.0 documentation</p>
+    <p class="title logo__title">diffsptk 1.0.0 documentation</p>
   
 </a></div>
     
@@ -377,11 +377,6 @@ document.write(`
 <span class="sd">                [-0.8539,  4.6173, -0.5496, -0.3207]])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># Torch&#39;s pad only supports 3D, 4D, 5D padding with non-constant padding.</span>
-        <span class="n">d</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="n">d</span><span class="p">):</span>
-            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-
         <span class="n">M</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span>
         <span class="n">H</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span> <span class="o">//</span> <span class="mi">2</span>
 
@@ -400,10 +395,6 @@ document.write(`
 
         <span class="n">indices</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="n">M</span><span class="p">]</span> <span class="k">if</span> <span class="n">H</span> <span class="o">==</span> <span class="n">M</span> <span class="k">else</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
         <span class="n">v</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">indices</span><span class="p">]</span> <span class="o">*=</span> <span class="mf">0.5</span>
-
-        <span class="c1"># Revert shape.</span>
-        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span> <span class="o">-</span> <span class="n">d</span><span class="p">):</span>
-            <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">v</span></div></div>
 </pre></div>
 

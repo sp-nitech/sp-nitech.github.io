@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.core.gmm &#8212; diffsptk 0.6.0 documentation</title>
+    <title>diffsptk.core.gmm &#8212; diffsptk 1.0.0 documentation</title>
   
   
   
@@ -100,7 +100,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 0.6.0 documentation</p>
+    <p class="title logo__title">diffsptk 1.0.0 documentation</p>
   
 </a></div>
     
@@ -614,7 +614,7 @@ document.write(`
                     <span class="n">y</span> <span class="o">=</span> <span class="n">posterior</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
                     <span class="n">nu</span> <span class="o">=</span> <span class="n">px</span> <span class="o">/</span> <span class="n">y</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
                     <span class="n">nm</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">nu</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">mu</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">))</span>
-                    <span class="n">mn</span> <span class="o">=</span> <span class="n">nm</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+                    <span class="n">mn</span> <span class="o">=</span> <span class="n">nm</span><span class="o">.</span><span class="n">mT</span>
                     <span class="n">a</span> <span class="o">=</span> <span class="n">pxx</span> <span class="o">-</span> <span class="n">y</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">nm</span> <span class="o">+</span> <span class="n">mn</span> <span class="o">-</span> <span class="n">mm</span><span class="p">)</span>
                     <span class="n">b</span> <span class="o">=</span> <span class="n">xi</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">ubm_sigma</span>
                     <span class="n">diff</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ubm_mu</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">mu</span>

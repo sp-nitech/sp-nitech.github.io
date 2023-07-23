@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>ap &#8212; diffsptk 0.6.0 documentation</title>
+    <title>ap &#8212; diffsptk 1.0.0 documentation</title>
   
   
   
@@ -104,7 +104,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 0.6.0 documentation</p>
+    <p class="title logo__title">diffsptk 1.0.0 documentation</p>
   
 </a></div>
     
@@ -298,6 +298,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="lpc.html">lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpccheck.html">lpccheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="magic_intpl.html">magic_intpl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mcpf.html">mcpf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
@@ -316,8 +317,10 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlevdur.html">rlevdur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rmse.html">rmse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="root_pol.html">root_pol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="smcep.html">smcep</a></li>
@@ -392,7 +395,7 @@ document.write(`
 <span id="id1"></span><h1>ap<a class="headerlink" href="#ap" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.Aperiodicity">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">Aperiodicity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tandem'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'a'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/ap.html#Aperiodicity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Aperiodicity" title="Permalink to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">Aperiodicity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tandem'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'a'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/ap.html#Aperiodicity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Aperiodicity" title="Permalink to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/ap.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
@@ -402,7 +405,7 @@ for details.</p>
 </dd>
 <dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Sample rate in Hz.</p>
 </dd>
-<dt><strong>fft_size</strong><span class="classifier">int [scalar]</span></dt><dd><p>Size of double-sided aperiodicity, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+<dt><strong>fft_length</strong><span class="classifier">int [scalar]</span></dt><dd><p>Size of double-sided aperiodicity, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
 <dt><strong>algorithm</strong><span class="classifier">[‘tandem’]</span></dt><dd><p>Algorithm.</p>
 </dd>

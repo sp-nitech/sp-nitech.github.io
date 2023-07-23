@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.core.ap &#8212; diffsptk 0.6.0 documentation</title>
+    <title>diffsptk.core.ap &#8212; diffsptk 1.0.0 documentation</title>
   
   
   
@@ -100,7 +100,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 0.6.0 documentation</p>
+    <p class="title logo__title">diffsptk 1.0.0 documentation</p>
   
 </a></div>
     
@@ -335,7 +335,7 @@ document.write(`
 <span class="sd">    sample_rate : int &gt;= 1 [scalar]</span>
 <span class="sd">        Sample rate in Hz.</span>
 
-<span class="sd">    fft_size : int [scalar]</span>
+<span class="sd">    fft_length : int [scalar]</span>
 <span class="sd">        Size of double-sided aperiodicity, :math:`L`.</span>
 
 <span class="sd">    algorithm : [&#39;tandem&#39;]</span>
@@ -362,7 +362,7 @@ document.write(`
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">frame_period</span><span class="p">,</span>
         <span class="n">sample_rate</span><span class="p">,</span>
-        <span class="n">fft_size</span><span class="p">,</span>
+        <span class="n">fft_length</span><span class="p">,</span>
         <span class="n">algorithm</span><span class="o">=</span><span class="s2">&quot;tandem&quot;</span><span class="p">,</span>
         <span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;a&quot;</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
@@ -374,7 +374,7 @@ document.write(`
 
         <span class="k">if</span> <span class="n">algorithm</span> <span class="o">==</span> <span class="s2">&quot;tandem&quot;</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">extractor</span> <span class="o">=</span> <span class="n">AperiodicityExtractionByTandem</span><span class="p">(</span>
-                <span class="n">frame_period</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">,</span> <span class="n">fft_size</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+                <span class="n">frame_period</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">,</span> <span class="n">fft_length</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
             <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;algorithm </span><span class="si">{</span><span class="n">algorithm</span><span class="si">}</span><span class="s2"> is not supported&quot;</span><span class="p">)</span>
@@ -443,7 +443,7 @@ document.write(`
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">frame_period</span><span class="p">,</span>
         <span class="n">sample_rate</span><span class="p">,</span>
-        <span class="n">fft_size</span><span class="p">,</span>
+        <span class="n">fft_length</span><span class="p">,</span>
         <span class="n">lower_bound</span><span class="o">=</span><span class="mf">0.001</span><span class="p">,</span>
         <span class="n">upper_bound</span><span class="o">=</span><span class="mf">0.999</span><span class="p">,</span>
         <span class="n">window_length_ms</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
@@ -460,8 +460,8 @@ document.write(`
         <span class="bp">self</span><span class="o">.</span><span class="n">default_f0</span> <span class="o">=</span> <span class="mi">150</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_trial</span> <span class="o">=</span> <span class="mi">10</span>
 
-        <span class="k">assert</span> <span class="n">fft_size</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
-        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_band</span> <span class="o">&lt;=</span> <span class="n">fft_size</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="k">assert</span> <span class="n">fft_length</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_band</span> <span class="o">&lt;=</span> <span class="n">fft_length</span> <span class="o">//</span> <span class="mi">2</span>
         <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">lower_bound</span> <span class="o">&lt;</span> <span class="n">upper_bound</span> <span class="o">&lt;=</span> <span class="mi">1</span>
         <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">window_length_ms</span>
         <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">eps</span>
@@ -472,7 +472,7 @@ document.write(`
         <span class="n">coarse_axis</span> <span class="o">=</span> <span class="p">[</span><span class="n">sample_rate</span> <span class="o">/</span> <span class="mi">2</span><span class="o">**</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_band</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)]</span>
         <span class="n">coarse_axis</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
         <span class="n">coarse_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">coarse_axis</span><span class="p">)</span>
-        <span class="n">freq_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">fft_size</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">sample_rate</span> <span class="o">/</span> <span class="n">fft_size</span><span class="p">)</span>
+        <span class="n">freq_axis</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">fft_length</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">sample_rate</span> <span class="o">/</span> <span class="n">fft_length</span><span class="p">)</span>
 
         <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="n">coarse_axis</span><span class="p">,</span> <span class="n">freq_axis</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
         <span class="n">idx</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">coarse_axis</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">)</span>
@@ -546,7 +546,7 @@ document.write(`
 
             <span class="n">H</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">H_alpha</span><span class="p">,</span> <span class="n">H_beta</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># (B, N, J, 6)</span>
             <span class="n">w</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">[</span><span class="n">i</span><span class="p">,</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">segment_length</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>  <span class="c1"># (J,)</span>
-            <span class="n">Hw</span> <span class="o">=</span> <span class="n">H</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">w</span>  <span class="c1"># (B, N, 6, J)</span>
+            <span class="n">Hw</span> <span class="o">=</span> <span class="n">H</span><span class="o">.</span><span class="n">mT</span> <span class="o">*</span> <span class="n">w</span>  <span class="c1"># (B, N, 6, J)</span>
             <span class="n">R</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">Hw</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span>  <span class="c1"># (B, N, 6, 6)</span>
 
             <span class="n">index_gamma</span> <span class="o">=</span> <span class="n">origin</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">j</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># (B, N, J)</span>

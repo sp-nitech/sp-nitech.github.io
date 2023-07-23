@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.core.phase &#8212; diffsptk 0.6.0 documentation</title>
+    <title>diffsptk.core.phase &#8212; diffsptk 1.0.0 documentation</title>
   
   
   
@@ -100,7 +100,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 0.6.0 documentation</p>
+    <p class="title logo__title">diffsptk 1.0.0 documentation</p>
   
 </a></div>
     
@@ -316,6 +316,7 @@ document.write(`
 
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
 
 
 <div class="viewcode-block" id="Phase"><a class="viewcode-back" href="../../../core/phase.html#diffsptk.Phase">[docs]</a><span class="k">class</span> <span class="nc">Phase</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
@@ -371,8 +372,7 @@ document.write(`
             <span class="n">p</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span><span class="n">B</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="n">B</span><span class="o">.</span><span class="n">real</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">K</span><span class="p">,</span> <span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-            <span class="n">K</span> <span class="o">=</span> <span class="n">K</span> <span class="o">*</span> <span class="mi">0</span> <span class="o">+</span> <span class="mi">1</span>
-            <span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">K</span><span class="p">,</span> <span class="n">a</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
             <span class="n">A</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span><span class="p">)</span>
             <span class="n">p</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">atan2</span><span class="p">(</span>
                 <span class="n">B</span><span class="o">.</span><span class="n">imag</span> <span class="o">*</span> <span class="n">A</span><span class="o">.</span><span class="n">real</span> <span class="o">-</span> <span class="n">B</span><span class="o">.</span><span class="n">real</span> <span class="o">*</span> <span class="n">A</span><span class="o">.</span><span class="n">imag</span><span class="p">,</span> <span class="n">B</span><span class="o">.</span><span class="n">real</span> <span class="o">*</span> <span class="n">A</span><span class="o">.</span><span class="n">real</span> <span class="o">+</span> <span class="n">B</span><span class="o">.</span><span class="n">imag</span> <span class="o">*</span> <span class="n">A</span><span class="o">.</span><span class="n">imag</span>
