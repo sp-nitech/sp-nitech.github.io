@@ -1,0 +1,448 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Overview: module code &#8212; diffsptk 1.0.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/index';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+<div class="bd-header__inner bd-page-width">
+  <label class="sidebar-toggle primary-toggle" for="__primary">
+    <span class="fa-solid fa-bars"></span>
+  </label>
+  
+  <div class="navbar-header-items__start">
+    
+      <div class="navbar-item">
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    <p class="title logo__title">diffsptk 1.0.0 documentation</p>
+  
+</a></div>
+    
+  </div>
+  
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../core/index.html">
+                        Core API
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../misc/index.html">
+                        Misc
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+        </div>
+      
+      
+        <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+    </div>
+  
+
+  
+</div>
+
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          <div class="navbar-item"><nav class="navbar-nav">
+  <p class="sidebar-header-items__title"
+     role="heading"
+     aria-level="1"
+     aria-label="Site Navigation">
+    Site Navigation
+  </p>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../core/index.html">
+                        Core API
+                      </a>
+                    </li>
+                
+
+                    <li class="nav-item">
+                      <a class="nav-link nav-internal" href="../misc/index.html">
+                        Misc
+                      </a>
+                    </li>
+                
+  </ul>
+</nav></div>
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+<nav aria-label="Breadcrumbs">
+  <ul class="bd-breadcrumbs" role="navigation" aria-label="Breadcrumb">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    <li class="breadcrumb-item active" aria-current="page">Overview: module code</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <h1>All modules for which code is available</h1>
+<ul><li><a href="diffsptk/core/acorr.html">diffsptk.core.acorr</a></li>
+<li><a href="diffsptk/core/ap.html">diffsptk.core.ap</a></li>
+<li><a href="diffsptk/core/b2mc.html">diffsptk.core.b2mc</a></li>
+<li><a href="diffsptk/core/c2acr.html">diffsptk.core.c2acr</a></li>
+<li><a href="diffsptk/core/c2mpir.html">diffsptk.core.c2mpir</a></li>
+<li><a href="diffsptk/core/c2ndps.html">diffsptk.core.c2ndps</a></li>
+<li><a href="diffsptk/core/cdist.html">diffsptk.core.cdist</a></li>
+<li><a href="diffsptk/core/cqt.html">diffsptk.core.cqt</a></li>
+<li><a href="diffsptk/core/dct.html">diffsptk.core.dct</a></li>
+<li><a href="diffsptk/core/decimate.html">diffsptk.core.decimate</a></li>
+<li><a href="diffsptk/core/delay.html">diffsptk.core.delay</a></li>
+<li><a href="diffsptk/core/delta.html">diffsptk.core.delta</a></li>
+<li><a href="diffsptk/core/dequantize.html">diffsptk.core.dequantize</a></li>
+<li><a href="diffsptk/core/df2.html">diffsptk.core.df2</a></li>
+<li><a href="diffsptk/core/dfs.html">diffsptk.core.dfs</a></li>
+<li><a href="diffsptk/core/entropy.html">diffsptk.core.entropy</a></li>
+<li><a href="diffsptk/core/excite.html">diffsptk.core.excite</a></li>
+<li><a href="diffsptk/core/fbank.html">diffsptk.core.fbank</a></li>
+<li><a href="diffsptk/core/fftcep.html">diffsptk.core.fftcep</a></li>
+<li><a href="diffsptk/core/frame.html">diffsptk.core.frame</a></li>
+<li><a href="diffsptk/core/freqt.html">diffsptk.core.freqt</a></li>
+<li><a href="diffsptk/core/freqt2.html">diffsptk.core.freqt2</a></li>
+<li><a href="diffsptk/core/gmm.html">diffsptk.core.gmm</a></li>
+<li><a href="diffsptk/core/gnorm.html">diffsptk.core.gnorm</a></li>
+<li><a href="diffsptk/core/grpdelay.html">diffsptk.core.grpdelay</a></li>
+<li><a href="diffsptk/core/idct.html">diffsptk.core.idct</a></li>
+<li><a href="diffsptk/core/ifreqt2.html">diffsptk.core.ifreqt2</a></li>
+<li><a href="diffsptk/core/ignorm.html">diffsptk.core.ignorm</a></li>
+<li><a href="diffsptk/core/imglsadf.html">diffsptk.core.imglsadf</a></li>
+<li><a href="diffsptk/core/imsvq.html">diffsptk.core.imsvq</a></li>
+<li><a href="diffsptk/core/interpolate.html">diffsptk.core.interpolate</a></li>
+<li><a href="diffsptk/core/ipqmf.html">diffsptk.core.ipqmf</a></li>
+<li><a href="diffsptk/core/istft.html">diffsptk.core.istft</a></li>
+<li><a href="diffsptk/core/iulaw.html">diffsptk.core.iulaw</a></li>
+<li><a href="diffsptk/core/ivq.html">diffsptk.core.ivq</a></li>
+<li><a href="diffsptk/core/lar2par.html">diffsptk.core.lar2par</a></li>
+<li><a href="diffsptk/core/lbg.html">diffsptk.core.lbg</a></li>
+<li><a href="diffsptk/core/levdur.html">diffsptk.core.levdur</a></li>
+<li><a href="diffsptk/core/linear_intpl.html">diffsptk.core.linear_intpl</a></li>
+<li><a href="diffsptk/core/lpc.html">diffsptk.core.lpc</a></li>
+<li><a href="diffsptk/core/lpc2par.html">diffsptk.core.lpc2par</a></li>
+<li><a href="diffsptk/core/lpccheck.html">diffsptk.core.lpccheck</a></li>
+<li><a href="diffsptk/core/magic_intpl.html">diffsptk.core.magic_intpl</a></li>
+<li><a href="diffsptk/core/mc2b.html">diffsptk.core.mc2b</a></li>
+<li><a href="diffsptk/core/mcpf.html">diffsptk.core.mcpf</a></li>
+<li><a href="diffsptk/core/mfcc.html">diffsptk.core.mfcc</a></li>
+<li><a href="diffsptk/core/mgc2mgc.html">diffsptk.core.mgc2mgc</a></li>
+<li><a href="diffsptk/core/mgc2sp.html">diffsptk.core.mgc2sp</a></li>
+<li><a href="diffsptk/core/mgcep.html">diffsptk.core.mgcep</a></li>
+<li><a href="diffsptk/core/mglsadf.html">diffsptk.core.mglsadf</a></li>
+<li><a href="diffsptk/core/mlpg.html">diffsptk.core.mlpg</a></li>
+<li><a href="diffsptk/core/mlsacheck.html">diffsptk.core.mlsacheck</a></li>
+<li><a href="diffsptk/core/mpir2c.html">diffsptk.core.mpir2c</a></li>
+<li><a href="diffsptk/core/msvq.html">diffsptk.core.msvq</a></li>
+<li><a href="diffsptk/core/ndps2c.html">diffsptk.core.ndps2c</a></li>
+<li><a href="diffsptk/core/norm0.html">diffsptk.core.norm0</a></li>
+<li><a href="diffsptk/core/par2lar.html">diffsptk.core.par2lar</a></li>
+<li><a href="diffsptk/core/par2lpc.html">diffsptk.core.par2lpc</a></li>
+<li><a href="diffsptk/core/pca.html">diffsptk.core.pca</a></li>
+<li><a href="diffsptk/core/phase.html">diffsptk.core.phase</a></li>
+<li><a href="diffsptk/core/pitch.html">diffsptk.core.pitch</a></li>
+<li><a href="diffsptk/core/poledf.html">diffsptk.core.poledf</a></li>
+<li><a href="diffsptk/core/pqmf.html">diffsptk.core.pqmf</a></li>
+<li><a href="diffsptk/core/quantize.html">diffsptk.core.quantize</a></li>
+<li><a href="diffsptk/core/rlevdur.html">diffsptk.core.rlevdur</a></li>
+<li><a href="diffsptk/core/rmse.html">diffsptk.core.rmse</a></li>
+<li><a href="diffsptk/core/root_pol.html">diffsptk.core.root_pol</a></li>
+<li><a href="diffsptk/core/smcep.html">diffsptk.core.smcep</a></li>
+<li><a href="diffsptk/core/snr.html">diffsptk.core.snr</a></li>
+<li><a href="diffsptk/core/spec.html">diffsptk.core.spec</a></li>
+<li><a href="diffsptk/core/stft.html">diffsptk.core.stft</a></li>
+<li><a href="diffsptk/core/ulaw.html">diffsptk.core.ulaw</a></li>
+<li><a href="diffsptk/core/unframe.html">diffsptk.core.unframe</a></li>
+<li><a href="diffsptk/core/vq.html">diffsptk.core.vq</a></li>
+<li><a href="diffsptk/core/window.html">diffsptk.core.window</a></li>
+<li><a href="diffsptk/core/yingram.html">diffsptk.core.yingram</a></li>
+<li><a href="diffsptk/core/zcross.html">diffsptk.core.zcross</a></li>
+<li><a href="diffsptk/core/zerodf.html">diffsptk.core.zerodf</a></li>
+<li><a href="diffsptk/misc/signals.html">diffsptk.misc.signals</a></li>
+<li><a href="diffsptk/misc/utils.html">diffsptk.misc.utils</a></li>
+</ul>
+
+                </article>
+              
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+  <p class="copyright">
+    
+      © Copyright 2022, SPTK Working Group.
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.0.1.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item"><p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.13.3.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
