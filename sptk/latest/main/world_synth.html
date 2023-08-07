@@ -16,6 +16,7 @@
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/doctools.js"></script>
         <script src="../_static/sphinx_highlight.js"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -217,7 +218,79 @@
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv44mainiA_Pc">
 <span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="world__synth_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
-<dd></dd></dl>
+<dd><p><em>world_synth</em> [ <em>option</em> ] <em>spfile</em> <em>apfile</em> [ <em>f0file</em> ]</p>
+<p><ul class="simple">
+<li><p><strong>-l</strong> <em>int</em> <ul>
+<li><p>FFT length</p></li>
+</ul>
+</p></li>
+<li><p><strong>-p</strong> <em>int</em> <ul>
+<li><p>frame shift [point] <span class="math notranslate nohighlight">\((1 \le P)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-s</strong> <em>double</em> <ul>
+<li><p>sampling rate [kHz] <span class="math notranslate nohighlight">\((8 &lt; F_s \le 98)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-F</strong> <em>int</em> <ul>
+<li><p>pitch format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> pitch <span class="math notranslate nohighlight">\((F_s / F_0)\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> F0 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> log F0</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>-S</strong> <em>int</em> <ul>
+<li><p>spectrum format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> <span class="math notranslate nohighlight">\(20 \log_{10} |H(z)|\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> <span class="math notranslate nohighlight">\(\log |H(z)|\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> <span class="math notranslate nohighlight">\(|H(z)|\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> <span class="math notranslate nohighlight">\(|H(z)|^2\)</span></p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>-A</strong> <em>int</em> <ul>
+<li><p>aperiodicity format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> Ha </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> Hp </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> Ha/Hp </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> Hp/Ha</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>spfile</strong> <em>str</em> <ul>
+<li><p>double-type spectrum</p></li>
+</ul>
+</p></li>
+<li><p><strong>apfile</strong> <em>str</em> <ul>
+<li><p>double-type aperiodicity</p></li>
+</ul>
+</p></li>
+<li><p><strong>f0file</strong> <em>str</em> <ul>
+<li><p>double-type pitch, not exicitaiton</p></li>
+</ul>
+</p></li>
+<li><p><strong>stdout</strong> <ul>
+<li><p>double-type waveform</p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
+<li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>0 on success, 1 on failure. </p>
+</dd>
+</dl>
+</dd></dl>
 
 </div>
 <div class="admonition seealso">
