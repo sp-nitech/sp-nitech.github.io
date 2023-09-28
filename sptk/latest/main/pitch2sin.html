@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>c2acr &mdash; SPTK  documentation</title>
+  <title>pitch2sin &mdash; SPTK  documentation</title>
       <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -20,8 +20,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="c2mpir" href="c2mpir.html" />
-    <link rel="prev" title="bcut" href="bcut.html" /> 
+    <link rel="next" title="pitch_mark" href="pitch_mark.html" />
+    <link rel="prev" title="pitch" href="pitch.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -54,7 +54,7 @@
 <li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bcp.html">bcp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bcut.html">bcut</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">c2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2acr.html">c2acr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c2ndps.html">c2ndps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cdist.html">cdist</a></li>
@@ -149,7 +149,7 @@
 <li class="toctree-l1"><a class="reference internal" href="pcas.html">pcas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pitch2sin.html">pitch2sin</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pitch2sin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
@@ -202,9 +202,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">c2acr</li>
+      <li class="breadcrumb-item active">pitch2sin</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/main/c2acr.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/main/pitch2sin.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -212,39 +212,43 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="c2acr">
-<span id="id1"></span><h1>c2acr<a class="headerlink" href="#c2acr" title="Permalink to this heading"></a></h1>
+  <section id="pitch2sin">
+<span id="id1"></span><h1>pitch2sin<a class="headerlink" href="#pitch2sin" title="Permalink to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv44mainiA_Pc">
-<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="c2acr_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
-<dd><p><em>c2acr</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="pitch2sin_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p><em>pitch2sin</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
 <p><ul class="simple">
-<li><p><strong>-m</strong> <em>int</em> <ul>
-<li><p>order of cepstral coefficients <span class="math notranslate nohighlight">\((0 \le M_1 &lt; L)\)</span></p></li>
+<li><p><strong>-p</strong> <em>int</em> <ul>
+<li><p>frame_period <span class="math notranslate nohighlight">\((1 \le P)\)</span></p></li>
 </ul>
 </p></li>
-<li><p><strong>-M</strong> <em>int</em> <ul>
-<li><p>order of autocorrelation coefficients <span class="math notranslate nohighlight">\((0 \le M_2 &lt; L)\)</span></p></li>
+<li><p><strong>-i</strong> <em>int</em> <ul>
+<li><p>interpolation period <span class="math notranslate nohighlight">\((0 \le I \le P/2)\)</span></p></li>
 </ul>
 </p></li>
-<li><p><strong>-l</strong> <em>int</em> <ul>
-<li><p>FFT length <span class="math notranslate nohighlight">\((2 \le L)\)</span></p></li>
+<li><p><strong>-o</strong> <em>int</em> <ul>
+<li><p>output format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> sine </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> cosine</p></li>
+</ul>
+</p></li>
 </ul>
 </p></li>
 <li><p><strong>infile</strong> <em>str</em> <ul>
-<li><p>double-type cepstral coefficients</p></li>
+<li><p>pitch period</p></li>
 </ul>
 </p></li>
 <li><p><strong>stdout</strong> <ul>
-<li><p>double-type autocorrelation coefficients</p></li>
+<li><p>sinudoisal sequence</p></li>
 </ul>
 </p></li>
 </ul>
 </p>
-<p>The following example converts the 30-th order cepstral coefficients in <code class="docutils literal notranslate"><span class="pre">data.cep</span></code> into the 15-th order LPC coefficients.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>c2acr<span class="w"> </span>-m<span class="w"> </span><span class="m">30</span><span class="w"> </span>-M<span class="w"> </span><span class="m">15</span><span class="w"> </span>&lt;<span class="w"> </span>data.cep<span class="w"> </span><span class="p">|</span><span class="w"> </span>levdur<span class="w"> </span>-m<span class="w"> </span><span class="m">15</span><span class="w"> </span>&gt;<span class="w"> </span>data.lpc
+<p>The below is a simple example to generate sinusoidal from <code class="docutils literal notranslate"><span class="pre">data.d</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pitch<span class="w"> </span>-s<span class="w"> </span><span class="m">16</span><span class="w"> </span>-p<span class="w"> </span><span class="m">80</span><span class="w"> </span>-o<span class="w"> </span><span class="m">0</span><span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span><span class="p">|</span><span class="w"> </span>pitch2sin<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span><span class="w"> </span>&gt;<span class="w"> </span>data.sin
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -263,72 +267,28 @@
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="lpc2c.html#lpc2c"><span class="std std-ref">lpc2c</span></a>  <a class="reference internal" href="acorr.html#acorr"><span class="std std-ref">acorr</span></a></p>
+<p><a class="reference internal" href="pitch.html#pitch"><span class="std std-ref">pitch</span></a>  <a class="reference internal" href="excite.html#excite"><span class="std std-ref">excite</span></a></p>
 </div>
 <dl class="cpp class">
-<dt class="sig sig-object cpp" id="_CPPv4N4sptk25CepstrumToAutocorrelationE">
-<span id="_CPPv3N4sptk25CepstrumToAutocorrelationE"></span><span id="_CPPv2N4sptk25CepstrumToAutocorrelationE"></span><span id="sptk::CepstrumToAutocorrelation"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CepstrumToAutocorrelation</span></span></span><a class="headerlink" href="#_CPPv4N4sptk25CepstrumToAutocorrelationE" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Convert cepstral coefficients to autocorrelation coefficients.</p>
-<p>The input is the <span class="math notranslate nohighlight">\(M_1\)</span>-th order cepstral coefficients: <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} c(0), &amp; c(1), &amp; \ldots, &amp; c(M_1), \end{array} \]</div>
- and the output is the <span class="math notranslate nohighlight">\(M_2\)</span>-th order autocorrelation coefficients: <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} r(0), &amp; r(1), &amp; \ldots, &amp; r(M_2), \end{array} \]</div>
- The definition of the cepstrum can be represented as <div class="math notranslate nohighlight">
-\[ c(m) = \mathcal{F}^{-1} \{ \log |\mathcal{F} \{x(m)\}| \}, \]</div>
- where <span class="math notranslate nohighlight">\(x(m)\)</span> is a signal, <span class="math notranslate nohighlight">\(\mathcal{F}^{-1}\)</span> and <span class="math notranslate nohighlight">\(\mathcal{F}\)</span> denote the DFT and the inverse DFT, respectively. From the definition, the relation between the cepstrum and the autocorrelation can be derived as follows: <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray} c(m) &amp;=&amp; \mathcal{F}^{-1} \left\{ \frac{1}{2} \log|X(\omega)|^2 \right\} \\ &amp;=&amp; \mathcal{F}^{-1} \left\{ \frac{1}{2} \log \mathcal{F} \{r(m)\} \right\}, \end{eqnarray}\end{split}\]</div>
- where the Wiener–Khinchin theorem is used. Thus <div class="math notranslate nohighlight">
-\[ r(m) = \mathcal{F}^{-1} \{ \exp (2\mathcal{F} \{c(m)\}) \}. \]</div>
- Note that the imaginary part is zero. </p>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk20SinusoidalGenerationE">
+<span id="_CPPv3N4sptk20SinusoidalGenerationE"></span><span id="_CPPv2N4sptk20SinusoidalGenerationE"></span><span id="sptk::SinusoidalGeneration"></span><span class="target" id="classsptk_1_1SinusoidalGeneration"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SinusoidalGeneration</span></span></span><a class="headerlink" href="#_CPPv4N4sptk20SinusoidalGenerationE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Generate sinusoidal sequence.</p>
+<p>The input is a sequence of pitch value which can be either a continuous value or a magic number. The output is the sinusoidal signal given the input sequence. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4sptk25CepstrumToAutocorrelation25CepstrumToAutocorrelationEiii">
-<span id="_CPPv3N4sptk25CepstrumToAutocorrelation25CepstrumToAutocorrelationEiii"></span><span id="_CPPv2N4sptk25CepstrumToAutocorrelation25CepstrumToAutocorrelationEiii"></span><span id="sptk::CepstrumToAutocorrelation::CepstrumToAutocorrelation__i.i.i"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation_1a92ceab2b0dc6496cdc0e608e0ead6a7d"></span><span class="sig-name descname"><span class="n"><span class="pre">CepstrumToAutocorrelation</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_input_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_output_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk25CepstrumToAutocorrelation25CepstrumToAutocorrelationEiii" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk20SinusoidalGeneration20SinusoidalGenerationEP39InputSourceInterpolationWithMagicNumber">
+<span id="_CPPv3N4sptk20SinusoidalGeneration20SinusoidalGenerationEP39InputSourceInterpolationWithMagicNumber"></span><span id="_CPPv2N4sptk20SinusoidalGeneration20SinusoidalGenerationEP39InputSourceInterpolationWithMagicNumber"></span><span id="sptk::SinusoidalGeneration::SinusoidalGeneration__InputSourceInterpolationWithMagicNumberP"></span><span class="target" id="classsptk_1_1SinusoidalGeneration_1af91895f38eaf033a8d0bf6bb8e4b83f1"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SinusoidalGeneration</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">InputSourceInterpolationWithMagicNumber</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_source</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk20SinusoidalGeneration20SinusoidalGenerationEP39InputSourceInterpolationWithMagicNumber" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>num_input_order</strong> – <strong>[in]</strong> Order of cepstral coefficients, <span class="math notranslate nohighlight">\(M_1\)</span>. </p></li>
-<li><p><strong>num_output_order</strong> – <strong>[in]</strong> Order of autocorrelation coefficients, <span class="math notranslate nohighlight">\(M_2\)</span>. </p></li>
-<li><p><strong>fft_length</strong> – <strong>[in]</strong> FFT length. </p></li>
-</ul>
+<dd class="field-odd"><p><strong>input_source</strong> – <strong>[in]</strong> Input source. </p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk25CepstrumToAutocorrelation16GetNumInputOrderEv">
-<span id="_CPPv3NK4sptk25CepstrumToAutocorrelation16GetNumInputOrderEv"></span><span id="_CPPv2NK4sptk25CepstrumToAutocorrelation16GetNumInputOrderEv"></span><span id="sptk::CepstrumToAutocorrelation::GetNumInputOrderC"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation_1a5e6c54b4186a513eb4e459dddb8e6e2f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumInputOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25CepstrumToAutocorrelation16GetNumInputOrderEv" title="Permalink to this definition"></a><br /></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Order of cepstral coefficients. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk25CepstrumToAutocorrelation17GetNumOutputOrderEv">
-<span id="_CPPv3NK4sptk25CepstrumToAutocorrelation17GetNumOutputOrderEv"></span><span id="_CPPv2NK4sptk25CepstrumToAutocorrelation17GetNumOutputOrderEv"></span><span id="sptk::CepstrumToAutocorrelation::GetNumOutputOrderC"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation_1a6dff322ee8ccfa805ca4302766b87573"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOutputOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25CepstrumToAutocorrelation17GetNumOutputOrderEv" title="Permalink to this definition"></a><br /></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Order of autocorrelation coefficients. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk25CepstrumToAutocorrelation12GetFftLengthEv">
-<span id="_CPPv3NK4sptk25CepstrumToAutocorrelation12GetFftLengthEv"></span><span id="_CPPv2NK4sptk25CepstrumToAutocorrelation12GetFftLengthEv"></span><span id="sptk::CepstrumToAutocorrelation::GetFftLengthC"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation_1a0487ae028fb9e2931692c81b38d2c51e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25CepstrumToAutocorrelation12GetFftLengthEv" title="Permalink to this definition"></a><br /></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>FFT length. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk25CepstrumToAutocorrelation7IsValidEv">
-<span id="_CPPv3NK4sptk25CepstrumToAutocorrelation7IsValidEv"></span><span id="_CPPv2NK4sptk25CepstrumToAutocorrelation7IsValidEv"></span><span id="sptk::CepstrumToAutocorrelation::IsValidC"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation_1ae7fddeff8aaae836999442f8c6a0e9cb"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25CepstrumToAutocorrelation7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk20SinusoidalGeneration7IsValidEv">
+<span id="_CPPv3NK4sptk20SinusoidalGeneration7IsValidEv"></span><span id="_CPPv2NK4sptk20SinusoidalGeneration7IsValidEv"></span><span id="sptk::SinusoidalGeneration::IsValidC"></span><span class="target" id="classsptk_1_1SinusoidalGeneration_1aea6766d8c9d568b637973dd15f58a792"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk20SinusoidalGeneration7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -337,14 +297,15 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk25CepstrumToAutocorrelation3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN25CepstrumToAutocorrelation6BufferE">
-<span id="_CPPv3NK4sptk25CepstrumToAutocorrelation3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN25CepstrumToAutocorrelation6BufferE"></span><span id="_CPPv2NK4sptk25CepstrumToAutocorrelation3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN25CepstrumToAutocorrelation6BufferE"></span><span id="sptk::CepstrumToAutocorrelation::Run__std::vector:double:CR.std::vector:double:P.CepstrumToAutocorrelation::BufferPC"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation_1af94c949a5c25b145dff6bfa98f642fb1"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">cepstrum</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">autocorrelation</span></span>, <a class="reference internal" href="#_CPPv4N4sptk25CepstrumToAutocorrelationE" title="sptk::CepstrumToAutocorrelation"><span class="n"><span class="pre">CepstrumToAutocorrelation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk25CepstrumToAutocorrelation6BufferE" title="sptk::CepstrumToAutocorrelation::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25CepstrumToAutocorrelation3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN25CepstrumToAutocorrelation6BufferE" title="Permalink to this definition"></a><br /></dt>
-<dd><dl class="field-list simple">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk20SinusoidalGeneration3GetEPdPdPd">
+<span id="_CPPv3N4sptk20SinusoidalGeneration3GetEPdPdPd"></span><span id="_CPPv2N4sptk20SinusoidalGeneration3GetEPdPdPd"></span><span id="sptk::SinusoidalGeneration::Get__doubleP.doubleP.doubleP"></span><span class="target" id="classsptk_1_1SinusoidalGeneration_1ac08558b5858152b9dbfcab1224bc1b9b"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Get</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">sin</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">cos</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">pitch</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk20SinusoidalGeneration3GetEPdPdPd" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Get sinusoidal signal.</p>
+<dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>cepstrum</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M_1\)</span>-th order cesptral coefficients. </p></li>
-<li><p><strong>autocorrelation</strong> – <strong>[out]</strong> <span class="math notranslate nohighlight">\(M_2\)</span>-th order autocorrelation coefficients. </p></li>
-<li><p><strong>buffer</strong> – <strong>[out]</strong> <a class="reference internal" href="#classsptk_1_1CepstrumToAutocorrelation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+<li><p><strong>sin</strong> – <strong>[out]</strong> Sine waveform (optional). </p></li>
+<li><p><strong>cos</strong> – <strong>[out]</strong> Cosine waveform (optional). </p></li>
+<li><p><strong>pitch</strong> – <strong>[out]</strong> Pitch (optional). </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -354,12 +315,6 @@
 </dd></dl>
 
 </div>
-<dl class="cpp class">
-<dt class="sig sig-object cpp" id="_CPPv4N4sptk25CepstrumToAutocorrelation6BufferE">
-<span id="_CPPv3N4sptk25CepstrumToAutocorrelation6BufferE"></span><span id="_CPPv2N4sptk25CepstrumToAutocorrelation6BufferE"></span><span id="sptk::CepstrumToAutocorrelation::Buffer"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk25CepstrumToAutocorrelation6BufferE" title="Permalink to this definition"></a><br /></dt>
-<dd><p><a class="reference internal" href="#classsptk_1_1CepstrumToAutocorrelation_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1CepstrumToAutocorrelation"><span class="std std-ref">CepstrumToAutocorrelation</span></a> class. </p>
-</dd></dl>
-
 </dd></dl>
 
 </section>
@@ -368,8 +323,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="bcut.html" class="btn btn-neutral float-left" title="bcut" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="c2mpir.html" class="btn btn-neutral float-right" title="c2mpir" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pitch.html" class="btn btn-neutral float-left" title="pitch" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pitch_mark.html" class="btn btn-neutral float-right" title="pitch_mark" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
