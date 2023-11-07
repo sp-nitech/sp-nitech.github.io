@@ -245,13 +245,22 @@
 <li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> standard deviation </p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">4</span></code> correlation </p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">5</span></code> precision </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">6</span></code> mean and lower/upper bounds</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">6</span></code> mean and lower/upper bounds </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">7</span></code> sufficient statistics</p></li>
 </ul>
 </p></li>
+</ul>
+</p></li>
+<li><p><strong>-s</strong> <em>str</em> <ul>
+<li><p>statistics file</p></li>
 </ul>
 </p></li>
 <li><p><strong>-d</strong> <ul>
 <li><p>output only diagonal elements</p></li>
+</ul>
+</p></li>
+<li><p><strong>-e</strong> <ul>
+<li><p>use a numerically stable algorithm</p></li>
 </ul>
 </p></li>
 <li><p><strong>infile</strong> <em>str</em> <ul>
@@ -265,7 +274,7 @@
 </ul>
 </p>
 <p>The input of this command is <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} \underbrace{ \underbrace{x_1(1), \; \ldots, \; x_1(L)}_L, \; \ldots, \; \underbrace{x_T(1), \; \ldots, \; x_T(L)}_L, }_{L \times T} \; \ldots, \end{array} \]</div>
+\[ \begin{array}{c} \underbrace{ \underbrace{x_1(1), \; \ldots, \; x_1(L)}_L, \; \ldots, \; \underbrace{x_T(1), \; \ldots, \; x_T(L)}_L, }_{L \times T} \; \ldots, \end{array} \]</div>
  and the output format depends on <code class="docutils literal notranslate"><span class="pre">-o</span></code> option.</p>
 <p>If <span class="math notranslate nohighlight">\(O=1\)</span>, <div class="math notranslate nohighlight">
 \[ \begin{array}{ccc} \underbrace{\mu_{0}(1), \; \ldots, \; \mu_{0}(L)}_L, &amp; \underbrace{\mu_{T}(1), \; \ldots, \; \mu_{T}(L)}_L, &amp; \ldots, \end{array} \]</div>
@@ -278,7 +287,7 @@
 \[ \sigma^2_t(k,l) = \frac{1}{T} \sum_{\tau=1}^T (x_{t+\tau}(k) - \mu_t(k)) (x_{t+\tau}(l) - \mu_t(l)). \]</div>
 </p>
 <p>If <span class="math notranslate nohighlight">\(O=3\)</span>, <div class="math notranslate nohighlight">
-\[ \begin{array}{cc} \underbrace{\sigma_{0}(1,1), \; \sigma_{0}(2,2), \; \ldots, \; \sigma_{0}(L,L)}_L, &amp; \ldots \end{array} \]</div>
+\[ \begin{array}{cc} \underbrace{\sigma_{0}(1,1), \; \sigma_{0}(2,2), \; \ldots, \; \sigma_{0}(L,L)}_L, &amp; \ldots. \end{array} \]</div>
 </p>
 <p>If <span class="math notranslate nohighlight">\(O=4\)</span>, <div class="math notranslate nohighlight">
 \[ \begin{array}{cc} \underbrace{r_{0}(1,1), \; r_{0}(1,2), \; \ldots, \; r_{0}(L,L)}_{L \times L}, &amp; \ldots, \end{array} \]</div>
@@ -287,17 +296,27 @@
 </p>
 <p>If <span class="math notranslate nohighlight">\(O=5\)</span>, <div class="math notranslate nohighlight">
 \[ \begin{array}{cc} \underbrace{s_{0}(1,1), \; s_{0}(1,2), \; \ldots, \; s_{0}(L,L)}_{L \times L}, &amp; \ldots, \end{array} \]</div>
- where <span class="math notranslate nohighlight">\(s_t(k,l)\)</span> is the <span class="math notranslate nohighlight">\((k,l)\)</span>-th component of the inverse of the covariance matrix <span class="math notranslate nohighlight">\(\{\sigma^2_t(k,l)\}_{k,l=1}^L\)</span>.</p>
+ where <span class="math notranslate nohighlight">\(s_t(k,l)\)</span> is the <span class="math notranslate nohighlight">\((k,l)\)</span>-th component of the inverse of the covariance matrix.</p>
 <p>If <span class="math notranslate nohighlight">\(O=6\)</span>, <div class="math notranslate nohighlight">
-\[ \begin{array}{ccc} \underbrace{\mu_{0}(1), \; \ldots, \; \mu_{0}(L)}_L, &amp; \underbrace{\ell_{0}(1), \; \ldots, \; \ell_{0}(L)}_L, &amp; \underbrace{u_{0}(1), \; \ldots, \; u_{0}(L)}_L, &amp; \ldots, \end{array} \]</div>
+\[ \begin{array}{cccc} \underbrace{\mu_{0}(1), \; \ldots, \; \mu_{0}(L)}_L, &amp; \underbrace{\ell_{0}(1), \; \ldots, \; \ell_{0}(L)}_L, &amp; \underbrace{u_{0}(1), \; \ldots, \; u_{0}(L)}_L, &amp; \ldots, \end{array} \]</div>
  where <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray} \ell_t(l) &amp;=&amp; \mu_t(l) - p(C, L-1) \sqrt{\frac{\sigma^2_t(l,l)}{L-1}}, \\ u_t(l) &amp;=&amp; \mu_t(l) + p(C, L-1) \sqrt{\frac{\sigma^2_t(l,l)}{L-1}}, \end{eqnarray}\end{split}\]</div>
- and <span class="math notranslate nohighlight">\(p(C, L-1)\)</span> is the upper <span class="math notranslate nohighlight">\((100-C)/2\)</span>-th percentile of the of the t-distribution with degrees of freedom <span class="math notranslate nohighlight">\(L-1\)</span>.</p>
+\[\begin{split}\begin{eqnarray} \ell_t(l) &amp;=&amp; \mu_t(l) - p(C, T-1) \sqrt{\frac{\sigma^2_t(l,l)}{T-1}}, \\ u_t(l) &amp;=&amp; \mu_t(l) + p(C, T-1) \sqrt{\frac{\sigma^2_t(l,l)}{T-1}}, \end{eqnarray}\end{split}\]</div>
+ and <span class="math notranslate nohighlight">\(p(C, T-1)\)</span> is the upper <span class="math notranslate nohighlight">\((100-C)/2\)</span>-th percentile of the t-distribution with degrees of freedom <span class="math notranslate nohighlight">\(T-1\)</span>.</p>
+<p>If <span class="math notranslate nohighlight">\(O=7\)</span>, <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} \underbrace{T}_1, &amp; \underbrace{m^{(1)}_{0}(1), \; \ldots, \; m^{(1)}_{0}(L)}_L, &amp; \underbrace{m^{(2)}_{0}(1,1), \; m^{(2)}_{0}(1,2), \; \ldots, \; m^{(2)}_{0}(L,L)}_{L \times L}, &amp; \ldots, \end{array} \]</div>
+ where <span class="math notranslate nohighlight">\(m^{(1)}\)</span> is the first-order statistics and <span class="math notranslate nohighlight">\(m^{(2)}\)</span> is the second-order statistics.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+ad<span class="w"> </span>&gt;<span class="w"> </span>data.d
 vstat<span class="w"> </span>-o<span class="w"> </span><span class="m">1</span><span class="w"> </span>data.d<span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da
 <span class="c1"># 4.5</span>
 vstat<span class="w"> </span>-o<span class="w"> </span><span class="m">1</span><span class="w"> </span>data.d<span class="w"> </span>-t<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da
 <span class="c1"># 2, 7</span>
+</pre></div>
+</div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cat<span class="w"> </span>data1.d<span class="w"> </span>data2.d<span class="w"> </span><span class="p">|</span><span class="w"> </span>vstat<span class="w"> </span>-o<span class="w"> </span><span class="m">7</span><span class="w"> </span>&gt;<span class="w"> </span>data12.stat
+cat<span class="w"> </span>data3.d<span class="w"> </span>data4.d<span class="w"> </span><span class="p">|</span><span class="w"> </span>vstat<span class="w"> </span>-o<span class="w"> </span><span class="m">7</span><span class="w"> </span>&gt;<span class="w"> </span>data34.stat
+<span class="nb">echo</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>vstat<span class="w"> </span>-s<span class="w"> </span>data12.stat<span class="w"> </span>-s<span class="w"> </span>data34.stat<span class="w"> </span>-o<span class="w"> </span><span class="m">1</span><span class="w"> </span>&gt;<span class="w"> </span>data.mean
+<span class="c1"># equivalent to the following line</span>
+cat<span class="w"> </span>data?.d<span class="w"> </span><span class="p">|</span><span class="w"> </span>vstat<span class="w"> </span>-o<span class="w"> </span><span class="m">1</span><span class="w"> </span>&gt;<span class="w"> </span>data.mean
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -316,7 +335,7 @@ vstat<span class="w"> </span>-o<span class="w"> </span><span class="m">1</span><
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="vsum.html#vsum"><span class="std std-ref">vsum</span></a></p>
+<p><a class="reference internal" href="vsum.html#vsum"><span class="std std-ref">vsum</span></a>  <a class="reference internal" href="median.html#median"><span class="std std-ref">median</span></a></p>
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk22StatisticsAccumulationE">
@@ -330,13 +349,15 @@ vstat<span class="w"> </span>-o<span class="w"> </span><span class="m">1</span><
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4sptk22StatisticsAccumulation22StatisticsAccumulationEii">
-<span id="_CPPv3N4sptk22StatisticsAccumulation22StatisticsAccumulationEii"></span><span id="_CPPv2N4sptk22StatisticsAccumulation22StatisticsAccumulationEii"></span><span id="sptk::StatisticsAccumulation::StatisticsAccumulation__i.i"></span><span class="target" id="classsptk_1_1StatisticsAccumulation_1a3a712e68350e88e485c839740578b3e9"></span><span class="sig-name descname"><span class="n"><span class="pre">StatisticsAccumulation</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_statistics_order</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk22StatisticsAccumulation22StatisticsAccumulationEii" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk22StatisticsAccumulation22StatisticsAccumulationEiibb">
+<span id="_CPPv3N4sptk22StatisticsAccumulation22StatisticsAccumulationEiibb"></span><span id="_CPPv2N4sptk22StatisticsAccumulation22StatisticsAccumulationEiibb"></span><span id="sptk::StatisticsAccumulation::StatisticsAccumulation__i.i.b.b"></span><span class="target" id="classsptk_1_1StatisticsAccumulation_1a84c8530c34bcb6c0b47bfc82af13af4d"></span><span class="sig-name descname"><span class="n"><span class="pre">StatisticsAccumulation</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_statistics_order</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">diagonal</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">numerically_stable</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">false</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk22StatisticsAccumulation22StatisticsAccumulationEiibb" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>num_order</strong> – <strong>[in]</strong> Order of vector, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
 <li><p><strong>num_statistics_order</strong> – <strong>[in]</strong> Order of statistics, <span class="math notranslate nohighlight">\(K\)</span>. </p></li>
+<li><p><strong>diagonal</strong> – <strong>[in]</strong> If true, only diagonal part is accumulated. </p></li>
+<li><p><strong>numerically_stable</strong> – <strong>[in]</strong> If true, use a numerically stable algorithm. </p></li>
 </ul>
 </dd>
 </dl>
@@ -380,6 +401,38 @@ vstat<span class="w"> </span>-o<span class="w"> </span><span class="m">1</span><
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>buffer</strong> – <strong>[in]</strong> <a class="reference internal" href="#classsptk_1_1StatisticsAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
 <li><p><strong>num_data</strong> – <strong>[out]</strong> Number of accumulated data. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk22StatisticsAccumulation8GetFirstERKN22StatisticsAccumulation6BufferEPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk22StatisticsAccumulation8GetFirstERKN22StatisticsAccumulation6BufferEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk22StatisticsAccumulation8GetFirstERKN22StatisticsAccumulation6BufferEPNSt6vectorIdEE"></span><span id="sptk::StatisticsAccumulation::GetFirst__StatisticsAccumulation::BufferCR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1StatisticsAccumulation_1aaf2bd62eb35cc845c4f17974594ccaa8"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFirst</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulationE" title="sptk::StatisticsAccumulation"><span class="n"><span class="pre">StatisticsAccumulation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulation6BufferE" title="sptk::StatisticsAccumulation::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">buffer</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">first</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk22StatisticsAccumulation8GetFirstERKN22StatisticsAccumulation6BufferEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buffer</strong> – <strong>[in]</strong> <a class="reference internal" href="#classsptk_1_1StatisticsAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+<li><p><strong>first</strong> – <strong>[out]</strong> First order statistics. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk22StatisticsAccumulation9GetSecondERKN22StatisticsAccumulation6BufferEP15SymmetricMatrix">
+<span id="_CPPv3NK4sptk22StatisticsAccumulation9GetSecondERKN22StatisticsAccumulation6BufferEP15SymmetricMatrix"></span><span id="_CPPv2NK4sptk22StatisticsAccumulation9GetSecondERKN22StatisticsAccumulation6BufferEP15SymmetricMatrix"></span><span id="sptk::StatisticsAccumulation::GetSecond__StatisticsAccumulation::BufferCR.SymmetricMatrixPC"></span><span class="target" id="classsptk_1_1StatisticsAccumulation_1a6cb3e95f83ece48a832f73cf0e9bdccd"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetSecond</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulationE" title="sptk::StatisticsAccumulation"><span class="n"><span class="pre">StatisticsAccumulation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulation6BufferE" title="sptk::StatisticsAccumulation::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">buffer</span></span>, <a class="reference internal" href="../utils/math.html#_CPPv4N4sptk15SymmetricMatrixE" title="sptk::SymmetricMatrix"><span class="n"><span class="pre">SymmetricMatrix</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">second</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk22StatisticsAccumulation9GetSecondERKN22StatisticsAccumulation6BufferEP15SymmetricMatrix" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>buffer</strong> – <strong>[in]</strong> <a class="reference internal" href="#classsptk_1_1StatisticsAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+<li><p><strong>second</strong> – <strong>[out]</strong> Second order statistics. </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -519,6 +572,25 @@ vstat<span class="w"> </span>-o<span class="w"> </span><span class="m">1</span><
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>data</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order input vector. </p></li>
+<li><p><strong>buffer</strong> – <strong>[inout]</strong> <a class="reference internal" href="#classsptk_1_1StatisticsAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk22StatisticsAccumulation5MergeEiRKNSt6vectorIdEERK15SymmetricMatrixPN22StatisticsAccumulation6BufferE">
+<span id="_CPPv3NK4sptk22StatisticsAccumulation5MergeEiRKNSt6vectorIdEERK15SymmetricMatrixPN22StatisticsAccumulation6BufferE"></span><span id="_CPPv2NK4sptk22StatisticsAccumulation5MergeEiRKNSt6vectorIdEERK15SymmetricMatrixPN22StatisticsAccumulation6BufferE"></span><span id="sptk::StatisticsAccumulation::Merge__i.std::vector:double:CR.SymmetricMatrixCR.StatisticsAccumulation::BufferPC"></span><span class="target" id="classsptk_1_1StatisticsAccumulation_1aa9faa8c42e6d90ea402c312616aa8efc"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Merge</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_data</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">first</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><a class="reference internal" href="../utils/math.html#_CPPv4N4sptk15SymmetricMatrixE" title="sptk::SymmetricMatrix"><span class="n"><span class="pre">SymmetricMatrix</span></span></a><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">second</span></span>, <a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulationE" title="sptk::StatisticsAccumulation"><span class="n"><span class="pre">StatisticsAccumulation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk22StatisticsAccumulation6BufferE" title="sptk::StatisticsAccumulation::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk22StatisticsAccumulation5MergeEiRKNSt6vectorIdEERK15SymmetricMatrixPN22StatisticsAccumulation6BufferE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Merge statistics.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_data</strong> – <strong>[in]</strong> Number of data. </p></li>
+<li><p><strong>first</strong> – <strong>[in]</strong> First order statistics. </p></li>
+<li><p><strong>second</strong> – <strong>[in]</strong> Second order statistics. </p></li>
 <li><p><strong>buffer</strong> – <strong>[inout]</strong> <a class="reference internal" href="#classsptk_1_1StatisticsAccumulation_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
 </ul>
 </dd>
