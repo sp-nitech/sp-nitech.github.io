@@ -418,24 +418,20 @@ document.write(`
   <section id="root-pol">
 <span id="id1"></span><h1>root_pol<a class="headerlink" href="#root-pol" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.DurandKernerMethod">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">DurandKernerMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-14</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rectangular'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/root_pol.html#DurandKernerMethod"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.DurandKernerMethod" title="Permalink to this definition">#</a></dt>
+<dt class="sig sig-object py" id="diffsptk.PolynomialToRoots">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">PolynomialToRoots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rectangular'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/root_pol.html#PolynomialToRoots"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PolynomialToRoots" title="Permalink to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/root_pol.html">this page</a>
 for details.</p>
 <dl class="simple">
 <dt>order<span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Order of coefficients.</p>
 </dd>
-<dt>n_iter<span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Number of iterations.</p>
-</dd>
-<dt>eps<span class="classifier">float &gt;= 0 [scalar]</span></dt><dd><p>Convergence threshold.</p>
-</dd>
 <dt>out_format<span class="classifier">[‘rectangular’, ‘polar’]</span></dt><dd><p>Output format.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.DurandKernerMethod.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/root_pol.html#DurandKernerMethod.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.DurandKernerMethod.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Find roots of equations.</p>
+<dt class="sig sig-object py" id="diffsptk.PolynomialToRoots.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/root_pol.html#PolynomialToRoots.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PolynomialToRoots.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Find roots of polynomial.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -447,19 +443,15 @@ for details.</p>
 <dd class="field-even"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">Tensor [shape=(…, M)]</span></dt><dd><p>Complex roots.</p>
 </dd>
-<dt><strong>is_converged</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>True if convergence is reached.</p>
-</dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">root_pol</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">DurandKernerMethod</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">,</span> <span class="n">is_converged</span> <span class="o">=</span> <span class="n">root_pol</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">root_pol</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">PolynomialToRoots</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">root_pol</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
 <span class="go">tensor([[-0.6667+1.1055j, -0.6667-1.1055j]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">is_converged</span>
-<span class="go">tensor([True])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -512,8 +504,8 @@ for details.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.DurandKernerMethod"><code class="docutils literal notranslate"><span class="pre">DurandKernerMethod</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.DurandKernerMethod.forward"><code class="docutils literal notranslate"><span class="pre">DurandKernerMethod.forward()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.PolynomialToRoots"><code class="docutils literal notranslate"><span class="pre">PolynomialToRoots</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.PolynomialToRoots.forward"><code class="docutils literal notranslate"><span class="pre">PolynomialToRoots.forward()</span></code></a></li>
 </ul>
 </li>
 </ul>
