@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>root_pol &#8212; diffsptk 1.0.1 documentation</title>
+    <title>pol_root &#8212; diffsptk 1.0.1 documentation</title>
   
   
   
@@ -38,11 +38,11 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=0b546569"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'core/root_pol';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'core/pol_root';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="smcep" href="smcep.html" />
-    <link rel="prev" title="rmse" href="rmse.html" />
+    <link rel="next" title="poledf" href="poledf.html" />
+    <link rel="prev" title="pitch" href="pitch.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -341,13 +341,13 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pol_root.html">pol_root</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">pol_root</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rlevdur.html">rlevdur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rmse.html">rmse</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">root_pol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root_pol.html">root_pol</a></li>
 <li class="toctree-l1"><a class="reference internal" href="smcep.html">smcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="snr.html">snr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="spec.html">spec</a></li>
@@ -399,7 +399,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">diffsptk.core</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">root_pol</li>
+    <li class="breadcrumb-item active" aria-current="page">pol_root</li>
   </ul>
 </nav>
 </div>
@@ -416,43 +416,40 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="root-pol">
-<span id="id1"></span><h1>root_pol<a class="headerlink" href="#root-pol" title="Permalink to this heading">#</a></h1>
+  <section id="pol-root">
+<span id="id1"></span><h1>pol_root<a class="headerlink" href="#pol-root" title="Permalink to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.PolynomialToRoots">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">PolynomialToRoots</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rectangular'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/root_pol.html#PolynomialToRoots"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PolynomialToRoots" title="Permalink to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/root_pol.html">this page</a>
-for details.</p>
+<dt class="sig sig-object py" id="diffsptk.RootsToPolynomial">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">RootsToPolynomial</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/pol_root.html#RootsToPolynomial"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.RootsToPolynomial" title="Permalink to this definition">#</a></dt>
+<dd><p>This is the opposite module to <a class="reference internal" href="root_pol.html#diffsptk.PolynomialToRoots" title="diffsptk.PolynomialToRoots"><code class="xref py py-func docutils literal notranslate"><span class="pre">PolynomialToRoots()</span></code></a>.</p>
 <dl class="simple">
 <dt>order<span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Order of coefficients.</p>
 </dd>
-<dt>out_format<span class="classifier">[‘rectangular’, ‘polar’]</span></dt><dd><p>Output format.</p>
-</dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.PolynomialToRoots.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/root_pol.html#PolynomialToRoots.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PolynomialToRoots.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Find roots of polynomial.</p>
+<dt class="sig sig-object py" id="diffsptk.RootsToPolynomial.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/pol_root.html#RootsToPolynomial.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.RootsToPolynomial.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert roots to polynomial coefficients.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>a</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Polynomial coefficients.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, M)]</span></dt><dd><p>Complex roots.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, M)]</span></dt><dd><p>Complex roots.</p>
+<dt><strong>a</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Polynomial coefficients.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">root_pol</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">PolynomialToRoots</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">root_pol</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
-<span class="go">tensor([[-0.6667+1.1055j, -0.6667-1.1055j]])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pol_root</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">RootsToPolynomial</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">pol_root</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">tensor([ 1, -6,  5, 12])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -461,7 +458,7 @@ for details.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="pol_root.html#pol-root"><span class="std std-ref">pol_root</span></a></p>
+<p><a class="reference internal" href="root_pol.html#root-pol"><span class="std std-ref">root_pol</span></a></p>
 </div>
 </section>
 
@@ -476,20 +473,20 @@ for details.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="rmse.html"
+       href="pitch.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">rmse</p>
+        <p class="prev-next-title">pitch</p>
       </div>
     </a>
     <a class="right-next"
-       href="smcep.html"
+       href="poledf.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">smcep</p>
+        <p class="prev-next-title">poledf</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -509,8 +506,8 @@ for details.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.PolynomialToRoots"><code class="docutils literal notranslate"><span class="pre">PolynomialToRoots</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.PolynomialToRoots.forward"><code class="docutils literal notranslate"><span class="pre">PolynomialToRoots.forward()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.RootsToPolynomial"><code class="docutils literal notranslate"><span class="pre">RootsToPolynomial</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.RootsToPolynomial.forward"><code class="docutils literal notranslate"><span class="pre">RootsToPolynomial.forward()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -519,7 +516,7 @@ for details.</p>
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../_sources/core/root_pol.rst.txt">
+    <a href="../_sources/core/pol_root.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
