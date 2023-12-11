@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>diffsptk.core &#8212; diffsptk 1.0.1 documentation</title>
+    <title>lsp2lpc &#8212; diffsptk 1.0.1 documentation</title>
   
   
   
@@ -38,11 +38,12 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=0b546569"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'core/index';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'core/lsp2lpc';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="acorr" href="acorr.html" />
-    <link rel="prev" title="diffsptk" href="../index.html" />
+    <link rel="next" title="lsp2sp" href="lsp2sp.html" />
+    <link rel="prev" title="lpccheck" href="lpccheck.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -137,7 +138,7 @@
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="#">
+                      <a class="nav-link nav-internal" href="index.html">
                         Core API
                       </a>
                     </li>
@@ -235,7 +236,7 @@ document.write(`
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item current active">
-                      <a class="nav-link nav-internal" href="#">
+                      <a class="nav-link nav-internal" href="index.html">
                         Core API
                       </a>
                     </li>
@@ -277,7 +278,7 @@ document.write(`
 <nav class="bd-docs-nav bd-links"
      aria-label="Section Navigation">
   <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
-  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ap.html">ap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
@@ -321,7 +322,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="lpc2lsp.html">lpc2lsp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpccheck.html">lpccheck</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lsp2lpc.html">lsp2lpc</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">lsp2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lsp2sp.html">lsp2sp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="magic_intpl.html">magic_intpl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
@@ -397,7 +398,10 @@ document.write(`
         <i class="fa-solid fa-home"></i>
       </a>
     </li>
-    <li class="breadcrumb-item active" aria-current="page">diffsptk.core</li>
+    
+    <li class="breadcrumb-item"><a href="index.html" class="nav-link">diffsptk.core</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">lsp2lpc</li>
   </ul>
 </nav>
 </div>
@@ -414,9 +418,56 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="diffsptk-core">
-<h1>diffsptk.core<a class="headerlink" href="#diffsptk-core" title="Permalink to this heading">#</a></h1>
-<div class="toctree-wrapper compound">
+  <section id="lsp2lpc">
+<span id="id1"></span><h1>lsp2lpc<a class="headerlink" href="#lsp2lpc" title="Permalink to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="diffsptk.LineSpectralPairsToLinearPredictiveCoefficients">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">LineSpectralPairsToLinearPredictiveCoefficients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lpc_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/lsp2lpc.html#LineSpectralPairsToLinearPredictiveCoefficients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LineSpectralPairsToLinearPredictiveCoefficients" title="Permalink to this definition">#</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/lsp2lpc.html">this page</a>
+for details.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>lpc_order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of LPC, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+</dd>
+<dt><strong>log_gain</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If True, assume input gain is in log scale.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py method">
+<dt class="sig sig-object py" id="diffsptk.LineSpectralPairsToLinearPredictiveCoefficients.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/lsp2lpc.html#LineSpectralPairsToLinearPredictiveCoefficients.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LineSpectralPairsToLinearPredictiveCoefficients.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Convert LSP to LPC.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>w</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>LSP coefficients in radians.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>a</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>LPC coefficients.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">w</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lsp2lpc</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">LineSpectralPairsToLinearPredictiveCoefficients</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">lsp2lpc</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
+<span class="go">tensor([ 0.0000,  0.8658, -0.0698,  0.0335])</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="lpc.html#lpc"><span class="std std-ref">lpc</span></a>  <a class="reference internal" href="lpc2lsp.html#lpc2lsp"><span class="std std-ref">lpc2lsp</span></a></p>
 </div>
 </section>
 
@@ -431,20 +482,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../index.html"
+       href="lpccheck.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">diffsptk</p>
+        <p class="prev-next-title">lpccheck</p>
       </div>
     </a>
     <a class="right-next"
-       href="acorr.html"
+       href="lsp2sp.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">acorr</p>
+        <p class="prev-next-title">lsp2sp</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -459,8 +510,22 @@ document.write(`
 
   <div class="sidebar-secondary-item">
 
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.LineSpectralPairsToLinearPredictiveCoefficients"><code class="docutils literal notranslate"><span class="pre">LineSpectralPairsToLinearPredictiveCoefficients</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.LineSpectralPairsToLinearPredictiveCoefficients.forward"><code class="docutils literal notranslate"><span class="pre">LineSpectralPairsToLinearPredictiveCoefficients.forward()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+
   <div class="tocsection sourcelink">
-    <a href="../_sources/core/index.rst.txt">
+    <a href="../_sources/core/lsp2lpc.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
