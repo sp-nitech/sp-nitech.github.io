@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>mfcc &mdash; SPTK  documentation</title>
+  <title>plp &mdash; SPTK  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -22,8 +22,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="mgc2mgc" href="mgc2mgc.html" />
-    <link rel="prev" title="merge" href="merge.html" /> 
+    <link rel="next" title="poledf" href="poledf.html" />
+    <link rel="prev" title="pitch_spec" href="pitch_spec.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -129,7 +129,7 @@
 <li class="toctree-l1"><a class="reference internal" href="medfilt.html">medfilt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="median.html">median</a></li>
 <li class="toctree-l1"><a class="reference internal" href="merge.html">merge</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mgc2mgc.html">mgc2mgc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mgc2sp.html">mgc2sp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mgcep.html">mgcep</a></li>
@@ -154,7 +154,7 @@
 <li class="toctree-l1"><a class="reference internal" href="pitch2sin.html">pitch2sin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plp.html">plp</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">plp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
@@ -205,9 +205,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">mfcc</li>
+      <li class="breadcrumb-item active">plp</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/main/mfcc.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/main/plp.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -215,14 +215,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="mfcc">
-<span id="id1"></span><h1>mfcc<a class="headerlink" href="#mfcc" title="Permalink to this heading"></a></h1>
+  <section id="plp">
+<span id="id1"></span><h1>plp<a class="headerlink" href="#plp" title="Permalink to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv44mainiA_Pc">
-<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="mfcc_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
-<dd><p><em>mfcc</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="plp_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p><em>plp</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
 <p><ul class="simple">
 <li><p><strong>-n</strong> <em>int</em> <ul>
 <li><p>number of channels <span class="math notranslate nohighlight">\((1 \le C)\)</span></p></li>
@@ -238,6 +238,10 @@
 </p></li>
 <li><p><strong>-c</strong> <em>int</em> <ul>
 <li><p>liftering parameter <span class="math notranslate nohighlight">\((1 \le L)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-f</strong> <em>double</em> <ul>
+<li><p>compression factor <span class="math notranslate nohighlight">\((0 &lt; f)\)</span></p></li>
 </ul>
 </p></li>
 <li><p><strong>-s</strong> <em>double</em> <ul>
@@ -265,10 +269,10 @@
 </p></li>
 <li><p><strong>-o</strong> <em>int</em> <ul>
 <li><p>output format <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> MFCC </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> MFCC and energy </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> MFCC and C0 </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> MFCC, C0, and energy</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> PLP </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> PLP and energy </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> PLP and C0 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> PLP, C0, and energy</p></li>
 </ul>
 </p></li>
 </ul>
@@ -282,165 +286,39 @@
 </ul>
 </p></li>
 <li><p><strong>stdout</strong> <ul>
-<li><p>double-type MFCCs</p></li>
+<li><p>double-type PLP features</p></li>
 </ul>
 </p></li>
 </ul>
 </p>
-<p>The below example extracts the 12-th order MFCCs from <code class="docutils literal notranslate"><span class="pre">data.short</span></code>. The analysis condition is that: frame length is 10 ms, frame shift is 25 ms, and sampling rate is 16 kHz. A pre-emphais filter and the hamming window are applied to the input signal.</p>
+<p>The below example extracts the 12-th order PLP from <code class="docutils literal notranslate"><span class="pre">data.short</span></code>. The analysis condition is that: frame length is 10 ms, frame shift is 25 ms, and sampling rate is 16 kHz. A pre-emphais filter and the hamming window are applied to the input signal.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>x2x<span class="w"> </span>+sd<span class="w"> </span>data.short<span class="w"> </span><span class="p">|</span>
 <span class="w">  </span>frame<span class="w"> </span>-l<span class="w"> </span><span class="m">400</span><span class="w"> </span>-p<span class="w"> </span><span class="m">160</span><span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">|</span>
 <span class="w">  </span>dfs<span class="w"> </span>-b<span class="w"> </span><span class="m">1</span><span class="w"> </span>-0.97<span class="w"> </span><span class="p">|</span>
 <span class="w">  </span>window<span class="w"> </span>-l<span class="w"> </span><span class="m">400</span><span class="w"> </span>-L<span class="w"> </span><span class="m">512</span><span class="w"> </span>-w<span class="w"> </span><span class="m">1</span><span class="w"> </span>-n<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="p">|</span>
-<span class="w">  </span>mfcc<span class="w"> </span>-l<span class="w"> </span><span class="m">512</span><span class="w"> </span>-n<span class="w"> </span><span class="m">40</span><span class="w"> </span>-c<span class="w"> </span><span class="m">22</span><span class="w"> </span>-m<span class="w"> </span><span class="m">12</span><span class="w"> </span>-L<span class="w"> </span><span class="m">64</span><span class="w"> </span>-H<span class="w"> </span><span class="m">4000</span><span class="w"> </span>-o<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">|</span>
-<span class="w">  </span>delta<span class="w"> </span>-m<span class="w"> </span><span class="m">12</span><span class="w"> </span>-d<span class="w"> </span>-0.5<span class="w"> </span><span class="m">0</span>.0<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span>-d<span class="w"> </span><span class="m">0</span>.25<span class="w"> </span><span class="m">0</span>.0<span class="w"> </span>-0.5<span class="w"> </span><span class="m">0</span>.0<span class="w"> </span><span class="m">0</span>.25<span class="w"> </span>&gt;<span class="w"> </span>data.mfcc
+<span class="w">  </span>plp<span class="w"> </span>-l<span class="w"> </span><span class="m">512</span><span class="w"> </span>-n<span class="w"> </span><span class="m">40</span><span class="w"> </span>-c<span class="w"> </span><span class="m">22</span><span class="w"> </span>-m<span class="w"> </span><span class="m">12</span><span class="w"> </span>-L<span class="w"> </span><span class="m">64</span><span class="w"> </span>-H<span class="w"> </span><span class="m">4000</span><span class="w"> </span>-f<span class="w"> </span><span class="m">0</span>.33<span class="w"> </span>-o<span class="w"> </span><span class="m">2</span><span class="w"> </span>&gt;<span class="w"> </span>data.plp
 </pre></div>
 </div>
 <p>The corresponding HTK config file is shown as below.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SOURCEFORMAT</span> <span class="o">=</span> <span class="n">NOHEAD</span>
 <span class="n">SOURCEKIND</span>   <span class="o">=</span> <span class="n">WAVEFORM</span>
 <span class="n">SOURCERATE</span>   <span class="o">=</span> <span class="mf">625.0</span>
-<span class="n">TARGETKIND</span>   <span class="o">=</span> <span class="n">MFCC_E_D_A</span>
+<span class="n">TARGETKIND</span>   <span class="o">=</span> <span class="n">PLP_0</span>
 <span class="n">TARGETRATE</span>   <span class="o">=</span> <span class="mf">100000.0</span>
 <span class="n">WINDOWSIZE</span>   <span class="o">=</span> <span class="mf">250000.0</span>
 <span class="n">USEHAMMING</span>   <span class="o">=</span> <span class="n">T</span>
-<span class="n">USEPOWER</span>     <span class="o">=</span> <span class="n">F</span>
+<span class="n">USEPOWER</span>     <span class="o">=</span> <span class="n">T</span>
 <span class="n">RAWENERGY</span>    <span class="o">=</span> <span class="n">F</span>
 <span class="n">ENORMALIZE</span>   <span class="o">=</span> <span class="n">F</span>
 <span class="n">PREEMCOEF</span>    <span class="o">=</span> <span class="mf">0.97</span>
+<span class="n">COMPRESSFACT</span> <span class="o">=</span> <span class="mf">0.33</span>
 <span class="n">NUMCHANS</span>     <span class="o">=</span> <span class="mi">40</span>
 <span class="n">CEPLIFTER</span>    <span class="o">=</span> <span class="mi">22</span>
 <span class="n">NUMCEPS</span>      <span class="o">=</span> <span class="mi">12</span>
 <span class="n">LOFREQ</span>       <span class="o">=</span> <span class="mi">64</span>
 <span class="n">HIFREQ</span>       <span class="o">=</span> <span class="mi">4000</span>
-<span class="n">DELTAWINDOW</span>  <span class="o">=</span> <span class="mi">1</span>
-<span class="n">ACCWINDOW</span>    <span class="o">=</span> <span class="mi">1</span>
 </pre></div>
 </div>
-<p>The correspondence between the HTK’s configuration and the SPTK’s command option for extracting MFCC is shown in the following table.</p>
-<p><table class="docutils align-default">
-<thead>
-<tr class="row-odd"><th class="head"><p>Parameter</p></th>
-<th class="head"><p>HTK</p></th>
-<th class="head"><p>SPTK</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td rowspan="2"><p>Frame length</p></td>
-<td rowspan="2"><p>WINDOWSIZE = _</p>
-<p>(unit is 100 ns)</p>
-</td>
-<td rowspan="2"><p>frame -l _</p>
-<p>(unit is point)</p>
-</td>
-</tr>
-<tr class="row-odd"></tr>
-<tr class="row-even"><td rowspan="2"><p>Frame shift</p></td>
-<td rowspan="2"><p>TARGETRATE = _</p>
-<p>(unit is 100 ns)</p>
-</td>
-<td rowspan="2"><p>frame -p _</p>
-<p>(unit is point)</p>
-</td>
-</tr>
-<tr class="row-odd"></tr>
-<tr class="row-even"><td rowspan="2"><p>Sampling rate</p></td>
-<td rowspan="2"><p>SOURCERATE = _</p>
-<p>(unit is 100 ns)</p>
-</td>
-<td rowspan="2"><p>mfcc -s _</p>
-<p>(unit is kHz)</p>
-</td>
-</tr>
-<tr class="row-odd"></tr>
-<tr class="row-even"><td><p>Subtract mean</p></td>
-<td><p>ZMEANSOURCE = T</p></td>
-<td><p>frame -z</p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><p>Pre-emphasis coefficient</p></td>
-<td rowspan="2"><p>PREEMCOEF = _</p>
-<p>(windowed waveform)</p>
-</td>
-<td rowspan="2"><p>dfs -b 1 -_</p>
-<p>(entire waveform)</p>
-</td>
-</tr>
-<tr class="row-even"></tr>
-<tr class="row-odd"><td><p>Window</p></td>
-<td><p>USEHAMMING = T</p></td>
-<td><p>window -w 1 -n 0</p></td>
-</tr>
-<tr class="row-even"><td rowspan="2"><p>FFT length</p></td>
-<td rowspan="2"><p>N/A</p>
-<p>(auto. calculated)</p>
-</td>
-<td rowspan="2"><p>mfcc -l _</p>
-<p>(same as input length)</p>
-</td>
-</tr>
-<tr class="row-odd"></tr>
-<tr class="row-even"><td><p>Number of fbank channels</p></td>
-<td><p>NUMCHANS = _</p></td>
-<td><p>mfcc -n _</p></td>
-</tr>
-<tr class="row-odd"><td><p>Lowest frequency</p></td>
-<td><p>LOFREQ = _</p></td>
-<td><p>mfcc -L _</p></td>
-</tr>
-<tr class="row-even"><td><p>Highest frequency</p></td>
-<td><p>HIFREQ = _</p></td>
-<td><p>mfcc -H _</p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><p>Floor value of fbank</p></td>
-<td rowspan="2"><p>N/A</p>
-<p>(fixed value: 1.0)</p>
-</td>
-<td rowspan="2"><p>mfcc -e _</p>
-<p>(default value: 1.0)</p>
-</td>
-</tr>
-<tr class="row-even"></tr>
-<tr class="row-odd"><td><p>Order of cepstrum</p></td>
-<td><p>NUMCEPS = _</p></td>
-<td><p>mfcc -m _</p></td>
-</tr>
-<tr class="row-even"><td><p>Liftering coefficient</p></td>
-<td><p>CEPLIFTER = _</p></td>
-<td><p>mfcc -c _</p></td>
-</tr>
-<tr class="row-odd"><td><p>Output energy</p></td>
-<td><p>TARGETKIND = MFCC_E</p></td>
-<td><p>mfcc -o 1</p></td>
-</tr>
-<tr class="row-even"><td><p>Output 0th coefficient</p></td>
-<td><p>TARGETKIND = MFCC_0</p></td>
-<td><p>mfcc -o 2</p></td>
-</tr>
-<tr class="row-odd"><td rowspan="2"><p>Use raw energy</p></td>
-<td rowspan="2"><p>RAWENERGY = T</p></td>
-<td rowspan="2"><p>N/A</p>
-<p>(do not use raw)</p>
-</td>
-</tr>
-<tr class="row-even"></tr>
-<tr class="row-odd"><td rowspan="2"><p>Normalize log energy</p></td>
-<td rowspan="2"><p>ENORMALIZE = T</p></td>
-<td rowspan="2"><p>N/A</p>
-<p>(do not normalize)</p>
-</td>
-</tr>
-<tr class="row-even"></tr>
-<tr class="row-odd"><td><p>Delta window size</p></td>
-<td><p>DELTAWINDOW = _</p></td>
-<td><p>delta -d _</p></td>
-</tr>
-<tr class="row-even"><td><p>Accel window size</p></td>
-<td><p>ACCWINDOW = _</p></td>
-<td><p>delta -d * -d _</p></td>
-</tr>
-</tbody>
-</table>
-</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -457,28 +335,23 @@
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="fbank.html#fbank"><span class="std std-ref">fbank</span></a>  <a class="reference internal" href="plp.html#plp"><span class="std std-ref">plp</span></a></p>
+<p><a class="reference internal" href="fbank.html#fbank"><span class="std std-ref">fbank</span></a>  <a class="reference internal" href="mfcc.html#mfcc"><span class="std std-ref">mfcc</span></a></p>
 </div>
 <dl class="cpp class">
-<dt class="sig sig-object cpp" id="_CPPv4N4sptk40MelFrequencyCepstralCoefficientsAnalysisE">
-<span id="_CPPv3N4sptk40MelFrequencyCepstralCoefficientsAnalysisE"></span><span id="_CPPv2N4sptk40MelFrequencyCepstralCoefficientsAnalysisE"></span><span id="sptk::MelFrequencyCepstralCoefficientsAnalysis"></span><span class="target" id="classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MelFrequencyCepstralCoefficientsAnalysis</span></span></span><a class="headerlink" href="#_CPPv4N4sptk40MelFrequencyCepstralCoefficientsAnalysisE" title="Permalink to this definition"></a><br /></dt>
-<dd><p>Perform mel-frequency cepstral coefficients (MFCC) analysis.</p>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk46PerceptualLinearPredictiveCoefficientsAnalysisE">
+<span id="_CPPv3N4sptk46PerceptualLinearPredictiveCoefficientsAnalysisE"></span><span id="_CPPv2N4sptk46PerceptualLinearPredictiveCoefficientsAnalysisE"></span><span id="sptk::PerceptualLinearPredictiveCoefficientsAnalysis"></span><span class="target" id="classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PerceptualLinearPredictiveCoefficientsAnalysis</span></span></span><a class="headerlink" href="#_CPPv4N4sptk46PerceptualLinearPredictiveCoefficientsAnalysisE" title="Permalink to this definition"></a><br /></dt>
+<dd><p>Perform perceptual linear predictive (PLP) coefficients analysis.</p>
 <p>The input is the half part of power spectrum: <div class="math notranslate nohighlight">
 \[ \begin{array}{cccc} |X(0)|^2, &amp; |X(1)|^2, &amp; \ldots, &amp; |X(N/2)|^2, \end{array} \]</div>
- where <span class="math notranslate nohighlight">\(N\)</span> is the FFT length. The outputs are the <span class="math notranslate nohighlight">\(M\)</span>-th order MFCCs with the zeroth cepstral parameter: <div class="math notranslate nohighlight">
+ where <span class="math notranslate nohighlight">\(N\)</span> is the FFT length. The outputs are the <span class="math notranslate nohighlight">\(M\)</span>-th order PLP features with the zeroth cepstral parameter: <div class="math notranslate nohighlight">
 \[ \begin{array}{ccccc} c(0), &amp; \bar{c}(1), &amp; \bar{c}(2), &amp; \ldots, &amp; \bar{c}(M) \end{array} \]</div>
  and the log-signal energy <span class="math notranslate nohighlight">\(E\)</span>.</p>
-<p>The MFCCs are calculated from mel-filter-bank outputs <span class="math notranslate nohighlight">\(\{F(j)\}_{j=1}^C\)</span> using the discrete cosine transform <div class="math notranslate nohighlight">
-\[ c(m) = \sqrt{\frac{2}{C}} \sum_{j=1}^C F(j) \cos \left( \frac{\pi m}{C} \left(j - \frac{1}{2}\right) \right), \]</div>
- and the liftering <div class="math notranslate nohighlight">
-\[ \bar{c}(m) = \left( 1 + \frac{L}{2} \sin \frac{\pi m}{L} \right) c(m), \]</div>
- where <span class="math notranslate nohighlight">\(L\)</span> is the liftering parameter.</p>
 <p>[1] S. Young et al., “The HTK book,” Cambridge University Engineering Department, 2006. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4sptk40MelFrequencyCepstralCoefficientsAnalysis40MelFrequencyCepstralCoefficientsAnalysisEiiiidddd">
-<span id="_CPPv3N4sptk40MelFrequencyCepstralCoefficientsAnalysis40MelFrequencyCepstralCoefficientsAnalysisEiiiidddd"></span><span id="_CPPv2N4sptk40MelFrequencyCepstralCoefficientsAnalysis40MelFrequencyCepstralCoefficientsAnalysisEiiiidddd"></span><span id="sptk::MelFrequencyCepstralCoefficientsAnalysis::MelFrequencyCepstralCoefficientsAnalysis__i.i.i.i.double.double.double.double"></span><span class="target" id="classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis_1afbca7560c4041575d4d9a5f74c1f9e58"></span><span class="sig-name descname"><span class="n"><span class="pre">MelFrequencyCepstralCoefficientsAnalysis</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_channel</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">liftering_coefficient</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sampling_rate</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">lowest_frequency</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">highest_frequency</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">floor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk40MelFrequencyCepstralCoefficientsAnalysis40MelFrequencyCepstralCoefficientsAnalysisEiiiidddd" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk46PerceptualLinearPredictiveCoefficientsAnalysis46PerceptualLinearPredictiveCoefficientsAnalysisEiiiiddddd">
+<span id="_CPPv3N4sptk46PerceptualLinearPredictiveCoefficientsAnalysis46PerceptualLinearPredictiveCoefficientsAnalysisEiiiiddddd"></span><span id="_CPPv2N4sptk46PerceptualLinearPredictiveCoefficientsAnalysis46PerceptualLinearPredictiveCoefficientsAnalysisEiiiiddddd"></span><span id="sptk::PerceptualLinearPredictiveCoefficientsAnalysis::PerceptualLinearPredictiveCoefficientsAnalysis__i.i.i.i.double.double.double.double.double"></span><span class="target" id="classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis_1a19268cf2ed774b70153e4ade02668bdc"></span><span class="sig-name descname"><span class="n"><span class="pre">PerceptualLinearPredictiveCoefficientsAnalysis</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_channel</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">liftering_coefficient</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">compression_factor</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sampling_rate</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">lowest_frequency</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">highest_frequency</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">floor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk46PerceptualLinearPredictiveCoefficientsAnalysis46PerceptualLinearPredictiveCoefficientsAnalysisEiiiiddddd" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -486,6 +359,7 @@
 <li><p><strong>num_channel</strong> – <strong>[in]</strong> Number of channels, <span class="math notranslate nohighlight">\(C\)</span>. </p></li>
 <li><p><strong>num_order</strong> – <strong>[in]</strong> Order of cepstral coefficients, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
 <li><p><strong>liftering_coefficient</strong> – <strong>[in]</strong> A parameter of liftering, <span class="math notranslate nohighlight">\(L\)</span>. </p></li>
+<li><p><strong>compression_factor</strong> – <strong>[in]</strong> Amplitude compression factor. </p></li>
 <li><p><strong>sampling_rate</strong> – <strong>[in]</strong> Sampling rate in Hz. </p></li>
 <li><p><strong>lowest_frequency</strong> – <strong>[in]</strong> Lowest frequency in Hz. </p></li>
 <li><p><strong>highest_frequency</strong> – <strong>[in]</strong> Highest frequency in Hz. </p></li>
@@ -496,8 +370,8 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis12GetFftLengthEv">
-<span id="_CPPv3NK4sptk40MelFrequencyCepstralCoefficientsAnalysis12GetFftLengthEv"></span><span id="_CPPv2NK4sptk40MelFrequencyCepstralCoefficientsAnalysis12GetFftLengthEv"></span><span id="sptk::MelFrequencyCepstralCoefficientsAnalysis::GetFftLengthC"></span><span class="target" id="classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis_1a9bc896428ddf84d8aa5aa6703f16db33"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis12GetFftLengthEv" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis12GetFftLengthEv">
+<span id="_CPPv3NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis12GetFftLengthEv"></span><span id="_CPPv2NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis12GetFftLengthEv"></span><span id="sptk::PerceptualLinearPredictiveCoefficientsAnalysis::GetFftLengthC"></span><span class="target" id="classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis_1a67901ff9acfc006e2c67c8477cf6fc86"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis12GetFftLengthEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>FFT size. </p>
@@ -506,8 +380,8 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis13GetNumChannelEv">
-<span id="_CPPv3NK4sptk40MelFrequencyCepstralCoefficientsAnalysis13GetNumChannelEv"></span><span id="_CPPv2NK4sptk40MelFrequencyCepstralCoefficientsAnalysis13GetNumChannelEv"></span><span id="sptk::MelFrequencyCepstralCoefficientsAnalysis::GetNumChannelC"></span><span class="target" id="classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis_1a2b35f427925315ae0f9cefb04dbde625"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumChannel</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis13GetNumChannelEv" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis13GetNumChannelEv">
+<span id="_CPPv3NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis13GetNumChannelEv"></span><span id="_CPPv2NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis13GetNumChannelEv"></span><span id="sptk::PerceptualLinearPredictiveCoefficientsAnalysis::GetNumChannelC"></span><span class="target" id="classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis_1a68a557af1468dc0decca555cb03f6cc7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumChannel</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis13GetNumChannelEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Number of channels. </p>
@@ -516,8 +390,8 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis11GetNumOrderEv">
-<span id="_CPPv3NK4sptk40MelFrequencyCepstralCoefficientsAnalysis11GetNumOrderEv"></span><span id="_CPPv2NK4sptk40MelFrequencyCepstralCoefficientsAnalysis11GetNumOrderEv"></span><span id="sptk::MelFrequencyCepstralCoefficientsAnalysis::GetNumOrderC"></span><span class="target" id="classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis_1af9109ea28b0ad65c6128d331501ed12c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis11GetNumOrderEv" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis11GetNumOrderEv">
+<span id="_CPPv3NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis11GetNumOrderEv"></span><span id="_CPPv2NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis11GetNumOrderEv"></span><span id="sptk::PerceptualLinearPredictiveCoefficientsAnalysis::GetNumOrderC"></span><span class="target" id="classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis_1ac9d9b20113af483a89bfd46ada8b0abe"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis11GetNumOrderEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of cepstral coefficients. </p>
@@ -526,8 +400,8 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis23GetLifteringCoefficientEv">
-<span id="_CPPv3NK4sptk40MelFrequencyCepstralCoefficientsAnalysis23GetLifteringCoefficientEv"></span><span id="_CPPv2NK4sptk40MelFrequencyCepstralCoefficientsAnalysis23GetLifteringCoefficientEv"></span><span id="sptk::MelFrequencyCepstralCoefficientsAnalysis::GetLifteringCoefficientC"></span><span class="target" id="classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis_1a442e60552de4a2ba9907eaa8235574a6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetLifteringCoefficient</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis23GetLifteringCoefficientEv" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis23GetLifteringCoefficientEv">
+<span id="_CPPv3NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis23GetLifteringCoefficientEv"></span><span id="_CPPv2NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis23GetLifteringCoefficientEv"></span><span id="sptk::PerceptualLinearPredictiveCoefficientsAnalysis::GetLifteringCoefficientC"></span><span class="target" id="classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis_1ae1067c547767638b31681e91eb38f521"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetLifteringCoefficient</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis23GetLifteringCoefficientEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Liftering coefficient. </p>
@@ -536,8 +410,18 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis7IsValidEv">
-<span id="_CPPv3NK4sptk40MelFrequencyCepstralCoefficientsAnalysis7IsValidEv"></span><span id="_CPPv2NK4sptk40MelFrequencyCepstralCoefficientsAnalysis7IsValidEv"></span><span id="sptk::MelFrequencyCepstralCoefficientsAnalysis::IsValidC"></span><span class="target" id="classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis_1ac0c8f73183df06a2788fdf435cc3a368"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis20GetCompressionFactorEv">
+<span id="_CPPv3NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis20GetCompressionFactorEv"></span><span id="_CPPv2NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis20GetCompressionFactorEv"></span><span id="sptk::PerceptualLinearPredictiveCoefficientsAnalysis::GetCompressionFactorC"></span><span class="target" id="classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis_1adb34a696831c414fa1b7848b3c84d67c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetCompressionFactor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis20GetCompressionFactorEv" title="Permalink to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Compression factor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis7IsValidEv">
+<span id="_CPPv3NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis7IsValidEv"></span><span id="_CPPv2NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis7IsValidEv"></span><span id="sptk::PerceptualLinearPredictiveCoefficientsAnalysis::IsValidC"></span><span class="target" id="classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis_1aa481482a099062c731415523a7e4c271"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis7IsValidEv" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -546,15 +430,15 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPdPN40MelFrequencyCepstralCoefficientsAnalysis6BufferE">
-<span id="_CPPv3NK4sptk40MelFrequencyCepstralCoefficientsAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPdPN40MelFrequencyCepstralCoefficientsAnalysis6BufferE"></span><span id="_CPPv2NK4sptk40MelFrequencyCepstralCoefficientsAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPdPN40MelFrequencyCepstralCoefficientsAnalysis6BufferE"></span><span id="sptk::MelFrequencyCepstralCoefficientsAnalysis::Run__std::vector:double:CR.std::vector:double:P.doubleP.MelFrequencyCepstralCoefficientsAnalysis::BufferPC"></span><span class="target" id="classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis_1a30eafd3c6220a272b31af84f4d06e16f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">power_spectrum</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">mfcc</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">energy</span></span>, <a class="reference internal" href="#_CPPv4N4sptk40MelFrequencyCepstralCoefficientsAnalysisE" title="sptk::MelFrequencyCepstralCoefficientsAnalysis"><span class="n"><span class="pre">MelFrequencyCepstralCoefficientsAnalysis</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk40MelFrequencyCepstralCoefficientsAnalysis6BufferE" title="sptk::MelFrequencyCepstralCoefficientsAnalysis::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPdPN40MelFrequencyCepstralCoefficientsAnalysis6BufferE" title="Permalink to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPdPN46PerceptualLinearPredictiveCoefficientsAnalysis6BufferE">
+<span id="_CPPv3NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPdPN46PerceptualLinearPredictiveCoefficientsAnalysis6BufferE"></span><span id="_CPPv2NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPdPN46PerceptualLinearPredictiveCoefficientsAnalysis6BufferE"></span><span id="sptk::PerceptualLinearPredictiveCoefficientsAnalysis::Run__std::vector:double:CR.std::vector:double:P.doubleP.PerceptualLinearPredictiveCoefficientsAnalysis::BufferPC"></span><span class="target" id="classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis_1adb7336e957764eda56ca1cf8ef5ee43b"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">power_spectrum</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">plp</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">energy</span></span>, <a class="reference internal" href="#_CPPv4N4sptk46PerceptualLinearPredictiveCoefficientsAnalysisE" title="sptk::PerceptualLinearPredictiveCoefficientsAnalysis"><span class="n"><span class="pre">PerceptualLinearPredictiveCoefficientsAnalysis</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk46PerceptualLinearPredictiveCoefficientsAnalysis6BufferE" title="sptk::PerceptualLinearPredictiveCoefficientsAnalysis::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPdPN46PerceptualLinearPredictiveCoefficientsAnalysis6BufferE" title="Permalink to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>power_spectrum</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\((N/2+1)\)</span>-length power spectrum. </p></li>
-<li><p><strong>mfcc</strong> – <strong>[out]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order MFCCs. </p></li>
+<li><p><strong>plp</strong> – <strong>[out]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order PLP features. </p></li>
 <li><p><strong>energy</strong> – <strong>[out]</strong> Signal energy <span class="math notranslate nohighlight">\(E\)</span> (optional). </p></li>
-<li><p><strong>buffer</strong> – <strong>[out]</strong> <a class="reference internal" href="#classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+<li><p><strong>buffer</strong> – <strong>[out]</strong> <a class="reference internal" href="#classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -565,9 +449,9 @@
 
 </div>
 <dl class="cpp class">
-<dt class="sig sig-object cpp" id="_CPPv4N4sptk40MelFrequencyCepstralCoefficientsAnalysis6BufferE">
-<span id="_CPPv3N4sptk40MelFrequencyCepstralCoefficientsAnalysis6BufferE"></span><span id="_CPPv2N4sptk40MelFrequencyCepstralCoefficientsAnalysis6BufferE"></span><span id="sptk::MelFrequencyCepstralCoefficientsAnalysis::Buffer"></span><span class="target" id="classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk40MelFrequencyCepstralCoefficientsAnalysis6BufferE" title="Permalink to this definition"></a><br /></dt>
-<dd><p><a class="reference internal" href="#classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis"><span class="std std-ref">MelFrequencyCepstralCoefficientsAnalysis</span></a> class. </p>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk46PerceptualLinearPredictiveCoefficientsAnalysis6BufferE">
+<span id="_CPPv3N4sptk46PerceptualLinearPredictiveCoefficientsAnalysis6BufferE"></span><span id="_CPPv2N4sptk46PerceptualLinearPredictiveCoefficientsAnalysis6BufferE"></span><span id="sptk::PerceptualLinearPredictiveCoefficientsAnalysis::Buffer"></span><span class="target" id="classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk46PerceptualLinearPredictiveCoefficientsAnalysis6BufferE" title="Permalink to this definition"></a><br /></dt>
+<dd><p><a class="reference internal" href="#classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis"><span class="std std-ref">PerceptualLinearPredictiveCoefficientsAnalysis</span></a> class. </p>
 </dd></dl>
 
 </dd></dl>
@@ -578,8 +462,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="merge.html" class="btn btn-neutral float-left" title="merge" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="mgc2mgc.html" class="btn btn-neutral float-right" title="mgc2mgc" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="pitch_spec.html" class="btn btn-neutral float-left" title="pitch_spec" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="poledf.html" class="btn btn-neutral float-right" title="poledf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
