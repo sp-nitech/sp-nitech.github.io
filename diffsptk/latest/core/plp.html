@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>pqmf &#8212; diffsptk 1.1.0 documentation</title>
+    <title>plp &#8212; diffsptk 1.1.0 documentation</title>
   
   
   
@@ -39,11 +39,11 @@
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'core/pqmf';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'core/plp';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="quantize" href="quantize.html" />
-    <link rel="prev" title="poledf" href="poledf.html" />
+    <link rel="next" title="pol_root" href="pol_root.html" />
+    <link rel="prev" title="pitch" href="pitch.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -344,10 +344,10 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="plp.html">plp</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">plp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pol_root.html">pol_root</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">pqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rlevdur.html">rlevdur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rmse.html">rmse</a></li>
@@ -403,7 +403,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">diffsptk.core</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">pqmf</li>
+    <li class="breadcrumb-item active" aria-current="page">plp</li>
   </ul>
 </nav>
 </div>
@@ -420,60 +420,77 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section id="pqmf">
-<span id="id1"></span><h1>pqmf<a class="headerlink" href="#pqmf" title="Permalink to this heading">#</a></h1>
+  <section id="plp">
+<span id="id1"></span><h1>plp<a class="headerlink" href="#plp" title="Permalink to this heading">#</a></h1>
 <dl class="py attribute">
-<dt class="sig sig-object py" id="diffsptk.PQMF">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">PQMF</span></span><a class="headerlink" href="#diffsptk.PQMF" title="Permalink to this definition">#</a></dt>
-<dd><p>alias of <a class="reference internal" href="#diffsptk.PseudoQuadratureMirrorFilterBanks" title="diffsptk.core.pqmf.PseudoQuadratureMirrorFilterBanks"><code class="xref py py-class docutils literal notranslate"><span class="pre">PseudoQuadratureMirrorFilterBanks</span></code></a></p>
+<dt class="sig sig-object py" id="diffsptk.PLP">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">PLP</span></span><a class="headerlink" href="#diffsptk.PLP" title="Permalink to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="#diffsptk.PerceptualLinearPredictiveCoefficientsAnalysis" title="diffsptk.core.plp.PerceptualLinearPredictiveCoefficientsAnalysis"><code class="xref py py-class docutils literal notranslate"><span class="pre">PerceptualLinearPredictiveCoefficientsAnalysis</span></code></a></p>
 </dd></dl>
 
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.PseudoQuadratureMirrorFilterBanks">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">PseudoQuadratureMirrorFilterBanks</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_band</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learnable</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/pqmf.html#PseudoQuadratureMirrorFilterBanks"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PseudoQuadratureMirrorFilterBanks" title="Permalink to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/pqmf.html">this page</a>
+<dt class="sig sig-object py" id="diffsptk.PerceptualLinearPredictiveCoefficientsAnalysis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">PerceptualLinearPredictiveCoefficientsAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">plp_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lifter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compression_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.33</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'y'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_fft</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">fbank_kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/plp.html#PerceptualLinearPredictiveCoefficientsAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PerceptualLinearPredictiveCoefficientsAnalysis" title="Permalink to this definition">#</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/plp.html">this page</a>
 for details.</p>
-<dl class="field-list simple">
+<dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>n_band</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Number of subbands, <span class="math notranslate nohighlight">\(K\)</span>.</p>
+<dd class="field-odd"><dl>
+<dt><strong>mfcc_order</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Order of MFCC, <span class="math notranslate nohighlight">\(M\)</span>.</p>
 </dd>
-<dt><strong>filter_order</strong><span class="classifier">int &gt;= 2 [scalar]</span></dt><dd><p>Order of filter, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<dt><strong>n_channel</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Number of mel-filter banks, <span class="math notranslate nohighlight">\(C\)</span>.</p>
 </dd>
-<dt><strong>alpha</strong><span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Stopband attenuation in dB.</p>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2 [scalar]</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
-<dt><strong>learnable</strong><span class="classifier">bool [scalar]</span></dt><dd><p>Whether to make filter-bank coefficients learnable.</p>
+<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Sample rate in Hz.</p>
 </dd>
-<dt><strong>**kwargs</strong><span class="classifier">additional keyword arguments</span></dt><dd><p>Parameters to find optimal filter-bank coefficients.</p>
+<dt><strong>lifter</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Liftering coefficient.</p>
+</dd>
+<dt><strong>compression_factor</strong><span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Amplitude compression factor.</p>
+</dd>
+<dt><strong>f_min</strong><span class="classifier">float &gt;= 0 [scalar]</span></dt><dd><p>Minimum frequency in Hz.</p>
+</dd>
+<dt><strong>f_max</strong><span class="classifier">float &lt;= sample_rate // 2 [scalar]</span></dt><dd><p>Maximum frequency in Hz.</p>
+</dd>
+<dt><strong>floor</strong><span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Minimum mel-filter bank output in linear scale.</p>
+</dd>
+<dt><strong>out_format</strong><span class="classifier">[‘y’, ‘yE’, ‘yc’, ‘ycE’]</span></dt><dd><p><cite>y</cite> is MFCC, <cite>c</cite> is C0, and <cite>E</cite> is energy.</p>
+</dd>
+<dt><strong>n_fft</strong><span class="classifier">int &gt;&gt; <span class="math notranslate nohighlight">\(M\)</span> [scalar]</span></dt><dd><p>Number of FFT bins. Accurate conversion requires the large value.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.PseudoQuadratureMirrorFilterBanks.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/pqmf.html#PseudoQuadratureMirrorFilterBanks.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PseudoQuadratureMirrorFilterBanks.forward" title="Permalink to this definition">#</a></dt>
-<dd><p>Decompose waveform into subband waveforms.</p>
+<dt class="sig sig-object py" id="diffsptk.PerceptualLinearPredictiveCoefficientsAnalysis.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/core/plp.html#PerceptualLinearPredictiveCoefficientsAnalysis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PerceptualLinearPredictiveCoefficientsAnalysis.forward" title="Permalink to this definition">#</a></dt>
+<dd><p>Compute PLP.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(B, 1, T) or (B, T) or (T,)]</span></dt><dd><p>Original waveform.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>Power spectrum.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(B, K, T)]</span></dt><dd><p>Subband waveforms.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, M)]</span></dt><dd><p>PLP without C0.</p>
+</dd>
+<dt><strong>E</strong><span class="classifier">Tensor [shape=(…, 1)]</span></dt><dd><p>Energy.</p>
+</dd>
+<dt><strong>c</strong><span class="classifier">Tensor [shape=(…, 1)]</span></dt><dd><p>C0.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pqmf</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">PQMF</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">pmqf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stft</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">STFT</span><span class="p">(</span><span class="n">frame_length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">frame_period</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fft_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">plp</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">PLP</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">8000</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">plp</span><span class="p">(</span><span class="n">stft</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">tensor([[[ 0.1605,  0.4266,  0.6927,  0.9199,  1.0302],</span>
-<span class="go">         [-0.0775, -0.0493, -0.0211, -0.0318,  0.0743]]])</span>
+<span class="go">tensor([[-0.2896, -0.2356, -0.0586, -0.0387],</span>
+<span class="go">        [ 0.4468, -0.5820,  0.0104, -0.0505]])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -482,7 +499,7 @@ for details.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="ipqmf.html#ipqmf"><span class="std std-ref">ipqmf</span></a>  <a class="reference internal" href="decimate.html#decimate"><span class="std std-ref">decimate</span></a></p>
+<p><a class="reference internal" href="stft.html#stft"><span class="std std-ref">stft</span></a>  <a class="reference internal" href="fbank.html#fbank"><span class="std std-ref">fbank</span></a>  <a class="reference internal" href="mfcc.html#mfcc"><span class="std std-ref">mfcc</span></a></p>
 </div>
 </section>
 
@@ -497,20 +514,20 @@ for details.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="poledf.html"
+       href="pitch.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">poledf</p>
+        <p class="prev-next-title">pitch</p>
       </div>
     </a>
     <a class="right-next"
-       href="quantize.html"
+       href="pol_root.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">quantize</p>
+        <p class="prev-next-title">pol_root</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -530,9 +547,9 @@ for details.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.PQMF"><code class="docutils literal notranslate"><span class="pre">PQMF</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.PseudoQuadratureMirrorFilterBanks"><code class="docutils literal notranslate"><span class="pre">PseudoQuadratureMirrorFilterBanks</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.PseudoQuadratureMirrorFilterBanks.forward"><code class="docutils literal notranslate"><span class="pre">PseudoQuadratureMirrorFilterBanks.forward()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.PLP"><code class="docutils literal notranslate"><span class="pre">PLP</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.PerceptualLinearPredictiveCoefficientsAnalysis"><code class="docutils literal notranslate"><span class="pre">PerceptualLinearPredictiveCoefficientsAnalysis</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.PerceptualLinearPredictiveCoefficientsAnalysis.forward"><code class="docutils literal notranslate"><span class="pre">PerceptualLinearPredictiveCoefficientsAnalysis.forward()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -541,7 +558,7 @@ for details.</p>
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../_sources/core/pqmf.rst.txt">
+    <a href="../_sources/core/plp.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
