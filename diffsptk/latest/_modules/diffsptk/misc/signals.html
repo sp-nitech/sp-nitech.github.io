@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.misc.signals &#8212; diffsptk 1.2.1 documentation</title>
+    <title>diffsptk.misc.signals &#8212; diffsptk 2.0.0 documentation</title>
   
   
   
@@ -34,7 +34,7 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
   <script src="../../../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
-    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=e8fef1db"></script>
+    <script data-url_root="../../../" id="documentation_options" src="../../../_static/documentation_options.js?v=73cda6fb"></script>
     <script src="../../../_static/doctools.js?v=888ff710"></script>
     <script src="../../../_static/sphinx_highlight.js?v=4825356b"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/misc/signals';</script>
@@ -113,7 +113,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 1.2.1 documentation</p>
+    <p class="title logo__title">diffsptk 2.0.0 documentation</p>
   
 </a></div>
     
@@ -134,8 +134,8 @@
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../../core/index.html">
-                        Core API
+                      <a class="nav-link nav-internal" href="../../../modules/index.html">
+                        Modules
                       </a>
                     </li>
                 
@@ -228,8 +228,8 @@ document.write(`
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../../../core/index.html">
-                        Core API
+                      <a class="nav-link nav-internal" href="../../../modules/index.html">
+                        Modules
                       </a>
                     </li>
                 
@@ -334,8 +334,6 @@ document.write(`
 <span class="c1"># limitations under the License.                                           #</span>
 <span class="c1"># ------------------------------------------------------------------------ #</span>
 
-<span class="kn">import</span> <span class="nn">math</span>
-
 <span class="kn">import</span> <span class="nn">torch</span>
 
 
@@ -347,7 +345,7 @@ document.write(`
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    order : int &gt;= 0 [scalar]</span>
+<span class="sd">    order : int &gt;= 0</span>
 <span class="sd">        Order of sequence, :math:`M`.</span>
 
 <span class="sd">    **kwargs : additional keyword arguments</span>
@@ -355,7 +353,7 @@ document.write(`
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    x : Tensor [shape=(M+1,)]</span>
+<span class="sd">    out : Tensor [shape=(M+1,)]</span>
 <span class="sd">        Impulse sequence.</span>
 
 <span class="sd">    Examples</span>
@@ -377,10 +375,10 @@ document.write(`
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    order : int &gt;= 0 [scalar]</span>
+<span class="sd">    order : int &gt;= 0</span>
 <span class="sd">        Order of sequence, :math:`M`.</span>
 
-<span class="sd">    value : float [scalar]</span>
+<span class="sd">    value : float</span>
 <span class="sd">        Step value.</span>
 
 <span class="sd">    **kwargs : additional keyword arguments</span>
@@ -388,7 +386,7 @@ document.write(`
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    x : Tensor [shape=(M+1,)]</span>
+<span class="sd">    out : Tensor [shape=(M+1,)]</span>
 <span class="sd">        Step sequence.</span>
 
 <span class="sd">    Examples</span>
@@ -410,16 +408,16 @@ document.write(`
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    arg : float [scalar]</span>
+<span class="sd">    arg : float</span>
 <span class="sd">        If `end` is `None` end value otherwise start value.</span>
 
-<span class="sd">    end : float [scalar]</span>
+<span class="sd">    end : float</span>
 <span class="sd">        End value.</span>
 
-<span class="sd">    step : float != 0 [scalar]</span>
+<span class="sd">    step : float != 0</span>
 <span class="sd">        Slope.</span>
 
-<span class="sd">    eps : float [scalar]</span>
+<span class="sd">    eps : float</span>
 <span class="sd">        A correction value.</span>
 
 <span class="sd">    **kwargs : additional keyword arguments</span>
@@ -428,7 +426,7 @@ document.write(`
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    x : Tensor [shape=(?,)]</span>
+<span class="sd">    out : Tensor [shape=(?,)]</span>
 <span class="sd">        Ramp sequence.</span>
 
 <span class="sd">    Examples</span>
@@ -459,13 +457,13 @@ document.write(`
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    order : int &gt;= 0 [scalar]</span>
+<span class="sd">    order : int &gt;= 0</span>
 <span class="sd">        Order of sequence, :math:`M`.</span>
 
-<span class="sd">    period : float &gt; 0 [scalar]</span>
+<span class="sd">    period : float &gt; 0</span>
 <span class="sd">        Period.</span>
 
-<span class="sd">    magnitude : float [scalar]</span>
+<span class="sd">    magnitude : float</span>
 <span class="sd">        Magnitude.</span>
 
 <span class="sd">    **kwargs : additional keyword arguments</span>
@@ -474,7 +472,7 @@ document.write(`
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    x : Tensor [shape=(M+1,)]</span>
+<span class="sd">    out : Tensor [shape=(M+1,)]</span>
 <span class="sd">        Sinusoidal sequence.</span>
 
 <span class="sd">    Examples</span>
@@ -487,7 +485,7 @@ document.write(`
     <span class="k">if</span> <span class="n">period</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">period</span> <span class="o">=</span> <span class="n">order</span> <span class="o">+</span> <span class="mi">1</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-    <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">period</span><span class="p">))</span> <span class="o">*</span> <span class="n">magnitude</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">period</span><span class="p">))</span> <span class="o">*</span> <span class="n">magnitude</span>
     <span class="k">return</span> <span class="n">x</span></div>
 
 
@@ -499,10 +497,10 @@ document.write(`
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    order : int &gt;= 0 [scalar]</span>
+<span class="sd">    order : int &gt;= 0</span>
 <span class="sd">        Order of sequence, :math:`M`.</span>
 
-<span class="sd">    frame_period : float &gt;= 1 [scalar]</span>
+<span class="sd">    frame_period : float &gt;= 1</span>
 <span class="sd">        Frame period.</span>
 
 <span class="sd">    norm : [&#39;none&#39;, &#39;power&#39;, &#39;magnitude&#39;]</span>
@@ -513,7 +511,7 @@ document.write(`
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    x : Tensor [shape=(M+1,)]</span>
+<span class="sd">    out : Tensor [shape=(M+1,)]</span>
 <span class="sd">        Pulse sequence.</span>
 
 <span class="sd">    Examples</span>
@@ -532,7 +530,7 @@ document.write(`
     <span class="k">elif</span> <span class="n">norm</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">norm</span> <span class="o">==</span> <span class="s2">&quot;magnitude&quot;</span><span class="p">:</span>
         <span class="n">pulse</span> <span class="o">=</span> <span class="n">frame_period</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;norm </span><span class="si">{</span><span class="n">norm</span><span class="si">}</span><span class="s2"> is not supported&quot;</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;norm </span><span class="si">{</span><span class="n">norm</span><span class="si">}</span><span class="s2"> is not supported.&quot;</span><span class="p">)</span>
 
     <span class="n">frequency</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">frame_period</span>
     <span class="n">v</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">full</span><span class="p">((</span><span class="n">order</span> <span class="o">+</span> <span class="mi">2</span><span class="p">,),</span> <span class="n">frequency</span><span class="p">)</span>
@@ -553,16 +551,16 @@ document.write(`
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    order : int &gt;= 0 [scalar]</span>
+<span class="sd">    order : int &gt;= 0</span>
 <span class="sd">        Order of sequence, :math:`M`.</span>
 
-<span class="sd">    mean : float [scalar]</span>
+<span class="sd">    mean : float</span>
 <span class="sd">        Mean.</span>
 
-<span class="sd">    stdv : float &gt;= 0 [scalar]</span>
+<span class="sd">    stdv : float &gt;= 0</span>
 <span class="sd">        Standard deviation.</span>
 
-<span class="sd">    var : float &gt;= 0 [scalar]</span>
+<span class="sd">    var : float &gt;= 0</span>
 <span class="sd">        Variance.</span>
 
 <span class="sd">    **kwargs : additional keyword arguments</span>
@@ -570,7 +568,7 @@ document.write(`
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    x : Tensor [shape=(M+1,)]</span>
+<span class="sd">    out : Tensor [shape=(M+1,)]</span>
 <span class="sd">        Random value sequence.</span>
 
 <span class="sd">    Examples</span>

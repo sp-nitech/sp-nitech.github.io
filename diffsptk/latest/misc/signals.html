@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>signals &#8212; diffsptk 1.2.1 documentation</title>
+    <title>signals &#8212; diffsptk 2.0.0 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
   <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e8fef1db"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=73cda6fb"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -117,7 +117,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 1.2.1 documentation</p>
+    <p class="title logo__title">diffsptk 2.0.0 documentation</p>
   
 </a></div>
     
@@ -138,8 +138,8 @@
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../core/index.html">
-                        Core API
+                      <a class="nav-link nav-internal" href="../modules/index.html">
+                        Modules
                       </a>
                     </li>
                 
@@ -236,8 +236,8 @@ document.write(`
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../core/index.html">
-                        Core API
+                      <a class="nav-link nav-internal" href="../modules/index.html">
+                        Modules
                       </a>
                     </li>
                 
@@ -349,7 +349,7 @@ for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of sequence, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<dt><strong>order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>Order of sequence, <span class="math notranslate nohighlight">\(M\)</span>.</p>
 </dd>
 <dt><strong>**kwargs</strong><span class="classifier">additional keyword arguments</span></dt><dd><p>See <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.eye.html">torch.eye</a>.</p>
 </dd>
@@ -357,7 +357,7 @@ for details.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(M+1,)]</span></dt><dd><p>Impulse sequence.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(M+1,)]</span></dt><dd><p>Impulse sequence.</p>
 </dd>
 </dl>
 </dd>
@@ -379,9 +379,9 @@ for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of sequence, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<dt><strong>order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>Order of sequence, <span class="math notranslate nohighlight">\(M\)</span>.</p>
 </dd>
-<dt><strong>value</strong><span class="classifier">float [scalar]</span></dt><dd><p>Step value.</p>
+<dt><strong>value</strong><span class="classifier">float</span></dt><dd><p>Step value.</p>
 </dd>
 <dt><strong>**kwargs</strong><span class="classifier">additional keyword arguments</span></dt><dd><p>See <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.full.html">torch.full</a>.</p>
 </dd>
@@ -389,7 +389,7 @@ for details.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(M+1,)]</span></dt><dd><p>Step sequence.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(M+1,)]</span></dt><dd><p>Step sequence.</p>
 </dd>
 </dl>
 </dd>
@@ -411,13 +411,13 @@ for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>arg</strong><span class="classifier">float [scalar]</span></dt><dd><p>If <cite>end</cite> is <cite>None</cite> end value otherwise start value.</p>
+<dt><strong>arg</strong><span class="classifier">float</span></dt><dd><p>If <cite>end</cite> is <cite>None</cite> end value otherwise start value.</p>
 </dd>
-<dt><strong>end</strong><span class="classifier">float [scalar]</span></dt><dd><p>End value.</p>
+<dt><strong>end</strong><span class="classifier">float</span></dt><dd><p>End value.</p>
 </dd>
-<dt><strong>step</strong><span class="classifier">float != 0 [scalar]</span></dt><dd><p>Slope.</p>
+<dt><strong>step</strong><span class="classifier">float != 0</span></dt><dd><p>Slope.</p>
 </dd>
-<dt><strong>eps</strong><span class="classifier">float [scalar]</span></dt><dd><p>A correction value.</p>
+<dt><strong>eps</strong><span class="classifier">float</span></dt><dd><p>A correction value.</p>
 </dd>
 <dt><strong>**kwargs</strong><span class="classifier">additional keyword arguments</span></dt><dd><p>See <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.arange.html">torch.arange</a>.</p>
 </dd>
@@ -425,7 +425,7 @@ for details.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(?,)]</span></dt><dd><p>Ramp sequence.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(?,)]</span></dt><dd><p>Ramp sequence.</p>
 </dd>
 </dl>
 </dd>
@@ -447,11 +447,11 @@ for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of sequence, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<dt><strong>order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>Order of sequence, <span class="math notranslate nohighlight">\(M\)</span>.</p>
 </dd>
-<dt><strong>period</strong><span class="classifier">float &gt; 0 [scalar]</span></dt><dd><p>Period.</p>
+<dt><strong>period</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Period.</p>
 </dd>
-<dt><strong>magnitude</strong><span class="classifier">float [scalar]</span></dt><dd><p>Magnitude.</p>
+<dt><strong>magnitude</strong><span class="classifier">float</span></dt><dd><p>Magnitude.</p>
 </dd>
 <dt><strong>**kwargs</strong><span class="classifier">additional keyword arguments</span></dt><dd><p>See <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.arange.html">torch.arange</a>.</p>
 </dd>
@@ -459,7 +459,7 @@ for details.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(M+1,)]</span></dt><dd><p>Sinusoidal sequence.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(M+1,)]</span></dt><dd><p>Sinusoidal sequence.</p>
 </dd>
 </dl>
 </dd>
@@ -481,9 +481,9 @@ for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of sequence, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<dt><strong>order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>Order of sequence, <span class="math notranslate nohighlight">\(M\)</span>.</p>
 </dd>
-<dt><strong>frame_period</strong><span class="classifier">float &gt;= 1 [scalar]</span></dt><dd><p>Frame period.</p>
+<dt><strong>frame_period</strong><span class="classifier">float &gt;= 1</span></dt><dd><p>Frame period.</p>
 </dd>
 <dt><strong>norm</strong><span class="classifier">[‘none’, ‘power’, ‘magnitude’]</span></dt><dd><p>Normalization type.</p>
 </dd>
@@ -493,7 +493,7 @@ for details.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(M+1,)]</span></dt><dd><p>Pulse sequence.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(M+1,)]</span></dt><dd><p>Pulse sequence.</p>
 </dd>
 </dl>
 </dd>
@@ -515,13 +515,13 @@ for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>order</strong><span class="classifier">int &gt;= 0 [scalar]</span></dt><dd><p>Order of sequence, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<dt><strong>order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>Order of sequence, <span class="math notranslate nohighlight">\(M\)</span>.</p>
 </dd>
-<dt><strong>mean</strong><span class="classifier">float [scalar]</span></dt><dd><p>Mean.</p>
+<dt><strong>mean</strong><span class="classifier">float</span></dt><dd><p>Mean.</p>
 </dd>
-<dt><strong>stdv</strong><span class="classifier">float &gt;= 0 [scalar]</span></dt><dd><p>Standard deviation.</p>
+<dt><strong>stdv</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>Standard deviation.</p>
 </dd>
-<dt><strong>var</strong><span class="classifier">float &gt;= 0 [scalar]</span></dt><dd><p>Variance.</p>
+<dt><strong>var</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>Variance.</p>
 </dd>
 <dt><strong>**kwargs</strong><span class="classifier">additional keyword arguments</span></dt><dd><p>See <a class="reference external" href="https://pytorch.org/docs/stable/generated/torch.randn.html">torch.randn</a>.</p>
 </dd>
@@ -529,7 +529,7 @@ for details.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(M+1,)]</span></dt><dd><p>Random value sequence.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(M+1,)]</span></dt><dd><p>Random value sequence.</p>
 </dd>
 </dl>
 </dd>

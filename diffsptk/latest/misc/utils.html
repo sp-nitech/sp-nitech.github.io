@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>utils &#8212; diffsptk 1.2.1 documentation</title>
+    <title>utils &#8212; diffsptk 2.0.0 documentation</title>
   
   
   
@@ -35,7 +35,7 @@
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
   <script src="../_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
-    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=e8fef1db"></script>
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=73cda6fb"></script>
     <script src="../_static/doctools.js?v=888ff710"></script>
     <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -116,7 +116,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 1.2.1 documentation</p>
+    <p class="title logo__title">diffsptk 2.0.0 documentation</p>
   
 </a></div>
     
@@ -137,8 +137,8 @@
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../core/index.html">
-                        Core API
+                      <a class="nav-link nav-internal" href="../modules/index.html">
+                        Modules
                       </a>
                     </li>
                 
@@ -235,8 +235,8 @@ document.write(`
   <ul class="bd-navbar-elements navbar-nav">
     
                     <li class="nav-item">
-                      <a class="nav-link nav-internal" href="../core/index.html">
-                        Core API
+                      <a class="nav-link nav-internal" href="../modules/index.html">
+                        Modules
                       </a>
                     </li>
                 
@@ -342,24 +342,24 @@ document.write(`
 <dl class="py function">
 <dt class="sig sig-object py" id="diffsptk.get_alpha">
 <span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">get_alpha</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sr</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'hts'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_freq</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/misc/utils.html#get_alpha"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.get_alpha" title="Permalink to this definition">#</a></dt>
-<dd><p>Compute frequency warping factor under given sample rate.</p>
+<dd><p>Compute an appropriate frequency warping factor under given sample rate.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>sr</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Sample rate in Hz.</p>
+<dt><strong>sr</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Sample rate in Hz.</p>
 </dd>
 <dt><strong>mode</strong><span class="classifier">[‘hts’, ‘auto’]</span></dt><dd><p>‘hts’ returns traditional alpha used in HTS. ‘auto’ computes appropriate
 alpha in L2 sense.</p>
 </dd>
-<dt><strong>n_freq</strong><span class="classifier">int &gt;= 2 [scalar]</span></dt><dd><p>Number of sample points in the frequency domain.</p>
+<dt><strong>n_freq</strong><span class="classifier">int &gt;= 2</span></dt><dd><p>Number of sample points in the frequency domain.</p>
 </dd>
-<dt><strong>n_alpha</strong><span class="classifier">int &gt;= 1 [scalar]</span></dt><dd><p>Number of sample points to search alpha.</p>
+<dt><strong>n_alpha</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Number of sample points to search alpha.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>alpha</strong><span class="classifier">float [0 &lt;= alpha &lt; 1]</span></dt><dd><p>Frequency warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<dt><strong>out</strong><span class="classifier">float in [0, 1)</span></dt><dd><p>Frequency warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
 </dd>
 </dl>
 </dd>
@@ -375,22 +375,26 @@ alpha in L2 sense.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="diffsptk.read">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">double</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/misc/utils.html#read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.read" title="Permalink to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">double</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/misc/utils.html#read"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.read" title="Permalink to this definition">#</a></dt>
 <dd><p>Read waveform from file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>filename</strong><span class="classifier">str [scalar]</span></dt><dd><p>Path of wav file.</p>
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>Path of wav file.</p>
 </dd>
-<dt><strong>double</strong><span class="classifier">bool [scalar]</span></dt><dd><p>If True, return double-type tensor.</p>
+<dt><strong>double</strong><span class="classifier">bool</span></dt><dd><p>If True, return double-type tensor.</p>
 </dd>
-<dt><strong>**kwargs</strong><span class="classifier">additional keyword arguments</span></dt><dd><p>Additional arguments passed to <cite>soundfile.read</cite>.</p>
+<dt><strong>device</strong><span class="classifier">torch.device or None</span></dt><dd><p>Device of returned tensor.</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">additional keyword arguments</span></dt><dd><p>Additional arguments passed to <a class="reference external" href="https://python-soundfile.readthedocs.io/en/latest/#soundfile.read">soundfile.read</a>.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">Tensor</span></dt><dd><p>Waveform.</p>
+</dd>
+<dt><strong>sr</strong><span class="classifier">int</span></dt><dd><p>Sample rate in Hz.</p>
 </dd>
 </dl>
 </dd>
@@ -412,13 +416,13 @@ alpha in L2 sense.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>filename</strong><span class="classifier">str [scalar]</span></dt><dd><p>Path of wav file.</p>
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>Path of wav file.</p>
 </dd>
 <dt><strong>x</strong><span class="classifier">Tensor</span></dt><dd><p>Waveform.</p>
 </dd>
-<dt><strong>sr</strong><span class="classifier">int [scalar]</span></dt><dd><p>Sample rate in Hz.</p>
+<dt><strong>sr</strong><span class="classifier">int</span></dt><dd><p>Sample rate in Hz.</p>
 </dd>
-<dt><strong>**kwargs</strong><span class="classifier">additional keyword arguments</span></dt><dd><p>Additional arguments passed to <cite>soundfile.write</cite>.</p>
+<dt><strong>**kwargs</strong><span class="classifier">additional keyword arguments</span></dt><dd><p>Additional arguments passed to <a class="reference external" href="https://python-soundfile.readthedocs.io/en/latest/#soundfile.write">soundfile.write</a>.</p>
 </dd>
 </dl>
 </dd>
