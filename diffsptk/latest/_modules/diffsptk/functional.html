@@ -977,6 +977,49 @@ document.write(`
 
 
 
+<div class="viewcode-block" id="histogram">
+<a class="viewcode-back" href="../../modules/histogram.html#diffsptk.functional.histogram">[docs]</a>
+<span class="k">def</span> <span class="nf">histogram</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n_bin</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">lower_bound</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">upper_bound</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">softness</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute histogram.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : Tensor [shape=(..., T)]</span>
+<span class="sd">        Input data.</span>
+
+<span class="sd">    n_bin : int &gt;= 1</span>
+<span class="sd">        Number of bins, :math:`K`.</span>
+
+<span class="sd">    lower_bound : float &lt; U</span>
+<span class="sd">        Lower bound of the histogram, :math:`L`.</span>
+
+<span class="sd">    upper_bound : float &gt; L</span>
+<span class="sd">        Upper bound of the histogram, :math:`U`.</span>
+
+<span class="sd">    norm : bool</span>
+<span class="sd">        If True, normalize the histogram.</span>
+
+<span class="sd">    softness : float &gt; 0</span>
+<span class="sd">        A smoothing parameter. The smaller value makes the output closer to the true</span>
+<span class="sd">        histogram, but the gradient vanishes.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out : Tensor [shape=(..., K)]</span>
+<span class="sd">        Histogram in [L, U].</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">Histogram</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span>
+        <span class="n">x</span><span class="p">,</span>
+        <span class="n">n_bin</span><span class="o">=</span><span class="n">n_bin</span><span class="p">,</span>
+        <span class="n">lower_bound</span><span class="o">=</span><span class="n">lower_bound</span><span class="p">,</span>
+        <span class="n">upper_bound</span><span class="o">=</span><span class="n">upper_bound</span><span class="p">,</span>
+        <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+        <span class="n">softness</span><span class="o">=</span><span class="n">softness</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
 <div class="viewcode-block" id="ialaw">
 <a class="viewcode-back" href="../../modules/ialaw.html#diffsptk.functional.ialaw">[docs]</a>
 <span class="k">def</span> <span class="nf">ialaw</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">abs_max</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">a</span><span class="o">=</span><span class="mf">87.6</span><span class="p">):</span>
@@ -2349,7 +2392,7 @@ document.write(`
 
 <div class="viewcode-block" id="zcross">
 <a class="viewcode-back" href="../../modules/zcross.html#diffsptk.functional.zcross">[docs]</a>
-<span class="k">def</span> <span class="nf">zcross</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">frame_length</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">zcross</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">frame_length</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">softness</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute zero-crossing rate.</span>
 
 <span class="sd">    Parameters</span>
@@ -2363,13 +2406,19 @@ document.write(`
 <span class="sd">    norm : bool</span>
 <span class="sd">        If True, divide zero-crossing rate by frame length.</span>
 
+<span class="sd">    softness : float &gt; 0</span>
+<span class="sd">        A smoothing parameter. The smaller value makes the output closer to the true</span>
+<span class="sd">        zero-crossing rate, but the gradient vanishes.</span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    out : Tensor [shape=(..., T/L)]</span>
 <span class="sd">        Zero-crossing rate.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">ZeroCrossingAnalysis</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">frame_length</span><span class="o">=</span><span class="n">frame_length</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">ZeroCrossingAnalysis</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">frame_length</span><span class="o">=</span><span class="n">frame_length</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">softness</span><span class="o">=</span><span class="n">softness</span>
+    <span class="p">)</span></div>
 
 
 

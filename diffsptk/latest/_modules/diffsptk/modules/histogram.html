@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.modules.zcross &#8212; diffsptk 2.0.0 documentation</title>
+    <title>diffsptk.modules.histogram &#8212; diffsptk 2.0.0 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
     <script src="../../../_static/documentation_options.js?v=51b770b3"></script>
     <script src="../../../_static/doctools.js?v=888ff710"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/zcross';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/histogram';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -309,7 +309,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <h1>Source code for diffsptk.modules.zcross</h1><div class="highlight"><pre>
+  <h1>Source code for diffsptk.modules.histogram</h1><div class="highlight"><pre>
 <span></span><span class="c1"># ------------------------------------------------------------------------ #</span>
 <span class="c1"># Copyright 2022 SPTK Working Group                                        #</span>
 <span class="c1">#                                                                          #</span>
@@ -329,79 +329,106 @@ document.write(`
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">torch.nn</span> <span class="k">as</span> <span class="nn">nn</span>
 
-<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">replicate1</span>
+<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">to</span>
 
 
-<div class="viewcode-block" id="ZeroCrossingAnalysis">
-<a class="viewcode-back" href="../../../modules/zcross.html#diffsptk.ZeroCrossingAnalysis">[docs]</a>
-<span class="k">class</span> <span class="nc">ZeroCrossingAnalysis</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/zcross.html&gt;`_</span>
+<div class="viewcode-block" id="Histogram">
+<a class="viewcode-back" href="../../../modules/histogram.html#diffsptk.Histogram">[docs]</a>
+<span class="k">class</span> <span class="nc">Histogram</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/histogram.html&gt;`_</span>
 <span class="sd">    for details.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    frame_length : int &gt;= 1</span>
-<span class="sd">        Frame length, :math:`L`.</span>
+<span class="sd">    n_bin : int &gt;= 1</span>
+<span class="sd">        Number of bins, :math:`K`.</span>
+
+<span class="sd">    lower_bound : float &lt; U</span>
+<span class="sd">        Lower bound of the histogram, :math:`L`.</span>
+
+<span class="sd">    upper_bound : float &gt; L</span>
+<span class="sd">        Upper bound of the histogram, :math:`U`.</span>
 
 <span class="sd">    norm : bool</span>
-<span class="sd">        If True, divide zero-crossing rate by frame length.</span>
+<span class="sd">        If True, normalize the histogram.</span>
 
 <span class="sd">    softness : float &gt; 0</span>
 <span class="sd">        A smoothing parameter. The smaller value makes the output closer to the true</span>
-<span class="sd">        zero-crossing rate, but the gradient vanishes.</span>
+<span class="sd">        histogram, but the gradient vanishes.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] M. Avi-Aharon et al., &quot;DeepHist: Differentiable joint and color histogram</span>
+<span class="sd">           layers for image-to-image translation,&quot; *arXiv preprint arXiv:2005.03995*,</span>
+<span class="sd">           2020.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frame_length</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">softness</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">):</span>
-        <span class="nb">super</span><span class="p">(</span><span class="n">ZeroCrossingAnalysis</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">n_bin</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">lower_bound</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">upper_bound</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">softness</span><span class="o">=</span><span class="mf">1e-3</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="n">Histogram</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">frame_length</span>
+        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">n_bin</span>
+        <span class="k">assert</span> <span class="n">lower_bound</span> <span class="o">&lt;</span> <span class="n">upper_bound</span>
         <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">softness</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">frame_length</span> <span class="o">=</span> <span class="n">frame_length</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">norm</span> <span class="o">=</span> <span class="n">norm</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">softness</span> <span class="o">=</span> <span class="n">softness</span>
 
-<div class="viewcode-block" id="ZeroCrossingAnalysis.forward">
-<a class="viewcode-back" href="../../../modules/zcross.html#diffsptk.ZeroCrossingAnalysis.forward">[docs]</a>
+        <span class="n">centers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="n">n_bin</span><span class="p">,</span> <span class="n">lower_bound</span><span class="p">,</span> <span class="n">upper_bound</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;centers&quot;</span><span class="p">,</span> <span class="n">centers</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Histogram.forward">
+<a class="viewcode-back" href="../../../modules/histogram.html#diffsptk.Histogram.forward">[docs]</a>
     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute zero-crossing rate.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute histogram.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        x : Tensor [shape=(..., T)]</span>
-<span class="sd">            Waveform.</span>
+<span class="sd">            Input data.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        out : Tensor [shape=(..., T/L)]</span>
-<span class="sd">            Zero-crossing rate.</span>
+<span class="sd">        out : Tensor [shape=(..., K)]</span>
+<span class="sd">            Histogram.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        &gt;&gt;&gt; x = diffsptk.nrand(5)</span>
-<span class="sd">        &gt;&gt;&gt; x</span>
-<span class="sd">        tensor([-0.2388,  0.3587, -0.6606, -0.6929,  0.5239,  0.4501])</span>
-<span class="sd">        &gt;&gt;&gt; zcross = diffsptk.ZeroCrossingAnalysis(3)</span>
-<span class="sd">        &gt;&gt;&gt; z = zcross(x)</span>
-<span class="sd">        &gt;&gt;&gt; z</span>
-<span class="sd">        tensor([2., 1.])</span>
+<span class="sd">        &gt;&gt;&gt; x = diffsptk.ramp(9)</span>
+<span class="sd">        &gt;&gt;&gt; histogram = diffsptk.Histogram(n_bin=4, lower_bound=-0.1, upper_bound=9.1)</span>
+<span class="sd">        &gt;&gt;&gt; h = histogram(x)</span>
+<span class="sd">        &gt;&gt;&gt; h</span>
+<span class="sd">        tensor([3., 2., 2., 3.])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame_length</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">softness</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">softness</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">centers</span><span class="p">)</span></div>
 
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">frame_length</span><span class="p">,</span> <span class="n">norm</span><span class="p">,</span> <span class="n">softness</span><span class="p">):</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tanh</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="n">softness</span><span class="p">)</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">replicate1</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">right</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">unfold</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">frame_length</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">frame_length</span><span class="p">)</span>
-        <span class="n">z</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span><span class="p">,</span> <span class="n">softness</span><span class="p">,</span> <span class="n">centers</span><span class="p">):</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span> <span class="o">-</span> <span class="n">centers</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># (..., K, T)</span>
+        <span class="n">g</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="p">(</span><span class="n">centers</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">centers</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">((</span><span class="n">y</span> <span class="o">+</span> <span class="n">g</span><span class="p">)</span> <span class="o">/</span> <span class="n">softness</span><span class="p">)</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">((</span><span class="n">y</span> <span class="o">-</span> <span class="n">g</span><span class="p">)</span> <span class="o">/</span> <span class="n">softness</span><span class="p">)</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">h</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">norm</span><span class="p">:</span>
-            <span class="n">z</span> <span class="o">/=</span> <span class="n">frame_length</span>
-        <span class="k">return</span> <span class="n">z</span>
+            <span class="n">h</span> <span class="o">/=</span> <span class="n">h</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">h</span>
 
-    <span class="n">_func</span> <span class="o">=</span> <span class="n">_forward</span></div>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n_bin</span><span class="p">,</span> <span class="n">lower_bound</span><span class="p">,</span> <span class="n">upper_bound</span><span class="p">,</span> <span class="n">norm</span><span class="p">,</span> <span class="n">softness</span><span class="p">):</span>
+        <span class="n">centers</span> <span class="o">=</span> <span class="n">Histogram</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span>
+            <span class="n">n_bin</span><span class="p">,</span> <span class="n">lower_bound</span><span class="p">,</span> <span class="n">upper_bound</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">device</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">Histogram</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span><span class="p">,</span> <span class="n">softness</span><span class="p">,</span> <span class="n">centers</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_precompute</span><span class="p">(</span><span class="n">n_bin</span><span class="p">,</span> <span class="n">lower_bound</span><span class="p">,</span> <span class="n">upper_bound</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">width</span> <span class="o">=</span> <span class="p">(</span><span class="n">upper_bound</span> <span class="o">-</span> <span class="n">lower_bound</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_bin</span>
+        <span class="n">bias</span> <span class="o">=</span> <span class="n">lower_bound</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">width</span>
+        <span class="n">centers</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_bin</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">double</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span> <span class="o">*</span> <span class="n">width</span> <span class="o">+</span> <span class="n">bias</span>
+        <span class="k">return</span> <span class="n">to</span><span class="p">(</span><span class="n">centers</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span></div>
 
 </pre></div>
 
