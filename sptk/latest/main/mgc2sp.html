@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>mgc2sp &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
   
@@ -15,9 +15,9 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -50,6 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alaw.html">alaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ap.html">ap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
@@ -100,6 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ialaw.html">ialaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
@@ -131,7 +133,23 @@
 <li class="toctree-l1"><a class="reference internal" href="merge.html">merge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mgc2mgc.html">mgc2mgc</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">mgc2sp</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">mgc2sp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk32MelGeneralizedCepstrumToSpectrumE"><code class="docutils literal notranslate"><span class="pre">MelGeneralizedCepstrumToSpectrum</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk32MelGeneralizedCepstrumToSpectrum32MelGeneralizedCepstrumToSpectrumEiddbbi"><code class="docutils literal notranslate"><span class="pre">MelGeneralizedCepstrumToSpectrum::MelGeneralizedCepstrumToSpectrum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum11GetNumOrderEv"><code class="docutils literal notranslate"><span class="pre">MelGeneralizedCepstrumToSpectrum::GetNumOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum8GetAlphaEv"><code class="docutils literal notranslate"><span class="pre">MelGeneralizedCepstrumToSpectrum::GetAlpha()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum8GetGammaEv"><code class="docutils literal notranslate"><span class="pre">MelGeneralizedCepstrumToSpectrum::GetGamma()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum12IsNormalizedEv"><code class="docutils literal notranslate"><span class="pre">MelGeneralizedCepstrumToSpectrum::IsNormalized()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum12IsMultipliedEv"><code class="docutils literal notranslate"><span class="pre">MelGeneralizedCepstrumToSpectrum::IsMultiplied()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum12GetFftLengthEv"><code class="docutils literal notranslate"><span class="pre">MelGeneralizedCepstrumToSpectrum::GetFftLength()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum7IsValidEv"><code class="docutils literal notranslate"><span class="pre">MelGeneralizedCepstrumToSpectrum::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum3RunERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN32MelGeneralizedCepstrumToSpectrum6BufferE"><code class="docutils literal notranslate"><span class="pre">MelGeneralizedCepstrumToSpectrum::Run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk32MelGeneralizedCepstrumToSpectrum6BufferE"><code class="docutils literal notranslate"><span class="pre">MelGeneralizedCepstrumToSpectrum::Buffer</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="mgcep.html">mgcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mglsadf.html">mglsadf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mglsp2sp.html">mglsp2sp</a></li>
@@ -145,6 +163,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onehot.html">onehot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -216,7 +235,7 @@
            <div itemprop="articleBody">
              
   <section id="mgc2sp">
-<span id="id1"></span><h1>mgc2sp<a class="headerlink" href="#mgc2sp" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>mgc2sp<a class="headerlink" href="#mgc2sp" title="Link to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
@@ -299,14 +318,14 @@
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk32MelGeneralizedCepstrumToSpectrumE">
-<span id="_CPPv3N4sptk32MelGeneralizedCepstrumToSpectrumE"></span><span id="_CPPv2N4sptk32MelGeneralizedCepstrumToSpectrumE"></span><span id="sptk::MelGeneralizedCepstrumToSpectrum"></span><span class="target" id="classsptk_1_1MelGeneralizedCepstrumToSpectrum"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MelGeneralizedCepstrumToSpectrum</span></span></span><a class="headerlink" href="#_CPPv4N4sptk32MelGeneralizedCepstrumToSpectrumE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk32MelGeneralizedCepstrumToSpectrumE"></span><span id="_CPPv2N4sptk32MelGeneralizedCepstrumToSpectrumE"></span><span id="sptk::MelGeneralizedCepstrumToSpectrum"></span><span class="target" id="classsptk_1_1MelGeneralizedCepstrumToSpectrum"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MelGeneralizedCepstrumToSpectrum</span></span></span><a class="headerlink" href="#_CPPv4N4sptk32MelGeneralizedCepstrumToSpectrumE" title="Link to this definition"></a><br /></dt>
 <dd><p>Convert mel-generalized cepstrum to spectrum.</p>
 <p>This is a simple combination of <a class="reference internal" href="mgc2mgc.html#classsptk_1_1MelGeneralizedCepstrumToMelGeneralizedCepstrum"><span class="std std-ref">MelGeneralizedCepstrumToMelGeneralizedCepstrum</span></a> and <a class="reference internal" href="fftr.html#classsptk_1_1RealValuedFastFourierTransform"><span class="std std-ref">RealValuedFastFourierTransform</span></a>. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk32MelGeneralizedCepstrumToSpectrum32MelGeneralizedCepstrumToSpectrumEiddbbi">
-<span id="_CPPv3N4sptk32MelGeneralizedCepstrumToSpectrum32MelGeneralizedCepstrumToSpectrumEiddbbi"></span><span id="_CPPv2N4sptk32MelGeneralizedCepstrumToSpectrum32MelGeneralizedCepstrumToSpectrumEiddbbi"></span><span id="sptk::MelGeneralizedCepstrumToSpectrum::MelGeneralizedCepstrumToSpectrum__i.double.double.b.b.i"></span><span class="target" id="classsptk_1_1MelGeneralizedCepstrumToSpectrum_1a6bd746db7901556ae8e51274f1f8d9f1"></span><span class="sig-name descname"><span class="n"><span class="pre">MelGeneralizedCepstrumToSpectrum</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">alpha</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">gamma</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">is_normalized</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">is_multiplied</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk32MelGeneralizedCepstrumToSpectrum32MelGeneralizedCepstrumToSpectrumEiddbbi" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk32MelGeneralizedCepstrumToSpectrum32MelGeneralizedCepstrumToSpectrumEiddbbi"></span><span id="_CPPv2N4sptk32MelGeneralizedCepstrumToSpectrum32MelGeneralizedCepstrumToSpectrumEiddbbi"></span><span id="sptk::MelGeneralizedCepstrumToSpectrum::MelGeneralizedCepstrumToSpectrum__i.double.double.b.b.i"></span><span class="target" id="classsptk_1_1MelGeneralizedCepstrumToSpectrum_1a6bd746db7901556ae8e51274f1f8d9f1"></span><span class="sig-name descname"><span class="n"><span class="pre">MelGeneralizedCepstrumToSpectrum</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">alpha</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">gamma</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">is_normalized</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">is_multiplied</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk32MelGeneralizedCepstrumToSpectrum32MelGeneralizedCepstrumToSpectrumEiddbbi" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -323,7 +342,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum11GetNumOrderEv">
-<span id="_CPPv3NK4sptk32MelGeneralizedCepstrumToSpectrum11GetNumOrderEv"></span><span id="_CPPv2NK4sptk32MelGeneralizedCepstrumToSpectrum11GetNumOrderEv"></span><span id="sptk::MelGeneralizedCepstrumToSpectrum::GetNumOrderC"></span><span class="target" id="classsptk_1_1MelGeneralizedCepstrumToSpectrum_1a63b24a2cf86fb217b8c2e224ee6130b1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum11GetNumOrderEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk32MelGeneralizedCepstrumToSpectrum11GetNumOrderEv"></span><span id="_CPPv2NK4sptk32MelGeneralizedCepstrumToSpectrum11GetNumOrderEv"></span><span id="sptk::MelGeneralizedCepstrumToSpectrum::GetNumOrderC"></span><span class="target" id="classsptk_1_1MelGeneralizedCepstrumToSpectrum_1a63b24a2cf86fb217b8c2e224ee6130b1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum11GetNumOrderEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of coefficients. </p>
@@ -333,7 +352,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum8GetAlphaEv">
-<span id="_CPPv3NK4sptk32MelGeneralizedCepstrumToSpectrum8GetAlphaEv"></span><span id="_CPPv2NK4sptk32MelGeneralizedCepstrumToSpectrum8GetAlphaEv"></span><span id="sptk::MelGeneralizedCepstrumToSpectrum::GetAlphaC"></span><span class="target" id="classsptk_1_1MelGeneralizedCepstrumToSpectrum_1a6fefa813c61008c4784b956c4bedfd7c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetAlpha</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum8GetAlphaEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk32MelGeneralizedCepstrumToSpectrum8GetAlphaEv"></span><span id="_CPPv2NK4sptk32MelGeneralizedCepstrumToSpectrum8GetAlphaEv"></span><span id="sptk::MelGeneralizedCepstrumToSpectrum::GetAlphaC"></span><span class="target" id="classsptk_1_1MelGeneralizedCepstrumToSpectrum_1a6fefa813c61008c4784b956c4bedfd7c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetAlpha</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum8GetAlphaEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Alpha. </p>
@@ -343,7 +362,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum8GetGammaEv">
-<span id="_CPPv3NK4sptk32MelGeneralizedCepstrumToSpectrum8GetGammaEv"></span><span id="_CPPv2NK4sptk32MelGeneralizedCepstrumToSpectrum8GetGammaEv"></span><span id="sptk::MelGeneralizedCepstrumToSpectrum::GetGammaC"></span><span class="target" id="classsptk_1_1MelGeneralizedCepstrumToSpectrum_1a9d89d62cdc150b94743fb8912e207a04"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetGamma</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum8GetGammaEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk32MelGeneralizedCepstrumToSpectrum8GetGammaEv"></span><span id="_CPPv2NK4sptk32MelGeneralizedCepstrumToSpectrum8GetGammaEv"></span><span id="sptk::MelGeneralizedCepstrumToSpectrum::GetGammaC"></span><span class="target" id="classsptk_1_1MelGeneralizedCepstrumToSpectrum_1a9d89d62cdc150b94743fb8912e207a04"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetGamma</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum8GetGammaEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Gamma. </p>
@@ -353,7 +372,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum12IsNormalizedEv">
-<span id="_CPPv3NK4sptk32MelGeneralizedCepstrumToSpectrum12IsNormalizedEv"></span><span id="_CPPv2NK4sptk32MelGeneralizedCepstrumToSpectrum12IsNormalizedEv"></span><span id="sptk::MelGeneralizedCepstrumToSpectrum::IsNormalizedC"></span><span class="target" id="classsptk_1_1MelGeneralizedCepstrumToSpectrum_1a93af43bde5781f7aaef90e172b839116"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsNormalized</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum12IsNormalizedEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk32MelGeneralizedCepstrumToSpectrum12IsNormalizedEv"></span><span id="_CPPv2NK4sptk32MelGeneralizedCepstrumToSpectrum12IsNormalizedEv"></span><span id="sptk::MelGeneralizedCepstrumToSpectrum::IsNormalizedC"></span><span class="target" id="classsptk_1_1MelGeneralizedCepstrumToSpectrum_1a93af43bde5781f7aaef90e172b839116"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsNormalized</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum12IsNormalizedEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if input is gain-normalized. </p>
@@ -363,7 +382,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum12IsMultipliedEv">
-<span id="_CPPv3NK4sptk32MelGeneralizedCepstrumToSpectrum12IsMultipliedEv"></span><span id="_CPPv2NK4sptk32MelGeneralizedCepstrumToSpectrum12IsMultipliedEv"></span><span id="sptk::MelGeneralizedCepstrumToSpectrum::IsMultipliedC"></span><span class="target" id="classsptk_1_1MelGeneralizedCepstrumToSpectrum_1a0b34a16993606f0f66ce7168e0cdcb75"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsMultiplied</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum12IsMultipliedEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk32MelGeneralizedCepstrumToSpectrum12IsMultipliedEv"></span><span id="_CPPv2NK4sptk32MelGeneralizedCepstrumToSpectrum12IsMultipliedEv"></span><span id="sptk::MelGeneralizedCepstrumToSpectrum::IsMultipliedC"></span><span class="target" id="classsptk_1_1MelGeneralizedCepstrumToSpectrum_1a0b34a16993606f0f66ce7168e0cdcb75"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsMultiplied</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum12IsMultipliedEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if input is multiplied by gamma. </p>
@@ -373,7 +392,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum12GetFftLengthEv">
-<span id="_CPPv3NK4sptk32MelGeneralizedCepstrumToSpectrum12GetFftLengthEv"></span><span id="_CPPv2NK4sptk32MelGeneralizedCepstrumToSpectrum12GetFftLengthEv"></span><span id="sptk::MelGeneralizedCepstrumToSpectrum::GetFftLengthC"></span><span class="target" id="classsptk_1_1MelGeneralizedCepstrumToSpectrum_1af803ea90a2c22fb557c5750a57bc26db"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum12GetFftLengthEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk32MelGeneralizedCepstrumToSpectrum12GetFftLengthEv"></span><span id="_CPPv2NK4sptk32MelGeneralizedCepstrumToSpectrum12GetFftLengthEv"></span><span id="sptk::MelGeneralizedCepstrumToSpectrum::GetFftLengthC"></span><span class="target" id="classsptk_1_1MelGeneralizedCepstrumToSpectrum_1af803ea90a2c22fb557c5750a57bc26db"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum12GetFftLengthEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>FFT length. </p>
@@ -383,7 +402,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum7IsValidEv">
-<span id="_CPPv3NK4sptk32MelGeneralizedCepstrumToSpectrum7IsValidEv"></span><span id="_CPPv2NK4sptk32MelGeneralizedCepstrumToSpectrum7IsValidEv"></span><span id="sptk::MelGeneralizedCepstrumToSpectrum::IsValidC"></span><span class="target" id="classsptk_1_1MelGeneralizedCepstrumToSpectrum_1a906a403c46ee50d4df61d927bf19a6b3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk32MelGeneralizedCepstrumToSpectrum7IsValidEv"></span><span id="_CPPv2NK4sptk32MelGeneralizedCepstrumToSpectrum7IsValidEv"></span><span id="sptk::MelGeneralizedCepstrumToSpectrum::IsValidC"></span><span class="target" id="classsptk_1_1MelGeneralizedCepstrumToSpectrum_1a906a403c46ee50d4df61d927bf19a6b3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum7IsValidEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -393,7 +412,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum3RunERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN32MelGeneralizedCepstrumToSpectrum6BufferE">
-<span id="_CPPv3NK4sptk32MelGeneralizedCepstrumToSpectrum3RunERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN32MelGeneralizedCepstrumToSpectrum6BufferE"></span><span id="_CPPv2NK4sptk32MelGeneralizedCepstrumToSpectrum3RunERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN32MelGeneralizedCepstrumToSpectrum6BufferE"></span><span id="sptk::MelGeneralizedCepstrumToSpectrum::Run__std::vector:double:CR.std::vector:double:P.std::vector:double:P.MelGeneralizedCepstrumToSpectrum::BufferPC"></span><span class="target" id="classsptk_1_1MelGeneralizedCepstrumToSpectrum_1a482b88528de3d5ad4bd3df22379b39ff"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">mel_generalized_cepstrum</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">amplitude_spectrum</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">phase_spectrum</span></span>, <a class="reference internal" href="#_CPPv4N4sptk32MelGeneralizedCepstrumToSpectrumE" title="sptk::MelGeneralizedCepstrumToSpectrum"><span class="n"><span class="pre">MelGeneralizedCepstrumToSpectrum</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk32MelGeneralizedCepstrumToSpectrum6BufferE" title="sptk::MelGeneralizedCepstrumToSpectrum::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum3RunERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN32MelGeneralizedCepstrumToSpectrum6BufferE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk32MelGeneralizedCepstrumToSpectrum3RunERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN32MelGeneralizedCepstrumToSpectrum6BufferE"></span><span id="_CPPv2NK4sptk32MelGeneralizedCepstrumToSpectrum3RunERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN32MelGeneralizedCepstrumToSpectrum6BufferE"></span><span id="sptk::MelGeneralizedCepstrumToSpectrum::Run__std::vector:double:CR.std::vector:double:P.std::vector:double:P.MelGeneralizedCepstrumToSpectrum::BufferPC"></span><span class="target" id="classsptk_1_1MelGeneralizedCepstrumToSpectrum_1a482b88528de3d5ad4bd3df22379b39ff"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">mel_generalized_cepstrum</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">amplitude_spectrum</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">phase_spectrum</span></span>, <a class="reference internal" href="#_CPPv4N4sptk32MelGeneralizedCepstrumToSpectrumE" title="sptk::MelGeneralizedCepstrumToSpectrum"><span class="n"><span class="pre">MelGeneralizedCepstrumToSpectrum</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk32MelGeneralizedCepstrumToSpectrum6BufferE" title="sptk::MelGeneralizedCepstrumToSpectrum::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32MelGeneralizedCepstrumToSpectrum3RunERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN32MelGeneralizedCepstrumToSpectrum6BufferE" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -412,7 +431,7 @@
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk32MelGeneralizedCepstrumToSpectrum6BufferE">
-<span id="_CPPv3N4sptk32MelGeneralizedCepstrumToSpectrum6BufferE"></span><span id="_CPPv2N4sptk32MelGeneralizedCepstrumToSpectrum6BufferE"></span><span id="sptk::MelGeneralizedCepstrumToSpectrum::Buffer"></span><span class="target" id="classsptk_1_1MelGeneralizedCepstrumToSpectrum_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk32MelGeneralizedCepstrumToSpectrum6BufferE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk32MelGeneralizedCepstrumToSpectrum6BufferE"></span><span id="_CPPv2N4sptk32MelGeneralizedCepstrumToSpectrum6BufferE"></span><span id="sptk::MelGeneralizedCepstrumToSpectrum::Buffer"></span><span class="target" id="classsptk_1_1MelGeneralizedCepstrumToSpectrum_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk32MelGeneralizedCepstrumToSpectrum6BufferE" title="Link to this definition"></a><br /></dt>
 <dd><p><a class="reference internal" href="#classsptk_1_1MelGeneralizedCepstrumToSpectrum_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1MelGeneralizedCepstrumToSpectrum"><span class="std std-ref">MelGeneralizedCepstrumToSpectrum</span></a> class. </p>
 </dd></dl>
 

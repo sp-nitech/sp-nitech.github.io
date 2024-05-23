@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pqmf &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
   
@@ -15,9 +15,9 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -50,6 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alaw.html">alaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ap.html">ap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
@@ -100,6 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ialaw.html">ialaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
@@ -145,6 +147,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onehot.html">onehot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -156,7 +159,20 @@
 <li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plp.html">plp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">pqmf</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pqmf</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk33PseudoQuadratureMirrorFilterBanksE"><code class="docutils literal notranslate"><span class="pre">PseudoQuadratureMirrorFilterBanks</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk33PseudoQuadratureMirrorFilterBanks33PseudoQuadratureMirrorFilterBanksEiididd"><code class="docutils literal notranslate"><span class="pre">PseudoQuadratureMirrorFilterBanks::PseudoQuadratureMirrorFilterBanks()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk33PseudoQuadratureMirrorFilterBanks13GetNumSubbandEv"><code class="docutils literal notranslate"><span class="pre">PseudoQuadratureMirrorFilterBanks::GetNumSubband()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk33PseudoQuadratureMirrorFilterBanks17GetNumFilterOrderEv"><code class="docutils literal notranslate"><span class="pre">PseudoQuadratureMirrorFilterBanks::GetNumFilterOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk33PseudoQuadratureMirrorFilterBanks7IsValidEv"><code class="docutils literal notranslate"><span class="pre">PseudoQuadratureMirrorFilterBanks::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk33PseudoQuadratureMirrorFilterBanks11IsConvergedEv"><code class="docutils literal notranslate"><span class="pre">PseudoQuadratureMirrorFilterBanks::IsConverged()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk33PseudoQuadratureMirrorFilterBanks3RunEdPNSt6vectorIdEEPN33PseudoQuadratureMirrorFilterBanks6BufferE"><code class="docutils literal notranslate"><span class="pre">PseudoQuadratureMirrorFilterBanks::Run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk33PseudoQuadratureMirrorFilterBanks6BufferE"><code class="docutils literal notranslate"><span class="pre">PseudoQuadratureMirrorFilterBanks::Buffer</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ramp.html">ramp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="reverse.html">reverse</a></li>
@@ -216,7 +232,7 @@
            <div itemprop="articleBody">
              
   <section id="pqmf">
-<span id="id1"></span><h1>pqmf<a class="headerlink" href="#pqmf" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>pqmf<a class="headerlink" href="#pqmf" title="Link to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
@@ -246,6 +262,10 @@
 </p></li>
 <li><p><strong>-s</strong> <em>double</em> <ul>
 <li><p>initial step size <span class="math notranslate nohighlight">\((0 &lt; \Delta)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-r</strong> <ul>
+<li><p>disable delay compensation</p></li>
 </ul>
 </p></li>
 <li><p><strong>infile</strong> <em>str</em> <ul>
@@ -282,7 +302,7 @@
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk33PseudoQuadratureMirrorFilterBanksE">
-<span id="_CPPv3N4sptk33PseudoQuadratureMirrorFilterBanksE"></span><span id="_CPPv2N4sptk33PseudoQuadratureMirrorFilterBanksE"></span><span id="sptk::PseudoQuadratureMirrorFilterBanks"></span><span class="target" id="classsptk_1_1PseudoQuadratureMirrorFilterBanks"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PseudoQuadratureMirrorFilterBanks</span></span></span><a class="headerlink" href="#_CPPv4N4sptk33PseudoQuadratureMirrorFilterBanksE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk33PseudoQuadratureMirrorFilterBanksE"></span><span id="_CPPv2N4sptk33PseudoQuadratureMirrorFilterBanksE"></span><span id="sptk::PseudoQuadratureMirrorFilterBanks"></span><span class="target" id="classsptk_1_1PseudoQuadratureMirrorFilterBanks"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PseudoQuadratureMirrorFilterBanks</span></span></span><a class="headerlink" href="#_CPPv4N4sptk33PseudoQuadratureMirrorFilterBanksE" title="Link to this definition"></a><br /></dt>
 <dd><p>Decompose signal into subband signals.</p>
 <p>The input is the signal <span class="math notranslate nohighlight">\(x(t)\)</span> and the output is the <span class="math notranslate nohighlight">\(K\)</span> subband signals: <div class="math notranslate nohighlight">
 \[ \begin{array}{cccc} x_0(t), &amp; x_1(t), &amp; \ldots, &amp; x_{K-1}(t), \end{array} \]</div>
@@ -297,7 +317,7 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk33PseudoQuadratureMirrorFilterBanks33PseudoQuadratureMirrorFilterBanksEiididd">
-<span id="_CPPv3N4sptk33PseudoQuadratureMirrorFilterBanks33PseudoQuadratureMirrorFilterBanksEiididd"></span><span id="_CPPv2N4sptk33PseudoQuadratureMirrorFilterBanks33PseudoQuadratureMirrorFilterBanksEiididd"></span><span id="sptk::PseudoQuadratureMirrorFilterBanks::PseudoQuadratureMirrorFilterBanks__i.i.double.i.double.double"></span><span class="target" id="classsptk_1_1PseudoQuadratureMirrorFilterBanks_1aa376cd5b72d4b32977abf0ed0dc25263"></span><span class="sig-name descname"><span class="n"><span class="pre">PseudoQuadratureMirrorFilterBanks</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_subband</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_filter_order</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">attenuation</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_iteration</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">convergence_threshold</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">initial_step_size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk33PseudoQuadratureMirrorFilterBanks33PseudoQuadratureMirrorFilterBanksEiididd" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk33PseudoQuadratureMirrorFilterBanks33PseudoQuadratureMirrorFilterBanksEiididd"></span><span id="_CPPv2N4sptk33PseudoQuadratureMirrorFilterBanks33PseudoQuadratureMirrorFilterBanksEiididd"></span><span id="sptk::PseudoQuadratureMirrorFilterBanks::PseudoQuadratureMirrorFilterBanks__i.i.double.i.double.double"></span><span class="target" id="classsptk_1_1PseudoQuadratureMirrorFilterBanks_1aa376cd5b72d4b32977abf0ed0dc25263"></span><span class="sig-name descname"><span class="n"><span class="pre">PseudoQuadratureMirrorFilterBanks</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_subband</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_filter_order</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">attenuation</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_iteration</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">convergence_threshold</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">initial_step_size</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk33PseudoQuadratureMirrorFilterBanks33PseudoQuadratureMirrorFilterBanksEiididd" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -314,7 +334,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk33PseudoQuadratureMirrorFilterBanks13GetNumSubbandEv">
-<span id="_CPPv3NK4sptk33PseudoQuadratureMirrorFilterBanks13GetNumSubbandEv"></span><span id="_CPPv2NK4sptk33PseudoQuadratureMirrorFilterBanks13GetNumSubbandEv"></span><span id="sptk::PseudoQuadratureMirrorFilterBanks::GetNumSubbandC"></span><span class="target" id="classsptk_1_1PseudoQuadratureMirrorFilterBanks_1a249cd7d7ea85251042d7cf06e50e20d2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumSubband</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk33PseudoQuadratureMirrorFilterBanks13GetNumSubbandEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk33PseudoQuadratureMirrorFilterBanks13GetNumSubbandEv"></span><span id="_CPPv2NK4sptk33PseudoQuadratureMirrorFilterBanks13GetNumSubbandEv"></span><span id="sptk::PseudoQuadratureMirrorFilterBanks::GetNumSubbandC"></span><span class="target" id="classsptk_1_1PseudoQuadratureMirrorFilterBanks_1a249cd7d7ea85251042d7cf06e50e20d2"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumSubband</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk33PseudoQuadratureMirrorFilterBanks13GetNumSubbandEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Number of subbands. </p>
@@ -324,7 +344,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk33PseudoQuadratureMirrorFilterBanks17GetNumFilterOrderEv">
-<span id="_CPPv3NK4sptk33PseudoQuadratureMirrorFilterBanks17GetNumFilterOrderEv"></span><span id="_CPPv2NK4sptk33PseudoQuadratureMirrorFilterBanks17GetNumFilterOrderEv"></span><span id="sptk::PseudoQuadratureMirrorFilterBanks::GetNumFilterOrderC"></span><span class="target" id="classsptk_1_1PseudoQuadratureMirrorFilterBanks_1ad15c4c23e4d87c4018ea83e475234c1e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumFilterOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk33PseudoQuadratureMirrorFilterBanks17GetNumFilterOrderEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk33PseudoQuadratureMirrorFilterBanks17GetNumFilterOrderEv"></span><span id="_CPPv2NK4sptk33PseudoQuadratureMirrorFilterBanks17GetNumFilterOrderEv"></span><span id="sptk::PseudoQuadratureMirrorFilterBanks::GetNumFilterOrderC"></span><span class="target" id="classsptk_1_1PseudoQuadratureMirrorFilterBanks_1ad15c4c23e4d87c4018ea83e475234c1e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumFilterOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk33PseudoQuadratureMirrorFilterBanks17GetNumFilterOrderEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of filter. </p>
@@ -334,7 +354,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk33PseudoQuadratureMirrorFilterBanks7IsValidEv">
-<span id="_CPPv3NK4sptk33PseudoQuadratureMirrorFilterBanks7IsValidEv"></span><span id="_CPPv2NK4sptk33PseudoQuadratureMirrorFilterBanks7IsValidEv"></span><span id="sptk::PseudoQuadratureMirrorFilterBanks::IsValidC"></span><span class="target" id="classsptk_1_1PseudoQuadratureMirrorFilterBanks_1af55142ca9cbecfafe49e97c30a32e806"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk33PseudoQuadratureMirrorFilterBanks7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk33PseudoQuadratureMirrorFilterBanks7IsValidEv"></span><span id="_CPPv2NK4sptk33PseudoQuadratureMirrorFilterBanks7IsValidEv"></span><span id="sptk::PseudoQuadratureMirrorFilterBanks::IsValidC"></span><span class="target" id="classsptk_1_1PseudoQuadratureMirrorFilterBanks_1af55142ca9cbecfafe49e97c30a32e806"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk33PseudoQuadratureMirrorFilterBanks7IsValidEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -344,7 +364,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk33PseudoQuadratureMirrorFilterBanks11IsConvergedEv">
-<span id="_CPPv3NK4sptk33PseudoQuadratureMirrorFilterBanks11IsConvergedEv"></span><span id="_CPPv2NK4sptk33PseudoQuadratureMirrorFilterBanks11IsConvergedEv"></span><span id="sptk::PseudoQuadratureMirrorFilterBanks::IsConvergedC"></span><span class="target" id="classsptk_1_1PseudoQuadratureMirrorFilterBanks_1affc7531706af2f3a715b0aec8591d9ed"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsConverged</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk33PseudoQuadratureMirrorFilterBanks11IsConvergedEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk33PseudoQuadratureMirrorFilterBanks11IsConvergedEv"></span><span id="_CPPv2NK4sptk33PseudoQuadratureMirrorFilterBanks11IsConvergedEv"></span><span id="sptk::PseudoQuadratureMirrorFilterBanks::IsConvergedC"></span><span class="target" id="classsptk_1_1PseudoQuadratureMirrorFilterBanks_1affc7531706af2f3a715b0aec8591d9ed"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsConverged</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk33PseudoQuadratureMirrorFilterBanks11IsConvergedEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if built filter is in convergence point. </p>
@@ -354,7 +374,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk33PseudoQuadratureMirrorFilterBanks3RunEdPNSt6vectorIdEEPN33PseudoQuadratureMirrorFilterBanks6BufferE">
-<span id="_CPPv3NK4sptk33PseudoQuadratureMirrorFilterBanks3RunEdPNSt6vectorIdEEPN33PseudoQuadratureMirrorFilterBanks6BufferE"></span><span id="_CPPv2NK4sptk33PseudoQuadratureMirrorFilterBanks3RunEdPNSt6vectorIdEEPN33PseudoQuadratureMirrorFilterBanks6BufferE"></span><span id="sptk::PseudoQuadratureMirrorFilterBanks::Run__double.std::vector:double:P.PseudoQuadratureMirrorFilterBanks::BufferPC"></span><span class="target" id="classsptk_1_1PseudoQuadratureMirrorFilterBanks_1ac18a49b7aecb8f3099ba0c2c985c5acf"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">input</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">output</span></span>, <a class="reference internal" href="#_CPPv4N4sptk33PseudoQuadratureMirrorFilterBanksE" title="sptk::PseudoQuadratureMirrorFilterBanks"><span class="n"><span class="pre">PseudoQuadratureMirrorFilterBanks</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk33PseudoQuadratureMirrorFilterBanks6BufferE" title="sptk::PseudoQuadratureMirrorFilterBanks::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk33PseudoQuadratureMirrorFilterBanks3RunEdPNSt6vectorIdEEPN33PseudoQuadratureMirrorFilterBanks6BufferE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk33PseudoQuadratureMirrorFilterBanks3RunEdPNSt6vectorIdEEPN33PseudoQuadratureMirrorFilterBanks6BufferE"></span><span id="_CPPv2NK4sptk33PseudoQuadratureMirrorFilterBanks3RunEdPNSt6vectorIdEEPN33PseudoQuadratureMirrorFilterBanks6BufferE"></span><span id="sptk::PseudoQuadratureMirrorFilterBanks::Run__double.std::vector:double:P.PseudoQuadratureMirrorFilterBanks::BufferPC"></span><span class="target" id="classsptk_1_1PseudoQuadratureMirrorFilterBanks_1ac18a49b7aecb8f3099ba0c2c985c5acf"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">input</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">output</span></span>, <a class="reference internal" href="#_CPPv4N4sptk33PseudoQuadratureMirrorFilterBanksE" title="sptk::PseudoQuadratureMirrorFilterBanks"><span class="n"><span class="pre">PseudoQuadratureMirrorFilterBanks</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk33PseudoQuadratureMirrorFilterBanks6BufferE" title="sptk::PseudoQuadratureMirrorFilterBanks::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk33PseudoQuadratureMirrorFilterBanks3RunEdPNSt6vectorIdEEPN33PseudoQuadratureMirrorFilterBanks6BufferE" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -372,7 +392,7 @@
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk33PseudoQuadratureMirrorFilterBanks6BufferE">
-<span id="_CPPv3N4sptk33PseudoQuadratureMirrorFilterBanks6BufferE"></span><span id="_CPPv2N4sptk33PseudoQuadratureMirrorFilterBanks6BufferE"></span><span id="sptk::PseudoQuadratureMirrorFilterBanks::Buffer"></span><span class="target" id="classsptk_1_1PseudoQuadratureMirrorFilterBanks_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk33PseudoQuadratureMirrorFilterBanks6BufferE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk33PseudoQuadratureMirrorFilterBanks6BufferE"></span><span id="_CPPv2N4sptk33PseudoQuadratureMirrorFilterBanks6BufferE"></span><span id="sptk::PseudoQuadratureMirrorFilterBanks::Buffer"></span><span class="target" id="classsptk_1_1PseudoQuadratureMirrorFilterBanks_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk33PseudoQuadratureMirrorFilterBanks6BufferE" title="Link to this definition"></a><br /></dt>
 <dd><p><a class="reference internal" href="#classsptk_1_1PseudoQuadratureMirrorFilterBanks_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1PseudoQuadratureMirrorFilterBanks"><span class="std std-ref">PseudoQuadratureMirrorFilterBanks</span></a> class. </p>
 </dd></dl>
 

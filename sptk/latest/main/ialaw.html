@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>glogsp &mdash; SPTK  documentation</title>
+  <title>ialaw &mdash; SPTK  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -18,11 +18,12 @@
         <script src="../_static/documentation_options.js?v=5929fcd5"></script>
         <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="gmm" href="gmm.html" />
-    <link rel="prev" title="freqt" href="freqt.html" /> 
+    <link rel="next" title="idct" href="idct.html" />
+    <link rel="prev" title="huffman_encode" href="huffman_encode.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -86,14 +87,7 @@
 <li class="toctree-l1"><a class="reference internal" href="fftr2.html">fftr2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
 <li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">glogsp</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#id0"><code class="docutils literal notranslate"><span class="pre">glogsp</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#glogsp.get_arguments"><code class="docutils literal notranslate"><span class="pre">glogsp.get_arguments()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#glogsp.main"><code class="docutils literal notranslate"><span class="pre">glogsp.main()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="glogsp.html">glogsp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gmm.html">gmm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gmmp.html">gmmp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
@@ -107,7 +101,19 @@
 <li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ialaw.html">ialaw</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ialaw</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk13ALawExpansionE"><code class="docutils literal notranslate"><span class="pre">ALawExpansion</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk13ALawExpansion13ALawExpansionEdd"><code class="docutils literal notranslate"><span class="pre">ALawExpansion::ALawExpansion()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk13ALawExpansion14GetAbsMaxValueEv"><code class="docutils literal notranslate"><span class="pre">ALawExpansion::GetAbsMaxValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk13ALawExpansion20GetCompressionFactorEv"><code class="docutils literal notranslate"><span class="pre">ALawExpansion::GetCompressionFactor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk13ALawExpansion7IsValidEv"><code class="docutils literal notranslate"><span class="pre">ALawExpansion::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk13ALawExpansion3RunEdPd"><code class="docutils literal notranslate"><span class="pre">ALawExpansion::Run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk13ALawExpansion3RunEPd"><code class="docutils literal notranslate"><span class="pre">ALawExpansion::Run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
@@ -214,9 +220,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">glogsp</li>
+      <li class="breadcrumb-item active">ialaw</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/main/glogsp.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/main/ialaw.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -224,111 +230,147 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="glogsp">
-<span id="id1"></span><h1>glogsp<a class="headerlink" href="#glogsp" title="Link to this heading"></a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="id0">
-<span class="target" id="namespaceglogsp"></span><em class="property"><span class="pre">module</span> </em><span class="sig-name descname"><span class="pre">glogsp</span></span><a class="headerlink" href="#id0" title="Link to this definition"></a></dt>
-<dd><div class="breathe-sectiondef docutils container">
+  <section id="ialaw">
+<span id="id1"></span><h1>ialaw<a class="headerlink" href="#ialaw" title="Link to this heading"></a></h1>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="glogsp.get_arguments">
-<span class="target" id="glogsp_8py_1a617697cff4927a3a80d41d37211d9808"></span><span class="sig-name descname"><span class="pre">get_arguments</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#glogsp.get_arguments" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="glogsp.main">
-<span class="target" id="glogsp_8py_1a4120a7eb49dbf4d234f4eee4d450b3a1"></span><span class="sig-name descname"><span class="pre">main</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#glogsp.main" title="Link to this definition"></a></dt>
-<dd><p><em>glogsp</em> [ <em>option</em> ] [ <em>infile</em> ] <em>outfile</em></p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv44mainiA_Pc">
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="ialaw_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p><em>ialaw</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
 <p><ul class="simple">
-<li><p><strong>-F</strong> <em>float</em> <ul>
-<li><p>scale of figure</p></li>
+<li><p><strong>-v</strong> <em>double</em> <ul>
+<li><p>absolute maximum value of input <span class="math notranslate nohighlight">\((0 &lt; V)\)</span></p></li>
 </ul>
 </p></li>
-<li><p><strong>-W</strong> <em>int</em> <ul>
-<li><p>width of figure in pixels</p></li>
-</ul>
-</p></li>
-<li><p><strong>-H</strong> <em>int</em> <ul>
-<li><p>height of figure in pixels</p></li>
-</ul>
-</p></li>
-<li><p><strong>-M</strong> <em>int</em> or str<ul>
-<li><p>margin around image in pixels</p></li>
-</ul>
-</p></li>
-<li><p><strong>-g</strong> <ul>
-<li><p>draw grid</p></li>
-</ul>
-</p></li>
-<li><p><strong>-s</strong> <em>int</em> <ul>
-<li><p>frame number</p></li>
-</ul>
-</p></li>
-<li><p><strong>-l</strong> <em>int</em> <ul>
-<li><p>frame length</p></li>
-</ul>
-</p></li>
-<li><p><strong>-x</strong> <em>float</em> <ul>
-<li><p>sampling rate in kHz</p></li>
-</ul>
-</p></li>
-<li><p><strong>-y</strong> <em>float</em> <em>float</em> <ul>
-<li><p>y-axis limits</p></li>
-</ul>
-</p></li>
-<li><p><strong>-ls</strong> <em>str</em> <ul>
-<li><p>line style (solid, dash, dot, or dashdot)</p></li>
-</ul>
-</p></li>
-<li><p><strong>-lc</strong> <em>str</em> <ul>
-<li><p>line color</p></li>
-</ul>
-</p></li>
-<li><p><strong>-lw</strong> <em>float</em> <ul>
-<li><p>line width</p></li>
-</ul>
-</p></li>
-<li><p><strong>-ff</strong> <em>str</em> <ul>
-<li><p>font family</p></li>
-</ul>
-</p></li>
-<li><p><strong>-fs</strong> <em>int</em> <ul>
-<li><p>font size</p></li>
+<li><p><strong>-a</strong> <em>double</em> <ul>
+<li><p>compression factor <span class="math notranslate nohighlight">\((1 \le A)\)</span></p></li>
 </ul>
 </p></li>
 <li><p><strong>infile</strong> <em>str</em> <ul>
-<li><p>double-type log spectrum</p></li>
+<li><p>double-type compressed data sequence</p></li>
 </ul>
 </p></li>
-<li><p><strong>outfile</strong> <em>str</em> <ul>
-<li><p>figure</p></li>
+<li><p><strong>stdout</strong> <ul>
+<li><p>double-type output data sequence</p></li>
 </ul>
 </p></li>
 </ul>
 </p>
-<p>The below example draws 100th log spectrum on <code class="docutils literal notranslate"><span class="pre">out.jpg</span></code>. <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>x2x<span class="w"> </span>+sd<span class="w"> </span>data.short<span class="w"> </span><span class="p">|</span><span class="w"> </span>frame<span class="w"> </span>-p<span class="w"> </span><span class="m">80</span><span class="w"> </span>-l<span class="w"> </span><span class="m">400</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>window<span class="w"> </span>-l<span class="w"> </span><span class="m">400</span><span class="w"> </span>-L<span class="w"> </span><span class="m">512</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>spec<span class="w"> </span>-l<span class="w"> </span><span class="m">512</span><span class="w"> </span><span class="p">|</span>
-<span class="w">  </span>glogsp<span class="w"> </span>-l<span class="w"> </span><span class="m">512</span><span class="w"> </span>-s<span class="w"> </span><span class="m">100</span><span class="w"> </span>out.jpg
+<p>In the below example, 8-bit compressed and quantized data read from <code class="docutils literal notranslate"><span class="pre">data.alaw</span></code> is transformed into raw waveform.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>dequantize<span class="w"> </span>data.alaw<span class="w"> </span><span class="p">|</span><span class="w"> </span>ialaw<span class="w"> </span>&gt;<span class="w"> </span>data.raw
 </pre></div>
 </div>
-</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
+<li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>0 on success, 1 on failure. </p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
-</dd></dl>
-
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="fdrw.html#fdrw"><span class="std std-ref">fdrw</span></a>  <a class="reference internal" href="grlogsp.html#grlogsp"><span class="std std-ref">grlogsp</span></a></p>
+<p><a class="reference internal" href="alaw.html#alaw"><span class="std std-ref">alaw</span></a>  <a class="reference internal" href="iulaw.html#iulaw"><span class="std std-ref">iulaw</span></a></p>
 </div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk13ALawExpansionE">
+<span id="_CPPv3N4sptk13ALawExpansionE"></span><span id="_CPPv2N4sptk13ALawExpansionE"></span><span id="sptk::ALawExpansion"></span><span class="target" id="classsptk_1_1ALawExpansion"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ALawExpansion</span></span></span><a class="headerlink" href="#_CPPv4N4sptk13ALawExpansionE" title="Link to this definition"></a><br /></dt>
+<dd><p>Nonlinearly decompress data based on A-law algorithm.</p>
+<p>Given the input data <span class="math notranslate nohighlight">\(y(n)\)</span>, the expansion is performed as follows: <div class="math notranslate nohighlight">
+\[\begin{split} x(n) = V \, \mathrm{sgn}(y(n)) \left\{ \begin{array}{ll} \frac{\frac{|y(n)|}{V}(1 + \log A)}{A}, &amp; \frac{|y(n)|}{V} &lt; \frac{1}{1 + \log A} \\ \frac{\exp(-1 + \frac{|y(n)|}{V}(1 + \log A))}{A}, &amp; \frac{|y(n)|}{V} \ge \frac{1}{1 + \log A} \\ \end{array} \right. \end{split}\]</div>
+ where <span class="math notranslate nohighlight">\(V\)</span> is the absolute maximum value of the input data and <span class="math notranslate nohighlight">\(A\)</span> is the compression factor, which is typically set to 87.6. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk13ALawExpansion13ALawExpansionEdd">
+<span id="_CPPv3N4sptk13ALawExpansion13ALawExpansionEdd"></span><span id="_CPPv2N4sptk13ALawExpansion13ALawExpansionEdd"></span><span id="sptk::ALawExpansion::ALawExpansion__double.double"></span><span class="target" id="classsptk_1_1ALawExpansion_1a7d73805f780492865baa62d75014d945"></span><span class="sig-name descname"><span class="n"><span class="pre">ALawExpansion</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">abs_max_value</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">compression_factor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk13ALawExpansion13ALawExpansionEdd" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>abs_max_value</strong> – <strong>[in]</strong> Absolute maximum value. </p></li>
+<li><p><strong>compression_factor</strong> – <strong>[in]</strong> Compression factor, <span class="math notranslate nohighlight">\(A\)</span>. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk13ALawExpansion14GetAbsMaxValueEv">
+<span id="_CPPv3NK4sptk13ALawExpansion14GetAbsMaxValueEv"></span><span id="_CPPv2NK4sptk13ALawExpansion14GetAbsMaxValueEv"></span><span id="sptk::ALawExpansion::GetAbsMaxValueC"></span><span class="target" id="classsptk_1_1ALawExpansion_1aff9e5976843ef7b0b6391a41fac2d3a7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetAbsMaxValue</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk13ALawExpansion14GetAbsMaxValueEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Absolute maximum value. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk13ALawExpansion20GetCompressionFactorEv">
+<span id="_CPPv3NK4sptk13ALawExpansion20GetCompressionFactorEv"></span><span id="_CPPv2NK4sptk13ALawExpansion20GetCompressionFactorEv"></span><span id="sptk::ALawExpansion::GetCompressionFactorC"></span><span class="target" id="classsptk_1_1ALawExpansion_1a8a39c02e4bc29ebd8d88f86187e86356"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetCompressionFactor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk13ALawExpansion20GetCompressionFactorEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Compression factor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk13ALawExpansion7IsValidEv">
+<span id="_CPPv3NK4sptk13ALawExpansion7IsValidEv"></span><span id="_CPPv2NK4sptk13ALawExpansion7IsValidEv"></span><span id="sptk::ALawExpansion::IsValidC"></span><span class="target" id="classsptk_1_1ALawExpansion_1a74c1fb36b127b92b92c79a9839cb55fa"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk13ALawExpansion7IsValidEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this object is valid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk13ALawExpansion3RunEdPd">
+<span id="_CPPv3NK4sptk13ALawExpansion3RunEdPd"></span><span id="_CPPv2NK4sptk13ALawExpansion3RunEdPd"></span><span id="sptk::ALawExpansion::Run__double.doublePC"></span><span class="target" id="classsptk_1_1ALawExpansion_1a269e0801c30d2168b8cff8068e2681bc"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">input</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">output</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk13ALawExpansion3RunEdPd" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input</strong> – <strong>[in]</strong> Input data. </p></li>
+<li><p><strong>output</strong> – <strong>[out]</strong> Output data. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk13ALawExpansion3RunEPd">
+<span id="_CPPv3NK4sptk13ALawExpansion3RunEPd"></span><span id="_CPPv2NK4sptk13ALawExpansion3RunEPd"></span><span id="sptk::ALawExpansion::Run__doublePC"></span><span class="target" id="classsptk_1_1ALawExpansion_1a7d7179d5e7497123021e66e444cebe2f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_and_output</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk13ALawExpansion3RunEPd" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>input_and_output</strong> – <strong>[inout]</strong> Input/output data. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="freqt.html" class="btn btn-neutral float-left" title="freqt" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="gmm.html" class="btn btn-neutral float-right" title="gmm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="huffman_encode.html" class="btn btn-neutral float-left" title="huffman_encode" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="idct.html" class="btn btn-neutral float-right" title="idct" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

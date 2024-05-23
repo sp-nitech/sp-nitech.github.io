@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>symmetrize &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
   
@@ -15,9 +15,9 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -50,6 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alaw.html">alaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ap.html">ap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
@@ -100,6 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ialaw.html">ialaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
@@ -145,6 +147,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onehot.html">onehot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -170,7 +173,29 @@
 <li class="toctree-l1"><a class="reference internal" href="spec.html">spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="step.html">step</a></li>
 <li class="toctree-l1"><a class="reference internal" href="swab.html">swab</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">symmetrize</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">symmetrize</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk16DataSymmetrizingE"><code class="docutils literal notranslate"><span class="pre">DataSymmetrizing</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormatsE"><code class="docutils literal notranslate"><span class="pre">DataSymmetrizing::InputOutputFormats</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats9kStandardE"><code class="docutils literal notranslate"><span class="pre">DataSymmetrizing::InputOutputFormats::kStandard</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats37kSymmetricForApplyingFourierTransformE"><code class="docutils literal notranslate"><span class="pre">DataSymmetrizing::InputOutputFormats::kSymmetricForApplyingFourierTransform</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats40kSymmetricForPreservingFrequencyResponseE"><code class="docutils literal notranslate"><span class="pre">DataSymmetrizing::InputOutputFormats::kSymmetricForPreservingFrequencyResponse</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats38kSymmetricForPlottingFrequencyResponseE"><code class="docutils literal notranslate"><span class="pre">DataSymmetrizing::InputOutputFormats::kSymmetricForPlottingFrequencyResponse</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats22kNumInputOutputFormatsE"><code class="docutils literal notranslate"><span class="pre">DataSymmetrizing::InputOutputFormats::kNumInputOutputFormats</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk16DataSymmetrizing16DataSymmetrizingEi18InputOutputFormats18InputOutputFormats"><code class="docutils literal notranslate"><span class="pre">DataSymmetrizing::DataSymmetrizing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk16DataSymmetrizing12GetFftLengthEv"><code class="docutils literal notranslate"><span class="pre">DataSymmetrizing::GetFftLength()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk16DataSymmetrizing14GetInputFormatEv"><code class="docutils literal notranslate"><span class="pre">DataSymmetrizing::GetInputFormat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk16DataSymmetrizing15GetOutputFormatEv"><code class="docutils literal notranslate"><span class="pre">DataSymmetrizing::GetOutputFormat()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk16DataSymmetrizing14GetInputLengthEv"><code class="docutils literal notranslate"><span class="pre">DataSymmetrizing::GetInputLength()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk16DataSymmetrizing15GetOutputLengthEv"><code class="docutils literal notranslate"><span class="pre">DataSymmetrizing::GetOutputLength()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk16DataSymmetrizing7IsValidEv"><code class="docutils literal notranslate"><span class="pre">DataSymmetrizing::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk16DataSymmetrizing3RunERKNSt6vectorIdEEPNSt6vectorIdEE"><code class="docutils literal notranslate"><span class="pre">DataSymmetrizing::Run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="train.html">train</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transpose.html">transpose</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
@@ -216,7 +241,7 @@
            <div itemprop="articleBody">
              
   <section id="symmetrize">
-<span id="id1"></span><h1>symmetrize<a class="headerlink" href="#symmetrize" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>symmetrize<a class="headerlink" href="#symmetrize" title="Link to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
@@ -276,7 +301,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk16DataSymmetrizingE">
-<span id="_CPPv3N4sptk16DataSymmetrizingE"></span><span id="_CPPv2N4sptk16DataSymmetrizingE"></span><span id="sptk::DataSymmetrizing"></span><span class="target" id="classsptk_1_1DataSymmetrizing"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DataSymmetrizing</span></span></span><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizingE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk16DataSymmetrizingE"></span><span id="_CPPv2N4sptk16DataSymmetrizingE"></span><span id="sptk::DataSymmetrizing"></span><span class="target" id="classsptk_1_1DataSymmetrizing"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">DataSymmetrizing</span></span></span><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizingE" title="Link to this definition"></a><br /></dt>
 <dd><p>Symmetrize/desymmetrize data sequence.</p>
 <p>The input and output takes one of the following forms.</p>
 <p>Type 0: <div class="math notranslate nohighlight">
@@ -292,32 +317,32 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
 <dl class="cpp enum">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk16DataSymmetrizing18InputOutputFormatsE">
-<span id="_CPPv3N4sptk16DataSymmetrizing18InputOutputFormatsE"></span><span id="_CPPv2N4sptk16DataSymmetrizing18InputOutputFormatsE"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ab658e06bbf67b45488ad3085a56ca009"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">InputOutputFormats</span></span></span><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormatsE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk16DataSymmetrizing18InputOutputFormatsE"></span><span id="_CPPv2N4sptk16DataSymmetrizing18InputOutputFormatsE"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ab658e06bbf67b45488ad3085a56ca009"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">InputOutputFormats</span></span></span><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormatsE" title="Link to this definition"></a><br /></dt>
 <dd><p>Input and output format. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats9kStandardE">
-<span id="_CPPv3N4sptk16DataSymmetrizing18InputOutputFormats9kStandardE"></span><span id="_CPPv2N4sptk16DataSymmetrizing18InputOutputFormats9kStandardE"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ab658e06bbf67b45488ad3085a56ca009a6d53c251ffd20aa850ccdfd7dd95dcca"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kStandard</span></span></span><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats9kStandardE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk16DataSymmetrizing18InputOutputFormats9kStandardE"></span><span id="_CPPv2N4sptk16DataSymmetrizing18InputOutputFormats9kStandardE"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ab658e06bbf67b45488ad3085a56ca009a6d53c251ffd20aa850ccdfd7dd95dcca"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kStandard</span></span></span><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats9kStandardE" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats37kSymmetricForApplyingFourierTransformE">
-<span id="_CPPv3N4sptk16DataSymmetrizing18InputOutputFormats37kSymmetricForApplyingFourierTransformE"></span><span id="_CPPv2N4sptk16DataSymmetrizing18InputOutputFormats37kSymmetricForApplyingFourierTransformE"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ab658e06bbf67b45488ad3085a56ca009abc65b6b91c5a818e468fe2b7222a91b9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kSymmetricForApplyingFourierTransform</span></span></span><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats37kSymmetricForApplyingFourierTransformE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk16DataSymmetrizing18InputOutputFormats37kSymmetricForApplyingFourierTransformE"></span><span id="_CPPv2N4sptk16DataSymmetrizing18InputOutputFormats37kSymmetricForApplyingFourierTransformE"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ab658e06bbf67b45488ad3085a56ca009abc65b6b91c5a818e468fe2b7222a91b9"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kSymmetricForApplyingFourierTransform</span></span></span><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats37kSymmetricForApplyingFourierTransformE" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats40kSymmetricForPreservingFrequencyResponseE">
-<span id="_CPPv3N4sptk16DataSymmetrizing18InputOutputFormats40kSymmetricForPreservingFrequencyResponseE"></span><span id="_CPPv2N4sptk16DataSymmetrizing18InputOutputFormats40kSymmetricForPreservingFrequencyResponseE"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ab658e06bbf67b45488ad3085a56ca009ac57b1dcf39edeebcd1fa51affead4794"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kSymmetricForPreservingFrequencyResponse</span></span></span><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats40kSymmetricForPreservingFrequencyResponseE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk16DataSymmetrizing18InputOutputFormats40kSymmetricForPreservingFrequencyResponseE"></span><span id="_CPPv2N4sptk16DataSymmetrizing18InputOutputFormats40kSymmetricForPreservingFrequencyResponseE"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ab658e06bbf67b45488ad3085a56ca009ac57b1dcf39edeebcd1fa51affead4794"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kSymmetricForPreservingFrequencyResponse</span></span></span><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats40kSymmetricForPreservingFrequencyResponseE" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats38kSymmetricForPlottingFrequencyResponseE">
-<span id="_CPPv3N4sptk16DataSymmetrizing18InputOutputFormats38kSymmetricForPlottingFrequencyResponseE"></span><span id="_CPPv2N4sptk16DataSymmetrizing18InputOutputFormats38kSymmetricForPlottingFrequencyResponseE"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ab658e06bbf67b45488ad3085a56ca009ac47810307bea6441693923697feb627a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kSymmetricForPlottingFrequencyResponse</span></span></span><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats38kSymmetricForPlottingFrequencyResponseE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk16DataSymmetrizing18InputOutputFormats38kSymmetricForPlottingFrequencyResponseE"></span><span id="_CPPv2N4sptk16DataSymmetrizing18InputOutputFormats38kSymmetricForPlottingFrequencyResponseE"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ab658e06bbf67b45488ad3085a56ca009ac47810307bea6441693923697feb627a"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kSymmetricForPlottingFrequencyResponse</span></span></span><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats38kSymmetricForPlottingFrequencyResponseE" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats22kNumInputOutputFormatsE">
-<span id="_CPPv3N4sptk16DataSymmetrizing18InputOutputFormats22kNumInputOutputFormatsE"></span><span id="_CPPv2N4sptk16DataSymmetrizing18InputOutputFormats22kNumInputOutputFormatsE"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ab658e06bbf67b45488ad3085a56ca009aff6638db74d9f9d82893d46afcf756cb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kNumInputOutputFormats</span></span></span><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats22kNumInputOutputFormatsE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk16DataSymmetrizing18InputOutputFormats22kNumInputOutputFormatsE"></span><span id="_CPPv2N4sptk16DataSymmetrizing18InputOutputFormats22kNumInputOutputFormatsE"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ab658e06bbf67b45488ad3085a56ca009aff6638db74d9f9d82893d46afcf756cb"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kNumInputOutputFormats</span></span></span><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormats22kNumInputOutputFormatsE" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -327,7 +352,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk16DataSymmetrizing16DataSymmetrizingEi18InputOutputFormats18InputOutputFormats">
-<span id="_CPPv3N4sptk16DataSymmetrizing16DataSymmetrizingEi18InputOutputFormats18InputOutputFormats"></span><span id="_CPPv2N4sptk16DataSymmetrizing16DataSymmetrizingEi18InputOutputFormats18InputOutputFormats"></span><span id="sptk::DataSymmetrizing::DataSymmetrizing__i.InputOutputFormats.InputOutputFormats"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1a1c7082379721bba529fc76b0602c3026"></span><span class="sig-name descname"><span class="n"><span class="pre">DataSymmetrizing</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <a class="reference internal" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormatsE" title="sptk::DataSymmetrizing::InputOutputFormats"><span class="n"><span class="pre">InputOutputFormats</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">input_format</span></span>, <a class="reference internal" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormatsE" title="sptk::DataSymmetrizing::InputOutputFormats"><span class="n"><span class="pre">InputOutputFormats</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">output_format</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizing16DataSymmetrizingEi18InputOutputFormats18InputOutputFormats" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk16DataSymmetrizing16DataSymmetrizingEi18InputOutputFormats18InputOutputFormats"></span><span id="_CPPv2N4sptk16DataSymmetrizing16DataSymmetrizingEi18InputOutputFormats18InputOutputFormats"></span><span id="sptk::DataSymmetrizing::DataSymmetrizing__i.InputOutputFormats.InputOutputFormats"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1a1c7082379721bba529fc76b0602c3026"></span><span class="sig-name descname"><span class="n"><span class="pre">DataSymmetrizing</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <a class="reference internal" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormatsE" title="sptk::DataSymmetrizing::InputOutputFormats"><span class="n"><span class="pre">InputOutputFormats</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">input_format</span></span>, <a class="reference internal" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormatsE" title="sptk::DataSymmetrizing::InputOutputFormats"><span class="n"><span class="pre">InputOutputFormats</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">output_format</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk16DataSymmetrizing16DataSymmetrizingEi18InputOutputFormats18InputOutputFormats" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -341,7 +366,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk16DataSymmetrizing12GetFftLengthEv">
-<span id="_CPPv3NK4sptk16DataSymmetrizing12GetFftLengthEv"></span><span id="_CPPv2NK4sptk16DataSymmetrizing12GetFftLengthEv"></span><span id="sptk::DataSymmetrizing::GetFftLengthC"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ae66f872b5a17547b83aea79cf7e0b25e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16DataSymmetrizing12GetFftLengthEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk16DataSymmetrizing12GetFftLengthEv"></span><span id="_CPPv2NK4sptk16DataSymmetrizing12GetFftLengthEv"></span><span id="sptk::DataSymmetrizing::GetFftLengthC"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ae66f872b5a17547b83aea79cf7e0b25e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16DataSymmetrizing12GetFftLengthEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>FFT length. </p>
@@ -351,7 +376,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk16DataSymmetrizing14GetInputFormatEv">
-<span id="_CPPv3NK4sptk16DataSymmetrizing14GetInputFormatEv"></span><span id="_CPPv2NK4sptk16DataSymmetrizing14GetInputFormatEv"></span><span id="sptk::DataSymmetrizing::GetInputFormatC"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ad5b87f896ef1ecd9404eb9ea8a5cb98d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormatsE" title="sptk::DataSymmetrizing::InputOutputFormats"><span class="n"><span class="pre">InputOutputFormats</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetInputFormat</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16DataSymmetrizing14GetInputFormatEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk16DataSymmetrizing14GetInputFormatEv"></span><span id="_CPPv2NK4sptk16DataSymmetrizing14GetInputFormatEv"></span><span id="sptk::DataSymmetrizing::GetInputFormatC"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ad5b87f896ef1ecd9404eb9ea8a5cb98d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormatsE" title="sptk::DataSymmetrizing::InputOutputFormats"><span class="n"><span class="pre">InputOutputFormats</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetInputFormat</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16DataSymmetrizing14GetInputFormatEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Input format. </p>
@@ -361,7 +386,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk16DataSymmetrizing15GetOutputFormatEv">
-<span id="_CPPv3NK4sptk16DataSymmetrizing15GetOutputFormatEv"></span><span id="_CPPv2NK4sptk16DataSymmetrizing15GetOutputFormatEv"></span><span id="sptk::DataSymmetrizing::GetOutputFormatC"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ae4d412446efad2a2f06aaa90a2bb8795"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormatsE" title="sptk::DataSymmetrizing::InputOutputFormats"><span class="n"><span class="pre">InputOutputFormats</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetOutputFormat</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16DataSymmetrizing15GetOutputFormatEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk16DataSymmetrizing15GetOutputFormatEv"></span><span id="_CPPv2NK4sptk16DataSymmetrizing15GetOutputFormatEv"></span><span id="sptk::DataSymmetrizing::GetOutputFormatC"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ae4d412446efad2a2f06aaa90a2bb8795"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk16DataSymmetrizing18InputOutputFormatsE" title="sptk::DataSymmetrizing::InputOutputFormats"><span class="n"><span class="pre">InputOutputFormats</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetOutputFormat</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16DataSymmetrizing15GetOutputFormatEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Output format. </p>
@@ -371,7 +396,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk16DataSymmetrizing14GetInputLengthEv">
-<span id="_CPPv3NK4sptk16DataSymmetrizing14GetInputLengthEv"></span><span id="_CPPv2NK4sptk16DataSymmetrizing14GetInputLengthEv"></span><span id="sptk::DataSymmetrizing::GetInputLengthC"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1a3cabc47639a96ce36f1a8f2d3033c5e6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetInputLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16DataSymmetrizing14GetInputLengthEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk16DataSymmetrizing14GetInputLengthEv"></span><span id="_CPPv2NK4sptk16DataSymmetrizing14GetInputLengthEv"></span><span id="sptk::DataSymmetrizing::GetInputLengthC"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1a3cabc47639a96ce36f1a8f2d3033c5e6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetInputLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16DataSymmetrizing14GetInputLengthEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Expected input length. </p>
@@ -381,7 +406,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk16DataSymmetrizing15GetOutputLengthEv">
-<span id="_CPPv3NK4sptk16DataSymmetrizing15GetOutputLengthEv"></span><span id="_CPPv2NK4sptk16DataSymmetrizing15GetOutputLengthEv"></span><span id="sptk::DataSymmetrizing::GetOutputLengthC"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1abd9ab55d0783aa478a264952c9346bf3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetOutputLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16DataSymmetrizing15GetOutputLengthEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk16DataSymmetrizing15GetOutputLengthEv"></span><span id="_CPPv2NK4sptk16DataSymmetrizing15GetOutputLengthEv"></span><span id="sptk::DataSymmetrizing::GetOutputLengthC"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1abd9ab55d0783aa478a264952c9346bf3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetOutputLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16DataSymmetrizing15GetOutputLengthEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Expected output length. </p>
@@ -391,7 +416,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk16DataSymmetrizing7IsValidEv">
-<span id="_CPPv3NK4sptk16DataSymmetrizing7IsValidEv"></span><span id="_CPPv2NK4sptk16DataSymmetrizing7IsValidEv"></span><span id="sptk::DataSymmetrizing::IsValidC"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1a9370c8d3329f0d0cfb26beb3ce4fd319"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16DataSymmetrizing7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk16DataSymmetrizing7IsValidEv"></span><span id="_CPPv2NK4sptk16DataSymmetrizing7IsValidEv"></span><span id="sptk::DataSymmetrizing::IsValidC"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1a9370c8d3329f0d0cfb26beb3ce4fd319"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16DataSymmetrizing7IsValidEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -401,7 +426,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk16DataSymmetrizing3RunERKNSt6vectorIdEEPNSt6vectorIdEE">
-<span id="_CPPv3NK4sptk16DataSymmetrizing3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk16DataSymmetrizing3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::DataSymmetrizing::Run__std::vector:double:CR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ace509bca1aebcaab57b56ae6cf1e165e"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">data_sequence</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">symmetrized_data_sequence</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16DataSymmetrizing3RunERKNSt6vectorIdEEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk16DataSymmetrizing3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk16DataSymmetrizing3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::DataSymmetrizing::Run__std::vector:double:CR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1DataSymmetrizing_1ace509bca1aebcaab57b56ae6cf1e165e"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">data_sequence</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">symmetrized_data_sequence</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16DataSymmetrizing3RunERKNSt6vectorIdEEPNSt6vectorIdEE" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">

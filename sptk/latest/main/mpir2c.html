@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>mpir2c &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
   
@@ -15,9 +15,9 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -50,6 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alaw.html">alaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ap.html">ap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
@@ -100,6 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ialaw.html">ialaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
@@ -138,13 +140,25 @@
 <li class="toctree-l1"><a class="reference internal" href="minmax.html">minmax</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mlsacheck.html">mlsacheck</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">mpir2c</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">mpir2c</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk37MinimumPhaseImpulseResponseToCepstrumE"><code class="docutils literal notranslate"><span class="pre">MinimumPhaseImpulseResponseToCepstrum</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk37MinimumPhaseImpulseResponseToCepstrum37MinimumPhaseImpulseResponseToCepstrumEii"><code class="docutils literal notranslate"><span class="pre">MinimumPhaseImpulseResponseToCepstrum::MinimumPhaseImpulseResponseToCepstrum()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk37MinimumPhaseImpulseResponseToCepstrum16GetNumInputOrderEv"><code class="docutils literal notranslate"><span class="pre">MinimumPhaseImpulseResponseToCepstrum::GetNumInputOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk37MinimumPhaseImpulseResponseToCepstrum17GetNumOutputOrderEv"><code class="docutils literal notranslate"><span class="pre">MinimumPhaseImpulseResponseToCepstrum::GetNumOutputOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk37MinimumPhaseImpulseResponseToCepstrum7IsValidEv"><code class="docutils literal notranslate"><span class="pre">MinimumPhaseImpulseResponseToCepstrum::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk37MinimumPhaseImpulseResponseToCepstrum3RunERKNSt6vectorIdEEPNSt6vectorIdEE"><code class="docutils literal notranslate"><span class="pre">MinimumPhaseImpulseResponseToCepstrum::Run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="msvq.html">msvq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onehot.html">onehot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -216,7 +230,7 @@
            <div itemprop="articleBody">
              
   <section id="mpir2c">
-<span id="id1"></span><h1>mpir2c<a class="headerlink" href="#mpir2c" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>mpir2c<a class="headerlink" href="#mpir2c" title="Link to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
@@ -266,7 +280,7 @@
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk37MinimumPhaseImpulseResponseToCepstrumE">
-<span id="_CPPv3N4sptk37MinimumPhaseImpulseResponseToCepstrumE"></span><span id="_CPPv2N4sptk37MinimumPhaseImpulseResponseToCepstrumE"></span><span id="sptk::MinimumPhaseImpulseResponseToCepstrum"></span><span class="target" id="classsptk_1_1MinimumPhaseImpulseResponseToCepstrum"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MinimumPhaseImpulseResponseToCepstrum</span></span></span><a class="headerlink" href="#_CPPv4N4sptk37MinimumPhaseImpulseResponseToCepstrumE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk37MinimumPhaseImpulseResponseToCepstrumE"></span><span id="_CPPv2N4sptk37MinimumPhaseImpulseResponseToCepstrumE"></span><span id="sptk::MinimumPhaseImpulseResponseToCepstrum"></span><span class="target" id="classsptk_1_1MinimumPhaseImpulseResponseToCepstrum"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MinimumPhaseImpulseResponseToCepstrum</span></span></span><a class="headerlink" href="#_CPPv4N4sptk37MinimumPhaseImpulseResponseToCepstrumE" title="Link to this definition"></a><br /></dt>
 <dd><p>Convert minimum phase impulse response to cepstrum.</p>
 <p>The input is the <span class="math notranslate nohighlight">\(M_1\)</span>-th order impulse response: <div class="math notranslate nohighlight">
 \[ \begin{array}{cccc} h(0), &amp; h(1), &amp; \ldots, &amp; h(M_1), \end{array} \]</div>
@@ -277,7 +291,7 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk37MinimumPhaseImpulseResponseToCepstrum37MinimumPhaseImpulseResponseToCepstrumEii">
-<span id="_CPPv3N4sptk37MinimumPhaseImpulseResponseToCepstrum37MinimumPhaseImpulseResponseToCepstrumEii"></span><span id="_CPPv2N4sptk37MinimumPhaseImpulseResponseToCepstrum37MinimumPhaseImpulseResponseToCepstrumEii"></span><span id="sptk::MinimumPhaseImpulseResponseToCepstrum::MinimumPhaseImpulseResponseToCepstrum__i.i"></span><span class="target" id="classsptk_1_1MinimumPhaseImpulseResponseToCepstrum_1ae132017326713c49baa0fad9fa62557b"></span><span class="sig-name descname"><span class="n"><span class="pre">MinimumPhaseImpulseResponseToCepstrum</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_input_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_output_order</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk37MinimumPhaseImpulseResponseToCepstrum37MinimumPhaseImpulseResponseToCepstrumEii" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk37MinimumPhaseImpulseResponseToCepstrum37MinimumPhaseImpulseResponseToCepstrumEii"></span><span id="_CPPv2N4sptk37MinimumPhaseImpulseResponseToCepstrum37MinimumPhaseImpulseResponseToCepstrumEii"></span><span id="sptk::MinimumPhaseImpulseResponseToCepstrum::MinimumPhaseImpulseResponseToCepstrum__i.i"></span><span class="target" id="classsptk_1_1MinimumPhaseImpulseResponseToCepstrum_1ae132017326713c49baa0fad9fa62557b"></span><span class="sig-name descname"><span class="n"><span class="pre">MinimumPhaseImpulseResponseToCepstrum</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_input_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_output_order</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk37MinimumPhaseImpulseResponseToCepstrum37MinimumPhaseImpulseResponseToCepstrumEii" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -290,7 +304,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk37MinimumPhaseImpulseResponseToCepstrum16GetNumInputOrderEv">
-<span id="_CPPv3NK4sptk37MinimumPhaseImpulseResponseToCepstrum16GetNumInputOrderEv"></span><span id="_CPPv2NK4sptk37MinimumPhaseImpulseResponseToCepstrum16GetNumInputOrderEv"></span><span id="sptk::MinimumPhaseImpulseResponseToCepstrum::GetNumInputOrderC"></span><span class="target" id="classsptk_1_1MinimumPhaseImpulseResponseToCepstrum_1aff1639cc70ee0d3a4cad85dcd1792995"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumInputOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk37MinimumPhaseImpulseResponseToCepstrum16GetNumInputOrderEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk37MinimumPhaseImpulseResponseToCepstrum16GetNumInputOrderEv"></span><span id="_CPPv2NK4sptk37MinimumPhaseImpulseResponseToCepstrum16GetNumInputOrderEv"></span><span id="sptk::MinimumPhaseImpulseResponseToCepstrum::GetNumInputOrderC"></span><span class="target" id="classsptk_1_1MinimumPhaseImpulseResponseToCepstrum_1aff1639cc70ee0d3a4cad85dcd1792995"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumInputOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk37MinimumPhaseImpulseResponseToCepstrum16GetNumInputOrderEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of impulse response. </p>
@@ -300,7 +314,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk37MinimumPhaseImpulseResponseToCepstrum17GetNumOutputOrderEv">
-<span id="_CPPv3NK4sptk37MinimumPhaseImpulseResponseToCepstrum17GetNumOutputOrderEv"></span><span id="_CPPv2NK4sptk37MinimumPhaseImpulseResponseToCepstrum17GetNumOutputOrderEv"></span><span id="sptk::MinimumPhaseImpulseResponseToCepstrum::GetNumOutputOrderC"></span><span class="target" id="classsptk_1_1MinimumPhaseImpulseResponseToCepstrum_1a17f4b6deec8864c7cdeebc949daf9ea4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOutputOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk37MinimumPhaseImpulseResponseToCepstrum17GetNumOutputOrderEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk37MinimumPhaseImpulseResponseToCepstrum17GetNumOutputOrderEv"></span><span id="_CPPv2NK4sptk37MinimumPhaseImpulseResponseToCepstrum17GetNumOutputOrderEv"></span><span id="sptk::MinimumPhaseImpulseResponseToCepstrum::GetNumOutputOrderC"></span><span class="target" id="classsptk_1_1MinimumPhaseImpulseResponseToCepstrum_1a17f4b6deec8864c7cdeebc949daf9ea4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOutputOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk37MinimumPhaseImpulseResponseToCepstrum17GetNumOutputOrderEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of cepstral coefficients. </p>
@@ -310,7 +324,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk37MinimumPhaseImpulseResponseToCepstrum7IsValidEv">
-<span id="_CPPv3NK4sptk37MinimumPhaseImpulseResponseToCepstrum7IsValidEv"></span><span id="_CPPv2NK4sptk37MinimumPhaseImpulseResponseToCepstrum7IsValidEv"></span><span id="sptk::MinimumPhaseImpulseResponseToCepstrum::IsValidC"></span><span class="target" id="classsptk_1_1MinimumPhaseImpulseResponseToCepstrum_1a2de27d32071050dc3652837a25d91528"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk37MinimumPhaseImpulseResponseToCepstrum7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk37MinimumPhaseImpulseResponseToCepstrum7IsValidEv"></span><span id="_CPPv2NK4sptk37MinimumPhaseImpulseResponseToCepstrum7IsValidEv"></span><span id="sptk::MinimumPhaseImpulseResponseToCepstrum::IsValidC"></span><span class="target" id="classsptk_1_1MinimumPhaseImpulseResponseToCepstrum_1a2de27d32071050dc3652837a25d91528"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk37MinimumPhaseImpulseResponseToCepstrum7IsValidEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -320,7 +334,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk37MinimumPhaseImpulseResponseToCepstrum3RunERKNSt6vectorIdEEPNSt6vectorIdEE">
-<span id="_CPPv3NK4sptk37MinimumPhaseImpulseResponseToCepstrum3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk37MinimumPhaseImpulseResponseToCepstrum3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::MinimumPhaseImpulseResponseToCepstrum::Run__std::vector:double:CR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1MinimumPhaseImpulseResponseToCepstrum_1abf531c1c505f82219d770a635462306a"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">minimum_phase_impulse_response</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">cepstrum</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk37MinimumPhaseImpulseResponseToCepstrum3RunERKNSt6vectorIdEEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk37MinimumPhaseImpulseResponseToCepstrum3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk37MinimumPhaseImpulseResponseToCepstrum3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::MinimumPhaseImpulseResponseToCepstrum::Run__std::vector:double:CR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1MinimumPhaseImpulseResponseToCepstrum_1abf531c1c505f82219d770a635462306a"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">minimum_phase_impulse_response</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">cepstrum</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk37MinimumPhaseImpulseResponseToCepstrum3RunERKNSt6vectorIdEEPNSt6vectorIdEE" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">

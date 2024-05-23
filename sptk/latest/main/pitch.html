@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pitch &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
   
@@ -15,9 +15,9 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -50,6 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alaw.html">alaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ap.html">ap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
@@ -100,6 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ialaw.html">ialaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
@@ -145,12 +147,31 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onehot.html">onehot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pcas.html">pcas</a></li>
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">pitch</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pitch</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk15PitchExtractionE"><code class="docutils literal notranslate"><span class="pre">PitchExtraction</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk15PitchExtraction10AlgorithmsE"><code class="docutils literal notranslate"><span class="pre">PitchExtraction::Algorithms</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4sptk15PitchExtraction10Algorithms5kRaptE"><code class="docutils literal notranslate"><span class="pre">PitchExtraction::Algorithms::kRapt</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4sptk15PitchExtraction10Algorithms6kSwipeE"><code class="docutils literal notranslate"><span class="pre">PitchExtraction::Algorithms::kSwipe</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4sptk15PitchExtraction10Algorithms7kReaperE"><code class="docutils literal notranslate"><span class="pre">PitchExtraction::Algorithms::kReaper</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4sptk15PitchExtraction10Algorithms4kDioE"><code class="docutils literal notranslate"><span class="pre">PitchExtraction::Algorithms::kDio</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4sptk15PitchExtraction10Algorithms8kHarvestE"><code class="docutils literal notranslate"><span class="pre">PitchExtraction::Algorithms::kHarvest</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4sptk15PitchExtraction10Algorithms14kNumAlgorithmsE"><code class="docutils literal notranslate"><span class="pre">PitchExtraction::Algorithms::kNumAlgorithms</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk15PitchExtraction15PitchExtractionEidddd10Algorithms"><code class="docutils literal notranslate"><span class="pre">PitchExtraction::PitchExtraction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk15PitchExtraction7IsValidEv"><code class="docutils literal notranslate"><span class="pre">PitchExtraction::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk15PitchExtraction3RunERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN24PitchExtractionInterface8PolarityE"><code class="docutils literal notranslate"><span class="pre">PitchExtraction::Run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="pitch2sin.html">pitch2sin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
@@ -216,7 +237,7 @@
            <div itemprop="articleBody">
              
   <section id="pitch">
-<span id="id1"></span><h1>pitch<a class="headerlink" href="#pitch" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>pitch<a class="headerlink" href="#pitch" title="Link to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
@@ -315,7 +336,7 @@
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk15PitchExtractionE">
-<span id="_CPPv3N4sptk15PitchExtractionE"></span><span id="_CPPv2N4sptk15PitchExtractionE"></span><span id="sptk::PitchExtraction"></span><span class="target" id="classsptk_1_1PitchExtraction"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PitchExtraction</span></span></span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtractionE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk15PitchExtractionE"></span><span id="_CPPv2N4sptk15PitchExtractionE"></span><span id="sptk::PitchExtraction"></span><span class="target" id="classsptk_1_1PitchExtraction"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PitchExtraction</span></span></span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtractionE" title="Link to this definition"></a><br /></dt>
 <dd><p>Extract pitch (fundamental frequency) from waveform.</p>
 <p>The input is whole audio waveform and the output is the sequence of the fundamental frequency. The implemented algorithms of the extraction are RAPT, SWIPE, REAPER, DIO, and harvest.</p>
 <p>[1] D. Talkin, “A robust algorithm for pitch tracking,” Speech Coding and Synthesis, pp. 497-518, 1995.</p>
@@ -327,37 +348,37 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
 <dl class="cpp enum">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk15PitchExtraction10AlgorithmsE">
-<span id="_CPPv3N4sptk15PitchExtraction10AlgorithmsE"></span><span id="_CPPv2N4sptk15PitchExtraction10AlgorithmsE"></span><span class="target" id="classsptk_1_1PitchExtraction_1a2b0c3429741149d46cf4dfbf5eed0037"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Algorithms</span></span></span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtraction10AlgorithmsE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk15PitchExtraction10AlgorithmsE"></span><span id="_CPPv2N4sptk15PitchExtraction10AlgorithmsE"></span><span class="target" id="classsptk_1_1PitchExtraction_1a2b0c3429741149d46cf4dfbf5eed0037"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Algorithms</span></span></span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtraction10AlgorithmsE" title="Link to this definition"></a><br /></dt>
 <dd><p>Pitch extraction algorithms. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk15PitchExtraction10Algorithms5kRaptE">
-<span id="_CPPv3N4sptk15PitchExtraction10Algorithms5kRaptE"></span><span id="_CPPv2N4sptk15PitchExtraction10Algorithms5kRaptE"></span><span class="target" id="classsptk_1_1PitchExtraction_1a2b0c3429741149d46cf4dfbf5eed0037a9346ea20c9ab068b557ed342072565b7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kRapt</span></span></span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtraction10Algorithms5kRaptE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk15PitchExtraction10Algorithms5kRaptE"></span><span id="_CPPv2N4sptk15PitchExtraction10Algorithms5kRaptE"></span><span class="target" id="classsptk_1_1PitchExtraction_1a2b0c3429741149d46cf4dfbf5eed0037a9346ea20c9ab068b557ed342072565b7"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kRapt</span></span></span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtraction10Algorithms5kRaptE" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk15PitchExtraction10Algorithms6kSwipeE">
-<span id="_CPPv3N4sptk15PitchExtraction10Algorithms6kSwipeE"></span><span id="_CPPv2N4sptk15PitchExtraction10Algorithms6kSwipeE"></span><span class="target" id="classsptk_1_1PitchExtraction_1a2b0c3429741149d46cf4dfbf5eed0037ae1a14e778f737f00e4e8684a6920ef45"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kSwipe</span></span></span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtraction10Algorithms6kSwipeE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk15PitchExtraction10Algorithms6kSwipeE"></span><span id="_CPPv2N4sptk15PitchExtraction10Algorithms6kSwipeE"></span><span class="target" id="classsptk_1_1PitchExtraction_1a2b0c3429741149d46cf4dfbf5eed0037ae1a14e778f737f00e4e8684a6920ef45"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kSwipe</span></span></span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtraction10Algorithms6kSwipeE" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk15PitchExtraction10Algorithms7kReaperE">
-<span id="_CPPv3N4sptk15PitchExtraction10Algorithms7kReaperE"></span><span id="_CPPv2N4sptk15PitchExtraction10Algorithms7kReaperE"></span><span class="target" id="classsptk_1_1PitchExtraction_1a2b0c3429741149d46cf4dfbf5eed0037a6a49c52d9c732c9cc7262f997cc45ae8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kReaper</span></span></span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtraction10Algorithms7kReaperE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk15PitchExtraction10Algorithms7kReaperE"></span><span id="_CPPv2N4sptk15PitchExtraction10Algorithms7kReaperE"></span><span class="target" id="classsptk_1_1PitchExtraction_1a2b0c3429741149d46cf4dfbf5eed0037a6a49c52d9c732c9cc7262f997cc45ae8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kReaper</span></span></span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtraction10Algorithms7kReaperE" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk15PitchExtraction10Algorithms4kDioE">
-<span id="_CPPv3N4sptk15PitchExtraction10Algorithms4kDioE"></span><span id="_CPPv2N4sptk15PitchExtraction10Algorithms4kDioE"></span><span class="target" id="classsptk_1_1PitchExtraction_1a2b0c3429741149d46cf4dfbf5eed0037a765fc672851f7dafb10452b3087e734d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kDio</span></span></span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtraction10Algorithms4kDioE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk15PitchExtraction10Algorithms4kDioE"></span><span id="_CPPv2N4sptk15PitchExtraction10Algorithms4kDioE"></span><span class="target" id="classsptk_1_1PitchExtraction_1a2b0c3429741149d46cf4dfbf5eed0037a765fc672851f7dafb10452b3087e734d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kDio</span></span></span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtraction10Algorithms4kDioE" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk15PitchExtraction10Algorithms8kHarvestE">
-<span id="_CPPv3N4sptk15PitchExtraction10Algorithms8kHarvestE"></span><span id="_CPPv2N4sptk15PitchExtraction10Algorithms8kHarvestE"></span><span class="target" id="classsptk_1_1PitchExtraction_1a2b0c3429741149d46cf4dfbf5eed0037a4de2999d3692c8c68db0825e652066f8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kHarvest</span></span></span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtraction10Algorithms8kHarvestE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk15PitchExtraction10Algorithms8kHarvestE"></span><span id="_CPPv2N4sptk15PitchExtraction10Algorithms8kHarvestE"></span><span class="target" id="classsptk_1_1PitchExtraction_1a2b0c3429741149d46cf4dfbf5eed0037a4de2999d3692c8c68db0825e652066f8"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kHarvest</span></span></span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtraction10Algorithms8kHarvestE" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk15PitchExtraction10Algorithms14kNumAlgorithmsE">
-<span id="_CPPv3N4sptk15PitchExtraction10Algorithms14kNumAlgorithmsE"></span><span id="_CPPv2N4sptk15PitchExtraction10Algorithms14kNumAlgorithmsE"></span><span class="target" id="classsptk_1_1PitchExtraction_1a2b0c3429741149d46cf4dfbf5eed0037aedb33bec46e20db5f12711b03d8127a6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kNumAlgorithms</span></span></span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtraction10Algorithms14kNumAlgorithmsE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk15PitchExtraction10Algorithms14kNumAlgorithmsE"></span><span id="_CPPv2N4sptk15PitchExtraction10Algorithms14kNumAlgorithmsE"></span><span class="target" id="classsptk_1_1PitchExtraction_1a2b0c3429741149d46cf4dfbf5eed0037aedb33bec46e20db5f12711b03d8127a6"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kNumAlgorithms</span></span></span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtraction10Algorithms14kNumAlgorithmsE" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -367,7 +388,7 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk15PitchExtraction15PitchExtractionEidddd10Algorithms">
-<span id="_CPPv3N4sptk15PitchExtraction15PitchExtractionEidddd10Algorithms"></span><span id="_CPPv2N4sptk15PitchExtraction15PitchExtractionEidddd10Algorithms"></span><span id="sptk::PitchExtraction::PitchExtraction__i.double.double.double.double.Algorithms"></span><span class="target" id="classsptk_1_1PitchExtraction_1a66d19f5e034f51bca5d79e0ff562d123"></span><span class="sig-name descname"><span class="n"><span class="pre">PitchExtraction</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">frame_shift</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sampling_rate</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">lower_f0</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">upper_f0</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">voicing_threshold</span></span>, <a class="reference internal" href="#_CPPv4N4sptk15PitchExtraction10AlgorithmsE" title="sptk::PitchExtraction::Algorithms"><span class="n"><span class="pre">Algorithms</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">algorithm</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtraction15PitchExtractionEidddd10Algorithms" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk15PitchExtraction15PitchExtractionEidddd10Algorithms"></span><span id="_CPPv2N4sptk15PitchExtraction15PitchExtractionEidddd10Algorithms"></span><span id="sptk::PitchExtraction::PitchExtraction__i.double.double.double.double.Algorithms"></span><span class="target" id="classsptk_1_1PitchExtraction_1a66d19f5e034f51bca5d79e0ff562d123"></span><span class="sig-name descname"><span class="n"><span class="pre">PitchExtraction</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">frame_shift</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sampling_rate</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">lower_f0</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">upper_f0</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">voicing_threshold</span></span>, <a class="reference internal" href="#_CPPv4N4sptk15PitchExtraction10AlgorithmsE" title="sptk::PitchExtraction::Algorithms"><span class="n"><span class="pre">Algorithms</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">algorithm</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk15PitchExtraction15PitchExtractionEidddd10Algorithms" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -384,7 +405,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk15PitchExtraction7IsValidEv">
-<span id="_CPPv3NK4sptk15PitchExtraction7IsValidEv"></span><span id="_CPPv2NK4sptk15PitchExtraction7IsValidEv"></span><span id="sptk::PitchExtraction::IsValidC"></span><span class="target" id="classsptk_1_1PitchExtraction_1a82cedaf602130b7e11f3f394fd13e536"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk15PitchExtraction7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk15PitchExtraction7IsValidEv"></span><span id="_CPPv2NK4sptk15PitchExtraction7IsValidEv"></span><span id="sptk::PitchExtraction::IsValidC"></span><span class="target" id="classsptk_1_1PitchExtraction_1a82cedaf602130b7e11f3f394fd13e536"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk15PitchExtraction7IsValidEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -394,7 +415,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk15PitchExtraction3RunERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN24PitchExtractionInterface8PolarityE">
-<span id="_CPPv3NK4sptk15PitchExtraction3RunERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN24PitchExtractionInterface8PolarityE"></span><span id="_CPPv2NK4sptk15PitchExtraction3RunERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN24PitchExtractionInterface8PolarityE"></span><span id="sptk::PitchExtraction::Run__std::vector:double:CR.std::vector:double:P.std::vector:double:P.PitchExtractionInterface::PolarityPC"></span><span class="target" id="classsptk_1_1PitchExtraction_1a9f173d62c3e5bc5c8653365bc0de3773"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">waveform</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">f0</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">epochs</span></span>, <span class="n"><span class="pre">PitchExtractionInterface</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Polarity</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">polarity</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk15PitchExtraction3RunERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN24PitchExtractionInterface8PolarityE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk15PitchExtraction3RunERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN24PitchExtractionInterface8PolarityE"></span><span id="_CPPv2NK4sptk15PitchExtraction3RunERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN24PitchExtractionInterface8PolarityE"></span><span id="sptk::PitchExtraction::Run__std::vector:double:CR.std::vector:double:P.std::vector:double:P.PitchExtractionInterface::PolarityPC"></span><span class="target" id="classsptk_1_1PitchExtraction_1a9f173d62c3e5bc5c8653365bc0de3773"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">waveform</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">f0</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">epochs</span></span>, <span class="n"><span class="pre">PitchExtractionInterface</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">Polarity</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">polarity</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk15PitchExtraction3RunERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN24PitchExtractionInterface8PolarityE" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">

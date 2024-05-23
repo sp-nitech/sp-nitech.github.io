@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>fbank &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
   
@@ -15,9 +15,9 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -50,6 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alaw.html">alaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ap.html">ap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
@@ -76,7 +77,21 @@
 <li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extract.html">extract</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">fbank</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">fbank</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk21MelFilterBankAnalysisE"><code class="docutils literal notranslate"><span class="pre">MelFilterBankAnalysis</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk21MelFilterBankAnalysis21MelFilterBankAnalysisEiiddddb"><code class="docutils literal notranslate"><span class="pre">MelFilterBankAnalysis::MelFilterBankAnalysis()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk21MelFilterBankAnalysis12GetFftLengthEv"><code class="docutils literal notranslate"><span class="pre">MelFilterBankAnalysis::GetFftLength()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk21MelFilterBankAnalysis13GetNumChannelEv"><code class="docutils literal notranslate"><span class="pre">MelFilterBankAnalysis::GetNumChannel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk21MelFilterBankAnalysis8GetFloorEv"><code class="docutils literal notranslate"><span class="pre">MelFilterBankAnalysis::GetFloor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk21MelFilterBankAnalysis11IsPowerUsedEv"><code class="docutils literal notranslate"><span class="pre">MelFilterBankAnalysis::IsPowerUsed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk21MelFilterBankAnalysis7IsValidEv"><code class="docutils literal notranslate"><span class="pre">MelFilterBankAnalysis::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk21MelFilterBankAnalysis20GetCenterFrequenciesEPNSt6vectorIdEE"><code class="docutils literal notranslate"><span class="pre">MelFilterBankAnalysis::GetCenterFrequencies()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk21MelFilterBankAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPd"><code class="docutils literal notranslate"><span class="pre">MelFilterBankAnalysis::Run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="fd.html">fd</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fdrw.html">fdrw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
@@ -100,6 +115,7 @@
 <li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ialaw.html">ialaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
@@ -145,6 +161,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onehot.html">onehot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -216,7 +233,7 @@
            <div itemprop="articleBody">
              
   <section id="fbank">
-<span id="id1"></span><h1>fbank<a class="headerlink" href="#fbank" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>fbank<a class="headerlink" href="#fbank" title="Link to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
@@ -302,7 +319,7 @@
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk21MelFilterBankAnalysisE">
-<span id="_CPPv3N4sptk21MelFilterBankAnalysisE"></span><span id="_CPPv2N4sptk21MelFilterBankAnalysisE"></span><span id="sptk::MelFilterBankAnalysis"></span><span class="target" id="classsptk_1_1MelFilterBankAnalysis"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MelFilterBankAnalysis</span></span></span><a class="headerlink" href="#_CPPv4N4sptk21MelFilterBankAnalysisE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk21MelFilterBankAnalysisE"></span><span id="_CPPv2N4sptk21MelFilterBankAnalysisE"></span><span id="sptk::MelFilterBankAnalysis"></span><span class="target" id="classsptk_1_1MelFilterBankAnalysis"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MelFilterBankAnalysis</span></span></span><a class="headerlink" href="#_CPPv4N4sptk21MelFilterBankAnalysisE" title="Link to this definition"></a><br /></dt>
 <dd><p>Perform mel-filter-bank analysis.</p>
 <p>The input is the half part of power spectrum: <div class="math notranslate nohighlight">
 \[ \begin{array}{cccc} |X(0)|^2, &amp; |X(1)|^2, &amp; \ldots, &amp; |X(N/2)|^2, \end{array} \]</div>
@@ -317,7 +334,7 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk21MelFilterBankAnalysis21MelFilterBankAnalysisEiiddddb">
-<span id="_CPPv3N4sptk21MelFilterBankAnalysis21MelFilterBankAnalysisEiiddddb"></span><span id="_CPPv2N4sptk21MelFilterBankAnalysis21MelFilterBankAnalysisEiiddddb"></span><span id="sptk::MelFilterBankAnalysis::MelFilterBankAnalysis__i.i.double.double.double.double.b"></span><span class="target" id="classsptk_1_1MelFilterBankAnalysis_1aacb5441d37896a35c6d819d46d35ff66"></span><span class="sig-name descname"><span class="n"><span class="pre">MelFilterBankAnalysis</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_channel</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sampling_rate</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">lowest_frequency</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">highest_frequency</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">floor</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">use_power</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk21MelFilterBankAnalysis21MelFilterBankAnalysisEiiddddb" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk21MelFilterBankAnalysis21MelFilterBankAnalysisEiiddddb"></span><span id="_CPPv2N4sptk21MelFilterBankAnalysis21MelFilterBankAnalysisEiiddddb"></span><span id="sptk::MelFilterBankAnalysis::MelFilterBankAnalysis__i.i.double.double.double.double.b"></span><span class="target" id="classsptk_1_1MelFilterBankAnalysis_1aacb5441d37896a35c6d819d46d35ff66"></span><span class="sig-name descname"><span class="n"><span class="pre">MelFilterBankAnalysis</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_channel</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sampling_rate</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">lowest_frequency</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">highest_frequency</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">floor</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">use_power</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk21MelFilterBankAnalysis21MelFilterBankAnalysisEiiddddb" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -335,7 +352,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk21MelFilterBankAnalysis12GetFftLengthEv">
-<span id="_CPPv3NK4sptk21MelFilterBankAnalysis12GetFftLengthEv"></span><span id="_CPPv2NK4sptk21MelFilterBankAnalysis12GetFftLengthEv"></span><span id="sptk::MelFilterBankAnalysis::GetFftLengthC"></span><span class="target" id="classsptk_1_1MelFilterBankAnalysis_1aad653e333091994f239256a9a11c8f9d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk21MelFilterBankAnalysis12GetFftLengthEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk21MelFilterBankAnalysis12GetFftLengthEv"></span><span id="_CPPv2NK4sptk21MelFilterBankAnalysis12GetFftLengthEv"></span><span id="sptk::MelFilterBankAnalysis::GetFftLengthC"></span><span class="target" id="classsptk_1_1MelFilterBankAnalysis_1aad653e333091994f239256a9a11c8f9d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk21MelFilterBankAnalysis12GetFftLengthEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>FFT size. </p>
@@ -345,7 +362,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk21MelFilterBankAnalysis13GetNumChannelEv">
-<span id="_CPPv3NK4sptk21MelFilterBankAnalysis13GetNumChannelEv"></span><span id="_CPPv2NK4sptk21MelFilterBankAnalysis13GetNumChannelEv"></span><span id="sptk::MelFilterBankAnalysis::GetNumChannelC"></span><span class="target" id="classsptk_1_1MelFilterBankAnalysis_1aaabf0c9600c132049c5a9a3baf041b6d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumChannel</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk21MelFilterBankAnalysis13GetNumChannelEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk21MelFilterBankAnalysis13GetNumChannelEv"></span><span id="_CPPv2NK4sptk21MelFilterBankAnalysis13GetNumChannelEv"></span><span id="sptk::MelFilterBankAnalysis::GetNumChannelC"></span><span class="target" id="classsptk_1_1MelFilterBankAnalysis_1aaabf0c9600c132049c5a9a3baf041b6d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumChannel</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk21MelFilterBankAnalysis13GetNumChannelEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Number of channels. </p>
@@ -355,7 +372,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk21MelFilterBankAnalysis8GetFloorEv">
-<span id="_CPPv3NK4sptk21MelFilterBankAnalysis8GetFloorEv"></span><span id="_CPPv2NK4sptk21MelFilterBankAnalysis8GetFloorEv"></span><span id="sptk::MelFilterBankAnalysis::GetFloorC"></span><span class="target" id="classsptk_1_1MelFilterBankAnalysis_1ad7e8bb7a4f61b0081e6f2b5027cc4840"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFloor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk21MelFilterBankAnalysis8GetFloorEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk21MelFilterBankAnalysis8GetFloorEv"></span><span id="_CPPv2NK4sptk21MelFilterBankAnalysis8GetFloorEv"></span><span id="sptk::MelFilterBankAnalysis::GetFloorC"></span><span class="target" id="classsptk_1_1MelFilterBankAnalysis_1ad7e8bb7a4f61b0081e6f2b5027cc4840"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFloor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk21MelFilterBankAnalysis8GetFloorEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Floor value. </p>
@@ -365,7 +382,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk21MelFilterBankAnalysis11IsPowerUsedEv">
-<span id="_CPPv3NK4sptk21MelFilterBankAnalysis11IsPowerUsedEv"></span><span id="_CPPv2NK4sptk21MelFilterBankAnalysis11IsPowerUsedEv"></span><span id="sptk::MelFilterBankAnalysis::IsPowerUsedC"></span><span class="target" id="classsptk_1_1MelFilterBankAnalysis_1a6faaf52c345664fd97cfabcd6f250cd9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsPowerUsed</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk21MelFilterBankAnalysis11IsPowerUsedEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk21MelFilterBankAnalysis11IsPowerUsedEv"></span><span id="_CPPv2NK4sptk21MelFilterBankAnalysis11IsPowerUsedEv"></span><span id="sptk::MelFilterBankAnalysis::IsPowerUsedC"></span><span class="target" id="classsptk_1_1MelFilterBankAnalysis_1a6faaf52c345664fd97cfabcd6f250cd9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsPowerUsed</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk21MelFilterBankAnalysis11IsPowerUsedEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Whether to use power spectrum. </p>
@@ -375,7 +392,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk21MelFilterBankAnalysis7IsValidEv">
-<span id="_CPPv3NK4sptk21MelFilterBankAnalysis7IsValidEv"></span><span id="_CPPv2NK4sptk21MelFilterBankAnalysis7IsValidEv"></span><span id="sptk::MelFilterBankAnalysis::IsValidC"></span><span class="target" id="classsptk_1_1MelFilterBankAnalysis_1a01f55fff0d7006fa66f3a1b74f7e85e6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk21MelFilterBankAnalysis7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk21MelFilterBankAnalysis7IsValidEv"></span><span id="_CPPv2NK4sptk21MelFilterBankAnalysis7IsValidEv"></span><span id="sptk::MelFilterBankAnalysis::IsValidC"></span><span class="target" id="classsptk_1_1MelFilterBankAnalysis_1a01f55fff0d7006fa66f3a1b74f7e85e6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk21MelFilterBankAnalysis7IsValidEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -385,7 +402,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk21MelFilterBankAnalysis20GetCenterFrequenciesEPNSt6vectorIdEE">
-<span id="_CPPv3NK4sptk21MelFilterBankAnalysis20GetCenterFrequenciesEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk21MelFilterBankAnalysis20GetCenterFrequenciesEPNSt6vectorIdEE"></span><span id="sptk::MelFilterBankAnalysis::GetCenterFrequencies__std::vector:double:PC"></span><span class="target" id="classsptk_1_1MelFilterBankAnalysis_1a08132696bbe74f075b7ea6b28436c32b"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetCenterFrequencies</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">center_frequencies</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk21MelFilterBankAnalysis20GetCenterFrequenciesEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk21MelFilterBankAnalysis20GetCenterFrequenciesEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk21MelFilterBankAnalysis20GetCenterFrequenciesEPNSt6vectorIdEE"></span><span id="sptk::MelFilterBankAnalysis::GetCenterFrequencies__std::vector:double:PC"></span><span class="target" id="classsptk_1_1MelFilterBankAnalysis_1a08132696bbe74f075b7ea6b28436c32b"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetCenterFrequencies</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">center_frequencies</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk21MelFilterBankAnalysis20GetCenterFrequenciesEPNSt6vectorIdEE" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Center frequencies in Hz. </p>
@@ -395,7 +412,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk21MelFilterBankAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPd">
-<span id="_CPPv3NK4sptk21MelFilterBankAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPd"></span><span id="_CPPv2NK4sptk21MelFilterBankAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPd"></span><span id="sptk::MelFilterBankAnalysis::Run__std::vector:double:CR.std::vector:double:P.doublePC"></span><span class="target" id="classsptk_1_1MelFilterBankAnalysis_1a195667be3fe863c8f796ca8d610991fe"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">power_spectrum</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">filter_bank_output</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">energy</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk21MelFilterBankAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPd" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk21MelFilterBankAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPd"></span><span id="_CPPv2NK4sptk21MelFilterBankAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPd"></span><span id="sptk::MelFilterBankAnalysis::Run__std::vector:double:CR.std::vector:double:P.doublePC"></span><span class="target" id="classsptk_1_1MelFilterBankAnalysis_1a195667be3fe863c8f796ca8d610991fe"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">power_spectrum</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">filter_bank_output</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">energy</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk21MelFilterBankAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPd" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">

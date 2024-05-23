@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pitch_spec &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
   
@@ -15,9 +15,9 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -50,6 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alaw.html">alaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ap.html">ap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
@@ -100,6 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ialaw.html">ialaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
@@ -145,6 +147,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onehot.html">onehot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -153,7 +156,21 @@
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch2sin.html">pitch2sin</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">pitch_spec</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">pitch_spec</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk18SpectrumExtractionE"><code class="docutils literal notranslate"><span class="pre">SpectrumExtraction</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk18SpectrumExtraction10AlgorithmsE"><code class="docutils literal notranslate"><span class="pre">SpectrumExtraction::Algorithms</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4sptk18SpectrumExtraction10Algorithms6kWorldE"><code class="docutils literal notranslate"><span class="pre">SpectrumExtraction::Algorithms::kWorld</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4sptk18SpectrumExtraction10Algorithms14kNumAlgorithmsE"><code class="docutils literal notranslate"><span class="pre">SpectrumExtraction::Algorithms::kNumAlgorithms</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk18SpectrumExtraction18SpectrumExtractionEiid10Algorithms"><code class="docutils literal notranslate"><span class="pre">SpectrumExtraction::SpectrumExtraction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk18SpectrumExtraction7IsValidEv"><code class="docutils literal notranslate"><span class="pre">SpectrumExtraction::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk18SpectrumExtraction3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEE"><code class="docutils literal notranslate"><span class="pre">SpectrumExtraction::Run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="plp.html">plp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
@@ -216,7 +233,7 @@
            <div itemprop="articleBody">
              
   <section id="pitch-spec">
-<span id="id1"></span><h1>pitch_spec<a class="headerlink" href="#pitch-spec" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>pitch_spec<a class="headerlink" href="#pitch-spec" title="Link to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
@@ -301,7 +318,7 @@ pitch_spec<span class="w"> </span>-s<span class="w"> </span><span class="m">16</
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk18SpectrumExtractionE">
-<span id="_CPPv3N4sptk18SpectrumExtractionE"></span><span id="_CPPv2N4sptk18SpectrumExtractionE"></span><span id="sptk::SpectrumExtraction"></span><span class="target" id="classsptk_1_1SpectrumExtraction"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SpectrumExtraction</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumExtractionE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk18SpectrumExtractionE"></span><span id="_CPPv2N4sptk18SpectrumExtractionE"></span><span id="sptk::SpectrumExtraction"></span><span class="target" id="classsptk_1_1SpectrumExtraction"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SpectrumExtraction</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumExtractionE" title="Link to this definition"></a><br /></dt>
 <dd><p>Extract spectrum from waveform.</p>
 <p>The input is whole audio waveform and the output is the sequence of the spectrum measure. The implemented algorithm of the extraction is CheapTrick.</p>
 <p>[1] M. Morise, “CheapTrick, a spectral envelope estimator for high-quality speech synthesis,” Proc. of Speech Communication, vol. 67, pp. 1-7, 2015. </p>
@@ -309,17 +326,17 @@ pitch_spec<span class="w"> </span>-s<span class="w"> </span><span class="m">16</
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
 <dl class="cpp enum">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk18SpectrumExtraction10AlgorithmsE">
-<span id="_CPPv3N4sptk18SpectrumExtraction10AlgorithmsE"></span><span id="_CPPv2N4sptk18SpectrumExtraction10AlgorithmsE"></span><span class="target" id="classsptk_1_1SpectrumExtraction_1a75ec73bdac950bcdc91b104483f3c768"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Algorithms</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumExtraction10AlgorithmsE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk18SpectrumExtraction10AlgorithmsE"></span><span id="_CPPv2N4sptk18SpectrumExtraction10AlgorithmsE"></span><span class="target" id="classsptk_1_1SpectrumExtraction_1a75ec73bdac950bcdc91b104483f3c768"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Algorithms</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumExtraction10AlgorithmsE" title="Link to this definition"></a><br /></dt>
 <dd><p>Spectrum extraction algorithm type. </p>
 <p><em>Values:</em></p>
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk18SpectrumExtraction10Algorithms6kWorldE">
-<span id="_CPPv3N4sptk18SpectrumExtraction10Algorithms6kWorldE"></span><span id="_CPPv2N4sptk18SpectrumExtraction10Algorithms6kWorldE"></span><span class="target" id="classsptk_1_1SpectrumExtraction_1a75ec73bdac950bcdc91b104483f3c768ac38df366f6510f28ebf8dbe1a0140ffc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kWorld</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumExtraction10Algorithms6kWorldE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk18SpectrumExtraction10Algorithms6kWorldE"></span><span id="_CPPv2N4sptk18SpectrumExtraction10Algorithms6kWorldE"></span><span class="target" id="classsptk_1_1SpectrumExtraction_1a75ec73bdac950bcdc91b104483f3c768ac38df366f6510f28ebf8dbe1a0140ffc"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kWorld</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumExtraction10Algorithms6kWorldE" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 <dl class="cpp enumerator">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk18SpectrumExtraction10Algorithms14kNumAlgorithmsE">
-<span id="_CPPv3N4sptk18SpectrumExtraction10Algorithms14kNumAlgorithmsE"></span><span id="_CPPv2N4sptk18SpectrumExtraction10Algorithms14kNumAlgorithmsE"></span><span class="target" id="classsptk_1_1SpectrumExtraction_1a75ec73bdac950bcdc91b104483f3c768a3081d90089acaab96efeaf91d4b27e4c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kNumAlgorithms</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumExtraction10Algorithms14kNumAlgorithmsE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk18SpectrumExtraction10Algorithms14kNumAlgorithmsE"></span><span id="_CPPv2N4sptk18SpectrumExtraction10Algorithms14kNumAlgorithmsE"></span><span class="target" id="classsptk_1_1SpectrumExtraction_1a75ec73bdac950bcdc91b104483f3c768a3081d90089acaab96efeaf91d4b27e4c"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kNumAlgorithms</span></span></span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumExtraction10Algorithms14kNumAlgorithmsE" title="Link to this definition"></a><br /></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -329,7 +346,7 @@ pitch_spec<span class="w"> </span>-s<span class="w"> </span><span class="m">16</
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk18SpectrumExtraction18SpectrumExtractionEiid10Algorithms">
-<span id="_CPPv3N4sptk18SpectrumExtraction18SpectrumExtractionEiid10Algorithms"></span><span id="_CPPv2N4sptk18SpectrumExtraction18SpectrumExtractionEiid10Algorithms"></span><span id="sptk::SpectrumExtraction::SpectrumExtraction__i.i.double.Algorithms"></span><span class="target" id="classsptk_1_1SpectrumExtraction_1a9f0b8b73c985b5bde4179b8231a11758"></span><span class="sig-name descname"><span class="n"><span class="pre">SpectrumExtraction</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">frame_shift</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sampling_rate</span></span>, <a class="reference internal" href="#_CPPv4N4sptk18SpectrumExtraction10AlgorithmsE" title="sptk::SpectrumExtraction::Algorithms"><span class="n"><span class="pre">Algorithms</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">algorithm</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumExtraction18SpectrumExtractionEiid10Algorithms" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk18SpectrumExtraction18SpectrumExtractionEiid10Algorithms"></span><span id="_CPPv2N4sptk18SpectrumExtraction18SpectrumExtractionEiid10Algorithms"></span><span id="sptk::SpectrumExtraction::SpectrumExtraction__i.i.double.Algorithms"></span><span class="target" id="classsptk_1_1SpectrumExtraction_1a9f0b8b73c985b5bde4179b8231a11758"></span><span class="sig-name descname"><span class="n"><span class="pre">SpectrumExtraction</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">frame_shift</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sampling_rate</span></span>, <a class="reference internal" href="#_CPPv4N4sptk18SpectrumExtraction10AlgorithmsE" title="sptk::SpectrumExtraction::Algorithms"><span class="n"><span class="pre">Algorithms</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">algorithm</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk18SpectrumExtraction18SpectrumExtractionEiid10Algorithms" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -344,7 +361,7 @@ pitch_spec<span class="w"> </span>-s<span class="w"> </span><span class="m">16</
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk18SpectrumExtraction7IsValidEv">
-<span id="_CPPv3NK4sptk18SpectrumExtraction7IsValidEv"></span><span id="_CPPv2NK4sptk18SpectrumExtraction7IsValidEv"></span><span id="sptk::SpectrumExtraction::IsValidC"></span><span class="target" id="classsptk_1_1SpectrumExtraction_1a7c2ba67c03d546ada25b702b49b4687a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18SpectrumExtraction7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk18SpectrumExtraction7IsValidEv"></span><span id="_CPPv2NK4sptk18SpectrumExtraction7IsValidEv"></span><span id="sptk::SpectrumExtraction::IsValidC"></span><span class="target" id="classsptk_1_1SpectrumExtraction_1a7c2ba67c03d546ada25b702b49b4687a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18SpectrumExtraction7IsValidEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -354,7 +371,7 @@ pitch_spec<span class="w"> </span>-s<span class="w"> </span><span class="m">16</
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk18SpectrumExtraction3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEE">
-<span id="_CPPv3NK4sptk18SpectrumExtraction3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEE"></span><span id="_CPPv2NK4sptk18SpectrumExtraction3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEE"></span><span id="sptk::SpectrumExtraction::Run__std::vector:double:CR.std::vector:double:CR.std::vector:std::vector:double::PC"></span><span class="target" id="classsptk_1_1SpectrumExtraction_1a6e132b90a412278165ef1b530644fe2e"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">waveform</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">f0</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">spectrum</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18SpectrumExtraction3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk18SpectrumExtraction3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEE"></span><span id="_CPPv2NK4sptk18SpectrumExtraction3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEE"></span><span id="sptk::SpectrumExtraction::Run__std::vector:double:CR.std::vector:double:CR.std::vector:std::vector:double::PC"></span><span class="target" id="classsptk_1_1SpectrumExtraction_1a6e132b90a412278165ef1b530644fe2e"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">waveform</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">f0</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">spectrum</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk18SpectrumExtraction3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEE" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">

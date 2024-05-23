@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>lar2par &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
   
@@ -15,9 +15,9 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -50,6 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alaw.html">alaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ap.html">ap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
@@ -100,6 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ialaw.html">ialaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
@@ -110,7 +112,18 @@
 <li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">lar2par</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">lar2par</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk32LogAreaRatioToParcorCoefficientsE"><code class="docutils literal notranslate"><span class="pre">LogAreaRatioToParcorCoefficients</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk32LogAreaRatioToParcorCoefficients32LogAreaRatioToParcorCoefficientsEi"><code class="docutils literal notranslate"><span class="pre">LogAreaRatioToParcorCoefficients::LogAreaRatioToParcorCoefficients()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk32LogAreaRatioToParcorCoefficients11GetNumOrderEv"><code class="docutils literal notranslate"><span class="pre">LogAreaRatioToParcorCoefficients::GetNumOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk32LogAreaRatioToParcorCoefficients7IsValidEv"><code class="docutils literal notranslate"><span class="pre">LogAreaRatioToParcorCoefficients::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk32LogAreaRatioToParcorCoefficients3RunERKNSt6vectorIdEEPNSt6vectorIdEE"><code class="docutils literal notranslate"><span class="pre">LogAreaRatioToParcorCoefficients::Run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk32LogAreaRatioToParcorCoefficients3RunEPNSt6vectorIdEE"><code class="docutils literal notranslate"><span class="pre">LogAreaRatioToParcorCoefficients::Run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="lbg.html">lbg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="levdur.html">levdur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linear_intpl.html">linear_intpl</a></li>
@@ -145,6 +158,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onehot.html">onehot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -216,7 +230,7 @@
            <div itemprop="articleBody">
              
   <section id="lar2par">
-<span id="id1"></span><h1>lar2par<a class="headerlink" href="#lar2par" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>lar2par<a class="headerlink" href="#lar2par" title="Link to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
@@ -262,7 +276,7 @@
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk32LogAreaRatioToParcorCoefficientsE">
-<span id="_CPPv3N4sptk32LogAreaRatioToParcorCoefficientsE"></span><span id="_CPPv2N4sptk32LogAreaRatioToParcorCoefficientsE"></span><span id="sptk::LogAreaRatioToParcorCoefficients"></span><span class="target" id="classsptk_1_1LogAreaRatioToParcorCoefficients"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LogAreaRatioToParcorCoefficients</span></span></span><a class="headerlink" href="#_CPPv4N4sptk32LogAreaRatioToParcorCoefficientsE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk32LogAreaRatioToParcorCoefficientsE"></span><span id="_CPPv2N4sptk32LogAreaRatioToParcorCoefficientsE"></span><span id="sptk::LogAreaRatioToParcorCoefficients"></span><span class="target" id="classsptk_1_1LogAreaRatioToParcorCoefficients"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LogAreaRatioToParcorCoefficients</span></span></span><a class="headerlink" href="#_CPPv4N4sptk32LogAreaRatioToParcorCoefficientsE" title="Link to this definition"></a><br /></dt>
 <dd><p>Convert LAR coefficients to PARCOR coefficients.</p>
 <p>The input is the <span class="math notranslate nohighlight">\(M\)</span>-th order LAR coefficients: <div class="math notranslate nohighlight">
 \[ \begin{array}{cccc} K, &amp; g(1), &amp; \ldots, &amp; g(M), \end{array} \]</div>
@@ -275,7 +289,7 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk32LogAreaRatioToParcorCoefficients32LogAreaRatioToParcorCoefficientsEi">
-<span id="_CPPv3N4sptk32LogAreaRatioToParcorCoefficients32LogAreaRatioToParcorCoefficientsEi"></span><span id="_CPPv2N4sptk32LogAreaRatioToParcorCoefficients32LogAreaRatioToParcorCoefficientsEi"></span><span id="sptk::LogAreaRatioToParcorCoefficients::LogAreaRatioToParcorCoefficients__i"></span><span class="target" id="classsptk_1_1LogAreaRatioToParcorCoefficients_1ae59a716fd2eec6f32f30a58d3d2d3fa8"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LogAreaRatioToParcorCoefficients</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk32LogAreaRatioToParcorCoefficients32LogAreaRatioToParcorCoefficientsEi" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk32LogAreaRatioToParcorCoefficients32LogAreaRatioToParcorCoefficientsEi"></span><span id="_CPPv2N4sptk32LogAreaRatioToParcorCoefficients32LogAreaRatioToParcorCoefficientsEi"></span><span id="sptk::LogAreaRatioToParcorCoefficients::LogAreaRatioToParcorCoefficients__i"></span><span class="target" id="classsptk_1_1LogAreaRatioToParcorCoefficients_1ae59a716fd2eec6f32f30a58d3d2d3fa8"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LogAreaRatioToParcorCoefficients</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk32LogAreaRatioToParcorCoefficients32LogAreaRatioToParcorCoefficientsEi" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>num_order</strong> – <strong>[in]</strong> Order of coefficients. </p>
@@ -285,7 +299,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk32LogAreaRatioToParcorCoefficients11GetNumOrderEv">
-<span id="_CPPv3NK4sptk32LogAreaRatioToParcorCoefficients11GetNumOrderEv"></span><span id="_CPPv2NK4sptk32LogAreaRatioToParcorCoefficients11GetNumOrderEv"></span><span id="sptk::LogAreaRatioToParcorCoefficients::GetNumOrderC"></span><span class="target" id="classsptk_1_1LogAreaRatioToParcorCoefficients_1a1b9006f2a2a3e352d60894de13c44581"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32LogAreaRatioToParcorCoefficients11GetNumOrderEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk32LogAreaRatioToParcorCoefficients11GetNumOrderEv"></span><span id="_CPPv2NK4sptk32LogAreaRatioToParcorCoefficients11GetNumOrderEv"></span><span id="sptk::LogAreaRatioToParcorCoefficients::GetNumOrderC"></span><span class="target" id="classsptk_1_1LogAreaRatioToParcorCoefficients_1a1b9006f2a2a3e352d60894de13c44581"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32LogAreaRatioToParcorCoefficients11GetNumOrderEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of coefficients. </p>
@@ -295,7 +309,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk32LogAreaRatioToParcorCoefficients7IsValidEv">
-<span id="_CPPv3NK4sptk32LogAreaRatioToParcorCoefficients7IsValidEv"></span><span id="_CPPv2NK4sptk32LogAreaRatioToParcorCoefficients7IsValidEv"></span><span id="sptk::LogAreaRatioToParcorCoefficients::IsValidC"></span><span class="target" id="classsptk_1_1LogAreaRatioToParcorCoefficients_1a2f24786816fa55a16ea736754e8515da"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32LogAreaRatioToParcorCoefficients7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk32LogAreaRatioToParcorCoefficients7IsValidEv"></span><span id="_CPPv2NK4sptk32LogAreaRatioToParcorCoefficients7IsValidEv"></span><span id="sptk::LogAreaRatioToParcorCoefficients::IsValidC"></span><span class="target" id="classsptk_1_1LogAreaRatioToParcorCoefficients_1a2f24786816fa55a16ea736754e8515da"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32LogAreaRatioToParcorCoefficients7IsValidEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -305,7 +319,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk32LogAreaRatioToParcorCoefficients3RunERKNSt6vectorIdEEPNSt6vectorIdEE">
-<span id="_CPPv3NK4sptk32LogAreaRatioToParcorCoefficients3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk32LogAreaRatioToParcorCoefficients3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::LogAreaRatioToParcorCoefficients::Run__std::vector:double:CR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1LogAreaRatioToParcorCoefficients_1af7e1bde4d3e003df85cd8a692f787d25"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">log_area_ratio</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">parcor_coefficients</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32LogAreaRatioToParcorCoefficients3RunERKNSt6vectorIdEEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk32LogAreaRatioToParcorCoefficients3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk32LogAreaRatioToParcorCoefficients3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::LogAreaRatioToParcorCoefficients::Run__std::vector:double:CR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1LogAreaRatioToParcorCoefficients_1af7e1bde4d3e003df85cd8a692f787d25"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">log_area_ratio</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">parcor_coefficients</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32LogAreaRatioToParcorCoefficients3RunERKNSt6vectorIdEEPNSt6vectorIdEE" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -321,7 +335,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk32LogAreaRatioToParcorCoefficients3RunEPNSt6vectorIdEE">
-<span id="_CPPv3NK4sptk32LogAreaRatioToParcorCoefficients3RunEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk32LogAreaRatioToParcorCoefficients3RunEPNSt6vectorIdEE"></span><span id="sptk::LogAreaRatioToParcorCoefficients::Run__std::vector:double:PC"></span><span class="target" id="classsptk_1_1LogAreaRatioToParcorCoefficients_1a5c39806b28ff81e61f8babef2204ddd3"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_and_output</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32LogAreaRatioToParcorCoefficients3RunEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk32LogAreaRatioToParcorCoefficients3RunEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk32LogAreaRatioToParcorCoefficients3RunEPNSt6vectorIdEE"></span><span id="sptk::LogAreaRatioToParcorCoefficients::Run__std::vector:double:PC"></span><span class="target" id="classsptk_1_1LogAreaRatioToParcorCoefficients_1a5c39806b28ff81e61f8babef2204ddd3"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_and_output</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk32LogAreaRatioToParcorCoefficients3RunEPNSt6vectorIdEE" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>input_and_output</strong> – <strong>[inout]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order coefficients. </p>

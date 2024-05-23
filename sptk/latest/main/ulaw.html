@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ulaw &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
   
@@ -15,9 +15,9 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -50,6 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alaw.html">alaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ap.html">ap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
@@ -100,6 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ialaw.html">ialaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
@@ -145,6 +147,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onehot.html">onehot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -173,7 +176,19 @@
 <li class="toctree-l1"><a class="reference internal" href="symmetrize.html">symmetrize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="train.html">train</a></li>
 <li class="toctree-l1"><a class="reference internal" href="transpose.html">transpose</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">ulaw</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ulaw</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk16MuLawCompressionE"><code class="docutils literal notranslate"><span class="pre">MuLawCompression</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk16MuLawCompression16MuLawCompressionEdd"><code class="docutils literal notranslate"><span class="pre">MuLawCompression::MuLawCompression()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk16MuLawCompression14GetAbsMaxValueEv"><code class="docutils literal notranslate"><span class="pre">MuLawCompression::GetAbsMaxValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk16MuLawCompression20GetCompressionFactorEv"><code class="docutils literal notranslate"><span class="pre">MuLawCompression::GetCompressionFactor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk16MuLawCompression7IsValidEv"><code class="docutils literal notranslate"><span class="pre">MuLawCompression::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk16MuLawCompression3RunEdPd"><code class="docutils literal notranslate"><span class="pre">MuLawCompression::Run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk16MuLawCompression3RunEPd"><code class="docutils literal notranslate"><span class="pre">MuLawCompression::Run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="vc.html">vc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vopr.html">vopr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
@@ -216,7 +231,7 @@
            <div itemprop="articleBody">
              
   <section id="ulaw">
-<span id="id1"></span><h1>ulaw<a class="headerlink" href="#ulaw" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>ulaw<a class="headerlink" href="#ulaw" title="Link to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
@@ -242,7 +257,7 @@
 </p></li>
 </ul>
 </p>
-<p>In the below example, 16-bit data read from <code class="docutils literal notranslate"><span class="pre">data.short</span></code> is compressed to 8-bit ulaw format.</p>
+<p>In the below example, 16-bit data read from <code class="docutils literal notranslate"><span class="pre">data.short</span></code> is compressed to 8-bit u-law format.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>x2x<span class="w"> </span>+sd<span class="w"> </span>data.short<span class="w"> </span><span class="p">|</span><span class="w"> </span>ulaw<span class="w"> </span><span class="p">|</span><span class="w"> </span>quantize<span class="w"> </span>&gt;<span class="w"> </span>data.ulaw
 </pre></div>
 </div>
@@ -262,11 +277,11 @@
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="iulaw.html#iulaw"><span class="std std-ref">iulaw</span></a></p>
+<p><a class="reference internal" href="iulaw.html#iulaw"><span class="std std-ref">iulaw</span></a>  <a class="reference internal" href="alaw.html#alaw"><span class="std std-ref">alaw</span></a></p>
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk16MuLawCompressionE">
-<span id="_CPPv3N4sptk16MuLawCompressionE"></span><span id="_CPPv2N4sptk16MuLawCompressionE"></span><span id="sptk::MuLawCompression"></span><span class="target" id="classsptk_1_1MuLawCompression"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MuLawCompression</span></span></span><a class="headerlink" href="#_CPPv4N4sptk16MuLawCompressionE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk16MuLawCompressionE"></span><span id="_CPPv2N4sptk16MuLawCompressionE"></span><span id="sptk::MuLawCompression"></span><span class="target" id="classsptk_1_1MuLawCompression"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MuLawCompression</span></span></span><a class="headerlink" href="#_CPPv4N4sptk16MuLawCompressionE" title="Link to this definition"></a><br /></dt>
 <dd><p>Nonlinearly compress data based on <span class="math notranslate nohighlight">\(\mu\)</span>-law algorithm.</p>
 <p>Given the input data <span class="math notranslate nohighlight">\(x(n)\)</span>, the compression is performed as follows: <div class="math notranslate nohighlight">
 \[ y(n) = V \, \mathrm{sgn}(x(n)) \frac{\log (1 + \mu \frac{|x(n)|}{V})}{\log (1 + \mu)} \]</div>
@@ -275,7 +290,7 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk16MuLawCompression16MuLawCompressionEdd">
-<span id="_CPPv3N4sptk16MuLawCompression16MuLawCompressionEdd"></span><span id="_CPPv2N4sptk16MuLawCompression16MuLawCompressionEdd"></span><span id="sptk::MuLawCompression::MuLawCompression__double.double"></span><span class="target" id="classsptk_1_1MuLawCompression_1aaab19dc7fddc3e013caa76f17322bee6"></span><span class="sig-name descname"><span class="n"><span class="pre">MuLawCompression</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">abs_max_value</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">compression_factor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk16MuLawCompression16MuLawCompressionEdd" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk16MuLawCompression16MuLawCompressionEdd"></span><span id="_CPPv2N4sptk16MuLawCompression16MuLawCompressionEdd"></span><span id="sptk::MuLawCompression::MuLawCompression__double.double"></span><span class="target" id="classsptk_1_1MuLawCompression_1aaab19dc7fddc3e013caa76f17322bee6"></span><span class="sig-name descname"><span class="n"><span class="pre">MuLawCompression</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">abs_max_value</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">compression_factor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk16MuLawCompression16MuLawCompressionEdd" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -288,7 +303,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk16MuLawCompression14GetAbsMaxValueEv">
-<span id="_CPPv3NK4sptk16MuLawCompression14GetAbsMaxValueEv"></span><span id="_CPPv2NK4sptk16MuLawCompression14GetAbsMaxValueEv"></span><span id="sptk::MuLawCompression::GetAbsMaxValueC"></span><span class="target" id="classsptk_1_1MuLawCompression_1ad1024bcc4f7287e757519abe9e8ca125"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetAbsMaxValue</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16MuLawCompression14GetAbsMaxValueEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk16MuLawCompression14GetAbsMaxValueEv"></span><span id="_CPPv2NK4sptk16MuLawCompression14GetAbsMaxValueEv"></span><span id="sptk::MuLawCompression::GetAbsMaxValueC"></span><span class="target" id="classsptk_1_1MuLawCompression_1ad1024bcc4f7287e757519abe9e8ca125"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetAbsMaxValue</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16MuLawCompression14GetAbsMaxValueEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Absolute maximum value. </p>
@@ -298,7 +313,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk16MuLawCompression20GetCompressionFactorEv">
-<span id="_CPPv3NK4sptk16MuLawCompression20GetCompressionFactorEv"></span><span id="_CPPv2NK4sptk16MuLawCompression20GetCompressionFactorEv"></span><span id="sptk::MuLawCompression::GetCompressionFactorC"></span><span class="target" id="classsptk_1_1MuLawCompression_1aae5024603a475fca0fc18680c5647a59"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetCompressionFactor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16MuLawCompression20GetCompressionFactorEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk16MuLawCompression20GetCompressionFactorEv"></span><span id="_CPPv2NK4sptk16MuLawCompression20GetCompressionFactorEv"></span><span id="sptk::MuLawCompression::GetCompressionFactorC"></span><span class="target" id="classsptk_1_1MuLawCompression_1aae5024603a475fca0fc18680c5647a59"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetCompressionFactor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16MuLawCompression20GetCompressionFactorEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Compression factor. </p>
@@ -308,7 +323,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk16MuLawCompression7IsValidEv">
-<span id="_CPPv3NK4sptk16MuLawCompression7IsValidEv"></span><span id="_CPPv2NK4sptk16MuLawCompression7IsValidEv"></span><span id="sptk::MuLawCompression::IsValidC"></span><span class="target" id="classsptk_1_1MuLawCompression_1a584cfc1786dafef3e56413ad642102a9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16MuLawCompression7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk16MuLawCompression7IsValidEv"></span><span id="_CPPv2NK4sptk16MuLawCompression7IsValidEv"></span><span id="sptk::MuLawCompression::IsValidC"></span><span class="target" id="classsptk_1_1MuLawCompression_1a584cfc1786dafef3e56413ad642102a9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16MuLawCompression7IsValidEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -318,7 +333,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk16MuLawCompression3RunEdPd">
-<span id="_CPPv3NK4sptk16MuLawCompression3RunEdPd"></span><span id="_CPPv2NK4sptk16MuLawCompression3RunEdPd"></span><span id="sptk::MuLawCompression::Run__double.doublePC"></span><span class="target" id="classsptk_1_1MuLawCompression_1a0733400060445a947075da36bc7e9db4"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">input</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">output</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16MuLawCompression3RunEdPd" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk16MuLawCompression3RunEdPd"></span><span id="_CPPv2NK4sptk16MuLawCompression3RunEdPd"></span><span id="sptk::MuLawCompression::Run__double.doublePC"></span><span class="target" id="classsptk_1_1MuLawCompression_1a0733400060445a947075da36bc7e9db4"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">input</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">output</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16MuLawCompression3RunEdPd" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -334,7 +349,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk16MuLawCompression3RunEPd">
-<span id="_CPPv3NK4sptk16MuLawCompression3RunEPd"></span><span id="_CPPv2NK4sptk16MuLawCompression3RunEPd"></span><span id="sptk::MuLawCompression::Run__doublePC"></span><span class="target" id="classsptk_1_1MuLawCompression_1ae1cc803828506f687f13b9642361330f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_and_output</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16MuLawCompression3RunEPd" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk16MuLawCompression3RunEPd"></span><span id="_CPPv2NK4sptk16MuLawCompression3RunEPd"></span><span id="sptk::MuLawCompression::Run__doublePC"></span><span class="target" id="classsptk_1_1MuLawCompression_1ae1cc803828506f687f13b9642361330f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_and_output</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk16MuLawCompression3RunEPd" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>input_and_output</strong> – <strong>[inout]</strong> Input/output data. </p>

@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>fft &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
   
@@ -15,9 +15,9 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -50,6 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alaw.html">alaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ap.html">ap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
@@ -79,7 +80,20 @@
 <li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fd.html">fd</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fdrw.html">fdrw</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">fft</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">fft</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk20FastFourierTransformE"><code class="docutils literal notranslate"><span class="pre">FastFourierTransform</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk20FastFourierTransform20FastFourierTransformEi"><code class="docutils literal notranslate"><span class="pre">FastFourierTransform::FastFourierTransform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk20FastFourierTransform20FastFourierTransformEii"><code class="docutils literal notranslate"><span class="pre">FastFourierTransform::FastFourierTransform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk20FastFourierTransform11GetNumOrderEv"><code class="docutils literal notranslate"><span class="pre">FastFourierTransform::GetNumOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk20FastFourierTransform12GetFftLengthEv"><code class="docutils literal notranslate"><span class="pre">FastFourierTransform::GetFftLength()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk20FastFourierTransform7IsValidEv"><code class="docutils literal notranslate"><span class="pre">FastFourierTransform::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk20FastFourierTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEE"><code class="docutils literal notranslate"><span class="pre">FastFourierTransform::Run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk20FastFourierTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEE"><code class="docutils literal notranslate"><span class="pre">FastFourierTransform::Run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="fft2.html">fft2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
@@ -100,6 +114,7 @@
 <li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ialaw.html">ialaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
@@ -145,6 +160,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onehot.html">onehot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -216,7 +232,7 @@
            <div itemprop="articleBody">
              
   <section id="fft">
-<span id="id1"></span><h1>fft<a class="headerlink" href="#fft" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>fft<a class="headerlink" href="#fft" title="Link to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
@@ -277,7 +293,7 @@
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk20FastFourierTransformE">
-<span id="_CPPv3N4sptk20FastFourierTransformE"></span><span id="_CPPv2N4sptk20FastFourierTransformE"></span><span id="sptk::FastFourierTransform"></span><span class="target" id="classsptk_1_1FastFourierTransform"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FastFourierTransform</span></span></span><a class="headerlink" href="#_CPPv4N4sptk20FastFourierTransformE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk20FastFourierTransformE"></span><span id="_CPPv2N4sptk20FastFourierTransformE"></span><span id="sptk::FastFourierTransform"></span><span class="target" id="classsptk_1_1FastFourierTransform"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FastFourierTransform</span></span></span><a class="headerlink" href="#_CPPv4N4sptk20FastFourierTransformE" title="Link to this definition"></a><br /></dt>
 <dd><p>Calculate FFT of complex-valued input data.</p>
 <p>The inputs are <span class="math notranslate nohighlight">\(M\)</span>-th order complex-valued data: <div class="math notranslate nohighlight">
 \[\begin{split} \begin{array}{cccc} \mathrm{Re}(x(0)), &amp; \mathrm{Re}(x(1)), &amp; \ldots, &amp; \mathrm{Re}(x(M)), \\ \mathrm{Im}(x(0)), &amp; \mathrm{Im}(x(1)), &amp; \ldots, &amp; \mathrm{Im}(x(M)). \end{array} \end{split}\]</div>
@@ -288,7 +304,7 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk20FastFourierTransform20FastFourierTransformEi">
-<span id="_CPPv3N4sptk20FastFourierTransform20FastFourierTransformEi"></span><span id="_CPPv2N4sptk20FastFourierTransform20FastFourierTransformEi"></span><span id="sptk::FastFourierTransform::FastFourierTransform__i"></span><span class="target" id="classsptk_1_1FastFourierTransform_1a47d662f9d0653623860bac650d16f4df"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FastFourierTransform</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk20FastFourierTransform20FastFourierTransformEi" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk20FastFourierTransform20FastFourierTransformEi"></span><span id="_CPPv2N4sptk20FastFourierTransform20FastFourierTransformEi"></span><span id="sptk::FastFourierTransform::FastFourierTransform__i"></span><span class="target" id="classsptk_1_1FastFourierTransform_1a47d662f9d0653623860bac650d16f4df"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FastFourierTransform</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk20FastFourierTransform20FastFourierTransformEi" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>fft_length</strong> – <strong>[in]</strong> FFT length, <span class="math notranslate nohighlight">\(L\)</span>. </p>
@@ -298,7 +314,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk20FastFourierTransform20FastFourierTransformEii">
-<span id="_CPPv3N4sptk20FastFourierTransform20FastFourierTransformEii"></span><span id="_CPPv2N4sptk20FastFourierTransform20FastFourierTransformEii"></span><span id="sptk::FastFourierTransform::FastFourierTransform__i.i"></span><span class="target" id="classsptk_1_1FastFourierTransform_1a53993b6a685e906913626b81d475b62a"></span><span class="sig-name descname"><span class="n"><span class="pre">FastFourierTransform</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk20FastFourierTransform20FastFourierTransformEii" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk20FastFourierTransform20FastFourierTransformEii"></span><span id="_CPPv2N4sptk20FastFourierTransform20FastFourierTransformEii"></span><span id="sptk::FastFourierTransform::FastFourierTransform__i.i"></span><span class="target" id="classsptk_1_1FastFourierTransform_1a53993b6a685e906913626b81d475b62a"></span><span class="sig-name descname"><span class="n"><span class="pre">FastFourierTransform</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk20FastFourierTransform20FastFourierTransformEii" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -311,7 +327,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk20FastFourierTransform11GetNumOrderEv">
-<span id="_CPPv3NK4sptk20FastFourierTransform11GetNumOrderEv"></span><span id="_CPPv2NK4sptk20FastFourierTransform11GetNumOrderEv"></span><span id="sptk::FastFourierTransform::GetNumOrderC"></span><span class="target" id="classsptk_1_1FastFourierTransform_1ac12d3ad87755fde861987a4d5fd67065"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk20FastFourierTransform11GetNumOrderEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk20FastFourierTransform11GetNumOrderEv"></span><span id="_CPPv2NK4sptk20FastFourierTransform11GetNumOrderEv"></span><span id="sptk::FastFourierTransform::GetNumOrderC"></span><span class="target" id="classsptk_1_1FastFourierTransform_1ac12d3ad87755fde861987a4d5fd67065"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk20FastFourierTransform11GetNumOrderEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of input. </p>
@@ -321,7 +337,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk20FastFourierTransform12GetFftLengthEv">
-<span id="_CPPv3NK4sptk20FastFourierTransform12GetFftLengthEv"></span><span id="_CPPv2NK4sptk20FastFourierTransform12GetFftLengthEv"></span><span id="sptk::FastFourierTransform::GetFftLengthC"></span><span class="target" id="classsptk_1_1FastFourierTransform_1ac5beae58fe52110914bd2790b45f995a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk20FastFourierTransform12GetFftLengthEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk20FastFourierTransform12GetFftLengthEv"></span><span id="_CPPv2NK4sptk20FastFourierTransform12GetFftLengthEv"></span><span id="sptk::FastFourierTransform::GetFftLengthC"></span><span class="target" id="classsptk_1_1FastFourierTransform_1ac5beae58fe52110914bd2790b45f995a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk20FastFourierTransform12GetFftLengthEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>FFT length. </p>
@@ -331,7 +347,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk20FastFourierTransform7IsValidEv">
-<span id="_CPPv3NK4sptk20FastFourierTransform7IsValidEv"></span><span id="_CPPv2NK4sptk20FastFourierTransform7IsValidEv"></span><span id="sptk::FastFourierTransform::IsValidC"></span><span class="target" id="classsptk_1_1FastFourierTransform_1ab528e2be16ece4b49fea76ad7b6472db"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk20FastFourierTransform7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk20FastFourierTransform7IsValidEv"></span><span id="_CPPv2NK4sptk20FastFourierTransform7IsValidEv"></span><span id="sptk::FastFourierTransform::IsValidC"></span><span class="target" id="classsptk_1_1FastFourierTransform_1ab528e2be16ece4b49fea76ad7b6472db"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk20FastFourierTransform7IsValidEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -341,7 +357,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk20FastFourierTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEE">
-<span id="_CPPv3NK4sptk20FastFourierTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk20FastFourierTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::FastFourierTransform::Run__std::vector:double:CR.std::vector:double:CR.std::vector:double:P.std::vector:double:PC"></span><span class="target" id="classsptk_1_1FastFourierTransform_1aab1f99d04b8f37fd273d04486637f3da"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">real_part_input</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">imag_part_input</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">real_part_output</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">imag_part_output</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk20FastFourierTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk20FastFourierTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk20FastFourierTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::FastFourierTransform::Run__std::vector:double:CR.std::vector:double:CR.std::vector:double:P.std::vector:double:PC"></span><span class="target" id="classsptk_1_1FastFourierTransform_1aab1f99d04b8f37fd273d04486637f3da"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">real_part_input</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">imag_part_input</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">real_part_output</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">imag_part_output</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk20FastFourierTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEE" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -359,7 +375,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk20FastFourierTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEE">
-<span id="_CPPv3NK4sptk20FastFourierTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk20FastFourierTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::FastFourierTransform::Run__std::vector:double:P.std::vector:double:PC"></span><span class="target" id="classsptk_1_1FastFourierTransform_1a6cd9fd823ceaddbecc3725a44eeb53f4"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">real_part</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">imag_part</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk20FastFourierTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk20FastFourierTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk20FastFourierTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::FastFourierTransform::Run__std::vector:double:P.std::vector:double:PC"></span><span class="target" id="classsptk_1_1FastFourierTransform_1a6cd9fd823ceaddbecc3725a44eeb53f4"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">real_part</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">imag_part</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk20FastFourierTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEE" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">

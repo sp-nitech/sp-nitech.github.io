@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>grpdelay &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
   
@@ -15,9 +15,9 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -50,6 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alaw.html">alaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ap.html">ap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
@@ -92,7 +93,22 @@
 <li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gpolezero.html">gpolezero</a></li>
 <li class="toctree-l1"><a class="reference internal" href="grlogsp.html">grlogsp</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">grpdelay</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">grpdelay</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk30FilterCoefficientsToGroupDelayE"><code class="docutils literal notranslate"><span class="pre">FilterCoefficientsToGroupDelay</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk30FilterCoefficientsToGroupDelay30FilterCoefficientsToGroupDelayEiiidd"><code class="docutils literal notranslate"><span class="pre">FilterCoefficientsToGroupDelay::FilterCoefficientsToGroupDelay()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk30FilterCoefficientsToGroupDelay20GetNumNumeratorOrderEv"><code class="docutils literal notranslate"><span class="pre">FilterCoefficientsToGroupDelay::GetNumNumeratorOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk30FilterCoefficientsToGroupDelay22GetNumDenominatorOrderEv"><code class="docutils literal notranslate"><span class="pre">FilterCoefficientsToGroupDelay::GetNumDenominatorOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk30FilterCoefficientsToGroupDelay12GetFftLengthEv"><code class="docutils literal notranslate"><span class="pre">FilterCoefficientsToGroupDelay::GetFftLength()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk30FilterCoefficientsToGroupDelay8GetAlphaEv"><code class="docutils literal notranslate"><span class="pre">FilterCoefficientsToGroupDelay::GetAlpha()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk30FilterCoefficientsToGroupDelay8GetGammaEv"><code class="docutils literal notranslate"><span class="pre">FilterCoefficientsToGroupDelay::GetGamma()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk30FilterCoefficientsToGroupDelay7IsValidEv"><code class="docutils literal notranslate"><span class="pre">FilterCoefficientsToGroupDelay::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk30FilterCoefficientsToGroupDelay3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN30FilterCoefficientsToGroupDelay6BufferE"><code class="docutils literal notranslate"><span class="pre">FilterCoefficientsToGroupDelay::Run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk30FilterCoefficientsToGroupDelay6BufferE"><code class="docutils literal notranslate"><span class="pre">FilterCoefficientsToGroupDelay::Buffer</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="gseries.html">gseries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gspecgram.html">gspecgram</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gwave.html">gwave</a></li>
@@ -100,6 +116,7 @@
 <li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ialaw.html">ialaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
@@ -145,6 +162,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onehot.html">onehot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -216,7 +234,7 @@
            <div itemprop="articleBody">
              
   <section id="grpdelay">
-<span id="id1"></span><h1>grpdelay<a class="headerlink" href="#grpdelay" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>grpdelay<a class="headerlink" href="#grpdelay" title="Link to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
@@ -290,7 +308,7 @@
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk30FilterCoefficientsToGroupDelayE">
-<span id="_CPPv3N4sptk30FilterCoefficientsToGroupDelayE"></span><span id="_CPPv2N4sptk30FilterCoefficientsToGroupDelayE"></span><span id="sptk::FilterCoefficientsToGroupDelay"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FilterCoefficientsToGroupDelay</span></span></span><a class="headerlink" href="#_CPPv4N4sptk30FilterCoefficientsToGroupDelayE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk30FilterCoefficientsToGroupDelayE"></span><span id="_CPPv2N4sptk30FilterCoefficientsToGroupDelayE"></span><span id="sptk::FilterCoefficientsToGroupDelay"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FilterCoefficientsToGroupDelay</span></span></span><a class="headerlink" href="#_CPPv4N4sptk30FilterCoefficientsToGroupDelayE" title="Link to this definition"></a><br /></dt>
 <dd><p>Transform filter coefficients to group delay.</p>
 <p>The input is the <span class="math notranslate nohighlight">\(M\)</span>-th order numerator coefficients and the <span class="math notranslate nohighlight">\(N\)</span>-th order denominator coefficients: <div class="math notranslate nohighlight">
 \[\begin{split} \begin{array}{cccc} b(0), &amp; b(1), &amp; \ldots, &amp; b(M), \\ K, &amp; a(1), &amp; \ldots, &amp; a(N), \end{array} \end{split}\]</div>
@@ -311,7 +329,7 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk30FilterCoefficientsToGroupDelay30FilterCoefficientsToGroupDelayEiiidd">
-<span id="_CPPv3N4sptk30FilterCoefficientsToGroupDelay30FilterCoefficientsToGroupDelayEiiidd"></span><span id="_CPPv2N4sptk30FilterCoefficientsToGroupDelay30FilterCoefficientsToGroupDelayEiiidd"></span><span id="sptk::FilterCoefficientsToGroupDelay::FilterCoefficientsToGroupDelay__i.i.i.double.double"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay_1a5fc84235821987b7cd6bd3c96b5e606b"></span><span class="sig-name descname"><span class="n"><span class="pre">FilterCoefficientsToGroupDelay</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_numerator_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_denominator_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">alpha</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1.0</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">gamma</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1.0</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk30FilterCoefficientsToGroupDelay30FilterCoefficientsToGroupDelayEiiidd" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk30FilterCoefficientsToGroupDelay30FilterCoefficientsToGroupDelayEiiidd"></span><span id="_CPPv2N4sptk30FilterCoefficientsToGroupDelay30FilterCoefficientsToGroupDelayEiiidd"></span><span id="sptk::FilterCoefficientsToGroupDelay::FilterCoefficientsToGroupDelay__i.i.i.double.double"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay_1a5fc84235821987b7cd6bd3c96b5e606b"></span><span class="sig-name descname"><span class="n"><span class="pre">FilterCoefficientsToGroupDelay</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_numerator_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_denominator_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">alpha</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1.0</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">gamma</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1.0</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk30FilterCoefficientsToGroupDelay30FilterCoefficientsToGroupDelayEiiidd" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -327,7 +345,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk30FilterCoefficientsToGroupDelay20GetNumNumeratorOrderEv">
-<span id="_CPPv3NK4sptk30FilterCoefficientsToGroupDelay20GetNumNumeratorOrderEv"></span><span id="_CPPv2NK4sptk30FilterCoefficientsToGroupDelay20GetNumNumeratorOrderEv"></span><span id="sptk::FilterCoefficientsToGroupDelay::GetNumNumeratorOrderC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay_1a0a88fd85e41fe84d40bce2b511b32d1e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumNumeratorOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk30FilterCoefficientsToGroupDelay20GetNumNumeratorOrderEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk30FilterCoefficientsToGroupDelay20GetNumNumeratorOrderEv"></span><span id="_CPPv2NK4sptk30FilterCoefficientsToGroupDelay20GetNumNumeratorOrderEv"></span><span id="sptk::FilterCoefficientsToGroupDelay::GetNumNumeratorOrderC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay_1a0a88fd85e41fe84d40bce2b511b32d1e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumNumeratorOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk30FilterCoefficientsToGroupDelay20GetNumNumeratorOrderEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of numerator coefficients. </p>
@@ -337,7 +355,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk30FilterCoefficientsToGroupDelay22GetNumDenominatorOrderEv">
-<span id="_CPPv3NK4sptk30FilterCoefficientsToGroupDelay22GetNumDenominatorOrderEv"></span><span id="_CPPv2NK4sptk30FilterCoefficientsToGroupDelay22GetNumDenominatorOrderEv"></span><span id="sptk::FilterCoefficientsToGroupDelay::GetNumDenominatorOrderC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay_1a49068bb6c1f3bc13926acb16ff7aed9c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumDenominatorOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk30FilterCoefficientsToGroupDelay22GetNumDenominatorOrderEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk30FilterCoefficientsToGroupDelay22GetNumDenominatorOrderEv"></span><span id="_CPPv2NK4sptk30FilterCoefficientsToGroupDelay22GetNumDenominatorOrderEv"></span><span id="sptk::FilterCoefficientsToGroupDelay::GetNumDenominatorOrderC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay_1a49068bb6c1f3bc13926acb16ff7aed9c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumDenominatorOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk30FilterCoefficientsToGroupDelay22GetNumDenominatorOrderEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of denominator coefficients. </p>
@@ -347,7 +365,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk30FilterCoefficientsToGroupDelay12GetFftLengthEv">
-<span id="_CPPv3NK4sptk30FilterCoefficientsToGroupDelay12GetFftLengthEv"></span><span id="_CPPv2NK4sptk30FilterCoefficientsToGroupDelay12GetFftLengthEv"></span><span id="sptk::FilterCoefficientsToGroupDelay::GetFftLengthC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay_1a45b288e0539fde76e60a7d0e6611b0dc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk30FilterCoefficientsToGroupDelay12GetFftLengthEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk30FilterCoefficientsToGroupDelay12GetFftLengthEv"></span><span id="_CPPv2NK4sptk30FilterCoefficientsToGroupDelay12GetFftLengthEv"></span><span id="sptk::FilterCoefficientsToGroupDelay::GetFftLengthC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay_1a45b288e0539fde76e60a7d0e6611b0dc"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk30FilterCoefficientsToGroupDelay12GetFftLengthEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>FFT length. </p>
@@ -357,7 +375,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk30FilterCoefficientsToGroupDelay8GetAlphaEv">
-<span id="_CPPv3NK4sptk30FilterCoefficientsToGroupDelay8GetAlphaEv"></span><span id="_CPPv2NK4sptk30FilterCoefficientsToGroupDelay8GetAlphaEv"></span><span id="sptk::FilterCoefficientsToGroupDelay::GetAlphaC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay_1a5d3f218f231861b67164af7d4be47137"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetAlpha</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk30FilterCoefficientsToGroupDelay8GetAlphaEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk30FilterCoefficientsToGroupDelay8GetAlphaEv"></span><span id="_CPPv2NK4sptk30FilterCoefficientsToGroupDelay8GetAlphaEv"></span><span id="sptk::FilterCoefficientsToGroupDelay::GetAlphaC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay_1a5d3f218f231861b67164af7d4be47137"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetAlpha</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk30FilterCoefficientsToGroupDelay8GetAlphaEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Alpha. </p>
@@ -367,7 +385,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk30FilterCoefficientsToGroupDelay8GetGammaEv">
-<span id="_CPPv3NK4sptk30FilterCoefficientsToGroupDelay8GetGammaEv"></span><span id="_CPPv2NK4sptk30FilterCoefficientsToGroupDelay8GetGammaEv"></span><span id="sptk::FilterCoefficientsToGroupDelay::GetGammaC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay_1af1cbf83e2e44e542f88d100b65232bb9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetGamma</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk30FilterCoefficientsToGroupDelay8GetGammaEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk30FilterCoefficientsToGroupDelay8GetGammaEv"></span><span id="_CPPv2NK4sptk30FilterCoefficientsToGroupDelay8GetGammaEv"></span><span id="sptk::FilterCoefficientsToGroupDelay::GetGammaC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay_1af1cbf83e2e44e542f88d100b65232bb9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetGamma</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk30FilterCoefficientsToGroupDelay8GetGammaEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Gamma. </p>
@@ -377,7 +395,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk30FilterCoefficientsToGroupDelay7IsValidEv">
-<span id="_CPPv3NK4sptk30FilterCoefficientsToGroupDelay7IsValidEv"></span><span id="_CPPv2NK4sptk30FilterCoefficientsToGroupDelay7IsValidEv"></span><span id="sptk::FilterCoefficientsToGroupDelay::IsValidC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay_1af104e88fb9d4fdee3150fdfba225aca1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk30FilterCoefficientsToGroupDelay7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk30FilterCoefficientsToGroupDelay7IsValidEv"></span><span id="_CPPv2NK4sptk30FilterCoefficientsToGroupDelay7IsValidEv"></span><span id="sptk::FilterCoefficientsToGroupDelay::IsValidC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay_1af104e88fb9d4fdee3150fdfba225aca1"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk30FilterCoefficientsToGroupDelay7IsValidEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -387,7 +405,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk30FilterCoefficientsToGroupDelay3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN30FilterCoefficientsToGroupDelay6BufferE">
-<span id="_CPPv3NK4sptk30FilterCoefficientsToGroupDelay3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN30FilterCoefficientsToGroupDelay6BufferE"></span><span id="_CPPv2NK4sptk30FilterCoefficientsToGroupDelay3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN30FilterCoefficientsToGroupDelay6BufferE"></span><span id="sptk::FilterCoefficientsToGroupDelay::Run__std::vector:double:CR.std::vector:double:CR.std::vector:double:P.FilterCoefficientsToGroupDelay::BufferPC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay_1ab97c5e4f41d4a94a2e0c309d210263ba"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">numerator_coefficients</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">denominator_coefficients</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">group_delay</span></span>, <a class="reference internal" href="#_CPPv4N4sptk30FilterCoefficientsToGroupDelayE" title="sptk::FilterCoefficientsToGroupDelay"><span class="n"><span class="pre">FilterCoefficientsToGroupDelay</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk30FilterCoefficientsToGroupDelay6BufferE" title="sptk::FilterCoefficientsToGroupDelay::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk30FilterCoefficientsToGroupDelay3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN30FilterCoefficientsToGroupDelay6BufferE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk30FilterCoefficientsToGroupDelay3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN30FilterCoefficientsToGroupDelay6BufferE"></span><span id="_CPPv2NK4sptk30FilterCoefficientsToGroupDelay3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN30FilterCoefficientsToGroupDelay6BufferE"></span><span id="sptk::FilterCoefficientsToGroupDelay::Run__std::vector:double:CR.std::vector:double:CR.std::vector:double:P.FilterCoefficientsToGroupDelay::BufferPC"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay_1ab97c5e4f41d4a94a2e0c309d210263ba"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">numerator_coefficients</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">denominator_coefficients</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">group_delay</span></span>, <a class="reference internal" href="#_CPPv4N4sptk30FilterCoefficientsToGroupDelayE" title="sptk::FilterCoefficientsToGroupDelay"><span class="n"><span class="pre">FilterCoefficientsToGroupDelay</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk30FilterCoefficientsToGroupDelay6BufferE" title="sptk::FilterCoefficientsToGroupDelay::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk30FilterCoefficientsToGroupDelay3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPN30FilterCoefficientsToGroupDelay6BufferE" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -406,7 +424,7 @@
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk30FilterCoefficientsToGroupDelay6BufferE">
-<span id="_CPPv3N4sptk30FilterCoefficientsToGroupDelay6BufferE"></span><span id="_CPPv2N4sptk30FilterCoefficientsToGroupDelay6BufferE"></span><span id="sptk::FilterCoefficientsToGroupDelay::Buffer"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk30FilterCoefficientsToGroupDelay6BufferE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk30FilterCoefficientsToGroupDelay6BufferE"></span><span id="_CPPv2N4sptk30FilterCoefficientsToGroupDelay6BufferE"></span><span id="sptk::FilterCoefficientsToGroupDelay::Buffer"></span><span class="target" id="classsptk_1_1FilterCoefficientsToGroupDelay_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk30FilterCoefficientsToGroupDelay6BufferE" title="Link to this definition"></a><br /></dt>
 <dd><p><a class="reference internal" href="#classsptk_1_1FilterCoefficientsToGroupDelay_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1FilterCoefficientsToGroupDelay"><span class="std std-ref">FilterCoefficientsToGroupDelay</span></a> class. </p>
 </dd></dl>
 

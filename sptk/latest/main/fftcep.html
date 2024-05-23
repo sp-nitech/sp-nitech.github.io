@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>fftcep &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
   
@@ -15,9 +15,9 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -50,6 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alaw.html">alaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ap.html">ap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
@@ -81,7 +82,21 @@
 <li class="toctree-l1"><a class="reference internal" href="fdrw.html">fdrw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fft2.html">fft2</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">fftcep</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">fftcep</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk36FastFourierTransformCepstralAnalysisE"><code class="docutils literal notranslate"><span class="pre">FastFourierTransformCepstralAnalysis</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk36FastFourierTransformCepstralAnalysis36FastFourierTransformCepstralAnalysisEiiid"><code class="docutils literal notranslate"><span class="pre">FastFourierTransformCepstralAnalysis::FastFourierTransformCepstralAnalysis()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis12GetFftLengthEv"><code class="docutils literal notranslate"><span class="pre">FastFourierTransformCepstralAnalysis::GetFftLength()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis11GetNumOrderEv"><code class="docutils literal notranslate"><span class="pre">FastFourierTransformCepstralAnalysis::GetNumOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis15GetNumIterationEv"><code class="docutils literal notranslate"><span class="pre">FastFourierTransformCepstralAnalysis::GetNumIteration()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis21GetAccelarationFactorEv"><code class="docutils literal notranslate"><span class="pre">FastFourierTransformCepstralAnalysis::GetAccelarationFactor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis7IsValidEv"><code class="docutils literal notranslate"><span class="pre">FastFourierTransformCepstralAnalysis::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN36FastFourierTransformCepstralAnalysis6BufferE"><code class="docutils literal notranslate"><span class="pre">FastFourierTransformCepstralAnalysis::Run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk36FastFourierTransformCepstralAnalysis6BufferE"><code class="docutils literal notranslate"><span class="pre">FastFourierTransformCepstralAnalysis::Buffer</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fftr2.html">fftr2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
@@ -100,6 +115,7 @@
 <li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ialaw.html">ialaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
@@ -145,6 +161,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onehot.html">onehot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -216,7 +233,7 @@
            <div itemprop="articleBody">
              
   <section id="fftcep">
-<span id="id1"></span><h1>fftcep<a class="headerlink" href="#fftcep" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>fftcep<a class="headerlink" href="#fftcep" title="Link to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
@@ -295,7 +312,7 @@
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk36FastFourierTransformCepstralAnalysisE">
-<span id="_CPPv3N4sptk36FastFourierTransformCepstralAnalysisE"></span><span id="_CPPv2N4sptk36FastFourierTransformCepstralAnalysisE"></span><span id="sptk::FastFourierTransformCepstralAnalysis"></span><span class="target" id="classsptk_1_1FastFourierTransformCepstralAnalysis"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FastFourierTransformCepstralAnalysis</span></span></span><a class="headerlink" href="#_CPPv4N4sptk36FastFourierTransformCepstralAnalysisE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk36FastFourierTransformCepstralAnalysisE"></span><span id="_CPPv2N4sptk36FastFourierTransformCepstralAnalysisE"></span><span id="sptk::FastFourierTransformCepstralAnalysis"></span><span class="target" id="classsptk_1_1FastFourierTransformCepstralAnalysis"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">FastFourierTransformCepstralAnalysis</span></span></span><a class="headerlink" href="#_CPPv4N4sptk36FastFourierTransformCepstralAnalysisE" title="Link to this definition"></a><br /></dt>
 <dd><p>Calculate cepstrum from power spectrum.</p>
 <p>The input is the half of power spectrum: <div class="math notranslate nohighlight">
 \[ \begin{array}{cccc} |X(0)|^2, &amp; |X(1)|^2, &amp; \ldots, &amp; |X(N/2)|^2, \end{array} \]</div>
@@ -307,7 +324,7 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk36FastFourierTransformCepstralAnalysis36FastFourierTransformCepstralAnalysisEiiid">
-<span id="_CPPv3N4sptk36FastFourierTransformCepstralAnalysis36FastFourierTransformCepstralAnalysisEiiid"></span><span id="_CPPv2N4sptk36FastFourierTransformCepstralAnalysis36FastFourierTransformCepstralAnalysisEiiid"></span><span id="sptk::FastFourierTransformCepstralAnalysis::FastFourierTransformCepstralAnalysis__i.i.i.double"></span><span class="target" id="classsptk_1_1FastFourierTransformCepstralAnalysis_1a1234c0a8c664516dc419b1a0ebf3a2b5"></span><span class="sig-name descname"><span class="n"><span class="pre">FastFourierTransformCepstralAnalysis</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_iteration</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">acceleration_factor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk36FastFourierTransformCepstralAnalysis36FastFourierTransformCepstralAnalysisEiiid" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk36FastFourierTransformCepstralAnalysis36FastFourierTransformCepstralAnalysisEiiid"></span><span id="_CPPv2N4sptk36FastFourierTransformCepstralAnalysis36FastFourierTransformCepstralAnalysisEiiid"></span><span id="sptk::FastFourierTransformCepstralAnalysis::FastFourierTransformCepstralAnalysis__i.i.i.double"></span><span class="target" id="classsptk_1_1FastFourierTransformCepstralAnalysis_1a1234c0a8c664516dc419b1a0ebf3a2b5"></span><span class="sig-name descname"><span class="n"><span class="pre">FastFourierTransformCepstralAnalysis</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_iteration</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">acceleration_factor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk36FastFourierTransformCepstralAnalysis36FastFourierTransformCepstralAnalysisEiiid" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -322,7 +339,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis12GetFftLengthEv">
-<span id="_CPPv3NK4sptk36FastFourierTransformCepstralAnalysis12GetFftLengthEv"></span><span id="_CPPv2NK4sptk36FastFourierTransformCepstralAnalysis12GetFftLengthEv"></span><span id="sptk::FastFourierTransformCepstralAnalysis::GetFftLengthC"></span><span class="target" id="classsptk_1_1FastFourierTransformCepstralAnalysis_1a518f0ce2948fa010874ac690bf061fa7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis12GetFftLengthEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk36FastFourierTransformCepstralAnalysis12GetFftLengthEv"></span><span id="_CPPv2NK4sptk36FastFourierTransformCepstralAnalysis12GetFftLengthEv"></span><span id="sptk::FastFourierTransformCepstralAnalysis::GetFftLengthC"></span><span class="target" id="classsptk_1_1FastFourierTransformCepstralAnalysis_1a518f0ce2948fa010874ac690bf061fa7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis12GetFftLengthEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>FFT length. </p>
@@ -332,7 +349,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis11GetNumOrderEv">
-<span id="_CPPv3NK4sptk36FastFourierTransformCepstralAnalysis11GetNumOrderEv"></span><span id="_CPPv2NK4sptk36FastFourierTransformCepstralAnalysis11GetNumOrderEv"></span><span id="sptk::FastFourierTransformCepstralAnalysis::GetNumOrderC"></span><span class="target" id="classsptk_1_1FastFourierTransformCepstralAnalysis_1aa37226acc34a3bb42646fda8584b9dc7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis11GetNumOrderEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk36FastFourierTransformCepstralAnalysis11GetNumOrderEv"></span><span id="_CPPv2NK4sptk36FastFourierTransformCepstralAnalysis11GetNumOrderEv"></span><span id="sptk::FastFourierTransformCepstralAnalysis::GetNumOrderC"></span><span class="target" id="classsptk_1_1FastFourierTransformCepstralAnalysis_1aa37226acc34a3bb42646fda8584b9dc7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis11GetNumOrderEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of coefficients. </p>
@@ -342,7 +359,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis15GetNumIterationEv">
-<span id="_CPPv3NK4sptk36FastFourierTransformCepstralAnalysis15GetNumIterationEv"></span><span id="_CPPv2NK4sptk36FastFourierTransformCepstralAnalysis15GetNumIterationEv"></span><span id="sptk::FastFourierTransformCepstralAnalysis::GetNumIterationC"></span><span class="target" id="classsptk_1_1FastFourierTransformCepstralAnalysis_1aefd2e38877e04b49a95a24ff20181e81"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumIteration</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis15GetNumIterationEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk36FastFourierTransformCepstralAnalysis15GetNumIterationEv"></span><span id="_CPPv2NK4sptk36FastFourierTransformCepstralAnalysis15GetNumIterationEv"></span><span id="sptk::FastFourierTransformCepstralAnalysis::GetNumIterationC"></span><span class="target" id="classsptk_1_1FastFourierTransformCepstralAnalysis_1aefd2e38877e04b49a95a24ff20181e81"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumIteration</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis15GetNumIterationEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Number of iterations. </p>
@@ -352,7 +369,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis21GetAccelarationFactorEv">
-<span id="_CPPv3NK4sptk36FastFourierTransformCepstralAnalysis21GetAccelarationFactorEv"></span><span id="_CPPv2NK4sptk36FastFourierTransformCepstralAnalysis21GetAccelarationFactorEv"></span><span id="sptk::FastFourierTransformCepstralAnalysis::GetAccelarationFactorC"></span><span class="target" id="classsptk_1_1FastFourierTransformCepstralAnalysis_1a7d7636d86a650c982cea46c8e7312e58"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetAccelarationFactor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis21GetAccelarationFactorEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk36FastFourierTransformCepstralAnalysis21GetAccelarationFactorEv"></span><span id="_CPPv2NK4sptk36FastFourierTransformCepstralAnalysis21GetAccelarationFactorEv"></span><span id="sptk::FastFourierTransformCepstralAnalysis::GetAccelarationFactorC"></span><span class="target" id="classsptk_1_1FastFourierTransformCepstralAnalysis_1a7d7636d86a650c982cea46c8e7312e58"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetAccelarationFactor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis21GetAccelarationFactorEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Accelaration factor. </p>
@@ -362,7 +379,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis7IsValidEv">
-<span id="_CPPv3NK4sptk36FastFourierTransformCepstralAnalysis7IsValidEv"></span><span id="_CPPv2NK4sptk36FastFourierTransformCepstralAnalysis7IsValidEv"></span><span id="sptk::FastFourierTransformCepstralAnalysis::IsValidC"></span><span class="target" id="classsptk_1_1FastFourierTransformCepstralAnalysis_1acb83728f038d77fb6077901a4c3e06ff"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk36FastFourierTransformCepstralAnalysis7IsValidEv"></span><span id="_CPPv2NK4sptk36FastFourierTransformCepstralAnalysis7IsValidEv"></span><span id="sptk::FastFourierTransformCepstralAnalysis::IsValidC"></span><span class="target" id="classsptk_1_1FastFourierTransformCepstralAnalysis_1acb83728f038d77fb6077901a4c3e06ff"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis7IsValidEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -372,7 +389,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN36FastFourierTransformCepstralAnalysis6BufferE">
-<span id="_CPPv3NK4sptk36FastFourierTransformCepstralAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN36FastFourierTransformCepstralAnalysis6BufferE"></span><span id="_CPPv2NK4sptk36FastFourierTransformCepstralAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN36FastFourierTransformCepstralAnalysis6BufferE"></span><span id="sptk::FastFourierTransformCepstralAnalysis::Run__std::vector:double:CR.std::vector:double:P.FastFourierTransformCepstralAnalysis::BufferPC"></span><span class="target" id="classsptk_1_1FastFourierTransformCepstralAnalysis_1ac783d322bebeec1c188c277609e87fd2"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">power_spectrum</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">cepstrum</span></span>, <a class="reference internal" href="#_CPPv4N4sptk36FastFourierTransformCepstralAnalysisE" title="sptk::FastFourierTransformCepstralAnalysis"><span class="n"><span class="pre">FastFourierTransformCepstralAnalysis</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk36FastFourierTransformCepstralAnalysis6BufferE" title="sptk::FastFourierTransformCepstralAnalysis::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN36FastFourierTransformCepstralAnalysis6BufferE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk36FastFourierTransformCepstralAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN36FastFourierTransformCepstralAnalysis6BufferE"></span><span id="_CPPv2NK4sptk36FastFourierTransformCepstralAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN36FastFourierTransformCepstralAnalysis6BufferE"></span><span id="sptk::FastFourierTransformCepstralAnalysis::Run__std::vector:double:CR.std::vector:double:P.FastFourierTransformCepstralAnalysis::BufferPC"></span><span class="target" id="classsptk_1_1FastFourierTransformCepstralAnalysis_1ac783d322bebeec1c188c277609e87fd2"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">power_spectrum</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">cepstrum</span></span>, <a class="reference internal" href="#_CPPv4N4sptk36FastFourierTransformCepstralAnalysisE" title="sptk::FastFourierTransformCepstralAnalysis"><span class="n"><span class="pre">FastFourierTransformCepstralAnalysis</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk36FastFourierTransformCepstralAnalysis6BufferE" title="sptk::FastFourierTransformCepstralAnalysis::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk36FastFourierTransformCepstralAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN36FastFourierTransformCepstralAnalysis6BufferE" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -390,7 +407,7 @@
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk36FastFourierTransformCepstralAnalysis6BufferE">
-<span id="_CPPv3N4sptk36FastFourierTransformCepstralAnalysis6BufferE"></span><span id="_CPPv2N4sptk36FastFourierTransformCepstralAnalysis6BufferE"></span><span id="sptk::FastFourierTransformCepstralAnalysis::Buffer"></span><span class="target" id="classsptk_1_1FastFourierTransformCepstralAnalysis_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk36FastFourierTransformCepstralAnalysis6BufferE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk36FastFourierTransformCepstralAnalysis6BufferE"></span><span id="_CPPv2N4sptk36FastFourierTransformCepstralAnalysis6BufferE"></span><span id="sptk::FastFourierTransformCepstralAnalysis::Buffer"></span><span class="target" id="classsptk_1_1FastFourierTransformCepstralAnalysis_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk36FastFourierTransformCepstralAnalysis6BufferE" title="Link to this definition"></a><br /></dt>
 <dd><p><a class="reference internal" href="#classsptk_1_1FastFourierTransformCepstralAnalysis_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1FastFourierTransformCepstralAnalysis"><span class="std std-ref">FastFourierTransformCepstralAnalysis</span></a> class. </p>
 </dd></dl>
 

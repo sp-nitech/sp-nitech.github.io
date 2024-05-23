@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>c2acr &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
   
@@ -15,9 +15,9 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -50,13 +50,27 @@
 <li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alaw.html">alaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ap.html">ap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
 <li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bcp.html">bcp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bcut.html">bcut</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">c2acr</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">c2acr</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk25CepstrumToAutocorrelationE"><code class="docutils literal notranslate"><span class="pre">CepstrumToAutocorrelation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk25CepstrumToAutocorrelation25CepstrumToAutocorrelationEiii"><code class="docutils literal notranslate"><span class="pre">CepstrumToAutocorrelation::CepstrumToAutocorrelation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk25CepstrumToAutocorrelation16GetNumInputOrderEv"><code class="docutils literal notranslate"><span class="pre">CepstrumToAutocorrelation::GetNumInputOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk25CepstrumToAutocorrelation17GetNumOutputOrderEv"><code class="docutils literal notranslate"><span class="pre">CepstrumToAutocorrelation::GetNumOutputOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk25CepstrumToAutocorrelation12GetFftLengthEv"><code class="docutils literal notranslate"><span class="pre">CepstrumToAutocorrelation::GetFftLength()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk25CepstrumToAutocorrelation7IsValidEv"><code class="docutils literal notranslate"><span class="pre">CepstrumToAutocorrelation::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk25CepstrumToAutocorrelation3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN25CepstrumToAutocorrelation6BufferE"><code class="docutils literal notranslate"><span class="pre">CepstrumToAutocorrelation::Run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk25CepstrumToAutocorrelation6BufferE"><code class="docutils literal notranslate"><span class="pre">CepstrumToAutocorrelation::Buffer</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c2ndps.html">c2ndps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cdist.html">cdist</a></li>
@@ -100,6 +114,7 @@
 <li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ialaw.html">ialaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
@@ -145,6 +160,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onehot.html">onehot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -216,7 +232,7 @@
            <div itemprop="articleBody">
              
   <section id="c2acr">
-<span id="id1"></span><h1>c2acr<a class="headerlink" href="#c2acr" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>c2acr<a class="headerlink" href="#c2acr" title="Link to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
@@ -270,7 +286,7 @@
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk25CepstrumToAutocorrelationE">
-<span id="_CPPv3N4sptk25CepstrumToAutocorrelationE"></span><span id="_CPPv2N4sptk25CepstrumToAutocorrelationE"></span><span id="sptk::CepstrumToAutocorrelation"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CepstrumToAutocorrelation</span></span></span><a class="headerlink" href="#_CPPv4N4sptk25CepstrumToAutocorrelationE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk25CepstrumToAutocorrelationE"></span><span id="_CPPv2N4sptk25CepstrumToAutocorrelationE"></span><span id="sptk::CepstrumToAutocorrelation"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CepstrumToAutocorrelation</span></span></span><a class="headerlink" href="#_CPPv4N4sptk25CepstrumToAutocorrelationE" title="Link to this definition"></a><br /></dt>
 <dd><p>Convert cepstral coefficients to autocorrelation coefficients.</p>
 <p>The input is the <span class="math notranslate nohighlight">\(M_1\)</span>-th order cepstral coefficients: <div class="math notranslate nohighlight">
 \[ \begin{array}{cccc} c(0), &amp; c(1), &amp; \ldots, &amp; c(M_1), \end{array} \]</div>
@@ -287,7 +303,7 @@
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk25CepstrumToAutocorrelation25CepstrumToAutocorrelationEiii">
-<span id="_CPPv3N4sptk25CepstrumToAutocorrelation25CepstrumToAutocorrelationEiii"></span><span id="_CPPv2N4sptk25CepstrumToAutocorrelation25CepstrumToAutocorrelationEiii"></span><span id="sptk::CepstrumToAutocorrelation::CepstrumToAutocorrelation__i.i.i"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation_1a92ceab2b0dc6496cdc0e608e0ead6a7d"></span><span class="sig-name descname"><span class="n"><span class="pre">CepstrumToAutocorrelation</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_input_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_output_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk25CepstrumToAutocorrelation25CepstrumToAutocorrelationEiii" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk25CepstrumToAutocorrelation25CepstrumToAutocorrelationEiii"></span><span id="_CPPv2N4sptk25CepstrumToAutocorrelation25CepstrumToAutocorrelationEiii"></span><span id="sptk::CepstrumToAutocorrelation::CepstrumToAutocorrelation__i.i.i"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation_1a92ceab2b0dc6496cdc0e608e0ead6a7d"></span><span class="sig-name descname"><span class="n"><span class="pre">CepstrumToAutocorrelation</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_input_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_output_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk25CepstrumToAutocorrelation25CepstrumToAutocorrelationEiii" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -301,7 +317,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk25CepstrumToAutocorrelation16GetNumInputOrderEv">
-<span id="_CPPv3NK4sptk25CepstrumToAutocorrelation16GetNumInputOrderEv"></span><span id="_CPPv2NK4sptk25CepstrumToAutocorrelation16GetNumInputOrderEv"></span><span id="sptk::CepstrumToAutocorrelation::GetNumInputOrderC"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation_1a5e6c54b4186a513eb4e459dddb8e6e2f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumInputOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25CepstrumToAutocorrelation16GetNumInputOrderEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk25CepstrumToAutocorrelation16GetNumInputOrderEv"></span><span id="_CPPv2NK4sptk25CepstrumToAutocorrelation16GetNumInputOrderEv"></span><span id="sptk::CepstrumToAutocorrelation::GetNumInputOrderC"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation_1a5e6c54b4186a513eb4e459dddb8e6e2f"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumInputOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25CepstrumToAutocorrelation16GetNumInputOrderEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of cepstral coefficients. </p>
@@ -311,7 +327,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk25CepstrumToAutocorrelation17GetNumOutputOrderEv">
-<span id="_CPPv3NK4sptk25CepstrumToAutocorrelation17GetNumOutputOrderEv"></span><span id="_CPPv2NK4sptk25CepstrumToAutocorrelation17GetNumOutputOrderEv"></span><span id="sptk::CepstrumToAutocorrelation::GetNumOutputOrderC"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation_1a6dff322ee8ccfa805ca4302766b87573"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOutputOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25CepstrumToAutocorrelation17GetNumOutputOrderEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk25CepstrumToAutocorrelation17GetNumOutputOrderEv"></span><span id="_CPPv2NK4sptk25CepstrumToAutocorrelation17GetNumOutputOrderEv"></span><span id="sptk::CepstrumToAutocorrelation::GetNumOutputOrderC"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation_1a6dff322ee8ccfa805ca4302766b87573"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOutputOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25CepstrumToAutocorrelation17GetNumOutputOrderEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of autocorrelation coefficients. </p>
@@ -321,7 +337,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk25CepstrumToAutocorrelation12GetFftLengthEv">
-<span id="_CPPv3NK4sptk25CepstrumToAutocorrelation12GetFftLengthEv"></span><span id="_CPPv2NK4sptk25CepstrumToAutocorrelation12GetFftLengthEv"></span><span id="sptk::CepstrumToAutocorrelation::GetFftLengthC"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation_1a0487ae028fb9e2931692c81b38d2c51e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25CepstrumToAutocorrelation12GetFftLengthEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk25CepstrumToAutocorrelation12GetFftLengthEv"></span><span id="_CPPv2NK4sptk25CepstrumToAutocorrelation12GetFftLengthEv"></span><span id="sptk::CepstrumToAutocorrelation::GetFftLengthC"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation_1a0487ae028fb9e2931692c81b38d2c51e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25CepstrumToAutocorrelation12GetFftLengthEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>FFT length. </p>
@@ -331,7 +347,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk25CepstrumToAutocorrelation7IsValidEv">
-<span id="_CPPv3NK4sptk25CepstrumToAutocorrelation7IsValidEv"></span><span id="_CPPv2NK4sptk25CepstrumToAutocorrelation7IsValidEv"></span><span id="sptk::CepstrumToAutocorrelation::IsValidC"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation_1ae7fddeff8aaae836999442f8c6a0e9cb"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25CepstrumToAutocorrelation7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk25CepstrumToAutocorrelation7IsValidEv"></span><span id="_CPPv2NK4sptk25CepstrumToAutocorrelation7IsValidEv"></span><span id="sptk::CepstrumToAutocorrelation::IsValidC"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation_1ae7fddeff8aaae836999442f8c6a0e9cb"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25CepstrumToAutocorrelation7IsValidEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -341,7 +357,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk25CepstrumToAutocorrelation3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN25CepstrumToAutocorrelation6BufferE">
-<span id="_CPPv3NK4sptk25CepstrumToAutocorrelation3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN25CepstrumToAutocorrelation6BufferE"></span><span id="_CPPv2NK4sptk25CepstrumToAutocorrelation3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN25CepstrumToAutocorrelation6BufferE"></span><span id="sptk::CepstrumToAutocorrelation::Run__std::vector:double:CR.std::vector:double:P.CepstrumToAutocorrelation::BufferPC"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation_1af94c949a5c25b145dff6bfa98f642fb1"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">cepstrum</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">autocorrelation</span></span>, <a class="reference internal" href="#_CPPv4N4sptk25CepstrumToAutocorrelationE" title="sptk::CepstrumToAutocorrelation"><span class="n"><span class="pre">CepstrumToAutocorrelation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk25CepstrumToAutocorrelation6BufferE" title="sptk::CepstrumToAutocorrelation::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25CepstrumToAutocorrelation3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN25CepstrumToAutocorrelation6BufferE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk25CepstrumToAutocorrelation3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN25CepstrumToAutocorrelation6BufferE"></span><span id="_CPPv2NK4sptk25CepstrumToAutocorrelation3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN25CepstrumToAutocorrelation6BufferE"></span><span id="sptk::CepstrumToAutocorrelation::Run__std::vector:double:CR.std::vector:double:P.CepstrumToAutocorrelation::BufferPC"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation_1af94c949a5c25b145dff6bfa98f642fb1"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">cepstrum</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">autocorrelation</span></span>, <a class="reference internal" href="#_CPPv4N4sptk25CepstrumToAutocorrelationE" title="sptk::CepstrumToAutocorrelation"><span class="n"><span class="pre">CepstrumToAutocorrelation</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk25CepstrumToAutocorrelation6BufferE" title="sptk::CepstrumToAutocorrelation::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk25CepstrumToAutocorrelation3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN25CepstrumToAutocorrelation6BufferE" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -359,7 +375,7 @@
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk25CepstrumToAutocorrelation6BufferE">
-<span id="_CPPv3N4sptk25CepstrumToAutocorrelation6BufferE"></span><span id="_CPPv2N4sptk25CepstrumToAutocorrelation6BufferE"></span><span id="sptk::CepstrumToAutocorrelation::Buffer"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk25CepstrumToAutocorrelation6BufferE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk25CepstrumToAutocorrelation6BufferE"></span><span id="_CPPv2N4sptk25CepstrumToAutocorrelation6BufferE"></span><span id="sptk::CepstrumToAutocorrelation::Buffer"></span><span class="target" id="classsptk_1_1CepstrumToAutocorrelation_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk25CepstrumToAutocorrelation6BufferE" title="Link to this definition"></a><br /></dt>
 <dd><p><a class="reference internal" href="#classsptk_1_1CepstrumToAutocorrelation_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1CepstrumToAutocorrelation"><span class="std std-ref">CepstrumToAutocorrelation</span></a> class. </p>
 </dd></dl>
 

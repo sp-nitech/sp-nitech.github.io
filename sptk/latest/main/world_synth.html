@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html class="writer-html5" lang="en">
+<html class="writer-html5" lang="en" data-content_root="../">
 <head>
-  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>world_synth &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=92fd9be5" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
   
@@ -15,9 +15,9 @@
   
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=b3ba4146"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
-        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -50,6 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alaw.html">alaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ap.html">ap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
@@ -100,6 +101,7 @@
 <li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
 <li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ialaw.html">ialaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
@@ -145,6 +147,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onehot.html">onehot</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -179,7 +182,19 @@
 <li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">world_synth</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">world_synth</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk14WorldSynthesisE"><code class="docutils literal notranslate"><span class="pre">WorldSynthesis</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk14WorldSynthesis14WorldSynthesisEiid"><code class="docutils literal notranslate"><span class="pre">WorldSynthesis::WorldSynthesis()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk14WorldSynthesis12GetFftLengthEv"><code class="docutils literal notranslate"><span class="pre">WorldSynthesis::GetFftLength()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk14WorldSynthesis13GetFrameShiftEv"><code class="docutils literal notranslate"><span class="pre">WorldSynthesis::GetFrameShift()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk14WorldSynthesis15GetSamplingRateEv"><code class="docutils literal notranslate"><span class="pre">WorldSynthesis::GetSamplingRate()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk14WorldSynthesis7IsValidEv"><code class="docutils literal notranslate"><span class="pre">WorldSynthesis::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk14WorldSynthesis3RunERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorIdEE"><code class="docutils literal notranslate"><span class="pre">WorldSynthesis::Run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
@@ -216,7 +231,7 @@
            <div itemprop="articleBody">
              
   <section id="world-synth">
-<span id="id1"></span><h1>world_synth<a class="headerlink" href="#world-synth" title="Permalink to this heading"></a></h1>
+<span id="id1"></span><h1>world_synth<a class="headerlink" href="#world-synth" title="Link to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
@@ -303,13 +318,13 @@
 </div>
 <dl class="cpp class">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk14WorldSynthesisE">
-<span id="_CPPv3N4sptk14WorldSynthesisE"></span><span id="_CPPv2N4sptk14WorldSynthesisE"></span><span id="sptk::WorldSynthesis"></span><span class="target" id="classsptk_1_1WorldSynthesis"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WorldSynthesis</span></span></span><a class="headerlink" href="#_CPPv4N4sptk14WorldSynthesisE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk14WorldSynthesisE"></span><span id="_CPPv2N4sptk14WorldSynthesisE"></span><span id="sptk::WorldSynthesis"></span><span class="target" id="classsptk_1_1WorldSynthesis"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">WorldSynthesis</span></span></span><a class="headerlink" href="#_CPPv4N4sptk14WorldSynthesisE" title="Link to this definition"></a><br /></dt>
 <dd><p>Synthesize speech waveform using WORLD vocoder. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk14WorldSynthesis14WorldSynthesisEiid">
-<span id="_CPPv3N4sptk14WorldSynthesis14WorldSynthesisEiid"></span><span id="_CPPv2N4sptk14WorldSynthesis14WorldSynthesisEiid"></span><span id="sptk::WorldSynthesis::WorldSynthesis__i.i.double"></span><span class="target" id="classsptk_1_1WorldSynthesis_1a7654ce032330d43fdf77ea4b4472c0b1"></span><span class="sig-name descname"><span class="n"><span class="pre">WorldSynthesis</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">frame_shift</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sampling_rate</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk14WorldSynthesis14WorldSynthesisEiid" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3N4sptk14WorldSynthesis14WorldSynthesisEiid"></span><span id="_CPPv2N4sptk14WorldSynthesis14WorldSynthesisEiid"></span><span id="sptk::WorldSynthesis::WorldSynthesis__i.i.double"></span><span class="target" id="classsptk_1_1WorldSynthesis_1a7654ce032330d43fdf77ea4b4472c0b1"></span><span class="sig-name descname"><span class="n"><span class="pre">WorldSynthesis</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">frame_shift</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sampling_rate</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk14WorldSynthesis14WorldSynthesisEiid" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -323,7 +338,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk14WorldSynthesis12GetFftLengthEv">
-<span id="_CPPv3NK4sptk14WorldSynthesis12GetFftLengthEv"></span><span id="_CPPv2NK4sptk14WorldSynthesis12GetFftLengthEv"></span><span id="sptk::WorldSynthesis::GetFftLengthC"></span><span class="target" id="classsptk_1_1WorldSynthesis_1aa9cd853d01c527c3fd11cfb3f5653042"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk14WorldSynthesis12GetFftLengthEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk14WorldSynthesis12GetFftLengthEv"></span><span id="_CPPv2NK4sptk14WorldSynthesis12GetFftLengthEv"></span><span id="sptk::WorldSynthesis::GetFftLengthC"></span><span class="target" id="classsptk_1_1WorldSynthesis_1aa9cd853d01c527c3fd11cfb3f5653042"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk14WorldSynthesis12GetFftLengthEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>FFT length. </p>
@@ -333,7 +348,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk14WorldSynthesis13GetFrameShiftEv">
-<span id="_CPPv3NK4sptk14WorldSynthesis13GetFrameShiftEv"></span><span id="_CPPv2NK4sptk14WorldSynthesis13GetFrameShiftEv"></span><span id="sptk::WorldSynthesis::GetFrameShiftC"></span><span class="target" id="classsptk_1_1WorldSynthesis_1a8abd3f133148757ab6da8f0628423a45"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFrameShift</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk14WorldSynthesis13GetFrameShiftEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk14WorldSynthesis13GetFrameShiftEv"></span><span id="_CPPv2NK4sptk14WorldSynthesis13GetFrameShiftEv"></span><span id="sptk::WorldSynthesis::GetFrameShiftC"></span><span class="target" id="classsptk_1_1WorldSynthesis_1a8abd3f133148757ab6da8f0628423a45"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFrameShift</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk14WorldSynthesis13GetFrameShiftEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Frame shift. </p>
@@ -343,7 +358,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk14WorldSynthesis15GetSamplingRateEv">
-<span id="_CPPv3NK4sptk14WorldSynthesis15GetSamplingRateEv"></span><span id="_CPPv2NK4sptk14WorldSynthesis15GetSamplingRateEv"></span><span id="sptk::WorldSynthesis::GetSamplingRateC"></span><span class="target" id="classsptk_1_1WorldSynthesis_1a01de4d78346d9d0f355f1227e172c524"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetSamplingRate</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk14WorldSynthesis15GetSamplingRateEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk14WorldSynthesis15GetSamplingRateEv"></span><span id="_CPPv2NK4sptk14WorldSynthesis15GetSamplingRateEv"></span><span id="sptk::WorldSynthesis::GetSamplingRateC"></span><span class="target" id="classsptk_1_1WorldSynthesis_1a01de4d78346d9d0f355f1227e172c524"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetSamplingRate</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk14WorldSynthesis15GetSamplingRateEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Sampling rate. </p>
@@ -353,7 +368,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk14WorldSynthesis7IsValidEv">
-<span id="_CPPv3NK4sptk14WorldSynthesis7IsValidEv"></span><span id="_CPPv2NK4sptk14WorldSynthesis7IsValidEv"></span><span id="sptk::WorldSynthesis::IsValidC"></span><span class="target" id="classsptk_1_1WorldSynthesis_1af5e8e11d9213111a7ae382bd17f68137"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk14WorldSynthesis7IsValidEv" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk14WorldSynthesis7IsValidEv"></span><span id="_CPPv2NK4sptk14WorldSynthesis7IsValidEv"></span><span id="sptk::WorldSynthesis::IsValidC"></span><span class="target" id="classsptk_1_1WorldSynthesis_1af5e8e11d9213111a7ae382bd17f68137"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk14WorldSynthesis7IsValidEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -363,7 +378,7 @@
 
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv4NK4sptk14WorldSynthesis3RunERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorIdEE">
-<span id="_CPPv3NK4sptk14WorldSynthesis3RunERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk14WorldSynthesis3RunERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorIdEE"></span><span id="sptk::WorldSynthesis::Run__std::vector:double:CR.std::vector:std::vector:double::CR.std::vector:std::vector:double::CR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1WorldSynthesis_1af3e04418ab0488006866caaa7c94407b"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">f0</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">spectrum</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">aperiodicity</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">waveform</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk14WorldSynthesis3RunERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorIdEE" title="Permalink to this definition"></a><br /></dt>
+<span id="_CPPv3NK4sptk14WorldSynthesis3RunERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk14WorldSynthesis3RunERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorIdEE"></span><span id="sptk::WorldSynthesis::Run__std::vector:double:CR.std::vector:std::vector:double::CR.std::vector:std::vector:double::CR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1WorldSynthesis_1af3e04418ab0488006866caaa7c94407b"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">f0</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">spectrum</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">aperiodicity</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">waveform</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk14WorldSynthesis3RunERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorIdEE" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
