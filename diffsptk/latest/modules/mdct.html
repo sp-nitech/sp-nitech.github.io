@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>c2mpir &#8212; diffsptk 2.1.1 documentation</title>
+    <title>mdct &#8212; diffsptk 2.1.1 documentation</title>
   
   
   
@@ -39,11 +39,11 @@
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/c2mpir';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/mdct';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="c2ndps" href="c2ndps.html" />
-    <link rel="prev" title="c2acr" href="c2acr.html" />
+    <link rel="next" title="mfcc" href="mfcc.html" />
+    <link rel="prev" title="mcpf" href="mcpf.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -281,7 +281,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="ap.html">ap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c2acr.html">c2acr</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">c2mpir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c2ndps.html">c2ndps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cdist.html">cdist</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cqt.html">cqt</a></li>
@@ -332,7 +332,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="magic_intpl.html">magic_intpl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mcpf.html">mcpf</a></li>
-<li class="toctree-l1"><a class="reference internal" href="mdct.html">mdct</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">mdct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mgc2mgc.html">mgc2mgc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mgc2sp.html">mgc2sp</a></li>
@@ -408,7 +408,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">diffsptk.modules</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">c2mpir</li>
+    <li class="breadcrumb-item active" aria-current="page">mdct</li>
   </ul>
 </nav>
 </div>
@@ -425,49 +425,56 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="c2mpir">
-<span id="id1"></span><h1>c2mpir<a class="headerlink" href="#c2mpir" title="Link to this heading">#</a></h1>
+  <section id="mdct">
+<span id="id1"></span><h1>mdct<a class="headerlink" href="#mdct" title="Link to this heading">#</a></h1>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diffsptk.MDCT">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MDCT</span></span><a class="headerlink" href="#diffsptk.MDCT" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="#diffsptk.ModifiedDiscreteCosineTransform" title="diffsptk.modules.mdct.ModifiedDiscreteCosineTransform"><code class="xref py py-class docutils literal notranslate"><span class="pre">ModifiedDiscreteCosineTransform</span></code></a></p>
+</dd></dl>
+
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.CepstrumToMinimumPhaseImpulseResponse">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">CepstrumToMinimumPhaseImpulseResponse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cep_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ir_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_fft</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/c2mpir.html#CepstrumToMinimumPhaseImpulseResponse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.CepstrumToMinimumPhaseImpulseResponse" title="Link to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/c2mpir.html">this page</a>
-for details.</p>
+<dt class="sig sig-object py" id="diffsptk.ModifiedDiscreteCosineTransform">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">ModifiedDiscreteCosineTransform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sine'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/mdct.html#ModifiedDiscreteCosineTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.ModifiedDiscreteCosineTransform" title="Link to this definition">#</a></dt>
+<dd><p>This module is a simple cascade of framing, windowing, and modified DCT.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>cep_order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>Order of cepstrum, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<dt><strong>frame_length</strong><span class="classifier">int &gt;= 2</span></dt><dd><p>Frame length, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
-<dt><strong>ir_length</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Length of impulse response, <span class="math notranslate nohighlight">\(N\)</span>.</p>
-</dd>
-<dt><strong>n_fft</strong><span class="classifier">int &gt;&gt; N</span></dt><dd><p>Number of FFT bins. Accurate conversion requires the large value.</p>
+<dt><strong>window</strong><span class="classifier">[‘sine’, ‘vorbis’, ‘rectangular’]</span></dt><dd><p>Window type.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.CepstrumToMinimumPhaseImpulseResponse.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/c2mpir.html#CepstrumToMinimumPhaseImpulseResponse.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.CepstrumToMinimumPhaseImpulseResponse.forward" title="Link to this definition">#</a></dt>
-<dd><p>Convert cepstrum to minimum phase impulse response.</p>
+<dt class="sig sig-object py" id="diffsptk.ModifiedDiscreteCosineTransform.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/mdct.html#ModifiedDiscreteCosineTransform.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.ModifiedDiscreteCosineTransform.forward" title="Link to this definition">#</a></dt>
+<dd><p>Compute modified discrete cosine transform.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>c</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Cepstral coefficients.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Waveform.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, N)]</span></dt><dd><p>Truncated minimum phase impulse response.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, 2T/L, L/2)]</span></dt><dd><p>Spectrum.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c2mpir</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">CepstrumToMinimumPhaseImpulseResponse</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">c2mpir</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span>
-<span class="go">tensor([1.0000, 1.0000, 2.5000, 5.1667, 6.0417])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">tensor([0., 1., 2., 3.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">mdct</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MDCT</span><span class="p">(</span><span class="n">frame_length</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">mdct</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">tensor([[-0.3536, -0.1464],</span>
+<span class="go">        [-3.1213, -0.2929],</span>
+<span class="go">        [-0.7678,  1.8536]])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -475,23 +482,23 @@ for details.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="diffsptk.functional.c2mpir">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">c2mpir</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ir_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_fft</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/functional.html#c2mpir"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.c2mpir" title="Link to this definition">#</a></dt>
-<dd><p>Convert cepstrum to minimum phase impulse response.</p>
+<dt class="sig sig-object py" id="diffsptk.functional.mdct">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">mdct</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">400</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sine'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/functional.html#mdct"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.mdct" title="Link to this definition">#</a></dt>
+<dd><p>Compute modified discrete cosine transform.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>c</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Cepstral coefficients.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Waveform.</p>
 </dd>
-<dt><strong>ir_length</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Length of impulse response, <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<dt><strong>frame_length</strong><span class="classifier">int &gt;= 2</span></dt><dd><p>Frame length, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
-<dt><strong>n_fft</strong><span class="classifier">int &gt;&gt; N</span></dt><dd><p>Number of FFT bins. Accurate conversion requires the large value.</p>
+<dt><strong>window</strong><span class="classifier">[‘sine’, ‘vorbis’, ‘rectangular’]</span></dt><dd><p>Window type.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, N)]</span></dt><dd><p>Truncated minimum phase impulse response.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, 2T/L, L/2)]</span></dt><dd><p>Spectrum.</p>
 </dd>
 </dl>
 </dd>
@@ -500,7 +507,7 @@ for details.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="mpir2c.html#mpir2c"><span class="std std-ref">mpir2c</span></a>  <a class="reference internal" href="mgc2mgc.html#mgc2mgc"><span class="std std-ref">mgc2mgc</span></a></p>
+<p><a class="reference internal" href="frame.html#frame"><span class="std std-ref">frame</span></a>  <a class="reference internal" href="window.html#window"><span class="std std-ref">window</span></a>  <a class="reference internal" href="imdct.html#imdct"><span class="std std-ref">imdct</span></a></p>
 </div>
 </section>
 
@@ -515,20 +522,20 @@ for details.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="c2acr.html"
+       href="mcpf.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">c2acr</p>
+        <p class="prev-next-title">mcpf</p>
       </div>
     </a>
     <a class="right-next"
-       href="c2ndps.html"
+       href="mfcc.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">c2ndps</p>
+        <p class="prev-next-title">mfcc</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -550,18 +557,19 @@ for details.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.CepstrumToMinimumPhaseImpulseResponse"><code class="docutils literal notranslate"><span class="pre">CepstrumToMinimumPhaseImpulseResponse</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.CepstrumToMinimumPhaseImpulseResponse.forward"><code class="docutils literal notranslate"><span class="pre">CepstrumToMinimumPhaseImpulseResponse.forward()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.MDCT"><code class="docutils literal notranslate"><span class="pre">MDCT</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.ModifiedDiscreteCosineTransform"><code class="docutils literal notranslate"><span class="pre">ModifiedDiscreteCosineTransform</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.ModifiedDiscreteCosineTransform.forward"><code class="docutils literal notranslate"><span class="pre">ModifiedDiscreteCosineTransform.forward()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.c2mpir"><code class="docutils literal notranslate"><span class="pre">c2mpir()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.mdct"><code class="docutils literal notranslate"><span class="pre">mdct()</span></code></a></li>
 </ul>
   </nav></div>
 
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../_sources/modules/c2mpir.rst.txt">
+    <a href="../_sources/modules/mdct.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

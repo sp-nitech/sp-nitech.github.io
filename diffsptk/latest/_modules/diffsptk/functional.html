@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.functional &#8212; diffsptk 2.1.0 documentation</title>
+    <title>diffsptk.functional &#8212; diffsptk 2.1.1 documentation</title>
   
   
   
@@ -34,7 +34,7 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../_static/documentation_options.js?v=20623aea"></script>
+    <script src="../../_static/documentation_options.js?v=841abef3"></script>
     <script src="../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/functional';</script>
@@ -115,7 +115,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.1.0 documentation</p>
+    <p class="title logo__title">diffsptk 2.1.1 documentation</p>
   
 </a></div>
     
@@ -1231,6 +1231,32 @@ document.write(`
 
 
 
+<div class="viewcode-block" id="imdct">
+<a class="viewcode-back" href="../../modules/imdct.html#diffsptk.functional.imdct">[docs]</a>
+<span class="k">def</span> <span class="nf">imdct</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">out_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">frame_length</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s2">&quot;sine&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute inverse modified discrete cosine transform.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : Tensor [shape=(..., 2T/L, L/2)]</span>
+<span class="sd">        Spectrum.</span>
+
+<span class="sd">    out_length : int or None</span>
+<span class="sd">        Length of output waveform.</span>
+
+<span class="sd">    frame_length : int &gt;= 2</span>
+<span class="sd">        Frame length, :math:`L`.</span>
+
+<span class="sd">    window : [&#39;sine&#39;, &#39;vorbis&#39;, &#39;rectangular&#39;]</span>
+<span class="sd">        Window type.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">InverseModifiedDiscreteCosineTransform</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span>
+        <span class="n">y</span><span class="p">,</span> <span class="n">out_length</span><span class="o">=</span><span class="n">out_length</span><span class="p">,</span> <span class="n">frame_length</span><span class="o">=</span><span class="n">frame_length</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span>
+    <span class="p">)</span></div>
+
+
+
 <div class="viewcode-block" id="interpolate">
 <a class="viewcode-back" href="../../modules/interpolate.html#diffsptk.functional.interpolate">[docs]</a>
 <span class="k">def</span> <span class="nf">interpolate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">start</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
@@ -1662,6 +1688,34 @@ document.write(`
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">MelCepstrumToMLSADigitalFilterCoefficients</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">mc</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">alpha</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="mdct">
+<a class="viewcode-back" href="../../modules/mdct.html#diffsptk.functional.mdct">[docs]</a>
+<span class="k">def</span> <span class="nf">mdct</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">frame_length</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s2">&quot;sine&quot;</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute modified discrete cosine transform.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : Tensor [shape=(..., T)]</span>
+<span class="sd">        Waveform.</span>
+
+<span class="sd">    frame_length : int &gt;= 2</span>
+<span class="sd">        Frame length, :math:`L`.</span>
+
+<span class="sd">    window : [&#39;sine&#39;, &#39;vorbis&#39;, &#39;rectangular&#39;]</span>
+<span class="sd">        Window type.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out : Tensor [shape=(..., 2T/L, L/2)]</span>
+<span class="sd">        Spectrum.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModifiedDiscreteCosineTransform</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">frame_length</span><span class="o">=</span><span class="n">frame_length</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span>
+    <span class="p">)</span></div>
 
 
 
