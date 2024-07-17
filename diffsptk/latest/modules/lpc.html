@@ -437,15 +437,17 @@ document.write(`
 
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.LinearPredictiveCodingAnalysis">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">LinearPredictiveCodingAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lpc_order</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/lpc.html#LinearPredictiveCodingAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LinearPredictiveCodingAnalysis" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">LinearPredictiveCodingAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lpc_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/lpc.html#LinearPredictiveCodingAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LinearPredictiveCodingAnalysis" title="Link to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/lpc.html">this page</a>
-for details. This module is a simple cascade of acorr and levdur.</p>
+for details. Double precision is recommended.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>frame_length</strong><span class="classifier">int &gt; M</span></dt><dd><p>Frame length, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
 <dt><strong>lpc_order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>Order of LPC, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+</dd>
+<dt><strong>eps</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>A small value to improve numerical stability.</p>
 </dd>
 </dl>
 </dd>
@@ -471,7 +473,7 @@ for details. This module is a simple cascade of acorr and levdur.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">nrand</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 <span class="go">tensor([ 0.8226, -0.0284, -0.5715,  0.2127,  0.1217])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">lpc</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">LPC</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lpc</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">LPC</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">lpc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
 <span class="go">tensor([0.8726, 0.1475, 0.5270])</span>
@@ -483,7 +485,7 @@ for details. This module is a simple cascade of acorr and levdur.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="diffsptk.functional.lpc">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">lpc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lpc_order</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/functional.html#lpc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.lpc" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">lpc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lpc_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/functional.html#lpc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.lpc" title="Link to this definition">#</a></dt>
 <dd><p>Compute LPC coefficients.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -491,6 +493,8 @@ for details. This module is a simple cascade of acorr and levdur.</p>
 <dt><strong>x</strong><span class="classifier">Tensor [shape=(…, L)]</span></dt><dd><p>Framed waveform.</p>
 </dd>
 <dt><strong>lpc_order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>Order of LPC, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+</dd>
+<dt><strong>eps</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>A small value to improve numerical stability.</p>
 </dd>
 </dl>
 </dd>
@@ -607,7 +611,7 @@ for details. This module is a simple cascade of acorr and levdur.</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.4.
     <br/>
   </p>
 </div>

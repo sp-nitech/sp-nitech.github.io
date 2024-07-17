@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.modules.lpc &#8212; diffsptk 2.0.1 documentation</title>
+    <title>diffsptk.modules.lpc &#8212; diffsptk 2.1.1 documentation</title>
   
   
   
@@ -34,7 +34,7 @@
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
   <script src="../../../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
 
-    <script src="../../../_static/documentation_options.js?v=f5cff4aa"></script>
+    <script src="../../../_static/documentation_options.js?v=841abef3"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/lpc';</script>
@@ -115,7 +115,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.0.1 documentation</p>
+    <p class="title logo__title">diffsptk 2.1.1 documentation</p>
   
 </a></div>
     
@@ -342,7 +342,7 @@ document.write(`
 <a class="viewcode-back" href="../../../modules/lpc.html#diffsptk.LinearPredictiveCodingAnalysis">[docs]</a>
 <span class="k">class</span> <span class="nc">LinearPredictiveCodingAnalysis</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/lpc.html&gt;`_</span>
-<span class="sd">    for details. This module is a simple cascade of acorr and levdur.</span>
+<span class="sd">    for details. Double precision is recommended.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
@@ -352,14 +352,17 @@ document.write(`
 <span class="sd">    lpc_order : int &gt;= 0</span>
 <span class="sd">        Order of LPC, :math:`M`.</span>
 
+<span class="sd">    eps : float &gt;= 0</span>
+<span class="sd">        A small value to improve numerical stability.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frame_length</span><span class="p">,</span> <span class="n">lpc_order</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frame_length</span><span class="p">,</span> <span class="n">lpc_order</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">lpc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
             <span class="n">Autocorrelation</span><span class="p">(</span><span class="n">frame_length</span><span class="p">,</span> <span class="n">lpc_order</span><span class="p">),</span>
-            <span class="n">LevinsonDurbin</span><span class="p">(</span><span class="n">lpc_order</span><span class="p">),</span>
+            <span class="n">LevinsonDurbin</span><span class="p">(</span><span class="n">lpc_order</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">),</span>
         <span class="p">)</span>
 
 <div class="viewcode-block" id="LinearPredictiveCodingAnalysis.forward">
@@ -381,7 +384,7 @@ document.write(`
 <span class="sd">        --------</span>
 <span class="sd">        &gt;&gt;&gt; x = diffsptk.nrand(4)</span>
 <span class="sd">        tensor([ 0.8226, -0.0284, -0.5715,  0.2127,  0.1217])</span>
-<span class="sd">        &gt;&gt;&gt; lpc = diffsptk.LPC(2, 5)</span>
+<span class="sd">        &gt;&gt;&gt; lpc = diffsptk.LPC(5, 2)</span>
 <span class="sd">        &gt;&gt;&gt; a = lpc(x)</span>
 <span class="sd">        &gt;&gt;&gt; a</span>
 <span class="sd">        tensor([0.8726, 0.1475, 0.5270])</span>
@@ -391,9 +394,9 @@ document.write(`
 
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lpc_order</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lpc_order</span><span class="p">,</span> <span class="n">eps</span><span class="p">):</span>
         <span class="n">r</span> <span class="o">=</span> <span class="n">Autocorrelation</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">lpc_order</span><span class="p">)</span>
-        <span class="n">a</span> <span class="o">=</span> <span class="n">LevinsonDurbin</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="n">LevinsonDurbin</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">r</span><span class="p">,</span> <span class="n">eps</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">a</span></div>
 
 </pre></div>
@@ -446,7 +449,7 @@ document.write(`
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.4.
     <br/>
   </p>
 </div>

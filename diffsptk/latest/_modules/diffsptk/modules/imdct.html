@@ -361,11 +361,11 @@ document.write(`
 
         <span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span> <span class="o">=</span> <span class="n">frame_length</span> <span class="o">//</span> <span class="mi">2</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">imdct</span> <span class="o">=</span> <span class="n">InverseModifiedDiscreteCosineTransformCore</span><span class="p">(</span><span class="n">frame_length</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">imdct</span> <span class="o">=</span> <span class="n">InverseModifiedDiscreteCosineTransformCore</span><span class="p">(</span>
+            <span class="n">frame_length</span><span class="p">,</span> <span class="n">window</span> <span class="o">!=</span> <span class="s2">&quot;rectangular&quot;</span>
+        <span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">Window</span><span class="p">(</span><span class="n">frame_length</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">unframe</span> <span class="o">=</span> <span class="n">Unframe</span><span class="p">(</span><span class="n">frame_length</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span><span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">z</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="n">frame_length</span><span class="p">,</span> <span class="n">window</span><span class="p">)</span>
 
 <div class="viewcode-block" id="InverseModifiedDiscreteCosineTransform.forward">
 <a class="viewcode-back" href="../../../modules/imdct.html#diffsptk.InverseModifiedDiscreteCosineTransform.forward">[docs]</a>
@@ -399,7 +399,7 @@ document.write(`
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">imdct</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">z</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
         <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">unframe</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">out_length</span><span class="o">=</span><span class="n">out_length</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">out_length</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span><span class="p">]</span>
@@ -409,9 +409,8 @@ document.write(`
     <span class="nd">@staticmethod</span>
     <span class="k">def</span> <span class="nf">_func</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">out_length</span><span class="p">,</span> <span class="n">frame_length</span><span class="p">,</span> <span class="n">window</span><span class="p">):</span>
         <span class="n">frame_period</span> <span class="o">=</span> <span class="n">frame_length</span> <span class="o">//</span> <span class="mi">2</span>
-        <span class="n">z</span> <span class="o">=</span> <span class="n">InverseModifiedDiscreteCosineTransform</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="n">frame_length</span><span class="p">,</span> <span class="n">window</span><span class="p">)</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">InverseModifiedDiscreteCosineTransformCore</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-        <span class="n">x</span> <span class="o">=</span> <span class="n">Window</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span> <span class="o">*</span> <span class="n">z</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">InverseModifiedDiscreteCosineTransformCore</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">window</span> <span class="o">!=</span> <span class="s2">&quot;rectangular&quot;</span><span class="p">)</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">Window</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">Unframe</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span>
             <span class="n">x</span><span class="p">,</span>
             <span class="n">out_length</span><span class="p">,</span>
@@ -423,14 +422,7 @@ document.write(`
         <span class="p">)</span>
         <span class="k">if</span> <span class="n">out_length</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="n">frame_period</span><span class="p">]</span>
-        <span class="k">return</span> <span class="n">x</span>
-
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_precompute</span><span class="p">(</span><span class="n">frame_length</span><span class="p">,</span> <span class="n">window</span><span class="p">):</span>
-        <span class="n">z</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">/</span> <span class="n">frame_length</span>
-        <span class="k">if</span> <span class="n">window</span> <span class="o">==</span> <span class="s2">&quot;rectangular&quot;</span><span class="p">:</span>
-            <span class="n">z</span> <span class="o">*=</span> <span class="mf">0.5</span>
-        <span class="k">return</span> <span class="n">z</span></div>
+        <span class="k">return</span> <span class="n">x</span></div>
 
 
 
@@ -442,16 +434,19 @@ document.write(`
 <span class="sd">    dct_length : int &gt;= 2</span>
 <span class="sd">        DCT length, :math:`L`.</span>
 
+<span class="sd">    windowed : bool</span>
+<span class="sd">        If True, assume that input is windowed.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dct_length</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dct_length</span><span class="p">,</span> <span class="n">windowed</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="k">assert</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">dct_length</span>
         <span class="k">assert</span> <span class="n">dct_length</span> <span class="o">%</span> <span class="mi">2</span> <span class="o">==</span> <span class="mi">0</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">dct_length</span> <span class="o">=</span> <span class="n">dct_length</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dct_length</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dct_length</span><span class="p">,</span> <span class="n">windowed</span><span class="p">))</span>
 
     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Apply inverse MDCT to input.</span>
@@ -475,15 +470,15 @@ document.write(`
         <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_func</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_func</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">windowed</span><span class="p">):</span>
         <span class="n">W</span> <span class="o">=</span> <span class="n">InverseModifiedDiscreteCosineTransformCore</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span>
-            <span class="mi">2</span> <span class="o">*</span> <span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">y</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">y</span><span class="o">.</span><span class="n">device</span>
+            <span class="mi">2</span> <span class="o">*</span> <span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">windowed</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">y</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">y</span><span class="o">.</span><span class="n">device</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">InverseModifiedDiscreteCosineTransformCore</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_precompute</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">MDCT</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+    <span class="k">def</span> <span class="nf">_precompute</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">windowed</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">MDCT</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="n">length</span><span class="p">,</span> <span class="n">windowed</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 
                 </article>
@@ -534,7 +529,7 @@ document.write(`
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.3.7.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.4.
     <br/>
   </p>
 </div>
