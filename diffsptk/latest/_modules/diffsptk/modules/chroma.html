@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.modules.gnorm &#8212; diffsptk 2.2.0 documentation</title>
+    <title>diffsptk.modules.chroma &#8212; diffsptk 2.2.0 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
     <script src="../../../_static/documentation_options.js?v=b21de401"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/gnorm';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/chroma';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -315,7 +315,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <h1>Source code for diffsptk.modules.gnorm</h1><div class="highlight"><pre>
+  <h1>Source code for diffsptk.modules.chroma</h1><div class="highlight"><pre>
 <span></span><span class="c1"># ------------------------------------------------------------------------ #</span>
 <span class="c1"># Copyright 2022 SPTK Working Group                                        #</span>
 <span class="c1">#                                                                          #</span>
@@ -332,90 +332,127 @@ document.write(`
 <span class="c1"># limitations under the License.                                           #</span>
 <span class="c1"># ------------------------------------------------------------------------ #</span>
 
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
+<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
 
 <span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">check_size</span>
-<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">get_gamma</span>
+<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">to</span>
 
 
-<div class="viewcode-block" id="GeneralizedCepstrumGainNormalization">
-<a class="viewcode-back" href="../../../modules/gnorm.html#diffsptk.GeneralizedCepstrumGainNormalization">[docs]</a>
-<span class="k">class</span> <span class="nc">GeneralizedCepstrumGainNormalization</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/gnorm.html&gt;`_</span>
-<span class="sd">    for details.</span>
+<div class="viewcode-block" id="ChromaFilterBankAnalysis">
+<a class="viewcode-back" href="../../../modules/chroma.html#diffsptk.ChromaFilterBankAnalysis">[docs]</a>
+<span class="k">class</span> <span class="nc">ChromaFilterBankAnalysis</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Chroma-filter bank analysis.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    cep_order : int &gt;= 0</span>
-<span class="sd">        Order of cepstrum, :math:`M`.</span>
+<span class="sd">    n_channel : int &gt;= 1</span>
+<span class="sd">        Number of chroma-filter banks, :math:`C`.</span>
 
-<span class="sd">    gamma : float in [-1, 1]</span>
-<span class="sd">        Gamma, :math:`\\gamma`.</span>
+<span class="sd">    fft_length : int &gt;= 2</span>
+<span class="sd">        Number of FFT bins, :math:`L`.</span>
 
-<span class="sd">    c : int &gt;= 1 or None</span>
-<span class="sd">        Number of stages.</span>
+<span class="sd">    sample_rate : int &gt;= 1</span>
+<span class="sd">        Sample rate in Hz.</span>
+
+<span class="sd">    norm : float</span>
+<span class="sd">        Normalization factor.</span>
+
+<span class="sd">    use_power : bool</span>
+<span class="sd">        If True, use power spectrum instead of amplitude spectrum.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cep_order</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">n_channel</span><span class="p">,</span>
+        <span class="n">fft_length</span><span class="p">,</span>
+        <span class="n">sample_rate</span><span class="p">,</span>
+        <span class="n">norm</span><span class="o">=</span><span class="nb">float</span><span class="p">(</span><span class="s2">&quot;inf&quot;</span><span class="p">),</span>
+        <span class="n">use_power</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">cep_order</span>
-        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">gamma</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">1</span>
+        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">n_channel</span>
+        <span class="k">assert</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">fft_length</span>
+        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">sample_rate</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span> <span class="o">=</span> <span class="n">cep_order</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span> <span class="o">=</span> <span class="n">fft_length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">norm</span> <span class="o">=</span> <span class="n">norm</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">use_power</span> <span class="o">=</span> <span class="n">use_power</span>
 
-<div class="viewcode-block" id="GeneralizedCepstrumGainNormalization.forward">
-<a class="viewcode-back" href="../../../modules/gnorm.html#diffsptk.GeneralizedCepstrumGainNormalization.forward">[docs]</a>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="n">n_channel</span><span class="p">,</span> <span class="n">fft_length</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">))</span>
+
+<div class="viewcode-block" id="ChromaFilterBankAnalysis.forward">
+<a class="viewcode-back" href="../../../modules/chroma.html#diffsptk.ChromaFilterBankAnalysis.forward">[docs]</a>
     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Perform cepstrum gain normalization.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Apply chroma-filter banks to STFT.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        x : Tensor [shape=(..., M+1)]</span>
-<span class="sd">            Generalized cepstrum.</span>
+<span class="sd">        x : Tensor [shape=(..., L/2+1)]</span>
+<span class="sd">            Power spectrum.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        out : Tensor [shape=(..., M+1)]</span>
-<span class="sd">            Normalized generalized cepstrum.</span>
+<span class="sd">        out : Tensor [shape=(..., C)]</span>
+<span class="sd">            Chroma-filter bank output.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        &gt;&gt;&gt; x = diffsptk.ramp(1, 4)</span>
-<span class="sd">        &gt;&gt;&gt; gnorm = diffsptk.GeneralizedCepstrumGainNormalization(3, c=2)</span>
-<span class="sd">        &gt;&gt;&gt; y = gnorm(x)</span>
+<span class="sd">        &gt;&gt;&gt; sr = 16000</span>
+<span class="sd">        &gt;&gt;&gt; x = diffsptk.sin(500, period=sr/440)</span>
+<span class="sd">        &gt;&gt;&gt; stft = diffsptk.STFT(frame_length=512, frame_period=512, fft_length=512)</span>
+<span class="sd">        &gt;&gt;&gt; chroma = diffsptk.ChromaFilterBankAnalysis(12, 512, sr)</span>
+<span class="sd">        &gt;&gt;&gt; y = chroma(stft(x))</span>
 <span class="sd">        &gt;&gt;&gt; y</span>
-<span class="sd">        tensor([2.2500, 1.3333, 2.0000, 2.6667])</span>
+<span class="sd">        tensor([[0.1146, 0.0574, 0.0457, 0.0468, 0.0519, 0.0789, 0.1736, 0.4285, 0.7416,</span>
+<span class="sd">                 1.0000, 0.7806, 0.3505]])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">check_size</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">cep_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;dimension of cepstrum&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span><span class="p">)</span></div>
+        <span class="n">check_size</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;dimension of spectrum&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_power</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">H</span><span class="p">)</span></div>
 
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">gamma</span><span class="p">):</span>
-        <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">gamma</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">K</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x0</span><span class="p">)</span>
-            <span class="n">y</span> <span class="o">=</span> <span class="n">x1</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">z</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">gamma</span> <span class="o">*</span> <span class="n">x0</span>
-            <span class="n">K</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="n">gamma</span><span class="p">)</span>
-            <span class="n">y</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">/</span> <span class="n">z</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">K</span><span class="p">,</span> <span class="n">y</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span><span class="p">,</span> <span class="n">use_power</span><span class="p">,</span> <span class="n">H</span><span class="p">):</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">x</span> <span class="k">if</span> <span class="n">use_power</span> <span class="k">else</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">y</span>
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">gamma</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="n">gamma</span> <span class="o">=</span> <span class="n">GeneralizedCepstrumGainNormalization</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">GeneralizedCepstrumGainNormalization</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">gamma</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_func</span><span class="p">(</span>
+        <span class="n">x</span><span class="p">,</span>
+        <span class="n">n_channel</span><span class="p">,</span>
+        <span class="n">sample_rate</span><span class="p">,</span>
+        <span class="n">norm</span><span class="p">,</span>
+        <span class="n">use_power</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="n">H</span> <span class="o">=</span> <span class="n">ChromaFilterBankAnalysis</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span>
+            <span class="n">n_channel</span><span class="p">,</span>
+            <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="n">sample_rate</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
+            <span class="n">device</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">device</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">ChromaFilterBankAnalysis</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">norm</span><span class="p">,</span> <span class="n">use_power</span><span class="p">,</span> <span class="n">H</span><span class="p">)</span>
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_precompute</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">get_gamma</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span></div>
+    <span class="k">def</span> <span class="nf">_precompute</span><span class="p">(</span><span class="n">n_channel</span><span class="p">,</span> <span class="n">fft_length</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">librosa</span>
+
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">chroma</span><span class="p">(</span>
+            <span class="n">sr</span><span class="o">=</span><span class="n">sample_rate</span><span class="p">,</span>
+            <span class="n">n_fft</span><span class="o">=</span><span class="n">fft_length</span><span class="p">,</span>
+            <span class="n">n_chroma</span><span class="o">=</span><span class="n">n_channel</span><span class="p">,</span>
+            <span class="n">base_c</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">T</span>
+        <span class="n">weights</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">to</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span></div>
 
 </pre></div>
 

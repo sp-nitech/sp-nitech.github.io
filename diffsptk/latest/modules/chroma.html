@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>lpccheck &#8212; diffsptk 2.2.0 documentation</title>
+    <title>chroma &#8212; diffsptk 2.2.0 documentation</title>
   
   
   
@@ -39,11 +39,11 @@
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/lpccheck';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/chroma';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="lsp2lpc" href="lsp2lpc.html" />
-    <link rel="prev" title="lpc2par" href="lpc2par.html" />
+    <link rel="next" title="cqt" href="cqt.html" />
+    <link rel="prev" title="cdist" href="cdist.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -284,7 +284,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c2ndps.html">c2ndps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cdist.html">cdist</a></li>
-<li class="toctree-l1"><a class="reference internal" href="chroma.html">chroma</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">chroma</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cqt.html">cqt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dct.html">dct</a></li>
@@ -328,7 +328,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="lpc.html">lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2lsp.html">lpc2lsp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">lpccheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpccheck.html">lpccheck</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lsp2lpc.html">lsp2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lsp2sp.html">lsp2sp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lspcheck.html">lspcheck</a></li>
@@ -411,7 +411,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">diffsptk.modules</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">lpccheck</li>
+    <li class="breadcrumb-item active" aria-current="page">chroma</li>
   </ul>
 </nav>
 </div>
@@ -428,53 +428,55 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="lpccheck">
-<span id="id1"></span><h1>lpccheck<a class="headerlink" href="#lpccheck" title="Link to this heading">#</a></h1>
+  <section id="chroma">
+<span id="id1"></span><h1>chroma<a class="headerlink" href="#chroma" title="Link to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.LinearPredictiveCoefficientsStabilityCheck">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">LinearPredictiveCoefficientsStabilityCheck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lpc_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warn_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'warn'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/lpccheck.html#LinearPredictiveCoefficientsStabilityCheck"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LinearPredictiveCoefficientsStabilityCheck" title="Link to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/lpccheck.html">this page</a>
-for details.</p>
+<dt class="sig sig-object py" id="diffsptk.ChromaFilterBankAnalysis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">ChromaFilterBankAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_power</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/chroma.html#ChromaFilterBankAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.ChromaFilterBankAnalysis" title="Link to this definition">#</a></dt>
+<dd><p>Chroma-filter bank analysis.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>lpc_order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>Order of LPC, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<dt><strong>n_channel</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Number of chroma-filter banks, <span class="math notranslate nohighlight">\(C\)</span>.</p>
 </dd>
-<dt><strong>margin</strong><span class="classifier">float in (0, 1)</span></dt><dd><p>Margin for stability.</p>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
-<dt><strong>warn_type</strong><span class="classifier">[‘ignore’, ‘warn’, ‘exit’]</span></dt><dd><p>Warning type.</p>
+<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Sample rate in Hz.</p>
+</dd>
+<dt><strong>norm</strong><span class="classifier">float</span></dt><dd><p>Normalization factor.</p>
+</dd>
+<dt><strong>use_power</strong><span class="classifier">bool</span></dt><dd><p>If True, use power spectrum instead of amplitude spectrum.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.LinearPredictiveCoefficientsStabilityCheck.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/lpccheck.html#LinearPredictiveCoefficientsStabilityCheck.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LinearPredictiveCoefficientsStabilityCheck.forward" title="Link to this definition">#</a></dt>
-<dd><p>Check stability of LPC.</p>
+<dt class="sig sig-object py" id="diffsptk.ChromaFilterBankAnalysis.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/chroma.html#ChromaFilterBankAnalysis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.ChromaFilterBankAnalysis.forward" title="Link to this definition">#</a></dt>
+<dd><p>Apply chroma-filter banks to STFT.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>a</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>LPC coefficients.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>Power spectrum.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Modified LPC coefficients.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, C)]</span></dt><dd><p>Chroma-filter bank output.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">nrand</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="go">tensor([-0.9966, -0.2970, -0.2173,  0.0594,  0.5831])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">lpc</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">LPC</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">lpc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
-<span class="go">tensor([ 1.1528, -0.2613, -0.0274,  0.1778])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">lpccheck</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">LinearPredictiveCoefficientsStabilityCheck</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a2</span> <span class="o">=</span> <span class="n">lpccheck</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
-<span class="go">tensor([ 1.1528, -0.2613, -0.0274,  0.1778])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">sr</span> <span class="o">=</span> <span class="mi">16000</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="n">sr</span><span class="o">/</span><span class="mi">440</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stft</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">STFT</span><span class="p">(</span><span class="n">frame_length</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">frame_period</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">fft_length</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">chroma</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ChromaFilterBankAnalysis</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">512</span><span class="p">,</span> <span class="n">sr</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">chroma</span><span class="p">(</span><span class="n">stft</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">tensor([[0.1146, 0.0574, 0.0457, 0.0468, 0.0519, 0.0789, 0.1736, 0.4285, 0.7416,</span>
+<span class="go">         1.0000, 0.7806, 0.3505]])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -482,23 +484,25 @@ for details.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="diffsptk.functional.lpccheck">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">lpccheck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">a</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">margin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-16</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warn_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'warn'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/functional.html#lpccheck"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.lpccheck" title="Link to this definition">#</a></dt>
-<dd><p>Check stability of LPC coefficients.</p>
+<dt class="sig sig-object py" id="diffsptk.functional.chroma">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">chroma</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">inf</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/functional.html#chroma"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.chroma" title="Link to this definition">#</a></dt>
+<dd><p>Apply chroma-filter banks to STFT.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>a</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>LPC coefficients.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>Power spectrum.</p>
 </dd>
-<dt><strong>margin</strong><span class="classifier">float in (0, 1)</span></dt><dd><p>Margin for stability.</p>
+<dt><strong>n_channel</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Number of mel-filter banks, <span class="math notranslate nohighlight">\(C\)</span>.</p>
 </dd>
-<dt><strong>warn_type</strong><span class="classifier">[‘ignore’, ‘warn’, ‘exit’]</span></dt><dd><p>Warning type.</p>
+<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Sample rate in Hz.</p>
+</dd>
+<dt><strong>norm</strong><span class="classifier">float</span></dt><dd><p>Normalization factor.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Modified LPC coefficients.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, C)]</span></dt><dd><p>Chroma-filter bank output.</p>
 </dd>
 </dl>
 </dd>
@@ -507,7 +511,7 @@ for details.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="lpc.html#lpc"><span class="std std-ref">lpc</span></a>  <a class="reference internal" href="lpc2par.html#lpc2par"><span class="std std-ref">lpc2par</span></a>  <a class="reference internal" href="par2lpc.html#par2lpc"><span class="std std-ref">par2lpc</span></a></p>
+<p><a class="reference internal" href="stft.html#stft"><span class="std std-ref">stft</span></a>  <a class="reference internal" href="fbank.html#fbank"><span class="std std-ref">fbank</span></a></p>
 </div>
 </section>
 
@@ -522,20 +526,20 @@ for details.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="lpc2par.html"
+       href="cdist.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">lpc2par</p>
+        <p class="prev-next-title">cdist</p>
       </div>
     </a>
     <a class="right-next"
-       href="lsp2lpc.html"
+       href="cqt.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">lsp2lpc</p>
+        <p class="prev-next-title">cqt</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -557,18 +561,18 @@ for details.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.LinearPredictiveCoefficientsStabilityCheck"><code class="docutils literal notranslate"><span class="pre">LinearPredictiveCoefficientsStabilityCheck</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.LinearPredictiveCoefficientsStabilityCheck.forward"><code class="docutils literal notranslate"><span class="pre">LinearPredictiveCoefficientsStabilityCheck.forward()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.ChromaFilterBankAnalysis"><code class="docutils literal notranslate"><span class="pre">ChromaFilterBankAnalysis</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.ChromaFilterBankAnalysis.forward"><code class="docutils literal notranslate"><span class="pre">ChromaFilterBankAnalysis.forward()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.lpccheck"><code class="docutils literal notranslate"><span class="pre">lpccheck()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.chroma"><code class="docutils literal notranslate"><span class="pre">chroma()</span></code></a></li>
 </ul>
   </nav></div>
 
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../_sources/modules/lpccheck.rst.txt">
+    <a href="../_sources/modules/chroma.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
