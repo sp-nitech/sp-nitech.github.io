@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>poledf &mdash; SPTK  documentation</title>
+  <title>iltcdf &mdash; SPTK  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -22,8 +22,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="pqmf" href="pqmf.html" />
-    <link rel="prev" title="plp" href="plp.html" /> 
+    <link rel="next" title="imglsadf" href="imglsadf.html" />
+    <link rel="prev" title="ignorm" href="ignorm.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -106,7 +106,19 @@
 <li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
-<li class="toctree-l1"><a class="reference internal" href="iltcdf.html">iltcdf</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">iltcdf</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk27AllZeroLatticeDigitalFilterE"><code class="docutils literal notranslate"><span class="pre">AllZeroLatticeDigitalFilter</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk27AllZeroLatticeDigitalFilter27AllZeroLatticeDigitalFilterEi"><code class="docutils literal notranslate"><span class="pre">AllZeroLatticeDigitalFilter::AllZeroLatticeDigitalFilter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk27AllZeroLatticeDigitalFilter17GetNumFilterOrderEv"><code class="docutils literal notranslate"><span class="pre">AllZeroLatticeDigitalFilter::GetNumFilterOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk27AllZeroLatticeDigitalFilter7IsValidEv"><code class="docutils literal notranslate"><span class="pre">AllZeroLatticeDigitalFilter::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk27AllZeroLatticeDigitalFilter3RunERKNSt6vectorIdEEdPdPN27AllZeroLatticeDigitalFilter6BufferE"><code class="docutils literal notranslate"><span class="pre">AllZeroLatticeDigitalFilter::Run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk27AllZeroLatticeDigitalFilter3RunERKNSt6vectorIdEEPdPN27AllZeroLatticeDigitalFilter6BufferE"><code class="docutils literal notranslate"><span class="pre">AllZeroLatticeDigitalFilter::Run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk27AllZeroLatticeDigitalFilter6BufferE"><code class="docutils literal notranslate"><span class="pre">AllZeroLatticeDigitalFilter::Buffer</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="imglsadf.html">imglsadf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
@@ -159,20 +171,7 @@
 <li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plp.html">plp</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">poledf</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk20AllPoleDigitalFilterE"><code class="docutils literal notranslate"><span class="pre">AllPoleDigitalFilter</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk20AllPoleDigitalFilter20AllPoleDigitalFilterEib"><code class="docutils literal notranslate"><span class="pre">AllPoleDigitalFilter::AllPoleDigitalFilter()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk20AllPoleDigitalFilter17GetNumFilterOrderEv"><code class="docutils literal notranslate"><span class="pre">AllPoleDigitalFilter::GetNumFilterOrder()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk20AllPoleDigitalFilter15IsTranspositionEv"><code class="docutils literal notranslate"><span class="pre">AllPoleDigitalFilter::IsTransposition()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk20AllPoleDigitalFilter7IsValidEv"><code class="docutils literal notranslate"><span class="pre">AllPoleDigitalFilter::IsValid()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk20AllPoleDigitalFilter3RunERKNSt6vectorIdEEdPdPN20AllPoleDigitalFilter6BufferE"><code class="docutils literal notranslate"><span class="pre">AllPoleDigitalFilter::Run()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk20AllPoleDigitalFilter3RunERKNSt6vectorIdEEPdPN20AllPoleDigitalFilter6BufferE"><code class="docutils literal notranslate"><span class="pre">AllPoleDigitalFilter::Run()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk20AllPoleDigitalFilter6BufferE"><code class="docutils literal notranslate"><span class="pre">AllPoleDigitalFilter::Buffer</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ramp.html">ramp</a></li>
@@ -222,9 +221,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">poledf</li>
+      <li class="breadcrumb-item active">iltcdf</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/main/poledf.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/main/iltcdf.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -232,14 +231,14 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="poledf">
-<span id="id1"></span><h1>poledf<a class="headerlink" href="#poledf" title="Link to this heading"></a></h1>
+  <section id="iltcdf">
+<span id="id1"></span><h1>iltcdf<a class="headerlink" href="#iltcdf" title="Link to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv44mainiA_Pc">
-<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="poledf_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
-<dd><p><em>poledf</em> [ <em>option</em> ] <em>afile</em> [ <em>infile</em> ]</p>
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="iltcdf_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p><em>iltcdf</em> [ <em>option</em> ] <em>kfile</em> [ <em>infile</em> ]</p>
 <p><ul class="simple">
 <li><p><strong>-m</strong> <em>int</em> <ul>
 <li><p>order of coefficients <span class="math notranslate nohighlight">\((0 \le M)\)</span></p></li>
@@ -253,16 +252,12 @@
 <li><p>interpolation period <span class="math notranslate nohighlight">\((0 \le I \le P/2)\)</span></p></li>
 </ul>
 </p></li>
-<li><p><strong>-t</strong> <ul>
-<li><p>transpose filter</p></li>
-</ul>
-</p></li>
 <li><p><strong>-k</strong> <ul>
 <li><p>filtering without gain</p></li>
 </ul>
 </p></li>
-<li><p><strong>afile</strong> <em>str</em> <ul>
-<li><p>double-type LPC coefficients</p></li>
+<li><p><strong>kfile</strong> <em>str</em> <ul>
+<li><p>double-type PARCOR coefficients</p></li>
 </ul>
 </p></li>
 <li><p><strong>infile</strong> <em>str</em> <ul>
@@ -275,8 +270,8 @@
 </p></li>
 </ul>
 </p>
-<p>In the below example, an excitation signal generated from pitch information is passed through the standard form synthesis filter built from LPC coefficients.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>excite<span class="w"> </span>&lt;<span class="w"> </span>data.pitch<span class="w"> </span><span class="p">|</span><span class="w"> </span>poledf<span class="w"> </span>data.lpc<span class="w"> </span>&gt;<span class="w"> </span>data.syn
+<p>In the below example, an excitaion signal generated from pitch information is reconstructed using the synthesis and analysis filters built from PARCOR coefficients.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>excite<span class="w"> </span>&lt;<span class="w"> </span>data.pitch<span class="w"> </span><span class="p">|</span><span class="w"> </span>ltcdf<span class="w"> </span>data.rc<span class="w"> </span><span class="p">|</span><span class="w"> </span>iltcdf<span class="w"> </span>data.rc<span class="w"> </span>&gt;<span class="w"> </span>data.e
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -295,36 +290,30 @@
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="acorr.html#acorr"><span class="std std-ref">acorr</span></a>  <a class="reference internal" href="lpc.html#lpc"><span class="std std-ref">lpc</span></a></p>
+<p><a class="reference internal" href="lpc2par.html#lpc2par"><span class="std std-ref">lpc2par</span></a>  <a class="reference internal" href="ltcdf.html#ltcdf"><span class="std std-ref">ltcdf</span></a></p>
 </div>
 <dl class="cpp class">
-<dt class="sig sig-object cpp" id="_CPPv4N4sptk20AllPoleDigitalFilterE">
-<span id="_CPPv3N4sptk20AllPoleDigitalFilterE"></span><span id="_CPPv2N4sptk20AllPoleDigitalFilterE"></span><span id="sptk::AllPoleDigitalFilter"></span><span class="target" id="classsptk_1_1AllPoleDigitalFilter"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AllPoleDigitalFilter</span></span></span><a class="headerlink" href="#_CPPv4N4sptk20AllPoleDigitalFilterE" title="Link to this definition"></a><br /></dt>
-<dd><p>Apply all-pole digital filter for speech synthesis to signals.</p>
-<p>The transfer function <span class="math notranslate nohighlight">\(H(z)\)</span> of an all-pole filter is <div class="math notranslate nohighlight">
-\[ H(z) = \frac{K}{1 + \displaystyle\sum_{m=1}^M a(m)z^{-m}}, \]</div>
- where <span class="math notranslate nohighlight">\(M\)</span> is the order of filter and <span class="math notranslate nohighlight">\(K\)</span> is the gain.</p>
-<p>Given the <span class="math notranslate nohighlight">\(M\)</span>-th order filter coefficients, <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} K, &amp; a(1), &amp; \ldots, &amp; a(M), \end{array} \]</div>
- an output signal is obtained by applying <span class="math notranslate nohighlight">\(H(z)\)</span> to an input signal in time domain. </p>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk27AllZeroLatticeDigitalFilterE">
+<span id="_CPPv3N4sptk27AllZeroLatticeDigitalFilterE"></span><span id="_CPPv2N4sptk27AllZeroLatticeDigitalFilterE"></span><span id="sptk::AllZeroLatticeDigitalFilter"></span><span class="target" id="classsptk_1_1AllZeroLatticeDigitalFilter"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AllZeroLatticeDigitalFilter</span></span></span><a class="headerlink" href="#_CPPv4N4sptk27AllZeroLatticeDigitalFilterE" title="Link to this definition"></a><br /></dt>
+<dd><p>Apply all-zero lattice filter for speech synthesis.</p>
+<p>Given the <span class="math notranslate nohighlight">\(M\)</span>-th order PARCOR coefficients, <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} K, &amp; k(1), &amp; \ldots, &amp; k(M), \end{array} \]</div>
+ an output signal is obtained by applying the all-zero lattice filter to an input signal in time domain. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4sptk20AllPoleDigitalFilter20AllPoleDigitalFilterEib">
-<span id="_CPPv3N4sptk20AllPoleDigitalFilter20AllPoleDigitalFilterEib"></span><span id="_CPPv2N4sptk20AllPoleDigitalFilter20AllPoleDigitalFilterEib"></span><span id="sptk::AllPoleDigitalFilter::AllPoleDigitalFilter__i.b"></span><span class="target" id="classsptk_1_1AllPoleDigitalFilter_1a2f47ed1af0bc95c3a9b95bc6a11e3771"></span><span class="sig-name descname"><span class="n"><span class="pre">AllPoleDigitalFilter</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_filter_order</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">transposition</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk20AllPoleDigitalFilter20AllPoleDigitalFilterEib" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk27AllZeroLatticeDigitalFilter27AllZeroLatticeDigitalFilterEi">
+<span id="_CPPv3N4sptk27AllZeroLatticeDigitalFilter27AllZeroLatticeDigitalFilterEi"></span><span id="_CPPv2N4sptk27AllZeroLatticeDigitalFilter27AllZeroLatticeDigitalFilterEi"></span><span id="sptk::AllZeroLatticeDigitalFilter::AllZeroLatticeDigitalFilter__i"></span><span class="target" id="classsptk_1_1AllZeroLatticeDigitalFilter_1a66c9f6369025d36469763697f4d72e30"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AllZeroLatticeDigitalFilter</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_filter_order</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk27AllZeroLatticeDigitalFilter27AllZeroLatticeDigitalFilterEi" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>num_filter_order</strong> – <strong>[in]</strong> Order of filter coefficients, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
-<li><p><strong>transposition</strong> – <strong>[in]</strong> If true, use transposed form filter. </p></li>
-</ul>
+<dd class="field-odd"><p><strong>num_filter_order</strong> – <strong>[in]</strong> Order of filter coefficients, <span class="math notranslate nohighlight">\(M\)</span>. </p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk20AllPoleDigitalFilter17GetNumFilterOrderEv">
-<span id="_CPPv3NK4sptk20AllPoleDigitalFilter17GetNumFilterOrderEv"></span><span id="_CPPv2NK4sptk20AllPoleDigitalFilter17GetNumFilterOrderEv"></span><span id="sptk::AllPoleDigitalFilter::GetNumFilterOrderC"></span><span class="target" id="classsptk_1_1AllPoleDigitalFilter_1a027fee62700606d591db08e339b85b53"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumFilterOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk20AllPoleDigitalFilter17GetNumFilterOrderEv" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk27AllZeroLatticeDigitalFilter17GetNumFilterOrderEv">
+<span id="_CPPv3NK4sptk27AllZeroLatticeDigitalFilter17GetNumFilterOrderEv"></span><span id="_CPPv2NK4sptk27AllZeroLatticeDigitalFilter17GetNumFilterOrderEv"></span><span id="sptk::AllZeroLatticeDigitalFilter::GetNumFilterOrderC"></span><span class="target" id="classsptk_1_1AllZeroLatticeDigitalFilter_1a53f39508fef98d39532275f2680a1384"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumFilterOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk27AllZeroLatticeDigitalFilter17GetNumFilterOrderEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Order of coefficients. </p>
@@ -333,18 +322,8 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk20AllPoleDigitalFilter15IsTranspositionEv">
-<span id="_CPPv3NK4sptk20AllPoleDigitalFilter15IsTranspositionEv"></span><span id="_CPPv2NK4sptk20AllPoleDigitalFilter15IsTranspositionEv"></span><span id="sptk::AllPoleDigitalFilter::IsTranspositionC"></span><span class="target" id="classsptk_1_1AllPoleDigitalFilter_1a8e858832f9e62e0a8ceb79e04bbf1ff9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsTransposition</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk20AllPoleDigitalFilter15IsTranspositionEv" title="Link to this definition"></a><br /></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>True if transposed form is used. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk20AllPoleDigitalFilter7IsValidEv">
-<span id="_CPPv3NK4sptk20AllPoleDigitalFilter7IsValidEv"></span><span id="_CPPv2NK4sptk20AllPoleDigitalFilter7IsValidEv"></span><span id="sptk::AllPoleDigitalFilter::IsValidC"></span><span class="target" id="classsptk_1_1AllPoleDigitalFilter_1a6c152558655e919b2756779e7ea19bc5"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk20AllPoleDigitalFilter7IsValidEv" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk27AllZeroLatticeDigitalFilter7IsValidEv">
+<span id="_CPPv3NK4sptk27AllZeroLatticeDigitalFilter7IsValidEv"></span><span id="_CPPv2NK4sptk27AllZeroLatticeDigitalFilter7IsValidEv"></span><span id="sptk::AllZeroLatticeDigitalFilter::IsValidC"></span><span class="target" id="classsptk_1_1AllZeroLatticeDigitalFilter_1ae4a48c5a79ea826fd1f1cac41a73ad45"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk27AllZeroLatticeDigitalFilter7IsValidEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -353,15 +332,15 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk20AllPoleDigitalFilter3RunERKNSt6vectorIdEEdPdPN20AllPoleDigitalFilter6BufferE">
-<span id="_CPPv3NK4sptk20AllPoleDigitalFilter3RunERKNSt6vectorIdEEdPdPN20AllPoleDigitalFilter6BufferE"></span><span id="_CPPv2NK4sptk20AllPoleDigitalFilter3RunERKNSt6vectorIdEEdPdPN20AllPoleDigitalFilter6BufferE"></span><span id="sptk::AllPoleDigitalFilter::Run__std::vector:double:CR.double.doubleP.AllPoleDigitalFilter::BufferPC"></span><span class="target" id="classsptk_1_1AllPoleDigitalFilter_1ab1d66597f44051c87e7098d23e4d2062"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">filter_coefficients</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">filter_input</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">filter_output</span></span>, <a class="reference internal" href="#_CPPv4N4sptk20AllPoleDigitalFilterE" title="sptk::AllPoleDigitalFilter"><span class="n"><span class="pre">AllPoleDigitalFilter</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk20AllPoleDigitalFilter6BufferE" title="sptk::AllPoleDigitalFilter::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk20AllPoleDigitalFilter3RunERKNSt6vectorIdEEdPdPN20AllPoleDigitalFilter6BufferE" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk27AllZeroLatticeDigitalFilter3RunERKNSt6vectorIdEEdPdPN27AllZeroLatticeDigitalFilter6BufferE">
+<span id="_CPPv3NK4sptk27AllZeroLatticeDigitalFilter3RunERKNSt6vectorIdEEdPdPN27AllZeroLatticeDigitalFilter6BufferE"></span><span id="_CPPv2NK4sptk27AllZeroLatticeDigitalFilter3RunERKNSt6vectorIdEEdPdPN27AllZeroLatticeDigitalFilter6BufferE"></span><span id="sptk::AllZeroLatticeDigitalFilter::Run__std::vector:double:CR.double.doubleP.AllZeroLatticeDigitalFilter::BufferPC"></span><span class="target" id="classsptk_1_1AllZeroLatticeDigitalFilter_1a469ab611c3732afe4e18475087dd3258"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">filter_coefficients</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">filter_input</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">filter_output</span></span>, <a class="reference internal" href="#_CPPv4N4sptk27AllZeroLatticeDigitalFilterE" title="sptk::AllZeroLatticeDigitalFilter"><span class="n"><span class="pre">AllZeroLatticeDigitalFilter</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk27AllZeroLatticeDigitalFilter6BufferE" title="sptk::AllZeroLatticeDigitalFilter::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk27AllZeroLatticeDigitalFilter3RunERKNSt6vectorIdEEdPdPN27AllZeroLatticeDigitalFilter6BufferE" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filter_coefficients</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order LPC coefficients. </p></li>
+<li><p><strong>filter_coefficients</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order PARCOR coefficients. </p></li>
 <li><p><strong>filter_input</strong> – <strong>[in]</strong> Input signal. </p></li>
 <li><p><strong>filter_output</strong> – <strong>[out]</strong> Output signal. </p></li>
-<li><p><strong>buffer</strong> – <strong>[inout]</strong> <a class="reference internal" href="#classsptk_1_1AllPoleDigitalFilter_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+<li><p><strong>buffer</strong> – <strong>[inout]</strong> <a class="reference internal" href="#classsptk_1_1AllZeroLatticeDigitalFilter_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -371,14 +350,14 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk20AllPoleDigitalFilter3RunERKNSt6vectorIdEEPdPN20AllPoleDigitalFilter6BufferE">
-<span id="_CPPv3NK4sptk20AllPoleDigitalFilter3RunERKNSt6vectorIdEEPdPN20AllPoleDigitalFilter6BufferE"></span><span id="_CPPv2NK4sptk20AllPoleDigitalFilter3RunERKNSt6vectorIdEEPdPN20AllPoleDigitalFilter6BufferE"></span><span id="sptk::AllPoleDigitalFilter::Run__std::vector:double:CR.doubleP.AllPoleDigitalFilter::BufferPC"></span><span class="target" id="classsptk_1_1AllPoleDigitalFilter_1a48775483fc89b14842603a69391d3358"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">filter_coefficients</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_and_output</span></span>, <a class="reference internal" href="#_CPPv4N4sptk20AllPoleDigitalFilterE" title="sptk::AllPoleDigitalFilter"><span class="n"><span class="pre">AllPoleDigitalFilter</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk20AllPoleDigitalFilter6BufferE" title="sptk::AllPoleDigitalFilter::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk20AllPoleDigitalFilter3RunERKNSt6vectorIdEEPdPN20AllPoleDigitalFilter6BufferE" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk27AllZeroLatticeDigitalFilter3RunERKNSt6vectorIdEEPdPN27AllZeroLatticeDigitalFilter6BufferE">
+<span id="_CPPv3NK4sptk27AllZeroLatticeDigitalFilter3RunERKNSt6vectorIdEEPdPN27AllZeroLatticeDigitalFilter6BufferE"></span><span id="_CPPv2NK4sptk27AllZeroLatticeDigitalFilter3RunERKNSt6vectorIdEEPdPN27AllZeroLatticeDigitalFilter6BufferE"></span><span id="sptk::AllZeroLatticeDigitalFilter::Run__std::vector:double:CR.doubleP.AllZeroLatticeDigitalFilter::BufferPC"></span><span class="target" id="classsptk_1_1AllZeroLatticeDigitalFilter_1a9d4d362187b0e8ba3cf9e31c89ccd38c"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">filter_coefficients</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_and_output</span></span>, <a class="reference internal" href="#_CPPv4N4sptk27AllZeroLatticeDigitalFilterE" title="sptk::AllZeroLatticeDigitalFilter"><span class="n"><span class="pre">AllZeroLatticeDigitalFilter</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk27AllZeroLatticeDigitalFilter6BufferE" title="sptk::AllZeroLatticeDigitalFilter::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk27AllZeroLatticeDigitalFilter3RunERKNSt6vectorIdEEPdPN27AllZeroLatticeDigitalFilter6BufferE" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>filter_coefficients</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order LPC coefficients. </p></li>
+<li><p><strong>filter_coefficients</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order PARCOR coefficients. </p></li>
 <li><p><strong>input_and_output</strong> – <strong>[inout]</strong> Input/output signal. </p></li>
-<li><p><strong>buffer</strong> – <strong>[inout]</strong> <a class="reference internal" href="#classsptk_1_1AllPoleDigitalFilter_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+<li><p><strong>buffer</strong> – <strong>[inout]</strong> <a class="reference internal" href="#classsptk_1_1AllZeroLatticeDigitalFilter_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -389,9 +368,9 @@
 
 </div>
 <dl class="cpp class">
-<dt class="sig sig-object cpp" id="_CPPv4N4sptk20AllPoleDigitalFilter6BufferE">
-<span id="_CPPv3N4sptk20AllPoleDigitalFilter6BufferE"></span><span id="_CPPv2N4sptk20AllPoleDigitalFilter6BufferE"></span><span id="sptk::AllPoleDigitalFilter::Buffer"></span><span class="target" id="classsptk_1_1AllPoleDigitalFilter_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk20AllPoleDigitalFilter6BufferE" title="Link to this definition"></a><br /></dt>
-<dd><p><a class="reference internal" href="#classsptk_1_1AllPoleDigitalFilter_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1AllPoleDigitalFilter"><span class="std std-ref">AllPoleDigitalFilter</span></a> class. </p>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk27AllZeroLatticeDigitalFilter6BufferE">
+<span id="_CPPv3N4sptk27AllZeroLatticeDigitalFilter6BufferE"></span><span id="_CPPv2N4sptk27AllZeroLatticeDigitalFilter6BufferE"></span><span id="sptk::AllZeroLatticeDigitalFilter::Buffer"></span><span class="target" id="classsptk_1_1AllZeroLatticeDigitalFilter_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk27AllZeroLatticeDigitalFilter6BufferE" title="Link to this definition"></a><br /></dt>
+<dd><p><a class="reference internal" href="#classsptk_1_1AllZeroLatticeDigitalFilter_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1AllZeroLatticeDigitalFilter"><span class="std std-ref">AllZeroLatticeDigitalFilter</span></a> class. </p>
 </dd></dl>
 
 </dd></dl>
@@ -402,8 +381,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="plp.html" class="btn btn-neutral float-left" title="plp" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="pqmf.html" class="btn btn-neutral float-right" title="pqmf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ignorm.html" class="btn btn-neutral float-left" title="ignorm" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="imglsadf.html" class="btn btn-neutral float-right" title="imglsadf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
