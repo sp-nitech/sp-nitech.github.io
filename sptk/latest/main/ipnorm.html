@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>lpc2c &mdash; SPTK  documentation</title>
+  <title>ipnorm &mdash; SPTK  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
 
@@ -22,8 +22,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="lpc2lsp" href="lpc2lsp.html" />
-    <link rel="prev" title="lpc" href="lpc.html" /> 
+    <link rel="next" title="ipqmf" href="ipqmf.html" />
+    <link rel="prev" title="interpolate" href="interpolate.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -111,7 +111,18 @@
 <li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ipnorm.html">ipnorm</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ipnorm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk36MelCepstrumInversePowerNormalizationE"><code class="docutils literal notranslate"><span class="pre">MelCepstrumInversePowerNormalization</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk36MelCepstrumInversePowerNormalization36MelCepstrumInversePowerNormalizationEi"><code class="docutils literal notranslate"><span class="pre">MelCepstrumInversePowerNormalization::MelCepstrumInversePowerNormalization()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk36MelCepstrumInversePowerNormalization11GetNumOrderEv"><code class="docutils literal notranslate"><span class="pre">MelCepstrumInversePowerNormalization::GetNumOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk36MelCepstrumInversePowerNormalization7IsValidEv"><code class="docutils literal notranslate"><span class="pre">MelCepstrumInversePowerNormalization::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk36MelCepstrumInversePowerNormalization3RunERKNSt6vectorIdEEdPNSt6vectorIdEE"><code class="docutils literal notranslate"><span class="pre">MelCepstrumInversePowerNormalization::Run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk36MelCepstrumInversePowerNormalization3RunEPNSt6vectorIdEEd"><code class="docutils literal notranslate"><span class="pre">MelCepstrumInversePowerNormalization::Run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
@@ -119,18 +130,7 @@
 <li class="toctree-l1"><a class="reference internal" href="levdur.html">levdur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="linear_intpl.html">linear_intpl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc.html">lpc</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">lpc2c</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk38LinearPredictiveCoefficientsToCepstrumE"><code class="docutils literal notranslate"><span class="pre">LinearPredictiveCoefficientsToCepstrum</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk38LinearPredictiveCoefficientsToCepstrum38LinearPredictiveCoefficientsToCepstrumEii"><code class="docutils literal notranslate"><span class="pre">LinearPredictiveCoefficientsToCepstrum::LinearPredictiveCoefficientsToCepstrum()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk38LinearPredictiveCoefficientsToCepstrum16GetNumInputOrderEv"><code class="docutils literal notranslate"><span class="pre">LinearPredictiveCoefficientsToCepstrum::GetNumInputOrder()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk38LinearPredictiveCoefficientsToCepstrum17GetNumOutputOrderEv"><code class="docutils literal notranslate"><span class="pre">LinearPredictiveCoefficientsToCepstrum::GetNumOutputOrder()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk38LinearPredictiveCoefficientsToCepstrum7IsValidEv"><code class="docutils literal notranslate"><span class="pre">LinearPredictiveCoefficientsToCepstrum::IsValid()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk38LinearPredictiveCoefficientsToCepstrum3RunERKNSt6vectorIdEEPNSt6vectorIdEE"><code class="docutils literal notranslate"><span class="pre">LinearPredictiveCoefficientsToCepstrum::Run()</span></code></a></li>
-</ul>
-</li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2lsp.html">lpc2lsp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpccheck.html">lpccheck</a></li>
@@ -222,9 +222,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">lpc2c</li>
+      <li class="breadcrumb-item active">ipnorm</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/main/lpc2c.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/main/ipnorm.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -232,37 +232,29 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="lpc2c">
-<span id="id1"></span><h1>lpc2c<a class="headerlink" href="#lpc2c" title="Link to this heading"></a></h1>
+  <section id="ipnorm">
+<span id="id1"></span><h1>ipnorm<a class="headerlink" href="#ipnorm" title="Link to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv44mainiA_Pc">
-<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="lpc2c_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
-<dd><p><em>lpc2c</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="ipnorm_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p><em>ipnorm</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
 <p><ul class="simple">
 <li><p><strong>-m</strong> <em>int</em> <ul>
-<li><p>order of LPC coefficients <span class="math notranslate nohighlight">\((0 \le M_1)\)</span></p></li>
-</ul>
-</p></li>
-<li><p><strong>-M</strong> <em>int</em> <ul>
-<li><p>order of LPC cepstral coefficients <span class="math notranslate nohighlight">\((0 \le M_2)\)</span></p></li>
+<li><p>order of mel-cepstral coefficients <span class="math notranslate nohighlight">\((0 \le M)\)</span></p></li>
 </ul>
 </p></li>
 <li><p><strong>infile</strong> <em>str</em> <ul>
-<li><p>double-type LPC coefficients</p></li>
+<li><p>double-type power-normalized mel-cepstral coefficients</p></li>
 </ul>
 </p></li>
 <li><p><strong>stdout</strong> <ul>
-<li><p>double-type LPC cepstral coefficients</p></li>
+<li><p>double-type mel-cepstral coefficients</p></li>
 </ul>
 </p></li>
 </ul>
 </p>
-<p>The below example extracts 15-th order LPC cepstral coefficients from <code class="docutils literal notranslate"><span class="pre">data.d</span></code>.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>frame<span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span><span class="p">|</span><span class="w"> </span>window<span class="w"> </span><span class="p">|</span><span class="w"> </span>lpc<span class="w"> </span>-m<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>lpc2c<span class="w"> </span>-m<span class="w"> </span><span class="m">10</span><span class="w"> </span>-M<span class="w"> </span><span class="m">15</span><span class="w"> </span>&gt;<span class="w"> </span>data.cep
-</pre></div>
-</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -279,57 +271,44 @@
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="lpc.html#lpc"><span class="std std-ref">lpc</span></a>  <a class="reference internal" href="mgc2mgc.html#mgc2mgc"><span class="std std-ref">mgc2mgc</span></a></p>
+<p><a class="reference internal" href="pnorm.html#pnorm"><span class="std std-ref">pnorm</span></a></p>
 </div>
 <dl class="cpp class">
-<dt class="sig sig-object cpp" id="_CPPv4N4sptk38LinearPredictiveCoefficientsToCepstrumE">
-<span id="_CPPv3N4sptk38LinearPredictiveCoefficientsToCepstrumE"></span><span id="_CPPv2N4sptk38LinearPredictiveCoefficientsToCepstrumE"></span><span id="sptk::LinearPredictiveCoefficientsToCepstrum"></span><span class="target" id="classsptk_1_1LinearPredictiveCoefficientsToCepstrum"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LinearPredictiveCoefficientsToCepstrum</span></span></span><a class="headerlink" href="#_CPPv4N4sptk38LinearPredictiveCoefficientsToCepstrumE" title="Link to this definition"></a><br /></dt>
-<dd><p>Convert LPC coefficients to LPC cepstral coefficients.</p>
-<p>The input is the <span class="math notranslate nohighlight">\(M_1\)</span>-th order LPC coefficients: <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} K, &amp; a(1), &amp; \ldots, &amp; a(M_1), \end{array} \]</div>
- and the output is the <span class="math notranslate nohighlight">\(M_2\)</span>-th order cepstral coefficients: <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} c(0), &amp; c(1), &amp; \ldots, &amp; c(M_2). \end{array} \]</div>
- The cesptral coefficients is obtained by the following recursion: <div class="math notranslate nohighlight">
-\[\begin{split} c(m) = \left\{ \begin{array}{ll} \log K, &amp; m = 0 \\ -a(m) - \displaystyle\sum_{k=1}^{m-1} \frac{k}{m} c(k) a(m-k), &amp; (0 &lt; m \le M_1) \\ -\displaystyle\sum_{k=m-M_1}^{m-1} \frac{k}{m} c(k) a(m-k). &amp; (M_1 &lt; m \le M_2) \end{array} \right. \end{split}\]</div>
- This simple recursion does not require any DFTs. </p>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk36MelCepstrumInversePowerNormalizationE">
+<span id="_CPPv3N4sptk36MelCepstrumInversePowerNormalizationE"></span><span id="_CPPv2N4sptk36MelCepstrumInversePowerNormalizationE"></span><span id="sptk::MelCepstrumInversePowerNormalization"></span><span class="target" id="classsptk_1_1MelCepstrumInversePowerNormalization"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MelCepstrumInversePowerNormalization</span></span></span><a class="headerlink" href="#_CPPv4N4sptk36MelCepstrumInversePowerNormalizationE" title="Link to this definition"></a><br /></dt>
+<dd><p>Convert power-normalized mel-cepstral coefficients to mel-cepstral ones.</p>
+<p>The input are the <span class="math notranslate nohighlight">\(M\)</span>-th order power-normalized mel-cepstral coefficients: <div class="math notranslate nohighlight">
+\[ \begin{array}{ccccc} \tilde{c}'(0), &amp; \tilde{c}'(1), &amp; \ldots, &amp; \tilde{c}'(M), \end{array} \]</div>
+ and <span class="math notranslate nohighlight">\(\log P\)</span> where <span class="math notranslate nohighlight">\(P\)</span> is the power and the output is the <span class="math notranslate nohighlight">\(M\)</span>-th order mel-cepstral coefficients: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} \tilde{c}(0), &amp; \tilde{c}(1), &amp; \ldots, &amp; \tilde{c}(M), \end{array} \]</div>
+ where <div class="math notranslate nohighlight">
+\[\begin{split} \tilde{c}(m) = \left\{ \begin{array}{ll} \tilde{c}'(0) + \log \sqrt{P}, &amp; m = 0 \\ \tilde{c}'(m). &amp; 1 \le m \le M \end{array} \right. \end{split}\]</div>
+</p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4sptk38LinearPredictiveCoefficientsToCepstrum38LinearPredictiveCoefficientsToCepstrumEii">
-<span id="_CPPv3N4sptk38LinearPredictiveCoefficientsToCepstrum38LinearPredictiveCoefficientsToCepstrumEii"></span><span id="_CPPv2N4sptk38LinearPredictiveCoefficientsToCepstrum38LinearPredictiveCoefficientsToCepstrumEii"></span><span id="sptk::LinearPredictiveCoefficientsToCepstrum::LinearPredictiveCoefficientsToCepstrum__i.i"></span><span class="target" id="classsptk_1_1LinearPredictiveCoefficientsToCepstrum_1aad020ff374cbdc75a6355a9849123f1a"></span><span class="sig-name descname"><span class="n"><span class="pre">LinearPredictiveCoefficientsToCepstrum</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_input_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_output_order</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk38LinearPredictiveCoefficientsToCepstrum38LinearPredictiveCoefficientsToCepstrumEii" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk36MelCepstrumInversePowerNormalization36MelCepstrumInversePowerNormalizationEi">
+<span id="_CPPv3N4sptk36MelCepstrumInversePowerNormalization36MelCepstrumInversePowerNormalizationEi"></span><span id="_CPPv2N4sptk36MelCepstrumInversePowerNormalization36MelCepstrumInversePowerNormalizationEi"></span><span id="sptk::MelCepstrumInversePowerNormalization::MelCepstrumInversePowerNormalization__i"></span><span class="target" id="classsptk_1_1MelCepstrumInversePowerNormalization_1a36c24ce1c27c8b0eac6d9b905ec86dd2"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MelCepstrumInversePowerNormalization</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk36MelCepstrumInversePowerNormalization36MelCepstrumInversePowerNormalizationEi" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>num_input_order</strong> – <strong>[in]</strong> Order of LPC coefficients, <span class="math notranslate nohighlight">\(M_1\)</span>. </p></li>
-<li><p><strong>num_output_order</strong> – <strong>[in]</strong> Order of cepstral coefficients, <span class="math notranslate nohighlight">\(M_2\)</span>. </p></li>
-</ul>
+<dd class="field-odd"><p><strong>num_order</strong> – <strong>[in]</strong> Order of coefficients, <span class="math notranslate nohighlight">\(M\)</span>. </p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk38LinearPredictiveCoefficientsToCepstrum16GetNumInputOrderEv">
-<span id="_CPPv3NK4sptk38LinearPredictiveCoefficientsToCepstrum16GetNumInputOrderEv"></span><span id="_CPPv2NK4sptk38LinearPredictiveCoefficientsToCepstrum16GetNumInputOrderEv"></span><span id="sptk::LinearPredictiveCoefficientsToCepstrum::GetNumInputOrderC"></span><span class="target" id="classsptk_1_1LinearPredictiveCoefficientsToCepstrum_1a8a3da58714aa21c3390ff27a65b174ad"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumInputOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk38LinearPredictiveCoefficientsToCepstrum16GetNumInputOrderEv" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk36MelCepstrumInversePowerNormalization11GetNumOrderEv">
+<span id="_CPPv3NK4sptk36MelCepstrumInversePowerNormalization11GetNumOrderEv"></span><span id="_CPPv2NK4sptk36MelCepstrumInversePowerNormalization11GetNumOrderEv"></span><span id="sptk::MelCepstrumInversePowerNormalization::GetNumOrderC"></span><span class="target" id="classsptk_1_1MelCepstrumInversePowerNormalization_1a4fbf33e9db802663531ea73727eb688b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk36MelCepstrumInversePowerNormalization11GetNumOrderEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Order of LPC coefficients. </p>
+<dd class="field-odd"><p>Order of coefficients. </p>
 </dd>
 </dl>
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk38LinearPredictiveCoefficientsToCepstrum17GetNumOutputOrderEv">
-<span id="_CPPv3NK4sptk38LinearPredictiveCoefficientsToCepstrum17GetNumOutputOrderEv"></span><span id="_CPPv2NK4sptk38LinearPredictiveCoefficientsToCepstrum17GetNumOutputOrderEv"></span><span id="sptk::LinearPredictiveCoefficientsToCepstrum::GetNumOutputOrderC"></span><span class="target" id="classsptk_1_1LinearPredictiveCoefficientsToCepstrum_1a59941ff560843d14b974fc51f9149ad9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOutputOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk38LinearPredictiveCoefficientsToCepstrum17GetNumOutputOrderEv" title="Link to this definition"></a><br /></dt>
-<dd><dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Order of cepstral coefficients. </p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk38LinearPredictiveCoefficientsToCepstrum7IsValidEv">
-<span id="_CPPv3NK4sptk38LinearPredictiveCoefficientsToCepstrum7IsValidEv"></span><span id="_CPPv2NK4sptk38LinearPredictiveCoefficientsToCepstrum7IsValidEv"></span><span id="sptk::LinearPredictiveCoefficientsToCepstrum::IsValidC"></span><span class="target" id="classsptk_1_1LinearPredictiveCoefficientsToCepstrum_1a529796564ffc19b4540c91c85bd6782e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk38LinearPredictiveCoefficientsToCepstrum7IsValidEv" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk36MelCepstrumInversePowerNormalization7IsValidEv">
+<span id="_CPPv3NK4sptk36MelCepstrumInversePowerNormalization7IsValidEv"></span><span id="_CPPv2NK4sptk36MelCepstrumInversePowerNormalization7IsValidEv"></span><span id="sptk::MelCepstrumInversePowerNormalization::IsValidC"></span><span class="target" id="classsptk_1_1MelCepstrumInversePowerNormalization_1a0efd576b3474029195d62b9d5bbb97ee"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk36MelCepstrumInversePowerNormalization7IsValidEv" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>True if this object is valid. </p>
@@ -338,13 +317,30 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4NK4sptk38LinearPredictiveCoefficientsToCepstrum3RunERKNSt6vectorIdEEPNSt6vectorIdEE">
-<span id="_CPPv3NK4sptk38LinearPredictiveCoefficientsToCepstrum3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk38LinearPredictiveCoefficientsToCepstrum3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::LinearPredictiveCoefficientsToCepstrum::Run__std::vector:double:CR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1LinearPredictiveCoefficientsToCepstrum_1a7dd77fe789691f28470c5fcedb10fd42"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">linear_predictive_coefficients</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">cepstrum</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk38LinearPredictiveCoefficientsToCepstrum3RunERKNSt6vectorIdEEPNSt6vectorIdEE" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk36MelCepstrumInversePowerNormalization3RunERKNSt6vectorIdEEdPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk36MelCepstrumInversePowerNormalization3RunERKNSt6vectorIdEEdPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk36MelCepstrumInversePowerNormalization3RunERKNSt6vectorIdEEdPNSt6vectorIdEE"></span><span id="sptk::MelCepstrumInversePowerNormalization::Run__std::vector:double:CR.double.std::vector:double:PC"></span><span class="target" id="classsptk_1_1MelCepstrumInversePowerNormalization_1aceeb042b9618cb1017e62e78b51a4591"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">power_normalized_mel_cepstrum</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">power</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">mel_cepstrum</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk36MelCepstrumInversePowerNormalization3RunERKNSt6vectorIdEEdPNSt6vectorIdEE" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>linear_predictive_coefficients</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M_1\)</span>-th order LPC coefficients. </p></li>
-<li><p><strong>cepstrum</strong> – <strong>[out]</strong> <span class="math notranslate nohighlight">\(M_2\)</span>-th order cepstral coefficients. </p></li>
+<li><p><strong>power_normalized_mel_cepstrum</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order power-normalized mel-cepstral coefficients. </p></li>
+<li><p><strong>power</strong> – <strong>[in]</strong> Logarithm of power. </p></li>
+<li><p><strong>mel_cepstrum</strong> – <strong>[out]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order mel-cepstral coefficients. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk36MelCepstrumInversePowerNormalization3RunEPNSt6vectorIdEEd">
+<span id="_CPPv3NK4sptk36MelCepstrumInversePowerNormalization3RunEPNSt6vectorIdEEd"></span><span id="_CPPv2NK4sptk36MelCepstrumInversePowerNormalization3RunEPNSt6vectorIdEEd"></span><span id="sptk::MelCepstrumInversePowerNormalization::Run__std::vector:double:P.doubleC"></span><span class="target" id="classsptk_1_1MelCepstrumInversePowerNormalization_1ac197eba654052adec7343e4ea5fc32b0"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_and_output</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">power</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk36MelCepstrumInversePowerNormalization3RunEPNSt6vectorIdEEd" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_and_output</strong> – <strong>[inout]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order coefficients. </p></li>
+<li><p><strong>power</strong> – <strong>[in]</strong> Logarithm of power. </p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
@@ -362,8 +358,8 @@
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="lpc.html" class="btn btn-neutral float-left" title="lpc" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="lpc2lsp.html" class="btn btn-neutral float-right" title="lpc2lsp" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="interpolate.html" class="btn btn-neutral float-left" title="interpolate" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ipqmf.html" class="btn btn-neutral float-right" title="ipqmf" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
