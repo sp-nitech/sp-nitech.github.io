@@ -42,7 +42,7 @@
     <script>DOCUMENTATION_OPTIONS.pagename = 'modules/imdct';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="imglsadf" href="imglsadf.html" />
+    <link rel="next" title="imdst" href="imdst.html" />
     <link rel="prev" title="ignorm" href="ignorm.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -314,9 +314,11 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="ifreqt2.html">ifreqt2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">imdct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imdst.html">imdst</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imglsadf.html">imglsadf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipnorm.html">ipnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="istft.html">istft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
@@ -336,6 +338,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mcpf.html">mcpf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mdct.html">mdct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mdst.html">mdst</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mgc2mgc.html">mgc2mgc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mgc2sp.html">mgc2sp</a></li>
@@ -353,6 +356,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plp.html">plp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pnorm.html">pnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pol_root.html">pol_root</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
@@ -438,7 +442,7 @@ document.write(`
 
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.InverseModifiedDiscreteCosineTransform">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">InverseModifiedDiscreteCosineTransform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sine'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/imdct.html#InverseModifiedDiscreteCosineTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.InverseModifiedDiscreteCosineTransform" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">InverseModifiedDiscreteCosineTransform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sine'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/imdct.html#InverseModifiedDiscreteCosineTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.InverseModifiedDiscreteCosineTransform" title="Link to this definition">#</a></dt>
 <dd><p>This is the opposite module to <a class="reference internal" href="mdct.html#diffsptk.ModifiedDiscreteCosineTransform" title="diffsptk.ModifiedDiscreteCosineTransform"><code class="xref py py-func docutils literal notranslate"><span class="pre">ModifiedDiscreteCosineTransform()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -508,7 +512,7 @@ document.write(`
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="unframe.html#unframe"><span class="std std-ref">unframe</span></a>  <a class="reference internal" href="window.html#window"><span class="std std-ref">window</span></a>  <a class="reference internal" href="mdct.html#mdct"><span class="std std-ref">mdct</span></a></p>
+<p><a class="reference internal" href="unframe.html#unframe"><span class="std std-ref">unframe</span></a> <a class="reference internal" href="window.html#window"><span class="std std-ref">window</span></a> <a class="reference internal" href="mdct.html#mdct"><span class="std std-ref">mdct</span></a></p>
 </div>
 </section>
 
@@ -532,11 +536,11 @@ document.write(`
       </div>
     </a>
     <a class="right-next"
-       href="imglsadf.html"
+       href="imdst.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">imglsadf</p>
+        <p class="prev-next-title">imdst</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
