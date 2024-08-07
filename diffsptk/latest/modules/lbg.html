@@ -38,6 +38,7 @@
     <script src="../_static/documentation_options.js?v=b21de401"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'modules/lbg';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -441,15 +442,15 @@ document.write(`
 
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.LindeBuzoGrayAlgorithm">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">LindeBuzoGrayAlgorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">codebook_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_data_per_cluster</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perturb_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/lbg.html#LindeBuzoGrayAlgorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LindeBuzoGrayAlgorithm" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">LindeBuzoGrayAlgorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">codebook_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">min_data_per_cluster</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">perturb_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">init</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/lbg.html#LindeBuzoGrayAlgorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LindeBuzoGrayAlgorithm" title="Link to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/lbg.html">this page</a>
 for details. This module is not differentiable.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>Order of vector.</p>
+<dt><strong>order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>Order of vector, <span class="math notranslate nohighlight">\(M\)</span>.</p>
 </dd>
-<dt><strong>codebook_size</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Target codebook size, must be power of two.</p>
+<dt><strong>codebook_size</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Target codebook size, must be power of two, <span class="math notranslate nohighlight">\(K\)</span>.</p>
 </dd>
 <dt><strong>min_data_per_cluster</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Minimum number of data points in a cluster.</p>
 </dd>
@@ -459,19 +460,25 @@ for details. This module is not differentiable.</p>
 </dd>
 <dt><strong>perturb_factor</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Perturbation factor.</p>
 </dd>
-<dt><strong>verbose</strong><span class="classifier">bool</span></dt><dd><p>If True, print progress.</p>
+<dt><strong>init</strong><span class="classifier">[‘none’, ‘mean’] or torch.Tensor [shape=(1~K, M+1)]</span></dt><dd><p>Initialization type.</p>
+</dd>
+<dt><strong>batch_size</strong><span class="classifier">int &gt;= 1 or None</span></dt><dd><p>Batch size.</p>
+</dd>
+<dt><strong>verbose</strong><span class="classifier">bool or int</span></dt><dd><p>If True, print progress.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="diffsptk.LindeBuzoGrayAlgorithm.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/lbg.html#LindeBuzoGrayAlgorithm.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LindeBuzoGrayAlgorithm.forward" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/lbg.html#LindeBuzoGrayAlgorithm.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LindeBuzoGrayAlgorithm.forward" title="Link to this definition">#</a></dt>
 <dd><p>Design a codebook.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Input vectors.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(T, M+1)] or DataLoader</span></dt><dd><p>Input vectors or dataloder yielding input vectors.</p>
+</dd>
+<dt><strong>return_indices</strong><span class="classifier">bool</span></dt><dd><p>If True, return indices.</p>
 </dd>
 </dl>
 </dd>
@@ -479,7 +486,7 @@ for details. This module is not differentiable.</p>
 <dd class="field-even"><dl class="simple">
 <dt><strong>codebook</strong><span class="classifier">Tensor [shape=(K, M+1)]</span></dt><dd><p>Codebook.</p>
 </dd>
-<dt><strong>indices</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Codebook indices.</p>
+<dt><strong>indices</strong><span class="classifier">Tensor [shape=(T,)] (optional)</span></dt><dd><p>Codebook indices.</p>
 </dd>
 <dt><strong>distance</strong><span class="classifier">Tensor [scalar]</span></dt><dd><p>Distance.</p>
 </dd>
@@ -489,7 +496,7 @@ for details. This module is not differentiable.</p>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">nrand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">lbg</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">LBG</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">codebook</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">lbg</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">codebook</span><span class="p">,</span> <span class="n">indices</span><span class="p">,</span> <span class="n">distance</span> <span class="o">=</span> <span class="n">lbg</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">return_indices</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">codebook</span>
 <span class="go">tensor([[-0.5277],</span>
 <span class="go">        [ 0.6747]])</span>
@@ -497,6 +504,36 @@ for details. This module is not differentiable.</p>
 <span class="go">tensor([0, 0, 0, 1, 0, 1, 1, 1, 1, 0])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">distance</span>
 <span class="go">tensor(0.2331)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diffsptk.LindeBuzoGrayAlgorithm.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/lbg.html#LindeBuzoGrayAlgorithm.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LindeBuzoGrayAlgorithm.transform" title="Link to this definition">#</a></dt>
+<dd><p>Transform input vectors using the codebook.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(T, M+1)]</span></dt><dd><p>Input vectors.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>xq</strong><span class="classifier">Tensor [shape=(T, M+1)]</span></dt><dd><p>Quantized vectors.</p>
+</dd>
+<dt><strong>indices</strong><span class="classifier">Tensor [shape=(T,)]</span></dt><dd><p>Codebook indices.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">lbg</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">LBG</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">torch</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">lbg</span><span class="o">.</span><span class="n">state_dict</span><span class="p">(),</span> <span class="s2">&quot;lbg.pt&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">lbg</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">&quot;lbg.pt&quot;</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">nrand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">xq</span><span class="p">,</span> <span class="n">indices</span> <span class="o">=</span> <span class="n">lbg</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -558,6 +595,7 @@ for details. This module is not differentiable.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.LBG"><code class="docutils literal notranslate"><span class="pre">LBG</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.LindeBuzoGrayAlgorithm"><code class="docutils literal notranslate"><span class="pre">LindeBuzoGrayAlgorithm</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.LindeBuzoGrayAlgorithm.forward"><code class="docutils literal notranslate"><span class="pre">LindeBuzoGrayAlgorithm.forward()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.LindeBuzoGrayAlgorithm.transform"><code class="docutils literal notranslate"><span class="pre">LindeBuzoGrayAlgorithm.transform()</span></code></a></li>
 </ul>
 </li>
 </ul>
