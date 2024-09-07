@@ -442,7 +442,7 @@ document.write(`
 
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.GaussianMixtureModeling">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">GaussianMixtureModeling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_mixture</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_floor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_floor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'diag'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ubm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/gmm.html#GaussianMixtureModeling"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.GaussianMixtureModeling" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">GaussianMixtureModeling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_mixture</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_floor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_floor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">var_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'diag'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">block_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ubm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/gmm.html#GaussianMixtureModeling"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.GaussianMixtureModeling" title="Link to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/gmm.html">this page</a>
 for details. This module is not differentiable.</p>
 <dl class="field-list simple">
@@ -470,7 +470,7 @@ for details. This module is not differentiable.</p>
 </dd>
 <dt><strong>batch_size</strong><span class="classifier">int &gt;= 1 or None</span></dt><dd><p>Batch size.</p>
 </dd>
-<dt><strong>verbose</strong><span class="classifier">bool</span></dt><dd><p>If True, print progress.</p>
+<dt><strong>verbose</strong><span class="classifier">bool</span></dt><dd><p>If 1, show distance at each iteration; if 2, show progress bar.</p>
 </dd>
 </dl>
 </dd>
@@ -528,6 +528,30 @@ for details. This module is not differentiable.</p>
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>params</strong><span class="classifier">tuple of Tensors [shape=((K,), (K, M+1), (K, M+1, M+1))]</span></dt><dd><p>Parameters of Gaussian mixture model.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diffsptk.GaussianMixtureModeling.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/gmm.html#GaussianMixtureModeling.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.GaussianMixtureModeling.transform" title="Link to this definition">#</a></dt>
+<dd><p>Transform input vectors based on a single mixture sequence.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(T, N+1)]</span></dt><dd><p>Input vectors.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(T, M-N)]</span></dt><dd><p>Output vectors.</p>
+</dd>
+<dt><strong>indices</strong><span class="classifier">Tensor [shape=(T,)]</span></dt><dd><p>Selected mixture indices.</p>
+</dd>
+<dt><strong>log_prob</strong><span class="classifier">Tensor [shape=(T,)]</span></dt><dd><p>Log probabilities.</p>
 </dd>
 </dl>
 </dd>
@@ -614,6 +638,7 @@ for details. This module is not differentiable.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.GaussianMixtureModeling"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.GaussianMixtureModeling.forward"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling.forward()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.GaussianMixtureModeling.set_params"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling.set_params()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.GaussianMixtureModeling.transform"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling.transform()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.GaussianMixtureModeling.warmup"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling.warmup()</span></code></a></li>
 </ul>
 </li>
