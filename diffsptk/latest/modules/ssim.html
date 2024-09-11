@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>lsp2lpc &#8212; diffsptk 2.2.0 documentation</title>
+    <title>ssim &#8212; diffsptk 2.2.0 documentation</title>
   
   
   
@@ -38,12 +38,11 @@
     <script src="../_static/documentation_options.js?v=b21de401"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/lsp2lpc';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/ssim';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="lsp2sp" href="lsp2sp.html" />
-    <link rel="prev" title="lpccheck" href="lpccheck.html" />
+    <link rel="next" title="stft" href="stft.html" />
+    <link rel="prev" title="spec" href="spec.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -331,7 +330,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="lpc2lsp.html">lpc2lsp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpccheck.html">lpccheck</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">lsp2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lsp2lpc.html">lsp2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lsp2sp.html">lsp2sp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lspcheck.html">lspcheck</a></li>
 <li class="toctree-l1"><a class="reference internal" href="magic_intpl.html">magic_intpl</a></li>
@@ -367,7 +366,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="smcep.html">smcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="snr.html">snr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="spec.html">spec</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ssim.html">ssim</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">ssim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stft.html">stft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unframe.html">unframe</a></li>
@@ -416,7 +415,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">diffsptk.modules</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">lsp2lpc</li>
+    <li class="breadcrumb-item active" aria-current="page">ssim</li>
   </ul>
 </nav>
 </div>
@@ -433,47 +432,79 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="lsp2lpc">
-<span id="id1"></span><h1>lsp2lpc<a class="headerlink" href="#lsp2lpc" title="Link to this heading">#</a></h1>
+  <section id="ssim">
+<span id="id1"></span><h1>ssim<a class="headerlink" href="#ssim" title="Link to this heading">#</a></h1>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diffsptk.SSIM">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">SSIM</span></span><a class="headerlink" href="#diffsptk.SSIM" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="#diffsptk.StructuralSimilarityIndex" title="diffsptk.modules.ssim.StructuralSimilarityIndex"><code class="xref py py-class docutils literal notranslate"><span class="pre">StructuralSimilarityIndex</span></code></a></p>
+</dd></dl>
+
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.LineSpectralPairsToLinearPredictiveCoefficients">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">LineSpectralPairsToLinearPredictiveCoefficients</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">lpc_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/lsp2lpc.html#LineSpectralPairsToLinearPredictiveCoefficients"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LineSpectralPairsToLinearPredictiveCoefficients" title="Link to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/lsp2lpc.html">this page</a>
-for details.</p>
+<dt class="sig sig-object py" id="diffsptk.StructuralSimilarityIndex">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">StructuralSimilarityIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reduction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">11</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.03</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'same'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dynamic_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/ssim.html#StructuralSimilarityIndex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.StructuralSimilarityIndex" title="Link to this definition">#</a></dt>
+<dd><p>Structural similarity index computation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>lpc_order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>Order of LPC, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<dt><strong>reduction</strong><span class="classifier">[‘none’, ‘mean’, ‘sum’]</span></dt><dd><p>Reduction type.</p>
 </dd>
-<dt><strong>log_gain</strong><span class="classifier">bool</span></dt><dd><p>If True, assume input gain is in log scale.</p>
+<dt><strong>alpha</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Relative importance of luminance component.</p>
+</dd>
+<dt><strong>beta</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Relative importance of contrast component.</p>
+</dd>
+<dt><strong>gamma</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Relative importance of structure component.</p>
+</dd>
+<dt><strong>kernel_size</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Kernel size of Gaussian filter.</p>
+</dd>
+<dt><strong>sigma</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Standard deviation of Gaussian filter.</p>
+</dd>
+<dt><strong>k1</strong><span class="classifier">float &gt; 0</span></dt><dd><p>A small constant.</p>
+</dd>
+<dt><strong>k2</strong><span class="classifier">float &gt; 0</span></dt><dd><p>A small constant.</p>
+</dd>
+<dt><strong>eps</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>A small value to prevent NaN.</p>
+</dd>
+<dt><strong>padding</strong><span class="classifier">[‘valid’, ‘same’]</span></dt><dd><p>Padding type.</p>
+</dd>
+<dt><strong>dynamic_range</strong><span class="classifier">float &gt; 0 or None</span></dt><dd><p>Dynamic range of input. If None, input is automatically normalized.</p>
 </dd>
 </dl>
+</dd>
+</dl>
+<p class="rubric">References</p>
+<dl class="simple">
+<dt>[1] Z. Wang et al., “Image quality assessment: From error visibility to structural</dt><dd><p>similarity,” <em>IEEE Transactions on Image Processing</em>, vol. 13, no. 4, pp.
+600-612, 2004.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.LineSpectralPairsToLinearPredictiveCoefficients.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/lsp2lpc.html#LineSpectralPairsToLinearPredictiveCoefficients.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LineSpectralPairsToLinearPredictiveCoefficients.forward" title="Link to this definition">#</a></dt>
-<dd><p>Convert LSP to LPC.</p>
+<dt class="sig sig-object py" id="diffsptk.StructuralSimilarityIndex.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/ssim.html#StructuralSimilarityIndex.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.StructuralSimilarityIndex.forward" title="Link to this definition">#</a></dt>
+<dd><p>Calculate SSIM.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>w</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>LSP frequencies in radians.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, N, D)]</span></dt><dd><p>Input.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, N, D)]</span></dt><dd><p>Target.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>LPC coefficients.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, N, D) or scalar]</span></dt><dd><p>SSIM or mean SSIM.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">w</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">lsp2lpc</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">LineSpectralPairsToLinearPredictiveCoefficients</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">lsp2lpc</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span>
-<span class="go">tensor([ 0.0000,  0.8658, -0.0698,  0.0335])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">nrand</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">nrand</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ssim</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">StructuralSimilarityIndex</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">ssim</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
+<span class="go">tensor(0.0588)</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -481,21 +512,43 @@ for details.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="diffsptk.functional.lsp2lpc">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">lsp2lpc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">w</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">log_gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/functional.html#lsp2lpc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.lsp2lpc" title="Link to this definition">#</a></dt>
-<dd><p>Convert LSP to LPC.</p>
+<dt class="sig sig-object py" id="diffsptk.functional.ssim">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">ssim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">11</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.03</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'same'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dynamic_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/functional.html#ssim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.ssim" title="Link to this definition">#</a></dt>
+<dd><p>Calculate SSIM.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>w</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>LSP frequencies in radians.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, N, D)]</span></dt><dd><p>Input.</p>
 </dd>
-<dt><strong>log_gain</strong><span class="classifier">bool</span></dt><dd><p>If True, assume input gain is in log scale.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, N, D)]</span></dt><dd><p>Target.</p>
+</dd>
+<dt><strong>reduction</strong><span class="classifier">[‘none’, ‘mean’, ‘sum’]</span></dt><dd><p>Reduction type.</p>
+</dd>
+<dt><strong>alpha</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Relative importance of luminance component.</p>
+</dd>
+<dt><strong>beta</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Relative importance of contrast component.</p>
+</dd>
+<dt><strong>gamma</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Relative importance of structure component.</p>
+</dd>
+<dt><strong>kernel_size</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Kernel size of Gaussian filter.</p>
+</dd>
+<dt><strong>sigma</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Standard deviation of Gaussian filter.</p>
+</dd>
+<dt><strong>k1</strong><span class="classifier">float &gt; 0</span></dt><dd><p>A small constant.</p>
+</dd>
+<dt><strong>k2</strong><span class="classifier">float &gt; 0</span></dt><dd><p>A small constant.</p>
+</dd>
+<dt><strong>eps</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>A small value to prevent NaN.</p>
+</dd>
+<dt><strong>padding</strong><span class="classifier">[‘valid’, ‘same’]</span></dt><dd><p>Padding type.</p>
+</dd>
+<dt><strong>dynamic_range</strong><span class="classifier">float &gt; 0 or None</span></dt><dd><p>Dynamic range of input. If None, input is automatically normalized.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>LPC coefficients.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, N, D) or scalar]</span></dt><dd><p>SSIM or mean SSIM.</p>
 </dd>
 </dl>
 </dd>
@@ -504,7 +557,7 @@ for details.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="lpc.html#lpc"><span class="std std-ref">lpc</span></a> <a class="reference internal" href="lpc2lsp.html#lpc2lsp"><span class="std std-ref">lpc2lsp</span></a></p>
+<p><a class="reference internal" href="rmse.html#rmse"><span class="std std-ref">rmse</span></a></p>
 </div>
 </section>
 
@@ -519,20 +572,20 @@ for details.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="lpccheck.html"
+       href="spec.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">lpccheck</p>
+        <p class="prev-next-title">spec</p>
       </div>
     </a>
     <a class="right-next"
-       href="lsp2sp.html"
+       href="stft.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">lsp2sp</p>
+        <p class="prev-next-title">stft</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -554,18 +607,19 @@ for details.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.LineSpectralPairsToLinearPredictiveCoefficients"><code class="docutils literal notranslate"><span class="pre">LineSpectralPairsToLinearPredictiveCoefficients</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.LineSpectralPairsToLinearPredictiveCoefficients.forward"><code class="docutils literal notranslate"><span class="pre">LineSpectralPairsToLinearPredictiveCoefficients.forward()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.SSIM"><code class="docutils literal notranslate"><span class="pre">SSIM</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.StructuralSimilarityIndex"><code class="docutils literal notranslate"><span class="pre">StructuralSimilarityIndex</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.StructuralSimilarityIndex.forward"><code class="docutils literal notranslate"><span class="pre">StructuralSimilarityIndex.forward()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.lsp2lpc"><code class="docutils literal notranslate"><span class="pre">lsp2lpc()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.ssim"><code class="docutils literal notranslate"><span class="pre">ssim()</span></code></a></li>
 </ul>
   </nav></div>
 
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../_sources/modules/lsp2lpc.rst.txt">
+    <a href="../_sources/modules/ssim.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
