@@ -603,7 +603,7 @@ document.write(`
 
 <div class="viewcode-block" id="dct">
 <a class="viewcode-back" href="../../modules/dct.html#diffsptk.functional.dct">[docs]</a>
-<span class="k">def</span> <span class="nf">dct</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">dct</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dct_type</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute DCT.</span>
 
 <span class="sd">    Parameters</span>
@@ -611,13 +611,16 @@ document.write(`
 <span class="sd">    x : Tensor [shape=(..., L)]</span>
 <span class="sd">        Input signal.</span>
 
+<span class="sd">    dct_type : int in [1, 4]</span>
+<span class="sd">        DCT type.</span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    out : Tensor [shape=(..., L)]</span>
 <span class="sd">        DCT output.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">DiscreteCosineTransform</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">DiscreteCosineTransform</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dct_type</span><span class="o">=</span><span class="n">dct_type</span><span class="p">)</span></div>
 
 
 
@@ -762,6 +765,29 @@ document.write(`
 
 
 
+<div class="viewcode-block" id="dht">
+<a class="viewcode-back" href="../../modules/dht.html#diffsptk.functional.dht">[docs]</a>
+<span class="k">def</span> <span class="nf">dht</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dht_type</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute DHT.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : Tensor [shape=(..., L)]</span>
+<span class="sd">        Input signal.</span>
+
+<span class="sd">    dht_type : int in [1, 4]</span>
+<span class="sd">        DHT type.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out : Tensor [shape=(..., L)]</span>
+<span class="sd">        DHT output.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">DiscreteHartleyTransform</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dht_type</span><span class="o">=</span><span class="n">dht_type</span><span class="p">)</span></div>
+
+
+
 <div class="viewcode-block" id="drc">
 <a class="viewcode-back" href="../../modules/drc.html#diffsptk.functional.drc">[docs]</a>
 <span class="k">def</span> <span class="nf">drc</span><span class="p">(</span>
@@ -823,7 +849,7 @@ document.write(`
 
 <div class="viewcode-block" id="dst">
 <a class="viewcode-back" href="../../modules/dst.html#diffsptk.functional.dst">[docs]</a>
-<span class="k">def</span> <span class="nf">dst</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">dst</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dst_type</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute DST.</span>
 
 <span class="sd">    Parameters</span>
@@ -831,13 +857,16 @@ document.write(`
 <span class="sd">    x : Tensor [shape=(..., L)]</span>
 <span class="sd">        Input signal.</span>
 
+<span class="sd">    dst_type : int in [1, 4]</span>
+<span class="sd">        DST type.</span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    out : Tensor [shape=(..., L)]</span>
 <span class="sd">        DST output.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">DiscreteSineTransform</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">DiscreteSineTransform</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dst_type</span><span class="o">=</span><span class="n">dst_type</span><span class="p">)</span></div>
 
 
 
@@ -1208,7 +1237,7 @@ document.write(`
 
 <div class="viewcode-block" id="idct">
 <a class="viewcode-back" href="../../modules/idct.html#diffsptk.functional.idct">[docs]</a>
-<span class="k">def</span> <span class="nf">idct</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">idct</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">dct_type</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute inverse DCT.</span>
 
 <span class="sd">    Parameters</span>
@@ -1216,19 +1245,45 @@ document.write(`
 <span class="sd">    y : Tensor [shape=(..., L)]</span>
 <span class="sd">        Input.</span>
 
+<span class="sd">    dct_type : int in [1, 4]</span>
+<span class="sd">        DCT type.</span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    out : Tensor [shape=(..., L)]</span>
 <span class="sd">        Inverse DCT output.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">InverseDiscreteCosineTransform</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">y</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">InverseDiscreteCosineTransform</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">dct_type</span><span class="o">=</span><span class="n">dct_type</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="idht">
+<a class="viewcode-back" href="../../modules/idht.html#diffsptk.functional.idht">[docs]</a>
+<span class="k">def</span> <span class="nf">idht</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">dht_type</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute inverse DHT.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : Tensor [shape=(..., L)]</span>
+<span class="sd">        Input.</span>
+
+<span class="sd">    dht_type : int in [1, 4]</span>
+<span class="sd">        DHT type.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out : Tensor [shape=(..., L)]</span>
+<span class="sd">        Inverse DHT output.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">InverseDiscreteHartleyTransform</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">dht_type</span><span class="o">=</span><span class="n">dht_type</span><span class="p">)</span></div>
 
 
 
 <div class="viewcode-block" id="idst">
 <a class="viewcode-back" href="../../modules/idst.html#diffsptk.functional.idst">[docs]</a>
-<span class="k">def</span> <span class="nf">idst</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+<span class="k">def</span> <span class="nf">idst</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">dst_type</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute inverse DST.</span>
 
 <span class="sd">    Parameters</span>
@@ -1236,13 +1291,16 @@ document.write(`
 <span class="sd">    y : Tensor [shape=(..., L)]</span>
 <span class="sd">        Input.</span>
 
+<span class="sd">    dst_type : int in [1, 4]</span>
+<span class="sd">        DST type.</span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    out : Tensor [shape=(..., L)]</span>
 <span class="sd">        Inverse DST output.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">InverseDiscreteSineTransform</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">y</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">InverseDiscreteSineTransform</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">dst_type</span><span class="o">=</span><span class="n">dst_type</span><span class="p">)</span></div>
 
 
 

@@ -350,15 +350,19 @@ document.write(`
 <span class="sd">    dct_length : int &gt;= 1</span>
 <span class="sd">        DCT length, :math:`L`.</span>
 
+<span class="sd">    dct_type : int in [1, 4]</span>
+<span class="sd">        DCT type.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dct_length</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dct_length</span><span class="p">,</span> <span class="n">dct_type</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">dct_length</span>
+        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">dct_type</span> <span class="o">&lt;=</span> <span class="mi">4</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">dct_length</span> <span class="o">=</span> <span class="n">dct_length</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dct_length</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;W&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="n">dct_length</span><span class="p">,</span> <span class="n">dct_type</span><span class="p">))</span>
 
 <div class="viewcode-block" id="InverseDiscreteCosineTransform.forward">
 <a class="viewcode-back" href="../../../modules/idct.html#diffsptk.InverseDiscreteCosineTransform.forward">[docs]</a>
@@ -394,15 +398,18 @@ document.write(`
         <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_func</span><span class="p">(</span><span class="n">y</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_func</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">dct_type</span><span class="p">):</span>
         <span class="n">W</span> <span class="o">=</span> <span class="n">InverseDiscreteCosineTransform</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span>
-            <span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">y</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">y</span><span class="o">.</span><span class="n">device</span>
+            <span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">dct_type</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">y</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">y</span><span class="o">.</span><span class="n">device</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">InverseDiscreteCosineTransform</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">W</span><span class="p">)</span>
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_precompute</span><span class="p">(</span><span class="n">dct_length</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">DCT</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="n">dct_length</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">T</span></div>
+    <span class="k">def</span> <span class="nf">_precompute</span><span class="p">(</span><span class="n">dct_length</span><span class="p">,</span> <span class="n">dct_type</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">type2type</span> <span class="o">=</span> <span class="p">{</span><span class="mi">1</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">:</span> <span class="mi">4</span><span class="p">}</span>
+        <span class="k">return</span> <span class="n">DCT</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span>
+            <span class="n">dct_length</span><span class="p">,</span> <span class="n">type2type</span><span class="p">[</span><span class="n">dct_type</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span>
+        <span class="p">)</span></div>
 
 </pre></div>
 
