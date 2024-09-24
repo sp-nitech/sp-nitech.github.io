@@ -1166,6 +1166,60 @@ document.write(`
 
 
 
+<div class="viewcode-block" id="hilbert">
+<a class="viewcode-back" href="../../modules/hilbert.html#diffsptk.functional.hilbert">[docs]</a>
+<span class="k">def</span> <span class="nf">hilbert</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fft_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute analytic signal using the Hilbert transform.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : Tensor [shape=(..., T, ...)]</span>
+<span class="sd">        Input signal.</span>
+
+<span class="sd">    fft_length : int &gt;= 1 or None</span>
+<span class="sd">        Number of FFT bins. If None, set to :math:`T`.</span>
+
+<span class="sd">    dim : int</span>
+<span class="sd">        Dimension along which to take the Hilbert transform.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out : Tensor [shape=(..., T, ...)]</span>
+<span class="sd">        Analytic signal, where real part is the input signal and imaginary part is</span>
+<span class="sd">        the Hilbert transform of the input signal.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">HilbertTransform</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fft_length</span><span class="o">=</span><span class="n">fft_length</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="hilbert2">
+<a class="viewcode-back" href="../../modules/hilbert2.html#diffsptk.functional.hilbert2">[docs]</a>
+<span class="k">def</span> <span class="nf">hilbert2</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fft_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute analytic signal using the Hilbert transform.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : Tensor [shape=(..., T1, T2, ...)]</span>
+<span class="sd">        Input signal.</span>
+
+<span class="sd">    fft_length : int, list[int], or None</span>
+<span class="sd">        Number of FFT bins. If None, set to (:math:`T1`, :math:`T2`).</span>
+
+<span class="sd">    dim : list[int]</span>
+<span class="sd">        Dimensions along which to take the Hilbert transform.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out : Tensor [shape=(..., T1, T2, ...)]</span>
+<span class="sd">        Analytic signal, where real part is the input signal and imaginary part is</span>
+<span class="sd">        the Hilbert transform of the input signal.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">TwoDimensionalHilbertTransform</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fft_length</span><span class="o">=</span><span class="n">fft_length</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span></div>
+
+
+
 <div class="viewcode-block" id="histogram">
 <a class="viewcode-back" href="../../modules/histogram.html#diffsptk.functional.histogram">[docs]</a>
 <span class="k">def</span> <span class="nf">histogram</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n_bin</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">lower_bound</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">upper_bound</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">softness</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">):</span>

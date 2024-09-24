@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>entropy &#8212; diffsptk 2.2.0 documentation</title>
+    <title>hilbert &#8212; diffsptk 2.2.0 documentation</title>
   
   
   
@@ -38,11 +38,12 @@
     <script src="../_static/documentation_options.js?v=b21de401"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/entropy';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/hilbert';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="excite" href="excite.html" />
-    <link rel="prev" title="dst" href="dst.html" />
+    <link rel="next" title="hilbert2" href="hilbert2.html" />
+    <link rel="prev" title="grpdelay" href="grpdelay.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -296,7 +297,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="dht.html">dht</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drc.html">drc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dst.html">dst</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
@@ -306,7 +307,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="gmm.html">gmm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
-<li class="toctree-l1"><a class="reference internal" href="hilbert.html">hilbert</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">hilbert</a></li>
 <li class="toctree-l1"><a class="reference internal" href="hilbert2.html">hilbert2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="histogram.html">histogram</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ialaw.html">ialaw</a></li>
@@ -419,7 +420,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">diffsptk.modules</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">entropy</li>
+    <li class="breadcrumb-item active" aria-current="page">hilbert</li>
   </ul>
 </nav>
 </div>
@@ -436,47 +437,51 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="entropy">
-<span id="id1"></span><h1>entropy<a class="headerlink" href="#entropy" title="Link to this heading">#</a></h1>
+  <section id="hilbert">
+<span id="id1"></span><h1>hilbert<a class="headerlink" href="#hilbert" title="Link to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.Entropy">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">Entropy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'nat'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/entropy.html#Entropy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Entropy" title="Link to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/entropy.html">this page</a>
-for details.</p>
+<dt class="sig sig-object py" id="diffsptk.HilbertTransform">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">HilbertTransform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/hilbert.html#HilbertTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.HilbertTransform" title="Link to this definition">#</a></dt>
+<dd><p>Hilbert transform module.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>out_format</strong><span class="classifier">[‘bit’, ‘nat’, ‘dit’]</span></dt><dd><p>Unit of entropy.</p>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Number of FFT bins, should be <span class="math notranslate nohighlight">\(T\)</span>.</p>
+</dd>
+<dt><strong>dim</strong><span class="classifier">int</span></dt><dd><p>Dimension along which to take the Hilbert transform.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.Entropy.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/entropy.html#Entropy.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Entropy.forward" title="Link to this definition">#</a></dt>
-<dd><p>Compute entropy from probability sequence.</p>
+<dt class="sig sig-object py" id="diffsptk.HilbertTransform.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/hilbert.html#HilbertTransform.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.HilbertTransform.forward" title="Link to this definition">#</a></dt>
+<dd><p>Compute analytic signal using the Hilbert transform.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>p</strong><span class="classifier">Tensor [shape=(…, N)]</span></dt><dd><p>Probability sequence.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T, …)]</span></dt><dd><p>Input signal.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Entropy.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, T, …)]</span></dt><dd><p>Analytic signal, where real part is the input signal and imaginary part is
+the Hilbert transform of the input signal.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span>
-<span class="go">tensor([0.2500, 0.2500, 0.2500, 0.2500])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">entropy</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Entropy</span><span class="p">(</span><span class="s2">&quot;bit&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">entropy</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span>
-<span class="go">tensor(2.)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">nrand</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">tensor([ 1.1809, -0.2834, -0.4169,  0.3883])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">hilbert</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">HilbertTransform</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span> <span class="o">=</span> <span class="n">hilbert</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span><span class="o">.</span><span class="n">real</span>
+<span class="go">tensor([ 1.1809, -0.2834, -0.4169,  0.3883])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">z</span><span class="o">.</span><span class="n">imag</span>
+<span class="go">tensor([ 0.3358,  0.7989, -0.3358, -0.7989])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -484,21 +489,24 @@ for details.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="diffsptk.functional.entropy">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">entropy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'nat'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/functional.html#entropy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.entropy" title="Link to this definition">#</a></dt>
-<dd><p>Calculate entropy.</p>
+<dt class="sig sig-object py" id="diffsptk.functional.hilbert">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">hilbert</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/functional.html#hilbert"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.hilbert" title="Link to this definition">#</a></dt>
+<dd><p>Compute analytic signal using the Hilbert transform.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>p</strong><span class="classifier">Tensor [shape=(…, N)]</span></dt><dd><p>Probability.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T, …)]</span></dt><dd><p>Input signal.</p>
 </dd>
-<dt><strong>out_format</strong><span class="classifier">[‘bit’, ‘nat’, ‘dit’]</span></dt><dd><p>Output format.</p>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= 1 or None</span></dt><dd><p>Number of FFT bins. If None, set to <span class="math notranslate nohighlight">\(T\)</span>.</p>
+</dd>
+<dt><strong>dim</strong><span class="classifier">int</span></dt><dd><p>Dimension along which to take the Hilbert transform.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Entropy.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, T, …)]</span></dt><dd><p>Analytic signal, where real part is the input signal and imaginary part is
+the Hilbert transform of the input signal.</p>
 </dd>
 </dl>
 </dd>
@@ -507,7 +515,7 @@ for details.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="histogram.html#histogram"><span class="std std-ref">histogram</span></a></p>
+<p><a class="reference internal" href="hilbert2.html#hilbert2"><span class="std std-ref">hilbert2</span></a></p>
 </div>
 </section>
 
@@ -522,20 +530,20 @@ for details.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="dst.html"
+       href="grpdelay.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">dst</p>
+        <p class="prev-next-title">grpdelay</p>
       </div>
     </a>
     <a class="right-next"
-       href="excite.html"
+       href="hilbert2.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">excite</p>
+        <p class="prev-next-title">hilbert2</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -557,18 +565,18 @@ for details.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.Entropy"><code class="docutils literal notranslate"><span class="pre">Entropy</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.Entropy.forward"><code class="docutils literal notranslate"><span class="pre">Entropy.forward()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.HilbertTransform"><code class="docutils literal notranslate"><span class="pre">HilbertTransform</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.HilbertTransform.forward"><code class="docutils literal notranslate"><span class="pre">HilbertTransform.forward()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.entropy"><code class="docutils literal notranslate"><span class="pre">entropy()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.hilbert"><code class="docutils literal notranslate"><span class="pre">hilbert()</span></code></a></li>
 </ul>
   </nav></div>
 
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../_sources/modules/entropy.rst.txt">
+    <a href="../_sources/modules/hilbert.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
