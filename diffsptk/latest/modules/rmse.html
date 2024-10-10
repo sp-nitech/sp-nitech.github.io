@@ -300,6 +300,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flux.html">flux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
 <li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="freqt2.html">freqt2</a></li>
@@ -370,7 +371,6 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="smcep.html">smcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="snr.html">snr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="spec.html">spec</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ssim.html">ssim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stft.html">stft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unframe.html">unframe</a></li>
@@ -446,15 +446,13 @@ document.write(`
 
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.RootMeanSquareError">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">RootMeanSquareError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reduction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/rmse.html#RootMeanSquareError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.RootMeanSquareError" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">RootMeanSquareError</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reduction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/rmse.html#RootMeanSquareError"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.RootMeanSquareError" title="Link to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/rmse.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>reduction</strong><span class="classifier">[‘none’, ‘mean’, ‘sum’]</span></dt><dd><p>Reduction type.</p>
-</dd>
-<dt><strong>eps</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>A small value to prevent NaN.</p>
 </dd>
 </dl>
 </dd>
@@ -466,9 +464,9 @@ for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Input.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, D)]</span></dt><dd><p>Input.</p>
 </dd>
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Target.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, D)]</span></dt><dd><p>Target.</p>
 </dd>
 </dl>
 </dd>
@@ -498,18 +496,16 @@ for details.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="diffsptk.functional.rmse">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">rmse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/functional.html#rmse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.rmse" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">rmse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/functional.html#rmse"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.rmse" title="Link to this definition">#</a></dt>
 <dd><p>Calculate RMSE.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Input.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, D)]</span></dt><dd><p>Input.</p>
 </dd>
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Target.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, D)]</span></dt><dd><p>Target.</p>
 </dd>
 <dt><strong>reduction</strong><span class="classifier">[‘none’, ‘mean’, ‘sum’]</span></dt><dd><p>Reduction type.</p>
-</dd>
-<dt><strong>eps</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>A small value to prevent NaN.</p>
 </dd>
 </dl>
 </dd>

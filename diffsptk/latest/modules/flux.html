@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>ssim &#8212; diffsptk 2.2.0 documentation</title>
+    <title>flux &#8212; diffsptk 2.2.0 documentation</title>
   
   
   
@@ -38,11 +38,11 @@
     <script src="../_static/documentation_options.js?v=b21de401"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/ssim';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/flux';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="stft" href="stft.html" />
-    <link rel="prev" title="spec" href="spec.html" />
+    <link rel="next" title="frame" href="frame.html" />
+    <link rel="prev" title="fftcep" href="fftcep.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -300,6 +300,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">flux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
 <li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="freqt2.html">freqt2</a></li>
@@ -370,7 +371,6 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="smcep.html">smcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="snr.html">snr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="spec.html">spec</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">ssim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stft.html">stft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unframe.html">unframe</a></li>
@@ -419,7 +419,7 @@ document.write(`
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">diffsptk.modules</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page">ssim</li>
+    <li class="breadcrumb-item active" aria-current="page">flux</li>
   </ul>
 </nav>
 </div>
@@ -436,82 +436,52 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="ssim">
-<span id="id1"></span><h1>ssim<a class="headerlink" href="#ssim" title="Link to this heading">#</a></h1>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="diffsptk.SSIM">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">SSIM</span></span><a class="headerlink" href="#diffsptk.SSIM" title="Link to this definition">#</a></dt>
-<dd><p>alias of <a class="reference internal" href="#diffsptk.StructuralSimilarityIndex" title="diffsptk.modules.ssim.StructuralSimilarityIndex"><code class="xref py py-class docutils literal notranslate"><span class="pre">StructuralSimilarityIndex</span></code></a></p>
-</dd></dl>
-
+  <section id="flux">
+<span id="id1"></span><h1>flux<a class="headerlink" href="#flux" title="Link to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.StructuralSimilarityIndex">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">StructuralSimilarityIndex</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reduction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">11</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.03</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'same'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dynamic_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/ssim.html#StructuralSimilarityIndex"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.StructuralSimilarityIndex" title="Link to this definition">#</a></dt>
-<dd><p>Structural similarity index computation.</p>
+<dt class="sig sig-object py" id="diffsptk.Flux">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">Flux</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reduction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/flux.html#Flux"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Flux" title="Link to this definition">#</a></dt>
+<dd><p>Flux calculation module.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>reduction</strong><span class="classifier">[‘none’, ‘mean’, ‘sum’]</span></dt><dd><p>Reduction type.</p>
+<dt><strong>reduction</strong><span class="classifier">[‘none’, ‘mean’, ‘batchmean’, ‘sum’]</span></dt><dd><p>Reduction type.</p>
 </dd>
-<dt><strong>alpha</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Relative importance of luminance component.</p>
-</dd>
-<dt><strong>beta</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Relative importance of contrast component.</p>
-</dd>
-<dt><strong>gamma</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Relative importance of structure component.</p>
-</dd>
-<dt><strong>kernel_size</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Kernel size of Gaussian filter.</p>
-</dd>
-<dt><strong>sigma</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Standard deviation of Gaussian filter.</p>
-</dd>
-<dt><strong>k1</strong><span class="classifier">float &gt; 0</span></dt><dd><p>A small constant.</p>
-</dd>
-<dt><strong>k2</strong><span class="classifier">float &gt; 0</span></dt><dd><p>A small constant.</p>
-</dd>
-<dt><strong>eps</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>A small value to prevent NaN.</p>
-</dd>
-<dt><strong>padding</strong><span class="classifier">[‘valid’, ‘same’]</span></dt><dd><p>Padding type.</p>
-</dd>
-<dt><strong>dynamic_range</strong><span class="classifier">float &gt; 0 or None</span></dt><dd><p>Dynamic range of input. If None, input is automatically normalized.</p>
+<dt><strong>norm</strong><span class="classifier">int or float</span></dt><dd><p>Order of norm.</p>
 </dd>
 </dl>
 </dd>
 </dl>
-<p class="rubric">References</p>
-<div role="list" class="citation-list">
-<div class="citation" id="r5332a28eccbf-1" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
-<p>Z. Wang et al., “Image quality assessment: From error visibility to
-structural similarity,” <em>IEEE Transactions on Image Processing</em>, vol. 13,
-no. 4, pp. 600-612, 2004.</p>
-</div>
-</div>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.StructuralSimilarityIndex.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/ssim.html#StructuralSimilarityIndex.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.StructuralSimilarityIndex.forward" title="Link to this definition">#</a></dt>
-<dd><p>Calculate SSIM.</p>
+<dt class="sig sig-object py" id="diffsptk.Flux.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/flux.html#Flux.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Flux.forward" title="Link to this definition">#</a></dt>
+<dd><p>Calculate flux, which is the distance between adjacent frames.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">Tensor [shape=(…, N, D)]</span></dt><dd><p>Input.</p>
 </dd>
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, N, D)]</span></dt><dd><p>Target.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, N, D)] or None</span></dt><dd><p>Target (optional).</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, N, D) or scalar]</span></dt><dd><p>SSIM or mean SSIM.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, N-1) or scalar]</span></dt><dd><p>Flux.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">nrand</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">nrand</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ssim</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">StructuralSimilarityIndex</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span> <span class="o">=</span> <span class="n">ssim</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
-<span class="go">tensor(0.0588)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
+<span class="go">tensor([[0., 1.],</span>
+<span class="go">        [2., 3.],</span>
+<span class="go">        [4., 5.]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">flux</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Flux</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">flux</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span>
+<span class="go">tensor([4., 4.])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -519,43 +489,25 @@ no. 4, pp. 600-612, 2004.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="diffsptk.functional.ssim">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">ssim</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">11</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sigma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.01</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">k2</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.03</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">padding</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'same'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dynamic_range</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/functional.html#ssim"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.ssim" title="Link to this definition">#</a></dt>
-<dd><p>Calculate SSIM.</p>
+<dt class="sig sig-object py" id="diffsptk.functional.flux">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">flux</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/functional.html#flux"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.flux" title="Link to this definition">#</a></dt>
+<dd><p>Calculate flux.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">Tensor [shape=(…, N, D)]</span></dt><dd><p>Input.</p>
 </dd>
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, N, D)]</span></dt><dd><p>Target.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, N, D)] or None</span></dt><dd><p>Target (optional).</p>
 </dd>
-<dt><strong>reduction</strong><span class="classifier">[‘none’, ‘mean’, ‘sum’]</span></dt><dd><p>Reduction type.</p>
+<dt><strong>reduction</strong><span class="classifier">[‘none’, ‘mean’, ‘batchmean’, ‘sum’]</span></dt><dd><p>Reduction type.</p>
 </dd>
-<dt><strong>alpha</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Relative importance of luminance component.</p>
-</dd>
-<dt><strong>beta</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Relative importance of contrast component.</p>
-</dd>
-<dt><strong>gamma</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Relative importance of structure component.</p>
-</dd>
-<dt><strong>kernel_size</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Kernel size of Gaussian filter.</p>
-</dd>
-<dt><strong>sigma</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Standard deviation of Gaussian filter.</p>
-</dd>
-<dt><strong>k1</strong><span class="classifier">float &gt; 0</span></dt><dd><p>A small constant.</p>
-</dd>
-<dt><strong>k2</strong><span class="classifier">float &gt; 0</span></dt><dd><p>A small constant.</p>
-</dd>
-<dt><strong>eps</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>A small value to prevent NaN.</p>
-</dd>
-<dt><strong>padding</strong><span class="classifier">[‘valid’, ‘same’]</span></dt><dd><p>Padding type.</p>
-</dd>
-<dt><strong>dynamic_range</strong><span class="classifier">float &gt; 0 or None</span></dt><dd><p>Dynamic range of input. If None, input is automatically normalized.</p>
+<dt><strong>norm</strong><span class="classifier">int or float</span></dt><dd><p>Order of norm.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, N, D) or scalar]</span></dt><dd><p>SSIM or mean SSIM.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, N-1) or scalar]</span></dt><dd><p>Flux.</p>
 </dd>
 </dl>
 </dd>
@@ -579,20 +531,20 @@ no. 4, pp. 600-612, 2004.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="spec.html"
+       href="fftcep.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">spec</p>
+        <p class="prev-next-title">fftcep</p>
       </div>
     </a>
     <a class="right-next"
-       href="stft.html"
+       href="frame.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">stft</p>
+        <p class="prev-next-title">frame</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -614,19 +566,18 @@ no. 4, pp. 600-612, 2004.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.SSIM"><code class="docutils literal notranslate"><span class="pre">SSIM</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.StructuralSimilarityIndex"><code class="docutils literal notranslate"><span class="pre">StructuralSimilarityIndex</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.StructuralSimilarityIndex.forward"><code class="docutils literal notranslate"><span class="pre">StructuralSimilarityIndex.forward()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.Flux"><code class="docutils literal notranslate"><span class="pre">Flux</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.Flux.forward"><code class="docutils literal notranslate"><span class="pre">Flux.forward()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.ssim"><code class="docutils literal notranslate"><span class="pre">ssim()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.flux"><code class="docutils literal notranslate"><span class="pre">flux()</span></code></a></li>
 </ul>
   </nav></div>
 
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../_sources/modules/ssim.rst.txt">
+    <a href="../_sources/modules/flux.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>

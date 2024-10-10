@@ -300,6 +300,7 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="flux.html">flux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
 <li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="freqt2.html">freqt2</a></li>
@@ -370,7 +371,6 @@ document.write(`
 <li class="toctree-l1"><a class="reference internal" href="smcep.html">smcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="snr.html">snr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="spec.html">spec</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ssim.html">ssim</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stft.html">stft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="unframe.html">unframe</a></li>
@@ -440,7 +440,7 @@ document.write(`
 <span id="id1"></span><h1>cdist<a class="headerlink" href="#cdist" title="Link to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.CepstralDistance">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">CepstralDistance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">full</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/cdist.html#CepstralDistance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.CepstralDistance" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">CepstralDistance</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">full</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/cdist.html#CepstralDistance"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.CepstralDistance" title="Link to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/cdist.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
@@ -449,8 +449,6 @@ for details.</p>
 <dt><strong>full</strong><span class="classifier">bool</span></dt><dd><p>If True, include the constant term in the distance calculation.</p>
 </dd>
 <dt><strong>reduction</strong><span class="classifier">[‘none’, ‘mean’, ‘batchmean’, ‘sum’]</span></dt><dd><p>Reduction type.</p>
-</dd>
-<dt><strong>eps</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>A small value to prevent NaN.</p>
 </dd>
 </dl>
 </dd>
@@ -494,7 +492,7 @@ for details.</p>
 
 <dl class="py function">
 <dt class="sig sig-object py" id="diffsptk.functional.cdist">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">cdist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/functional.html#cdist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.cdist" title="Link to this definition">#</a></dt>
+<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">cdist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">full</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduction</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'mean'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/functional.html#cdist"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.cdist" title="Link to this definition">#</a></dt>
 <dd><p>Calculate cepstral distance between two inputs.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -506,8 +504,6 @@ for details.</p>
 <dt><strong>full</strong><span class="classifier">bool</span></dt><dd><p>If True, include the constant term in the distance calculation.</p>
 </dd>
 <dt><strong>reduction</strong><span class="classifier">[‘none’, ‘mean’, ‘batchmean’, ‘sum’]</span></dt><dd><p>Reduction type.</p>
-</dd>
-<dt><strong>eps</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>A small value to prevent NaN.</p>
 </dd>
 </dl>
 </dd>

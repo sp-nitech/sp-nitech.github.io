@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.modules.cdist &#8212; diffsptk 2.2.0 documentation</title>
+    <title>diffsptk.modules.flux &#8212; diffsptk 2.2.0 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
     <script src="../../../_static/documentation_options.js?v=b21de401"></script>
     <script src="../../../_static/doctools.js?v=9a2dae69"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/cdist';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/flux';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -315,7 +315,7 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <h1>Source code for diffsptk.modules.cdist</h1><div class="highlight"><pre>
+  <h1>Source code for diffsptk.modules.flux</h1><div class="highlight"><pre>
 <span></span><span class="c1"># ------------------------------------------------------------------------ #</span>
 <span class="c1"># Copyright 2022 SPTK Working Group                                        #</span>
 <span class="c1">#                                                                          #</span>
@@ -336,84 +336,87 @@ document.write(`
 <span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
 
 
-<div class="viewcode-block" id="CepstralDistance">
-<a class="viewcode-back" href="../../../modules/cdist.html#diffsptk.CepstralDistance">[docs]</a>
-<span class="k">class</span> <span class="nc">CepstralDistance</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/cdist.html&gt;`_</span>
-<span class="sd">    for details.</span>
+<div class="viewcode-block" id="Flux">
+<a class="viewcode-back" href="../../../modules/flux.html#diffsptk.Flux">[docs]</a>
+<span class="k">class</span> <span class="nc">Flux</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Flux calculation module.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    full : bool</span>
-<span class="sd">        If True, include the constant term in the distance calculation.</span>
-
 <span class="sd">    reduction : [&#39;none&#39;, &#39;mean&#39;, &#39;batchmean&#39;, &#39;sum&#39;]</span>
 <span class="sd">        Reduction type.</span>
 
+<span class="sd">    norm : int or float</span>
+<span class="sd">        Order of norm.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">full</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">reduction</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reduction</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
         <span class="k">assert</span> <span class="n">reduction</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="s2">&quot;mean&quot;</span><span class="p">,</span> <span class="s2">&quot;batchmean&quot;</span><span class="p">,</span> <span class="s2">&quot;sum&quot;</span><span class="p">)</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">full</span> <span class="o">=</span> <span class="n">full</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">reduction</span> <span class="o">=</span> <span class="n">reduction</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">norm</span> <span class="o">=</span> <span class="n">norm</span>
 
-<div class="viewcode-block" id="CepstralDistance.forward">
-<a class="viewcode-back" href="../../../modules/cdist.html#diffsptk.CepstralDistance.forward">[docs]</a>
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate cepstral distance between two inputs.</span>
+<div class="viewcode-block" id="Flux.forward">
+<a class="viewcode-back" href="../../../modules/flux.html#diffsptk.Flux.forward">[docs]</a>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Calculate flux, which is the distance between adjacent frames.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
-<span class="sd">        c1 : Tensor [shape=(..., M+1)]</span>
-<span class="sd">            Input cepstral coefficients.</span>
+<span class="sd">        x : Tensor [shape=(..., N, D)]</span>
+<span class="sd">            Input.</span>
 
-<span class="sd">        c2 : Tensor [shape=(..., M+1)]</span>
-<span class="sd">            Target cepstral coefficients.</span>
+<span class="sd">        y : Tensor [shape=(..., N, D)] or None</span>
+<span class="sd">            Target (optional).</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
-<span class="sd">        out : Tensor [shape=(...,) or scalar]</span>
-<span class="sd">            Cepstral distance.</span>
+<span class="sd">        out : Tensor [shape=(..., N-1) or scalar]</span>
+<span class="sd">            Flux.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        &gt;&gt;&gt; c1 = diffsptk.nrand(2, 2)</span>
-<span class="sd">        tensor([[ 0.4296,  1.6517, -0.6022],</span>
-<span class="sd">                [-1.0464, -0.6088, -0.9274]])</span>
-<span class="sd">        &gt;&gt;&gt; c2 = diffsptk.nrand(2, 2)</span>
-<span class="sd">        tensor([[ 1.6441, -0.6962, -0.2524],</span>
-<span class="sd">                [ 0.9344,  0.3965,  1.1494]])</span>
-<span class="sd">        &gt;&gt;&gt; cdist = diffsptk.CepstralDistance()</span>
-<span class="sd">        &gt;&gt;&gt; distance = cdist(c1, c2)</span>
-<span class="sd">        &gt;&gt;&gt; distance</span>
-<span class="sd">        tensor(1.6551)</span>
+<span class="sd">        &gt;&gt;&gt; x = diffsptk.ramp(5).view(3, 2)</span>
+<span class="sd">        &gt;&gt;&gt; x</span>
+<span class="sd">        tensor([[0., 1.],</span>
+<span class="sd">                [2., 3.],</span>
+<span class="sd">                [4., 5.]])</span>
+<span class="sd">        &gt;&gt;&gt; flux = diffsptk.Flux(reduction=&quot;none&quot;, norm=1)</span>
+<span class="sd">        &gt;&gt;&gt; f = flux(x)</span>
+<span class="sd">        &gt;&gt;&gt; f</span>
+<span class="sd">        tensor([4., 4.])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">full</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">reduction</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">reduction</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm</span><span class="p">)</span></div>
 
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">full</span><span class="p">,</span> <span class="n">reduction</span><span class="p">):</span>
-        <span class="n">distance</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">vector_norm</span><span class="p">(</span><span class="n">c1</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">-</span> <span class="n">c2</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">:],</span> <span class="nb">ord</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">def</span> <span class="nf">_forward</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">reduction</span><span class="p">,</span> <span class="n">norm</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">y</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+
+        <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># (N,) -&gt; (N, 1)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="n">flux</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">vector_norm</span><span class="p">(</span>
+            <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="p">:],</span> <span class="nb">ord</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span>
+        <span class="p">)</span>
 
         <span class="k">if</span> <span class="n">reduction</span> <span class="o">==</span> <span class="s2">&quot;none&quot;</span><span class="p">:</span>
             <span class="k">pass</span>
         <span class="k">elif</span> <span class="n">reduction</span> <span class="o">==</span> <span class="s2">&quot;sum&quot;</span><span class="p">:</span>
-            <span class="n">distance</span> <span class="o">=</span> <span class="n">distance</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+            <span class="n">flux</span> <span class="o">=</span> <span class="n">flux</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
         <span class="k">elif</span> <span class="n">reduction</span> <span class="o">==</span> <span class="s2">&quot;mean&quot;</span><span class="p">:</span>
-            <span class="n">distance</span> <span class="o">=</span> <span class="n">distance</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">/</span> <span class="p">(</span><span class="n">c1</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span>
+            <span class="n">flux</span> <span class="o">=</span> <span class="n">flux</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span> <span class="o">/</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">norm</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">reduction</span> <span class="o">==</span> <span class="s2">&quot;batchmean&quot;</span><span class="p">:</span>
-            <span class="n">distance</span> <span class="o">=</span> <span class="n">distance</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+            <span class="n">flux</span> <span class="o">=</span> <span class="n">flux</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;reduction </span><span class="si">{</span><span class="n">reduction</span><span class="si">}</span><span class="s2"> is not supported.&quot;</span><span class="p">)</span>
-
-        <span class="k">if</span> <span class="n">full</span><span class="p">:</span>
-            <span class="c1"># Multiply by 10 * math.sqrt(2) / math.log(10)</span>
-            <span class="n">distance</span> <span class="o">=</span> <span class="n">distance</span> <span class="o">*</span> <span class="mf">6.141851463713754</span>
-        <span class="k">return</span> <span class="n">distance</span>
+        <span class="k">return</span> <span class="n">flux</span>
 
     <span class="n">_func</span> <span class="o">=</span> <span class="n">_forward</span></div>
 
