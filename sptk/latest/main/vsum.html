@@ -181,6 +181,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vc.html">vc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vopr.html">vopr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vprod.html">vprod</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">vsum</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
@@ -244,6 +245,10 @@
 <li><p>output interval <span class="math notranslate nohighlight">\((1 \le T)\)</span></p></li>
 </ul>
 </p></li>
+<li><p><strong>-c</strong> <ul>
+<li><p>cumulative mode</p></li>
+</ul>
+</p></li>
 <li><p><strong>infile</strong> <em>str</em> <ul>
 <li><p>double-type vectors</p></li>
 </ul>
@@ -273,6 +278,13 @@
 <span class="c1"># 12</span>
 </pre></div>
 </div>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+ad<span class="w"> </span><span class="p">|</span><span class="w"> </span>vsum<span class="w"> </span>-c<span class="w"> </span>-t<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da
+<span class="c1"># 0</span>
+<span class="c1"># 1</span>
+<span class="c1"># 3</span>
+<span class="c1"># 6</span>
+</pre></div>
+</div>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -289,7 +301,7 @@
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="average.html#average"><span class="std std-ref">average</span></a> <a class="reference internal" href="vstat.html#vstat"><span class="std std-ref">vstat</span></a></p>
+<p><a class="reference internal" href="average.html#average"><span class="std std-ref">average</span></a> <a class="reference internal" href="vstat.html#vstat"><span class="std std-ref">vstat</span></a> <a class="reference internal" href="vprod.html#vprod"><span class="std std-ref">vprod</span></a></p>
 </div>
 </section>
 
