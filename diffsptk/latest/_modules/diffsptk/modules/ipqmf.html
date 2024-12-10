@@ -317,9 +317,9 @@
 <span class="kn">from</span> <span class="nn">.pqmf</span> <span class="kn">import</span> <span class="n">make_filter_banks</span>
 
 
-<div class="viewcode-block" id="InversePseudoQuadratureMirrorFilterBanks">
-<a class="viewcode-back" href="../../../modules/ipqmf.html#diffsptk.InversePseudoQuadratureMirrorFilterBanks">[docs]</a>
-<span class="k">class</span> <span class="nc">InversePseudoQuadratureMirrorFilterBanks</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<div class="viewcode-block" id="PseudoQuadratureMirrorFilterBankSynthesis">
+<a class="viewcode-back" href="../../../modules/ipqmf.html#diffsptk.PseudoQuadratureMirrorFilterBankSynthesis">[docs]</a>
+<span class="k">class</span> <span class="nc">PseudoQuadratureMirrorFilterBankSynthesis</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/ipqmf.html&gt;`_</span>
 <span class="sd">    for details.</span>
 
@@ -384,8 +384,8 @@
             <span class="n">nn</span><span class="o">.</span><span class="n">ConstantPad1d</span><span class="p">((</span><span class="n">delay_left</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReplicationPad1d</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">delay_right</span><span class="p">))</span>
         <span class="p">)</span>
 
-<div class="viewcode-block" id="InversePseudoQuadratureMirrorFilterBanks.forward">
-<a class="viewcode-back" href="../../../modules/ipqmf.html#diffsptk.InversePseudoQuadratureMirrorFilterBanks.forward">[docs]</a>
+<div class="viewcode-block" id="PseudoQuadratureMirrorFilterBankSynthesis.forward">
+<a class="viewcode-back" href="../../../modules/ipqmf.html#diffsptk.PseudoQuadratureMirrorFilterBankSynthesis.forward">[docs]</a>
     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Reconstruct waveform from subband waveforms.</span>
 

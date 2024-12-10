@@ -282,6 +282,7 @@
 <li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
 <li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="freqt2.html">freqt2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gammatone.html">gammatone</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gmm.html">gmm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
@@ -294,6 +295,7 @@
 <li class="toctree-l1"><a class="reference internal" href="idht.html">idht</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idst.html">idst</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifreqt2.html">ifreqt2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="igammatone.html">igammatone</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imdct.html">imdct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imdst.html">imdst</a></li>
@@ -423,20 +425,20 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.NonnegativeMatrixFactorization">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">NonnegativeMatrixFactorization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_comp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">act_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/nmf.html#NonnegativeMatrixFactorization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.NonnegativeMatrixFactorization" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">NonnegativeMatrixFactorization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_comp</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beta</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">act_norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/nmf.html#NonnegativeMatrixFactorization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.NonnegativeMatrixFactorization" title="Link to this definition">#</a></dt>
 <dd><p>Nonnegative matrix factorization module. Note that the forward method is not
 differentiable.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>n_data</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Number of vectors.</p>
+<dt><strong>n_data</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Number of vectors, <span class="math notranslate nohighlight">\(T\)</span>.</p>
 </dd>
-<dt><strong>order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>Order of vector.</p>
+<dt><strong>order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>Order of vector, <span class="math notranslate nohighlight">\(M\)</span>.</p>
 </dd>
 <dt><strong>n_comp</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Number of basis vectors, <span class="math notranslate nohighlight">\(K\)</span>.</p>
 </dd>
-<dt><strong>beta</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>A control parameter of beta-divergence. 0: Itakura-Saito divergence,
-1: generalized Kullback-Leibler divergence, 2: Euclidean distance.</p>
+<dt><strong>beta</strong><span class="classifier">float</span></dt><dd><p>A control parameter of beta-divergence, <span class="math notranslate nohighlight">\(\beta\)</span>. 0: Itakura-Saito
+divergence, 1: generalized Kullback-Leibler divergence, 2: Euclidean distance.</p>
 </dd>
 <dt><strong>n_iter</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Number of iterations.</p>
 </dd>

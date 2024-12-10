@@ -282,6 +282,7 @@
 <li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
 <li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="freqt2.html">freqt2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gammatone.html">gammatone</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gmm.html">gmm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
@@ -294,6 +295,7 @@
 <li class="toctree-l1"><a class="reference internal" href="idht.html">idht</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idst.html">idst</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifreqt2.html">ifreqt2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="igammatone.html">igammatone</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imdct.html">imdct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imdst.html">imdst</a></li>
@@ -423,7 +425,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.PrincipalComponentAnalysis">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">PrincipalComponentAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_comp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cov_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sample'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'descending'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/pca.html#PrincipalComponentAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PrincipalComponentAnalysis" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">PrincipalComponentAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_comp</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cov_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'sample'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sort</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'descending'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/pca.html#PrincipalComponentAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PrincipalComponentAnalysis" title="Link to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/pca.html">this page</a>
 for details. Note that the forward method is not differentiable.</p>
 <dl class="field-list simple">
@@ -446,6 +448,26 @@ for details. Note that the forward method is not differentiable.</p>
 </dl>
 <p><a class="reference internal" href="nmf.html#nmf"><span class="std std-ref">nmf</span></a> <a class="reference internal" href="lbg.html#lbg"><span class="std std-ref">lbg</span></a></p>
 <dl class="py method">
+<dt class="sig sig-object py" id="diffsptk.PrincipalComponentAnalysis.center">
+<span class="sig-name descname"><span class="pre">center</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/pca.html#PrincipalComponentAnalysis.center"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PrincipalComponentAnalysis.center" title="Link to this definition">#</a></dt>
+<dd><p>Center input vectors using estimated mean.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Input vectors.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Centered vectors.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="diffsptk.PrincipalComponentAnalysis.forward">
 <span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/pca.html#PrincipalComponentAnalysis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PrincipalComponentAnalysis.forward" title="Link to this definition">#</a></dt>
 <dd><p>Perform PCA.</p>
@@ -458,9 +480,9 @@ for details. Note that the forward method is not differentiable.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>e</strong><span class="classifier">Tensor [shape=(K,)]</span></dt><dd><p>Eigenvalues.</p>
+<dt><strong>s</strong><span class="classifier">Tensor [shape=(K,)]</span></dt><dd><p>Eigenvalues.</p>
 </dd>
-<dt><strong>v</strong><span class="classifier">Tensor [shape=(K, M+1)]</span></dt><dd><p>Eigenvectors.</p>
+<dt><strong>V</strong><span class="classifier">Tensor [shape=(K, M+1)]</span></dt><dd><p>Eigenvectors.</p>
 </dd>
 <dt><strong>m</strong><span class="classifier">Tensor [shape=(M+1,)]</span></dt><dd><p>Mean vector.</p>
 </dd>
@@ -472,8 +494,8 @@ for details. Note that the forward method is not differentiable.</p>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
 <span class="go">torch.Size([10, 4])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">pca</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">PCA</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">pca</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">e</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">pca</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">s</span>
 <span class="go">tensor([1.3465, 0.7497, 0.4447])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
@@ -496,6 +518,26 @@ for details. Note that the forward method is not differentiable.</p>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>out</strong><span class="classifier">Tensor [shape=(…, K)]</span></dt><dd><p>Transformed vectors.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="diffsptk.PrincipalComponentAnalysis.whiten">
+<span class="sig-name descname"><span class="pre">whiten</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/pca.html#PrincipalComponentAnalysis.whiten"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PrincipalComponentAnalysis.whiten" title="Link to this definition">#</a></dt>
+<dd><p>Whiten input vectors using estimated parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Input vectors.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, K)]</span></dt><dd><p>Whitened vectors.</p>
 </dd>
 </dl>
 </dd>
@@ -555,8 +597,10 @@ for details. Note that the forward method is not differentiable.</p>
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.PCA"><code class="docutils literal notranslate"><span class="pre">PCA</span></code></a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.PrincipalComponentAnalysis"><code class="docutils literal notranslate"><span class="pre">PrincipalComponentAnalysis</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.PrincipalComponentAnalysis.center"><code class="docutils literal notranslate"><span class="pre">PrincipalComponentAnalysis.center()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.PrincipalComponentAnalysis.forward"><code class="docutils literal notranslate"><span class="pre">PrincipalComponentAnalysis.forward()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.PrincipalComponentAnalysis.transform"><code class="docutils literal notranslate"><span class="pre">PrincipalComponentAnalysis.transform()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.PrincipalComponentAnalysis.whiten"><code class="docutils literal notranslate"><span class="pre">PrincipalComponentAnalysis.whiten()</span></code></a></li>
 </ul>
 </li>
 </ul>
