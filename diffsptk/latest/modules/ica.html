@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>entropy &#8212; diffsptk 2.3.0 documentation</title>
+    <title>ica &#8212; diffsptk 2.3.0 documentation</title>
   
   
   
@@ -41,11 +41,12 @@
     <script src="../_static/documentation_options.js?v=c3c8ae58"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/entropy';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/ica';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="excite" href="excite.html" />
-    <link rel="prev" title="dst" href="dst.html" />
+    <link rel="next" title="icqt" href="icqt.html" />
+    <link rel="prev" title="ialaw" href="ialaw.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="2.3.0" />
@@ -273,7 +274,7 @@
 <li class="toctree-l1"><a class="reference internal" href="dht.html">dht</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drc.html">drc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dst.html">dst</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
@@ -289,7 +290,7 @@
 <li class="toctree-l1"><a class="reference internal" href="hilbert2.html">hilbert2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="histogram.html">histogram</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ialaw.html">ialaw</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ica.html">ica</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">ica</a></li>
 <li class="toctree-l1"><a class="reference internal" href="icqt.html">icqt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idht.html">idht</a></li>
@@ -398,7 +399,7 @@
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">diffsptk.modules</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">entropy</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">ica</span></li>
   </ul>
 </nav>
 </div>
@@ -415,79 +416,92 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="entropy">
-<span id="id1"></span><h1>entropy<a class="headerlink" href="#entropy" title="Link to this heading">#</a></h1>
+  <section id="ica">
+<span id="id1"></span><h1>ica<a class="headerlink" href="#ica" title="Link to this heading">#</a></h1>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diffsptk.ICA">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">ICA</span></span><a class="headerlink" href="#diffsptk.ICA" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="#diffsptk.IndependentComponentAnalysis" title="diffsptk.modules.ica.IndependentComponentAnalysis"><code class="xref py py-class docutils literal notranslate"><span class="pre">IndependentComponentAnalysis</span></code></a></p>
+</dd></dl>
+
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.Entropy">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">Entropy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'nat'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/entropy.html#Entropy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Entropy" title="Link to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/entropy.html">this page</a>
-for details.</p>
+<dt class="sig sig-object py" id="diffsptk.IndependentComponentAnalysis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">IndependentComponentAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_comp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'logcosh'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/ica.html#IndependentComponentAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.IndependentComponentAnalysis" title="Link to this definition">#</a></dt>
+<dd><p>Independent component analysis module. Note that the forward method is not
+differentiable.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>out_format</strong><span class="classifier">[‘bit’, ‘nat’, ‘dit’]</span></dt><dd><p>Unit of entropy.</p>
+<dt><strong>order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>Order of vector, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+</dd>
+<dt><strong>n_comp</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Number of components, <span class="math notranslate nohighlight">\(K\)</span>.</p>
+</dd>
+<dt><strong>func</strong><span class="classifier">[‘logcosh’, ‘gauss’]</span></dt><dd><p>The nonquadratic function used in the approximation of negentropy.</p>
+</dd>
+<dt><strong>n_iter</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Number of iterations.</p>
+</dd>
+<dt><strong>eps</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>Convergence threshold.</p>
+</dd>
+<dt><strong>batch_size</strong><span class="classifier">int &gt;= 1 or None</span></dt><dd><p>Batch size.</p>
+</dd>
+<dt><strong>seed</strong><span class="classifier">int or None</span></dt><dd><p>Random seed.</p>
+</dd>
+<dt><strong>verbose</strong><span class="classifier">bool</span></dt><dd><p>If True, show progress bar.</p>
 </dd>
 </dl>
 </dd>
 </dl>
+<p class="rubric">References</p>
+<div role="list" class="citation-list">
+<div class="citation" id="r48f847f29b0c-1" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
+<p>A. Hyvarinen and E. Oja, “Independent component analysis: algorithms and
+applications,” <em>Neural Networks</em>, vol. 13, pp. 411-430, 2000.</p>
+</div>
+</div>
+<p><a class="reference internal" href="pca.html#pca"><span class="std std-ref">pca</span></a></p>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.Entropy.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/entropy.html#Entropy.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Entropy.forward" title="Link to this definition">#</a></dt>
-<dd><p>Compute entropy from probability sequence.</p>
+<dt class="sig sig-object py" id="diffsptk.IndependentComponentAnalysis.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/ica.html#IndependentComponentAnalysis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.IndependentComponentAnalysis.forward" title="Link to this definition">#</a></dt>
+<dd><p>Estimate separating matrix.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>p</strong><span class="classifier">Tensor [shape=(…, N)]</span></dt><dd><p>Probability sequence.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(T, M+1)] or DataLoader</span></dt><dd><p>Input vectors or dataloder yielding input vectors.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Entropy.</p>
+<dt><strong>W</strong><span class="classifier">Tensor [shape=(K, K)]</span></dt><dd><p>Separating matrix.</p>
 </dd>
 </dl>
 </dd>
 </dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">p</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">4</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">p</span>
-<span class="go">tensor([0.2500, 0.2500, 0.2500, 0.2500])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">entropy</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Entropy</span><span class="p">(</span><span class="s2">&quot;bit&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">entropy</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span>
-<span class="go">tensor(2.)</span>
-</pre></div>
-</div>
 </dd></dl>
 
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="diffsptk.functional.entropy">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">entropy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">p</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'nat'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/functional.html#entropy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.entropy" title="Link to this definition">#</a></dt>
-<dd><p>Calculate entropy.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="diffsptk.IndependentComponentAnalysis.transform">
+<span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/ica.html#IndependentComponentAnalysis.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.IndependentComponentAnalysis.transform" title="Link to this definition">#</a></dt>
+<dd><p>Separate input vectors into independent components.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>p</strong><span class="classifier">Tensor [shape=(…, N)]</span></dt><dd><p>Probability.</p>
-</dd>
-<dt><strong>out_format</strong><span class="classifier">[‘bit’, ‘nat’, ‘dit’]</span></dt><dd><p>Output format.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Input vectors.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>Entropy.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, K)]</span></dt><dd><p>Estimated independent components.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="histogram.html#histogram"><span class="std std-ref">histogram</span></a></p>
-</div>
+</dd></dl>
+
 </section>
 
 
@@ -501,20 +515,20 @@ for details.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="dst.html"
+       href="ialaw.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">dst</p>
+        <p class="prev-next-title">ialaw</p>
       </div>
     </a>
     <a class="right-next"
-       href="excite.html"
+       href="icqt.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">excite</p>
+        <p class="prev-next-title">icqt</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -537,18 +551,19 @@ for details.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.Entropy"><code class="docutils literal notranslate"><span class="pre">Entropy</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.Entropy.forward"><code class="docutils literal notranslate"><span class="pre">Entropy.forward()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.ICA"><code class="docutils literal notranslate"><span class="pre">ICA</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.IndependentComponentAnalysis"><code class="docutils literal notranslate"><span class="pre">IndependentComponentAnalysis</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.IndependentComponentAnalysis.forward"><code class="docutils literal notranslate"><span class="pre">IndependentComponentAnalysis.forward()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.IndependentComponentAnalysis.transform"><code class="docutils literal notranslate"><span class="pre">IndependentComponentAnalysis.transform()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.entropy"><code class="docutils literal notranslate"><span class="pre">entropy()</span></code></a></li>
 </ul>
   </nav></div>
 
   <div class="sidebar-secondary-item">
 
   <div class="tocsection sourcelink">
-    <a href="../_sources/modules/entropy.rst.txt">
+    <a href="../_sources/modules/ica.rst.txt">
       <i class="fa-solid fa-file-lines"></i> Show Source
     </a>
   </div>
