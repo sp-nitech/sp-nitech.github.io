@@ -1,0 +1,628 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>mfcc &mdash; SPTK  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="mgc2mgc" href="mgc2mgc.html" />
+    <link rel="prev" title="merge" href="merge.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Command references</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alaw.html">alaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ap.html">ap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcp.html">bcp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcut.html">bcut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2acr.html">c2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2ndps.html">c2ndps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdist.html">cdist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clip.html">clip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dct.html">dct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decimate.html">decimate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delay.html">delay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dequantize.html">dequantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df2.html">df2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dfs.html">dfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmp.html">dmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drc.html">drc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtw.html">dtw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtw_merge.html">dtw_merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html">extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fd.html">fd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fdrw.html">fdrw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft2.html">fft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr2.html">fftr2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glogsp.html">glogsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmm.html">gmm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmmp.html">gmmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpolezero.html">gpolezero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grlogsp.html">grlogsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gseries.html">gseries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gspecgram.html">gspecgram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gwave.html">gwave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="histogram.html">histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ialaw.html">ialaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iltcdf.html">iltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imglsadf.html">imglsadf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipnorm.html">ipnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lbg.html">lbg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="levdur.html">levdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear_intpl.html">linear_intpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc.html">lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2lsp.html">lpc2lsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpccheck.html">lpccheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lsp2lpc.html">lsp2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspcheck.html">lspcheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspdf.html">lspdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="magic_intpl.html">magic_intpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcpf.html">mcpf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="medfilt.html">medfilt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="median.html">median</a></li>
+<li class="toctree-l1"><a class="reference internal" href="merge.html">merge</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">mfcc</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk40MelFrequencyCepstralCoefficientsAnalysisE"><code class="docutils literal notranslate"><span class="pre">MelFrequencyCepstralCoefficientsAnalysis</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk40MelFrequencyCepstralCoefficientsAnalysis40MelFrequencyCepstralCoefficientsAnalysisEiiiidddd"><code class="docutils literal notranslate"><span class="pre">MelFrequencyCepstralCoefficientsAnalysis::MelFrequencyCepstralCoefficientsAnalysis()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis12GetFftLengthEv"><code class="docutils literal notranslate"><span class="pre">MelFrequencyCepstralCoefficientsAnalysis::GetFftLength()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis13GetNumChannelEv"><code class="docutils literal notranslate"><span class="pre">MelFrequencyCepstralCoefficientsAnalysis::GetNumChannel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis11GetNumOrderEv"><code class="docutils literal notranslate"><span class="pre">MelFrequencyCepstralCoefficientsAnalysis::GetNumOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis23GetLifteringCoefficientEv"><code class="docutils literal notranslate"><span class="pre">MelFrequencyCepstralCoefficientsAnalysis::GetLifteringCoefficient()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis7IsValidEv"><code class="docutils literal notranslate"><span class="pre">MelFrequencyCepstralCoefficientsAnalysis::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPdPN40MelFrequencyCepstralCoefficientsAnalysis6BufferE"><code class="docutils literal notranslate"><span class="pre">MelFrequencyCepstralCoefficientsAnalysis::Run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk40MelFrequencyCepstralCoefficientsAnalysis6BufferE"><code class="docutils literal notranslate"><span class="pre">MelFrequencyCepstralCoefficientsAnalysis::Buffer</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mgc2mgc.html">mgc2mgc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgc2sp.html">mgc2sp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgcep.html">mgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsadf.html">mglsadf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsp2sp.html">mglsp2sp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minmax.html">minmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlsacheck.html">mlsacheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mode.html">mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mpir2c.html">mpir2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msvq.html">msvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onehot.html">onehot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pcas.html">pcas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch2sin.html">pitch2sin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plp.html">plp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pnorm.html">pnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ramp.html">ramp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reverse.html">reverse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlevdur.html">rlevdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rmse.html">rmse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root_pol.html">root_pol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sin.html">sin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smcep.html">smcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snr.html">snr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sopr.html">sopr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spec.html">spec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step.html">step</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swab.html">swab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="symmetrize.html">symmetrize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="train.html">train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transpose.html">transpose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vc.html">vc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vopr.html">vopr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vprod.html">vprod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_synth.html">world_synth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utility references</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../utils/math.html">math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/sptk.html">sptk</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SPTK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">mfcc</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/main/mfcc.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="mfcc">
+<span id="id1"></span><h1>mfcc<a class="headerlink" href="#mfcc" title="Link to this heading"></a></h1>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv44mainiA_Pc">
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="mfcc_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p><em>mfcc</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<p><ul class="simple">
+<li><p><strong>-n</strong> <em>int</em> <ul>
+<li><p>number of channels <span class="math notranslate nohighlight">\((1 \le C)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-m</strong> <em>int</em> <ul>
+<li><p>order of coeffcients <span class="math notranslate nohighlight">\((1 \le M)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-l</strong> <em>int</em> <ul>
+<li><p>FFT length <span class="math notranslate nohighlight">\((2 \le N)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-c</strong> <em>int</em> <ul>
+<li><p>liftering parameter <span class="math notranslate nohighlight">\((1 \le L)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-s</strong> <em>double</em> <ul>
+<li><p>sampling rate in kHz <span class="math notranslate nohighlight">\((0 &lt; F_s)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-L</strong> <em>double</em> <ul>
+<li><p>lowest frequency in Hz <span class="math notranslate nohighlight">\((0 \le F_l &lt; F_h)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-H</strong> <em>double</em> <ul>
+<li><p>highest frequency in Hz <span class="math notranslate nohighlight">\((F_l &lt; F_h \le 500F_s)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-q</strong> <em>int</em> <ul>
+<li><p>input format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> amplitude spectrum in dB </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> log amplitude spectrum </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> amplitude spectrum </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> power spectrum </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4</span></code> windowed waveform</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>-o</strong> <em>int</em> <ul>
+<li><p>output format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> MFCC </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> MFCC and energy </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> MFCC and C0 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> MFCC, C0, and energy</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>-e</strong> <em>double</em> <ul>
+<li><p>floor value of raw filter-bank output <span class="math notranslate nohighlight">\((0 &lt; \epsilon)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>infile</strong> <em>str</em> <ul>
+<li><p>double-type windowed sequence or spectrum</p></li>
+</ul>
+</p></li>
+<li><p><strong>stdout</strong> <ul>
+<li><p>double-type MFCCs</p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+<p>The below example extracts the 12-th order MFCCs from <code class="docutils literal notranslate"><span class="pre">data.short</span></code>. The analysis condition is that: frame length is 10 ms, frame shift is 25 ms, and sampling rate is 16 kHz. A pre-emphais filter and the hamming window are applied to the input signal.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>x2x<span class="w"> </span>+sd<span class="w"> </span>data.short<span class="w"> </span><span class="p">|</span>
+<span class="w">  </span>frame<span class="w"> </span>-l<span class="w"> </span><span class="m">400</span><span class="w"> </span>-p<span class="w"> </span><span class="m">160</span><span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">|</span>
+<span class="w">  </span>dfs<span class="w"> </span>-b<span class="w"> </span><span class="m">1</span><span class="w"> </span>-0.97<span class="w"> </span><span class="p">|</span>
+<span class="w">  </span>window<span class="w"> </span>-l<span class="w"> </span><span class="m">400</span><span class="w"> </span>-L<span class="w"> </span><span class="m">512</span><span class="w"> </span>-w<span class="w"> </span><span class="m">1</span><span class="w"> </span>-n<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="p">|</span>
+<span class="w">  </span>mfcc<span class="w"> </span>-l<span class="w"> </span><span class="m">512</span><span class="w"> </span>-n<span class="w"> </span><span class="m">40</span><span class="w"> </span>-c<span class="w"> </span><span class="m">22</span><span class="w"> </span>-m<span class="w"> </span><span class="m">12</span><span class="w"> </span>-L<span class="w"> </span><span class="m">64</span><span class="w"> </span>-H<span class="w"> </span><span class="m">4000</span><span class="w"> </span>-o<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">|</span>
+<span class="w">  </span>delta<span class="w"> </span>-m<span class="w"> </span><span class="m">12</span><span class="w"> </span>-d<span class="w"> </span>-0.5<span class="w"> </span><span class="m">0</span>.0<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span>-d<span class="w"> </span><span class="m">0</span>.25<span class="w"> </span><span class="m">0</span>.0<span class="w"> </span>-0.5<span class="w"> </span><span class="m">0</span>.0<span class="w"> </span><span class="m">0</span>.25<span class="w"> </span>&gt;<span class="w"> </span>data.mfcc
+</pre></div>
+</div>
+<p>The corresponding HTK config file is shown as below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SOURCEFORMAT</span> <span class="o">=</span> <span class="n">NOHEAD</span>
+<span class="n">SOURCEKIND</span>   <span class="o">=</span> <span class="n">WAVEFORM</span>
+<span class="n">SOURCERATE</span>   <span class="o">=</span> <span class="mf">625.0</span>
+<span class="n">TARGETKIND</span>   <span class="o">=</span> <span class="n">MFCC_E_D_A</span>
+<span class="n">TARGETRATE</span>   <span class="o">=</span> <span class="mf">100000.0</span>
+<span class="n">WINDOWSIZE</span>   <span class="o">=</span> <span class="mf">250000.0</span>
+<span class="n">USEHAMMING</span>   <span class="o">=</span> <span class="n">T</span>
+<span class="n">USEPOWER</span>     <span class="o">=</span> <span class="n">F</span>
+<span class="n">RAWENERGY</span>    <span class="o">=</span> <span class="n">F</span>
+<span class="n">ENORMALIZE</span>   <span class="o">=</span> <span class="n">F</span>
+<span class="n">PREEMCOEF</span>    <span class="o">=</span> <span class="mf">0.97</span>
+<span class="n">NUMCHANS</span>     <span class="o">=</span> <span class="mi">40</span>
+<span class="n">CEPLIFTER</span>    <span class="o">=</span> <span class="mi">22</span>
+<span class="n">NUMCEPS</span>      <span class="o">=</span> <span class="mi">12</span>
+<span class="n">LOFREQ</span>       <span class="o">=</span> <span class="mi">64</span>
+<span class="n">HIFREQ</span>       <span class="o">=</span> <span class="mi">4000</span>
+<span class="n">DELTAWINDOW</span>  <span class="o">=</span> <span class="mi">1</span>
+<span class="n">ACCWINDOW</span>    <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>The correspondence between the HTK’s configuration and the SPTK’s command option for extracting MFCC is shown in the following table.</p>
+<p><table class="docutils align-default">
+<thead>
+<tr class="row-odd"><th class="head"><p>Parameter</p></th>
+<th class="head"><p>HTK</p></th>
+<th class="head"><p>SPTK</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td rowspan="2"><p>Frame length</p></td>
+<td rowspan="2"><p>WINDOWSIZE = _</p>
+<p>(unit is 100 ns)</p>
+</td>
+<td rowspan="2"><p>frame -l _</p>
+<p>(unit is point)</p>
+</td>
+</tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"><td rowspan="2"><p>Frame shift</p></td>
+<td rowspan="2"><p>TARGETRATE = _</p>
+<p>(unit is 100 ns)</p>
+</td>
+<td rowspan="2"><p>frame -p _</p>
+<p>(unit is point)</p>
+</td>
+</tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"><td rowspan="2"><p>Sampling rate</p></td>
+<td rowspan="2"><p>SOURCERATE = _</p>
+<p>(unit is 100 ns)</p>
+</td>
+<td rowspan="2"><p>mfcc -s _</p>
+<p>(unit is kHz)</p>
+</td>
+</tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"><td><p>Subtract mean</p></td>
+<td><p>ZMEANSOURCE = T</p></td>
+<td><p>frame -z</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>Pre-emphasis coefficient</p></td>
+<td rowspan="2"><p>PREEMCOEF = _</p>
+<p>(windowed waveform)</p>
+</td>
+<td rowspan="2"><p>dfs -b 1 -_</p>
+<p>(entire waveform)</p>
+</td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td><p>Window</p></td>
+<td><p>USEHAMMING = T</p></td>
+<td><p>window -w 1 -n 0</p></td>
+</tr>
+<tr class="row-even"><td rowspan="2"><p>FFT length</p></td>
+<td rowspan="2"><p>N/A</p>
+<p>(auto. calculated)</p>
+</td>
+<td rowspan="2"><p>mfcc -l _</p>
+<p>(same as input length)</p>
+</td>
+</tr>
+<tr class="row-odd"></tr>
+<tr class="row-even"><td><p>Number of fbank channels</p></td>
+<td><p>NUMCHANS = _</p></td>
+<td><p>mfcc -n _</p></td>
+</tr>
+<tr class="row-odd"><td><p>Lowest frequency</p></td>
+<td><p>LOFREQ = _</p></td>
+<td><p>mfcc -L _</p></td>
+</tr>
+<tr class="row-even"><td><p>Highest frequency</p></td>
+<td><p>HIFREQ = _</p></td>
+<td><p>mfcc -H _</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>Floor value of fbank</p></td>
+<td rowspan="2"><p>N/A</p>
+<p>(fixed value: 1.0)</p>
+</td>
+<td rowspan="2"><p>mfcc -e _</p>
+<p>(default value: 1.0)</p>
+</td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td><p>Order of cepstrum</p></td>
+<td><p>NUMCEPS = _</p></td>
+<td><p>mfcc -m _</p></td>
+</tr>
+<tr class="row-even"><td><p>Liftering coefficient</p></td>
+<td><p>CEPLIFTER = _</p></td>
+<td><p>mfcc -c _</p></td>
+</tr>
+<tr class="row-odd"><td><p>Output energy</p></td>
+<td><p>TARGETKIND = MFCC_E</p></td>
+<td><p>mfcc -o 1</p></td>
+</tr>
+<tr class="row-even"><td><p>Output 0th coefficient</p></td>
+<td><p>TARGETKIND = MFCC_0</p></td>
+<td><p>mfcc -o 2</p></td>
+</tr>
+<tr class="row-odd"><td rowspan="2"><p>Use raw energy</p></td>
+<td rowspan="2"><p>RAWENERGY = T</p></td>
+<td rowspan="2"><p>N/A</p>
+<p>(do not use raw)</p>
+</td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td rowspan="2"><p>Normalize log energy</p></td>
+<td rowspan="2"><p>ENORMALIZE = T</p></td>
+<td rowspan="2"><p>N/A</p>
+<p>(do not normalize)</p>
+</td>
+</tr>
+<tr class="row-even"></tr>
+<tr class="row-odd"><td><p>Delta window size</p></td>
+<td><p>DELTAWINDOW = _</p></td>
+<td><p>delta -d _</p></td>
+</tr>
+<tr class="row-even"><td><p>Accel window size</p></td>
+<td><p>ACCWINDOW = _</p></td>
+<td><p>delta -d * -d _</p></td>
+</tr>
+</tbody>
+</table>
+</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
+<li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>0 on success, 1 on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="fbank.html#fbank"><span class="std std-ref">fbank</span></a> <a class="reference internal" href="plp.html#plp"><span class="std std-ref">plp</span></a></p>
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk40MelFrequencyCepstralCoefficientsAnalysisE">
+<span id="_CPPv3N4sptk40MelFrequencyCepstralCoefficientsAnalysisE"></span><span id="_CPPv2N4sptk40MelFrequencyCepstralCoefficientsAnalysisE"></span><span id="sptk::MelFrequencyCepstralCoefficientsAnalysis"></span><span class="target" id="classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">MelFrequencyCepstralCoefficientsAnalysis</span></span></span><a class="headerlink" href="#_CPPv4N4sptk40MelFrequencyCepstralCoefficientsAnalysisE" title="Link to this definition"></a><br /></dt>
+<dd><p>Perform mel-frequency cepstral coefficients (MFCC) analysis.</p>
+<p>The input is the half part of power spectrum: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} |X(0)|^2, &amp; |X(1)|^2, &amp; \ldots, &amp; |X(N/2)|^2, \end{array} \]</div>
+ where <span class="math notranslate nohighlight">\(N\)</span> is the FFT length. The outputs are the <span class="math notranslate nohighlight">\(M\)</span>-th order MFCCs with the zeroth cepstral parameter: <div class="math notranslate nohighlight">
+\[ \begin{array}{ccccc} c(0), &amp; \bar{c}(1), &amp; \bar{c}(2), &amp; \ldots, &amp; \bar{c}(M) \end{array} \]</div>
+ and the log-signal energy <span class="math notranslate nohighlight">\(E\)</span>.</p>
+<p>The MFCCs are calculated from mel-filter-bank outputs <span class="math notranslate nohighlight">\(\{F(j)\}_{j=1}^C\)</span> using the discrete cosine transform <div class="math notranslate nohighlight">
+\[ c(m) = \sqrt{\frac{2}{C}} \sum_{j=1}^C F(j) \cos \left( \frac{\pi m}{C} \left(j - \frac{1}{2}\right) \right), \]</div>
+ and the liftering <div class="math notranslate nohighlight">
+\[ \bar{c}(m) = \left( 1 + \frac{L}{2} \sin \frac{\pi m}{L} \right) c(m), \]</div>
+ where <span class="math notranslate nohighlight">\(L\)</span> is the liftering parameter.</p>
+<p>[1] S. Young et al., “The HTK book,” Cambridge University Engineering Department, 2006. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk40MelFrequencyCepstralCoefficientsAnalysis40MelFrequencyCepstralCoefficientsAnalysisEiiiidddd">
+<span id="_CPPv3N4sptk40MelFrequencyCepstralCoefficientsAnalysis40MelFrequencyCepstralCoefficientsAnalysisEiiiidddd"></span><span id="_CPPv2N4sptk40MelFrequencyCepstralCoefficientsAnalysis40MelFrequencyCepstralCoefficientsAnalysisEiiiidddd"></span><span id="sptk::MelFrequencyCepstralCoefficientsAnalysis::MelFrequencyCepstralCoefficientsAnalysis__i.i.i.i.double.double.double.double"></span><span class="target" id="classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis_1afbca7560c4041575d4d9a5f74c1f9e58"></span><span class="sig-name descname"><span class="n"><span class="pre">MelFrequencyCepstralCoefficientsAnalysis</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_channel</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">liftering_coefficient</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sampling_rate</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">lowest_frequency</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">highest_frequency</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">floor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk40MelFrequencyCepstralCoefficientsAnalysis40MelFrequencyCepstralCoefficientsAnalysisEiiiidddd" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fft_length</strong> – <strong>[in]</strong> Number of FFT bins, <span class="math notranslate nohighlight">\(N\)</span>. </p></li>
+<li><p><strong>num_channel</strong> – <strong>[in]</strong> Number of channels, <span class="math notranslate nohighlight">\(C\)</span>. </p></li>
+<li><p><strong>num_order</strong> – <strong>[in]</strong> Order of cepstral coefficients, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
+<li><p><strong>liftering_coefficient</strong> – <strong>[in]</strong> A parameter of liftering, <span class="math notranslate nohighlight">\(L\)</span>. </p></li>
+<li><p><strong>sampling_rate</strong> – <strong>[in]</strong> Sampling rate in Hz. </p></li>
+<li><p><strong>lowest_frequency</strong> – <strong>[in]</strong> Lowest frequency in Hz. </p></li>
+<li><p><strong>highest_frequency</strong> – <strong>[in]</strong> Highest frequency in Hz. </p></li>
+<li><p><strong>floor</strong> – <strong>[in]</strong> Floor value of raw filter-bank output. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis12GetFftLengthEv">
+<span id="_CPPv3NK4sptk40MelFrequencyCepstralCoefficientsAnalysis12GetFftLengthEv"></span><span id="_CPPv2NK4sptk40MelFrequencyCepstralCoefficientsAnalysis12GetFftLengthEv"></span><span id="sptk::MelFrequencyCepstralCoefficientsAnalysis::GetFftLengthC"></span><span class="target" id="classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis_1a9bc896428ddf84d8aa5aa6703f16db33"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis12GetFftLengthEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>FFT size. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis13GetNumChannelEv">
+<span id="_CPPv3NK4sptk40MelFrequencyCepstralCoefficientsAnalysis13GetNumChannelEv"></span><span id="_CPPv2NK4sptk40MelFrequencyCepstralCoefficientsAnalysis13GetNumChannelEv"></span><span id="sptk::MelFrequencyCepstralCoefficientsAnalysis::GetNumChannelC"></span><span class="target" id="classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis_1a2b35f427925315ae0f9cefb04dbde625"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumChannel</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis13GetNumChannelEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of channels. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis11GetNumOrderEv">
+<span id="_CPPv3NK4sptk40MelFrequencyCepstralCoefficientsAnalysis11GetNumOrderEv"></span><span id="_CPPv2NK4sptk40MelFrequencyCepstralCoefficientsAnalysis11GetNumOrderEv"></span><span id="sptk::MelFrequencyCepstralCoefficientsAnalysis::GetNumOrderC"></span><span class="target" id="classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis_1af9109ea28b0ad65c6128d331501ed12c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis11GetNumOrderEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Order of cepstral coefficients. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis23GetLifteringCoefficientEv">
+<span id="_CPPv3NK4sptk40MelFrequencyCepstralCoefficientsAnalysis23GetLifteringCoefficientEv"></span><span id="_CPPv2NK4sptk40MelFrequencyCepstralCoefficientsAnalysis23GetLifteringCoefficientEv"></span><span id="sptk::MelFrequencyCepstralCoefficientsAnalysis::GetLifteringCoefficientC"></span><span class="target" id="classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis_1a442e60552de4a2ba9907eaa8235574a6"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetLifteringCoefficient</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis23GetLifteringCoefficientEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Liftering coefficient. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis7IsValidEv">
+<span id="_CPPv3NK4sptk40MelFrequencyCepstralCoefficientsAnalysis7IsValidEv"></span><span id="_CPPv2NK4sptk40MelFrequencyCepstralCoefficientsAnalysis7IsValidEv"></span><span id="sptk::MelFrequencyCepstralCoefficientsAnalysis::IsValidC"></span><span class="target" id="classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis_1ac0c8f73183df06a2788fdf435cc3a368"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis7IsValidEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this object is valid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPdPN40MelFrequencyCepstralCoefficientsAnalysis6BufferE">
+<span id="_CPPv3NK4sptk40MelFrequencyCepstralCoefficientsAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPdPN40MelFrequencyCepstralCoefficientsAnalysis6BufferE"></span><span id="_CPPv2NK4sptk40MelFrequencyCepstralCoefficientsAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPdPN40MelFrequencyCepstralCoefficientsAnalysis6BufferE"></span><span id="sptk::MelFrequencyCepstralCoefficientsAnalysis::Run__std::vector:double:CR.std::vector:double:P.doubleP.MelFrequencyCepstralCoefficientsAnalysis::BufferPC"></span><span class="target" id="classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis_1a30eafd3c6220a272b31af84f4d06e16f"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">power_spectrum</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">mfcc</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">energy</span></span>, <a class="reference internal" href="#_CPPv4N4sptk40MelFrequencyCepstralCoefficientsAnalysisE" title="sptk::MelFrequencyCepstralCoefficientsAnalysis"><span class="n"><span class="pre">MelFrequencyCepstralCoefficientsAnalysis</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk40MelFrequencyCepstralCoefficientsAnalysis6BufferE" title="sptk::MelFrequencyCepstralCoefficientsAnalysis::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk40MelFrequencyCepstralCoefficientsAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPdPN40MelFrequencyCepstralCoefficientsAnalysis6BufferE" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>power_spectrum</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\((N/2+1)\)</span>-length power spectrum. </p></li>
+<li><p><strong>mfcc</strong> – <strong>[out]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order MFCCs. </p></li>
+<li><p><strong>energy</strong> – <strong>[out]</strong> Signal energy <span class="math notranslate nohighlight">\(E\)</span> (optional). </p></li>
+<li><p><strong>buffer</strong> – <strong>[out]</strong> <a class="reference internal" href="#classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk40MelFrequencyCepstralCoefficientsAnalysis6BufferE">
+<span id="_CPPv3N4sptk40MelFrequencyCepstralCoefficientsAnalysis6BufferE"></span><span id="_CPPv2N4sptk40MelFrequencyCepstralCoefficientsAnalysis6BufferE"></span><span id="sptk::MelFrequencyCepstralCoefficientsAnalysis::Buffer"></span><span class="target" id="classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk40MelFrequencyCepstralCoefficientsAnalysis6BufferE" title="Link to this definition"></a><br /></dt>
+<dd><p><a class="reference internal" href="#classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1MelFrequencyCepstralCoefficientsAnalysis"><span class="std std-ref">MelFrequencyCepstralCoefficientsAnalysis</span></a> class. </p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="merge.html" class="btn btn-neutral float-left" title="merge" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="mgc2mgc.html" class="btn btn-neutral float-right" title="mgc2mgc" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, SPTK Working Group.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

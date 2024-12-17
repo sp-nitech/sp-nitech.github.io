@@ -1,0 +1,647 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>gmm &mdash; SPTK  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="gmmp" href="gmmp.html" />
+    <link rel="prev" title="glogsp" href="glogsp.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Command references</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alaw.html">alaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ap.html">ap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcp.html">bcp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcut.html">bcut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2acr.html">c2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2ndps.html">c2ndps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdist.html">cdist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clip.html">clip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dct.html">dct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decimate.html">decimate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delay.html">delay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dequantize.html">dequantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df2.html">df2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dfs.html">dfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmp.html">dmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drc.html">drc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtw.html">dtw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtw_merge.html">dtw_merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html">extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fd.html">fd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fdrw.html">fdrw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft2.html">fft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr2.html">fftr2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glogsp.html">glogsp</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">gmm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk23GaussianMixtureModelingE"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk23GaussianMixtureModeling14CovarianceTypeE"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling::CovarianceType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4sptk23GaussianMixtureModeling14CovarianceType9kDiagonalE"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling::CovarianceType::kDiagonal</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4sptk23GaussianMixtureModeling14CovarianceType5kFullE"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling::CovarianceType::kFull</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk23GaussianMixtureModeling18InitializationTypeE"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling::InitializationType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4sptk23GaussianMixtureModeling18InitializationType5kNoneE"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling::InitializationType::kNone</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4sptk23GaussianMixtureModeling18InitializationType7kKMeansE"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling::InitializationType::kKMeans</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4sptk23GaussianMixtureModeling18InitializationType4kUbmE"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling::InitializationType::kUbm</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk23GaussianMixtureModeling23GaussianMixtureModelingEiiid14CovarianceTypeNSt6vectorIiEEdd18InitializationTypeidRKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorI15SymmetricMatrixEE"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling::GaussianMixtureModeling()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk23GaussianMixtureModeling11GetNumOrderEv"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling::GetNumOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk23GaussianMixtureModeling13GetNumMixtureEv"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling::GetNumMixture()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk23GaussianMixtureModeling15GetNumIterationEv"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling::GetNumIteration()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk23GaussianMixtureModeling23GetConvergenceThresholdEv"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling::GetConvergenceThreshold()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk23GaussianMixtureModeling17GetCovarianceTypeEv"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling::GetCovarianceType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk23GaussianMixtureModeling14GetWeightFloorEv"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling::GetWeightFloor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk23GaussianMixtureModeling16GetVarianceFloorEv"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling::GetVarianceFloor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk23GaussianMixtureModeling21GetInitializationTypeEv"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling::GetInitializationType()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk23GaussianMixtureModeling21GetSmoothingParameterEv"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling::GetSmoothingParameter()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk23GaussianMixtureModeling10IsDiagonalEv"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling::IsDiagonal()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk23GaussianMixtureModeling7IsValidEv"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk23GaussianMixtureModeling3RunERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEEPNSt6vectorI15SymmetricMatrixEEPd"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling::Run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk23GaussianMixtureModeling23CalculateLogProbabilityEiibbRKNSt6vectorIdEERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorI15SymmetricMatrixEEPNSt6vectorIdEEPdPN23GaussianMixtureModeling6BufferE"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling::CalculateLogProbability()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk23GaussianMixtureModeling6BufferE"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModeling::Buffer</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="gmmp.html">gmmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpolezero.html">gpolezero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grlogsp.html">grlogsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gseries.html">gseries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gspecgram.html">gspecgram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gwave.html">gwave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="histogram.html">histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ialaw.html">ialaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iltcdf.html">iltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imglsadf.html">imglsadf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipnorm.html">ipnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lbg.html">lbg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="levdur.html">levdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear_intpl.html">linear_intpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc.html">lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2lsp.html">lpc2lsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpccheck.html">lpccheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lsp2lpc.html">lsp2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspcheck.html">lspcheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspdf.html">lspdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="magic_intpl.html">magic_intpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcpf.html">mcpf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="medfilt.html">medfilt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="median.html">median</a></li>
+<li class="toctree-l1"><a class="reference internal" href="merge.html">merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgc2mgc.html">mgc2mgc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgc2sp.html">mgc2sp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgcep.html">mgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsadf.html">mglsadf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsp2sp.html">mglsp2sp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minmax.html">minmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlsacheck.html">mlsacheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mode.html">mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mpir2c.html">mpir2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msvq.html">msvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onehot.html">onehot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pcas.html">pcas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch2sin.html">pitch2sin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plp.html">plp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pnorm.html">pnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ramp.html">ramp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reverse.html">reverse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlevdur.html">rlevdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rmse.html">rmse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root_pol.html">root_pol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sin.html">sin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smcep.html">smcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snr.html">snr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sopr.html">sopr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spec.html">spec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step.html">step</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swab.html">swab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="symmetrize.html">symmetrize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="train.html">train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transpose.html">transpose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vc.html">vc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vopr.html">vopr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vprod.html">vprod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_synth.html">world_synth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utility references</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../utils/math.html">math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/sptk.html">sptk</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SPTK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">gmm</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/main/gmm.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="gmm">
+<span id="id1"></span><h1>gmm<a class="headerlink" href="#gmm" title="Link to this heading"></a></h1>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv44mainiA_Pc">
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="gmm_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p><em>gmm</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<p><ul class="simple">
+<li><p><strong>-l</strong> <em>int</em> <ul>
+<li><p>length of vector <span class="math notranslate nohighlight">\((1 \le L)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-m</strong> <em>int</em> <ul>
+<li><p>order of vector <span class="math notranslate nohighlight">\((0 \le L - 1)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-k</strong> <em>int</em> <ul>
+<li><p>number of mixtures <span class="math notranslate nohighlight">\((1 \le K)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-i</strong> <em>int</em> <ul>
+<li><p>number of iterations <span class="math notranslate nohighlight">\((1 \le N)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-d</strong> <em>double</em> <ul>
+<li><p>convergence threshold <span class="math notranslate nohighlight">\((0 \le \epsilon)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-w</strong> <em>double</em> <ul>
+<li><p>floor value of weight <span class="math notranslate nohighlight">\((0 \le F_w \le 1/K)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-v</strong> <em>double</em> <ul>
+<li><p>floor value of variance <span class="math notranslate nohighlight">\((0 \le F_v)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-M</strong> <em>double</em> <ul>
+<li><p>MAP smoothing parameter <span class="math notranslate nohighlight">\((0 \le \alpha \le 1)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-U</strong> <em>str</em> <ul>
+<li><p>double-type initial GMM parameters</p></li>
+</ul>
+</p></li>
+<li><p><strong>-S</strong> <em>str</em> <ul>
+<li><p>double-type total log-likelihood</p></li>
+</ul>
+</p></li>
+<li><p><strong>-f</strong> <ul>
+<li><p>use full covariance</p></li>
+</ul>
+</p></li>
+<li><p><strong>-V</strong> <ul>
+<li><p>show average log likelihood at each iteration</p></li>
+</ul>
+</p></li>
+<li><p><strong>-B</strong> <em>int+</em> <ul>
+<li><p>block size of covariance matrix</p></li>
+</ul>
+</p></li>
+<li><p><strong>infile</strong> <em>str</em> <ul>
+<li><p>double-type training data sequencea</p></li>
+</ul>
+</p></li>
+<li><p><strong>stdout</strong> <ul>
+<li><p>double-type GMM parameters</p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+<p>The following examples show four types of covariance.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmm<span class="w"> </span>-l<span class="w"> </span><span class="m">10</span><span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span>&gt;<span class="w"> </span>diag.gmm
+gmm<span class="w"> </span>-l<span class="w"> </span><span class="m">10</span><span class="w"> </span>-f<span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span>&gt;<span class="w"> </span>full.gmm
+gmm<span class="w"> </span>-l<span class="w"> </span><span class="m">10</span><span class="w"> </span>-B<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">5</span><span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span>&gt;<span class="w"> </span>block-wise-diag.gmm
+gmm<span class="w"> </span>-l<span class="w"> </span><span class="m">10</span><span class="w"> </span>-f<span class="w"> </span>-B<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">5</span><span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span>&gt;<span class="w"> </span>block-diag.gmm
+</pre></div>
+</div>
+<p>If -M option is specified, the MAP estimates of the GMM paramaeters are obtained using universal background model.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmm<span class="w"> </span>-k<span class="w"> </span><span class="m">8</span><span class="w"> </span>&lt;<span class="w"> </span>data1.d<span class="w"> </span>&gt;<span class="w"> </span>ubm.gmm
+gmm<span class="w"> </span>-k<span class="w"> </span><span class="m">8</span><span class="w"> </span>-U<span class="w"> </span>ubm.gmm<span class="w"> </span>-M<span class="w"> </span><span class="m">0</span>.1<span class="w"> </span>&lt;<span class="w"> </span>data2.d<span class="w"> </span>&gt;<span class="w"> </span>map.gmm
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
+<li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>0 on success, 1 on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="lbg.html#lbg"><span class="std std-ref">lbg</span></a> <a class="reference internal" href="gmmp.html#gmmp"><span class="std std-ref">gmmp</span></a> <a class="reference internal" href="vc.html#vc"><span class="std std-ref">vc</span></a></p>
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk23GaussianMixtureModelingE">
+<span id="_CPPv3N4sptk23GaussianMixtureModelingE"></span><span id="_CPPv2N4sptk23GaussianMixtureModelingE"></span><span id="sptk::GaussianMixtureModeling"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GaussianMixtureModeling</span></span></span><a class="headerlink" href="#_CPPv4N4sptk23GaussianMixtureModelingE" title="Link to this definition"></a><br /></dt>
+<dd><p>Estimate model parameters of GMM.</p>
+<p>The input is the <span class="math notranslate nohighlight">\(M\)</span>-th order input vectors: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} \boldsymbol{x}_0, &amp; \boldsymbol{x}_1, &amp; \ldots, &amp; \boldsymbol{x}_{T-1}, \end{array} \]</div>
+ where <span class="math notranslate nohighlight">\(T\)</span> is the number of vectors. The output is the set of GMM parameters <span class="math notranslate nohighlight">\(\boldsymbol{\lambda}\)</span>: <div class="math notranslate nohighlight">
+\[ \begin{array}{ccccccc} w_0, &amp; \boldsymbol{\mu}_0, &amp; \boldsymbol{\varSigma}_0, &amp; \ldots, &amp; w_{K-1}, &amp; \boldsymbol{\mu}_{K-1}, &amp; \boldsymbol{\varSigma}_{K-1} \end{array} \]</div>
+ where <span class="math notranslate nohighlight">\(K\)</span> is the number of mixture components, <span class="math notranslate nohighlight">\(w_k\)</span> is the <span class="math notranslate nohighlight">\(k\)</span>-th mixture weight, <span class="math notranslate nohighlight">\(\mu_k\)</span> is the <span class="math notranslate nohighlight">\(k\)</span>-th mean vector, and <span class="math notranslate nohighlight">\(\boldsymbol{\varSigma}_k\)</span> is the <span class="math notranslate nohighlight">\(k\)</span>-th covariance matrix. The mixture weights satisfy <div class="math notranslate nohighlight">
+\[ \sum_{k=0}^{K-1} w_k = 1. \]</div>
+ The covariance matrix can be full, diagonal, block-diagonal, or block-wise diagonal.</p>
+<p>The <span class="math notranslate nohighlight">\(\boldsymbol{\lambda}\)</span> is iteratively updated by the following update formulae: <div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray} \hat{w}_k &amp;=&amp; \frac{1}{T} \sum_{t=0}^{T-1} \gamma_{k,t}, \\ \boldsymbol{\mu}_k &amp;=&amp; \frac{\displaystyle\sum_{t=0}^{T-1} \gamma_{k,t} \boldsymbol{x}_t} {\displaystyle\sum_{t=0}^{T-1} \gamma_{k,t}}, \\ \boldsymbol{\varSigma}_k &amp;=&amp; \frac{\displaystyle\sum_{t=0}^{T-1} \gamma_{k,t} \boldsymbol{x}_t \boldsymbol{x}_t^{\mathsf{T}}} {\displaystyle\sum_{t=0}^{T-1} \gamma_{k,t}} - \boldsymbol{\mu}_t \boldsymbol{\mu}_t^{\mathsf{T}}, \end{eqnarray}\end{split}\]</div>
+ where <div class="math notranslate nohighlight">
+\[ \gamma_{k,t} = \frac{w_k \mathcal{N}( \boldsymbol{x}_t \,|\, \boldsymbol{\mu}_k, \boldsymbol{\varSigma}_k)} {\displaystyle\sum_{k=0}^{K-1} w_k \mathcal{N}( \boldsymbol{x}_t \,|\, \boldsymbol{\mu}_k, \boldsymbol{\varSigma}_k)} \]</div>
+ is the posterior probability of being in the <span class="math notranslate nohighlight">\(k\)</span>-th component at time <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>If the universal background model (UBM) <span class="math notranslate nohighlight">\(\boldsymbol{\lambda}'\)</span> is given, the <span class="math notranslate nohighlight">\(\boldsymbol{\lambda}\)</span> is estimated by the maximum a posteriori method. The joint prior density is the product of Dirichlet and normal-Wishart densities. The update formulae are obtained as <div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray} \hat{w}_k &amp;=&amp; \frac{\xi_k + \displaystyle\sum_{t=0}^{T-1} \gamma_{k,t}} {\displaystyle\sum_{k=0}^{K-1} \xi_k + T}, \\ \boldsymbol{\mu}_k &amp;=&amp; \frac{\xi_k \boldsymbol{\mu}'_k + \displaystyle\sum_{t=0}^{T-1} \gamma_{k,t} \boldsymbol{x}_t} {\xi_k + \displaystyle\sum_{t=0}^{T-1} \gamma_{k,t}}, \\ \boldsymbol{\varSigma}_k &amp;=&amp; \frac{\xi_k \boldsymbol{\varSigma}'_k + \xi_k (\boldsymbol{\mu}'_k - \boldsymbol{\mu}_k) (\boldsymbol{\mu}'_k - \boldsymbol{\mu}_k)^{\mathsf{T}} + \displaystyle\sum_{t=0}^{T-1} \gamma_{k,t} (\boldsymbol{x}_t - \boldsymbol{\mu}_k) (\boldsymbol{x}_t - \boldsymbol{\mu}_k)^{\mathsf{T}}} {\xi_k + \displaystyle\sum_{t=0}^{T-1} \gamma_{k,t}}. \end{eqnarray}\end{split}\]</div>
+ where <div class="math notranslate nohighlight">
+\[ \xi_k = \alpha w'_k. \]</div>
+ and <span class="math notranslate nohighlight">\(\alpha\)</span> controlls the importance of the UBM. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk23GaussianMixtureModeling14CovarianceTypeE">
+<span id="_CPPv3N4sptk23GaussianMixtureModeling14CovarianceTypeE"></span><span id="_CPPv2N4sptk23GaussianMixtureModeling14CovarianceTypeE"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling_1a078f64aaebda6aae928b5d34f99a0807"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CovarianceType</span></span></span><a class="headerlink" href="#_CPPv4N4sptk23GaussianMixtureModeling14CovarianceTypeE" title="Link to this definition"></a><br /></dt>
+<dd><p>Type of (block) covariance. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk23GaussianMixtureModeling14CovarianceType9kDiagonalE">
+<span id="_CPPv3N4sptk23GaussianMixtureModeling14CovarianceType9kDiagonalE"></span><span id="_CPPv2N4sptk23GaussianMixtureModeling14CovarianceType9kDiagonalE"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling_1a078f64aaebda6aae928b5d34f99a0807ad93235ecf4a66ff3ab9f9260e899018b"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kDiagonal</span></span></span><a class="headerlink" href="#_CPPv4N4sptk23GaussianMixtureModeling14CovarianceType9kDiagonalE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk23GaussianMixtureModeling14CovarianceType5kFullE">
+<span id="_CPPv3N4sptk23GaussianMixtureModeling14CovarianceType5kFullE"></span><span id="_CPPv2N4sptk23GaussianMixtureModeling14CovarianceType5kFullE"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling_1a078f64aaebda6aae928b5d34f99a0807a57268baa5509a9d6e60063522ba1f373"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kFull</span></span></span><a class="headerlink" href="#_CPPv4N4sptk23GaussianMixtureModeling14CovarianceType5kFullE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk23GaussianMixtureModeling18InitializationTypeE">
+<span id="_CPPv3N4sptk23GaussianMixtureModeling18InitializationTypeE"></span><span id="_CPPv2N4sptk23GaussianMixtureModeling18InitializationTypeE"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling_1ac014338960a698b05ce48d373317edff"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">InitializationType</span></span></span><a class="headerlink" href="#_CPPv4N4sptk23GaussianMixtureModeling18InitializationTypeE" title="Link to this definition"></a><br /></dt>
+<dd><p>Type of initialization. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk23GaussianMixtureModeling18InitializationType5kNoneE">
+<span id="_CPPv3N4sptk23GaussianMixtureModeling18InitializationType5kNoneE"></span><span id="_CPPv2N4sptk23GaussianMixtureModeling18InitializationType5kNoneE"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling_1ac014338960a698b05ce48d373317edffae1ac459ba0f961cac7c9975edbd71750"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kNone</span></span></span><a class="headerlink" href="#_CPPv4N4sptk23GaussianMixtureModeling18InitializationType5kNoneE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk23GaussianMixtureModeling18InitializationType7kKMeansE">
+<span id="_CPPv3N4sptk23GaussianMixtureModeling18InitializationType7kKMeansE"></span><span id="_CPPv2N4sptk23GaussianMixtureModeling18InitializationType7kKMeansE"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling_1ac014338960a698b05ce48d373317edffa5ff00ae8858560eda5f9abe7b30763ae"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kKMeans</span></span></span><a class="headerlink" href="#_CPPv4N4sptk23GaussianMixtureModeling18InitializationType7kKMeansE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk23GaussianMixtureModeling18InitializationType4kUbmE">
+<span id="_CPPv3N4sptk23GaussianMixtureModeling18InitializationType4kUbmE"></span><span id="_CPPv2N4sptk23GaussianMixtureModeling18InitializationType4kUbmE"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling_1ac014338960a698b05ce48d373317edffab82fa4fee84b529a5687d9c1e8fc2816"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kUbm</span></span></span><a class="headerlink" href="#_CPPv4N4sptk23GaussianMixtureModeling18InitializationType4kUbmE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk23GaussianMixtureModeling23GaussianMixtureModelingEiiid14CovarianceTypeNSt6vectorIiEEdd18InitializationTypeidRKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorI15SymmetricMatrixEE">
+<span id="_CPPv3N4sptk23GaussianMixtureModeling23GaussianMixtureModelingEiiid14CovarianceTypeNSt6vectorIiEEdd18InitializationTypeidRKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorI15SymmetricMatrixEE"></span><span id="_CPPv2N4sptk23GaussianMixtureModeling23GaussianMixtureModelingEiiid14CovarianceTypeNSt6vectorIiEEdd18InitializationTypeidRKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorI15SymmetricMatrixEE"></span><span id="sptk::GaussianMixtureModeling::GaussianMixtureModeling__i.i.i.double.CovarianceType.std::vector:i:.double.double.InitializationType.i.double.std::vector:double:CR.std::vector:std::vector:double::CR.std::vector:SymmetricMatrix:CR"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling_1ae01ca16a7175091aed97644a96aab59b"></span><span class="sig-name descname"><span class="n"><span class="pre">GaussianMixtureModeling</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_mixture</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_iteration</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">convergence_threshold</span></span>, <a class="reference internal" href="#_CPPv4N4sptk23GaussianMixtureModeling14CovarianceTypeE" title="sptk::GaussianMixtureModeling::CovarianceType"><span class="n"><span class="pre">CovarianceType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">covariance_type</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">int</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">block_size</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">weight_floor</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">variance_floor</span></span>, <a class="reference internal" href="#_CPPv4N4sptk23GaussianMixtureModeling18InitializationTypeE" title="sptk::GaussianMixtureModeling::InitializationType"><span class="n"><span class="pre">InitializationType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">initialization_type</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">log_interval</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">smoothing_parameter</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.0</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ubm_weights</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="p"><span class="pre">}</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ubm_mean_vectors</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="p"><span class="pre">}</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../utils/math.html#_CPPv4N4sptk15SymmetricMatrixE" title="sptk::SymmetricMatrix"><span class="n"><span class="pre">SymmetricMatrix</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">ubm_covariance_matrices</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="p"><span class="pre">{</span></span><span class="p"><span class="pre">}</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk23GaussianMixtureModeling23GaussianMixtureModelingEiiid14CovarianceTypeNSt6vectorIiEEdd18InitializationTypeidRKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorI15SymmetricMatrixEE" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_order</strong> – <strong>[in]</strong> Order of vector, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
+<li><p><strong>num_mixture</strong> – <strong>[in]</strong> Number of mixtures, <span class="math notranslate nohighlight">\(K\)</span>. </p></li>
+<li><p><strong>num_iteration</strong> – <strong>[in]</strong> Number of iterations, <span class="math notranslate nohighlight">\(N\)</span>. </p></li>
+<li><p><strong>convergence_threshold</strong> – <strong>[in]</strong> Convergence threshold. </p></li>
+<li><p><strong>covariance_type</strong> – <strong>[in]</strong> Type of covariance. </p></li>
+<li><p><strong>block_size</strong> – <strong>[in]</strong> Block size of covariance. </p></li>
+<li><p><strong>weight_floor</strong> – <strong>[in]</strong> Floor value of weight. </p></li>
+<li><p><strong>variance_floor</strong> – <strong>[in]</strong> Floor value of variance. </p></li>
+<li><p><strong>initialization_type</strong> – <strong>[in]</strong> Type of initialization. </p></li>
+<li><p><strong>log_interval</strong> – <strong>[in]</strong> Show log-likelihood every this step. </p></li>
+<li><p><strong>smoothing_parameter</strong> – <strong>[in]</strong> MAP hyperparameter (optional), <span class="math notranslate nohighlight">\(\alpha\)</span>. </p></li>
+<li><p><strong>ubm_weights</strong> – <strong>[in]</strong> Weights of UBM-GMM (optional). </p></li>
+<li><p><strong>ubm_mean_vectors</strong> – <strong>[in]</strong> Means of UBM-GMM (optional). </p></li>
+<li><p><strong>ubm_covariance_matrices</strong> – <strong>[in]</strong> Covariances of UBM-GMM (optional). </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk23GaussianMixtureModeling11GetNumOrderEv">
+<span id="_CPPv3NK4sptk23GaussianMixtureModeling11GetNumOrderEv"></span><span id="_CPPv2NK4sptk23GaussianMixtureModeling11GetNumOrderEv"></span><span id="sptk::GaussianMixtureModeling::GetNumOrderC"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling_1a41708241cf9d69d5980699f832dbc462"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk23GaussianMixtureModeling11GetNumOrderEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Order of vector. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk23GaussianMixtureModeling13GetNumMixtureEv">
+<span id="_CPPv3NK4sptk23GaussianMixtureModeling13GetNumMixtureEv"></span><span id="_CPPv2NK4sptk23GaussianMixtureModeling13GetNumMixtureEv"></span><span id="sptk::GaussianMixtureModeling::GetNumMixtureC"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling_1a1613a3da0646b6ca4752a3b1f0b6da73"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumMixture</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk23GaussianMixtureModeling13GetNumMixtureEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of mixture components. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk23GaussianMixtureModeling15GetNumIterationEv">
+<span id="_CPPv3NK4sptk23GaussianMixtureModeling15GetNumIterationEv"></span><span id="_CPPv2NK4sptk23GaussianMixtureModeling15GetNumIterationEv"></span><span id="sptk::GaussianMixtureModeling::GetNumIterationC"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling_1acf5e23ee634303ddbc0543c4abb014a3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumIteration</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk23GaussianMixtureModeling15GetNumIterationEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of iterations. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk23GaussianMixtureModeling23GetConvergenceThresholdEv">
+<span id="_CPPv3NK4sptk23GaussianMixtureModeling23GetConvergenceThresholdEv"></span><span id="_CPPv2NK4sptk23GaussianMixtureModeling23GetConvergenceThresholdEv"></span><span id="sptk::GaussianMixtureModeling::GetConvergenceThresholdC"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling_1aef7e5f68e3739bebe41775ea7102a223"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetConvergenceThreshold</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk23GaussianMixtureModeling23GetConvergenceThresholdEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Convergence threshold. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk23GaussianMixtureModeling17GetCovarianceTypeEv">
+<span id="_CPPv3NK4sptk23GaussianMixtureModeling17GetCovarianceTypeEv"></span><span id="_CPPv2NK4sptk23GaussianMixtureModeling17GetCovarianceTypeEv"></span><span id="sptk::GaussianMixtureModeling::GetCovarianceTypeC"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling_1a7701ca58154b0c67f8974a866a999c00"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk23GaussianMixtureModeling14CovarianceTypeE" title="sptk::GaussianMixtureModeling::CovarianceType"><span class="n"><span class="pre">CovarianceType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetCovarianceType</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk23GaussianMixtureModeling17GetCovarianceTypeEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Type of covariance. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk23GaussianMixtureModeling14GetWeightFloorEv">
+<span id="_CPPv3NK4sptk23GaussianMixtureModeling14GetWeightFloorEv"></span><span id="_CPPv2NK4sptk23GaussianMixtureModeling14GetWeightFloorEv"></span><span id="sptk::GaussianMixtureModeling::GetWeightFloorC"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling_1a6fd53847abe4934e811692593753856b"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetWeightFloor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk23GaussianMixtureModeling14GetWeightFloorEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Floor value of weight. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk23GaussianMixtureModeling16GetVarianceFloorEv">
+<span id="_CPPv3NK4sptk23GaussianMixtureModeling16GetVarianceFloorEv"></span><span id="_CPPv2NK4sptk23GaussianMixtureModeling16GetVarianceFloorEv"></span><span id="sptk::GaussianMixtureModeling::GetVarianceFloorC"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling_1a3012da3e7f70e60e6d10805f53b92d39"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetVarianceFloor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk23GaussianMixtureModeling16GetVarianceFloorEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Floor value of variance. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk23GaussianMixtureModeling21GetInitializationTypeEv">
+<span id="_CPPv3NK4sptk23GaussianMixtureModeling21GetInitializationTypeEv"></span><span id="_CPPv2NK4sptk23GaussianMixtureModeling21GetInitializationTypeEv"></span><span id="sptk::GaussianMixtureModeling::GetInitializationTypeC"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling_1a80826518435dbf266952ae70fb8ab1b3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk23GaussianMixtureModeling18InitializationTypeE" title="sptk::GaussianMixtureModeling::InitializationType"><span class="n"><span class="pre">InitializationType</span></span></a><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetInitializationType</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk23GaussianMixtureModeling21GetInitializationTypeEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Type of initialization. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk23GaussianMixtureModeling21GetSmoothingParameterEv">
+<span id="_CPPv3NK4sptk23GaussianMixtureModeling21GetSmoothingParameterEv"></span><span id="_CPPv2NK4sptk23GaussianMixtureModeling21GetSmoothingParameterEv"></span><span id="sptk::GaussianMixtureModeling::GetSmoothingParameterC"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling_1a03bb36fc1d3dd052ee17e4e952691c73"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetSmoothingParameter</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk23GaussianMixtureModeling21GetSmoothingParameterEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>MAP smoothing parameter. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk23GaussianMixtureModeling10IsDiagonalEv">
+<span id="_CPPv3NK4sptk23GaussianMixtureModeling10IsDiagonalEv"></span><span id="_CPPv2NK4sptk23GaussianMixtureModeling10IsDiagonalEv"></span><span id="sptk::GaussianMixtureModeling::IsDiagonalC"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling_1ae2aa5a433f4bcc8345d81c780e0afc63"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsDiagonal</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk23GaussianMixtureModeling10IsDiagonalEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if covariance is pure diagonal. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk23GaussianMixtureModeling7IsValidEv">
+<span id="_CPPv3NK4sptk23GaussianMixtureModeling7IsValidEv"></span><span id="_CPPv2NK4sptk23GaussianMixtureModeling7IsValidEv"></span><span id="sptk::GaussianMixtureModeling::IsValidC"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling_1adf391fa4673cc2c738beeb0323952147"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk23GaussianMixtureModeling7IsValidEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this object is valid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk23GaussianMixtureModeling3RunERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEEPNSt6vectorI15SymmetricMatrixEEPd">
+<span id="_CPPv3NK4sptk23GaussianMixtureModeling3RunERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEEPNSt6vectorI15SymmetricMatrixEEPd"></span><span id="_CPPv2NK4sptk23GaussianMixtureModeling3RunERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEEPNSt6vectorI15SymmetricMatrixEEPd"></span><span id="sptk::GaussianMixtureModeling::Run__std::vector:std::vector:double::CR.std::vector:double:P.std::vector:std::vector:double::P.std::vector:SymmetricMatrix:P.doublePC"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling_1aa7847dba279f2b44f258b5c2393b3db0"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">input_vectors</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">weights</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">mean_vectors</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../utils/math.html#_CPPv4N4sptk15SymmetricMatrixE" title="sptk::SymmetricMatrix"><span class="n"><span class="pre">SymmetricMatrix</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">covariance_matrices</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">total_log_likelihood</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk23GaussianMixtureModeling3RunERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorIdEEPNSt6vectorINSt6vectorIdEEEEPNSt6vectorI15SymmetricMatrixEEPd" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>input_vectors</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order input vectors. The shape is <span class="math notranslate nohighlight">\([T, M+1]\)</span>. </p></li>
+<li><p><strong>weights</strong> – <strong>[inout]</strong> <span class="math notranslate nohighlight">\(K\)</span> mixture weights. </p></li>
+<li><p><strong>mean_vectors</strong> – <strong>[inout]</strong> <span class="math notranslate nohighlight">\(K\)</span> mean vectors. The shape is <span class="math notranslate nohighlight">\([K, M+1]\)</span>. </p></li>
+<li><p><strong>covariance_matrices</strong> – <strong>[inout]</strong> <span class="math notranslate nohighlight">\(K\)</span> covariance matrices. The shape is <span class="math notranslate nohighlight">\([K, M+1, M+1]\)</span>. </p></li>
+<li><p><strong>total_log_likelihood</strong> – <strong>[out]</strong> Total log-likelihood. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-static-functions">Public Static Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk23GaussianMixtureModeling23CalculateLogProbabilityEiibbRKNSt6vectorIdEERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorI15SymmetricMatrixEEPNSt6vectorIdEEPdPN23GaussianMixtureModeling6BufferE">
+<span id="_CPPv3N4sptk23GaussianMixtureModeling23CalculateLogProbabilityEiibbRKNSt6vectorIdEERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorI15SymmetricMatrixEEPNSt6vectorIdEEPdPN23GaussianMixtureModeling6BufferE"></span><span id="_CPPv2N4sptk23GaussianMixtureModeling23CalculateLogProbabilityEiibbRKNSt6vectorIdEERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorI15SymmetricMatrixEEPNSt6vectorIdEEPdPN23GaussianMixtureModeling6BufferE"></span><span id="sptk::GaussianMixtureModeling::CalculateLogProbability__i.i.b.b.std::vector:double:CR.std::vector:double:CR.std::vector:std::vector:double::CR.std::vector:SymmetricMatrix:CR.std::vector:double:P.doubleP.GaussianMixtureModeling::BufferP"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling_1ab7413e4de6f2642c80683c7c678bebbd"></span><span class="k"><span class="pre">static</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">CalculateLogProbability</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_mixture</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">is_diagonal</span></span>, <span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">check_size</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">input_vector</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">weights</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">mean_vectors</span></span>, <span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><a class="reference internal" href="../utils/math.html#_CPPv4N4sptk15SymmetricMatrixE" title="sptk::SymmetricMatrix"><span class="n"><span class="pre">SymmetricMatrix</span></span></a><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">covariance_matrices</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">components_of_log_probability</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">log_probability</span></span>, <a class="reference internal" href="#_CPPv4N4sptk23GaussianMixtureModelingE" title="sptk::GaussianMixtureModeling"><span class="n"><span class="pre">GaussianMixtureModeling</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk23GaussianMixtureModeling6BufferE" title="sptk::GaussianMixtureModeling::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk23GaussianMixtureModeling23CalculateLogProbabilityEiibbRKNSt6vectorIdEERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorI15SymmetricMatrixEEPNSt6vectorIdEEPdPN23GaussianMixtureModeling6BufferE" title="Link to this definition"></a><br /></dt>
+<dd><p>Calculate log-probablity of data.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_order</strong> – <strong>[in]</strong> Order of input vector. </p></li>
+<li><p><strong>num_mixture</strong> – <strong>[in]</strong> Number of mixture components. </p></li>
+<li><p><strong>is_diagonal</strong> – <strong>[in]</strong> If true, diagonal covariance is assumed. </p></li>
+<li><p><strong>check_size</strong> – <strong>[in]</strong> If true, check sanity of input GMM parameters. </p></li>
+<li><p><strong>input_vector</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order input vector. </p></li>
+<li><p><strong>weights</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(K\)</span> mixture weights. </p></li>
+<li><p><strong>mean_vectors</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(K\)</span> mean vectors. </p></li>
+<li><p><strong>covariance_matrices</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(K\)</span> covariance matrices. </p></li>
+<li><p><strong>components_of_log_probability</strong> – <strong>[out]</strong> Components of log-probability. </p></li>
+<li><p><strong>log_probability</strong> – <strong>[out]</strong> Log-probability of input vector. </p></li>
+<li><p><strong>buffer</strong> – <strong>[out]</strong> <a class="reference internal" href="#classsptk_1_1GaussianMixtureModeling_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk23GaussianMixtureModeling6BufferE">
+<span id="_CPPv3N4sptk23GaussianMixtureModeling6BufferE"></span><span id="_CPPv2N4sptk23GaussianMixtureModeling6BufferE"></span><span id="sptk::GaussianMixtureModeling::Buffer"></span><span class="target" id="classsptk_1_1GaussianMixtureModeling_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk23GaussianMixtureModeling6BufferE" title="Link to this definition"></a><br /></dt>
+<dd><p><a class="reference internal" href="#classsptk_1_1GaussianMixtureModeling_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1GaussianMixtureModeling"><span class="std std-ref">GaussianMixtureModeling</span></a>. </p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="glogsp.html" class="btn btn-neutral float-left" title="glogsp" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="gmmp.html" class="btn btn-neutral float-right" title="gmmp" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, SPTK Working Group.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

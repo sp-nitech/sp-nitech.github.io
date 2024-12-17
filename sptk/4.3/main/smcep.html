@@ -1,0 +1,705 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>smcep &mdash; SPTK  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="snr" href="snr.html" />
+    <link rel="prev" title="sin" href="sin.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Command references</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alaw.html">alaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ap.html">ap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcp.html">bcp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcut.html">bcut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2acr.html">c2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2ndps.html">c2ndps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdist.html">cdist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clip.html">clip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dct.html">dct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decimate.html">decimate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delay.html">delay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dequantize.html">dequantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df2.html">df2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dfs.html">dfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmp.html">dmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drc.html">drc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtw.html">dtw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtw_merge.html">dtw_merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html">extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fd.html">fd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fdrw.html">fdrw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft2.html">fft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr2.html">fftr2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glogsp.html">glogsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmm.html">gmm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmmp.html">gmmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpolezero.html">gpolezero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grlogsp.html">grlogsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gseries.html">gseries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gspecgram.html">gspecgram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gwave.html">gwave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="histogram.html">histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ialaw.html">ialaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iltcdf.html">iltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imglsadf.html">imglsadf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipnorm.html">ipnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lbg.html">lbg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="levdur.html">levdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear_intpl.html">linear_intpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc.html">lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2lsp.html">lpc2lsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpccheck.html">lpccheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lsp2lpc.html">lsp2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspcheck.html">lspcheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspdf.html">lspdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="magic_intpl.html">magic_intpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcpf.html">mcpf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="medfilt.html">medfilt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="median.html">median</a></li>
+<li class="toctree-l1"><a class="reference internal" href="merge.html">merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgc2mgc.html">mgc2mgc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgc2sp.html">mgc2sp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgcep.html">mgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsadf.html">mglsadf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsp2sp.html">mglsp2sp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minmax.html">minmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlsacheck.html">mlsacheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mode.html">mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mpir2c.html">mpir2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msvq.html">msvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onehot.html">onehot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pcas.html">pcas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch2sin.html">pitch2sin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="plp.html">plp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pnorm.html">pnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ramp.html">ramp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reverse.html">reverse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlevdur.html">rlevdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rmse.html">rmse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root_pol.html">root_pol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sin.html">sin</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">smcep</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk37SecondOrderAllPassMelCepstralAnalysisE"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassMelCepstralAnalysis</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk37SecondOrderAllPassMelCepstralAnalysis37SecondOrderAllPassMelCepstralAnalysisEiiiddid"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassMelCepstralAnalysis::SecondOrderAllPassMelCepstralAnalysis()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis12GetFftLengthEv"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassMelCepstralAnalysis::GetFftLength()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis11GetNumOrderEv"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassMelCepstralAnalysis::GetNumOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis8GetAlphaEv"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassMelCepstralAnalysis::GetAlpha()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis8GetThetaEv"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassMelCepstralAnalysis::GetTheta()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis14AccuracyFactorEv"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassMelCepstralAnalysis::AccuracyFactor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis15GetNumIterationEv"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassMelCepstralAnalysis::GetNumIteration()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis23GetConvergenceThresholdEv"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassMelCepstralAnalysis::GetConvergenceThreshold()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis7IsValidEv"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassMelCepstralAnalysis::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN37SecondOrderAllPassMelCepstralAnalysis6BufferE"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassMelCepstralAnalysis::Run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk37SecondOrderAllPassMelCepstralAnalysis6BufferE"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassMelCepstralAnalysis::Buffer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk36SecondOrderAllPassFrequencyTransformE"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassFrequencyTransform</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk36SecondOrderAllPassFrequencyTransform36SecondOrderAllPassFrequencyTransformEiiidd"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassFrequencyTransform::SecondOrderAllPassFrequencyTransform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk36SecondOrderAllPassFrequencyTransform16GetNumInputOrderEv"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassFrequencyTransform::GetNumInputOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk36SecondOrderAllPassFrequencyTransform17GetNumOutputOrderEv"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassFrequencyTransform::GetNumOutputOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk36SecondOrderAllPassFrequencyTransform8GetAlphaEv"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassFrequencyTransform::GetAlpha()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk36SecondOrderAllPassFrequencyTransform8GetThetaEv"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassFrequencyTransform::GetTheta()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk36SecondOrderAllPassFrequencyTransform7IsValidEv"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassFrequencyTransform::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk36SecondOrderAllPassFrequencyTransform3RunERKNSt6vectorIdEEPNSt6vectorIdEE"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassFrequencyTransform::Run()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk43SecondOrderAllPassInverseFrequencyTransformE"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassInverseFrequencyTransform</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk43SecondOrderAllPassInverseFrequencyTransform43SecondOrderAllPassInverseFrequencyTransformEiiidd"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassInverseFrequencyTransform::SecondOrderAllPassInverseFrequencyTransform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk43SecondOrderAllPassInverseFrequencyTransform16GetNumInputOrderEv"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassInverseFrequencyTransform::GetNumInputOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk43SecondOrderAllPassInverseFrequencyTransform17GetNumOutputOrderEv"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassInverseFrequencyTransform::GetNumOutputOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk43SecondOrderAllPassInverseFrequencyTransform8GetAlphaEv"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassInverseFrequencyTransform::GetAlpha()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk43SecondOrderAllPassInverseFrequencyTransform8GetThetaEv"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassInverseFrequencyTransform::GetTheta()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk43SecondOrderAllPassInverseFrequencyTransform7IsValidEv"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassInverseFrequencyTransform::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk43SecondOrderAllPassInverseFrequencyTransform3RunERKNSt6vectorIdEEPNSt6vectorIdEE"><code class="docutils literal notranslate"><span class="pre">SecondOrderAllPassInverseFrequencyTransform::Run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="snr.html">snr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sopr.html">sopr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spec.html">spec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step.html">step</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swab.html">swab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="symmetrize.html">symmetrize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="train.html">train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transpose.html">transpose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vc.html">vc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vopr.html">vopr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vprod.html">vprod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_synth.html">world_synth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utility references</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../utils/math.html">math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/sptk.html">sptk</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SPTK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">smcep</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/main/smcep.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="smcep">
+<span id="id1"></span><h1>smcep<a class="headerlink" href="#smcep" title="Link to this heading"></a></h1>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv44mainiA_Pc">
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="smcep_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p><em>smcep</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<p><ul class="simple">
+<li><p><strong>-m</strong> <em>int</em> <ul>
+<li><p>order of coefficients <span class="math notranslate nohighlight">\((0 \le M)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-a</strong> <em>double</em> <ul>
+<li><p>all-pass constant <span class="math notranslate nohighlight">\((|\alpha| &lt; 1)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-t</strong> <em>double</em> <ul>
+<li><p>emphasized frequency in <span class="math notranslate nohighlight">\(\pi\)</span> rad <span class="math notranslate nohighlight">\((0 \le \theta \le 1.0)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-l</strong> <em>int</em> <ul>
+<li><p>FFT length <span class="math notranslate nohighlight">\((2 \le N)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-q</strong> <em>int</em> <ul>
+<li><p>input format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> amplitude spectrum in dB </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> log amplitude spectrum </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> amplitude spectrum </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> power spectrum </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4</span></code> windowed waveform</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>-f</strong> <em>int</em> <ul>
+<li><p>accuracy factor <span class="math notranslate nohighlight">\((1 \le F)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-i</strong> <em>int</em> <ul>
+<li><p>number of iterations <span class="math notranslate nohighlight">\((0 \le J)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-d</strong> <em>double</em> <ul>
+<li><p>convergence threshold <span class="math notranslate nohighlight">\((0 \le \epsilon)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-e</strong> <em>double</em> <ul>
+<li><p>small value added to power spectrum</p></li>
+</ul>
+</p></li>
+<li><p><strong>-E</strong> <em>double</em> <ul>
+<li><p>relative floor in decibels</p></li>
+</ul>
+</p></li>
+<li><p><strong>infile</strong> <em>str</em> <ul>
+<li><p>double-type windowed sequence or spectrum</p></li>
+</ul>
+</p></li>
+<li><p><strong>stdout</strong> <ul>
+<li><p>double-type mel-cepstral coefficients</p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+<p>In the example below, mel-cepstral coefficients are extracted from <code class="docutils literal notranslate"><span class="pre">data.d</span></code>.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>frame<span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span><span class="p">|</span><span class="w"> </span>window<span class="w"> </span><span class="p">|</span><span class="w"> </span>smcep<span class="w"> </span>-t<span class="w"> </span><span class="m">0</span>.12<span class="w"> </span>&gt;<span class="w"> </span>data.mcep
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
+<li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>0 on success, 1 on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="mgcep.html#mgcep"><span class="std std-ref">mgcep</span></a></p>
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk37SecondOrderAllPassMelCepstralAnalysisE">
+<span id="_CPPv3N4sptk37SecondOrderAllPassMelCepstralAnalysisE"></span><span id="_CPPv2N4sptk37SecondOrderAllPassMelCepstralAnalysisE"></span><span id="sptk::SecondOrderAllPassMelCepstralAnalysis"></span><span class="target" id="classsptk_1_1SecondOrderAllPassMelCepstralAnalysis"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SecondOrderAllPassMelCepstralAnalysis</span></span></span><a class="headerlink" href="#_CPPv4N4sptk37SecondOrderAllPassMelCepstralAnalysisE" title="Link to this definition"></a><br /></dt>
+<dd><p>Calculate mel-cepstrum from periodogram.</p>
+<p>The input is the half of periodogram: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} |X(0)|^2, &amp; |X(1)|^2, &amp; \ldots, &amp; |X(N/2)|^2, \end{array} \]</div>
+ where <span class="math notranslate nohighlight">\(N\)</span> is the FFT length. The output is the <span class="math notranslate nohighlight">\(M\)</span>-th order mel-cepstral coefficients: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} \tilde{c}(0), &amp; \tilde{c}(1), &amp; \ldots, &amp; \tilde{c}(M). \end{array} \]</div>
+</p>
+<p>In the mel-cepstral analysis based on the second order all-pass function, the spectrum of speech signal is modeled by <span class="math notranslate nohighlight">\(M\)</span>-th order mel-cepstral coefficients as follows: <div class="math notranslate nohighlight">
+\[ H(z) = \exp \sum_{m=0}^M \tilde{c}(m) \displaystyle\frac{A^m(z) + A^m(z^{-1})}{2}, \]</div>
+ where <div class="math notranslate nohighlight">
+\[ A(z) = \left( \frac{z^{-2} - 2\alpha\cos\theta z^{-1} + \alpha^2} {1 - 2\alpha \cos\theta z^{-1} + \alpha^2 z^{-2}} \right)^{1/2}. \]</div>
+ The phase characteristic of the all-pass function is controlled by the two parameters: <span class="math notranslate nohighlight">\(\alpha\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+<p>Note that the implemenation is based on an unpublished paper. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk37SecondOrderAllPassMelCepstralAnalysis37SecondOrderAllPassMelCepstralAnalysisEiiiddid">
+<span id="_CPPv3N4sptk37SecondOrderAllPassMelCepstralAnalysis37SecondOrderAllPassMelCepstralAnalysisEiiiddid"></span><span id="_CPPv2N4sptk37SecondOrderAllPassMelCepstralAnalysis37SecondOrderAllPassMelCepstralAnalysisEiiiddid"></span><span id="sptk::SecondOrderAllPassMelCepstralAnalysis::SecondOrderAllPassMelCepstralAnalysis__i.i.i.double.double.i.double"></span><span class="target" id="classsptk_1_1SecondOrderAllPassMelCepstralAnalysis_1a2399c15944337bb4c71004af6080c79e"></span><span class="sig-name descname"><span class="n"><span class="pre">SecondOrderAllPassMelCepstralAnalysis</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">accuracy_factor</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">alpha</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">theta</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_iteration</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">convergence_threshold</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk37SecondOrderAllPassMelCepstralAnalysis37SecondOrderAllPassMelCepstralAnalysisEiiiddid" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fft_length</strong> – <strong>[in]</strong> Number of FFT bins, <span class="math notranslate nohighlight">\(N\)</span>. </p></li>
+<li><p><strong>num_order</strong> – <strong>[in]</strong> Order of cepstral coefficients, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
+<li><p><strong>accuracy_factor</strong> – <strong>[in]</strong> Accuracy of frequency transform. This must be a power of two. </p></li>
+<li><p><strong>alpha</strong> – <strong>[in]</strong> Frequency warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>. </p></li>
+<li><p><strong>theta</strong> – <strong>[in]</strong> Frequency emphasis factor, <span class="math notranslate nohighlight">\(\theta\)</span>. </p></li>
+<li><p><strong>num_iteration</strong> – <strong>[in]</strong> Number of iterations of Newton method, <span class="math notranslate nohighlight">\(J\)</span>. </p></li>
+<li><p><strong>convergence_threshold</strong> – <strong>[in]</strong> Convergence threshold, <span class="math notranslate nohighlight">\(\epsilon\)</span>. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis12GetFftLengthEv">
+<span id="_CPPv3NK4sptk37SecondOrderAllPassMelCepstralAnalysis12GetFftLengthEv"></span><span id="_CPPv2NK4sptk37SecondOrderAllPassMelCepstralAnalysis12GetFftLengthEv"></span><span id="sptk::SecondOrderAllPassMelCepstralAnalysis::GetFftLengthC"></span><span class="target" id="classsptk_1_1SecondOrderAllPassMelCepstralAnalysis_1ad54ddd6650b82e6d4464190e449c107c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis12GetFftLengthEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>FFT length. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis11GetNumOrderEv">
+<span id="_CPPv3NK4sptk37SecondOrderAllPassMelCepstralAnalysis11GetNumOrderEv"></span><span id="_CPPv2NK4sptk37SecondOrderAllPassMelCepstralAnalysis11GetNumOrderEv"></span><span id="sptk::SecondOrderAllPassMelCepstralAnalysis::GetNumOrderC"></span><span class="target" id="classsptk_1_1SecondOrderAllPassMelCepstralAnalysis_1a4cbcb1478fcbe6260b9ca73b260dd41e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis11GetNumOrderEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Order of coefficients. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis8GetAlphaEv">
+<span id="_CPPv3NK4sptk37SecondOrderAllPassMelCepstralAnalysis8GetAlphaEv"></span><span id="_CPPv2NK4sptk37SecondOrderAllPassMelCepstralAnalysis8GetAlphaEv"></span><span id="sptk::SecondOrderAllPassMelCepstralAnalysis::GetAlphaC"></span><span class="target" id="classsptk_1_1SecondOrderAllPassMelCepstralAnalysis_1a275a17bbb604f25190f9ce8c367811e8"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetAlpha</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis8GetAlphaEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>All-pass constant. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis8GetThetaEv">
+<span id="_CPPv3NK4sptk37SecondOrderAllPassMelCepstralAnalysis8GetThetaEv"></span><span id="_CPPv2NK4sptk37SecondOrderAllPassMelCepstralAnalysis8GetThetaEv"></span><span id="sptk::SecondOrderAllPassMelCepstralAnalysis::GetThetaC"></span><span class="target" id="classsptk_1_1SecondOrderAllPassMelCepstralAnalysis_1a49de992e118049ca5b4cfac2226d88f0"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetTheta</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis8GetThetaEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Frequency emphasis factor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis14AccuracyFactorEv">
+<span id="_CPPv3NK4sptk37SecondOrderAllPassMelCepstralAnalysis14AccuracyFactorEv"></span><span id="_CPPv2NK4sptk37SecondOrderAllPassMelCepstralAnalysis14AccuracyFactorEv"></span><span id="sptk::SecondOrderAllPassMelCepstralAnalysis::AccuracyFactorC"></span><span class="target" id="classsptk_1_1SecondOrderAllPassMelCepstralAnalysis_1a3cb18497f305ad308ee4be20605b7742"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">AccuracyFactor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis14AccuracyFactorEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>A factor for making a conversion matrix of frequency transform. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis15GetNumIterationEv">
+<span id="_CPPv3NK4sptk37SecondOrderAllPassMelCepstralAnalysis15GetNumIterationEv"></span><span id="_CPPv2NK4sptk37SecondOrderAllPassMelCepstralAnalysis15GetNumIterationEv"></span><span id="sptk::SecondOrderAllPassMelCepstralAnalysis::GetNumIterationC"></span><span class="target" id="classsptk_1_1SecondOrderAllPassMelCepstralAnalysis_1a2ca6211793390b06671e8b682a1b07f3"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumIteration</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis15GetNumIterationEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of iterations. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis23GetConvergenceThresholdEv">
+<span id="_CPPv3NK4sptk37SecondOrderAllPassMelCepstralAnalysis23GetConvergenceThresholdEv"></span><span id="_CPPv2NK4sptk37SecondOrderAllPassMelCepstralAnalysis23GetConvergenceThresholdEv"></span><span id="sptk::SecondOrderAllPassMelCepstralAnalysis::GetConvergenceThresholdC"></span><span class="target" id="classsptk_1_1SecondOrderAllPassMelCepstralAnalysis_1afeadd8c07c651aa8636bded109516b07"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetConvergenceThreshold</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis23GetConvergenceThresholdEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Convergence threshold. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis7IsValidEv">
+<span id="_CPPv3NK4sptk37SecondOrderAllPassMelCepstralAnalysis7IsValidEv"></span><span id="_CPPv2NK4sptk37SecondOrderAllPassMelCepstralAnalysis7IsValidEv"></span><span id="sptk::SecondOrderAllPassMelCepstralAnalysis::IsValidC"></span><span class="target" id="classsptk_1_1SecondOrderAllPassMelCepstralAnalysis_1a070f0107eb1c97cad900d3eea07bb8ba"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis7IsValidEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this object is valid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN37SecondOrderAllPassMelCepstralAnalysis6BufferE">
+<span id="_CPPv3NK4sptk37SecondOrderAllPassMelCepstralAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN37SecondOrderAllPassMelCepstralAnalysis6BufferE"></span><span id="_CPPv2NK4sptk37SecondOrderAllPassMelCepstralAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN37SecondOrderAllPassMelCepstralAnalysis6BufferE"></span><span id="sptk::SecondOrderAllPassMelCepstralAnalysis::Run__std::vector:double:CR.std::vector:double:P.SecondOrderAllPassMelCepstralAnalysis::BufferPC"></span><span class="target" id="classsptk_1_1SecondOrderAllPassMelCepstralAnalysis_1ab478bb017506da5557dbe0d718d7e64a"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">periodogram</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">mel_cepstrum</span></span>, <a class="reference internal" href="#_CPPv4N4sptk37SecondOrderAllPassMelCepstralAnalysisE" title="sptk::SecondOrderAllPassMelCepstralAnalysis"><span class="n"><span class="pre">SecondOrderAllPassMelCepstralAnalysis</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk37SecondOrderAllPassMelCepstralAnalysis6BufferE" title="sptk::SecondOrderAllPassMelCepstralAnalysis::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk37SecondOrderAllPassMelCepstralAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPN37SecondOrderAllPassMelCepstralAnalysis6BufferE" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>periodogram</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\((N/2+1)\)</span>-length periodogram. </p></li>
+<li><p><strong>mel_cepstrum</strong> – <strong>[out]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order mel-cepstral coefficients. </p></li>
+<li><p><strong>buffer</strong> – <strong>[out]</strong> <a class="reference internal" href="#classsptk_1_1SecondOrderAllPassMelCepstralAnalysis_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk37SecondOrderAllPassMelCepstralAnalysis6BufferE">
+<span id="_CPPv3N4sptk37SecondOrderAllPassMelCepstralAnalysis6BufferE"></span><span id="_CPPv2N4sptk37SecondOrderAllPassMelCepstralAnalysis6BufferE"></span><span id="sptk::SecondOrderAllPassMelCepstralAnalysis::Buffer"></span><span class="target" id="classsptk_1_1SecondOrderAllPassMelCepstralAnalysis_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk37SecondOrderAllPassMelCepstralAnalysis6BufferE" title="Link to this definition"></a><br /></dt>
+<dd><p><a class="reference internal" href="#classsptk_1_1SecondOrderAllPassMelCepstralAnalysis_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1SecondOrderAllPassMelCepstralAnalysis"><span class="std std-ref">SecondOrderAllPassMelCepstralAnalysis</span></a> class. </p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk36SecondOrderAllPassFrequencyTransformE">
+<span id="_CPPv3N4sptk36SecondOrderAllPassFrequencyTransformE"></span><span id="_CPPv2N4sptk36SecondOrderAllPassFrequencyTransformE"></span><span id="sptk::SecondOrderAllPassFrequencyTransform"></span><span class="target" id="classsptk_1_1SecondOrderAllPassFrequencyTransform"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SecondOrderAllPassFrequencyTransform</span></span></span><a class="headerlink" href="#_CPPv4N4sptk36SecondOrderAllPassFrequencyTransformE" title="Link to this definition"></a><br /></dt>
+<dd><p>Transform a minimum phase sequence into a frequency-warped sequence. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk36SecondOrderAllPassFrequencyTransform36SecondOrderAllPassFrequencyTransformEiiidd">
+<span id="_CPPv3N4sptk36SecondOrderAllPassFrequencyTransform36SecondOrderAllPassFrequencyTransformEiiidd"></span><span id="_CPPv2N4sptk36SecondOrderAllPassFrequencyTransform36SecondOrderAllPassFrequencyTransformEiiidd"></span><span id="sptk::SecondOrderAllPassFrequencyTransform::SecondOrderAllPassFrequencyTransform__i.i.i.double.double"></span><span class="target" id="classsptk_1_1SecondOrderAllPassFrequencyTransform_1afeee943db90f64479348ed3399466042"></span><span class="sig-name descname"><span class="n"><span class="pre">SecondOrderAllPassFrequencyTransform</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_input_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_output_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">alpha</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">theta</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk36SecondOrderAllPassFrequencyTransform36SecondOrderAllPassFrequencyTransformEiiidd" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_input_order</strong> – <strong>[in]</strong> Order of input, <span class="math notranslate nohighlight">\(M_1\)</span>. </p></li>
+<li><p><strong>num_output_order</strong> – <strong>[in]</strong> Order of output, <span class="math notranslate nohighlight">\(M_2\)</span>. </p></li>
+<li><p><strong>fft_length</strong> – <strong>[in]</strong> FFT length used to make conversion matrix. </p></li>
+<li><p><strong>alpha</strong> – <strong>[in]</strong> Frequency warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>. </p></li>
+<li><p><strong>theta</strong> – <strong>[in]</strong> Frequency emphasis factor, <span class="math notranslate nohighlight">\(\theta\)</span>. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk36SecondOrderAllPassFrequencyTransform16GetNumInputOrderEv">
+<span id="_CPPv3NK4sptk36SecondOrderAllPassFrequencyTransform16GetNumInputOrderEv"></span><span id="_CPPv2NK4sptk36SecondOrderAllPassFrequencyTransform16GetNumInputOrderEv"></span><span id="sptk::SecondOrderAllPassFrequencyTransform::GetNumInputOrderC"></span><span class="target" id="classsptk_1_1SecondOrderAllPassFrequencyTransform_1a13e566933c82d9fcd3d67c44123ce8f4"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumInputOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk36SecondOrderAllPassFrequencyTransform16GetNumInputOrderEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Order of input. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk36SecondOrderAllPassFrequencyTransform17GetNumOutputOrderEv">
+<span id="_CPPv3NK4sptk36SecondOrderAllPassFrequencyTransform17GetNumOutputOrderEv"></span><span id="_CPPv2NK4sptk36SecondOrderAllPassFrequencyTransform17GetNumOutputOrderEv"></span><span id="sptk::SecondOrderAllPassFrequencyTransform::GetNumOutputOrderC"></span><span class="target" id="classsptk_1_1SecondOrderAllPassFrequencyTransform_1ab7bdbaaebb508653dd1c71ba32860c3c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOutputOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk36SecondOrderAllPassFrequencyTransform17GetNumOutputOrderEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Order of output. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk36SecondOrderAllPassFrequencyTransform8GetAlphaEv">
+<span id="_CPPv3NK4sptk36SecondOrderAllPassFrequencyTransform8GetAlphaEv"></span><span id="_CPPv2NK4sptk36SecondOrderAllPassFrequencyTransform8GetAlphaEv"></span><span id="sptk::SecondOrderAllPassFrequencyTransform::GetAlphaC"></span><span class="target" id="classsptk_1_1SecondOrderAllPassFrequencyTransform_1a7c2cb6c0bf36c86028d72651cdbf5545"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetAlpha</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk36SecondOrderAllPassFrequencyTransform8GetAlphaEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Frequency warping factor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk36SecondOrderAllPassFrequencyTransform8GetThetaEv">
+<span id="_CPPv3NK4sptk36SecondOrderAllPassFrequencyTransform8GetThetaEv"></span><span id="_CPPv2NK4sptk36SecondOrderAllPassFrequencyTransform8GetThetaEv"></span><span id="sptk::SecondOrderAllPassFrequencyTransform::GetThetaC"></span><span class="target" id="classsptk_1_1SecondOrderAllPassFrequencyTransform_1a50f2b9fbd83c9c6d5d576b82e85d91c8"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetTheta</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk36SecondOrderAllPassFrequencyTransform8GetThetaEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Frequency emphasis factor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk36SecondOrderAllPassFrequencyTransform7IsValidEv">
+<span id="_CPPv3NK4sptk36SecondOrderAllPassFrequencyTransform7IsValidEv"></span><span id="_CPPv2NK4sptk36SecondOrderAllPassFrequencyTransform7IsValidEv"></span><span id="sptk::SecondOrderAllPassFrequencyTransform::IsValidC"></span><span class="target" id="classsptk_1_1SecondOrderAllPassFrequencyTransform_1af35574271f020ec5c0edfe4663a84240"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk36SecondOrderAllPassFrequencyTransform7IsValidEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this object is valid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk36SecondOrderAllPassFrequencyTransform3RunERKNSt6vectorIdEEPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk36SecondOrderAllPassFrequencyTransform3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk36SecondOrderAllPassFrequencyTransform3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::SecondOrderAllPassFrequencyTransform::Run__std::vector:double:CR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1SecondOrderAllPassFrequencyTransform_1a4af90359aa6ce8c25cb817953ca47679"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">minimum_phase_sequence</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">warped_sequence</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk36SecondOrderAllPassFrequencyTransform3RunERKNSt6vectorIdEEPNSt6vectorIdEE" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>minimum_phase_sequence</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M_1\)</span>-th order input sequence. </p></li>
+<li><p><strong>warped_sequence</strong> – <strong>[out]</strong> <span class="math notranslate nohighlight">\(M_2\)</span>-th order output sequence. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk43SecondOrderAllPassInverseFrequencyTransformE">
+<span id="_CPPv3N4sptk43SecondOrderAllPassInverseFrequencyTransformE"></span><span id="_CPPv2N4sptk43SecondOrderAllPassInverseFrequencyTransformE"></span><span id="sptk::SecondOrderAllPassInverseFrequencyTransform"></span><span class="target" id="classsptk_1_1SecondOrderAllPassInverseFrequencyTransform"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SecondOrderAllPassInverseFrequencyTransform</span></span></span><a class="headerlink" href="#_CPPv4N4sptk43SecondOrderAllPassInverseFrequencyTransformE" title="Link to this definition"></a><br /></dt>
+<dd><p>Transform a frequency-warped sequence into a minimum phase sequence. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk43SecondOrderAllPassInverseFrequencyTransform43SecondOrderAllPassInverseFrequencyTransformEiiidd">
+<span id="_CPPv3N4sptk43SecondOrderAllPassInverseFrequencyTransform43SecondOrderAllPassInverseFrequencyTransformEiiidd"></span><span id="_CPPv2N4sptk43SecondOrderAllPassInverseFrequencyTransform43SecondOrderAllPassInverseFrequencyTransformEiiidd"></span><span id="sptk::SecondOrderAllPassInverseFrequencyTransform::SecondOrderAllPassInverseFrequencyTransform__i.i.i.double.double"></span><span class="target" id="classsptk_1_1SecondOrderAllPassInverseFrequencyTransform_1a3ea9e999f9633df9f8552c022cfe5ff8"></span><span class="sig-name descname"><span class="n"><span class="pre">SecondOrderAllPassInverseFrequencyTransform</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_input_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_output_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">alpha</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">theta</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk43SecondOrderAllPassInverseFrequencyTransform43SecondOrderAllPassInverseFrequencyTransformEiiidd" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_input_order</strong> – <strong>[in]</strong> Order of input, <span class="math notranslate nohighlight">\(M_1\)</span>. </p></li>
+<li><p><strong>num_output_order</strong> – <strong>[in]</strong> Order of output, <span class="math notranslate nohighlight">\(M_2\)</span>. </p></li>
+<li><p><strong>fft_length</strong> – <strong>[in]</strong> FFT length used to make conversion matrix. </p></li>
+<li><p><strong>alpha</strong> – <strong>[in]</strong> Frequency warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>. </p></li>
+<li><p><strong>theta</strong> – <strong>[in]</strong> Frequency emphasis factor, <span class="math notranslate nohighlight">\(\theta\)</span>. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk43SecondOrderAllPassInverseFrequencyTransform16GetNumInputOrderEv">
+<span id="_CPPv3NK4sptk43SecondOrderAllPassInverseFrequencyTransform16GetNumInputOrderEv"></span><span id="_CPPv2NK4sptk43SecondOrderAllPassInverseFrequencyTransform16GetNumInputOrderEv"></span><span id="sptk::SecondOrderAllPassInverseFrequencyTransform::GetNumInputOrderC"></span><span class="target" id="classsptk_1_1SecondOrderAllPassInverseFrequencyTransform_1acc3f2507604c03f92d0ab96e3265dd34"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumInputOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk43SecondOrderAllPassInverseFrequencyTransform16GetNumInputOrderEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Order of input. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk43SecondOrderAllPassInverseFrequencyTransform17GetNumOutputOrderEv">
+<span id="_CPPv3NK4sptk43SecondOrderAllPassInverseFrequencyTransform17GetNumOutputOrderEv"></span><span id="_CPPv2NK4sptk43SecondOrderAllPassInverseFrequencyTransform17GetNumOutputOrderEv"></span><span id="sptk::SecondOrderAllPassInverseFrequencyTransform::GetNumOutputOrderC"></span><span class="target" id="classsptk_1_1SecondOrderAllPassInverseFrequencyTransform_1ab3880072cc18808bfda4c4d946cc7cf9"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOutputOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk43SecondOrderAllPassInverseFrequencyTransform17GetNumOutputOrderEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Order of output. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk43SecondOrderAllPassInverseFrequencyTransform8GetAlphaEv">
+<span id="_CPPv3NK4sptk43SecondOrderAllPassInverseFrequencyTransform8GetAlphaEv"></span><span id="_CPPv2NK4sptk43SecondOrderAllPassInverseFrequencyTransform8GetAlphaEv"></span><span id="sptk::SecondOrderAllPassInverseFrequencyTransform::GetAlphaC"></span><span class="target" id="classsptk_1_1SecondOrderAllPassInverseFrequencyTransform_1a184b10144fc8424f15300083f3c5b113"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetAlpha</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk43SecondOrderAllPassInverseFrequencyTransform8GetAlphaEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Frequency warping factor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk43SecondOrderAllPassInverseFrequencyTransform8GetThetaEv">
+<span id="_CPPv3NK4sptk43SecondOrderAllPassInverseFrequencyTransform8GetThetaEv"></span><span id="_CPPv2NK4sptk43SecondOrderAllPassInverseFrequencyTransform8GetThetaEv"></span><span id="sptk::SecondOrderAllPassInverseFrequencyTransform::GetThetaC"></span><span class="target" id="classsptk_1_1SecondOrderAllPassInverseFrequencyTransform_1ac3994753d74371770239e00f471bcb3d"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetTheta</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk43SecondOrderAllPassInverseFrequencyTransform8GetThetaEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Frequency emphasis factor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk43SecondOrderAllPassInverseFrequencyTransform7IsValidEv">
+<span id="_CPPv3NK4sptk43SecondOrderAllPassInverseFrequencyTransform7IsValidEv"></span><span id="_CPPv2NK4sptk43SecondOrderAllPassInverseFrequencyTransform7IsValidEv"></span><span id="sptk::SecondOrderAllPassInverseFrequencyTransform::IsValidC"></span><span class="target" id="classsptk_1_1SecondOrderAllPassInverseFrequencyTransform_1a29a60cc2bb12588597ee2e901589795e"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk43SecondOrderAllPassInverseFrequencyTransform7IsValidEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this object is valid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk43SecondOrderAllPassInverseFrequencyTransform3RunERKNSt6vectorIdEEPNSt6vectorIdEE">
+<span id="_CPPv3NK4sptk43SecondOrderAllPassInverseFrequencyTransform3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="_CPPv2NK4sptk43SecondOrderAllPassInverseFrequencyTransform3RunERKNSt6vectorIdEEPNSt6vectorIdEE"></span><span id="sptk::SecondOrderAllPassInverseFrequencyTransform::Run__std::vector:double:CR.std::vector:double:PC"></span><span class="target" id="classsptk_1_1SecondOrderAllPassInverseFrequencyTransform_1ae1aebde14966011fb99222623467634b"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">warped_sequence</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">minimum_phase_sequence</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk43SecondOrderAllPassInverseFrequencyTransform3RunERKNSt6vectorIdEEPNSt6vectorIdEE" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>warped_sequence</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M_1\)</span>-th order input sequence. </p></li>
+<li><p><strong>minimum_phase_sequence</strong> – <strong>[out]</strong> <span class="math notranslate nohighlight">\(M_2\)</span>-th order output sequence. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="sin.html" class="btn btn-neutral float-left" title="sin" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="snr.html" class="btn btn-neutral float-right" title="snr" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, SPTK Working Group.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

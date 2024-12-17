@@ -1,0 +1,513 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>plp &mdash; SPTK  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pnorm" href="pnorm.html" />
+    <link rel="prev" title="pitch_spec" href="pitch_spec.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            SPTK
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Command references</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="alaw.html">alaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ap.html">ap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="average.html">average</a></li>
+<li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcp.html">bcp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bcut.html">bcut</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2acr.html">c2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2ndps.html">c2ndps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="cdist.html">cdist</a></li>
+<li class="toctree-l1"><a class="reference internal" href="clip.html">clip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csm2acr.html">csm2acr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dct.html">dct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="decimate.html">decimate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delay.html">delay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dequantize.html">dequantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="df2.html">df2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dfs.html">dfs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dmp.html">dmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="drc.html">drc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtw.html">dtw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtw_merge.html">dtw_merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extract.html">extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fd.html">fd</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fdrw.html">fdrw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft.html">fft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fft2.html">fft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr2.html">fftr2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
+<li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="glogsp.html">glogsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmm.html">gmm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gmmp.html">gmmp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpolezero.html">gpolezero</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grlogsp.html">grlogsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="grpdelay.html">grpdelay</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gseries.html">gseries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gspecgram.html">gspecgram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gwave.html">gwave</a></li>
+<li class="toctree-l1"><a class="reference internal" href="histogram.html">histogram</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman.html">huffman</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman_decode.html">huffman_decode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ialaw.html">ialaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft.html">ifft</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifft2.html">ifft2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iltcdf.html">iltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imglsadf.html">imglsadf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="impulse.html">impulse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="imsvq.html">imsvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipnorm.html">ipnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lbg.html">lbg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="levdur.html">levdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear_intpl.html">linear_intpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc.html">lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2c.html">lpc2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2lsp.html">lpc2lsp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpccheck.html">lpccheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lsp2lpc.html">lsp2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspcheck.html">lspcheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lspdf.html">lspdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ltcdf.html">ltcdf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="magic_intpl.html">magic_intpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mc2b.html">mc2b</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mcpf.html">mcpf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="medfilt.html">medfilt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="median.html">median</a></li>
+<li class="toctree-l1"><a class="reference internal" href="merge.html">merge</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgc2mgc.html">mgc2mgc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgc2sp.html">mgc2sp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mgcep.html">mgcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsadf.html">mglsadf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsp2sp.html">mglsp2sp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="minmax.html">minmax</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mlsacheck.html">mlsacheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mode.html">mode</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mpir2c.html">mpir2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mseq.html">mseq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="msvq.html">msvq</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nan.html">nan</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
+<li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="nrand.html">nrand</a></li>
+<li class="toctree-l1"><a class="reference internal" href="onehot.html">onehot</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pcas.html">pcas</a></li>
+<li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch2sin.html">pitch2sin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_mark.html">pitch_mark</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">plp</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk46PerceptualLinearPredictiveCoefficientsAnalysisE"><code class="docutils literal notranslate"><span class="pre">PerceptualLinearPredictiveCoefficientsAnalysis</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk46PerceptualLinearPredictiveCoefficientsAnalysis46PerceptualLinearPredictiveCoefficientsAnalysisEiiiiddddd"><code class="docutils literal notranslate"><span class="pre">PerceptualLinearPredictiveCoefficientsAnalysis::PerceptualLinearPredictiveCoefficientsAnalysis()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis12GetFftLengthEv"><code class="docutils literal notranslate"><span class="pre">PerceptualLinearPredictiveCoefficientsAnalysis::GetFftLength()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis13GetNumChannelEv"><code class="docutils literal notranslate"><span class="pre">PerceptualLinearPredictiveCoefficientsAnalysis::GetNumChannel()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis11GetNumOrderEv"><code class="docutils literal notranslate"><span class="pre">PerceptualLinearPredictiveCoefficientsAnalysis::GetNumOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis23GetLifteringCoefficientEv"><code class="docutils literal notranslate"><span class="pre">PerceptualLinearPredictiveCoefficientsAnalysis::GetLifteringCoefficient()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis20GetCompressionFactorEv"><code class="docutils literal notranslate"><span class="pre">PerceptualLinearPredictiveCoefficientsAnalysis::GetCompressionFactor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis7IsValidEv"><code class="docutils literal notranslate"><span class="pre">PerceptualLinearPredictiveCoefficientsAnalysis::IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPdPN46PerceptualLinearPredictiveCoefficientsAnalysis6BufferE"><code class="docutils literal notranslate"><span class="pre">PerceptualLinearPredictiveCoefficientsAnalysis::Run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk46PerceptualLinearPredictiveCoefficientsAnalysis6BufferE"><code class="docutils literal notranslate"><span class="pre">PerceptualLinearPredictiveCoefficientsAnalysis::Buffer</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="pnorm.html">pnorm</a></li>
+<li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ramp.html">ramp</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reverse.html">reverse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rlevdur.html">rlevdur</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rmse.html">rmse</a></li>
+<li class="toctree-l1"><a class="reference internal" href="root_pol.html">root_pol</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sin.html">sin</a></li>
+<li class="toctree-l1"><a class="reference internal" href="smcep.html">smcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="snr.html">snr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sopr.html">sopr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spec.html">spec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="step.html">step</a></li>
+<li class="toctree-l1"><a class="reference internal" href="swab.html">swab</a></li>
+<li class="toctree-l1"><a class="reference internal" href="symmetrize.html">symmetrize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="train.html">train</a></li>
+<li class="toctree-l1"><a class="reference internal" href="transpose.html">transpose</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vc.html">vc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vopr.html">vopr</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vprod.html">vprod</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vstat.html">vstat</a></li>
+<li class="toctree-l1"><a class="reference internal" href="vsum.html">vsum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
+<li class="toctree-l1"><a class="reference internal" href="world_synth.html">world_synth</a></li>
+<li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Utility references</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../utils/math.html">math</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/misc.html">misc</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../utils/sptk.html">sptk</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SPTK</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">plp</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/main/plp.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="plp">
+<span id="id1"></span><h1>plp<a class="headerlink" href="#plp" title="Link to this heading"></a></h1>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv44mainiA_Pc">
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="plp_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p><em>plp</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<p><ul class="simple">
+<li><p><strong>-n</strong> <em>int</em> <ul>
+<li><p>number of channels <span class="math notranslate nohighlight">\((1 \le C)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-m</strong> <em>int</em> <ul>
+<li><p>order of coeffcients <span class="math notranslate nohighlight">\((1 \le M)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-l</strong> <em>int</em> <ul>
+<li><p>FFT length <span class="math notranslate nohighlight">\((2 \le N)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-c</strong> <em>int</em> <ul>
+<li><p>liftering parameter <span class="math notranslate nohighlight">\((1 \le L)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-f</strong> <em>double</em> <ul>
+<li><p>compression factor <span class="math notranslate nohighlight">\((0 &lt; f)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-s</strong> <em>double</em> <ul>
+<li><p>sampling rate in kHz <span class="math notranslate nohighlight">\((0 &lt; F_s)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-L</strong> <em>double</em> <ul>
+<li><p>lowest frequency in Hz <span class="math notranslate nohighlight">\((0 \le F_l &lt; F_h)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-H</strong> <em>double</em> <ul>
+<li><p>highest frequency in Hz <span class="math notranslate nohighlight">\((F_l &lt; F_h \le 500F_s)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-q</strong> <em>int</em> <ul>
+<li><p>input format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> amplitude spectrum in dB </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> log amplitude spectrum </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> amplitude spectrum </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> power spectrum </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">4</span></code> windowed waveform</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>-o</strong> <em>int</em> <ul>
+<li><p>output format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> PLP </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> PLP and energy </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> PLP and C0 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">3</span></code> PLP, C0, and energy</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>-e</strong> <em>double</em> <ul>
+<li><p>floor value of raw filter-bank output <span class="math notranslate nohighlight">\((0 &lt; \epsilon)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>infile</strong> <em>str</em> <ul>
+<li><p>double-type windowed sequence or spectrum</p></li>
+</ul>
+</p></li>
+<li><p><strong>stdout</strong> <ul>
+<li><p>double-type PLP features</p></li>
+</ul>
+</p></li>
+</ul>
+</p>
+<p>The below example extracts the 12-th order PLP from <code class="docutils literal notranslate"><span class="pre">data.short</span></code>. The analysis condition is that: frame length is 10 ms, frame shift is 25 ms, and sampling rate is 16 kHz. A pre-emphais filter and the hamming window are applied to the input signal.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>x2x<span class="w"> </span>+sd<span class="w"> </span>data.short<span class="w"> </span><span class="p">|</span>
+<span class="w">  </span>frame<span class="w"> </span>-l<span class="w"> </span><span class="m">400</span><span class="w"> </span>-p<span class="w"> </span><span class="m">160</span><span class="w"> </span>-n<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">|</span>
+<span class="w">  </span>dfs<span class="w"> </span>-b<span class="w"> </span><span class="m">1</span><span class="w"> </span>-0.97<span class="w"> </span><span class="p">|</span>
+<span class="w">  </span>window<span class="w"> </span>-l<span class="w"> </span><span class="m">400</span><span class="w"> </span>-L<span class="w"> </span><span class="m">512</span><span class="w"> </span>-w<span class="w"> </span><span class="m">1</span><span class="w"> </span>-n<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="p">|</span>
+<span class="w">  </span>plp<span class="w"> </span>-l<span class="w"> </span><span class="m">512</span><span class="w"> </span>-n<span class="w"> </span><span class="m">40</span><span class="w"> </span>-c<span class="w"> </span><span class="m">22</span><span class="w"> </span>-m<span class="w"> </span><span class="m">12</span><span class="w"> </span>-L<span class="w"> </span><span class="m">64</span><span class="w"> </span>-H<span class="w"> </span><span class="m">4000</span><span class="w"> </span>-f<span class="w"> </span><span class="m">0</span>.33<span class="w"> </span>-o<span class="w"> </span><span class="m">2</span><span class="w"> </span>&gt;<span class="w"> </span>data.plp
+</pre></div>
+</div>
+<p>The corresponding HTK config file is shown as below.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">SOURCEFORMAT</span> <span class="o">=</span> <span class="n">NOHEAD</span>
+<span class="n">SOURCEKIND</span>   <span class="o">=</span> <span class="n">WAVEFORM</span>
+<span class="n">SOURCERATE</span>   <span class="o">=</span> <span class="mf">625.0</span>
+<span class="n">TARGETKIND</span>   <span class="o">=</span> <span class="n">PLP_0</span>
+<span class="n">TARGETRATE</span>   <span class="o">=</span> <span class="mf">100000.0</span>
+<span class="n">WINDOWSIZE</span>   <span class="o">=</span> <span class="mf">250000.0</span>
+<span class="n">USEHAMMING</span>   <span class="o">=</span> <span class="n">T</span>
+<span class="n">USEPOWER</span>     <span class="o">=</span> <span class="n">T</span>
+<span class="n">RAWENERGY</span>    <span class="o">=</span> <span class="n">F</span>
+<span class="n">ENORMALIZE</span>   <span class="o">=</span> <span class="n">F</span>
+<span class="n">PREEMCOEF</span>    <span class="o">=</span> <span class="mf">0.97</span>
+<span class="n">COMPRESSFACT</span> <span class="o">=</span> <span class="mf">0.33</span>
+<span class="n">NUMCHANS</span>     <span class="o">=</span> <span class="mi">40</span>
+<span class="n">CEPLIFTER</span>    <span class="o">=</span> <span class="mi">22</span>
+<span class="n">NUMCEPS</span>      <span class="o">=</span> <span class="mi">12</span>
+<span class="n">LOFREQ</span>       <span class="o">=</span> <span class="mi">64</span>
+<span class="n">HIFREQ</span>       <span class="o">=</span> <span class="mi">4000</span>
+</pre></div>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>argc</strong> – <strong>[in]</strong> Number of arguments. </p></li>
+<li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>0 on success, 1 on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="fbank.html#fbank"><span class="std std-ref">fbank</span></a> <a class="reference internal" href="mfcc.html#mfcc"><span class="std std-ref">mfcc</span></a></p>
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk46PerceptualLinearPredictiveCoefficientsAnalysisE">
+<span id="_CPPv3N4sptk46PerceptualLinearPredictiveCoefficientsAnalysisE"></span><span id="_CPPv2N4sptk46PerceptualLinearPredictiveCoefficientsAnalysisE"></span><span id="sptk::PerceptualLinearPredictiveCoefficientsAnalysis"></span><span class="target" id="classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">PerceptualLinearPredictiveCoefficientsAnalysis</span></span></span><a class="headerlink" href="#_CPPv4N4sptk46PerceptualLinearPredictiveCoefficientsAnalysisE" title="Link to this definition"></a><br /></dt>
+<dd><p>Perform perceptual linear predictive (PLP) coefficients analysis.</p>
+<p>The input is the half part of power spectrum: <div class="math notranslate nohighlight">
+\[ \begin{array}{cccc} |X(0)|^2, &amp; |X(1)|^2, &amp; \ldots, &amp; |X(N/2)|^2, \end{array} \]</div>
+ where <span class="math notranslate nohighlight">\(N\)</span> is the FFT length. The outputs are the <span class="math notranslate nohighlight">\(M\)</span>-th order PLP features with the zeroth cepstral parameter: <div class="math notranslate nohighlight">
+\[ \begin{array}{ccccc} c(0), &amp; \bar{c}(1), &amp; \bar{c}(2), &amp; \ldots, &amp; \bar{c}(M) \end{array} \]</div>
+ and the log-signal energy <span class="math notranslate nohighlight">\(E\)</span>.</p>
+<p>[1] S. Young et al., “The HTK book,” Cambridge University Engineering Department, 2006. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk46PerceptualLinearPredictiveCoefficientsAnalysis46PerceptualLinearPredictiveCoefficientsAnalysisEiiiiddddd">
+<span id="_CPPv3N4sptk46PerceptualLinearPredictiveCoefficientsAnalysis46PerceptualLinearPredictiveCoefficientsAnalysisEiiiiddddd"></span><span id="_CPPv2N4sptk46PerceptualLinearPredictiveCoefficientsAnalysis46PerceptualLinearPredictiveCoefficientsAnalysisEiiiiddddd"></span><span id="sptk::PerceptualLinearPredictiveCoefficientsAnalysis::PerceptualLinearPredictiveCoefficientsAnalysis__i.i.i.i.double.double.double.double.double"></span><span class="target" id="classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis_1a19268cf2ed774b70153e4ade02668bdc"></span><span class="sig-name descname"><span class="n"><span class="pre">PerceptualLinearPredictiveCoefficientsAnalysis</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fft_length</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_channel</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">liftering_coefficient</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">compression_factor</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">sampling_rate</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">lowest_frequency</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">highest_frequency</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">floor</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk46PerceptualLinearPredictiveCoefficientsAnalysis46PerceptualLinearPredictiveCoefficientsAnalysisEiiiiddddd" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>fft_length</strong> – <strong>[in]</strong> Number of FFT bins, <span class="math notranslate nohighlight">\(N\)</span>. </p></li>
+<li><p><strong>num_channel</strong> – <strong>[in]</strong> Number of channels, <span class="math notranslate nohighlight">\(C\)</span>. </p></li>
+<li><p><strong>num_order</strong> – <strong>[in]</strong> Order of cepstral coefficients, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
+<li><p><strong>liftering_coefficient</strong> – <strong>[in]</strong> A parameter of liftering, <span class="math notranslate nohighlight">\(L\)</span>. </p></li>
+<li><p><strong>compression_factor</strong> – <strong>[in]</strong> Amplitude compression factor. </p></li>
+<li><p><strong>sampling_rate</strong> – <strong>[in]</strong> Sampling rate in Hz. </p></li>
+<li><p><strong>lowest_frequency</strong> – <strong>[in]</strong> Lowest frequency in Hz. </p></li>
+<li><p><strong>highest_frequency</strong> – <strong>[in]</strong> Highest frequency in Hz. </p></li>
+<li><p><strong>floor</strong> – <strong>[in]</strong> Floor value of raw filter-bank output. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis12GetFftLengthEv">
+<span id="_CPPv3NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis12GetFftLengthEv"></span><span id="_CPPv2NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis12GetFftLengthEv"></span><span id="sptk::PerceptualLinearPredictiveCoefficientsAnalysis::GetFftLengthC"></span><span class="target" id="classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis_1a67901ff9acfc006e2c67c8477cf6fc86"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetFftLength</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis12GetFftLengthEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>FFT size. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis13GetNumChannelEv">
+<span id="_CPPv3NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis13GetNumChannelEv"></span><span id="_CPPv2NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis13GetNumChannelEv"></span><span id="sptk::PerceptualLinearPredictiveCoefficientsAnalysis::GetNumChannelC"></span><span class="target" id="classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis_1a68a557af1468dc0decca555cb03f6cc7"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumChannel</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis13GetNumChannelEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Number of channels. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis11GetNumOrderEv">
+<span id="_CPPv3NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis11GetNumOrderEv"></span><span id="_CPPv2NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis11GetNumOrderEv"></span><span id="sptk::PerceptualLinearPredictiveCoefficientsAnalysis::GetNumOrderC"></span><span class="target" id="classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis_1ac9d9b20113af483a89bfd46ada8b0abe"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetNumOrder</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis11GetNumOrderEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Order of cepstral coefficients. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis23GetLifteringCoefficientEv">
+<span id="_CPPv3NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis23GetLifteringCoefficientEv"></span><span id="_CPPv2NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis23GetLifteringCoefficientEv"></span><span id="sptk::PerceptualLinearPredictiveCoefficientsAnalysis::GetLifteringCoefficientC"></span><span class="target" id="classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis_1ae1067c547767638b31681e91eb38f521"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetLifteringCoefficient</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis23GetLifteringCoefficientEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Liftering coefficient. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis20GetCompressionFactorEv">
+<span id="_CPPv3NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis20GetCompressionFactorEv"></span><span id="_CPPv2NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis20GetCompressionFactorEv"></span><span id="sptk::PerceptualLinearPredictiveCoefficientsAnalysis::GetCompressionFactorC"></span><span class="target" id="classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis_1adb34a696831c414fa1b7848b3c84d67c"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetCompressionFactor</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis20GetCompressionFactorEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Compression factor. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis7IsValidEv">
+<span id="_CPPv3NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis7IsValidEv"></span><span id="_CPPv2NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis7IsValidEv"></span><span id="sptk::PerceptualLinearPredictiveCoefficientsAnalysis::IsValidC"></span><span class="target" id="classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis_1aa481482a099062c731415523a7e4c271"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis7IsValidEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this object is valid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPdPN46PerceptualLinearPredictiveCoefficientsAnalysis6BufferE">
+<span id="_CPPv3NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPdPN46PerceptualLinearPredictiveCoefficientsAnalysis6BufferE"></span><span id="_CPPv2NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPdPN46PerceptualLinearPredictiveCoefficientsAnalysis6BufferE"></span><span id="sptk::PerceptualLinearPredictiveCoefficientsAnalysis::Run__std::vector:double:CR.std::vector:double:P.doubleP.PerceptualLinearPredictiveCoefficientsAnalysis::BufferPC"></span><span class="target" id="classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis_1adb7336e957764eda56ca1cf8ef5ee43b"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">power_spectrum</span></span>, <span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">plp</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">energy</span></span>, <a class="reference internal" href="#_CPPv4N4sptk46PerceptualLinearPredictiveCoefficientsAnalysisE" title="sptk::PerceptualLinearPredictiveCoefficientsAnalysis"><span class="n"><span class="pre">PerceptualLinearPredictiveCoefficientsAnalysis</span></span></a><span class="p"><span class="pre">::</span></span><a class="reference internal" href="#_CPPv4N4sptk46PerceptualLinearPredictiveCoefficientsAnalysis6BufferE" title="sptk::PerceptualLinearPredictiveCoefficientsAnalysis::Buffer"><span class="n"><span class="pre">Buffer</span></span></a><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">buffer</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk46PerceptualLinearPredictiveCoefficientsAnalysis3RunERKNSt6vectorIdEEPNSt6vectorIdEEPdPN46PerceptualLinearPredictiveCoefficientsAnalysis6BufferE" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>power_spectrum</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\((N/2+1)\)</span>-length power spectrum. </p></li>
+<li><p><strong>plp</strong> – <strong>[out]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order PLP features. </p></li>
+<li><p><strong>energy</strong> – <strong>[out]</strong> Signal energy <span class="math notranslate nohighlight">\(E\)</span> (optional). </p></li>
+<li><p><strong>buffer</strong> – <strong>[out]</strong> <a class="reference internal" href="#classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis_1_1Buffer"><span class="std std-ref">Buffer</span></a>. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk46PerceptualLinearPredictiveCoefficientsAnalysis6BufferE">
+<span id="_CPPv3N4sptk46PerceptualLinearPredictiveCoefficientsAnalysis6BufferE"></span><span id="_CPPv2N4sptk46PerceptualLinearPredictiveCoefficientsAnalysis6BufferE"></span><span id="sptk::PerceptualLinearPredictiveCoefficientsAnalysis::Buffer"></span><span class="target" id="classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis_1_1Buffer"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Buffer</span></span></span><a class="headerlink" href="#_CPPv4N4sptk46PerceptualLinearPredictiveCoefficientsAnalysis6BufferE" title="Link to this definition"></a><br /></dt>
+<dd><p><a class="reference internal" href="#classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis_1_1Buffer"><span class="std std-ref">Buffer</span></a> for <a class="reference internal" href="#classsptk_1_1PerceptualLinearPredictiveCoefficientsAnalysis"><span class="std std-ref">PerceptualLinearPredictiveCoefficientsAnalysis</span></a> class. </p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="pitch_spec.html" class="btn btn-neutral float-left" title="pitch_spec" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="pnorm.html" class="btn btn-neutral float-right" title="pnorm" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2021, SPTK Working Group.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
