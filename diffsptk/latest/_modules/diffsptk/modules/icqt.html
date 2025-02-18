@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.modules.icqt &#8212; diffsptk 2.4.0 documentation</title>
+    <title>diffsptk.modules.icqt &#8212; diffsptk 2.5.0 documentation</title>
   
   
   
@@ -29,7 +29,7 @@
   <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
   <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -37,15 +37,15 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=4d935f96"></script>
-    <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/icqt';</script>
     <link rel="index" title="Index" href="../../../genindex.html" />
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.4.0" />
+  <meta name="docsearch:version" content="2.5.0" />
   </head>
   
   
@@ -107,7 +107,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.4.0 documentation</p>
+    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
   
 </a></div>
     
@@ -312,41 +312,29 @@
 <span class="c1"># limitations under the License.                                           #</span>
 <span class="c1"># ------------------------------------------------------------------------ #</span>
 
-<span class="c1"># ------------------------------------------------------------------------ #</span>
-<span class="c1"># Copyright (c) 2013--2022, librosa development team.                      #</span>
-<span class="c1">#                                                                          #</span>
-<span class="c1"># Permission to use, copy, modify, and/or distribute this software for any #</span>
-<span class="c1"># purpose with or without fee is hereby granted, provided that the above   #</span>
-<span class="c1"># copyright notice and this permission notice appear in all copies.        #</span>
-<span class="c1">#                                                                          #</span>
-<span class="c1"># THE SOFTWARE IS PROVIDED &quot;AS IS&quot; AND THE AUTHOR DISCLAIMS ALL WARRANTIES #</span>
-<span class="c1"># WITH REGARD TO THIS SOFTWARE INCLUDING ALL IMPLIED WARRANTIES OF         #</span>
-<span class="c1"># MERCHANTABILITY AND FITNESS. IN NO EVENT SHALL THE AUTHOR BE LIABLE FOR  #</span>
-<span class="c1"># ANY SPECIAL, DIRECT, INDIRECT, OR CONSEQUENTIAL DAMAGES OR ANY DAMAGES   #</span>
-<span class="c1"># WHATSOEVER RESULTING FROM LOSS OF USE, DATA OR PROFITS, WHETHER IN AN    #</span>
-<span class="c1"># ACTION OF CONTRACT, NEGLIGENCE OR OTHER TORTIOUS ACTION, ARISING OUT OF  #</span>
-<span class="c1"># OR IN CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.           #</span>
-<span class="c1"># ------------------------------------------------------------------------ #</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torchaudio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
 
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">import</span> <span class="nn">torchaudio</span>
-<span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
-
-<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">delayed_import</span>
-<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">get_resample_params</span>
-<span class="kn">from</span> <span class="nn">..misc.utils</span> <span class="kn">import</span> <span class="n">numpy_to_torch</span>
-<span class="kn">from</span> <span class="nn">.istft</span> <span class="kn">import</span> <span class="n">InverseShortTimeFourierTransform</span> <span class="k">as</span> <span class="n">ISTFT</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.librosa</span><span class="w"> </span><span class="kn">import</span> <span class="n">cqt_frequencies</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.librosa</span><span class="w"> </span><span class="kn">import</span> <span class="n">et_relative_bw</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.librosa</span><span class="w"> </span><span class="kn">import</span> <span class="n">relative_bandwidth</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.librosa</span><span class="w"> </span><span class="kn">import</span> <span class="n">vqt_filter_fft</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.librosa</span><span class="w"> </span><span class="kn">import</span> <span class="n">wavelet_lengths</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_resample_params</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">numpy_to_torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.istft</span><span class="w"> </span><span class="kn">import</span> <span class="n">InverseShortTimeFourierTransform</span> <span class="k">as</span> <span class="n">ISTFT</span>
 
 
 <div class="viewcode-block" id="InverseConstantQTransform">
 <a class="viewcode-back" href="../../../modules/icqt.html#diffsptk.InverseConstantQTransform">[docs]</a>
-<span class="k">class</span> <span class="nc">InverseConstantQTransform</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">InverseConstantQTransform</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Perform inverse constant-Q transform based on the librosa implementation.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    frame_peirod : int &gt;= 1</span>
+<span class="sd">    frame_period : int &gt;= 1</span>
 <span class="sd">        Frame period in samples, :math:`P`.</span>
 
 <span class="sd">    sample_rate : int &gt;= 1</span>
@@ -388,7 +376,7 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">frame_period</span><span class="p">,</span>
         <span class="n">sample_rate</span><span class="p">,</span>
@@ -407,11 +395,6 @@
     <span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="kn">import</span> <span class="nn">librosa</span>
-
-        <span class="n">et_relative_bw</span> <span class="o">=</span> <span class="n">delayed_import</span><span class="p">(</span><span class="s2">&quot;librosa.core.constantq&quot;</span><span class="p">,</span> <span class="s2">&quot;__et_relative_bw&quot;</span><span class="p">)</span>
-        <span class="n">vqt_filter_fft</span> <span class="o">=</span> <span class="n">delayed_import</span><span class="p">(</span><span class="s2">&quot;librosa.core.constantq&quot;</span><span class="p">,</span> <span class="s2">&quot;__vqt_filter_fft&quot;</span><span class="p">)</span>
-
         <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">frame_period</span>
         <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">sample_rate</span>
 
@@ -420,7 +403,7 @@
 
         <span class="n">n_octave</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">K</span> <span class="o">/</span> <span class="n">B</span><span class="p">))</span>
 
-        <span class="n">freqs</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">cqt_frequencies</span><span class="p">(</span>
+        <span class="n">freqs</span> <span class="o">=</span> <span class="n">cqt_frequencies</span><span class="p">(</span>
             <span class="n">n_bins</span><span class="o">=</span><span class="n">K</span><span class="p">,</span>
             <span class="n">fmin</span><span class="o">=</span><span class="n">f_min</span><span class="p">,</span>
             <span class="n">bins_per_octave</span><span class="o">=</span><span class="n">B</span><span class="p">,</span>
@@ -430,9 +413,9 @@
         <span class="k">if</span> <span class="n">K</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">alpha</span> <span class="o">=</span> <span class="n">et_relative_bw</span><span class="p">(</span><span class="n">B</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="n">alpha</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">_relative_bandwidth</span><span class="p">(</span><span class="n">freqs</span><span class="o">=</span><span class="n">freqs</span><span class="p">)</span>
+            <span class="n">alpha</span> <span class="o">=</span> <span class="n">relative_bandwidth</span><span class="p">(</span><span class="n">freqs</span><span class="o">=</span><span class="n">freqs</span><span class="p">)</span>
 
-        <span class="n">lengths</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">filters</span><span class="o">.</span><span class="n">wavelet_lengths</span><span class="p">(</span>
+        <span class="n">lengths</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">wavelet_lengths</span><span class="p">(</span>
             <span class="n">freqs</span><span class="o">=</span><span class="n">freqs</span><span class="p">,</span>
             <span class="n">sr</span><span class="o">=</span><span class="n">sample_rate</span><span class="p">,</span>
             <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
@@ -511,7 +494,7 @@
 
 <div class="viewcode-block" id="InverseConstantQTransform.forward">
 <a class="viewcode-back" href="../../../modules/icqt.html#diffsptk.InverseConstantQTransform.forward">[docs]</a>
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">out_length</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">out_length</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Compute inverse constant-Q transform.</span>
 
 <span class="sd">        Parameters</span>
@@ -546,10 +529,7 @@
             <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
                 <span class="n">y</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="n">out_length</span><span class="p">]</span>
             <span class="k">else</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">out_length</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="n">end</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-                <span class="k">else</span><span class="p">:</span>
-                    <span class="n">end</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">out_length</span><span class="p">)</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">out_length</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">min</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">out_length</span><span class="p">)</span>
                 <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="n">end</span><span class="p">]</span> <span class="o">+=</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="n">end</span><span class="p">]</span>
         <span class="k">return</span> <span class="n">y</span></div>
 </div>
@@ -604,7 +584,7 @@
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     <br/>
   </p>
 </div>

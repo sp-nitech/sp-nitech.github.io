@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>ap &#8212; diffsptk 2.4.0 documentation</title>
+    <title>ap &#8212; diffsptk 2.5.0 documentation</title>
   
   
   
@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -38,8 +38,8 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=4d935f96"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'modules/ap';</script>
@@ -49,7 +49,7 @@
     <link rel="prev" title="alaw" href="alaw.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.4.0" />
+  <meta name="docsearch:version" content="2.5.0" />
   </head>
   
   
@@ -111,7 +111,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.4.0 documentation</p>
+    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
   
 </a></div>
     
@@ -342,6 +342,7 @@
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plp.html">plp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pnorm.html">pnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pol_root.html">pol_root</a></li>
@@ -427,7 +428,7 @@
 <span id="id1"></span><h1>ap<a class="headerlink" href="#ap" title="Link to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.Aperiodicity">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">Aperiodicity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tandem'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'a'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/ap.html#Aperiodicity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Aperiodicity" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">Aperiodicity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'tandem'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'a'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower_bound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_bound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.999</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/ap.html#Aperiodicity"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Aperiodicity" title="Link to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/ap.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
@@ -435,21 +436,18 @@ for details.</p>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>frame_period</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Frame period, <span class="math notranslate nohighlight">\(P\)</span>.</p>
 </dd>
-<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Sample rate in Hz.</p>
+<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 8000</span></dt><dd><p>Sample rate in Hz.</p>
 </dd>
-<dt><strong>fft_length</strong><span class="classifier">int</span></dt><dd><p>Size of double-sided aperiodicity, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= 8 or None</span></dt><dd><p>Size of double-sided aperiodicity, <span class="math notranslate nohighlight">\(L\)</span>. If None, band aperiodicity
+(uninterpolated aperiodicity) is returned as the output.</p>
 </dd>
-<dt><strong>algorithm</strong><span class="classifier">[‘tandem’]</span></dt><dd><p>Algorithm.</p>
+<dt><strong>algorithm</strong><span class="classifier">[‘tandem’, ‘d4c’]</span></dt><dd><p>Algorithm.</p>
 </dd>
 <dt><strong>out_format</strong><span class="classifier">[‘a’, ‘p’, ‘a/p’, ‘p/a’]</span></dt><dd><p>Output format.</p>
 </dd>
 <dt><strong>lower_bound</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>Lower bound of aperiodicity.</p>
 </dd>
 <dt><strong>upper_bound</strong><span class="classifier">float &lt;= 1</span></dt><dd><p>Upper bound of aperiodicity.</p>
-</dd>
-<dt><strong>window_length_ms</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Window length in msec.</p>
-</dd>
-<dt><strong>eps</strong><span class="classifier">float &gt; 0</span></dt><dd><p>A number used to stabilize colesky decomposition.</p>
 </dd>
 </dl>
 </dd>
@@ -462,6 +460,11 @@ for details.</p>
 source representations for high-quality speech manipulation systems,”
 <em>Proceedings of Interspeech</em>, pp. 38-41, 2010.</p>
 </div>
+<div class="citation" id="r2a3d9287c2d3-2" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<p>M. Morise, “D4C, a band-aperiodicity estimator for high-quality speech
+synthesis,” <em>Speech Communication</em>, vol. 84, pp. 57-65, 2016.</p>
+</div>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="diffsptk.Aperiodicity.forward">
@@ -472,28 +475,33 @@ source representations for high-quality speech manipulation systems,”
 <dd class="field-odd"><dl class="simple">
 <dt><strong>x</strong><span class="classifier">Tensor [shape=(B, T) or (T,)]</span></dt><dd><p>Waveform.</p>
 </dd>
-<dt><strong>f0</strong><span class="classifier">Tensor [shape=(B, N) or (N,)]</span></dt><dd><p>F0 in Hz.</p>
+<dt><strong>f0</strong><span class="classifier">Tensor [shape=(B, T/P) or (T/P,)]</span></dt><dd><p>F0 in Hz.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(B, N, L/2+1) or (N, L/2+1)]</span></dt><dd><p>Aperiodicity.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(B, T/P, L/2+1) or (T/P, L/2+1)]</span></dt><dd><p>Aperiodicity.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pitch</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Pitch</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">16000</span><span class="p">,</span> <span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;f0&quot;</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pitch</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Pitch</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;f0&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">f0</span> <span class="o">=</span> <span class="n">pitch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f0</span>
-<span class="go">tensor([1597.2064, 1597.2064])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">aperiodicity</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Aperiodicity</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">16000</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f0</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">torch.Size([7])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">aperiodicity</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Aperiodicity</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">16000</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span> <span class="o">=</span> <span class="n">aperiodicity</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f0</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span>
-<span class="go">tensor([[0.0010, 0.0010, 0.1729, 0.1647, 0.1569],</span>
-<span class="go">        [0.0010, 0.0010, 0.0490, 0.0487, 0.0483]])</span>
+<span class="go">tensor([[0.1010, 0.9948, 0.9990, 0.9990, 0.9990],</span>
+<span class="go">        [0.0010, 0.8419, 0.3644, 0.5912, 0.9590],</span>
+<span class="go">        [0.0010, 0.5316, 0.3091, 0.5430, 0.9540],</span>
+<span class="go">        [0.0010, 0.3986, 0.1930, 0.4222, 0.9234],</span>
+<span class="go">        [0.0010, 0.3627, 0.1827, 0.4106, 0.9228],</span>
+<span class="go">        [0.0010, 0.3699, 0.1827, 0.4106, 0.9228],</span>
+<span class="go">        [0.0010, 0.7659, 0.7081, 0.8378, 0.9912]])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -502,7 +510,7 @@ source representations for high-quality speech manipulation systems,”
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="excite.html#excite"><span class="std std-ref">excite</span></a></p>
+<p><a class="reference internal" href="excite.html#excite"><span class="std std-ref">excite</span></a> <a class="reference internal" href="pitch.html#pitch"><span class="std std-ref">pitch</span></a> <a class="reference internal" href="pitch_spec.html#pitch-spec"><span class="std std-ref">pitch_spec</span></a></p>
 </div>
 </section>
 
@@ -603,7 +611,7 @@ source representations for high-quality speech manipulation systems,”
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     <br/>
   </p>
 </div>

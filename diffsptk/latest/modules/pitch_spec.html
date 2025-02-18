@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>mglsadf &#8212; diffsptk 2.5.0 documentation</title>
+    <title>pitch_spec &#8212; diffsptk 2.5.0 documentation</title>
   
   
   
@@ -42,11 +42,11 @@
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/mglsadf';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/pitch_spec';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="mlpg" href="mlpg.html" />
-    <link rel="prev" title="mgcep" href="mgcep.html" />
+    <link rel="next" title="plp" href="plp.html" />
+    <link rel="prev" title="pitch" href="pitch.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="2.5.0" />
@@ -329,7 +329,7 @@
 <li class="toctree-l1"><a class="reference internal" href="mgc2mgc.html">mgc2mgc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mgc2sp.html">mgc2sp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mgcep.html">mgcep</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">mglsadf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mglsadf.html">mglsadf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mlpg.html">mlpg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mlsacheck.html">mlsacheck</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mpir2c.html">mpir2c</a></li>
@@ -342,7 +342,7 @@
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pitch.html">pitch</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">pitch_spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plp.html">plp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pnorm.html">pnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pol_root.html">pol_root</a></li>
@@ -407,7 +407,7 @@
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">diffsptk.modules</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">mglsadf</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">pitch_spec</span></li>
   </ul>
 </nav>
 </div>
@@ -424,99 +424,69 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="mglsadf">
-<span id="id1"></span><h1>mglsadf<a class="headerlink" href="#mglsadf" title="Link to this heading">#</a></h1>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="diffsptk.MLSA">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MLSA</span></span><a class="headerlink" href="#diffsptk.MLSA" title="Link to this definition">#</a></dt>
-<dd><p>alias of <a class="reference internal" href="#diffsptk.PseudoMGLSADigitalFilter" title="diffsptk.modules.mglsadf.PseudoMGLSADigitalFilter"><code class="xref py py-class docutils literal notranslate"><span class="pre">PseudoMGLSADigitalFilter</span></code></a></p>
-</dd></dl>
-
+  <section id="pitch-spec">
+<span id="id1"></span><h1>pitch_spec<a class="headerlink" href="#pitch-spec" title="Link to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.PseudoMGLSADigitalFilter">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">PseudoMGLSADigitalFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ignore_gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">phase</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'minimum'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'multi-stage'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/mglsadf.html#PseudoMGLSADigitalFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PseudoMGLSADigitalFilter" title="Link to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/mglsadf.html">this page</a>
+<dt class="sig sig-object py" id="diffsptk.PitchAdaptiveSpectralAnalysis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">PitchAdaptiveSpectralAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'power'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-0.15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_f0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/pitch_spec.html#PitchAdaptiveSpectralAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PitchAdaptiveSpectralAnalysis" title="Link to this definition">#</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/pitch_spec.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>filter_order</strong><span class="classifier">int &gt;= 0 or tuple[int, int]</span></dt><dd><p>Order of filter coefficients, <span class="math notranslate nohighlight">\(M\)</span> or <span class="math notranslate nohighlight">\((N, M)\)</span>. A tuple input is
-allowed only if <strong>phase</strong> is ‘mixed’.</p>
+<dt><strong>frame_period</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Frame period in sample, <span class="math notranslate nohighlight">\(P\)</span>.</p>
 </dd>
-<dt><strong>frame_period</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Frame period, <span class="math notranslate nohighlight">\(P\)</span>.</p>
+<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 8000</span></dt><dd><p>Sample rate in Hz.</p>
 </dd>
-<dt><strong>alpha</strong><span class="classifier">float in (-1, 1)</span></dt><dd><p>Frequency warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2 or None</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>. If None, automatically determined.</p>
 </dd>
-<dt><strong>gamma</strong><span class="classifier">float in [-1, 1]</span></dt><dd><p>Gamma, <span class="math notranslate nohighlight">\(\gamma\)</span>.</p>
+<dt><strong>out_format</strong><span class="classifier">[‘db’, ‘log-magnitude’, ‘magnitude’, ‘power’]</span></dt><dd><p>Output format.</p>
 </dd>
-<dt><strong>c</strong><span class="classifier">int &gt;= 1 or None</span></dt><dd><p>Number of stages.</p>
+<dt><strong>q1</strong><span class="classifier">float</span></dt><dd><p>A parameter used for spectral recovery.</p>
 </dd>
-<dt><strong>ignore_gain</strong><span class="classifier">bool</span></dt><dd><p>If True, perform filtering without gain.</p>
-</dd>
-<dt><strong>phase</strong><span class="classifier">[‘minimum’, ‘maximum’, ‘zero’, ‘mixed’]</span></dt><dd><p>Filter type.</p>
-</dd>
-<dt><strong>mode</strong><span class="classifier">[‘multi-stage’, ‘single-stage’, ‘freq-domain’]</span></dt><dd><p>‘multi-stage’ approximates the MLSA filter by cascading FIR filters based on the
-Taylor series expansion. ‘single-stage’ uses a FIR filter whose coefficients are
-the impulse response converted from input mel-cepstral coefficients using FFT.
-‘freq-domain’ performs filtering in the frequency domain rather than time one.</p>
-</dd>
-<dt><strong>n_fft</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Number of FFT bins used for conversion. Higher values result in increased
-conversion accuracy.</p>
-</dd>
-<dt><strong>taylor_order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>Order of Taylor series expansion (valid only if <strong>mode</strong> is ‘multi-stage’).</p>
-</dd>
-<dt><strong>cep_order</strong><span class="classifier">int &gt;= 0 or tuple[int, int]</span></dt><dd><p>Order of linear cepstrum (valid only if <strong>mode</strong> is ‘multi-stage’).</p>
-</dd>
-<dt><strong>ir_length</strong><span class="classifier">int &gt;= 1 or tuple[int, int]</span></dt><dd><p>Length of impulse response (valid only if <strong>mode</strong> is ‘single-stage’).</p>
-</dd>
-<dt><strong>**kwargs</strong><span class="classifier">additional keyword arguments</span></dt><dd><p>See <a class="reference internal" href="stft.html#diffsptk.ShortTimeFourierTransform" title="diffsptk.ShortTimeFourierTransform"><code class="xref py py-func docutils literal notranslate"><span class="pre">ShortTimeFourierTransform()</span></code></a> (valid only if <strong>mode</strong> is
-‘freq-domain’).</p>
+<dt><strong>default_f0</strong><span class="classifier">float &gt; 0</span></dt><dd><p>F0 value used when the input F0 is unvoiced.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">References</p>
 <div role="list" class="citation-list">
-<div class="citation" id="r2a6eee13d4d1-1" role="doc-biblioentry">
+<div class="citation" id="r6c367967b3e6-1" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
-<p>T. Yoshimura et al., “Embedding a differentiable mel-cepstral synthesis
-filter to a neural speech synthesis system,” <em>Proceedings of ICASSP</em>, 2023.</p>
+<p>M. Morise, “CheapTrick, a spectral envelope estimator for high-quality speech
+synthesis”, <em>Speech Communication</em>, vol. 67, pp. 1-7, 2015.</p>
 </div>
 </div>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.PseudoMGLSADigitalFilter.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/mglsadf.html#PseudoMGLSADigitalFilter.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PseudoMGLSADigitalFilter.forward" title="Link to this definition">#</a></dt>
-<dd><p>Apply an MGLSA digital filter.</p>
+<dt class="sig sig-object py" id="diffsptk.PitchAdaptiveSpectralAnalysis.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/pitch_spec.html#PitchAdaptiveSpectralAnalysis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PitchAdaptiveSpectralAnalysis.forward" title="Link to this definition">#</a></dt>
+<dd><p>Estimate spectral envelope.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Excitation signal.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Waveform.</p>
 </dd>
-<dt><strong>mc</strong><span class="classifier">Tensor [shape=(…, T/P, M+1)] or [shape=(…, T/P, N+M+1)]</span></dt><dd><p>Mel-generalized cepstrum, not MLSA digital filter coefficients. Note that
-the mixed-phase case assumes that the coefficients are of the form
-c_{-N}, …, c_{0}, …, c_{M}, where M is the order of the minimum-phase
-part and N is the order of the maximum-phase part.</p>
+<dt><strong>f0</strong><span class="classifier">Tensor [shape=(…, T/P)]</span></dt><dd><p>F0 in Hz.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Output signal.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, T/P, L/2+1)]</span></dt><dd><p>Spectral envelope.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">M</span> <span class="o">=</span> <span class="mi">4</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mc</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">nrand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">M</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mc</span>
-<span class="go">tensor([[-0.9134, -0.5774, -0.4567,  0.7423, -0.5782],</span>
-<span class="go">        [ 0.6904,  0.5175,  0.8765,  0.1677,  2.4624]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">mglsadf</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MLSA</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">frame_period</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">mglsadf</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">mc</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">M</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">tensor([[0.4011, 0.8760, 3.5677, 4.8725]])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pitch</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Pitch</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;f0&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f0</span> <span class="o">=</span> <span class="n">pitch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f0</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">torch.Size([7])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pitch_spec</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">PitchAdaptiveSpectralAnalysis</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sp</span> <span class="o">=</span> <span class="n">pitch_spec</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sp</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">torch.Size([7, 513])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -525,7 +495,7 @@ part and N is the order of the maximum-phase part.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="mgcep.html#mgcep"><span class="std std-ref">mgcep</span></a> <a class="reference internal" href="imglsadf.html#imglsadf"><span class="std std-ref">imglsadf</span></a> <a class="reference internal" href="mlsacheck.html#mlsacheck"><span class="std std-ref">mlsacheck</span></a></p>
+<p><a class="reference internal" href="spec.html#spec"><span class="std std-ref">spec</span></a> <a class="reference internal" href="ap.html#ap"><span class="std std-ref">ap</span></a> <a class="reference internal" href="pitch.html#pitch"><span class="std std-ref">pitch</span></a></p>
 </div>
 </section>
 
@@ -540,20 +510,20 @@ part and N is the order of the maximum-phase part.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="mgcep.html"
+       href="pitch.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">mgcep</p>
+        <p class="prev-next-title">pitch</p>
       </div>
     </a>
     <a class="right-next"
-       href="mlpg.html"
+       href="plp.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">mlpg</p>
+        <p class="prev-next-title">plp</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -576,9 +546,8 @@ part and N is the order of the maximum-phase part.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.MLSA"><code class="docutils literal notranslate"><span class="pre">MLSA</span></code></a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.PseudoMGLSADigitalFilter"><code class="docutils literal notranslate"><span class="pre">PseudoMGLSADigitalFilter</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.PseudoMGLSADigitalFilter.forward"><code class="docutils literal notranslate"><span class="pre">PseudoMGLSADigitalFilter.forward()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.PitchAdaptiveSpectralAnalysis"><code class="docutils literal notranslate"><span class="pre">PitchAdaptiveSpectralAnalysis</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.PitchAdaptiveSpectralAnalysis.forward"><code class="docutils literal notranslate"><span class="pre">PitchAdaptiveSpectralAnalysis.forward()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -588,7 +557,7 @@ part and N is the order of the maximum-phase part.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/modules/mglsadf.rst.txt"
+      <li><a href="../_sources/modules/pitch_spec.rst.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div></div>

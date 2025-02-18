@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>pitch &#8212; diffsptk 2.4.0 documentation</title>
+    <title>pitch &#8212; diffsptk 2.5.0 documentation</title>
   
   
   
@@ -30,7 +30,7 @@
   <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 <link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
   
   <!-- So that users can add custom icons -->
   <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -38,18 +38,18 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=4d935f96"></script>
-    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'modules/pitch';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="plp" href="plp.html" />
+    <link rel="next" title="pitch_spec" href="pitch_spec.html" />
     <link rel="prev" title="phase" href="phase.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.4.0" />
+  <meta name="docsearch:version" content="2.5.0" />
   </head>
   
   
@@ -111,7 +111,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.4.0 documentation</p>
+    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
   
 </a></div>
     
@@ -342,6 +342,7 @@
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
 <li class="toctree-l1"><a class="reference internal" href="phase.html">phase</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">pitch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pitch_spec.html">pitch_spec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="plp.html">plp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pnorm.html">pnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pol_root.html">pol_root</a></li>
@@ -427,7 +428,7 @@
 <span id="id1"></span><h1>pitch<a class="headerlink" href="#pitch" title="Link to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.Pitch">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">Pitch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'crepe'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pitch'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/pitch.html#Pitch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Pitch" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">Pitch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'fcnf0'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'pitch'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/pitch.html#Pitch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Pitch" title="Link to this definition">#</a></dt>
 <dd><p>Pitch extraction module using external neural models.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -436,7 +437,7 @@
 </dd>
 <dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Sample rate in Hz.</p>
 </dd>
-<dt><strong>algorithm</strong><span class="classifier">[‘crepe’]</span></dt><dd><p>Algorithm.</p>
+<dt><strong>algorithm</strong><span class="classifier">[‘crepe’, ‘fcnf0’]</span></dt><dd><p>Algorithm.</p>
 </dd>
 <dt><strong>out_format</strong><span class="classifier">[‘pitch’, ‘f0’, ‘log-f0’, ‘prob’, ‘embed’]</span></dt><dd><p>Output format.</p>
 </dd>
@@ -446,12 +447,6 @@
 </dd>
 <dt><strong>voicing_threshold</strong><span class="classifier">float</span></dt><dd><p>Voiced/unvoiced threshold.</p>
 </dd>
-<dt><strong>silence_threshold</strong><span class="classifier">float</span></dt><dd><p>Silence threshold in dB.</p>
-</dd>
-<dt><strong>filter_length</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Window length of median and moving average filters.</p>
-</dd>
-<dt><strong>model</strong><span class="classifier">[‘tiny’, ‘full’]</span></dt><dd><p>Model size.</p>
-</dd>
 </dl>
 </dd>
 </dl>
@@ -459,8 +454,13 @@
 <div role="list" class="citation-list">
 <div class="citation" id="rf79357f0f37a-1" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
-<p>J. W. Kim et al., “CREPE: A Convolutional Representation for Pitch
-Estimation,” <em>Proceedings of ICASSP</em>, pp. 161-165, 2018.</p>
+<p>J. W. Kim et al., “CREPE: A convolutional representation for pitch
+estimation,” <em>Proceedings of ICASSP</em>, pp. 161-165, 2018.</p>
+</div>
+<div class="citation" id="rf79357f0f37a-2" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<p>M. Morisson et al., “Cross-domain neural pitch and periodicity estimation,”
+<em>arXiv prepreint</em>, arXiv:2301.12258, 2023.</p>
 </div>
 </div>
 <dl class="py method">
@@ -483,11 +483,11 @@ and C is the number of pitch classes or the dimension of embedding.</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pitch</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Pitch</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">16000</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pitch</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Pitch</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;f0&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">pitch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">tensor([10.0860, 10.0860])</span>
+<span class="go">tensor([  0.0000,  99.7280,  99.7676,  99.8334,  99.8162, 100.1602,   0.0000])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -520,11 +520,11 @@ and C is the number of pitch classes or the dimension of embedding.</p>
       </div>
     </a>
     <a class="right-next"
-       href="plp.html"
+       href="pitch_spec.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">plp</p>
+        <p class="prev-next-title">pitch_spec</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -597,7 +597,7 @@ and C is the number of pitch classes or the dimension of embedding.</p>
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
     <br/>
   </p>
 </div>
