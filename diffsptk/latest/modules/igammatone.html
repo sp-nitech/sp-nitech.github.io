@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>igammatone &#8212; diffsptk 2.5.0 documentation</title>
+    <title>igammatone &#8212; diffsptk 3.0.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../_static/documentation_options.js?v=acc74ff5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'modules/igammatone';</script>
@@ -48,7 +48,7 @@
     <link rel="prev" title="ifreqt2" href="ifreqt2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.5.0" />
+  <meta name="docsearch:version" content="3.0.0" />
   </head>
   
   
@@ -110,7 +110,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
+    <p class="title logo__title">diffsptk 3.0.0 documentation</p>
   
 </a></div>
     
@@ -132,8 +132,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../utils.html">
+    Utils
   </a>
 </li>
 
@@ -218,8 +225,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../utils.html">
+    Utils
   </a>
 </li>
 
@@ -304,6 +318,7 @@
 <li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipnorm.html">ipnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="is2par.html">is2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="istft.html">istft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ivq.html">ivq</a></li>
@@ -336,6 +351,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nmf.html">nmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2is.html">par2is</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -428,31 +444,31 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.GammatoneFilterBankSynthesis">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">GammatoneFilterBankSynthesis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desired_delay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">70</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_base</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">6700</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bandwidth_factor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/igammatone.html#GammatoneFilterBankSynthesis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.GammatoneFilterBankSynthesis" title="Link to this definition">#</a></dt>
-<dd><p>Gammatone filter bank analysis.</p>
+<dd><p>Gammatone filter bank synthesis module.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Sample rate in Hz.</p>
+<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The sample rate in Hz.</p>
 </dd>
 <dt><strong>desired_delay</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Desired delay in milliseconds.</p>
 </dd>
-<dt><strong>f_min</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>Minimum frequency in Hz.</p>
+<dt><strong>f_min</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>The minimum frequency in Hz.</p>
 </dd>
-<dt><strong>f_base</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>Base frequency in Hz.</p>
+<dt><strong>f_base</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>The base frequency in Hz.</p>
 </dd>
-<dt><strong>f_max</strong><span class="classifier">float &lt;= sample_rate // 2</span></dt><dd><p>Maximum frequency in Hz.</p>
+<dt><strong>f_max</strong><span class="classifier">float &lt;= sample_rate // 2</span></dt><dd><p>The maximum frequency in Hz.</p>
 </dd>
-<dt><strong>filter_order</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Order of Gammatone filter.</p>
+<dt><strong>filter_order</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The order of the Gammatone filter.</p>
 </dd>
-<dt><strong>bandwidth_factor</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Bandwidth of Gammatone filter.</p>
+<dt><strong>bandwidth_factor</strong><span class="classifier">float &gt; 0</span></dt><dd><p>The bandwidth of the Gammatone filter.</p>
 </dd>
-<dt><strong>density</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Density of frequencies on the ERB scale.</p>
+<dt><strong>density</strong><span class="classifier">float &gt; 0</span></dt><dd><p>The density of frequencies on the ERB scale.</p>
 </dd>
 <dt><strong>exact</strong><span class="classifier">bool</span></dt><dd><p>If False, use all-pole approximation.</p>
 </dd>
-<dt><strong>n_iter</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Number of iterations for gain computation.</p>
+<dt><strong>n_iter</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The number of iterations for gain computation.</p>
 </dd>
-<dt><strong>eps</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>Tolerance for gain computation.</p>
+<dt><strong>eps</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>The tolerance for gain computation.</p>
 </dd>
 </dl>
 </dd>
@@ -478,9 +494,9 @@ pp. 498-500, 2007.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(B, K, T) or (K, T)]</span></dt><dd><p>Filtered signals.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(B, K, T) or (K, T)]</span></dt><dd><p>The filter bank signals.</p>
 </dd>
-<dt><strong>keepdim</strong><span class="classifier">bool</span></dt><dd><p>If True, the output shape is (B, 1, T) instead (B, T).</p>
+<dt><strong>keepdim</strong><span class="classifier">bool</span></dt><dd><p>If True, the output shape is (B, 1, T) instead of (B, T).</p>
 </dd>
 <dt><strong>compensate_delay</strong><span class="classifier">bool</span></dt><dd><p>If True, compensate the delay.</p>
 </dd>
@@ -488,7 +504,7 @@ pp. 498-500, 2007.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(B, 1, T) or (B, T)]</span></dt><dd><p>Reconstructed waveform.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(B, 1, T) or (B, T)]</span></dt><dd><p>The reconstructed waveform.</p>
 </dd>
 </dl>
 </dd>

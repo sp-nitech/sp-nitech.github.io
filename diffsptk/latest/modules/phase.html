@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>phase &#8212; diffsptk 2.5.0 documentation</title>
+    <title>phase &#8212; diffsptk 3.0.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../_static/documentation_options.js?v=acc74ff5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -49,7 +49,7 @@
     <link rel="prev" title="pca" href="pca.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.5.0" />
+  <meta name="docsearch:version" content="3.0.0" />
   </head>
   
   
@@ -111,7 +111,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
+    <p class="title logo__title">diffsptk 3.0.0 documentation</p>
   
 </a></div>
     
@@ -133,8 +133,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../utils.html">
+    Utils
   </a>
 </li>
 
@@ -219,8 +226,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../utils.html">
+    Utils
   </a>
 </li>
 
@@ -305,6 +319,7 @@
 <li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipnorm.html">ipnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="is2par.html">is2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="istft.html">istft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ivq.html">ivq</a></li>
@@ -337,6 +352,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nmf.html">nmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2is.html">par2is</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -434,9 +450,9 @@ for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2</span></dt><dd><p>The number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
-<dt><strong>unwrap</strong><span class="classifier">bool</span></dt><dd><p>If True, perform phase unwrapping.</p>
+<dt><strong>unwrap</strong><span class="classifier">bool</span></dt><dd><p>If True, perform the phase unwrapping.</p>
 </dd>
 </dl>
 </dd>
@@ -448,15 +464,15 @@ for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>b</strong><span class="classifier">Tensor [shape=(…, M+1)] or None</span></dt><dd><p>Numerator coefficients.</p>
+<dt><strong>b</strong><span class="classifier">Tensor [shape=(…, M+1)] or None</span></dt><dd><p>The numerator coefficients.</p>
 </dd>
-<dt><strong>a</strong><span class="classifier">Tensor [shape=(…, N+1)] or None</span></dt><dd><p>Denominator coefficients.</p>
+<dt><strong>a</strong><span class="classifier">Tensor [shape=(…, N+1)] or None</span></dt><dd><p>The denominator coefficients.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>Phase spectrum [<span class="math notranslate nohighlight">\(\pi\)</span> rad].</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>The phase spectrum [<span class="math notranslate nohighlight">\(\pi\)</span> rad].</p>
 </dd>
 </dl>
 </dd>
@@ -480,19 +496,19 @@ for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>b</strong><span class="classifier">Tensor [shape=(…, M+1)] or None</span></dt><dd><p>Numerator coefficients.</p>
+<dt><strong>b</strong><span class="classifier">Tensor [shape=(…, M+1)] or None</span></dt><dd><p>The numerator coefficients.</p>
 </dd>
-<dt><strong>a</strong><span class="classifier">Tensor [shape=(…, N+1)] or None</span></dt><dd><p>Denominator coefficients.</p>
+<dt><strong>a</strong><span class="classifier">Tensor [shape=(…, N+1)] or None</span></dt><dd><p>The denominator coefficients.</p>
 </dd>
-<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2</span></dt><dd><p>The number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
-<dt><strong>unwrap</strong><span class="classifier">bool</span></dt><dd><p>If True, perform phase unwrapping.</p>
+<dt><strong>unwrap</strong><span class="classifier">bool</span></dt><dd><p>If True, perform the phase unwrapping.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>Phase spectrum [<span class="math notranslate nohighlight">\(\pi\)</span> rad].</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>The phase spectrum [<span class="math notranslate nohighlight">\(\pi\)</span> rad].</p>
 </dd>
 </dl>
 </dd>

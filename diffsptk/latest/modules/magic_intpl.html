@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>magic_intpl &#8212; diffsptk 2.5.0 documentation</title>
+    <title>magic_intpl &#8212; diffsptk 3.0.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../_static/documentation_options.js?v=acc74ff5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'modules/magic_intpl';</script>
@@ -48,7 +48,7 @@
     <link rel="prev" title="lspcheck" href="lspcheck.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.5.0" />
+  <meta name="docsearch:version" content="3.0.0" />
   </head>
   
   
@@ -110,7 +110,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
+    <p class="title logo__title">diffsptk 3.0.0 documentation</p>
   
 </a></div>
     
@@ -132,8 +132,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../utils.html">
+    Utils
   </a>
 </li>
 
@@ -218,8 +225,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../utils.html">
+    Utils
   </a>
 </li>
 
@@ -304,6 +318,7 @@
 <li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipnorm.html">ipnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="is2par.html">is2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="istft.html">istft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ivq.html">ivq</a></li>
@@ -336,6 +351,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nmf.html">nmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2is.html">par2is</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -433,7 +449,7 @@ for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>magic_number</strong><span class="classifier">float</span></dt><dd><p>Magic number.</p>
+<dt><strong>magic_number</strong><span class="classifier">float</span></dt><dd><p>The magic number to be interpolated.</p>
 </dd>
 </dl>
 </dd>
@@ -445,13 +461,13 @@ for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(B, N, D) or (N, D) or (N,)]</span></dt><dd><p>Data containing magic number.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(B, N, D) or (N, D) or (N,)]</span></dt><dd><p>The data containing magic number.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(B, N, D) or (N, D) or (N,)]</span></dt><dd><p>Data after interpolation.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(B, N, D) or (N, D) or (N,)]</span></dt><dd><p>The data after interpolation.</p>
 </dd>
 </dl>
 </dd>
@@ -477,15 +493,15 @@ for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(B, N, D) or (N, D) or (N,)]</span></dt><dd><p>Data containing magic number.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(B, N, D) or (N, D) or (N,)]</span></dt><dd><p>The data containing magic number.</p>
 </dd>
-<dt><strong>magic_number</strong><span class="classifier">float or Tensor</span></dt><dd><p>Magic number.</p>
+<dt><strong>magic_number</strong><span class="classifier">float or Tensor</span></dt><dd><p>The magic number to be interpolated.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(B, N, D) or (N, D) or (N,)]</span></dt><dd><p>Data after interpolation.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(B, N, D) or (N, D) or (N,)]</span></dt><dd><p>The data after interpolation.</p>
 </dd>
 </dl>
 </dd>

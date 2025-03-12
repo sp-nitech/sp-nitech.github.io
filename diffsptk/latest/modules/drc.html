@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>drc &#8212; diffsptk 2.5.0 documentation</title>
+    <title>drc &#8212; diffsptk 3.0.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../_static/documentation_options.js?v=acc74ff5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'modules/drc';</script>
@@ -48,7 +48,7 @@
     <link rel="prev" title="dht" href="dht.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.5.0" />
+  <meta name="docsearch:version" content="3.0.0" />
   </head>
   
   
@@ -110,7 +110,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
+    <p class="title logo__title">diffsptk 3.0.0 documentation</p>
   
 </a></div>
     
@@ -132,8 +132,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../utils.html">
+    Utils
   </a>
 </li>
 
@@ -218,8 +225,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../utils.html">
+    Utils
   </a>
 </li>
 
@@ -304,6 +318,7 @@
 <li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipnorm.html">ipnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="is2par.html">is2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="istft.html">istft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ivq.html">ivq</a></li>
@@ -336,6 +351,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nmf.html">nmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2is.html">par2is</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -439,19 +455,19 @@ for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>threshold</strong><span class="classifier">float &lt;= 0</span></dt><dd><p>Threshold in dB.</p>
+<dt><strong>threshold</strong><span class="classifier">float &lt;= 0</span></dt><dd><p>The threshold in dB.</p>
 </dd>
-<dt><strong>ratio</strong><span class="classifier">float &gt; 1</span></dt><dd><p>Input/output ratio.</p>
+<dt><strong>ratio</strong><span class="classifier">float &gt; 1</span></dt><dd><p>The input/output ratio.</p>
 </dd>
-<dt><strong>attack_time</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Attack time in msec.</p>
+<dt><strong>attack_time</strong><span class="classifier">float &gt; 0</span></dt><dd><p>The attack time in msec.</p>
 </dd>
-<dt><strong>release_time</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Release time in msec.</p>
+<dt><strong>release_time</strong><span class="classifier">float &gt; 0</span></dt><dd><p>The release time in msec.</p>
 </dd>
-<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Sample rate in Hz.</p>
+<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The sample rate in Hz.</p>
 </dd>
-<dt><strong>makeup_gain</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>Make-up gain in dB.</p>
+<dt><strong>makeup_gain</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>The make-up gain in dB.</p>
 </dd>
-<dt><strong>abs_max</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Absolute maximum value of input.</p>
+<dt><strong>abs_max</strong><span class="classifier">float &gt; 0</span></dt><dd><p>The absolute maximum value of input.</p>
 </dd>
 <dt><strong>learnable</strong><span class="classifier">bool</span></dt><dd><p>Whether to make the DRC parameters learnable.</p>
 </dd>
@@ -473,13 +489,13 @@ systems,” <em>Proceedings of DAFx</em>, pp. 345-352, 2024.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Input signal.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>The input waveform.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Compressed signal.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>The compressed waveform.</p>
 </dd>
 </dl>
 </dd>
@@ -501,31 +517,31 @@ systems,” <em>Proceedings of DAFx</em>, pp. 345-352, 2024.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="diffsptk.functional.drc">
 <span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">drc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">attack_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">release_time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">makeup_gain</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">abs_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/functional.html#drc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.drc" title="Link to this definition">#</a></dt>
-<dd><p>Apply dynamic range compression.</p>
+<dd><p>Perform dynamic range compression.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Input signal.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>The input waveform.</p>
 </dd>
-<dt><strong>threshold</strong><span class="classifier">float &lt;= 0</span></dt><dd><p>Threshold in dB.</p>
+<dt><strong>threshold</strong><span class="classifier">float &lt;= 0</span></dt><dd><p>The threshold in dB.</p>
 </dd>
-<dt><strong>ratio</strong><span class="classifier">float &gt; 1</span></dt><dd><p>Input/output ratio.</p>
+<dt><strong>ratio</strong><span class="classifier">float &gt; 1</span></dt><dd><p>The input/output ratio.</p>
 </dd>
-<dt><strong>attack_time</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Attack time in msec.</p>
+<dt><strong>attack_time</strong><span class="classifier">float &gt; 0</span></dt><dd><p>The attack time in msec.</p>
 </dd>
-<dt><strong>release_time</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Release time in msec.</p>
+<dt><strong>release_time</strong><span class="classifier">float &gt; 0</span></dt><dd><p>The release time in msec.</p>
 </dd>
-<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Sample rate in Hz.</p>
+<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The sample rate in Hz.</p>
 </dd>
-<dt><strong>makeup_gain</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>Make-up gain in dB.</p>
+<dt><strong>makeup_gain</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>The make-up gain in dB.</p>
 </dd>
-<dt><strong>abs_max</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Absolute maximum value of input.</p>
+<dt><strong>abs_max</strong><span class="classifier">float &gt; 0</span></dt><dd><p>The absolute maximum value of input.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Compressed signal.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>The compressed waveform.</p>
 </dd>
 </dl>
 </dd>

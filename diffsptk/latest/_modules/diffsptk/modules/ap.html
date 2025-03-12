@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.modules.ap &#8212; diffsptk 2.5.0 documentation</title>
+    <title>diffsptk.modules.ap &#8212; diffsptk 3.0.0 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../../../_static/documentation_options.js?v=acc74ff5"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/ap';</script>
@@ -45,7 +45,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.5.0" />
+  <meta name="docsearch:version" content="3.0.0" />
   </head>
   
   
@@ -107,7 +107,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
+    <p class="title logo__title">diffsptk 3.0.0 documentation</p>
   
 </a></div>
     
@@ -129,8 +129,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../../../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../utils.html">
+    Utils
   </a>
 </li>
 
@@ -213,8 +220,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../../../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../utils.html">
+    Utils
   </a>
 </li>
 
@@ -319,43 +333,44 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn.functional</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">F</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">numpy_to_torch</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.world</span><span class="w"> </span><span class="kn">import</span> <span class="n">dc_correction</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.world</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_windowed_waveform</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.world</span><span class="w"> </span><span class="kn">import</span> <span class="n">linear_smoothing</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..third_party.world</span><span class="w"> </span><span class="kn">import</span> <span class="n">dc_correction</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..third_party.world</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_windowed_waveform</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..third_party.world</span><span class="w"> </span><span class="kn">import</span> <span class="n">linear_smoothing</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">numpy_to_torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseNonFunctionalModule</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.spec</span><span class="w"> </span><span class="kn">import</span> <span class="n">Spectrum</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.window</span><span class="w"> </span><span class="kn">import</span> <span class="n">Window</span>
 
 
 <div class="viewcode-block" id="Aperiodicity">
 <a class="viewcode-back" href="../../../modules/ap.html#diffsptk.Aperiodicity">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">Aperiodicity</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Aperiodicity</span><span class="p">(</span><span class="n">BaseNonFunctionalModule</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/ap.html&gt;`_</span>
-<span class="sd">    for details.</span>
+<span class="sd">    for details. Note that the gradients do not propagated through F0.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    frame_period : int &gt;= 1</span>
-<span class="sd">        Frame period, :math:`P`.</span>
+<span class="sd">        The frame period in samples, :math:`P`.</span>
 
 <span class="sd">    sample_rate : int &gt;= 8000</span>
-<span class="sd">        Sample rate in Hz.</span>
+<span class="sd">        The sample rate in Hz.</span>
 
 <span class="sd">    fft_length : int &gt;= 16 or None</span>
-<span class="sd">        Size of double-sided aperiodicity, :math:`L`. If None, band aperiodicity</span>
+<span class="sd">        The size of double-sided aperiodicity, :math:`L`. If None, the band aperiodicity</span>
 <span class="sd">        (uninterpolated aperiodicity) is returned as the output.</span>
 
 <span class="sd">    algorithm : [&#39;tandem&#39;, &#39;d4c&#39;]</span>
-<span class="sd">        Algorithm.</span>
+<span class="sd">        The algorithm to estimate aperiodicity.</span>
 
 <span class="sd">    out_format : [&#39;a&#39;, &#39;p&#39;, &#39;a/p&#39;, &#39;p/a&#39;]</span>
-<span class="sd">        Output format.</span>
+<span class="sd">        The output format.</span>
 
 <span class="sd">    lower_bound : float &gt;= 0</span>
-<span class="sd">        Lower bound of aperiodicity.</span>
+<span class="sd">        The lower bound of aperiodicity.</span>
 
 <span class="sd">    upper_bound : float &lt;= 1</span>
-<span class="sd">        Upper bound of aperiodicity.</span>
+<span class="sd">        The upper bound of aperiodicity.</span>
 
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
@@ -381,10 +396,14 @@
     <span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">frame_period</span>
-        <span class="k">assert</span> <span class="mi">8000</span> <span class="o">&lt;=</span> <span class="n">sample_rate</span>
-        <span class="k">assert</span> <span class="n">fft_length</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="mi">16</span> <span class="o">&lt;=</span> <span class="n">fft_length</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">lower_bound</span> <span class="o">&lt;</span> <span class="n">upper_bound</span> <span class="o">&lt;=</span> <span class="mi">1</span>
+        <span class="k">if</span> <span class="n">frame_period</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;frame_period must be positive.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">sample_rate</span> <span class="o">&lt;</span> <span class="mi">8000</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;sample_rate must be at least 8000 Hz.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">fft_length</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">fft_length</span> <span class="o">&lt;</span> <span class="mi">16</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;fft_length must be at least 16.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">lower_bound</span> <span class="o">&lt;</span> <span class="n">upper_bound</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Invalid lower_bound and upper_bound.&quot;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">lower_bound</span> <span class="o">=</span> <span class="n">lower_bound</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">upper_bound</span> <span class="o">=</span> <span class="n">upper_bound</span>
@@ -419,15 +438,15 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        x : Tensor [shape=(B, T) or (T,)]</span>
-<span class="sd">            Waveform.</span>
+<span class="sd">            The input waveform.</span>
 
 <span class="sd">        f0 : Tensor [shape=(B, T/P) or (T/P,)]</span>
-<span class="sd">            F0 in Hz.</span>
+<span class="sd">            The F0 in Hz.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        out : Tensor [shape=(B, T/P, L/2+1) or (T/P, L/2+1)]</span>
-<span class="sd">            Aperiodicity.</span>
+<span class="sd">            The aperiodicity.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -451,11 +470,13 @@
         <span class="n">d</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span>
         <span class="k">if</span> <span class="n">d</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="k">assert</span> <span class="n">x</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Input must be 2D tensor.&quot;</span>
+        <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input must be 1D or 2D tensor.&quot;</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="n">f0</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="n">f0</span> <span class="o">=</span> <span class="n">f0</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
-        <span class="k">assert</span> <span class="n">f0</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Input must be 2D tensor.&quot;</span>
+        <span class="k">if</span> <span class="n">f0</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;F0 must be 1D or 2D tensor.&quot;</span><span class="p">)</span>
 
         <span class="n">ap</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extractor</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f0</span><span class="p">)</span>
         <span class="n">ap</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">ap</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">lower_bound</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">upper_bound</span><span class="p">)</span>
@@ -468,6 +489,41 @@
 
 
 
+<span class="c1"># ----------------------------------------------------------------- #</span>
+<span class="c1"># Copyright (c) 2010  M. Morise                                     #</span>
+<span class="c1">#                                                                   #</span>
+<span class="c1"># All rights reserved.                                              #</span>
+<span class="c1">#                                                                   #</span>
+<span class="c1"># Redistribution and use in source and binary forms, with or        #</span>
+<span class="c1"># without modification, are permitted provided that the following   #</span>
+<span class="c1"># conditions are met:                                               #</span>
+<span class="c1">#                                                                   #</span>
+<span class="c1"># - Redistributions of source code must retain the above copyright  #</span>
+<span class="c1">#   notice, this list of conditions and the following disclaimer.   #</span>
+<span class="c1"># - Redistributions in binary form must reproduce the above         #</span>
+<span class="c1">#   copyright notice, this list of conditions and the following     #</span>
+<span class="c1">#   disclaimer in the documentation and/or other materials provided #</span>
+<span class="c1">#   with the distribution.                                          #</span>
+<span class="c1"># - Neither the name of the M. Morise nor the names of its          #</span>
+<span class="c1">#   contributors may be used to endorse or promote products derived #</span>
+<span class="c1">#   from this software without specific prior written permission.   #</span>
+<span class="c1">#                                                                   #</span>
+<span class="c1"># THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND            #</span>
+<span class="c1"># CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES,       #</span>
+<span class="c1"># INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF          #</span>
+<span class="c1"># MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE          #</span>
+<span class="c1"># DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS #</span>
+<span class="c1"># BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,          #</span>
+<span class="c1"># EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED   #</span>
+<span class="c1"># TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,     #</span>
+<span class="c1"># DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON #</span>
+<span class="c1"># ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,   #</span>
+<span class="c1"># OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY    #</span>
+<span class="c1"># OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE           #</span>
+<span class="c1"># POSSIBILITY OF SUCH DAMAGE.                                       #</span>
+<span class="c1"># ----------------------------------------------------------------- #</span>
+
+
 <span class="k">class</span><span class="w"> </span><span class="nc">AperiodicityExtractionByTANDEM</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Aperiodicity extraction by TANDEM-STRAIGHT.&quot;&quot;&quot;</span>
 
@@ -476,13 +532,16 @@
         <span class="n">frame_period</span><span class="p">,</span>
         <span class="n">sample_rate</span><span class="p">,</span>
         <span class="n">fft_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
         <span class="n">window_length_ms</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
         <span class="n">eps</span><span class="o">=</span><span class="mf">1e-5</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">window_length_ms</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">eps</span>
+        <span class="k">if</span> <span class="n">window_length_ms</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;window_length_ms must be positive.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">eps</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;eps must be positive.&quot;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span> <span class="o">=</span> <span class="n">frame_period</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span> <span class="o">=</span> <span class="n">sample_rate</span>
@@ -663,6 +722,41 @@
         <span class="k">return</span> <span class="n">hLP</span>
 
 
+<span class="c1"># ----------------------------------------------------------------- #</span>
+<span class="c1"># Copyright (c) 2010  M. Morise                                     #</span>
+<span class="c1">#                                                                   #</span>
+<span class="c1"># All rights reserved.                                              #</span>
+<span class="c1">#                                                                   #</span>
+<span class="c1"># Redistribution and use in source and binary forms, with or        #</span>
+<span class="c1"># without modification, are permitted provided that the following   #</span>
+<span class="c1"># conditions are met:                                               #</span>
+<span class="c1">#                                                                   #</span>
+<span class="c1"># - Redistributions of source code must retain the above copyright  #</span>
+<span class="c1">#   notice, this list of conditions and the following disclaimer.   #</span>
+<span class="c1"># - Redistributions in binary form must reproduce the above         #</span>
+<span class="c1">#   copyright notice, this list of conditions and the following     #</span>
+<span class="c1">#   disclaimer in the documentation and/or other materials provided #</span>
+<span class="c1">#   with the distribution.                                          #</span>
+<span class="c1"># - Neither the name of the M. Morise nor the names of its          #</span>
+<span class="c1">#   contributors may be used to endorse or promote products derived #</span>
+<span class="c1">#   from this software without specific prior written permission.   #</span>
+<span class="c1">#                                                                   #</span>
+<span class="c1"># THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND            #</span>
+<span class="c1"># CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES,       #</span>
+<span class="c1"># INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF          #</span>
+<span class="c1"># MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE          #</span>
+<span class="c1"># DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS #</span>
+<span class="c1"># BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,          #</span>
+<span class="c1"># EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED   #</span>
+<span class="c1"># TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,     #</span>
+<span class="c1"># DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON #</span>
+<span class="c1"># ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,   #</span>
+<span class="c1"># OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY    #</span>
+<span class="c1"># OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE           #</span>
+<span class="c1"># POSSIBILITY OF SUCH DAMAGE.                                       #</span>
+<span class="c1"># ----------------------------------------------------------------- #</span>
+
+
 <span class="k">class</span><span class="w"> </span><span class="nc">AperiodicityExtractionByD4C</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Aperiodicity extraction by D4C.&quot;&quot;&quot;</span>
 
@@ -671,6 +765,7 @@
         <span class="n">frame_period</span><span class="p">,</span>
         <span class="n">sample_rate</span><span class="p">,</span>
         <span class="n">fft_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
         <span class="n">threshold</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
         <span class="n">default_f0</span><span class="o">=</span><span class="mi">150</span><span class="p">,</span>
     <span class="p">):</span>

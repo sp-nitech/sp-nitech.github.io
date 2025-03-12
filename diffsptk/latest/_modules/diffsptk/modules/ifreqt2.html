@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.modules.ifreqt2 &#8212; diffsptk 2.5.0 documentation</title>
+    <title>diffsptk.modules.ifreqt2 &#8212; diffsptk 3.0.0 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../../../_static/documentation_options.js?v=acc74ff5"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/ifreqt2';</script>
@@ -45,7 +45,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.5.0" />
+  <meta name="docsearch:version" content="3.0.0" />
   </head>
   
   
@@ -107,7 +107,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
+    <p class="title logo__title">diffsptk 3.0.0 documentation</p>
   
 </a></div>
     
@@ -129,8 +129,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../../../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../utils.html">
+    Utils
   </a>
 </li>
 
@@ -213,8 +220,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../../../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../utils.html">
+    Utils
   </a>
 </li>
 
@@ -313,34 +327,35 @@
 <span class="c1"># ------------------------------------------------------------------------ #</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_size</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">to</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_size</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_values</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">to</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseFunctionalModule</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.freqt2</span><span class="w"> </span><span class="kn">import</span> <span class="n">SecondOrderAllPassFrequencyTransform</span>
 
 
 <div class="viewcode-block" id="SecondOrderAllPassInverseFrequencyTransform">
 <a class="viewcode-back" href="../../../modules/ifreqt2.html#diffsptk.SecondOrderAllPassInverseFrequencyTransform">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">SecondOrderAllPassInverseFrequencyTransform</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SecondOrderAllPassInverseFrequencyTransform</span><span class="p">(</span><span class="n">BaseFunctionalModule</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Second-order all-pass inverse frequency transform module.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    in_order : int &gt;= 0</span>
-<span class="sd">        Order of input sequence, :math:`M_1`.</span>
+<span class="sd">        The order of the input sequence, :math:`M_1`.</span>
 
 <span class="sd">    out_order : int &gt;= 0</span>
-<span class="sd">        Order of output sequence, :math:`M_2`.</span>
+<span class="sd">        The order of the output sequence, :math:`M_2`.</span>
 
 <span class="sd">    alpha : float in (-1, 1)</span>
-<span class="sd">        Frequency warping factor, :math:`\\alpha`.</span>
+<span class="sd">        The frequency warping factor, :math:`\\alpha`.</span>
 
 <span class="sd">    theta : float in [0, 1]</span>
-<span class="sd">        Emphasis frequency, :math:`\\theta`.</span>
+<span class="sd">        The emphasis frequency, :math:`\\theta`.</span>
 
-<span class="sd">    n_fft : int &gt;&gt; M1</span>
-<span class="sd">        Number of FFT bins. Accurate conversion requires the large value.</span>
+<span class="sd">    n_fft : int &gt;&gt; M2</span>
+<span class="sd">        The number of FFT bins. The accurate conversion requires the large value.</span>
 
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
@@ -353,16 +368,10 @@
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_order</span><span class="p">,</span> <span class="n">out_order</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">theta</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_fft</span><span class="o">=</span><span class="mi">512</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">in_order</span> <span class="o">&lt;</span> <span class="n">n_fft</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">out_order</span>
-        <span class="k">assert</span> <span class="nb">abs</span><span class="p">(</span><span class="n">alpha</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">theta</span> <span class="o">&lt;=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">in_dim</span> <span class="o">=</span> <span class="n">in_order</span> <span class="o">+</span> <span class="mi">1</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">in_order</span> <span class="o">=</span> <span class="n">in_order</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">out_order</span> <span class="o">=</span> <span class="n">out_order</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span>
-            <span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">in_order</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_order</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">n_fft</span><span class="p">)</span>
-        <span class="p">)</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">tensors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="o">*</span><span class="n">get_values</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;A&quot;</span><span class="p">,</span> <span class="n">tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
 <div class="viewcode-block" id="SecondOrderAllPassInverseFrequencyTransform.forward">
 <a class="viewcode-back" href="../../../modules/ifreqt2.html#diffsptk.SecondOrderAllPassInverseFrequencyTransform.forward">[docs]</a>
@@ -372,12 +381,12 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        c : Tensor [shape=(..., M1+1)]</span>
-<span class="sd">            Warped sequence.</span>
+<span class="sd">            The warped sequence.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        out : Tensor [shape=(..., M2+1)]</span>
-<span class="sd">            Output sequence.</span>
+<span class="sd">            The output sequence.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -394,31 +403,36 @@
 <span class="sd">        tensor([ 0.0682,  0.4790, -1.0168, -0.6026,  0.1094])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">check_size</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">in_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;dimension of cepstrum&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">A</span><span class="p">)</span></div>
+        <span class="n">check_size</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">in_dim</span><span class="p">,</span> <span class="s2">&quot;dimension of cepstrum&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_buffers</span><span class="p">)</span></div>
 
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">A</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
-
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_func</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">out_order</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">n_fft</span><span class="p">):</span>
-        <span class="n">in_order</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="n">A</span> <span class="o">=</span> <span class="n">SecondOrderAllPassInverseFrequencyTransform</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span>
-            <span class="n">in_order</span><span class="p">,</span> <span class="n">out_order</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">n_fft</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">device</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_func</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">tensors</span> <span class="o">=</span> <span class="n">SecondOrderAllPassInverseFrequencyTransform</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span>
+            <span class="n">c</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">c</span><span class="o">.</span><span class="n">dtype</span>
         <span class="p">)</span>
-        <span class="k">return</span> <span class="n">SecondOrderAllPassInverseFrequencyTransform</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">SecondOrderAllPassInverseFrequencyTransform</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="o">*</span><span class="n">tensors</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_takes_input_size</span><span class="p">():</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">SecondOrderAllPassFrequencyTransform</span><span class="o">.</span><span class="n">_check</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">_precompute</span><span class="p">(</span><span class="n">in_order</span><span class="p">,</span> <span class="n">out_order</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">theta</span><span class="p">,</span> <span class="n">n_fft</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="n">SecondOrderAllPassInverseFrequencyTransform</span><span class="o">.</span><span class="n">_check</span><span class="p">(</span>
+            <span class="n">in_order</span><span class="p">,</span> <span class="n">out_order</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">theta</span>
+        <span class="p">)</span>
         <span class="n">theta</span> <span class="o">*=</span> <span class="n">torch</span><span class="o">.</span><span class="n">pi</span>
-
-        <span class="n">k</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_fft</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">double</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">k</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">n_fft</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">double</span><span class="p">)</span>
         <span class="n">omega</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">n_fft</span><span class="p">)</span>
         <span class="n">ww</span> <span class="o">=</span> <span class="n">SecondOrderAllPassFrequencyTransform</span><span class="o">.</span><span class="n">warp</span><span class="p">(</span><span class="n">omega</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">theta</span><span class="p">)</span>
 
-        <span class="n">m1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">in_order</span><span class="p">,</span> <span class="n">in_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">double</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+        <span class="n">m1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="n">in_order</span><span class="p">,</span> <span class="n">in_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">double</span><span class="p">)</span>
         <span class="n">wwm1</span> <span class="o">=</span> <span class="n">ww</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">m1</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
         <span class="n">real</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">wwm1</span><span class="p">)</span>
         <span class="n">imag</span> <span class="o">=</span> <span class="o">-</span><span class="n">torch</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">wwm1</span><span class="p">)</span>
@@ -430,7 +444,11 @@
         <span class="n">A</span> <span class="o">=</span> <span class="n">A</span><span class="p">[:</span><span class="n">L</span><span class="p">,</span> <span class="p">(</span><span class="n">M</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="p">:]</span>
         <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">*=</span> <span class="mi">2</span>
         <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">:]</span> <span class="o">/=</span> <span class="mi">2</span>
-        <span class="k">return</span> <span class="n">to</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">(</span><span class="n">to</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">),)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">A</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span></div>
 
 </pre></div>
 

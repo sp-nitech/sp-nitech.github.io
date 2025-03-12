@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.modules.lbg &#8212; diffsptk 2.5.0 documentation</title>
+    <title>diffsptk.modules.lbg &#8212; diffsptk 3.0.0 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../../../_static/documentation_options.js?v=acc74ff5"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/lbg';</script>
@@ -45,7 +45,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.5.0" />
+  <meta name="docsearch:version" content="3.0.0" />
   </head>
   
   
@@ -107,7 +107,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
+    <p class="title logo__title">diffsptk 3.0.0 documentation</p>
   
 </a></div>
     
@@ -129,8 +129,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../../../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../utils.html">
+    Utils
   </a>
 </li>
 
@@ -213,8 +220,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../../../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../utils.html">
+    Utils
   </a>
 </li>
 
@@ -315,56 +329,56 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_generator</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_logger</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_dataloader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_generator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_logger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_dataloader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseLearnerModule</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.gmm</span><span class="w"> </span><span class="kn">import</span> <span class="n">GaussianMixtureModeling</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.vq</span><span class="w"> </span><span class="kn">import</span> <span class="n">VectorQuantization</span>
 
 
 <div class="viewcode-block" id="LindeBuzoGrayAlgorithm">
 <a class="viewcode-back" href="../../../modules/lbg.html#diffsptk.LindeBuzoGrayAlgorithm">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">LindeBuzoGrayAlgorithm</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LindeBuzoGrayAlgorithm</span><span class="p">(</span><span class="n">BaseLearnerModule</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/lbg.html&gt;`_</span>
 <span class="sd">    for details. Note that the forward method is not differentiable.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    order : int &gt;= 0</span>
-<span class="sd">        Order of vector, :math:`M`.</span>
+<span class="sd">        The order of the vector, :math:`M`.</span>
 
 <span class="sd">    codebook_size : int &gt;= 1</span>
-<span class="sd">        Target codebook size, :math:`K`.</span>
+<span class="sd">        The target codebook size, :math:`K`.</span>
 
 <span class="sd">    min_data_per_cluster : int &gt;= 1</span>
-<span class="sd">        Minimum number of data points in a cluster.</span>
+<span class="sd">        The minimum number of data points required in each cluster.</span>
 
 <span class="sd">    n_iter : int &gt;= 1</span>
-<span class="sd">        Number of iterations.</span>
+<span class="sd">        The number of iterations.</span>
 
 <span class="sd">    eps : float &gt;= 0</span>
-<span class="sd">        Convergence threshold.</span>
+<span class="sd">        The convergence threshold.</span>
 
 <span class="sd">    perturb_factor : float &gt; 0</span>
-<span class="sd">        Perturbation factor.</span>
+<span class="sd">        The perturbation factor.</span>
 
 <span class="sd">    init : [&#39;none&#39;, &#39;mean&#39;] or torch.Tensor [shape=(1~K, M+1)]</span>
-<span class="sd">        Initialization type.</span>
+<span class="sd">        The initialization method for the codebook.</span>
 
 <span class="sd">    metric : [&#39;none, &#39;aic&#39;, &#39;bic&#39;]</span>
-<span class="sd">        Metric used as a reference for model selection.</span>
+<span class="sd">        The metric used for model selection.</span>
 
 <span class="sd">    batch_size : int &gt;= 1 or None</span>
-<span class="sd">        Batch size.</span>
+<span class="sd">        The batch size.</span>
 
 <span class="sd">    seed : int or None</span>
-<span class="sd">        Random seed.</span>
+<span class="sd">        The random seed.</span>
 
 <span class="sd">    verbose : bool or int</span>
-<span class="sd">        If 1, show distance at each iteration; if 2, show progress bar.</span>
+<span class="sd">        If 1, shows the distance at each iteration; if 2, shows progress bars.</span>
 
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
@@ -390,12 +404,18 @@
     <span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">order</span>
-        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">codebook_size</span>
-        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">min_data_per_cluster</span>
-        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">n_iter</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">eps</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">perturb_factor</span>
+        <span class="k">if</span> <span class="n">order</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;order must be non-negative.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">codebook_size</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;codebook_size must be positive.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">min_data_per_cluster</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;min_data_per_cluster must be positive.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">n_iter</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n_iter must be positive.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">eps</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;eps must be non-negative.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">perturb_factor</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;perturb_factor must be positive.&quot;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">order</span> <span class="o">=</span> <span class="n">order</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">codebook_size</span> <span class="o">=</span> <span class="n">codebook_size</span>
@@ -437,26 +457,26 @@
 <a class="viewcode-back" href="../../../modules/lbg.html#diffsptk.LindeBuzoGrayAlgorithm.forward">[docs]</a>
     <span class="nd">@torch</span><span class="o">.</span><span class="n">inference_mode</span><span class="p">()</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">return_indices</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Design a codebook.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Design a codebook using the Linde-Buzo-Gray algorithm.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        x : Tensor [shape=(T, M+1)] or DataLoader</span>
-<span class="sd">            Input vectors or dataloder yielding input vectors.</span>
+<span class="sd">            The input vectors or a DataLoader that yields the input vectors.</span>
 
 <span class="sd">        return_indices : bool</span>
-<span class="sd">            If True, return indices.</span>
+<span class="sd">            If True, return the codebook indices.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        codebook : Tensor [shape=(K, M+1)]</span>
-<span class="sd">            Codebook.</span>
+<span class="sd">            The generated codebook.</span>
 
 <span class="sd">        indices : Tensor [shape=(T,)] (optional)</span>
-<span class="sd">            Codebook indices.</span>
+<span class="sd">            The codebook indices.</span>
 
 <span class="sd">        distance : Tensor [scalar]</span>
-<span class="sd">            Distance.</span>
+<span class="sd">            The distance between the input vectors and the codebook.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -483,7 +503,8 @@
                 <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;K = 1&quot;</span><span class="p">)</span>
             <span class="n">s</span> <span class="o">=</span> <span class="n">T</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="k">for</span> <span class="p">(</span><span class="n">batch_x</span><span class="p">,)</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">disable</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">hide_progress_bar</span><span class="p">):</span>
-                <span class="k">assert</span> <span class="n">batch_x</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span>
+                <span class="k">if</span> <span class="n">batch_x</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input vectors must be 2D.&quot;</span><span class="p">)</span>
                 <span class="n">batch_xp</span> <span class="o">=</span> <span class="n">batch_x</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
                 <span class="n">s</span> <span class="o">+=</span> <span class="n">batch_xp</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
                 <span class="n">T</span> <span class="o">+=</span> <span class="n">batch_xp</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -510,7 +531,15 @@
             <span class="k">if</span> <span class="n">next_codebook_size</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">codebook_size</span><span class="p">:</span>
                 <span class="c1"># Double codebook.</span>
                 <span class="n">codebook</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vq</span><span class="o">.</span><span class="n">codebook</span><span class="p">[:</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr_codebook_size</span><span class="p">]</span>
-                <span class="n">r</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn_like</span><span class="p">(</span><span class="n">codebook</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">perturb_factor</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span>
+                        <span class="o">*</span><span class="n">codebook</span><span class="o">.</span><span class="n">size</span><span class="p">(),</span>
+                        <span class="n">device</span><span class="o">=</span><span class="n">codebook</span><span class="o">.</span><span class="n">device</span><span class="p">,</span>
+                        <span class="n">dtype</span><span class="o">=</span><span class="n">codebook</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
+                        <span class="n">generator</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">generator</span><span class="p">,</span>
+                    <span class="p">)</span>
+                    <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">perturb_factor</span>
+                <span class="p">)</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">vq</span><span class="o">.</span><span class="n">codebook</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr_codebook_size</span> <span class="p">:</span> <span class="n">next_codebook_size</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
                     <span class="n">codebook</span> <span class="o">-</span> <span class="n">r</span>
                 <span class="p">)</span>
@@ -605,20 +634,20 @@
 <div class="viewcode-block" id="LindeBuzoGrayAlgorithm.transform">
 <a class="viewcode-back" href="../../../modules/lbg.html#diffsptk.LindeBuzoGrayAlgorithm.transform">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Transform input vectors using the codebook.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Transform the input vectors using the codebook.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        x : Tensor [shape=(T, M+1)]</span>
-<span class="sd">            Input vectors.</span>
+<span class="sd">            The input vectors.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        xq : Tensor [shape=(T, M+1)]</span>
-<span class="sd">            Quantized vectors.</span>
+<span class="sd">            The quantized vectors.</span>
 
 <span class="sd">        indices : Tensor [shape=(T,)]</span>
-<span class="sd">            Codebook indices.</span>
+<span class="sd">            The codebook indices.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>

@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.modules.mdst &#8212; diffsptk 2.5.0 documentation</title>
+    <title>diffsptk.modules.mdst &#8212; diffsptk 3.0.0 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../../../_static/documentation_options.js?v=acc74ff5"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/mdst';</script>
@@ -45,7 +45,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.5.0" />
+  <meta name="docsearch:version" content="3.0.0" />
   </head>
   
   
@@ -107,7 +107,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
+    <p class="title logo__title">diffsptk 3.0.0 documentation</p>
   
 </a></div>
     
@@ -129,8 +129,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../../../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../utils.html">
+    Utils
   </a>
 </li>
 
@@ -213,8 +220,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../../../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../utils.html">
+    Utils
   </a>
 </li>
 
@@ -314,28 +328,31 @@
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">.mdct</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModifiedDiscreteCosineTransform</span> <span class="k">as</span> <span class="n">MDST</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_values</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseFunctionalModule</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.mdct</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModifiedDiscreteCosineTransform</span> <span class="k">as</span> <span class="n">MDCT</span>
 
 
 <div class="viewcode-block" id="ModifiedDiscreteSineTransform">
 <a class="viewcode-back" href="../../../modules/mdst.html#diffsptk.ModifiedDiscreteSineTransform">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">ModifiedDiscreteSineTransform</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">ModifiedDiscreteSineTransform</span><span class="p">(</span><span class="n">BaseFunctionalModule</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;This module is a simple cascade of framing, windowing, and modified DST.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    frame_length : int &gt;= 2</span>
-<span class="sd">        Frame length, :math:`L`.</span>
+<span class="sd">        The frame length, :math:`L`.</span>
 
 <span class="sd">    window : [&#39;sine&#39;, &#39;vorbis&#39;, &#39;kbd&#39;, &#39;rectangular&#39;]</span>
-<span class="sd">        Window type.</span>
+<span class="sd">        The window type.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frame_length</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="s2">&quot;sine&quot;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">mdst</span> <span class="o">=</span> <span class="n">MDST</span><span class="p">(</span><span class="n">frame_length</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="s2">&quot;sine&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">layers</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="o">*</span><span class="n">get_values</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layers</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">(</span><span class="n">layers</span><span class="p">)</span>
 
 <div class="viewcode-block" id="ModifiedDiscreteSineTransform.forward">
 <a class="viewcode-back" href="../../../modules/mdst.html#diffsptk.ModifiedDiscreteSineTransform.forward">[docs]</a>
@@ -345,12 +362,12 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        x : Tensor [shape=(..., T)]</span>
-<span class="sd">            Waveform.</span>
+<span class="sd">            The input waveform.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        out : Tensor [shape=(..., 2T/L, L/2)]</span>
-<span class="sd">            Spectrum.</span>
+<span class="sd">            The spectrum.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -365,12 +382,28 @@
 <span class="sd">                [ 4.6213, -1.9142]])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">mdst</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="p">)</span></div>
 
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">frame_length</span><span class="p">,</span> <span class="n">window</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">MDST</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">frame_length</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="s2">&quot;sine&quot;</span><span class="p">)</span></div>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">MDCT</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="s2">&quot;sine&quot;</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_takes_input_size</span><span class="p">():</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_precompute</span><span class="p">(</span><span class="n">frame_length</span><span class="p">,</span> <span class="n">window</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">MDCT</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="n">frame_length</span><span class="p">,</span> <span class="n">window</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="s2">&quot;sine&quot;</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">MDCT</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 </pre></div>
 

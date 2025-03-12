@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.modules.nmf &#8212; diffsptk 2.5.0 documentation</title>
+    <title>diffsptk.modules.nmf &#8212; diffsptk 3.0.0 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../../../_static/documentation_options.js?v=acc74ff5"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/nmf';</script>
@@ -45,7 +45,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.5.0" />
+  <meta name="docsearch:version" content="3.0.0" />
   </head>
   
   
@@ -107,7 +107,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
+    <p class="title logo__title">diffsptk 3.0.0 documentation</p>
   
 </a></div>
     
@@ -129,8 +129,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../../../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../utils.html">
+    Utils
   </a>
 </li>
 
@@ -213,8 +220,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../../../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../utils.html">
+    Utils
   </a>
 </li>
 
@@ -313,52 +327,52 @@
 <span class="c1"># ------------------------------------------------------------------------ #</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">tqdm</span><span class="w"> </span><span class="kn">import</span> <span class="n">tqdm</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_generator</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_logger</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_dataloader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_generator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_logger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">to_dataloader</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseLearnerModule</span>
 
 
 <div class="viewcode-block" id="NonnegativeMatrixFactorization">
 <a class="viewcode-back" href="../../../modules/nmf.html#diffsptk.NonnegativeMatrixFactorization">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">NonnegativeMatrixFactorization</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NonnegativeMatrixFactorization</span><span class="p">(</span><span class="n">BaseLearnerModule</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Nonnegative matrix factorization module. Note that the forward method is not</span>
 <span class="sd">    differentiable.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    n_data : int &gt;= 1</span>
-<span class="sd">        Number of vectors, :math:`T`.</span>
+<span class="sd">        The number of vectors, :math:`T`.</span>
 
 <span class="sd">    order : int &gt;= 0</span>
-<span class="sd">        Order of vector, :math:`M`.</span>
+<span class="sd">        The order of the vector, :math:`M`.</span>
 
 <span class="sd">    n_comp : int &gt;= 1</span>
-<span class="sd">        Number of basis vectors, :math:`K`.</span>
+<span class="sd">        The number of principal components, :math:`K`.</span>
 
 <span class="sd">    beta : float</span>
 <span class="sd">        A control parameter of beta-divergence, :math:`\\beta`. 0: Itakura-Saito</span>
 <span class="sd">        divergence, 1: generalized Kullback-Leibler divergence, 2: Euclidean distance.</span>
 
 <span class="sd">    n_iter : int &gt;= 1</span>
-<span class="sd">        Number of iterations.</span>
+<span class="sd">        The number of iterations.</span>
 
 <span class="sd">    eps : float &gt;= 0</span>
-<span class="sd">        Convergence threshold.</span>
+<span class="sd">        The convergence threshold.</span>
 
 <span class="sd">    act_norm : bool</span>
-<span class="sd">        If True, normalize activation to sum to one.</span>
+<span class="sd">        If True, normalizes the activation to sum to one.</span>
 
 <span class="sd">    seed : int or None</span>
-<span class="sd">        Random seed.</span>
+<span class="sd">        The random seed.</span>
 
 <span class="sd">    batch_size : int &gt;= 1 or None</span>
-<span class="sd">        Batch size.</span>
+<span class="sd">        The bBatch size.</span>
 
 <span class="sd">    verbose : bool or int</span>
-<span class="sd">        If 1, show distance at each iteration; if 2, show progress bar.</span>
+<span class="sd">        If 1, shows the distance at each iteration; if 2, shows progress bars.</span>
 
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
@@ -384,11 +398,16 @@
     <span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">n_data</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">order</span>
-        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">n_comp</span>
-        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">n_iter</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">eps</span>
+        <span class="k">if</span> <span class="n">n_data</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n_data must be positive.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">order</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;order must be non-negative.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">n_comp</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n_comp must be positive.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">n_iter</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n_iter must be positive.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">eps</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;eps must be non-negative.&quot;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">beta</span> <span class="o">=</span> <span class="n">beta</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span> <span class="o">=</span> <span class="n">n_iter</span>
@@ -420,15 +439,15 @@
 <div class="viewcode-block" id="NonnegativeMatrixFactorization.warmup">
 <a class="viewcode-back" href="../../../modules/nmf.html#diffsptk.NonnegativeMatrixFactorization.warmup">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">warmup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="o">**</span><span class="n">lbg_params</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize dictionary matrix by K-means clustering.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialize the dictionary matrix by K-means clustering.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        x : Tensor [shape=(T, M+1)] or DataLoader</span>
-<span class="sd">            Training data.</span>
+<span class="sd">            The training data.</span>
 
 <span class="sd">        lbg_params : additional keyword arguments</span>
-<span class="sd">            Parameters for Linde-Buzo-Gray algorithm.</span>
+<span class="sd">            The parameters for the Linde-Buzo-Gray algorithm.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">to_dataloader</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">)</span>
@@ -446,20 +465,20 @@
 <a class="viewcode-back" href="../../../modules/nmf.html#diffsptk.NonnegativeMatrixFactorization.forward">[docs]</a>
     <span class="nd">@torch</span><span class="o">.</span><span class="n">inference_mode</span><span class="p">()</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Estimate coefficient matrix and dictionary matrix.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Estimate the coefficient matrix and dictionary matrix.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        x : Tensor [shape=(T, M+1)] or DataLoader</span>
-<span class="sd">            Input vectors or dataloder yielding input vectors.</span>
+<span class="sd">            The input vectors or a DataLoader that yields the input vectors.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        params : tuple of Tensors [shape=((T, K), (K, M+1))]</span>
-<span class="sd">            Estimated coefficient matrix and dictionary matrix.</span>
+<span class="sd">            The estimated coefficient matrix and dictionary matrix.</span>
 
 <span class="sd">        divergence : Tensor [scalar]</span>
-<span class="sd">            Divergence between input and reconstructed vectors.</span>
+<span class="sd">            The divergence between the input and reconstructed vectors.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -549,6 +568,25 @@
             <span class="n">prev_divergence</span> <span class="o">=</span> <span class="n">divergence</span>
 
         <span class="k">return</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">U</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">H</span><span class="p">),</span> <span class="n">divergence</span></div>
+
+
+<div class="viewcode-block" id="NonnegativeMatrixFactorization.transform">
+<a class="viewcode-back" href="../../../modules/nmf.html#diffsptk.NonnegativeMatrixFactorization.transform">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Transform the input vectors using the estimated parameters.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x : Tensor [shape=(..., M+1)]</span>
+<span class="sd">            The input vectors.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : Tensor [shape=(..., K)]</span>
+<span class="sd">            The transformed vectors.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">H</span><span class="o">.</span><span class="n">T</span><span class="p">)</span></div>
 </div>
 
 </pre></div>

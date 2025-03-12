@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>ica &#8212; diffsptk 2.5.0 documentation</title>
+    <title>ica &#8212; diffsptk 3.0.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../_static/documentation_options.js?v=acc74ff5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -49,7 +49,7 @@
     <link rel="prev" title="ialaw" href="ialaw.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.5.0" />
+  <meta name="docsearch:version" content="3.0.0" />
   </head>
   
   
@@ -111,7 +111,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
+    <p class="title logo__title">diffsptk 3.0.0 documentation</p>
   
 </a></div>
     
@@ -133,8 +133,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../utils.html">
+    Utils
   </a>
 </li>
 
@@ -219,8 +226,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../utils.html">
+    Utils
   </a>
 </li>
 
@@ -305,6 +319,7 @@
 <li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipnorm.html">ipnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="is2par.html">is2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="istft.html">istft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ivq.html">ivq</a></li>
@@ -337,6 +352,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nmf.html">nmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2is.html">par2is</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -434,27 +450,27 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.IndependentComponentAnalysis">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">IndependentComponentAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_comp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'logcosh'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/ica.html#IndependentComponentAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.IndependentComponentAnalysis" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">IndependentComponentAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_comp</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">func</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'logcosh'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.0001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">verbose</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/ica.html#IndependentComponentAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.IndependentComponentAnalysis" title="Link to this definition">#</a></dt>
 <dd><p>Independent component analysis module. Note that the forward method is not
 differentiable.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>Order of vector, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<dt><strong>order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>The order of the vector, <span class="math notranslate nohighlight">\(M\)</span>.</p>
 </dd>
-<dt><strong>n_comp</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Number of components, <span class="math notranslate nohighlight">\(K\)</span>.</p>
+<dt><strong>n_comp</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The number of components, <span class="math notranslate nohighlight">\(K\)</span>.</p>
 </dd>
 <dt><strong>func</strong><span class="classifier">[‘logcosh’, ‘gauss’]</span></dt><dd><p>The nonquadratic function used in the approximation of negentropy.</p>
 </dd>
-<dt><strong>n_iter</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Number of iterations.</p>
+<dt><strong>n_iter</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The number of iterations.</p>
 </dd>
-<dt><strong>eps</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>Convergence threshold.</p>
+<dt><strong>eps</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>The convergence threshold.</p>
 </dd>
-<dt><strong>batch_size</strong><span class="classifier">int &gt;= 1 or None</span></dt><dd><p>Batch size.</p>
+<dt><strong>batch_size</strong><span class="classifier">int &gt;= 1 or None</span></dt><dd><p>The batch size.</p>
 </dd>
-<dt><strong>seed</strong><span class="classifier">int or None</span></dt><dd><p>Random seed.</p>
+<dt><strong>seed</strong><span class="classifier">int or None</span></dt><dd><p>The random seed.</p>
 </dd>
-<dt><strong>verbose</strong><span class="classifier">bool</span></dt><dd><p>If True, show progress bar.</p>
+<dt><strong>verbose</strong><span class="classifier">bool</span></dt><dd><p>If True, shows progress bars.</p>
 </dd>
 </dl>
 </dd>
@@ -470,17 +486,17 @@ applications,” <em>Neural Networks</em>, vol. 13, pp. 411-430, 2000.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="diffsptk.IndependentComponentAnalysis.forward">
 <span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/ica.html#IndependentComponentAnalysis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.IndependentComponentAnalysis.forward" title="Link to this definition">#</a></dt>
-<dd><p>Estimate separating matrix.</p>
+<dd><p>Perform independent component analysis.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(T, M+1)] or DataLoader</span></dt><dd><p>Input vectors or dataloder yielding input vectors.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(T, M+1)] or DataLoader</span></dt><dd><p>The input vectors or a DataLoader that yields the input vectors.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>W</strong><span class="classifier">Tensor [shape=(K, K)]</span></dt><dd><p>Separating matrix.</p>
+<dt><strong>W</strong><span class="classifier">Tensor [shape=(K, K)]</span></dt><dd><p>The separating matrix.</p>
 </dd>
 </dl>
 </dd>
@@ -490,17 +506,17 @@ applications,” <em>Neural Networks</em>, vol. 13, pp. 411-430, 2000.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="diffsptk.IndependentComponentAnalysis.transform">
 <span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/ica.html#IndependentComponentAnalysis.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.IndependentComponentAnalysis.transform" title="Link to this definition">#</a></dt>
-<dd><p>Separate input vectors into independent components.</p>
+<dd><p>Separate the input vectors into independent components.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Input vectors.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>The input vectors.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, K)]</span></dt><dd><p>Estimated independent components.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, K)]</span></dt><dd><p>The estimated independent components.</p>
 </dd>
 </dl>
 </dd>

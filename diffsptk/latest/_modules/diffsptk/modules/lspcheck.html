@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.modules.lspcheck &#8212; diffsptk 2.5.0 documentation</title>
+    <title>diffsptk.modules.lspcheck &#8212; diffsptk 3.0.0 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../../../_static/documentation_options.js?v=acc74ff5"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/lspcheck';</script>
@@ -45,7 +45,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.5.0" />
+  <meta name="docsearch:version" content="3.0.0" />
   </head>
   
   
@@ -107,7 +107,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
+    <p class="title logo__title">diffsptk 3.0.0 documentation</p>
   
 </a></div>
     
@@ -129,8 +129,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../../../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../utils.html">
+    Utils
   </a>
 </li>
 
@@ -213,8 +220,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../../../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../utils.html">
+    Utils
   </a>
 </li>
 
@@ -315,60 +329,55 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">warnings</span>
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_size</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_size</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_values</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseFunctionalModule</span>
 
 
 <div class="viewcode-block" id="LineSpectralPairsStabilityCheck">
 <a class="viewcode-back" href="../../../modules/lspcheck.html#diffsptk.LineSpectralPairsStabilityCheck">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">LineSpectralPairsStabilityCheck</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">LineSpectralPairsStabilityCheck</span><span class="p">(</span><span class="n">BaseFunctionalModule</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/lspcheck.html&gt;`_</span>
 <span class="sd">    for details.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    lsp_order : int &gt;= 0</span>
-<span class="sd">        Order of LSP, :math:`M`.</span>
+<span class="sd">        The order of the LSP, :math:`M`.</span>
 
 <span class="sd">    rate : float in [0, 1]</span>
-<span class="sd">        Rate of distance between two adjacent LSPs.</span>
+<span class="sd">        The rate of distance between two adjacent LSPs.</span>
 
 <span class="sd">    n_iter : int &gt;= 0</span>
-<span class="sd">        Number of iterations for modification.</span>
+<span class="sd">        The number of iterations for the modification.</span>
 
 <span class="sd">    warn_type : [&#39;ignore&#39;, &#39;warn&#39;, &#39;exit&#39;]</span>
-<span class="sd">        Warning type.</span>
+<span class="sd">        The warning type.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">lsp_order</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">warn_type</span><span class="o">=</span><span class="s2">&quot;warn&quot;</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">lsp_order</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">rate</span> <span class="o">&lt;=</span> <span class="mi">1</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">n_iter</span>
-        <span class="k">assert</span> <span class="n">warn_type</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">,</span> <span class="s2">&quot;warn&quot;</span><span class="p">,</span> <span class="s2">&quot;exit&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">in_dim</span> <span class="o">=</span> <span class="n">lsp_order</span> <span class="o">+</span> <span class="mi">1</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">lsp_order</span> <span class="o">=</span> <span class="n">lsp_order</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">min_distance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="n">lsp_order</span><span class="p">,</span> <span class="n">rate</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span> <span class="o">=</span> <span class="n">n_iter</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">warn_type</span> <span class="o">=</span> <span class="n">warn_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="o">*</span><span class="n">get_values</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
 
 <div class="viewcode-block" id="LineSpectralPairsStabilityCheck.forward">
 <a class="viewcode-back" href="../../../modules/lspcheck.html#diffsptk.LineSpectralPairsStabilityCheck.forward">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check stability of LSP.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Check the stability of the input LSP coefficients.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        w : Tensor [shape=(..., M+1)]</span>
-<span class="sd">            LSP coefficients in radians.</span>
+<span class="sd">            The input LSP coefficients in radians.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        out : Tensor [shape=(..., M+1)]</span>
-<span class="sd">            Modified LSP coefficients.</span>
+<span class="sd">            The modified LSP coefficients in radians.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -379,9 +388,38 @@
 <span class="sd">        tensor([0.0000, 0.0105, 3.1311])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="n">check_size</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">lsp_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;dimension of LSP&quot;</span><span class="p">)</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">min_distance</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">warn_type</span><span class="p">)</span></div>
+        <span class="n">check_size</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">in_dim</span><span class="p">,</span> <span class="s2">&quot;dimension of LSP&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span></div>
 
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_func</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">LineSpectralPairsStabilityCheck</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span>
+            <span class="n">w</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">LineSpectralPairsStabilityCheck</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="o">*</span><span class="n">values</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_takes_input_size</span><span class="p">():</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check</span><span class="p">(</span><span class="n">lsp_order</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">n_iter</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">lsp_order</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;lsp_order must be non-negative.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">rate</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;rate must be in [0, 1].&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">n_iter</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n_iter must be non-negative.&quot;</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_precompute</span><span class="p">(</span><span class="n">lsp_order</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">n_iter</span><span class="p">,</span> <span class="n">warn_type</span><span class="p">):</span>
+        <span class="n">LineSpectralPairsStabilityCheck</span><span class="o">.</span><span class="n">_check</span><span class="p">(</span><span class="n">lsp_order</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">n_iter</span><span class="p">)</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">rate</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="p">(</span><span class="n">lsp_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span>
+            <span class="n">n_iter</span><span class="p">,</span>
+            <span class="n">warn_type</span><span class="p">,</span>
+        <span class="p">)</span>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">min_distance</span><span class="p">,</span> <span class="n">n_iter</span><span class="p">,</span> <span class="n">warn_type</span><span class="p">):</span>
@@ -412,16 +450,7 @@
                 <span class="k">break</span>
 
         <span class="n">w2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">K</span><span class="p">,</span> <span class="n">w1</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">w2</span>
-
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_func</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">rate</span><span class="p">,</span> <span class="n">n_iter</span><span class="p">,</span> <span class="n">warn_type</span><span class="p">):</span>
-        <span class="n">const</span> <span class="o">=</span> <span class="n">LineSpectralPairsStabilityCheck</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="n">w</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">rate</span><span class="p">)</span>
-        <span class="k">return</span> <span class="n">LineSpectralPairsStabilityCheck</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">const</span><span class="p">,</span> <span class="n">n_iter</span><span class="p">,</span> <span class="n">warn_type</span><span class="p">)</span>
-
-    <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_precompute</span><span class="p">(</span><span class="n">lsp_order</span><span class="p">,</span> <span class="n">rate</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">rate</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="p">(</span><span class="n">lsp_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span></div>
+        <span class="k">return</span> <span class="n">w2</span></div>
 
 </pre></div>
 

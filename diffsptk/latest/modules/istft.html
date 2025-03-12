@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>istft &#8212; diffsptk 2.5.0 documentation</title>
+    <title>istft &#8212; diffsptk 3.0.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../_static/documentation_options.js?v=acc74ff5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -46,10 +46,10 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="iulaw" href="iulaw.html" />
-    <link rel="prev" title="ipqmf" href="ipqmf.html" />
+    <link rel="prev" title="is2par" href="is2par.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.5.0" />
+  <meta name="docsearch:version" content="3.0.0" />
   </head>
   
   
@@ -111,7 +111,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
+    <p class="title logo__title">diffsptk 3.0.0 documentation</p>
   
 </a></div>
     
@@ -133,8 +133,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../utils.html">
+    Utils
   </a>
 </li>
 
@@ -219,8 +226,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../utils.html">
+    Utils
   </a>
 </li>
 
@@ -305,6 +319,7 @@
 <li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipnorm.html">ipnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="is2par.html">is2par</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">istft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ivq.html">ivq</a></li>
@@ -337,6 +352,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nmf.html">nmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2is.html">par2is</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -439,18 +455,17 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>frame_length</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Frame length, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+<dt><strong>frame_length</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The frame length in samples, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
-<dt><strong>frame_period</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Frame period, <span class="math notranslate nohighlight">\(P\)</span>.</p>
+<dt><strong>frame_period</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The frame period in samples, <span class="math notranslate nohighlight">\(P\)</span>.</p>
 </dd>
-<dt><strong>fft_length</strong><span class="classifier">int &gt;= L</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= L</span></dt><dd><p>The number of FFT bins, <span class="math notranslate nohighlight">\(N\)</span>.</p>
 </dd>
-<dt><strong>center</strong><span class="classifier">bool</span></dt><dd><p>If True, assume that the center of data is the center of frame, otherwise
-assume that the center of data is the left edge of frame.</p>
+<dt><strong>center</strong><span class="classifier">bool</span></dt><dd><p>If True, pad the input on both sides so that the frame is centered.</p>
 </dd>
-<dt><strong>window</strong><span class="classifier">[‘blackman’, ‘hamming’, ‘hanning’, ‘bartlett’, ‘trapezoidal’,               ‘rectangular’]</span></dt><dd><p>Window type.</p>
+<dt><strong>window</strong><span class="classifier">[‘blackman’, ‘hamming’, ‘hanning’, ‘bartlett’, ‘trapezoidal’,               ‘rectangular’, ‘nuttall’]</span></dt><dd><p>The window type.</p>
 </dd>
-<dt><strong>norm</strong><span class="classifier">[‘none’, ‘power’, ‘magnitude’]</span></dt><dd><p>Normalization type of window.</p>
+<dt><strong>norm</strong><span class="classifier">[‘none’, ‘power’, ‘magnitude’]</span></dt><dd><p>The normalization type of the window.</p>
 </dd>
 </dl>
 </dd>
@@ -462,15 +477,15 @@ assume that the center of data is the left edge of frame.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, T/P, N/2+1)]</span></dt><dd><p>Complex spectrum.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, T/P, N/2+1)]</span></dt><dd><p>The complex spectrogram.</p>
 </dd>
-<dt><strong>out_length</strong><span class="classifier">int or None</span></dt><dd><p>Length of output waveform.</p>
+<dt><strong>out_length</strong><span class="classifier">int &gt; 0 or None</span></dt><dd><p>The length of the output waveform.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Reconstructed waveform.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>The reconstructed waveform.</p>
 </dd>
 </dl>
 </dd>
@@ -498,28 +513,27 @@ assume that the center of data is the left edge of frame.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, T/P, N/2+1)]</span></dt><dd><p>Complex spectrum.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, T/P, N/2+1)]</span></dt><dd><p>The complex spectrogram.</p>
 </dd>
-<dt><strong>out_length</strong><span class="classifier">int &gt;= 1 or None</span></dt><dd><p>Length of output signal.</p>
+<dt><strong>out_length</strong><span class="classifier">int &gt;= 1 or None</span></dt><dd><p>The length of the output waveform.</p>
 </dd>
-<dt><strong>frame_length</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Frame length, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+<dt><strong>frame_length</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The frame length in samples, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
-<dt><strong>frame_peirod</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Frame period, <span class="math notranslate nohighlight">\(P\)</span>.</p>
+<dt><strong>frame_period</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The frame period in samples, <span class="math notranslate nohighlight">\(P\)</span>.</p>
 </dd>
-<dt><strong>fft_length</strong><span class="classifier">int &gt;= L</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(N\)</span>.</p>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= L</span></dt><dd><p>The number of FFT bins, <span class="math notranslate nohighlight">\(N\)</span>.</p>
 </dd>
-<dt><strong>center</strong><span class="classifier">bool</span></dt><dd><p>If True, assume that the center of data is the center of frame, otherwise
-assume that the center of data is the left edge of frame.</p>
+<dt><strong>center</strong><span class="classifier">bool</span></dt><dd><p>If True, pad the input on both sides so that the frame is centered.</p>
 </dd>
-<dt><strong>window</strong><span class="classifier">[‘blackman’, ‘hamming’, ‘hanning’, ‘bartlett’, ‘trapezoidal’,               ‘rectangular’, ‘nuttall’]</span></dt><dd><p>Window type.</p>
+<dt><strong>window</strong><span class="classifier">[‘blackman’, ‘hamming’, ‘hanning’, ‘bartlett’, ‘trapezoidal’,               ‘rectangular’, ‘nuttall’]</span></dt><dd><p>The window type.</p>
 </dd>
-<dt><strong>norm</strong><span class="classifier">[‘none’, ‘power’, ‘magnitude’]</span></dt><dd><p>Normalization type of window.</p>
+<dt><strong>norm</strong><span class="classifier">[‘none’, ‘power’, ‘magnitude’]</span></dt><dd><p>The normalization type of the window.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Waveform.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>The reconstructed waveform.</p>
 </dd>
 </dl>
 </dd>
@@ -543,12 +557,12 @@ assume that the center of data is the left edge of frame.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="ipqmf.html"
+       href="is2par.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">ipqmf</p>
+        <p class="prev-next-title">is2par</p>
       </div>
     </a>
     <a class="right-next"

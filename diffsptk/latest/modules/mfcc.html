@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>mfcc &#8212; diffsptk 2.5.0 documentation</title>
+    <title>mfcc &#8212; diffsptk 3.0.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../_static/documentation_options.js?v=acc74ff5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -49,7 +49,7 @@
     <link rel="prev" title="mdst" href="mdst.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.5.0" />
+  <meta name="docsearch:version" content="3.0.0" />
   </head>
   
   
@@ -111,7 +111,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
+    <p class="title logo__title">diffsptk 3.0.0 documentation</p>
   
 </a></div>
     
@@ -133,8 +133,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../utils.html">
+    Utils
   </a>
 </li>
 
@@ -219,8 +226,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../utils.html">
+    Utils
   </a>
 </li>
 
@@ -305,6 +319,7 @@
 <li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipnorm.html">ipnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="is2par.html">is2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="istft.html">istft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ivq.html">ivq</a></li>
@@ -337,6 +352,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nmf.html">nmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2is.html">par2is</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -434,27 +450,27 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.MelFrequencyCepstralCoefficientsAnalysis">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MelFrequencyCepstralCoefficientsAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mfcc_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lifter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'y'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">fbank_kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/mfcc.html#MelFrequencyCepstralCoefficientsAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MelFrequencyCepstralCoefficientsAnalysis" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MelFrequencyCepstralCoefficientsAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mfcc_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lifter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">floor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'y'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/mfcc.html#MelFrequencyCepstralCoefficientsAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MelFrequencyCepstralCoefficientsAnalysis" title="Link to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/mfcc.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>mfcc_order</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Order of MFCC, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2</span></dt><dd><p>The number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
-<dt><strong>n_channel</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Number of mel-filter banks, <span class="math notranslate nohighlight">\(C\)</span>.</p>
+<dt><strong>mfcc_order</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The order of the MFCC, <span class="math notranslate nohighlight">\(M\)</span>.</p>
 </dd>
-<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+<dt><strong>n_channel</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The number of mel filter banks, <span class="math notranslate nohighlight">\(C\)</span>.</p>
 </dd>
-<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Sample rate in Hz.</p>
+<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The sample rate in Hz.</p>
 </dd>
-<dt><strong>lifter</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Liftering coefficient.</p>
+<dt><strong>lifter</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The liftering coefficient.</p>
 </dd>
-<dt><strong>f_min</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>Minimum frequency in Hz.</p>
+<dt><strong>f_min</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>The minimum frequency in Hz.</p>
 </dd>
-<dt><strong>f_max</strong><span class="classifier">float &lt;= sample_rate // 2</span></dt><dd><p>Maximum frequency in Hz.</p>
+<dt><strong>f_max</strong><span class="classifier">float &lt;= sample_rate // 2</span></dt><dd><p>The maximum frequency in Hz.</p>
 </dd>
-<dt><strong>floor</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Minimum mel-filter bank output in linear scale.</p>
+<dt><strong>floor</strong><span class="classifier">float &gt; 0</span></dt><dd><p>The minimum mel filter bank output in linear scale.</p>
 </dd>
 <dt><strong>out_format</strong><span class="classifier">[‘y’, ‘yE’, ‘yc’, ‘ycE’]</span></dt><dd><p><cite>y</cite> is MFCC, <cite>c</cite> is C0, and <cite>E</cite> is energy.</p>
 </dd>
@@ -473,21 +489,21 @@ for details.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="diffsptk.MelFrequencyCepstralCoefficientsAnalysis.forward">
 <span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/mfcc.html#MelFrequencyCepstralCoefficientsAnalysis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MelFrequencyCepstralCoefficientsAnalysis.forward" title="Link to this definition">#</a></dt>
-<dd><p>Compute MFCC.</p>
+<dd><p>Compute the MFCC from the power spectrum.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>Power spectrum.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>The power spectrum.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, M)]</span></dt><dd><p>MFCC without C0.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, M)]</span></dt><dd><p>The MFCC without C0.</p>
 </dd>
-<dt><strong>E</strong><span class="classifier">Tensor [shape=(…, 1)] (optional)</span></dt><dd><p>Energy.</p>
+<dt><strong>E</strong><span class="classifier">Tensor [shape=(…, 1)] (optional)</span></dt><dd><p>The energy.</p>
 </dd>
-<dt><strong>c</strong><span class="classifier">Tensor [shape=(…, 1)] (optional)</span></dt><dd><p>C0.</p>
+<dt><strong>c</strong><span class="classifier">Tensor [shape=(…, 1)] (optional)</span></dt><dd><p>The C0.</p>
 </dd>
 </dl>
 </dd>
@@ -504,6 +520,46 @@ for details.</p>
 </div>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diffsptk.functional.mfcc">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">mfcc</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mfcc_order</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_channel</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lifter</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_min</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_max</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">floor</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'y'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/functional.html#mfcc"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.mfcc" title="Link to this definition">#</a></dt>
+<dd><p>Compute the MFCC from the power spectrum.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>The power spectrum.</p>
+</dd>
+<dt><strong>mfcc_order</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The order of the MFCC, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+</dd>
+<dt><strong>n_channel</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The number of mel filter banks, <span class="math notranslate nohighlight">\(C\)</span>.</p>
+</dd>
+<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The sample rate in Hz.</p>
+</dd>
+<dt><strong>lifter</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The liftering coefficient.</p>
+</dd>
+<dt><strong>f_min</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>The minimum frequency in Hz.</p>
+</dd>
+<dt><strong>f_max</strong><span class="classifier">float &lt;= sample_rate // 2</span></dt><dd><p>The maximum frequency in Hz.</p>
+</dd>
+<dt><strong>floor</strong><span class="classifier">float &gt; 0</span></dt><dd><p>The minimum mel filter bank output in linear scale.</p>
+</dd>
+<dt><strong>out_format</strong><span class="classifier">[‘y’, ‘yE’, ‘yc’, ‘ycE’]</span></dt><dd><p><cite>y</cite> is MFCC, <cite>c</cite> is C0, and <cite>E</cite> is energy.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, M)]</span></dt><dd><p>The MFCC without C0.</p>
+</dd>
+<dt><strong>E</strong><span class="classifier">Tensor [shape=(…, 1)] (optional)</span></dt><dd><p>The energy.</p>
+</dd>
+<dt><strong>c</strong><span class="classifier">Tensor [shape=(…, 1)] (optional)</span></dt><dd><p>The C0.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <div class="admonition seealso">
@@ -564,6 +620,7 @@ for details.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.MelFrequencyCepstralCoefficientsAnalysis.forward"><code class="docutils literal notranslate"><span class="pre">MelFrequencyCepstralCoefficientsAnalysis.forward()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.mfcc"><code class="docutils literal notranslate"><span class="pre">mfcc()</span></code></a></li>
 </ul>
   </nav></div>
 

@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.modules.mglsadf &#8212; diffsptk 2.5.0 documentation</title>
+    <title>diffsptk.modules.mglsadf &#8212; diffsptk 3.0.0 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../../../_static/documentation_options.js?v=acc74ff5"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/mglsadf';</script>
@@ -45,7 +45,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.5.0" />
+  <meta name="docsearch:version" content="3.0.0" />
   </head>
   
   
@@ -107,7 +107,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
+    <p class="title logo__title">diffsptk 3.0.0 documentation</p>
   
 </a></div>
     
@@ -129,8 +129,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../../../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../utils.html">
+    Utils
   </a>
 </li>
 
@@ -213,8 +220,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../../../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../utils.html">
+    Utils
   </a>
 </li>
 
@@ -316,11 +330,12 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn.functional</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">F</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">Lambda</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_size</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_gamma</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">remove_gain</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">Lambda</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_size</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_gamma</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">remove_gain</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.b2mc</span><span class="w"> </span><span class="kn">import</span> <span class="n">MLSADigitalFilterCoefficientsToMelCepstrum</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseNonFunctionalModule</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.c2mpir</span><span class="w"> </span><span class="kn">import</span> <span class="n">CepstrumToMinimumPhaseImpulseResponse</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.gnorm</span><span class="w"> </span><span class="kn">import</span> <span class="n">GeneralizedCepstrumGainNormalization</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.istft</span><span class="w"> </span><span class="kn">import</span> <span class="n">InverseShortTimeFourierTransform</span>
@@ -332,39 +347,10 @@
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">is_array_like</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Return True if the input is array-like.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    x : object</span>
-<span class="sd">        Any object.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    out : bool</span>
-<span class="sd">        True if the input is array-like.</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">))</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">mirror</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">half</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Mirror the input tensor.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    x : Tensor [shape=(..., L)]</span>
-<span class="sd">        Input tensor.</span>
-
-<span class="sd">    half : bool</span>
-<span class="sd">        If True, multiply all elements except the first one by 0.5.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    out : Tensor [shape=(..., 2L-1)]</span>
-<span class="sd">        Output tensor.</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">x0</span><span class="p">,</span> <span class="n">x1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">half</span><span class="p">:</span>
         <span class="n">x1</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">*</span> <span class="mf">0.5</span>
@@ -374,52 +360,54 @@
 
 <div class="viewcode-block" id="PseudoMGLSADigitalFilter">
 <a class="viewcode-back" href="../../../modules/mglsadf.html#diffsptk.PseudoMGLSADigitalFilter">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">PseudoMGLSADigitalFilter</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PseudoMGLSADigitalFilter</span><span class="p">(</span><span class="n">BaseNonFunctionalModule</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/mglsadf.html&gt;`_</span>
 <span class="sd">    for details.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    filter_order : int &gt;= 0 or tuple[int, int]</span>
-<span class="sd">        Order of filter coefficients, :math:`M` or :math:`(N, M)`. A tuple input is</span>
-<span class="sd">        allowed only if **phase** is &#39;mixed&#39;.</span>
+<span class="sd">        The order of the filter coefficients, :math:`M` or :math:`(N, M)`. A tuple input</span>
+<span class="sd">        is allowed only if **phase** is &#39;mixed&#39;.</span>
 
 <span class="sd">    frame_period : int &gt;= 1</span>
-<span class="sd">        Frame period, :math:`P`.</span>
+<span class="sd">        The frame period, :math:`P`.</span>
 
 <span class="sd">    alpha : float in (-1, 1)</span>
-<span class="sd">        Frequency warping factor, :math:`\\alpha`.</span>
+<span class="sd">        The frequency warping factor, :math:`\\alpha`.</span>
 
 <span class="sd">    gamma : float in [-1, 1]</span>
-<span class="sd">        Gamma, :math:`\\gamma`.</span>
+<span class="sd">        The gamma parameter, :math:`\\gamma`.</span>
 
 <span class="sd">    c : int &gt;= 1 or None</span>
-<span class="sd">        Number of stages.</span>
+<span class="sd">        The number of stages.</span>
 
 <span class="sd">    ignore_gain : bool</span>
-<span class="sd">        If True, perform filtering without gain.</span>
+<span class="sd">        If True, filtering is performed without gain.</span>
 
 <span class="sd">    phase : [&#39;minimum&#39;, &#39;maximum&#39;, &#39;zero&#39;, &#39;mixed&#39;]</span>
-<span class="sd">        Filter type.</span>
+<span class="sd">        The filter type.</span>
 
 <span class="sd">    mode : [&#39;multi-stage&#39;, &#39;single-stage&#39;, &#39;freq-domain&#39;]</span>
 <span class="sd">        &#39;multi-stage&#39; approximates the MLSA filter by cascading FIR filters based on the</span>
-<span class="sd">        Taylor series expansion. &#39;single-stage&#39; uses a FIR filter whose coefficients are</span>
-<span class="sd">        the impulse response converted from input mel-cepstral coefficients using FFT.</span>
-<span class="sd">        &#39;freq-domain&#39; performs filtering in the frequency domain rather than time one.</span>
+<span class="sd">        Taylor series expansion. &#39;single-stage&#39; uses an FIR filter with the coefficients</span>
+<span class="sd">        derived from the impulse response converted from the input mel-cepstral</span>
+<span class="sd">        coefficients using FFT. &#39;freq-domain&#39; performs filtering in the frequency domain</span>
+<span class="sd">        rather than the time domain.</span>
 
 <span class="sd">    n_fft : int &gt;= 1</span>
-<span class="sd">        Number of FFT bins used for conversion. Higher values result in increased</span>
+<span class="sd">        The number of FFT bins used for conversion. Higher values result in increased</span>
 <span class="sd">        conversion accuracy.</span>
 
 <span class="sd">    taylor_order : int &gt;= 0</span>
-<span class="sd">        Order of Taylor series expansion (valid only if **mode** is &#39;multi-stage&#39;).</span>
+<span class="sd">        The order of the Taylor series expansion (valid only if **mode** is</span>
+<span class="sd">        &#39;multi-stage&#39;).</span>
 
 <span class="sd">    cep_order : int &gt;= 0 or tuple[int, int]</span>
-<span class="sd">        Order of linear cepstrum (valid only if **mode** is &#39;multi-stage&#39;).</span>
+<span class="sd">        The order of the linear cepstrum (valid only if **mode** is &#39;multi-stage&#39;).</span>
 
 <span class="sd">    ir_length : int &gt;= 1 or tuple[int, int]</span>
-<span class="sd">        Length of impulse response (valid only if **mode** is &#39;single-stage&#39;).</span>
+<span class="sd">        The length of the impulse response (valid only if **mode** is &#39;single-stage&#39;).</span>
 
 <span class="sd">    **kwargs : additional keyword arguments</span>
 <span class="sd">        See :func:`~diffsptk.ShortTimeFourierTransform` (valid only if **mode** is</span>
@@ -512,18 +500,18 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        x : Tensor [shape=(..., T)]</span>
-<span class="sd">            Excitation signal.</span>
+<span class="sd">            The excitation signal.</span>
 
 <span class="sd">        mc : Tensor [shape=(..., T/P, M+1)] or [shape=(..., T/P, N+M+1)]</span>
-<span class="sd">            Mel-generalized cepstrum, not MLSA digital filter coefficients. Note that</span>
-<span class="sd">            the mixed-phase case assumes that the coefficients are of the form</span>
+<span class="sd">            The mel-generalized cepstrum, not MLSA digital filter coefficients. Note</span>
+<span class="sd">            that the mixed-phase case assumes that the coefficients are of the form</span>
 <span class="sd">            c_{-N}, ..., c_{0}, ..., c_{M}, where M is the order of the minimum-phase</span>
 <span class="sd">            part and N is the order of the maximum-phase part.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        out : Tensor [shape=(..., T)]</span>
-<span class="sd">            Output signal.</span>
+<span class="sd">            The output signal.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -567,7 +555,8 @@
     <span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">taylor_order</span>
+        <span class="k">if</span> <span class="n">taylor_order</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;taylor_order must be non-negative.&quot;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">ignore_gain</span> <span class="o">=</span> <span class="n">ignore_gain</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">phase</span> <span class="o">=</span> <span class="n">phase</span>
@@ -790,7 +779,8 @@
     <span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="k">assert</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">frame_period</span> <span class="o">&lt;</span> <span class="n">frame_length</span>
+        <span class="k">if</span> <span class="n">frame_length</span> <span class="o">&lt;=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">frame_period</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;frame_period must be less than half of frame_length.&quot;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">ignore_gain</span> <span class="o">=</span> <span class="n">ignore_gain</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">phase</span> <span class="o">=</span> <span class="n">phase</span>

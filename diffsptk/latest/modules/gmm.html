@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>gmm &#8212; diffsptk 2.5.0 documentation</title>
+    <title>gmm &#8212; diffsptk 3.0.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../_static/documentation_options.js?v=acc74ff5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -49,7 +49,7 @@
     <link rel="prev" title="gammatone" href="gammatone.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.5.0" />
+  <meta name="docsearch:version" content="3.0.0" />
   </head>
   
   
@@ -111,7 +111,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
+    <p class="title logo__title">diffsptk 3.0.0 documentation</p>
   
 </a></div>
     
@@ -133,8 +133,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../utils.html">
+    Utils
   </a>
 </li>
 
@@ -219,8 +226,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../utils.html">
+    Utils
   </a>
 </li>
 
@@ -305,6 +319,7 @@
 <li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipnorm.html">ipnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="is2par.html">is2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="istft.html">istft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ivq.html">ivq</a></li>
@@ -337,6 +352,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nmf.html">nmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2is.html">par2is</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -440,29 +456,29 @@ for details. Note that the forward method is not differentiable.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>Order of vector, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<dt><strong>order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>The order of the vector, <span class="math notranslate nohighlight">\(M\)</span>.</p>
 </dd>
-<dt><strong>n_mixture</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Number of mixture components, <span class="math notranslate nohighlight">\(K\)</span>.</p>
+<dt><strong>n_mixture</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The number of mixture components, <span class="math notranslate nohighlight">\(K\)</span>.</p>
 </dd>
-<dt><strong>n_iter</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Number of iterations.</p>
+<dt><strong>n_iter</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The number of iterations.</p>
 </dd>
-<dt><strong>eps</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>Convergence threshold.</p>
+<dt><strong>eps</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>The convergence threshold.</p>
 </dd>
-<dt><strong>weight_floor</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>Floor value for mixture weights.</p>
+<dt><strong>weight_floor</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>The floor value for mixture weights.</p>
 </dd>
-<dt><strong>var_floor</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>Floor value for variance.</p>
+<dt><strong>var_floor</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>The floor value for variance.</p>
 </dd>
-<dt><strong>var_type</strong><span class="classifier">[‘diag’, ‘full’]</span></dt><dd><p>Type of covariance.</p>
+<dt><strong>var_type</strong><span class="classifier">[‘diag’, ‘full’]</span></dt><dd><p>The type of covariance matrix.</p>
 </dd>
-<dt><strong>block_size</strong><span class="classifier">list[int]</span></dt><dd><p>Block size of covariance matrix.</p>
+<dt><strong>block_size</strong><span class="classifier">list[int]</span></dt><dd><p>The block size of covariance matrix.</p>
 </dd>
-<dt><strong>ubm</strong><span class="classifier">tuple of Tensors [shape=((K,), (K, M+1), (K, M+1, M+1))]</span></dt><dd><p>Parameters of universal background model.</p>
+<dt><strong>ubm</strong><span class="classifier">tuple of Tensors [shape=((K,), (K, M+1), (K, M+1, M+1))]</span></dt><dd><p>The GMM parameters of a universal background model.</p>
 </dd>
-<dt><strong>alpha</strong><span class="classifier">float in [0, 1]</span></dt><dd><p>Smoothing parameter.</p>
+<dt><strong>alpha</strong><span class="classifier">float in [0, 1]</span></dt><dd><p>The smoothing parameter.</p>
 </dd>
-<dt><strong>batch_size</strong><span class="classifier">int &gt;= 1 or None</span></dt><dd><p>Batch size.</p>
+<dt><strong>batch_size</strong><span class="classifier">int &gt;= 1 or None</span></dt><dd><p>The batch size.</p>
 </dd>
-<dt><strong>verbose</strong><span class="classifier">bool</span></dt><dd><p>If 1, show distance at each iteration; if 2, show progress bar.</p>
+<dt><strong>verbose</strong><span class="classifier">bool</span></dt><dd><p>If 1, shows the likelihood at each iteration; if 2, shows progress bars.</p>
 </dd>
 </dl>
 </dd>
@@ -483,19 +499,19 @@ and Audio Processing</em>, vol. 2, no. 2, pp. 291-298, 1994.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(T, M+1)] or DataLoader</span></dt><dd><p>Input vectors or dataloder yielding input vectors.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(T, M+1)] or DataLoader</span></dt><dd><p>The input vectors or a DataLoader that yields the input vectors.</p>
 </dd>
-<dt><strong>return_posterior</strong><span class="classifier">bool</span></dt><dd><p>If True, return posterior probabilities.</p>
+<dt><strong>return_posterior</strong><span class="classifier">bool</span></dt><dd><p>If True, return the posterior probabilities.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>params</strong><span class="classifier">tuple of Tensors [shape=((K,), (K, M+1), (K, M+1, M+1))]</span></dt><dd><p>GMM parameters.</p>
+<dt><strong>params</strong><span class="classifier">tuple of Tensors [shape=((K,), (K, M+1), (K, M+1, M+1))]</span></dt><dd><p>The estimated GMM parameters.</p>
 </dd>
-<dt><strong>posterior</strong><span class="classifier">Tensor [shape=(T, K)] (optional)</span></dt><dd><p>Posterior probabilities.</p>
+<dt><strong>posterior</strong><span class="classifier">Tensor [shape=(T, K)] (optional)</span></dt><dd><p>The posterior probabilities.</p>
 </dd>
-<dt><strong>log_likelihood</strong><span class="classifier">Tensor [scalar]</span></dt><dd><p>Total log-likelihood.</p>
+<dt><strong>log_likelihood</strong><span class="classifier">Tensor [scalar]</span></dt><dd><p>The total log-likelihood.</p>
 </dd>
 </dl>
 </dd>
@@ -528,7 +544,7 @@ and Audio Processing</em>, vol. 2, no. 2, pp. 291-298, 1994.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>params</strong><span class="classifier">tuple of Tensors [shape=((K,), (K, M+1), (K, M+1, M+1))]</span></dt><dd><p>Parameters of Gaussian mixture model.</p>
+<dt><strong>params</strong><span class="classifier">tuple of Tensors [shape=((K,), (K, M+1), (K, M+1, M+1))]</span></dt><dd><p>The GMM parameters.</p>
 </dd>
 </dl>
 </dd>
@@ -538,21 +554,21 @@ and Audio Processing</em>, vol. 2, no. 2, pp. 291-298, 1994.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="diffsptk.GaussianMixtureModeling.transform">
 <span class="sig-name descname"><span class="pre">transform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/gmm.html#GaussianMixtureModeling.transform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.GaussianMixtureModeling.transform" title="Link to this definition">#</a></dt>
-<dd><p>Transform input vectors based on a single mixture sequence.</p>
+<dd><p>Transform the input vectors based on a single mixture sequence.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(T, N+1)]</span></dt><dd><p>Input vectors.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(T, N+1)]</span></dt><dd><p>The input vectors.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(T, M-N)]</span></dt><dd><p>Output vectors.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(T, M-N)]</span></dt><dd><p>The output vectors.</p>
 </dd>
-<dt><strong>indices</strong><span class="classifier">Tensor [shape=(T,)]</span></dt><dd><p>Selected mixture indices.</p>
+<dt><strong>indices</strong><span class="classifier">Tensor [shape=(T,)]</span></dt><dd><p>The selected mixture indices.</p>
 </dd>
-<dt><strong>log_prob</strong><span class="classifier">Tensor [shape=(T,)]</span></dt><dd><p>Log probabilities.</p>
+<dt><strong>log_prob</strong><span class="classifier">Tensor [shape=(T,)]</span></dt><dd><p>The log probabilities.</p>
 </dd>
 </dl>
 </dd>
@@ -562,13 +578,13 @@ and Audio Processing</em>, vol. 2, no. 2, pp. 291-298, 1994.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="diffsptk.GaussianMixtureModeling.warmup">
 <span class="sig-name descname"><span class="pre">warmup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">lbg_params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/gmm.html#GaussianMixtureModeling.warmup"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.GaussianMixtureModeling.warmup" title="Link to this definition">#</a></dt>
-<dd><p>Initialize model parameters by K-means clustering.</p>
+<dd><p>Initialize the model parameters by K-means clustering.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(T, M+1)] or DataLoader</span></dt><dd><p>Training data.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(T, M+1)] or DataLoader</span></dt><dd><p>The training data.</p>
 </dd>
-<dt><strong>lbg_params</strong><span class="classifier">additional keyword arguments</span></dt><dd><p>Parameters for Linde-Buzo-Gray algorithm.</p>
+<dt><strong>lbg_params</strong><span class="classifier">additional keyword arguments</span></dt><dd><p>The parameters for the Linde-Buzo-Gray algorithm.</p>
 </dd>
 </dl>
 </dd>

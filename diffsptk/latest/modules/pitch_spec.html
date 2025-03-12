@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>pitch_spec &#8212; diffsptk 2.5.0 documentation</title>
+    <title>pitch_spec &#8212; diffsptk 3.0.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../_static/documentation_options.js?v=acc74ff5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -49,7 +49,7 @@
     <link rel="prev" title="pitch" href="pitch.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.5.0" />
+  <meta name="docsearch:version" content="3.0.0" />
   </head>
   
   
@@ -111,7 +111,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
+    <p class="title logo__title">diffsptk 3.0.0 documentation</p>
   
 </a></div>
     
@@ -133,8 +133,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../utils.html">
+    Utils
   </a>
 </li>
 
@@ -219,8 +226,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../utils.html">
+    Utils
   </a>
 </li>
 
@@ -305,6 +319,7 @@
 <li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipnorm.html">ipnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="is2par.html">is2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="istft.html">istft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ivq.html">ivq</a></li>
@@ -337,6 +352,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nmf.html">nmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2is.html">par2is</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -428,23 +444,24 @@
 <span id="id1"></span><h1>pitch_spec<a class="headerlink" href="#pitch-spec" title="Link to this heading">#</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.PitchAdaptiveSpectralAnalysis">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">PitchAdaptiveSpectralAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'power'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q1</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">-0.15</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_f0</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">500</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/pitch_spec.html#PitchAdaptiveSpectralAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PitchAdaptiveSpectralAnalysis" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">PitchAdaptiveSpectralAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_period</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">algorithm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'cheap-trick'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'power'</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/pitch_spec.html#PitchAdaptiveSpectralAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.PitchAdaptiveSpectralAnalysis" title="Link to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/pitch_spec.html">this page</a>
-for details.</p>
+for details. Note that the gradients do not propagated through F0.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>frame_period</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Frame period in sample, <span class="math notranslate nohighlight">\(P\)</span>.</p>
+<dt><strong>frame_period</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The frame period in samples, <span class="math notranslate nohighlight">\(P\)</span>.</p>
 </dd>
-<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 8000</span></dt><dd><p>Sample rate in Hz.</p>
+<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 8000</span></dt><dd><p>The sample rate in Hz.</p>
 </dd>
-<dt><strong>fft_length</strong><span class="classifier">int &gt;= 1024</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= 1024</span></dt><dd><p>The number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
-<dt><strong>out_format</strong><span class="classifier">[‘db’, ‘log-magnitude’, ‘magnitude’, ‘power’]</span></dt><dd><p>Output format.</p>
+<dt><strong>algorithm</strong><span class="classifier">[‘cheap-trick’, ‘straight’]</span></dt><dd><p>The algorithm to estimate spectral envelpe. The STRAIGHT supports only double
+precision.</p>
 </dd>
-<dt><strong>q1</strong><span class="classifier">float</span></dt><dd><p>A parameter used for spectral recovery.</p>
+<dt><strong>out_format</strong><span class="classifier">[‘db’, ‘log-magnitude’, ‘magnitude’, ‘power’]</span></dt><dd><p>The output format.</p>
 </dd>
-<dt><strong>default_f0</strong><span class="classifier">float &gt; 0</span></dt><dd><p>F0 value used when the input F0 is unvoiced.</p>
+<dt><strong>default_f0</strong><span class="classifier">float &gt; 0</span></dt><dd><p>The F0 value used when the input F0 is unvoiced.</p>
 </dd>
 </dl>
 </dd>
@@ -456,6 +473,13 @@ for details.</p>
 <p>M. Morise, “CheapTrick, a spectral envelope estimator for high-quality speech
 synthesis”, <em>Speech Communication</em>, vol. 67, pp. 1-7, 2015.</p>
 </div>
+<div class="citation" id="r6c367967b3e6-2" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
+<p>H. Kawahara et al., “Restructuring speech representations using a
+pitch-adaptive time-frequency smoothing and an instantaneous-frequency-based
+F0 extraction: Possible role of a repetitive structure in sounds”, <em>Speech
+Communication</em>, vol. 27, no. 3-4, pp. 187-207, 1999.</p>
+</div>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="diffsptk.PitchAdaptiveSpectralAnalysis.forward">
@@ -464,15 +488,15 @@ synthesis”, <em>Speech Communication</em>, vol. 67, pp. 1-7, 2015.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Waveform.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>The input waveform.</p>
 </dd>
-<dt><strong>f0</strong><span class="classifier">Tensor [shape=(…, T/P)]</span></dt><dd><p>F0 in Hz.</p>
+<dt><strong>f0</strong><span class="classifier">Tensor [shape=(…, T/P)]</span></dt><dd><p>The F0 in Hz.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, T/P, L/2+1)]</span></dt><dd><p>Spectral envelope.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, T/P, L/2+1)]</span></dt><dd><p>The spectral envelope.</p>
 </dd>
 </dl>
 </dd>

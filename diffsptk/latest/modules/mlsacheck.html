@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>mlsacheck &#8212; diffsptk 2.5.0 documentation</title>
+    <title>mlsacheck &#8212; diffsptk 3.0.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../_static/documentation_options.js?v=acc74ff5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -49,7 +49,7 @@
     <link rel="prev" title="mlpg" href="mlpg.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.5.0" />
+  <meta name="docsearch:version" content="3.0.0" />
   </head>
   
   
@@ -111,7 +111,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
+    <p class="title logo__title">diffsptk 3.0.0 documentation</p>
   
 </a></div>
     
@@ -133,8 +133,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../utils.html">
+    Utils
   </a>
 </li>
 
@@ -219,8 +226,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../utils.html">
+    Utils
   </a>
 </li>
 
@@ -305,6 +319,7 @@
 <li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipnorm.html">ipnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="is2par.html">is2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="istft.html">istft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ivq.html">ivq</a></li>
@@ -337,6 +352,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nmf.html">nmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2is.html">par2is</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -434,23 +450,24 @@ for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>cep_order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>Order of mel-cepstrum, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<dt><strong>cep_order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>The order of the mel-cepstrum, <span class="math notranslate nohighlight">\(M\)</span>.</p>
 </dd>
-<dt><strong>alpha</strong><span class="classifier">float in (-1, 1)</span></dt><dd><p>Frequency warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<dt><strong>alpha</strong><span class="classifier">float in (-1, 1)</span></dt><dd><p>The frequency warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
 </dd>
-<dt><strong>pade_order</strong><span class="classifier">int in [4, 7]</span></dt><dd><p>Order of Pade approximation.</p>
+<dt><strong>pade_order</strong><span class="classifier">int in [4, 7]</span></dt><dd><p>The order of the Pade approximation.</p>
 </dd>
-<dt><strong>strict</strong><span class="classifier">bool</span></dt><dd><p>If True, keep maximum log approximation error rather than MLSA filter stability.</p>
+<dt><strong>strict</strong><span class="classifier">bool</span></dt><dd><p>If True, prioritizes maintaining the maximum log approximation error over MLSA
+filter stability.</p>
 </dd>
-<dt><strong>threshold</strong><span class="classifier">float &gt; 0 or None</span></dt><dd><p>Threshold value. If not given, automatically computed.</p>
+<dt><strong>threshold</strong><span class="classifier">float &gt; 0 or None</span></dt><dd><p>The threshold value. If None, it is automatically computed.</p>
 </dd>
-<dt><strong>fast</strong><span class="classifier">bool</span></dt><dd><p>Enable fast mode (do not use FFT).</p>
+<dt><strong>fast</strong><span class="classifier">bool</span></dt><dd><p>Enables fast mode (do not use FFT).</p>
 </dd>
-<dt><strong>n_fft</strong><span class="classifier">int &gt; M</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>. Used only in non-fast mode.</p>
+<dt><strong>n_fft</strong><span class="classifier">int &gt; M</span></dt><dd><p>The number of FFT bins. Used only in non-fast mode.</p>
 </dd>
-<dt><strong>warn_type</strong><span class="classifier">[‘ignore’, ‘warn’, ‘exit’]</span></dt><dd><p>Warning type.</p>
+<dt><strong>warn_type</strong><span class="classifier">[‘ignore’, ‘warn’, ‘exit’]</span></dt><dd><p>The warning type.</p>
 </dd>
-<dt><strong>mod_type</strong><span class="classifier">[‘clip’, ‘scale’]</span></dt><dd><p>Modification type.</p>
+<dt><strong>mod_type</strong><span class="classifier">[‘clip’, ‘scale’]</span></dt><dd><p>The modification method.</p>
 </dd>
 </dl>
 </dd>
@@ -466,18 +483,18 @@ pp. 11-18, 1983.</p>
 </div>
 <dl class="py method">
 <dt class="sig sig-object py" id="diffsptk.MLSADigitalFilterStabilityCheck.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/mlsacheck.html#MLSADigitalFilterStabilityCheck.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MLSADigitalFilterStabilityCheck.forward" title="Link to this definition">#</a></dt>
-<dd><p>Check stability of MLSA filter.</p>
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mc</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/mlsacheck.html#MLSADigitalFilterStabilityCheck.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MLSADigitalFilterStabilityCheck.forward" title="Link to this definition">#</a></dt>
+<dd><p>Check the stability of the MLSA digital filter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>c</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Mel-cepstrum.</p>
+<dt><strong>mc</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>The input mel-cepstrum.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Modified mel-cepstrum.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>The modified mel-cepstrum.</p>
 </dd>
 </dl>
 </dd>
@@ -499,33 +516,34 @@ pp. 11-18, 1983.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="diffsptk.functional.mlsacheck">
 <span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">mlsacheck</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alpha</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pade_order</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">strict</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">threshold</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fast</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_fft</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">512</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">warn_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'warn'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mod_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'scale'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/functional.html#mlsacheck"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.mlsacheck" title="Link to this definition">#</a></dt>
-<dd><p>Check stability of MLSA filter.</p>
+<dd><p>Check the stability of the MLSA digital filter.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>c</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Mel-cepstrum.</p>
+<dt><strong>c</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>The input Mel-cepstrum.</p>
 </dd>
-<dt><strong>alpha</strong><span class="classifier">float in (-1, 1)</span></dt><dd><p>Frequency warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
+<dt><strong>alpha</strong><span class="classifier">float in (-1, 1)</span></dt><dd><p>The frequency warping factor, <span class="math notranslate nohighlight">\(\alpha\)</span>.</p>
 </dd>
-<dt><strong>pade_order</strong><span class="classifier">int in [4, 7]</span></dt><dd><p>Order of Pade approximation.</p>
+<dt><strong>pade_order</strong><span class="classifier">int in [4, 7]</span></dt><dd><p>The order of the Pade approximation.</p>
 </dd>
-<dt><strong>strict</strong><span class="classifier">bool</span></dt><dd><p>If True, keep maximum log approximation error rather than MLSA filter stability.</p>
+<dt><strong>strict</strong><span class="classifier">bool</span></dt><dd><p>If True, prioritizes maintaining the maximum log approximation error over MLSA
+filter stability.</p>
 </dd>
-<dt><strong>threshold</strong><span class="classifier">float &gt; 0 or None</span></dt><dd><p>Threshold value. If not given, automatically computed.</p>
+<dt><strong>threshold</strong><span class="classifier">float &gt; 0 or None</span></dt><dd><p>The threshold value. If None, it is automatically computed.</p>
 </dd>
-<dt><strong>fast</strong><span class="classifier">bool</span></dt><dd><p>Enable fast mode.</p>
+<dt><strong>fast</strong><span class="classifier">bool</span></dt><dd><p>Enables fast mode (do not use FFT).</p>
 </dd>
-<dt><strong>n_fft</strong><span class="classifier">int &gt; M</span></dt><dd><p>Number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>. Used only in non-fast mode.</p>
+<dt><strong>n_fft</strong><span class="classifier">int &gt; M</span></dt><dd><p>The number of FFT bins. Used only in non-fast mode.</p>
 </dd>
-<dt><strong>warn_type</strong><span class="classifier">[‘ignore’, ‘warn’, ‘exit’]</span></dt><dd><p>Warning type.</p>
+<dt><strong>warn_type</strong><span class="classifier">[‘ignore’, ‘warn’, ‘exit’]</span></dt><dd><p>The warning type.</p>
 </dd>
-<dt><strong>mod_type</strong><span class="classifier">[‘clip’, ‘scale’]</span></dt><dd><p>Modification type.</p>
+<dt><strong>mod_type</strong><span class="classifier">[‘clip’, ‘scale’]</span></dt><dd><p>The modification method.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>Modified mel-cepstrum.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>The modified mel-cepstrum.</p>
 </dd>
 </dl>
 </dd>

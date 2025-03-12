@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.modules.df2 &#8212; diffsptk 2.5.0 documentation</title>
+    <title>diffsptk.modules.df2 &#8212; diffsptk 3.0.0 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../../../_static/documentation_options.js?v=acc74ff5"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/df2';</script>
@@ -45,7 +45,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.5.0" />
+  <meta name="docsearch:version" content="3.0.0" />
   </head>
   
   
@@ -107,7 +107,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
+    <p class="title logo__title">diffsptk 3.0.0 documentation</p>
   
 </a></div>
     
@@ -129,8 +129,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../../../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../utils.html">
+    Utils
   </a>
 </li>
 
@@ -213,8 +220,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../../../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../utils.html">
+    Utils
   </a>
 </li>
 
@@ -316,34 +330,37 @@
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
 
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_values</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseNonFunctionalModule</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.dfs</span><span class="w"> </span><span class="kn">import</span> <span class="n">InfiniteImpulseResponseDigitalFilter</span>
 
 
 <div class="viewcode-block" id="SecondOrderDigitalFilter">
 <a class="viewcode-back" href="../../../modules/df2.html#diffsptk.SecondOrderDigitalFilter">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">SecondOrderDigitalFilter</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">SecondOrderDigitalFilter</span><span class="p">(</span><span class="n">BaseNonFunctionalModule</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/df2.html&gt;`_</span>
 <span class="sd">    for details.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    sample_rate : int &gt;= 1</span>
-<span class="sd">        Sample rate in Hz.</span>
+<span class="sd">        The sample rate in Hz.</span>
 
 <span class="sd">    pole_frequency : float &gt; 0</span>
-<span class="sd">        Pole frequency in Hz.</span>
+<span class="sd">        The pole frequency in Hz.</span>
 
 <span class="sd">    pole_bandwidth : float &gt; 0</span>
-<span class="sd">        Pole bandwidth in Hz.</span>
+<span class="sd">        The pole bandwidth in Hz.</span>
 
 <span class="sd">    zero_frequency : float &gt; 0</span>
-<span class="sd">        Zero frequency in Hz.</span>
+<span class="sd">        The zero frequency in Hz.</span>
 
 <span class="sd">    zero_bandwidth : float &gt; 0</span>
-<span class="sd">        Zero bandwidth in Hz.</span>
+<span class="sd">        The zero bandwidth in Hz.</span>
 
-<span class="sd">    **kwargs : additional keyword arguments</span>
-<span class="sd">        See :func:`~diffsptk.InfiniteImpulseResponseDigitalFilter`.</span>
+<span class="sd">    ir_length : int &gt;= 1 or None</span>
+<span class="sd">        The length of the truncated impulse response. If given, the filter is</span>
+<span class="sd">        approximated by an FIR filter.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
@@ -354,44 +371,27 @@
         <span class="n">pole_bandwidth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">zero_frequency</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
         <span class="n">zero_bandwidth</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+        <span class="n">ir_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
     <span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="k">def</span><span class="w"> </span><span class="nf">get_filter_coefficients</span><span class="p">(</span><span class="n">frequency</span><span class="p">,</span> <span class="n">bandwidth</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">):</span>
-            <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">frequency</span>
-            <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">bandwidth</span>
-            <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">sample_rate</span>
-            <span class="k">assert</span> <span class="n">frequency</span> <span class="o">&lt;=</span> <span class="n">sample_rate</span> <span class="o">/</span> <span class="mi">2</span>
-            <span class="n">r</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">bandwidth</span> <span class="o">/</span> <span class="n">sample_rate</span><span class="p">)</span>
-            <span class="n">theta</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">frequency</span> <span class="o">/</span> <span class="n">sample_rate</span>
-            <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span><span class="p">]</span>
-
-        <span class="k">if</span> <span class="n">pole_frequency</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;a&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_filter_coefficients</span><span class="p">(</span>
-                <span class="n">pole_frequency</span><span class="p">,</span> <span class="n">pole_bandwidth</span><span class="p">,</span> <span class="n">sample_rate</span>
-            <span class="p">)</span>
-        <span class="k">if</span> <span class="n">zero_frequency</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="n">kwargs</span><span class="p">[</span><span class="s2">&quot;b&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_filter_coefficients</span><span class="p">(</span>
-                <span class="n">zero_frequency</span><span class="p">,</span> <span class="n">zero_bandwidth</span><span class="p">,</span> <span class="n">sample_rate</span>
-            <span class="p">)</span>
-
-        <span class="bp">self</span><span class="o">.</span><span class="n">dfs</span> <span class="o">=</span> <span class="n">InfiniteImpulseResponseDigitalFilter</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">layers</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="o">*</span><span class="n">get_values</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">layers</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">(</span><span class="n">layers</span><span class="p">)</span>
 
 <div class="viewcode-block" id="SecondOrderDigitalFilter.forward">
 <a class="viewcode-back" href="../../../modules/df2.html#diffsptk.SecondOrderDigitalFilter.forward">[docs]</a>
     <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<span class="w">        </span><span class="sd">&quot;&quot;&quot;Apply a second order digital filter.</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Apply a second order digital filter to the input waveform.</span>
 
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        x : Tensor [shape=(..., T)]</span>
-<span class="sd">            Input waveform.</span>
+<span class="sd">            The input waveform.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        out : Tensor [shape=(..., T)]</span>
-<span class="sd">            Filtered waveform.</span>
+<span class="sd">            The filtered waveform.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -402,8 +402,56 @@
 <span class="sd">        tensor([0.0000, 1.0000, 2.0918, 3.4161, 5.1021])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">dfs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
-</div>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">layers</span><span class="p">)</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check</span><span class="p">(</span>
+        <span class="n">sample_rate</span><span class="p">,</span> <span class="n">pole_frequency</span><span class="p">,</span> <span class="n">pole_bandwidth</span><span class="p">,</span> <span class="n">zero_frequency</span><span class="p">,</span> <span class="n">zero_bandwidth</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="n">pole_frequency</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">pole_frequency</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;pole_frequency must be positive.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">pole_bandwidth</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">pole_bandwidth</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;pole_bandwidth must be positive.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">zero_frequency</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">zero_frequency</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;zero_frequency must be positive.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">zero_bandwidth</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">zero_bandwidth</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;zero_bandwidth must be positive.&quot;</span><span class="p">)</span>
+        <span class="n">nyquist</span> <span class="o">=</span> <span class="n">sample_rate</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="k">if</span> <span class="n">pole_frequency</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">nyquist</span> <span class="o">&lt;</span> <span class="n">pole_frequency</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;pole_frequency must be less than Nyquist frequency.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">zero_frequency</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">nyquist</span> <span class="o">&lt;</span> <span class="n">zero_frequency</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;zero_frequency must be less than Nyquist frequency.&quot;</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_precompute</span><span class="p">(</span>
+        <span class="n">sample_rate</span><span class="p">,</span>
+        <span class="n">pole_frequency</span><span class="p">,</span>
+        <span class="n">pole_bandwidth</span><span class="p">,</span>
+        <span class="n">zero_frequency</span><span class="p">,</span>
+        <span class="n">zero_bandwidth</span><span class="p">,</span>
+        <span class="n">ir_length</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+        <span class="n">SecondOrderDigitalFilter</span><span class="o">.</span><span class="n">_check</span><span class="p">(</span>
+            <span class="n">sample_rate</span><span class="p">,</span> <span class="n">pole_frequency</span><span class="p">,</span> <span class="n">pole_bandwidth</span><span class="p">,</span> <span class="n">zero_frequency</span><span class="p">,</span> <span class="n">zero_bandwidth</span>
+        <span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">get_filter_coefficients</span><span class="p">(</span><span class="n">sample_rate</span><span class="p">,</span> <span class="n">frequency</span><span class="p">,</span> <span class="n">bandwidth</span><span class="p">):</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">math</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">bandwidth</span> <span class="o">/</span> <span class="n">sample_rate</span><span class="p">)</span>
+            <span class="n">theta</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">tau</span> <span class="o">*</span> <span class="n">frequency</span> <span class="o">/</span> <span class="n">sample_rate</span>
+            <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">r</span> <span class="o">*</span> <span class="n">math</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">theta</span><span class="p">),</span> <span class="n">r</span> <span class="o">*</span> <span class="n">r</span><span class="p">]</span>
+
+        <span class="n">a</span> <span class="o">=</span> <span class="n">b</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="n">pole_frequency</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">a</span> <span class="o">=</span> <span class="n">get_filter_coefficients</span><span class="p">(</span><span class="n">sample_rate</span><span class="p">,</span> <span class="n">pole_frequency</span><span class="p">,</span> <span class="n">pole_bandwidth</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">zero_frequency</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">b</span> <span class="o">=</span> <span class="n">get_filter_coefficients</span><span class="p">(</span><span class="n">sample_rate</span><span class="p">,</span> <span class="n">zero_frequency</span><span class="p">,</span> <span class="n">zero_bandwidth</span><span class="p">)</span>
+        <span class="n">dfs</span> <span class="o">=</span> <span class="n">InfiniteImpulseResponseDigitalFilter</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="o">=</span><span class="n">b</span><span class="p">,</span> <span class="n">ir_length</span><span class="o">=</span><span class="n">ir_length</span><span class="p">)</span>
+        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="p">(</span><span class="n">dfs</span><span class="p">,),</span> <span class="kc">None</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_forward</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dfs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">dfs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span></div>
 
 </pre></div>
 

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>histogram &#8212; diffsptk 2.5.0 documentation</title>
+    <title>histogram &#8212; diffsptk 3.0.0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../_static/documentation_options.js?v=acc74ff5"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -49,7 +49,7 @@
     <link rel="prev" title="hilbert2" href="hilbert2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.5.0" />
+  <meta name="docsearch:version" content="3.0.0" />
   </head>
   
   
@@ -111,7 +111,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
+    <p class="title logo__title">diffsptk 3.0.0 documentation</p>
   
 </a></div>
     
@@ -133,8 +133,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../utils.html">
+    Utils
   </a>
 </li>
 
@@ -219,8 +226,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../utils.html">
+    Utils
   </a>
 </li>
 
@@ -305,6 +319,7 @@
 <li class="toctree-l1"><a class="reference internal" href="interpolate.html">interpolate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipnorm.html">ipnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
+<li class="toctree-l1"><a class="reference internal" href="is2par.html">is2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="istft.html">istft</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ivq.html">ivq</a></li>
@@ -337,6 +352,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ndps2c.html">ndps2c</a></li>
 <li class="toctree-l1"><a class="reference internal" href="nmf.html">nmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="norm0.html">norm0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="par2is.html">par2is</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lar.html">par2lar</a></li>
 <li class="toctree-l1"><a class="reference internal" href="par2lpc.html">par2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pca.html">pca</a></li>
@@ -430,17 +446,18 @@
 <dt class="sig sig-object py" id="diffsptk.Histogram">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">Histogram</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n_bin</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">10</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lower_bound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_bound</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">softness</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/histogram.html#Histogram"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Histogram" title="Link to this definition">#</a></dt>
 <dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/histogram.html">this page</a>
-for details.</p>
+for details. Note that the values at the edges of the bins cannot be counted
+correctly in the current implementation.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>n_bin</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Number of bins, <span class="math notranslate nohighlight">\(K\)</span>.</p>
+<dt><strong>n_bin</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The number of bins, <span class="math notranslate nohighlight">\(K\)</span>.</p>
 </dd>
-<dt><strong>lower_bound</strong><span class="classifier">float &lt; U</span></dt><dd><p>Lower bound of the histogram, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+<dt><strong>lower_bound</strong><span class="classifier">float &lt; U</span></dt><dd><p>The lower bound of the histogram, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
-<dt><strong>upper_bound</strong><span class="classifier">float &gt; L</span></dt><dd><p>Upper bound of the histogram, <span class="math notranslate nohighlight">\(U\)</span>.</p>
+<dt><strong>upper_bound</strong><span class="classifier">float &gt; L</span></dt><dd><p>The upper bound of the histogram, <span class="math notranslate nohighlight">\(U\)</span>.</p>
 </dd>
-<dt><strong>norm</strong><span class="classifier">bool</span></dt><dd><p>If True, normalize the histogram.</p>
+<dt><strong>norm</strong><span class="classifier">bool</span></dt><dd><p>If True, normalizes the histogram.</p>
 </dd>
 <dt><strong>softness</strong><span class="classifier">float &gt; 0</span></dt><dd><p>A smoothing parameter. The smaller value makes the output closer to the true
 histogram, but the gradient vanishes.</p>
@@ -464,19 +481,23 @@ layers for image-to-image translation,” <em>arXiv preprint arXiv:2005.03995</e
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Input data.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>The input data.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, K)]</span></dt><dd><p>Histogram.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, K)]</span></dt><dd><p>The histogram.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
 <div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">9</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">histogram</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Histogram</span><span class="p">(</span><span class="n">n_bin</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">lower_bound</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">upper_bound</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">h</span>
+<span class="go">tensor([2.5000, 2.0000, 2.0000, 2.5000])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">histogram</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Histogram</span><span class="p">(</span><span class="n">n_bin</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">lower_bound</span><span class="o">=-</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">upper_bound</span><span class="o">=</span><span class="mf">9.1</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h</span> <span class="o">=</span> <span class="n">histogram</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">h</span>
@@ -494,15 +515,15 @@ layers for image-to-image translation,” <em>arXiv preprint arXiv:2005.03995</e
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>Input data.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, T)]</span></dt><dd><p>The input data.</p>
 </dd>
-<dt><strong>n_bin</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>Number of bins, <span class="math notranslate nohighlight">\(K\)</span>.</p>
+<dt><strong>n_bin</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The number of bins, <span class="math notranslate nohighlight">\(K\)</span>.</p>
 </dd>
-<dt><strong>lower_bound</strong><span class="classifier">float &lt; U</span></dt><dd><p>Lower bound of the histogram, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+<dt><strong>lower_bound</strong><span class="classifier">float &lt; U</span></dt><dd><p>The lower bound of the histogram, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
-<dt><strong>upper_bound</strong><span class="classifier">float &gt; L</span></dt><dd><p>Upper bound of the histogram, <span class="math notranslate nohighlight">\(U\)</span>.</p>
+<dt><strong>upper_bound</strong><span class="classifier">float &gt; L</span></dt><dd><p>The upper bound of the histogram, <span class="math notranslate nohighlight">\(U\)</span>.</p>
 </dd>
-<dt><strong>norm</strong><span class="classifier">bool</span></dt><dd><p>If True, normalize the histogram.</p>
+<dt><strong>norm</strong><span class="classifier">bool</span></dt><dd><p>If True, normalizes the histogram.</p>
 </dd>
 <dt><strong>softness</strong><span class="classifier">float &gt; 0</span></dt><dd><p>A smoothing parameter. The smaller value makes the output closer to the true
 histogram, but the gradient vanishes.</p>
@@ -511,7 +532,7 @@ histogram, but the gradient vanishes.</p>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, K)]</span></dt><dd><p>Histogram in [L, U].</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, K)]</span></dt><dd><p>The histogram.</p>
 </dd>
 </dl>
 </dd>

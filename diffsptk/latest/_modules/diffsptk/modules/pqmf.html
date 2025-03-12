@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.modules.pqmf &#8212; diffsptk 2.5.0 documentation</title>
+    <title>diffsptk.modules.pqmf &#8212; diffsptk 3.0.0 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=3c4615cf"></script>
+    <script src="../../../_static/documentation_options.js?v=acc74ff5"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/pqmf';</script>
@@ -45,7 +45,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="2.5.0" />
+  <meta name="docsearch:version" content="3.0.0" />
   </head>
   
   
@@ -107,7 +107,7 @@
   
   
   
-    <p class="title logo__title">diffsptk 2.5.0 documentation</p>
+    <p class="title logo__title">diffsptk 3.0.0 documentation</p>
   
 </a></div>
     
@@ -129,8 +129,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../../../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../utils.html">
+    Utils
   </a>
 </li>
 
@@ -213,8 +220,15 @@
 
 
 <li class="nav-item ">
-  <a class="nav-link nav-internal" href="../../../misc/index.html">
-    Misc
+  <a class="nav-link nav-internal" href="../../../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../utils.html">
+    Utils
   </a>
 </li>
 
@@ -318,8 +332,9 @@
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn.functional</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">F</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">next_power_of_two</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">..misc.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">numpy_to_torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">next_power_of_two</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">numpy_to_torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseNonFunctionalModule</span>
 
 
 <span class="k">def</span><span class="w"> </span><span class="nf">make_filter_banks</span><span class="p">(</span>
@@ -337,45 +352,52 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    n_band : int &gt;= 1</span>
-<span class="sd">        Number of subbands, :math:`K`.</span>
+<span class="sd">        The number of subbands, :math:`K`.</span>
 
-<span class="sd">    filter_order : int &gt;= 1</span>
-<span class="sd">        Order of filter, :math:`M`.</span>
+<span class="sd">    filter_order : int &gt;= 2</span>
+<span class="sd">        The order of the filters, :math:`M`.</span>
 
 <span class="sd">    mode : [&#39;analysis&#39; or &#39;synthesis&#39;]</span>
 <span class="sd">        Analysis or synthesis.</span>
 
 <span class="sd">    alpha : float &gt; 0</span>
-<span class="sd">        Stopband attenuation in dB.</span>
+<span class="sd">        The stopband attenuation in dB.</span>
 
 <span class="sd">    n_iter : int &gt;= 1</span>
-<span class="sd">        Number of iterations.</span>
+<span class="sd">        The number of iterations to find optimal filter-bank coefficients.</span>
 
 <span class="sd">    step_size : float &gt; 0</span>
-<span class="sd">        Step size.</span>
+<span class="sd">        The step size of optimization.</span>
 
 <span class="sd">    decay : float &gt; 0</span>
-<span class="sd">        Decay factor of step size.</span>
+<span class="sd">        The decay factor of the step size.</span>
 
 <span class="sd">    eps : float &gt;= 0</span>
-<span class="sd">        Tolerance.</span>
+<span class="sd">        The convergence criterion.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    filters : ndarray [shape=(K, M + 1)]</span>
-<span class="sd">        Filter-bank coefficients.</span>
+<span class="sd">        The filter-bank coefficients.</span>
 
 <span class="sd">    is_converged : bool</span>
-<span class="sd">        Whether the algorithm converged.</span>
+<span class="sd">        Whether the optimization is converged.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">n_band</span>
-    <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">filter_order</span>
-    <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">n_iter</span>
-    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">alpha</span>
-    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">step_size</span>
-    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">decay</span>
-    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">eps</span>
+    <span class="k">if</span> <span class="n">n_band</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n_band must be positive.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">filter_order</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;filter_order must be greater than or equal to 2.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">n_iter</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n_iter must be positive.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">alpha</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;alpha must be positive.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">step_size</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;step_size must be positive.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">decay</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;decay must be positive.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">eps</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;eps must be non-negative.&quot;</span><span class="p">)</span>
 
     <span class="k">def</span><span class="w"> </span><span class="nf">alpha_to_beta</span><span class="p">(</span><span class="n">alpha</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">alpha</span> <span class="o">&lt;=</span> <span class="mi">21</span><span class="p">:</span>
@@ -439,26 +461,26 @@
 
 <div class="viewcode-block" id="PseudoQuadratureMirrorFilterBankAnalysis">
 <a class="viewcode-back" href="../../../modules/pqmf.html#diffsptk.PseudoQuadratureMirrorFilterBankAnalysis">[docs]</a>
-<span class="k">class</span><span class="w"> </span><span class="nc">PseudoQuadratureMirrorFilterBankAnalysis</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PseudoQuadratureMirrorFilterBankAnalysis</span><span class="p">(</span><span class="n">BaseNonFunctionalModule</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/pqmf.html&gt;`_</span>
 <span class="sd">    for details.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    n_band : int &gt;= 1</span>
-<span class="sd">        Number of subbands, :math:`K`.</span>
+<span class="sd">        The number of subbands, :math:`K`.</span>
 
 <span class="sd">    filter_order : int &gt;= 2</span>
-<span class="sd">        Order of filter, :math:`M`.</span>
+<span class="sd">        The order of the filters, :math:`M`.</span>
 
 <span class="sd">    alpha : float &gt; 0</span>
-<span class="sd">        Stopband attenuation in dB.</span>
+<span class="sd">        The stopband attenuation in dB.</span>
 
 <span class="sd">    learnable : bool</span>
-<span class="sd">        Whether to make filter-bank coefficients learnable.</span>
+<span class="sd">        Whether to make the filter-bank coefficients learnable.</span>
 
 <span class="sd">    **kwargs : additional keyword arguments</span>
-<span class="sd">        Parameters to find optimal filter-bank coefficients.</span>
+<span class="sd">        The parameters to find optimal filter-bank coefficients.</span>
 
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
@@ -473,10 +495,6 @@
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_band</span><span class="p">,</span> <span class="n">filter_order</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">learnable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-
-        <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">n_band</span>
-        <span class="k">assert</span> <span class="mi">2</span> <span class="o">&lt;=</span> <span class="n">filter_order</span>
-        <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">alpha</span>
 
         <span class="c1"># Make filterbanks.</span>
         <span class="n">filters</span><span class="p">,</span> <span class="n">is_converged</span> <span class="o">=</span> <span class="n">make_filter_banks</span><span class="p">(</span>
@@ -499,9 +517,9 @@
         <span class="k">else</span><span class="p">:</span>
             <span class="n">delay_left</span> <span class="o">=</span> <span class="p">(</span><span class="n">filter_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
             <span class="n">delay_right</span> <span class="o">=</span> <span class="p">(</span><span class="n">filter_order</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
-
         <span class="bp">self</span><span class="o">.</span><span class="n">pad</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span>
-            <span class="n">nn</span><span class="o">.</span><span class="n">ConstantPad1d</span><span class="p">((</span><span class="n">delay_left</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReplicationPad1d</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">delay_right</span><span class="p">))</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ConstantPad1d</span><span class="p">((</span><span class="n">delay_left</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">0</span><span class="p">),</span>
+            <span class="n">nn</span><span class="o">.</span><span class="n">ReplicationPad1d</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">delay_right</span><span class="p">)),</span>
         <span class="p">)</span>
 
 <div class="viewcode-block" id="PseudoQuadratureMirrorFilterBankAnalysis.forward">
@@ -512,12 +530,12 @@
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        x : Tensor [shape=(B, 1, T) or (B, T) or (T,)]</span>
-<span class="sd">            Original waveform.</span>
+<span class="sd">            The input waveform.</span>
 
 <span class="sd">        Returns</span>
 <span class="sd">        -------</span>
 <span class="sd">        out : Tensor [shape=(B, K, T)]</span>
-<span class="sd">            Subband waveforms.</span>
+<span class="sd">            The subband waveforms.</span>
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
@@ -533,7 +551,8 @@
             <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
         <span class="k">elif</span> <span class="n">x</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
             <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">assert</span> <span class="n">x</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">==</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Input must be 3D tensor.&quot;</span>
+        <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">3</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input must be 1D tensor.&quot;</span><span class="p">)</span>
 
         <span class="n">y</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">conv1d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">filters</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">y</span></div>
