@@ -331,7 +331,7 @@
 
 <div class="viewcode-block" id="impulse">
 <a class="viewcode-back" href="../../signals.html#diffsptk.impulse">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">impulse</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">impulse</span><span class="p">(</span><span class="n">order</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate impulse sequence.</span>
 
 <span class="sd">    See `impulse &lt;https://sp-nitech.github.io/sptk/latest/main/impulse.html&gt;`_</span>
@@ -364,7 +364,7 @@
 
 <div class="viewcode-block" id="step">
 <a class="viewcode-back" href="../../signals.html#diffsptk.step">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">step</span><span class="p">(</span><span class="n">order</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">value</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate step sequence.</span>
 
 <span class="sd">    See `step &lt;https://sp-nitech.github.io/sptk/latest/main/step.html&gt;`_</span>
@@ -400,7 +400,9 @@
 
 <div class="viewcode-block" id="ramp">
 <a class="viewcode-back" href="../../signals.html#diffsptk.ramp">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">ramp</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-8</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ramp</span><span class="p">(</span>
+    <span class="n">arg</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">end</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">step</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-8</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate ramp sequence.</span>
 
 <span class="sd">    See `ramp &lt;https://sp-nitech.github.io/sptk/latest/main/ramp.html&gt;`_</span>
@@ -411,7 +413,7 @@
 <span class="sd">    arg : float</span>
 <span class="sd">        If `end` is `None`, this is the end value otherwise start value.</span>
 
-<span class="sd">    end : float</span>
+<span class="sd">    end : float or None</span>
 <span class="sd">        The end value.</span>
 
 <span class="sd">    step : float != 0</span>
@@ -441,10 +443,12 @@
         <span class="n">end</span> <span class="o">=</span> <span class="n">arg</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">start</span> <span class="o">=</span> <span class="n">arg</span>
-    <span class="k">if</span> <span class="n">step</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">step</span><span class="p">:</span>
         <span class="n">end</span> <span class="o">+=</span> <span class="n">eps</span>
-    <span class="k">else</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">step</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">end</span> <span class="o">-=</span> <span class="n">eps</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;step must be non-zero&quot;</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">step</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">x</span></div>
 
@@ -452,7 +456,9 @@
 
 <div class="viewcode-block" id="sin">
 <a class="viewcode-back" href="../../signals.html#diffsptk.sin">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">sin</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">magnitude</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">sin</span><span class="p">(</span>
+    <span class="n">order</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">period</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">magnitude</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate sinusoidal sequence.</span>
 
 <span class="sd">    See `sin &lt;https://sp-nitech.github.io/sptk/latest/main/sin.html&gt;`_</span>
@@ -487,6 +493,8 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">period</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">period</span> <span class="o">=</span> <span class="n">order</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">period</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;period must be positive.&quot;</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">period</span><span class="p">))</span> <span class="o">*</span> <span class="n">magnitude</span>
     <span class="k">return</span> <span class="n">x</span></div>
@@ -495,7 +503,9 @@
 
 <div class="viewcode-block" id="train">
 <a class="viewcode-back" href="../../signals.html#diffsptk.train">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="n">order</span><span class="p">,</span> <span class="n">frame_period</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="s2">&quot;power&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span>
+    <span class="n">order</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">frame_period</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">norm</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">=</span> <span class="s2">&quot;power&quot;</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate pulse sequence.</span>
 
 <span class="sd">    See `train &lt;https://sp-nitech.github.io/sptk/latest/main/train.html&gt;`_</span>
@@ -527,13 +537,14 @@
 <span class="sd">    tensor([1.5166, 0.0000, 0.0000, 1.5166, 0.0000, 1.5166])</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">assert</span> <span class="mi">1</span> <span class="o">&lt;=</span> <span class="n">frame_period</span>
+    <span class="k">if</span> <span class="n">frame_period</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;frame_period must be greater than or equal to 1.&quot;</span><span class="p">)</span>
 
-    <span class="k">if</span> <span class="n">norm</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">norm</span> <span class="o">==</span> <span class="s2">&quot;none&quot;</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">norm</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;none&quot;</span><span class="p">):</span>
         <span class="n">pulse</span> <span class="o">=</span> <span class="mi">1</span>
-    <span class="k">elif</span> <span class="n">norm</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">norm</span> <span class="o">==</span> <span class="s2">&quot;power&quot;</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">norm</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;power&quot;</span><span class="p">):</span>
         <span class="n">pulse</span> <span class="o">=</span> <span class="n">frame_period</span><span class="o">**</span><span class="mf">0.5</span>
-    <span class="k">elif</span> <span class="n">norm</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">norm</span> <span class="o">==</span> <span class="s2">&quot;magnitude&quot;</span><span class="p">:</span>
+    <span class="k">elif</span> <span class="n">norm</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;magnitude&quot;</span><span class="p">):</span>
         <span class="n">pulse</span> <span class="o">=</span> <span class="n">frame_period</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;norm </span><span class="si">{</span><span class="n">norm</span><span class="si">}</span><span class="s2"> is not supported.&quot;</span><span class="p">)</span>
@@ -552,7 +563,9 @@
 
 <div class="viewcode-block" id="nrand">
 <a class="viewcode-back" href="../../signals.html#diffsptk.nrand">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">nrand</span><span class="p">(</span><span class="o">*</span><span class="n">order</span><span class="p">,</span> <span class="n">mean</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stdv</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">var</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">nrand</span><span class="p">(</span>
+    <span class="o">*</span><span class="n">order</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">stdv</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">var</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate random number sequence.</span>
 
 <span class="sd">    See `nrand &lt;https://sp-nitech.github.io/sptk/latest/main/nrand.html&gt;`_</span>
@@ -593,7 +606,8 @@
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">var</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">stdv</span> <span class="o">=</span> <span class="n">var</span><span class="o">**</span><span class="mf">0.5</span>
-    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">stdv</span>
+    <span class="k">if</span> <span class="n">stdv</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;stdv must be non-negative.&quot;</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">order</span><span class="p">):</span>
         <span class="n">order</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="o">*</span><span class="n">order</span><span class="p">)</span>
