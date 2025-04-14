@@ -448,11 +448,14 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">..typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Precomputed</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">Lambda</span><span class="p">,</span> <span class="n">get_layer</span><span class="p">,</span> <span class="n">get_values</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_layer</span><span class="p">,</span> <span class="n">get_values</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseFunctionalModule</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.fftr</span><span class="w"> </span><span class="kn">import</span> <span class="n">RealValuedFastFourierTransform</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.frame</span><span class="w"> </span><span class="kn">import</span> <span class="n">Frame</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.spec</span><span class="w"> </span><span class="kn">import</span> <span class="n">Spectrum</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.window</span><span class="w"> </span><span class="kn">import</span> <span class="n">Window</span>
+
+<span class="n">LEARNABLES</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;basis&quot;</span><span class="p">,</span> <span class="s2">&quot;window&quot;</span><span class="p">)</span>
 
 
 <div class="viewcode-block" id="ShortTimeFourierTransform">
@@ -496,6 +499,11 @@
 <span class="sd">    out_format : [&#39;db&#39;, &#39;log-magnitude&#39;, &#39;magnitude&#39;, &#39;power&#39;, &#39;complex&#39;]</span>
 <span class="sd">        The output format.</span>
 
+<span class="sd">    learnable : bool or list[str]</span>
+<span class="sd">        Indicates whether the parameters are learnable. If a boolean, it specifies</span>
+<span class="sd">        whether all parameters are learnable. If a list, it contains the keys of the</span>
+<span class="sd">        learnable parameters, which can only be &quot;basis&quot; and &quot;window&quot;.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
@@ -512,6 +520,7 @@
         <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-9</span><span class="p">,</span>
         <span class="n">relative_floor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">out_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;power&quot;</span><span class="p">,</span>
+        <span class="n">learnable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
@@ -559,8 +568,12 @@
         <span class="k">return</span> <span class="kc">False</span>
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span><span class="w"> </span><span class="nf">_check</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">pass</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_check</span><span class="p">(</span><span class="n">learnable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">learnable</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">)):</span>
+            <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">x</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">LEARNABLES</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">learnable</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;An unsupported key is found in learnable.&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">learnable</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;learnable must be boolean or list.&quot;</span><span class="p">)</span>
 
     <span class="nd">@staticmethod</span>
     <span class="k">def</span><span class="w"> </span><span class="nf">_precompute</span><span class="p">(</span>
@@ -575,9 +588,15 @@
         <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
         <span class="n">relative_floor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">out_format</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">learnable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Precomputed</span><span class="p">:</span>
-        <span class="n">ShortTimeFourierTransform</span><span class="o">.</span><span class="n">_check</span><span class="p">()</span>
+        <span class="n">ShortTimeFourierTransform</span><span class="o">.</span><span class="n">_check</span><span class="p">(</span><span class="n">learnable</span><span class="p">)</span>
         <span class="n">module</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">stack</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">function</span> <span class="o">==</span> <span class="s2">&quot;__init__&quot;</span>
+
+        <span class="k">if</span> <span class="n">learnable</span> <span class="ow">is</span> <span class="kc">True</span><span class="p">:</span>
+            <span class="n">learnable</span> <span class="o">=</span> <span class="n">LEARNABLES</span>
+        <span class="k">elif</span> <span class="n">learnable</span> <span class="ow">is</span> <span class="kc">False</span><span class="p">:</span>
+            <span class="n">learnable</span> <span class="o">=</span> <span class="p">()</span>
 
         <span class="n">frame</span> <span class="o">=</span> <span class="n">get_layer</span><span class="p">(</span>
             <span class="n">module</span><span class="p">,</span>
@@ -598,10 +617,19 @@
                 <span class="n">out_length</span><span class="o">=</span><span class="n">fft_length</span><span class="p">,</span>
                 <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
                 <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+                <span class="n">learnable</span><span class="o">=</span><span class="s2">&quot;window&quot;</span> <span class="ow">in</span> <span class="n">learnable</span><span class="p">,</span>
             <span class="p">),</span>
         <span class="p">)</span>
         <span class="k">if</span> <span class="n">out_format</span> <span class="o">==</span> <span class="s2">&quot;complex&quot;</span><span class="p">:</span>
-            <span class="n">spec</span> <span class="o">=</span> <span class="n">Lambda</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">)</span>
+            <span class="n">spec</span> <span class="o">=</span> <span class="n">get_layer</span><span class="p">(</span>
+                <span class="n">module</span><span class="p">,</span>
+                <span class="n">RealValuedFastFourierTransform</span><span class="p">,</span>
+                <span class="nb">dict</span><span class="p">(</span>
+                    <span class="n">fft_length</span><span class="o">=</span><span class="n">fft_length</span><span class="p">,</span>
+                    <span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;complex&quot;</span><span class="p">,</span>
+                    <span class="n">learnable</span><span class="o">=</span><span class="s2">&quot;basis&quot;</span> <span class="ow">in</span> <span class="n">learnable</span><span class="p">,</span>
+                <span class="p">),</span>
+            <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">spec</span> <span class="o">=</span> <span class="n">get_layer</span><span class="p">(</span>
                 <span class="n">module</span><span class="p">,</span>
@@ -611,6 +639,7 @@
                     <span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">,</span>
                     <span class="n">relative_floor</span><span class="o">=</span><span class="n">relative_floor</span><span class="p">,</span>
                     <span class="n">out_format</span><span class="o">=</span><span class="n">out_format</span><span class="p">,</span>
+                    <span class="n">learnable</span><span class="o">=</span><span class="s2">&quot;basis&quot;</span> <span class="ow">in</span> <span class="n">learnable</span><span class="p">,</span>
                 <span class="p">),</span>
             <span class="p">)</span>
         <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">window_</span><span class="p">,</span> <span class="n">spec</span><span class="p">),</span> <span class="kc">None</span>

@@ -408,6 +408,7 @@
 <li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="flux.html">flux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
 <li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
@@ -425,6 +426,7 @@
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idht.html">idht</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idst.html">idst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ifftr.html">ifftr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifreqt2.html">ifreqt2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="igammatone.html">igammatone</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
@@ -566,7 +568,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="diffsptk.InverseShortTimeFourierTransform">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">InverseShortTimeFourierTransform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'blackman'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'power'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/istft.html#InverseShortTimeFourierTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.InverseShortTimeFourierTransform" title="Link to this definition">#</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">InverseShortTimeFourierTransform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frame_period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">window</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'blackman'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">norm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'power'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learnable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/istft.html#InverseShortTimeFourierTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.InverseShortTimeFourierTransform" title="Link to this definition">#</a></dt>
 <dd><p>This is the opposite module to <a class="reference internal" href="stft.html#diffsptk.ShortTimeFourierTransform" title="diffsptk.ShortTimeFourierTransform"><code class="xref py py-func docutils literal notranslate"><span class="pre">ShortTimeFourierTransform()</span></code></a>.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -582,6 +584,10 @@
 <dt><strong>window</strong><span class="classifier">[‘blackman’, ‘hamming’, ‘hanning’, ‘bartlett’, ‘trapezoidal’,               ‘rectangular’, ‘nuttall’]</span></dt><dd><p>The window type.</p>
 </dd>
 <dt><strong>norm</strong><span class="classifier">[‘none’, ‘power’, ‘magnitude’]</span></dt><dd><p>The normalization type of the window.</p>
+</dd>
+<dt><strong>learnable</strong><span class="classifier">bool or list[str]</span></dt><dd><p>Indicates whether the parameters are learnable. If a boolean, it specifies
+whether all parameters are learnable. If a list, it contains the keys of the
+learnable parameters, which can only be “basis” and “window”.</p>
 </dd>
 </dl>
 </dd>
@@ -658,7 +664,7 @@
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="unframe.html#unframe"><span class="std std-ref">unframe</span></a> <a class="reference internal" href="window.html#window"><span class="std std-ref">window</span></a> <a class="reference internal" href="spec.html#spec"><span class="std std-ref">spec</span></a> <a class="reference internal" href="stft.html#stft"><span class="std std-ref">stft</span></a></p>
+<p><a class="reference internal" href="unframe.html#unframe"><span class="std std-ref">unframe</span></a> <a class="reference internal" href="window.html#window"><span class="std std-ref">window</span></a> <a class="reference internal" href="ifftr.html#ifftr"><span class="std std-ref">ifftr</span></a> <a class="reference internal" href="stft.html#stft"><span class="std std-ref">stft</span></a></p>
 </div>
 </section>
 

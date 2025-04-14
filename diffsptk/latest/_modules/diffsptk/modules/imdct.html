@@ -481,7 +481,7 @@
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">layers</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="o">*</span><span class="n">get_values</span><span class="p">(</span><span class="nb">locals</span><span class="p">(),</span> <span class="n">full</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">layers</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="o">*</span><span class="n">get_values</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layers</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">(</span><span class="n">layers</span><span class="p">)</span>
 
 <div class="viewcode-block" id="InverseModifiedDiscreteCosineTransform.forward">
@@ -539,7 +539,7 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">_precompute</span><span class="p">(</span>
         <span class="n">frame_length</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">window</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-        <span class="n">learnable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">learnable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">transform</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cosine&quot;</span><span class="p">,</span>
         <span class="n">module</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Precomputed</span><span class="p">:</span>
@@ -628,7 +628,7 @@
 
         <span class="bp">self</span><span class="o">.</span><span class="n">in_dim</span> <span class="o">=</span> <span class="n">length</span> <span class="o">//</span> <span class="mi">2</span>
 
-        <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">tensors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="o">*</span><span class="n">get_values</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+        <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">tensors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="o">*</span><span class="n">get_values</span><span class="p">(</span><span class="nb">locals</span><span class="p">(),</span> <span class="n">drop</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
         <span class="k">if</span> <span class="n">learnable</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">W</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="k">else</span><span class="p">:</span>

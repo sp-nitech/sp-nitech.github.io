@@ -1169,6 +1169,36 @@
 
 
 
+<div class="viewcode-block" id="fftr">
+<a class="viewcode-back" href="../../modules/fftr.html#diffsptk.functional.fftr">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">fftr</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">fft_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">out_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;complex&quot;</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute FFT of a real signal.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : Tensor [shape=(..., N)]</span>
+<span class="sd">        The real input signal.</span>
+
+<span class="sd">    fft_length : int &gt;= 2 or None</span>
+<span class="sd">        The FFT length, :math:`L`.</span>
+
+<span class="sd">    out_format : [&#39;complex&#39;, &#39;real&#39;, &#39;imaginary&#39;, &#39;amplitude&#39;, &#39;power&#39;]</span>
+<span class="sd">        The output format.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out : Tensor [shape=(..., L/2+1)]</span>
+<span class="sd">        The output spectrum.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">RealValuedFastFourierTransform</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">fft_length</span><span class="o">=</span><span class="n">fft_length</span><span class="p">,</span> <span class="n">out_format</span><span class="o">=</span><span class="n">out_format</span>
+    <span class="p">)</span></div>
+
+
+
 <div class="viewcode-block" id="flux">
 <a class="viewcode-back" href="../../modules/flux.html#diffsptk.functional.flux">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">flux</span><span class="p">(</span>
@@ -1587,6 +1617,29 @@
 
 
 
+<div class="viewcode-block" id="ifftr">
+<a class="viewcode-back" href="../../modules/ifftr.html#diffsptk.functional.ifftr">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">ifftr</span><span class="p">(</span><span class="n">y</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">out_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute inverse FFT of a complex spectrum.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : Tensor [shape=(..., L/2+1)]</span>
+<span class="sd">        The complex input spectrum.</span>
+
+<span class="sd">    out_length : int or None</span>
+<span class="sd">        The output length, :math:`N`.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out : Tensor [shape=(..., N)]</span>
+<span class="sd">        The real output signal.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">RealValuedInverseFastFourierTransform</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">out_length</span><span class="o">=</span><span class="n">out_length</span><span class="p">)</span></div>
+
+
+
 <div class="viewcode-block" id="ifreqt2">
 <a class="viewcode-back" href="../../modules/ifreqt2.html#diffsptk.functional.ifreqt2">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">ifreqt2</span><span class="p">(</span>
@@ -1597,7 +1650,7 @@
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
 <span class="sd">    c : Tensor [shape=(..., M1+1)]</span>
-<span class="sd">        Cepstral coefficients.</span>
+<span class="sd">        The cepstral coefficients.</span>
 
 <span class="sd">    out_order : int &gt;= 0</span>
 <span class="sd">        The order of the output sequence, :math:`M_2`.</span>

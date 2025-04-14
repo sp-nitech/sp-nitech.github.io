@@ -539,9 +539,9 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">perturb_factor</span> <span class="o">=</span> <span class="n">perturb_factor</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">metric</span> <span class="o">=</span> <span class="n">metric</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span> <span class="o">=</span> <span class="n">batch_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">seed</span> <span class="o">=</span> <span class="n">seed</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">generator</span> <span class="o">=</span> <span class="n">get_generator</span><span class="p">(</span><span class="n">seed</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">get_logger</span><span class="p">(</span><span class="s2">&quot;lbg&quot;</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">hide_progress_bar</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">&lt;=</span> <span class="mi">1</span>
 
@@ -612,6 +612,7 @@
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">to_dataloader</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">)</span>
         <span class="n">device</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vq</span><span class="o">.</span><span class="n">codebook</span><span class="o">.</span><span class="n">device</span>
+        <span class="n">generator</span> <span class="o">=</span> <span class="n">get_generator</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">seed</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
 
         <span class="c1"># Initialize codebook.</span>
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">init</span> <span class="o">==</span> <span class="s2">&quot;none&quot;</span><span class="p">:</span>
@@ -654,7 +655,7 @@
                         <span class="o">*</span><span class="n">codebook</span><span class="o">.</span><span class="n">size</span><span class="p">(),</span>
                         <span class="n">device</span><span class="o">=</span><span class="n">codebook</span><span class="o">.</span><span class="n">device</span><span class="p">,</span>
                         <span class="n">dtype</span><span class="o">=</span><span class="n">codebook</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
-                        <span class="n">generator</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">generator</span><span class="p">,</span>
+                        <span class="n">generator</span><span class="o">=</span><span class="n">generator</span><span class="p">,</span>
                     <span class="p">)</span>
                     <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">perturb_factor</span>
                 <span class="p">)</span>
@@ -713,7 +714,7 @@
                             <span class="n">copied_centroids</span><span class="o">.</span><span class="n">size</span><span class="p">(),</span>
                             <span class="n">dtype</span><span class="o">=</span><span class="n">copied_centroids</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
                             <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
-                            <span class="n">generator</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">generator</span><span class="p">,</span>
+                            <span class="n">generator</span><span class="o">=</span><span class="n">generator</span><span class="p">,</span>
                         <span class="p">)</span>
                         <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">perturb_factor</span>
                     <span class="p">)</span>

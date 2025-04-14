@@ -479,7 +479,7 @@
     <span class="p">):</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">layers</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="o">*</span><span class="n">get_values</span><span class="p">(</span><span class="nb">locals</span><span class="p">(),</span> <span class="n">full</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">layers</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="o">*</span><span class="n">get_values</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layers</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">(</span><span class="n">layers</span><span class="p">)</span>
 
 <div class="viewcode-block" id="InverseModifiedDiscreteSineTransform.forward">

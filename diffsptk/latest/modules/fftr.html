@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>delta &#8212; diffsptk 3.0.3.dev0 documentation</title>
+    <title>fftr &#8212; diffsptk 3.0.3.dev0 documentation</title>
   
   
   
@@ -41,7 +41,8 @@
     <script src="../_static/documentation_options.js?v=d57d6cd3"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/delta';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/fftr';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://sp-nitech.github.io/diffsptk/switcher.json';
@@ -52,8 +53,8 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="dequantize" href="dequantize.html" />
-    <link rel="prev" title="delay" href="delay.html" />
+    <link rel="next" title="flux" href="flux.html" />
+    <link rel="prev" title="fftcep" href="fftcep.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="3.0.3.dev0" />
@@ -396,7 +397,7 @@
 <li class="toctree-l1"><a class="reference internal" href="dct.html">dct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="decimate.html">decimate</a></li>
 <li class="toctree-l1"><a class="reference internal" href="delay.html">delay</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">delta</a></li>
+<li class="toctree-l1"><a class="reference internal" href="delta.html">delta</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dequantize.html">dequantize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="df2.html">df2</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dfs.html">dfs</a></li>
@@ -407,7 +408,7 @@
 <li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
-<li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">fftr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="flux.html">flux</a></li>
 <li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
 <li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
@@ -540,7 +541,7 @@
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">diffsptk.modules</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">delta</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">fftr</span></li>
   </ul>
 </nav>
 </div>
@@ -557,55 +558,52 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="delta">
-<span id="id1"></span><h1>delta<a class="headerlink" href="#delta" title="Link to this heading">#</a></h1>
+  <section id="fftr">
+<span id="id1"></span><h1>fftr<a class="headerlink" href="#fftr" title="Link to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.Delta">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">Delta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[[-0.5,</span> <span class="pre">0,</span> <span class="pre">0.5],</span> <span class="pre">[1,</span> <span class="pre">-2,</span> <span class="pre">1]]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">static_out</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/delta.html#Delta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Delta" title="Link to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/delta.html">this page</a>
+<dt class="sig sig-object py" id="diffsptk.RealValuedFastFourierTransform">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">RealValuedFastFourierTransform</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fft_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'complex'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learnable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/fftr.html#RealValuedFastFourierTransform"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.RealValuedFastFourierTransform" title="Link to this definition">#</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/fftr.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>seed</strong><span class="classifier">list[list[float]] or list[int]</span></dt><dd><p>The delta coefficients or the width(s) of 1st (and 2nd) regression coefficients.</p>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2</span></dt><dd><p>The FFT length, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
-<dt><strong>static_out</strong><span class="classifier">bool</span></dt><dd><p>If False, outputs only the delta components.</p>
+<dt><strong>out_format</strong><span class="classifier">[‘complex’, ‘real’, ‘imaginary’, ‘amplitude’, ‘power’]</span></dt><dd><p>The output format.</p>
+</dd>
+<dt><strong>learnable</strong><span class="classifier">bool</span></dt><dd><p>Whether to make the DFT basis learnable. If True, the module performs DFT rather
+than FFT.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.Delta.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/modules/delta.html#Delta.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.Delta.forward" title="Link to this definition">#</a></dt>
-<dd><p>Compute the delta components.</p>
+<dt class="sig sig-object py" id="diffsptk.RealValuedFastFourierTransform.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/modules/fftr.html#RealValuedFastFourierTransform.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.RealValuedFastFourierTransform.forward" title="Link to this definition">#</a></dt>
+<dd><p>Compute FFT of a real signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(B, T, D) or (T, D)]</span></dt><dd><p>The static components.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, N)]</span></dt><dd><p>The real input signal.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(B, T, DxH) or (T, DxH)]</span></dt><dd><p>The delta (and static) components.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>The output spectrum.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
-<span class="go">tensor([[[1., 2.],</span>
-<span class="go">         [3., 4.],</span>
-<span class="go">         [5., 6.],</span>
-<span class="go">         [7., 8.]]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">delta</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Delta</span><span class="p">([[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">delta</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="go">tensor([1., 2., 3.])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fftr</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">RealValuedFastFourierTransform</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;real&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">fftr</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">tensor([[[ 1.0000,  2.0000, -0.5000, -1.0000,  1.5000,  2.0000],</span>
-<span class="go">         [ 3.0000,  4.0000, -0.5000, -1.0000,  2.5000,  3.0000],</span>
-<span class="go">         [ 5.0000,  6.0000, -1.5000, -2.0000,  3.5000,  4.0000],</span>
-<span class="go">         [ 7.0000,  8.0000, -2.5000, -3.0000,  3.5000,  4.0000]]])</span>
+<span class="go">tensor([ 6.0000,  2.4142, -2.0000, -0.4142,  2.0000])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -613,23 +611,23 @@ for details.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="diffsptk.functional.delta">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">delta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">ndarray</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="p"><span class="pre">...</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">[[-0.5,</span> <span class="pre">0,</span> <span class="pre">0.5]]</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">static_out</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/functional.html#delta"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.delta" title="Link to this definition">#</a></dt>
-<dd><p>Compute the delta components.</p>
+<dt class="sig sig-object py" id="diffsptk.functional.fftr">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">fftr</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'complex'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/functional.html#fftr"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.fftr" title="Link to this definition">#</a></dt>
+<dd><p>Compute FFT of a real signal.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(B, T, D) or (T, D)]</span></dt><dd><p>The static components.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, N)]</span></dt><dd><p>The real input signal.</p>
 </dd>
-<dt><strong>seed</strong><span class="classifier">list[list[float]] or list[int]</span></dt><dd><p>The delta coefficients or the width(s) of 1st (and 2nd) regression coefficients.</p>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2 or None</span></dt><dd><p>The FFT length, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
-<dt><strong>static_out</strong><span class="classifier">bool</span></dt><dd><p>If False, outputs only the delta components.</p>
+<dt><strong>out_format</strong><span class="classifier">[‘complex’, ‘real’, ‘imaginary’, ‘amplitude’, ‘power’]</span></dt><dd><p>The output format.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(B, T, DxH) or (T, DxH)]</span></dt><dd><p>The delta (and static) components.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>The output spectrum.</p>
 </dd>
 </dl>
 </dd>
@@ -638,7 +636,7 @@ for details.</p>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="mlpg.html#mlpg"><span class="std std-ref">mlpg</span></a></p>
+<p><a class="reference internal" href="ifftr.html#ifftr"><span class="std std-ref">ifftr</span></a> <a class="reference internal" href="stft.html#stft"><span class="std std-ref">stft</span></a> <a class="reference internal" href="spec.html#spec"><span class="std std-ref">spec</span></a></p>
 </div>
 </section>
 
@@ -653,20 +651,20 @@ for details.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="delay.html"
+       href="fftcep.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">delay</p>
+        <p class="prev-next-title">fftcep</p>
       </div>
     </a>
     <a class="right-next"
-       href="dequantize.html"
+       href="flux.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">dequantize</p>
+        <p class="prev-next-title">flux</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -689,11 +687,11 @@ for details.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.Delta"><code class="docutils literal notranslate"><span class="pre">Delta</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.Delta.forward"><code class="docutils literal notranslate"><span class="pre">Delta.forward()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.RealValuedFastFourierTransform"><code class="docutils literal notranslate"><span class="pre">RealValuedFastFourierTransform</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.RealValuedFastFourierTransform.forward"><code class="docutils literal notranslate"><span class="pre">RealValuedFastFourierTransform.forward()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.delta"><code class="docutils literal notranslate"><span class="pre">delta()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.fftr"><code class="docutils literal notranslate"><span class="pre">fftr()</span></code></a></li>
 </ul>
   </nav></div>
 

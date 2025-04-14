@@ -444,9 +444,10 @@
 
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn.functional</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">F</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">..typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Precomputed</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_values</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_size</span><span class="p">,</span> <span class="n">get_values</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseFunctionalModule</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.window</span><span class="w"> </span><span class="kn">import</span> <span class="n">Window</span>
 
@@ -474,6 +475,9 @@
 <span class="sd">    norm : [&#39;none&#39;, &#39;power&#39;, &#39;magnitude&#39;]</span>
 <span class="sd">        The normalization type of the window.</span>
 
+<span class="sd">    learnable : bool</span>
+<span class="sd">        Whether to make the window learnable.</span>
+
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
@@ -484,11 +488,17 @@
         <span class="n">center</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">window</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;rectangular&quot;</span><span class="p">,</span>
         <span class="n">norm</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span>
+        <span class="n">learnable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">tensors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="o">*</span><span class="n">get_values</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;window&quot;</span><span class="p">,</span> <span class="n">tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">in_dim</span> <span class="o">=</span> <span class="n">frame_length</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">tensors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="o">*</span><span class="n">get_values</span><span class="p">(</span><span class="nb">locals</span><span class="p">(),</span> <span class="n">drop</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">learnable</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">window</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;window&quot;</span><span class="p">,</span> <span class="n">tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 
 <div class="viewcode-block" id="Unframe.forward">
 <a class="viewcode-back" href="../../../modules/unframe.html#diffsptk.Unframe.forward">[docs]</a>
@@ -525,7 +535,10 @@
 <span class="sd">        tensor([1., 2., 3., 4., 5., 6., 7., 8., 9.])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">out_length</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_buffers</span><span class="p">)</span></div>
+        <span class="n">check_size</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">in_dim</span><span class="p">,</span> <span class="s2">&quot;length of waveform&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span>
+            <span class="n">y</span><span class="p">,</span> <span class="n">out_length</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_buffers</span><span class="p">,</span> <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_parameters</span>
+        <span class="p">)</span></div>
 
 
     <span class="nd">@staticmethod</span>
@@ -572,10 +585,10 @@
         <span class="n">window</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
         <span class="n">d</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span>
-        <span class="n">N</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
-
         <span class="k">if</span> <span class="n">d</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Input must be at least 2D tensor.&quot;</span><span class="p">)</span>
+
+        <span class="n">N</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
 
         <span class="k">if</span> <span class="mi">4</span> <span class="o">&lt;=</span> <span class="n">d</span><span class="p">:</span>
             <span class="n">batch_dims</span> <span class="o">=</span> <span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">()[:</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
