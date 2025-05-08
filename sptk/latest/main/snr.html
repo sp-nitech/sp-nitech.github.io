@@ -7,14 +7,14 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>snr &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -260,16 +260,30 @@
 </p></li>
 </ul>
 </p>
-<p>The inputs of this commands are two signals: <div class="math notranslate nohighlight">
-\[\begin{split} \begin{array}{cccc} x_1(0), &amp; x_1(1), &amp; \ldots, &amp; x_1(T-1), \\ x_2(0), &amp; x_2(1), &amp; \ldots, &amp; x_2(T-1). \end{array} \end{split}\]</div>
- If <span class="math notranslate nohighlight">\(O=2\)</span>, segmental SNR is calculated and output at every frame: <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} y(0), &amp; y(1), &amp; \ldots, &amp; y(N-1), \end{array} \]</div>
- where <span class="math notranslate nohighlight">\(N = \lfloor (T-1)/L \rfloor\)</span> and <div class="math notranslate nohighlight">
-\[ y(n) = 10 \log_{10} \frac{\displaystyle\sum_{l=0}^{L-1} \{ x_1(nL + l) \}^2 } {\displaystyle\sum_{l=0}^{L-1} \{ x_2(nL + l) - x_1(nL + l) \}^2 }. \]</div>
- If <span class="math notranslate nohighlight">\(O=1\)</span>, the output is averaged segmental SNR: <div class="math notranslate nohighlight">
-\[ y = \frac{1}{N} \sum_{n=0}^{N-1} y(n). \]</div>
- If <span class="math notranslate nohighlight">\(O=0\)</span>, the output is a standard SNR: <div class="math notranslate nohighlight">
-\[ y = 10 \log_{10} \frac{\displaystyle\sum_{t=0}^{T-1} \{ x_1(t) \}^2 } {\displaystyle\sum_{t=0}^{T-1} \{ x_2(t) - x_1(t) \}^2 }. \]</div>
+<p>The inputs of this commands are two signals:      <div class="math notranslate nohighlight">
+\[\begin{split}  \begin{array}{cccc}
+    x_1(0), &amp; x_1(1), &amp; \ldots, &amp; x_1(T-1), \\
+    x_2(0), &amp; x_2(1), &amp; \ldots, &amp; x_2(T-1).
+  \end{array}
+\end{split}\]</div>
+ If <span class="math notranslate nohighlight">\(O=2\)</span>, segmental SNR is calculated and output at every frame:     <div class="math notranslate nohighlight">
+\[  \begin{array}{cccc}
+    y(0), &amp; y(1), &amp; \ldots, &amp; y(N-1),
+  \end{array}
+\]</div>
+ where <span class="math notranslate nohighlight">\(N = \lfloor (T-1)/L \rfloor\)</span> and     <div class="math notranslate nohighlight">
+\[  y(n) = 10 \log_{10}
+    \frac{\displaystyle\sum_{l=0}^{L-1} \{ x_1(nL + l) \}^2 }
+         {\displaystyle\sum_{l=0}^{L-1} \{ x_2(nL + l) - x_1(nL + l) \}^2 }.
+\]</div>
+ If <span class="math notranslate nohighlight">\(O=1\)</span>, the output is averaged segmental SNR:   <div class="math notranslate nohighlight">
+\[  y = \frac{1}{N} \sum_{n=0}^{N-1} y(n).
+\]</div>
+ If <span class="math notranslate nohighlight">\(O=0\)</span>, the output is a standard SNR:     <div class="math notranslate nohighlight">
+\[  y = 10 \log_{10}
+    \frac{\displaystyle\sum_{t=0}^{T-1} \{ x_1(t) \}^2 }
+         {\displaystyle\sum_{t=0}^{T-1} \{ x_2(t) - x_1(t) \}^2 }.
+\]</div>
 </p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

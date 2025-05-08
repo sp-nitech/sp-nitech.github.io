@@ -7,14 +7,14 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>alaw &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -50,13 +50,13 @@
 <li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">alaw</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk15ALawCompressionE"><code class="docutils literal notranslate"><span class="pre">ALawCompression</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk15ALawCompression15ALawCompressionEdd"><code class="docutils literal notranslate"><span class="pre">ALawCompression::ALawCompression()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk15ALawCompression14GetAbsMaxValueEv"><code class="docutils literal notranslate"><span class="pre">ALawCompression::GetAbsMaxValue()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk15ALawCompression20GetCompressionFactorEv"><code class="docutils literal notranslate"><span class="pre">ALawCompression::GetCompressionFactor()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk15ALawCompression7IsValidEv"><code class="docutils literal notranslate"><span class="pre">ALawCompression::IsValid()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk15ALawCompression3RunEdPd"><code class="docutils literal notranslate"><span class="pre">ALawCompression::Run()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk15ALawCompression3RunEPd"><code class="docutils literal notranslate"><span class="pre">ALawCompression::Run()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk15ALawCompressionE"><code class="docutils literal notranslate"><span class="pre">sptk::ALawCompression</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk15ALawCompression15ALawCompressionEdd"><code class="docutils literal notranslate"><span class="pre">ALawCompression()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk15ALawCompression14GetAbsMaxValueEv"><code class="docutils literal notranslate"><span class="pre">GetAbsMaxValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk15ALawCompression20GetCompressionFactorEv"><code class="docutils literal notranslate"><span class="pre">GetCompressionFactor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk15ALawCompression7IsValidEv"><code class="docutils literal notranslate"><span class="pre">IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk15ALawCompression3RunEdPd"><code class="docutils literal notranslate"><span class="pre">Run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk15ALawCompression3RunEPd"><code class="docutils literal notranslate"><span class="pre">Run()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -286,8 +286,14 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk15ALawCompressionE">
 <span id="_CPPv3N4sptk15ALawCompressionE"></span><span id="_CPPv2N4sptk15ALawCompressionE"></span><span id="sptk::ALawCompression"></span><span class="target" id="classsptk_1_1ALawCompression"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ALawCompression</span></span></span><a class="headerlink" href="#_CPPv4N4sptk15ALawCompressionE" title="Link to this definition"></a><br /></dt>
 <dd><p>Nonlinearly compress data based on A-law algorithm.</p>
-<p>Given the input data <span class="math notranslate nohighlight">\(x(n)\)</span>, the compression is performed as follows: <div class="math notranslate nohighlight">
-\[\begin{split} y(n) = V \, \mathrm{sgn}(x(n)) \left\{ \begin{array}{ll} \frac{A \frac{|x(n)|}{V}}{1 + \log A}, &amp; \frac{|x(n)|}{V} &lt; \frac{1}{A} \\ \frac{1 + \log(A \frac{|x(n)|}{V})}{1 + \log A}, &amp; \frac{|x(n)|}{V} \ge \frac{1}{A} \end{array} \right. \end{split}\]</div>
+<p>Given the input data <span class="math notranslate nohighlight">\(x(n)\)</span>, the compression is performed as follows:        <div class="math notranslate nohighlight">
+\[\begin{split}  y(n) = V \, \mathrm{sgn}(x(n)) \left\{ \begin{array}{ll}
+    \frac{A \frac{|x(n)|}{V}}{1 + \log A}, &amp;
+      \frac{|x(n)|}{V} &lt; \frac{1}{A} \\
+    \frac{1 + \log(A \frac{|x(n)|}{V})}{1 + \log A}, &amp;
+      \frac{|x(n)|}{V} \ge \frac{1}{A}
+  \end{array} \right.
+\end{split}\]</div>
  where <span class="math notranslate nohighlight">\(V\)</span> is the absolute maximum value of the input data and <span class="math notranslate nohighlight">\(A\)</span> is the compression factor, which is typically set to 87.6. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>

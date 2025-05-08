@@ -7,14 +7,14 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>interpolate &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -267,12 +267,33 @@
 </p></li>
 </ul>
 </p>
-<p>The input of the command is a sequence of <span class="math notranslate nohighlight">\(L\)</span>-dimensional vectors: <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} \boldsymbol{x}(0), &amp; \boldsymbol{x}(1), &amp; \boldsymbol{x}(2), &amp; \ldots, \end{array} \]</div>
- where <span class="math notranslate nohighlight">\(L=M+1\)</span>. If <span class="math notranslate nohighlight">\(O=0\)</span>, the output is a zero-padded sequence: <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} \underbrace{\boldsymbol{0},\,\boldsymbol{0},\,\ldots,\, \boldsymbol{0}}_{S}, &amp; \underbrace{\boldsymbol{x}(0),\,\boldsymbol{0},\,\ldots,\, \boldsymbol{0}}_{P}, &amp; \underbrace{\boldsymbol{x}(1),\,\boldsymbol{0},\,\ldots,\, \boldsymbol{0}}_{P}, &amp; \ldots, \end{array} \]</div>
- where <span class="math notranslate nohighlight">\(\boldsymbol{0}\)</span> is the <span class="math notranslate nohighlight">\(L\)</span>-dimensional zero vector, <span class="math notranslate nohighlight">\(S\)</span> is the number of left-padded zero vectors, and the <span class="math notranslate nohighlight">\(P\)</span> is the interpolation factor. If <span class="math notranslate nohighlight">\(O=1\)</span>, each of the vectors is copied <span class="math notranslate nohighlight">\(P\)</span> times: <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} \underbrace{\boldsymbol{0},\,\boldsymbol{0},\,\ldots,\, \boldsymbol{0}}_{S}, &amp; \underbrace{\boldsymbol{x}(0),\,\boldsymbol{x}(0),\,\ldots,\, \boldsymbol{x}(0)}_{P}, &amp; \underbrace{\boldsymbol{x}(1),\,\boldsymbol{x}(1),\,\ldots,\, \boldsymbol{x}(1)}_{P}, &amp; \ldots, \end{array} \]</div>
+<p>The input of the command is a sequence of <span class="math notranslate nohighlight">\(L\)</span>-dimensional vectors:     <div class="math notranslate nohighlight">
+\[  \begin{array}{cccc}
+    \boldsymbol{x}(0), &amp; \boldsymbol{x}(1), &amp; \boldsymbol{x}(2), &amp; \ldots,
+  \end{array}
+\]</div>
+ where <span class="math notranslate nohighlight">\(L=M+1\)</span>. If <span class="math notranslate nohighlight">\(O=0\)</span>, the output is a zero-padded sequence:           <div class="math notranslate nohighlight">
+\[  \begin{array}{cccc}
+    \underbrace{\boldsymbol{0},\,\boldsymbol{0},\,\ldots,\,
+                \boldsymbol{0}}_{S}, &amp;
+    \underbrace{\boldsymbol{x}(0),\,\boldsymbol{0},\,\ldots,\,
+                \boldsymbol{0}}_{P}, &amp;
+    \underbrace{\boldsymbol{x}(1),\,\boldsymbol{0},\,\ldots,\,
+                \boldsymbol{0}}_{P}, &amp;
+    \ldots,
+ \end{array}
+\]</div>
+ where <span class="math notranslate nohighlight">\(\boldsymbol{0}\)</span> is the <span class="math notranslate nohighlight">\(L\)</span>-dimensional zero vector, <span class="math notranslate nohighlight">\(S\)</span> is the number of left-padded zero vectors, and the <span class="math notranslate nohighlight">\(P\)</span> is the interpolation factor. If <span class="math notranslate nohighlight">\(O=1\)</span>, each of the vectors is copied <span class="math notranslate nohighlight">\(P\)</span> times:           <div class="math notranslate nohighlight">
+\[  \begin{array}{cccc}
+    \underbrace{\boldsymbol{0},\,\boldsymbol{0},\,\ldots,\,
+                \boldsymbol{0}}_{S}, &amp;
+    \underbrace{\boldsymbol{x}(0),\,\boldsymbol{x}(0),\,\ldots,\,
+                \boldsymbol{x}(0)}_{P}, &amp;
+    \underbrace{\boldsymbol{x}(1),\,\boldsymbol{x}(1),\,\ldots,\,
+                \boldsymbol{x}(1)}_{P}, &amp;
+    \ldots,
+ \end{array}
+\]</div>
 </p>
 <p>The following example decimates data in <code class="docutils literal notranslate"><span class="pre">data.d</span></code> while keeping their original indices.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>decimate<span class="w"> </span>-p<span class="w"> </span><span class="m">5</span><span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span><span class="p">|</span><span class="w"> </span>interpolate<span class="w"> </span>-p<span class="w"> </span><span class="m">5</span><span class="w"> </span>&gt;<span class="w"> </span>data.dec

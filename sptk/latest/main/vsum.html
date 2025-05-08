@@ -7,14 +7,14 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>vsum &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -259,12 +259,23 @@
 </p></li>
 </ul>
 </p>
-<p>The input of this command is <div class="math notranslate nohighlight">
-\[ \begin{array}{ccc} \underbrace{x_1(1), \; \ldots, \; x_1(L)}_L, &amp; \underbrace{x_2(1), \; \ldots, \; x_2(L)}_L, &amp; \ldots, \end{array} \]</div>
- and the output is <div class="math notranslate nohighlight">
-\[ \begin{array}{ccc} \underbrace{s_{0}(1), \; \ldots, \; s_{0}(L)}_L, &amp; \underbrace{s_{T}(1), \; \ldots, \; s_{T}(L)}_L, &amp; \ldots, \end{array} \]</div>
- where <div class="math notranslate nohighlight">
-\[ s_t(l) = \sum_{\tau=1}^{T} x_{t+\tau}(l). \]</div>
+<p>The input of this command is       <div class="math notranslate nohighlight">
+\[  \begin{array}{ccc}
+    \underbrace{x_1(1), \; \ldots, \; x_1(L)}_L, &amp;
+    \underbrace{x_2(1), \; \ldots, \; x_2(L)}_L, &amp;
+    \ldots,
+  \end{array}
+\]</div>
+ and the output is       <div class="math notranslate nohighlight">
+\[  \begin{array}{ccc}
+    \underbrace{s_{0}(1), \; \ldots, \; s_{0}(L)}_L, &amp;
+    \underbrace{s_{T}(1), \; \ldots, \; s_{T}(L)}_L, &amp;
+    \ldots,
+  \end{array}
+\]</div>
+ where   <div class="math notranslate nohighlight">
+\[  s_t(l) = \sum_{\tau=1}^{T} x_{t+\tau}(l).
+\]</div>
  If <span class="math notranslate nohighlight">\(T\)</span> is not given, the summation of the whole input is computed.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">6</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="m">8</span><span class="w"> </span><span class="m">9</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+ad<span class="w"> </span><span class="p">|</span><span class="w"> </span>vsum<span class="w"> </span>-l<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da
 <span class="c1"># 20</span>

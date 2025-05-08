@@ -7,14 +7,14 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>idct &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -102,13 +102,13 @@
 <li class="toctree-l1"><a class="reference internal" href="ialaw.html">ialaw</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">idct</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk30InverseDiscreteCosineTransformE"><code class="docutils literal notranslate"><span class="pre">InverseDiscreteCosineTransform</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk30InverseDiscreteCosineTransform30InverseDiscreteCosineTransformEi"><code class="docutils literal notranslate"><span class="pre">InverseDiscreteCosineTransform::InverseDiscreteCosineTransform()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk30InverseDiscreteCosineTransform12GetDctLengthEv"><code class="docutils literal notranslate"><span class="pre">InverseDiscreteCosineTransform::GetDctLength()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk30InverseDiscreteCosineTransform7IsValidEv"><code class="docutils literal notranslate"><span class="pre">InverseDiscreteCosineTransform::IsValid()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk30InverseDiscreteCosineTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN30InverseDiscreteCosineTransform6BufferE"><code class="docutils literal notranslate"><span class="pre">InverseDiscreteCosineTransform::Run()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk30InverseDiscreteCosineTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEEPN30InverseDiscreteCosineTransform6BufferE"><code class="docutils literal notranslate"><span class="pre">InverseDiscreteCosineTransform::Run()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk30InverseDiscreteCosineTransform6BufferE"><code class="docutils literal notranslate"><span class="pre">InverseDiscreteCosineTransform::Buffer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk30InverseDiscreteCosineTransformE"><code class="docutils literal notranslate"><span class="pre">sptk::InverseDiscreteCosineTransform</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk30InverseDiscreteCosineTransform30InverseDiscreteCosineTransformEi"><code class="docutils literal notranslate"><span class="pre">InverseDiscreteCosineTransform()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk30InverseDiscreteCosineTransform12GetDctLengthEv"><code class="docutils literal notranslate"><span class="pre">GetDctLength()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk30InverseDiscreteCosineTransform7IsValidEv"><code class="docutils literal notranslate"><span class="pre">IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk30InverseDiscreteCosineTransform3RunERKNSt6vectorIdEERKNSt6vectorIdEEPNSt6vectorIdEEPNSt6vectorIdEEPN30InverseDiscreteCosineTransform6BufferE"><code class="docutils literal notranslate"><span class="pre">Run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk30InverseDiscreteCosineTransform3RunEPNSt6vectorIdEEPNSt6vectorIdEEPN30InverseDiscreteCosineTransform6BufferE"><code class="docutils literal notranslate"><span class="pre">Run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk30InverseDiscreteCosineTransform6BufferE"><code class="docutils literal notranslate"><span class="pre">sptk::InverseDiscreteCosineTransform::Buffer</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -295,14 +295,28 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk30InverseDiscreteCosineTransformE">
 <span id="_CPPv3N4sptk30InverseDiscreteCosineTransformE"></span><span id="_CPPv2N4sptk30InverseDiscreteCosineTransformE"></span><span id="sptk::InverseDiscreteCosineTransform"></span><span class="target" id="classsptk_1_1InverseDiscreteCosineTransform"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">InverseDiscreteCosineTransform</span></span></span><a class="headerlink" href="#_CPPv4N4sptk30InverseDiscreteCosineTransformE" title="Link to this definition"></a><br /></dt>
 <dd><p>Calculate inverse DCT-II of complex-valued input data.</p>
-<p>The inputs are <span class="math notranslate nohighlight">\(L\)</span>-length order complex-valued data: <div class="math notranslate nohighlight">
-\[\begin{split} \begin{array}{cccc} \mathrm{Re}(X(0)), &amp; \mathrm{Re}(X(1)), &amp; \ldots, &amp; \mathrm{Re}(X(L-1)), \\ \mathrm{Im}(X(0)), &amp; \mathrm{Im}(X(1)), &amp; \ldots, &amp; \mathrm{Im}(X(L-1)). \end{array} \end{split}\]</div>
- The outputs are <div class="math notranslate nohighlight">
-\[\begin{split} \begin{array}{cccc} \mathrm{Re}(x(0)), &amp; \mathrm{Re}(x(1)), &amp; \ldots, &amp; \mathrm{Re}(x(L-1)), \\ \mathrm{Im}(x(0)), &amp; \mathrm{Im}(x(1)), &amp; \ldots, &amp; \mathrm{Im}(x(L-1)). \end{array} \end{split}\]</div>
- They are computed as <div class="math notranslate nohighlight">
-\[ x(n) = \sqrt{\frac{2}{L}} \sum_{k=0}^{L-1} c(k) X(k) \cos \left( \frac{\pi}{L} \left( n + \frac{1}{2} \right) k \right), \]</div>
- where <div class="math notranslate nohighlight">
-\[\begin{split} c(k) = \left\{ \begin{array}{ll} 1/\sqrt{2}, &amp; k = 0 \\ 1. &amp; 1 \le k &lt; L \end{array} \right. \end{split}\]</div>
+<p>The inputs are <span class="math notranslate nohighlight">\(L\)</span>-length order complex-valued data:      <div class="math notranslate nohighlight">
+\[\begin{split}  \begin{array}{cccc}
+  \mathrm{Re}(X(0)), &amp; \mathrm{Re}(X(1)), &amp; \ldots, &amp; \mathrm{Re}(X(L-1)), \\
+  \mathrm{Im}(X(0)), &amp; \mathrm{Im}(X(1)), &amp; \ldots, &amp; \mathrm{Im}(X(L-1)).
+  \end{array}
+\end{split}\]</div>
+ The outputs are      <div class="math notranslate nohighlight">
+\[\begin{split}  \begin{array}{cccc}
+  \mathrm{Re}(x(0)), &amp; \mathrm{Re}(x(1)), &amp; \ldots, &amp; \mathrm{Re}(x(L-1)), \\
+  \mathrm{Im}(x(0)), &amp; \mathrm{Im}(x(1)), &amp; \ldots, &amp; \mathrm{Im}(x(L-1)).
+  \end{array}
+\end{split}\]</div>
+ They are computed as    <div class="math notranslate nohighlight">
+\[  x(n) = \sqrt{\frac{2}{L}} \sum_{k=0}^{L-1} c(k) X(k) \cos
+    \left( \frac{\pi}{L} \left( n + \frac{1}{2} \right) k \right),
+\]</div>
+ where      <div class="math notranslate nohighlight">
+\[\begin{split}  c(k) = \left\{ \begin{array}{ll}
+    1/\sqrt{2}, &amp; k = 0 \\
+    1. &amp; 1 \le k &lt; L
+  \end{array} \right.
+\end{split}\]</div>
 </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>

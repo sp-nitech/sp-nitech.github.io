@@ -7,14 +7,14 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>bcut &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -278,10 +278,18 @@
 </p></li>
 </ul>
 </p>
-<p>The input of this command is <div class="math notranslate nohighlight">
-\[ \begin{array}{ccc} \underbrace{x(0), \; \ldots, \; x(L - 1)}_{x_0}, &amp; \underbrace{x(L), \; \ldots, \; x(2L - 1)}_{x_1}, &amp; \ldots, \end{array} \]</div>
- and the output is <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} x_S, &amp; x_{S+1}, &amp; \ldots, &amp; x_E, \end{array} \]</div>
+<p>The input of this command is       <div class="math notranslate nohighlight">
+\[  \begin{array}{ccc}
+    \underbrace{x(0), \; \ldots, \; x(L - 1)}_{x_0}, &amp;
+    \underbrace{x(L), \; \ldots, \; x(2L - 1)}_{x_1}, &amp;
+    \ldots,
+  \end{array}
+\]</div>
+ and the output is     <div class="math notranslate nohighlight">
+\[  \begin{array}{cccc}
+    x_S, &amp; x_{S+1}, &amp; \ldots, &amp; x_E,
+  \end{array}
+\]</div>
  where <span class="math notranslate nohighlight">\(L\)</span> is the block length.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>bcut<span class="w"> </span>+d<span class="w"> </span>-s<span class="w"> </span><span class="m">3</span><span class="w"> </span>-e<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da
 <span class="c1"># 3, 4, 5</span>

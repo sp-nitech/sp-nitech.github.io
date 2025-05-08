@@ -7,14 +7,14 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>huffman &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -98,11 +98,11 @@
 <li class="toctree-l1"><a class="reference internal" href="histogram.html">histogram</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">huffman</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk13HuffmanCodingE"><code class="docutils literal notranslate"><span class="pre">HuffmanCoding</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk13HuffmanCoding13HuffmanCodingEi"><code class="docutils literal notranslate"><span class="pre">HuffmanCoding::HuffmanCoding()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk13HuffmanCoding13GetNumElementEv"><code class="docutils literal notranslate"><span class="pre">HuffmanCoding::GetNumElement()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk13HuffmanCoding7IsValidEv"><code class="docutils literal notranslate"><span class="pre">HuffmanCoding::IsValid()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk13HuffmanCoding3RunERKNSt6vectorIdEEPNSt6vectorINSt6stringEEE"><code class="docutils literal notranslate"><span class="pre">HuffmanCoding::Run()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk13HuffmanCodingE"><code class="docutils literal notranslate"><span class="pre">sptk::HuffmanCoding</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk13HuffmanCoding13HuffmanCodingEi"><code class="docutils literal notranslate"><span class="pre">HuffmanCoding()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk13HuffmanCoding13GetNumElementEv"><code class="docutils literal notranslate"><span class="pre">GetNumElement()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk13HuffmanCoding7IsValidEv"><code class="docutils literal notranslate"><span class="pre">IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk13HuffmanCoding3RunERKNSt6vectorIdEEPNSt6vectorINSt6stringEEE"><code class="docutils literal notranslate"><span class="pre">Run()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -280,10 +280,16 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk13HuffmanCodingE">
 <span id="_CPPv3N4sptk13HuffmanCodingE"></span><span id="_CPPv2N4sptk13HuffmanCodingE"></span><span id="sptk::HuffmanCoding"></span><span class="target" id="classsptk_1_1HuffmanCoding"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">HuffmanCoding</span></span></span><a class="headerlink" href="#_CPPv4N4sptk13HuffmanCodingE" title="Link to this definition"></a><br /></dt>
 <dd><p>Generate variable-length code codewords based on Huffman coding.</p>
-<p>The input is the probabilites or frequencies of <span class="math notranslate nohighlight">\(N\)</span> events: <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} p(0), &amp; p(1), &amp; \ldots, &amp; p(N-1), \end{array} \]</div>
- and the output is the corresponding codewords: <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} c(0), &amp; c(1), &amp; \ldots, &amp; c(N-1), \end{array} \]</div>
+<p>The input is the probabilites or frequencies of <span class="math notranslate nohighlight">\(N\)</span> events:     <div class="math notranslate nohighlight">
+\[  \begin{array}{cccc}
+    p(0), &amp; p(1), &amp; \ldots, &amp; p(N-1),
+  \end{array}
+\]</div>
+ and the output is the corresponding codewords:     <div class="math notranslate nohighlight">
+\[  \begin{array}{cccc}
+    c(0), &amp; c(1), &amp; \ldots, &amp; c(N-1),
+  \end{array}
+\]</div>
  where <span class="math notranslate nohighlight">\(c(n) \in \{0,1\}^{\ast}\)</span>.</p>
 <p>The implementation is based on priority queue. </p>
 <div class="breathe-sectiondef docutils container">

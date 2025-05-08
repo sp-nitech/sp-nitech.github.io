@@ -7,14 +7,14 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>vc &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -181,12 +181,12 @@
 <li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">vc</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk35GaussianMixtureModelBasedConversionE"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModelBasedConversion</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk35GaussianMixtureModelBasedConversion35GaussianMixtureModelBasedConversionEiiRKNSt6vectorINSt6vectorIdEEEERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorI15SymmetricMatrixEEbd"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModelBasedConversion::GaussianMixtureModelBasedConversion()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk35GaussianMixtureModelBasedConversion17GetNumSourceOrderEv"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModelBasedConversion::GetNumSourceOrder()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk35GaussianMixtureModelBasedConversion17GetNumTargetOrderEv"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModelBasedConversion::GetNumTargetOrder()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk35GaussianMixtureModelBasedConversion7IsValidEv"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModelBasedConversion::IsValid()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk35GaussianMixtureModelBasedConversion3RunERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorINSt6vectorIdEEEE"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModelBasedConversion::Run()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk35GaussianMixtureModelBasedConversionE"><code class="docutils literal notranslate"><span class="pre">sptk::GaussianMixtureModelBasedConversion</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk35GaussianMixtureModelBasedConversion35GaussianMixtureModelBasedConversionEiiRKNSt6vectorINSt6vectorIdEEEERKNSt6vectorIdEERKNSt6vectorINSt6vectorIdEEEERKNSt6vectorI15SymmetricMatrixEEbd"><code class="docutils literal notranslate"><span class="pre">GaussianMixtureModelBasedConversion()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk35GaussianMixtureModelBasedConversion17GetNumSourceOrderEv"><code class="docutils literal notranslate"><span class="pre">GetNumSourceOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk35GaussianMixtureModelBasedConversion17GetNumTargetOrderEv"><code class="docutils literal notranslate"><span class="pre">GetNumTargetOrder()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk35GaussianMixtureModelBasedConversion7IsValidEv"><code class="docutils literal notranslate"><span class="pre">IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk35GaussianMixtureModelBasedConversion3RunERKNSt6vectorINSt6vectorIdEEEEPNSt6vectorINSt6vectorIdEEEE"><code class="docutils literal notranslate"><span class="pre">Run()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -322,25 +322,75 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk35GaussianMixtureModelBasedConversionE">
 <span id="_CPPv3N4sptk35GaussianMixtureModelBasedConversionE"></span><span id="_CPPv2N4sptk35GaussianMixtureModelBasedConversionE"></span><span id="sptk::GaussianMixtureModelBasedConversion"></span><span class="target" id="classsptk_1_1GaussianMixtureModelBasedConversion"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GaussianMixtureModelBasedConversion</span></span></span><a class="headerlink" href="#_CPPv4N4sptk35GaussianMixtureModelBasedConversionE" title="Link to this definition"></a><br /></dt>
 <dd><p>Perform GMM-based voice conversion.</p>
-<p>The input is the <span class="math notranslate nohighlight">\((D+1)(M_1+1)\)</span>-length source vectors: <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} \boldsymbol{X}_0, &amp; \boldsymbol{X}_1, &amp; \ldots, &amp; \boldsymbol{X}_{T-1}, \end{array} \]</div>
- where <div class="math notranslate nohighlight">
-\[ \boldsymbol{X}_t = \left[ \begin{array}{cccc} \boldsymbol{x}_t^{\mathsf{T}} &amp; \Delta^{(1)} \boldsymbol{x}_t^{\mathsf{T}} &amp; \cdots &amp; \Delta^{(D)} \boldsymbol{x}_t^{\mathsf{T}} \end{array} \right]^{\mathsf{T}}. \]</div>
- The output is the <span class="math notranslate nohighlight">\((M_2+1)\)</span>-length target vectors: <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} \boldsymbol{y}_0, &amp; \boldsymbol{y}_1, &amp; \ldots, &amp; \boldsymbol{y}_{T-1}. \end{array} \]</div>
+<p>The input is the <span class="math notranslate nohighlight">\((D+1)(M_1+1)\)</span>-length source vectors:     <div class="math notranslate nohighlight">
+\[  \begin{array}{cccc}
+    \boldsymbol{X}_0, &amp; \boldsymbol{X}_1, &amp; \ldots, &amp; \boldsymbol{X}_{T-1},
+  \end{array}
+\]</div>
+ where       <div class="math notranslate nohighlight">
+\[  \boldsymbol{X}_t = \left[ \begin{array}{cccc}
+    \boldsymbol{x}_t^{\mathsf{T}} &amp;
+    \Delta^{(1)} \boldsymbol{x}_t^{\mathsf{T}} &amp; \cdots &amp;
+    \Delta^{(D)} \boldsymbol{x}_t^{\mathsf{T}}
+  \end{array} \right]^{\mathsf{T}}.
+\]</div>
+ The output is the <span class="math notranslate nohighlight">\((M_2+1)\)</span>-length target vectors:     <div class="math notranslate nohighlight">
+\[  \begin{array}{cccc}
+    \boldsymbol{y}_0, &amp; \boldsymbol{y}_1, &amp; \ldots, &amp; \boldsymbol{y}_{T-1}.
+  \end{array}
+\]</div>
 </p>
-<p>The optimal target vectors can be drived in a maximum likelihood sense: <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray} \hat{\boldsymbol{y}} &amp;=&amp; \mathop{\mathrm{argmax}}_{\boldsymbol{y}} \, p(\boldsymbol{Y} \,|\, \boldsymbol{X}, \boldsymbol{\lambda}) \\ &amp;=&amp; \mathop{\mathrm{argmax}}_{\boldsymbol{y}} \sum_{\boldsymbol{m}} p(\boldsymbol{m} \,|\, \boldsymbol{X}, \boldsymbol{\lambda}) \, p(\boldsymbol{Y} \,|\, \boldsymbol{X}, \boldsymbol{m}, \boldsymbol{\lambda}), \end{eqnarray}\end{split}\]</div>
- where <span class="math notranslate nohighlight">\(\boldsymbol{\lambda}\)</span> is the GMM that models the joint vectors. The mean vector and the covariance matrix of the <span class="math notranslate nohighlight">\(m\)</span>-th mixture component are written as <div class="math notranslate nohighlight">
-\[\begin{split} \boldsymbol{\mu}_m = \left[ \begin{array}{c} \boldsymbol{\mu}_m^{(X)} \\ \boldsymbol{\mu}_m^{(Y)} \end{array} \right] \end{split}\]</div>
- and <div class="math notranslate nohighlight">
-\[\begin{split} \boldsymbol{\varSigma}_m = \left[ \begin{array}{cc} \boldsymbol{\varSigma}_m^{(XX)} &amp; \boldsymbol{\varSigma}_m^{(XY)} \\ \boldsymbol{\varSigma}_m^{(YX)} &amp; \boldsymbol{\varSigma}_m^{(YY)} \end{array} \right]. \end{split}\]</div>
- To easily compute the ML estimate, the maximum a posteriori approximation is applied: <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray} \hat{\boldsymbol{y}} &amp;=&amp; \mathop{\mathrm{argmax}}_{\boldsymbol{y}} \, p(\hat{\boldsymbol{m}} \,|\, \boldsymbol{X}, \boldsymbol{\lambda}) \, p(\boldsymbol{Y} \,|\, \boldsymbol{X}, \hat{\boldsymbol{m}}, \boldsymbol{\lambda}) \\ &amp;=&amp; \mathop{\mathrm{argmax}}_{\boldsymbol{y}} \prod_{t=0}^{T-1} p(\hat{m}_t \,|\, \boldsymbol{X}_t, \boldsymbol{\lambda}) \, p(\boldsymbol{Y}_t \,|\, \boldsymbol{X}_t, \hat{m}_t, \boldsymbol{\lambda}), \end{eqnarray}\end{split}\]</div>
- where <div class="math notranslate nohighlight">
-\[ p(\hat{m}_t \,|\, \boldsymbol{X}_t, \boldsymbol{\lambda}) = \max_m \, \frac{w_m \mathcal{N} \left( \boldsymbol{X}_t \,\big|\, \boldsymbol{\mu}_m^{(X)}, \boldsymbol{\varSigma}_m^{(XX)} \right)} {\sum_{n=1}^M w_n \mathcal{N} \left( \boldsymbol{X}_t \,\big|\, \boldsymbol{\mu}_n^{(X)}, \boldsymbol{\varSigma}_n^{(XX)} \right)}, \]</div>
- and <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray} p(\boldsymbol{Y}_t \,|\, \boldsymbol{X}_t, m, \boldsymbol{\lambda}) &amp;=&amp; \mathcal{N} \left( \boldsymbol{Y}_t \,\big|\, \boldsymbol{E}_{m,t}^{(Y)}, \boldsymbol{D}_{m,t}^{(Y)} \right), \\ \boldsymbol{E}_{m,t}^{(Y)} &amp;=&amp; \boldsymbol{\mu}_m^{(Y)} + \boldsymbol{\varSigma}_m^{(YX)} \boldsymbol{\varSigma}_m^{(XX)^{-1}} \left( \boldsymbol{X}_t - \boldsymbol{\mu}_m^{(X)} \right), \\ \boldsymbol{D}_{m,t}^{(Y)} &amp;=&amp; \boldsymbol{\varSigma}_m^{(YY)} - \boldsymbol{\varSigma}_m^{(YX)} \boldsymbol{\varSigma}_m^{(XX)^{-1}} \boldsymbol{\varSigma}_m^{(XY)}. \end{eqnarray}\end{split}\]</div>
+<p>The optimal target vectors can be drived in a maximum likelihood sense:         <div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray}  \hat{\boldsymbol{y}} &amp;=&amp; \mathop{\mathrm{argmax}}_{\boldsymbol{y}} \,
+    p(\boldsymbol{Y} \,|\, \boldsymbol{X}, \boldsymbol{\lambda}) \\
+  &amp;=&amp; \mathop{\mathrm{argmax}}_{\boldsymbol{y}}
+    \sum_{\boldsymbol{m}}
+    p(\boldsymbol{m} \,|\, \boldsymbol{X}, \boldsymbol{\lambda}) \,
+    p(\boldsymbol{Y} \,|\, \boldsymbol{X}, \boldsymbol{m},
+                           \boldsymbol{\lambda}),
+\end{eqnarray}\end{split}\]</div>
+ where <span class="math notranslate nohighlight">\(\boldsymbol{\lambda}\)</span> is the GMM that models the joint vectors. The mean vector and the covariance matrix of the <span class="math notranslate nohighlight">\(m\)</span>-th mixture component are written as      <div class="math notranslate nohighlight">
+\[\begin{split}  \boldsymbol{\mu}_m = \left[ \begin{array}{c}
+    \boldsymbol{\mu}_m^{(X)} \\
+    \boldsymbol{\mu}_m^{(Y)}
+  \end{array} \right]
+\end{split}\]</div>
+ and      <div class="math notranslate nohighlight">
+\[\begin{split}  \boldsymbol{\varSigma}_m = \left[ \begin{array}{cc}
+    \boldsymbol{\varSigma}_m^{(XX)} &amp; \boldsymbol{\varSigma}_m^{(XY)} \\
+    \boldsymbol{\varSigma}_m^{(YX)} &amp; \boldsymbol{\varSigma}_m^{(YY)}
+  \end{array} \right].
+\end{split}\]</div>
+ To easily compute the ML estimate, the maximum a posteriori approximation is applied:           <div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray}  \hat{\boldsymbol{y}} &amp;=&amp; \mathop{\mathrm{argmax}}_{\boldsymbol{y}} \,
+    p(\hat{\boldsymbol{m}} \,|\, \boldsymbol{X}, \boldsymbol{\lambda}) \,
+    p(\boldsymbol{Y} \,|\, \boldsymbol{X}, \hat{\boldsymbol{m}},
+                           \boldsymbol{\lambda}) \\
+  &amp;=&amp; \mathop{\mathrm{argmax}}_{\boldsymbol{y}}
+    \prod_{t=0}^{T-1}
+    p(\hat{m}_t \,|\, \boldsymbol{X}_t, \boldsymbol{\lambda}) \,
+    p(\boldsymbol{Y}_t \,|\, \boldsymbol{X}_t, \hat{m}_t,
+                             \boldsymbol{\lambda}),
+\end{eqnarray}\end{split}\]</div>
+ where       <div class="math notranslate nohighlight">
+\[  p(\hat{m}_t \,|\, \boldsymbol{X}_t, \boldsymbol{\lambda}) = \max_m \,
+    \frac{w_m \mathcal{N} \left( \boldsymbol{X}_t \,\big|\,
+      \boldsymbol{\mu}_m^{(X)}, \boldsymbol{\varSigma}_m^{(XX)} \right)}
+    {\sum_{n=1}^M w_n \mathcal{N} \left( \boldsymbol{X}_t \,\big|\,
+      \boldsymbol{\mu}_n^{(X)}, \boldsymbol{\varSigma}_n^{(XX)} \right)},
+\]</div>
+ and            <div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray} p(\boldsymbol{Y}_t \,|\, \boldsymbol{X}_t, m, \boldsymbol{\lambda}) &amp;=&amp;
+   \mathcal{N} \left( \boldsymbol{Y}_t \,\big|\, \boldsymbol{E}_{m,t}^{(Y)},
+               \boldsymbol{D}_{m,t}^{(Y)} \right), \\
+ \boldsymbol{E}_{m,t}^{(Y)} &amp;=&amp;
+   \boldsymbol{\mu}_m^{(Y)} + \boldsymbol{\varSigma}_m^{(YX)}
+   \boldsymbol{\varSigma}_m^{(XX)^{-1}}
+   \left( \boldsymbol{X}_t - \boldsymbol{\mu}_m^{(X)} \right), \\
+ \boldsymbol{D}_{m,t}^{(Y)} &amp;=&amp;
+   \boldsymbol{\varSigma}_m^{(YY)} - \boldsymbol{\varSigma}_m^{(YX)}
+   \boldsymbol{\varSigma}_m^{(XX)^{-1}} \boldsymbol{\varSigma}_m^{(XY)}.
+\end{eqnarray}\end{split}\]</div>
  The converted static vector sequence <span class="math notranslate nohighlight">\(\hat{\boldsymbol{y}}\)</span> under the constraint between static and dynamic components is obtained by the maximum likelihood parameter generation algorithm.</p>
 <p>[1] T. Toda, A. W. Black, and K. Tokuda, “Voice conversion based on maximum-likelihood estimation of spectral parameter trajectory,” IEEE Transactions on Audio, Speech, and Language Processing, vol. 15, no. 8, pp. 2222-2235, 2007. </p>
 <div class="breathe-sectiondef docutils container">

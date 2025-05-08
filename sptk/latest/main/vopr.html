@@ -7,14 +7,14 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>vopr &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -333,24 +333,46 @@
 </ul>
 </p>
 <p>This command performs vector operations between two sequences.</p>
-<p>The inputs are <div class="math notranslate nohighlight">
-\[ \begin{array}{ccc} \boldsymbol{a}_{0}, &amp; \boldsymbol{a}_{1}, &amp; \ldots, \end{array} \]</div>
- and <div class="math notranslate nohighlight">
-\[ \begin{array}{ccc} \boldsymbol{b}_{0}, &amp; \boldsymbol{b}_{1}, &amp; \ldots, \end{array} \]</div>
- where <span class="math notranslate nohighlight">\(\boldsymbol{a}_t\)</span> and <span class="math notranslate nohighlight">\(\boldsymbol{b}_t\)</span> are <span class="math notranslate nohighlight">\(L\)</span>-length vectors. The output is <div class="math notranslate nohighlight">
-\[ \begin{array}{ccc} \boldsymbol{y}_{0}, &amp; \boldsymbol{y}_{1}, &amp; \ldots, \end{array} \]</div>
- where <div class="math notranslate nohighlight">
-\[ \boldsymbol{y}_{t} = f(\boldsymbol{a}_{t}, \boldsymbol{b}_{t}) \]</div>
+<p>The inputs are     <div class="math notranslate nohighlight">
+\[  \begin{array}{ccc}
+    \boldsymbol{a}_{0}, &amp; \boldsymbol{a}_{1}, &amp; \ldots,
+  \end{array}
+\]</div>
+ and     <div class="math notranslate nohighlight">
+\[  \begin{array}{ccc}
+    \boldsymbol{b}_{0}, &amp; \boldsymbol{b}_{1}, &amp; \ldots,
+  \end{array}
+\]</div>
+ where <span class="math notranslate nohighlight">\(\boldsymbol{a}_t\)</span> and <span class="math notranslate nohighlight">\(\boldsymbol{b}_t\)</span> are <span class="math notranslate nohighlight">\(L\)</span>-length vectors. The output is     <div class="math notranslate nohighlight">
+\[  \begin{array}{ccc}
+    \boldsymbol{y}_{0}, &amp; \boldsymbol{y}_{1}, &amp; \ldots,
+  \end{array}
+\]</div>
+ where   <div class="math notranslate nohighlight">
+\[  \boldsymbol{y}_{t} = f(\boldsymbol{a}_{t}, \boldsymbol{b}_{t})
+\]</div>
  and <span class="math notranslate nohighlight">\(f(\cdot)\)</span> is a function which returns an <span class="math notranslate nohighlight">\(L\)</span>-length vector.</p>
 <p>There are three kinds of input formats.<ul class="simple">
-<li><p>Case <code class="docutils literal notranslate"><span class="pre">-q0</span></code> <div class="math notranslate nohighlight">
-\[\begin{split} \left\{ \begin{array}{ll} \boldsymbol{a}_0, \boldsymbol{a}_1, \ldots, &amp; (\mbox{infile}) \\ \boldsymbol{b}_0, \boldsymbol{b}_1, \ldots, &amp; (\mbox{file1}) \end{array} \right. \end{split}\]</div>
+<li><p>Case <code class="docutils literal notranslate"><span class="pre">-q0</span></code><div class="math notranslate nohighlight">
+\[\begin{split}  \left\{ \begin{array}{ll}
+    \boldsymbol{a}_0, \boldsymbol{a}_1, \ldots, &amp; (\mbox{infile}) \\
+    \boldsymbol{b}_0, \boldsymbol{b}_1, \ldots, &amp; (\mbox{file1})
+  \end{array} \right.
+\end{split}\]</div>
 </p></li>
-<li><p>Case <code class="docutils literal notranslate"><span class="pre">-q1</span></code> <div class="math notranslate nohighlight">
-\[\begin{split} \left\{ \begin{array}{ll} \boldsymbol{a}_0, \boldsymbol{a}_1, \ldots, &amp; (\mbox{infile}) \\ \boldsymbol{b}, &amp; (\mbox{file1}) \end{array} \right. \end{split}\]</div>
+<li><p>Case <code class="docutils literal notranslate"><span class="pre">-q1</span></code><div class="math notranslate nohighlight">
+\[\begin{split}  \left\{ \begin{array}{ll}
+    \boldsymbol{a}_0, \boldsymbol{a}_1, \ldots, &amp; (\mbox{infile}) \\
+    \boldsymbol{b}, &amp; (\mbox{file1})
+  \end{array} \right.
+\end{split}\]</div>
  where <span class="math notranslate nohighlight">\(\boldsymbol{b}_t=\boldsymbol{b}\)</span> for any <span class="math notranslate nohighlight">\(t\)</span>.</p></li>
-<li><p>Case <code class="docutils literal notranslate"><span class="pre">-q2</span></code> <div class="math notranslate nohighlight">
-\[\begin{split} \left\{ \begin{array}{ll} \boldsymbol{a}_0, \boldsymbol{b}_0, \boldsymbol{a}_1, \boldsymbol{b}_1, \ldots, &amp; (\mbox{infile}) \\ \end{array} \right. \end{split}\]</div>
+<li><p>Case <code class="docutils literal notranslate"><span class="pre">-q2</span></code><div class="math notranslate nohighlight">
+\[\begin{split}  \left\{ \begin{array}{ll}
+    \boldsymbol{a}_0, \boldsymbol{b}_0,
+    \boldsymbol{a}_1, \boldsymbol{b}_1, \ldots, &amp; (\mbox{infile}) \\
+  \end{array} \right.
+\end{split}\]</div>
 </p></li>
 </ul>
 </p>

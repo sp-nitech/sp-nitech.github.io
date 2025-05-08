@@ -7,14 +7,14 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>pcas &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -259,12 +259,20 @@
 </p></li>
 </ul>
 </p>
-<p>The input of this command is the <span class="math notranslate nohighlight">\(M\)</span>-th order vectors: <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} \boldsymbol{x}(0), &amp; \boldsymbol{x}(1), &amp; \boldsymbol{x}(0), &amp; \ldots, \end{array} \]</div>
- the mean vector <span class="math notranslate nohighlight">\(\boldsymbol{m}\)</span>, and <span class="math notranslate nohighlight">\(N\)</span> eigenvectors <div class="math notranslate nohighlight">
-\[ \boldsymbol{A} = \left[ \begin{array}{cccc} \boldsymbol{e}(0) &amp; \boldsymbol{e}(1) &amp; \cdots &amp; \boldsymbol{e}(N-1) \end{array} \right]. \]</div>
- The pricipal component score of <span class="math notranslate nohighlight">\(\boldsymbol{x}(t)\)</span> is calculated as <div class="math notranslate nohighlight">
-\[ \boldsymbol{z}(t) = \boldsymbol{A}^{\mathsf{T}} (\boldsymbol{x}(t) - \boldsymbol{m}). \]</div>
+<p>The input of this command is the <span class="math notranslate nohighlight">\(M\)</span>-th order vectors:     <div class="math notranslate nohighlight">
+\[  \begin{array}{cccc}
+    \boldsymbol{x}(0), &amp; \boldsymbol{x}(1), &amp; \boldsymbol{x}(0), &amp; \ldots,
+  \end{array}
+\]</div>
+ the mean vector <span class="math notranslate nohighlight">\(\boldsymbol{m}\)</span>, and <span class="math notranslate nohighlight">\(N\)</span> eigenvectors     <div class="math notranslate nohighlight">
+\[  \boldsymbol{A} = \left[ \begin{array}{cccc}
+    \boldsymbol{e}(0) &amp; \boldsymbol{e}(1) &amp; \cdots &amp; \boldsymbol{e}(N-1)
+  \end{array} \right].
+\]</div>
+ The pricipal component score of <span class="math notranslate nohighlight">\(\boldsymbol{x}(t)\)</span> is calculated as    <div class="math notranslate nohighlight">
+\[  \boldsymbol{z}(t) = \boldsymbol{A}^{\mathsf{T}}
+    (\boldsymbol{x}(t) - \boldsymbol{m}).
+\]</div>
 </p>
 <p>In the below example, the principal component scores of <code class="docutils literal notranslate"><span class="pre">data.d</span></code> are calculated using the mean vector and the eigen vectors in <code class="docutils literal notranslate"><span class="pre">eigvec.dat</span></code>.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>pcas<span class="w"> </span>-l<span class="w"> </span><span class="m">3</span><span class="w"> </span>-n<span class="w"> </span><span class="m">2</span><span class="w"> </span>eigvec.dat<span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span>&gt;<span class="w"> </span>score.dat

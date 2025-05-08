@@ -7,14 +7,14 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>transpose &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -251,10 +251,22 @@
 </p></li>
 </ul>
 </p>
-<p>The input of this command is <div class="math notranslate nohighlight">
-\[\begin{split} \begin{array}{cccc} x(0,0) &amp; x(0,1) &amp; \cdots &amp; x(0,N-1) \\ x(1,0) &amp; x(1,1) &amp; \cdots &amp; x(1,N-1) \\ \vdots &amp; \vdots &amp; &amp; \vdots \\ x(M-1,0) &amp; x(M-1,1) &amp; \cdots &amp; x(M-1,N-1) \end{array} \end{split}\]</div>
- and the output is <div class="math notranslate nohighlight">
-\[\begin{split} \begin{array}{cccc} x(0,0) &amp; x(1,0) &amp; \cdots &amp; x(M-1,0) \\ x(0,1) &amp; x(1,1) &amp; \cdots &amp; x(M-1,1) \\ \vdots &amp; \vdots &amp; &amp; \vdots \\ x(0,N-1) &amp; x(1,N-1) &amp; \cdots &amp; x(M-1,N-1) \end{array} \end{split}\]</div>
+<p>The input of this command is        <div class="math notranslate nohighlight">
+\[\begin{split}  \begin{array}{cccc}
+    x(0,0) &amp; x(0,1) &amp; \cdots &amp; x(0,N-1) \\
+    x(1,0) &amp; x(1,1) &amp; \cdots &amp; x(1,N-1) \\
+    \vdots &amp; \vdots &amp;        &amp; \vdots   \\
+    x(M-1,0) &amp; x(M-1,1) &amp; \cdots &amp; x(M-1,N-1)
+  \end{array}
+\end{split}\]</div>
+ and the output is        <div class="math notranslate nohighlight">
+\[\begin{split}  \begin{array}{cccc}
+    x(0,0) &amp; x(1,0) &amp; \cdots &amp; x(M-1,0) \\
+    x(0,1) &amp; x(1,1) &amp; \cdots &amp; x(M-1,1) \\
+    \vdots &amp; \vdots &amp;        &amp; \vdots   \\
+    x(0,N-1) &amp; x(1,N-1) &amp; \cdots &amp; x(M-1,N-1)
+  \end{array}
+\end{split}\]</div>
  where <span class="math notranslate nohighlight">\(M\)</span> is the number of rows and <span class="math notranslate nohighlight">\(N\)</span> is the number of columns. Note that <span class="math notranslate nohighlight">\(x(m,n) \, \forall m \ge M\)</span> are discarded.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0 1 2</span>
 <span class="c1"># 3 4 5</span>

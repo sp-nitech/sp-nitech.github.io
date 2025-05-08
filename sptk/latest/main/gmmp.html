@@ -7,14 +7,14 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>gmmp &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -263,12 +263,21 @@
 </p></li>
 </ul>
 </p>
-<p>The input of this command is <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} \boldsymbol{x}(0), &amp; \boldsymbol{x}(1), &amp; \ldots, &amp; \boldsymbol{x}(T-1), \end{array} \]</div>
- where <span class="math notranslate nohighlight">\(\boldsymbol{x}(t)\)</span> is <span class="math notranslate nohighlight">\(L\)</span>-dimensional vector. The output is a sequence of log-probabilities of the input vectors: <div class="math notranslate nohighlight">
-\[ \begin{array}{ccc} \log p(\boldsymbol{x}(0)), &amp; \ldots, &amp; \log p(\boldsymbol{x}(T-1)), \end{array} \]</div>
- where <div class="math notranslate nohighlight">
-\[ p(\boldsymbol{x}(t)) = \sum_{k=0}^{K-1} w_k \mathcal{N}(\boldsymbol{x}(t) \, | \, \boldsymbol{\mu}_k, \boldsymbol{\varSigma}_k), \]</div>
+<p>The input of this command is     <div class="math notranslate nohighlight">
+\[  \begin{array}{cccc}
+    \boldsymbol{x}(0), &amp; \boldsymbol{x}(1), &amp; \ldots, &amp; \boldsymbol{x}(T-1),
+  \end{array}
+\]</div>
+ where <span class="math notranslate nohighlight">\(\boldsymbol{x}(t)\)</span> is <span class="math notranslate nohighlight">\(L\)</span>-dimensional vector. The output is a sequence of log-probabilities of the input vectors:     <div class="math notranslate nohighlight">
+\[  \begin{array}{ccc}
+    \log p(\boldsymbol{x}(0)), &amp; \ldots, &amp; \log p(\boldsymbol{x}(T-1)),
+  \end{array}
+\]</div>
+ where     <div class="math notranslate nohighlight">
+\[  p(\boldsymbol{x}(t)) = \sum_{k=0}^{K-1} w_k
+    \mathcal{N}(\boldsymbol{x}(t) \, | \,
+                \boldsymbol{\mu}_k, \boldsymbol{\varSigma}_k),
+\]</div>
  where <span class="math notranslate nohighlight">\(w_k\)</span>, <span class="math notranslate nohighlight">\(\boldsymbol{\mu}_k\)</span>, and <span class="math notranslate nohighlight">\(\boldsymbol{\varSigma}_k\)</span>, are the parameters of GMM.</p>
 <p>In the following example, the log-probabilities of input data read from <code class="docutils literal notranslate"><span class="pre">data.d</span></code> based on 4-mixture GMM are calculetaed and then averaged.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>gmmp<span class="w"> </span>-k<span class="w"> </span><span class="m">4</span><span class="w"> </span>data.gmm<span class="w"> </span>&lt;<span class="w"> </span>data.d<span class="w"> </span>&gt;<span class="w"> </span>data.p

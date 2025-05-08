@@ -7,14 +7,14 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>cdist &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -264,31 +264,64 @@
 </p></li>
 </ul>
 </p>
-<p>The cepsturm model can be described as <div class="math notranslate nohighlight">
-\[ \log H(e^{j\omega}) = \sum_{m=0}^M c(m) e^{-j\omega m}. \]</div>
- Let us define <div class="math notranslate nohighlight">
-\[ \log H_0(e^{j\omega}) = \sum_{m=1}^M c(m) e^{-j\omega m}, \]</div>
- where <div class="math notranslate nohighlight">
-\[ \log H_0(e^{j\omega}) = \log|H_0(e^{j\omega})| + j \arg H_0(e^{j\omega}). \]</div>
- Using the properties of complex conjugate, we obtain <div class="math notranslate nohighlight">
-\[\begin{split}\begin{eqnarray} \sum_{m=1}^M c(m) e^{-j\omega m} + \sum_{m=1}^M c(m) e^{j\omega m} &amp;=&amp; 2\log |H_0(e^{j\omega})| \\ \sum_{m=-M}^M \hat{c}(m) e^{-j\omega m} &amp;=&amp; \log |H_0(e^{j\omega})|^2 \\ \end{eqnarray}\end{split}\]</div>
- where <div class="math notranslate nohighlight">
-\[\begin{split} \hat{c}(m) = \left\{ \begin{array}{ll} c(-m), &amp; m &lt; 0 \\ 0, &amp; m = 0 \\ c(m). &amp; m &gt; 0 \end{array} \right. \end{split}\]</div>
- The Parseval’s theorem says that the distance between two cepstral coefficients equivalents to the distance between two log spectra: <div class="math notranslate nohighlight">
-\[ \sum_{m=-M}^M (\hat{c}^{(1)}(m) - \hat{c}^{(2)}(m))^2 = \frac{1}{2\pi} \int_{-\pi}^{\pi} \left( \log|H_0^{(1)}(e^{j\omega})|^2 - \log|H_0^{(2)}(e^{j\omega})|^2 \right)^2 d\omega. \]</div>
- The Euclidean distance can be written as <div class="math notranslate nohighlight">
-\[ \sqrt{\sum_{m=-M}^M (\hat{c}^{(1)}(m) - \hat{c}^{(2)}(m))^2} = \sqrt{2 \sum_{m=1}^M (c^{(1)}(m) - c^{(2)}(m))^2}. \]</div>
- It can be converted into decibels by multipling a constant: <div class="math notranslate nohighlight">
-\[ \underbrace{\frac{10 \sqrt{2}}{\log 10}}_C \sqrt{\underbrace{\sum_{m=1}^M (c^{(1)}(m) - c^{(2)}(m))^2}_d}. \]</div>
+<p>The cepsturm model can be described as   <div class="math notranslate nohighlight">
+\[  \log H(e^{j\omega}) = \sum_{m=0}^M c(m) e^{-j\omega m}.
+\]</div>
+ Let us define   <div class="math notranslate nohighlight">
+\[  \log H_0(e^{j\omega}) = \sum_{m=1}^M c(m) e^{-j\omega m},
+\]</div>
+ where   <div class="math notranslate nohighlight">
+\[  \log H_0(e^{j\omega}) = \log|H_0(e^{j\omega})| + j \arg H_0(e^{j\omega}).
+\]</div>
+ Using the properties of complex conjugate, we obtain      <div class="math notranslate nohighlight">
+\[\begin{split}\begin{eqnarray}  \sum_{m=1}^M c(m) e^{-j\omega m} + \sum_{m=1}^M c(m) e^{j\omega m}
+    &amp;=&amp; 2\log |H_0(e^{j\omega})| \\
+  \sum_{m=-M}^M \hat{c}(m) e^{-j\omega m}
+    &amp;=&amp; \log |H_0(e^{j\omega})|^2 \\
+\end{eqnarray}\end{split}\]</div>
+ where       <div class="math notranslate nohighlight">
+\[\begin{split}  \hat{c}(m) = \left\{ \begin{array}{ll}
+    c(-m), &amp; m &lt; 0 \\
+    0,     &amp; m = 0 \\
+    c(m).  &amp; m &gt; 0
+  \end{array} \right.
+\end{split}\]</div>
+ The Parseval’s theorem says that the distance between two cepstral coefficients equivalents to the distance between two log spectra:      <div class="math notranslate nohighlight">
+\[  \sum_{m=-M}^M (\hat{c}^{(1)}(m) - \hat{c}^{(2)}(m))^2
+    = \frac{1}{2\pi} \int_{-\pi}^{\pi}
+      \left( \log|H_0^{(1)}(e^{j\omega})|^2 - \log|H_0^{(2)}(e^{j\omega})|^2
+      \right)^2 d\omega.
+\]</div>
+ The Euclidean distance can be written as    <div class="math notranslate nohighlight">
+\[  \sqrt{\sum_{m=-M}^M (\hat{c}^{(1)}(m) - \hat{c}^{(2)}(m))^2}
+  = \sqrt{2 \sum_{m=1}^M (c^{(1)}(m) - c^{(2)}(m))^2}.
+\]</div>
+ It can be converted into decibels by multipling a constant:    <div class="math notranslate nohighlight">
+\[  \underbrace{\frac{10 \sqrt{2}}{\log 10}}_C
+    \sqrt{\underbrace{\sum_{m=1}^M (c^{(1)}(m) - c^{(2)}(m))^2}_d}.
+\]</div>
 </p>
-<p>The input of this command is <div class="math notranslate nohighlight">
-\[\begin{split} \begin{array}{ccccc} c^{(1)}_t(0), &amp; c^{(1)}_t(1), &amp; \ldots, &amp; c^{(1)}_t(M), &amp; \ldots \\ c^{(2)}_t(0), &amp; c^{(2)}_t(1), &amp; \ldots, &amp; c^{(2)}_t(M), &amp; \ldots \end{array} \end{split}\]</div>
- and the output is <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} d'_t, &amp; d'_{t+1}, &amp; d'_{t+2}, &amp; \ldots \end{array} \]</div>
- where <div class="math notranslate nohighlight">
-\[\begin{split} d'_t = \left\{ \begin{array}{cl} C \sqrt{d_t}, &amp; (O = 0) \\ \sqrt{d_t}, &amp; (O = 1) \\ d_t. &amp; (O = 2) \end{array} \right. \end{split}\]</div>
- If <code class="docutils literal notranslate"><span class="pre">-f</span></code> option is not given, the output is the total cepstral distance between two cepstral coefficients: <div class="math notranslate nohighlight">
-\[ d' = \frac{1}{T} \sum_{t=0}^{T-1} d'_t \]</div>
+<p>The input of this command is      <div class="math notranslate nohighlight">
+\[\begin{split}  \begin{array}{ccccc}
+    c^{(1)}_t(0), &amp; c^{(1)}_t(1), &amp; \ldots, &amp; c^{(1)}_t(M), &amp; \ldots \\
+    c^{(2)}_t(0), &amp; c^{(2)}_t(1), &amp; \ldots, &amp; c^{(2)}_t(M), &amp; \ldots
+  \end{array}
+\end{split}\]</div>
+ and the output is     <div class="math notranslate nohighlight">
+\[  \begin{array}{cccc}
+    d'_t, &amp; d'_{t+1}, &amp; d'_{t+2}, &amp; \ldots
+  \end{array}
+\]</div>
+ where       <div class="math notranslate nohighlight">
+\[\begin{split}  d'_t = \left\{ \begin{array}{cl}
+    C \sqrt{d_t}, &amp; (O = 0) \\
+    \sqrt{d_t}, &amp; (O = 1) \\
+    d_t. &amp; (O = 2)
+  \end{array} \right.
+\end{split}\]</div>
+ If <code class="docutils literal notranslate"><span class="pre">-f</span></code> option is not given, the output is the total cepstral distance between two cepstral coefficients:   <div class="math notranslate nohighlight">
+\[   d' = \frac{1}{T} \sum_{t=0}^{T-1} d'_t
+\]</div>
  where <span class="math notranslate nohighlight">\(T\)</span> is the number of frames.</p>
 <p>In the example below, the spectral distance of the 15-th order cepstrum files <code class="docutils literal notranslate"><span class="pre">data1.cep</span></code> and <code class="docutils literal notranslate"><span class="pre">data2.cep</span></code> is evaluated and displayed:</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>cdist<span class="w"> </span>-m<span class="w"> </span><span class="m">15</span><span class="w"> </span>data1.cep<span class="w"> </span>data2.cep<span class="w"> </span><span class="p">|</span><span class="w"> </span>dmp<span class="w"> </span>+d

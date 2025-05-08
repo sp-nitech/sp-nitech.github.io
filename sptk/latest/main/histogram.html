@@ -7,14 +7,14 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>histogram &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -97,13 +97,13 @@
 <li class="toctree-l1"><a class="reference internal" href="gwave.html">gwave</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">histogram</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk20HistogramCalculationE"><code class="docutils literal notranslate"><span class="pre">HistogramCalculation</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk20HistogramCalculation20HistogramCalculationEidd"><code class="docutils literal notranslate"><span class="pre">HistogramCalculation::HistogramCalculation()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk20HistogramCalculation9GetNumBinEv"><code class="docutils literal notranslate"><span class="pre">HistogramCalculation::GetNumBin()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk20HistogramCalculation13GetLowerBoundEv"><code class="docutils literal notranslate"><span class="pre">HistogramCalculation::GetLowerBound()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk20HistogramCalculation13GetUpperBoundEv"><code class="docutils literal notranslate"><span class="pre">HistogramCalculation::GetUpperBound()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk20HistogramCalculation7IsValidEv"><code class="docutils literal notranslate"><span class="pre">HistogramCalculation::IsValid()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk20HistogramCalculation3RunERKNSt6vectorIdEEPNSt6vectorIdEE"><code class="docutils literal notranslate"><span class="pre">HistogramCalculation::Run()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk20HistogramCalculationE"><code class="docutils literal notranslate"><span class="pre">sptk::HistogramCalculation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk20HistogramCalculation20HistogramCalculationEidd"><code class="docutils literal notranslate"><span class="pre">HistogramCalculation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk20HistogramCalculation9GetNumBinEv"><code class="docutils literal notranslate"><span class="pre">GetNumBin()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk20HistogramCalculation13GetLowerBoundEv"><code class="docutils literal notranslate"><span class="pre">GetLowerBound()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk20HistogramCalculation13GetUpperBoundEv"><code class="docutils literal notranslate"><span class="pre">GetUpperBound()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk20HistogramCalculation7IsValidEv"><code class="docutils literal notranslate"><span class="pre">IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk20HistogramCalculation3RunERKNSt6vectorIdEEPNSt6vectorIdEE"><code class="docutils literal notranslate"><span class="pre">Run()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -292,13 +292,20 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">10</span><
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk20HistogramCalculationE">
 <span id="_CPPv3N4sptk20HistogramCalculationE"></span><span id="_CPPv2N4sptk20HistogramCalculationE"></span><span id="sptk::HistogramCalculation"></span><span class="target" id="classsptk_1_1HistogramCalculation"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">HistogramCalculation</span></span></span><a class="headerlink" href="#_CPPv4N4sptk20HistogramCalculationE" title="Link to this definition"></a><br /></dt>
 <dd><p>Calculate histogram.</p>
-<p>The input is a data sequence: <div class="math notranslate nohighlight">
-\[ \begin{array}{ccc} x(0), &amp; x(1), &amp; \ldots, \end{array} \]</div>
- and the output is the histogram of data: <div class="math notranslate nohighlight">
-\[ \begin{array}{cccc} b(1), &amp; b(2), &amp; \ldots, &amp; b(N), \end{array} \]</div>
+<p>The input is a data sequence:     <div class="math notranslate nohighlight">
+\[  \begin{array}{ccc}
+    x(0), &amp; x(1), &amp; \ldots,
+  \end{array}
+\]</div>
+ and the output is the histogram of data:     <div class="math notranslate nohighlight">
+\[  \begin{array}{cccc}
+    b(1), &amp; b(2), &amp; \ldots, &amp; b(N),
+  \end{array}
+\]</div>
  where <span class="math notranslate nohighlight">\(N\)</span> is the number of bins.</p>
-<p>The width of the bin is calculated as <div class="math notranslate nohighlight">
-\[ \frac{y_U - y_L}{N}, \]</div>
+<p>The width of the bin is calculated as   <div class="math notranslate nohighlight">
+\[   \frac{y_U - y_L}{N},
+\]</div>
  where <span class="math notranslate nohighlight">\(y_U\)</span> and <span class="math notranslate nohighlight">\(y_L\)</span> are the upper bound and the lower bound of the histogram. The data that satisfies <span class="math notranslate nohighlight">\(x(t) &gt; y_U\)</span> or <span class="math notranslate nohighlight">\(x(t) &lt; y_L\)</span> is not contributed to any bins. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>

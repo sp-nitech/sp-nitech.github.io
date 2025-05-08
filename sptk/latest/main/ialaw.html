@@ -7,14 +7,14 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ialaw &mdash; SPTK  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9a2dae69"></script>
+      <script src="../_static/doctools.js?v=9bcbadda"></script>
       <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
       <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
@@ -101,13 +101,13 @@
 <li class="toctree-l1"><a class="reference internal" href="huffman_encode.html">huffman_encode</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ialaw</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk13ALawExpansionE"><code class="docutils literal notranslate"><span class="pre">ALawExpansion</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk13ALawExpansion13ALawExpansionEdd"><code class="docutils literal notranslate"><span class="pre">ALawExpansion::ALawExpansion()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk13ALawExpansion14GetAbsMaxValueEv"><code class="docutils literal notranslate"><span class="pre">ALawExpansion::GetAbsMaxValue()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk13ALawExpansion20GetCompressionFactorEv"><code class="docutils literal notranslate"><span class="pre">ALawExpansion::GetCompressionFactor()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk13ALawExpansion7IsValidEv"><code class="docutils literal notranslate"><span class="pre">ALawExpansion::IsValid()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk13ALawExpansion3RunEdPd"><code class="docutils literal notranslate"><span class="pre">ALawExpansion::Run()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk13ALawExpansion3RunEPd"><code class="docutils literal notranslate"><span class="pre">ALawExpansion::Run()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk13ALawExpansionE"><code class="docutils literal notranslate"><span class="pre">sptk::ALawExpansion</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk13ALawExpansion13ALawExpansionEdd"><code class="docutils literal notranslate"><span class="pre">ALawExpansion()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk13ALawExpansion14GetAbsMaxValueEv"><code class="docutils literal notranslate"><span class="pre">GetAbsMaxValue()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk13ALawExpansion20GetCompressionFactorEv"><code class="docutils literal notranslate"><span class="pre">GetCompressionFactor()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk13ALawExpansion7IsValidEv"><code class="docutils literal notranslate"><span class="pre">IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk13ALawExpansion3RunEdPd"><code class="docutils literal notranslate"><span class="pre">Run()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk13ALawExpansion3RunEPd"><code class="docutils literal notranslate"><span class="pre">Run()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -286,8 +286,14 @@
 <dt class="sig sig-object cpp" id="_CPPv4N4sptk13ALawExpansionE">
 <span id="_CPPv3N4sptk13ALawExpansionE"></span><span id="_CPPv2N4sptk13ALawExpansionE"></span><span id="sptk::ALawExpansion"></span><span class="target" id="classsptk_1_1ALawExpansion"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">ALawExpansion</span></span></span><a class="headerlink" href="#_CPPv4N4sptk13ALawExpansionE" title="Link to this definition"></a><br /></dt>
 <dd><p>Nonlinearly decompress data based on A-law algorithm.</p>
-<p>Given the input data <span class="math notranslate nohighlight">\(y(n)\)</span>, the expansion is performed as follows: <div class="math notranslate nohighlight">
-\[\begin{split} x(n) = V \, \mathrm{sgn}(y(n)) \left\{ \begin{array}{ll} \frac{\frac{|y(n)|}{V}(1 + \log A)}{A}, &amp; \frac{|y(n)|}{V} &lt; \frac{1}{1 + \log A} \\ \frac{\exp(-1 + \frac{|y(n)|}{V}(1 + \log A))}{A}, &amp; \frac{|y(n)|}{V} \ge \frac{1}{1 + \log A} \\ \end{array} \right. \end{split}\]</div>
+<p>Given the input data <span class="math notranslate nohighlight">\(y(n)\)</span>, the expansion is performed as follows:        <div class="math notranslate nohighlight">
+\[\begin{split}  x(n) = V \, \mathrm{sgn}(y(n)) \left\{ \begin{array}{ll}
+    \frac{\frac{|y(n)|}{V}(1 + \log A)}{A}, &amp;
+      \frac{|y(n)|}{V} &lt; \frac{1}{1 + \log A} \\
+    \frac{\exp(-1 + \frac{|y(n)|}{V}(1 + \log A))}{A}, &amp;
+      \frac{|y(n)|}{V} \ge \frac{1}{1 + \log A} \\
+  \end{array} \right.
+\end{split}\]</div>
  where <span class="math notranslate nohighlight">\(V\)</span> is the absolute maximum value of the input data and <span class="math notranslate nohighlight">\(A\)</span> is the compression factor, which is typically set to 87.6. </p>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
