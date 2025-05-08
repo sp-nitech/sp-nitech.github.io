@@ -490,6 +490,9 @@
 <span class="sd">    norm : [&#39;none&#39;, &#39;power&#39;, &#39;magnitude&#39;]</span>
 <span class="sd">        The normalization type of the window.</span>
 
+<span class="sd">    symmetric : bool</span>
+<span class="sd">        If True, the window is symmetric, otherwise periodic.</span>
+
 <span class="sd">    eps : float &gt;= 0</span>
 <span class="sd">        A small value added to the power spectrum.</span>
 
@@ -517,6 +520,7 @@
         <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;constant&quot;</span><span class="p">,</span>
         <span class="n">window</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;blackman&quot;</span><span class="p">,</span>
         <span class="n">norm</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;power&quot;</span><span class="p">,</span>
+        <span class="n">symmetric</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-9</span><span class="p">,</span>
         <span class="n">relative_floor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">out_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;power&quot;</span><span class="p">,</span>
@@ -585,6 +589,7 @@
         <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">window</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">norm</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">symmetric</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
         <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
         <span class="n">relative_floor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">out_format</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -617,6 +622,7 @@
                 <span class="n">out_length</span><span class="o">=</span><span class="n">fft_length</span><span class="p">,</span>
                 <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
                 <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+                <span class="n">symmetric</span><span class="o">=</span><span class="n">symmetric</span><span class="p">,</span>
                 <span class="n">learnable</span><span class="o">=</span><span class="s2">&quot;window&quot;</span> <span class="ow">in</span> <span class="n">learnable</span><span class="p">,</span>
             <span class="p">),</span>
         <span class="p">)</span>

@@ -1860,6 +1860,7 @@
     <span class="n">center</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">window</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;blackman&quot;</span><span class="p">,</span>
     <span class="n">norm</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;power&quot;</span><span class="p">,</span>
+    <span class="n">symmetric</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute inverse short-time Fourier transform.</span>
 
@@ -1890,6 +1891,9 @@
 <span class="sd">    norm : [&#39;none&#39;, &#39;power&#39;, &#39;magnitude&#39;]</span>
 <span class="sd">        The normalization type of the window.</span>
 
+<span class="sd">    symmetric : bool</span>
+<span class="sd">        If True, the window is symmetric, otherwise periodic.</span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    out : Tensor [shape=(..., T)]</span>
@@ -1905,6 +1909,7 @@
         <span class="n">center</span><span class="o">=</span><span class="n">center</span><span class="p">,</span>
         <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
         <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+        <span class="n">symmetric</span><span class="o">=</span><span class="n">symmetric</span><span class="p">,</span>
     <span class="p">)</span></div>
 
 
@@ -3346,6 +3351,7 @@
     <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;constant&quot;</span><span class="p">,</span>
     <span class="n">window</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;blackman&quot;</span><span class="p">,</span>
     <span class="n">norm</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;power&quot;</span><span class="p">,</span>
+    <span class="n">symmetric</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-9</span><span class="p">,</span>
     <span class="n">relative_floor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">out_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;power&quot;</span><span class="p">,</span>
@@ -3382,6 +3388,9 @@
 <span class="sd">    norm : [&#39;none&#39;, &#39;power&#39;, &#39;magnitude&#39;]</span>
 <span class="sd">        The normalization type of the window.</span>
 
+<span class="sd">    symmetric : bool</span>
+<span class="sd">        If True, the window is symmetric, otherwise periodic.</span>
+
 <span class="sd">    eps : float &gt;= 0</span>
 <span class="sd">        A small value added to the power spectrum.</span>
 
@@ -3407,6 +3416,7 @@
         <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span>
         <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
         <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+        <span class="n">symmetric</span><span class="o">=</span><span class="n">symmetric</span><span class="p">,</span>
         <span class="n">eps</span><span class="o">=</span><span class="n">eps</span><span class="p">,</span>
         <span class="n">relative_floor</span><span class="o">=</span><span class="n">relative_floor</span><span class="p">,</span>
         <span class="n">out_format</span><span class="o">=</span><span class="n">out_format</span><span class="p">,</span>
@@ -3450,6 +3460,7 @@
     <span class="n">center</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="n">window</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;rectangular&quot;</span><span class="p">,</span>
     <span class="n">norm</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;none&quot;</span><span class="p">,</span>
+    <span class="n">symmetric</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Revert framed waveform.</span>
 
@@ -3474,6 +3485,9 @@
 <span class="sd">    norm : [&#39;none&#39;, &#39;power&#39;, &#39;magnitude&#39;]</span>
 <span class="sd">        The normalization type of the window.</span>
 
+<span class="sd">    symmetric : bool</span>
+<span class="sd">        If True, the window is symmetric, otherwise periodic.</span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    out : Tensor [shape=(..., T)]</span>
@@ -3487,6 +3501,7 @@
         <span class="n">center</span><span class="o">=</span><span class="n">center</span><span class="p">,</span>
         <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
         <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+        <span class="n">symmetric</span><span class="o">=</span><span class="n">symmetric</span><span class="p">,</span>
     <span class="p">)</span></div>
 
 
@@ -3522,6 +3537,7 @@
     <span class="o">*</span><span class="p">,</span>
     <span class="n">window</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;blackman&quot;</span><span class="p">,</span>
     <span class="n">norm</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;power&quot;</span><span class="p">,</span>
+    <span class="n">symmetric</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Apply a window function to the given waveform.</span>
 
@@ -3541,13 +3557,18 @@
 <span class="sd">    norm : [&#39;none&#39;, &#39;power&#39;, &#39;magnitude&#39;]</span>
 <span class="sd">        The normalization type of the window.</span>
 
+<span class="sd">    symmetric : bool</span>
+<span class="sd">        If True, the window is symmetric, otherwise periodic.</span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    out : Tensor [shape=(..., L2)]</span>
 <span class="sd">        The windowed waveform.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">Window</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">out_length</span><span class="o">=</span><span class="n">out_length</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">Window</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">out_length</span><span class="o">=</span><span class="n">out_length</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span> <span class="n">symmetric</span><span class="o">=</span><span class="n">symmetric</span>
+    <span class="p">)</span></div>
 
 
 

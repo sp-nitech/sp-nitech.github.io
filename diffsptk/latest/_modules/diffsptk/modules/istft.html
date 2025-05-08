@@ -481,6 +481,9 @@
 <span class="sd">    norm : [&#39;none&#39;, &#39;power&#39;, &#39;magnitude&#39;]</span>
 <span class="sd">        The normalization type of the window.</span>
 
+<span class="sd">    symmetric : bool</span>
+<span class="sd">        If True, the window is symmetric, otherwise periodic.</span>
+
 <span class="sd">    learnable : bool or list[str]</span>
 <span class="sd">        Indicates whether the parameters are learnable. If a boolean, it specifies</span>
 <span class="sd">        whether all parameters are learnable. If a list, it contains the keys of the</span>
@@ -497,6 +500,7 @@
         <span class="n">center</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">window</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;blackman&quot;</span><span class="p">,</span>
         <span class="n">norm</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;power&quot;</span><span class="p">,</span>
+        <span class="n">symmetric</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">learnable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -559,6 +563,7 @@
         <span class="n">center</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
         <span class="n">window</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
         <span class="n">norm</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">symmetric</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
         <span class="n">learnable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Precomputed</span><span class="p">:</span>
         <span class="n">InverseShortTimeFourierTransform</span><span class="o">.</span><span class="n">_check</span><span class="p">(</span><span class="n">learnable</span><span class="p">)</span>
@@ -585,8 +590,9 @@
                 <span class="n">frame_length</span><span class="o">=</span><span class="n">frame_length</span><span class="p">,</span>
                 <span class="n">frame_period</span><span class="o">=</span><span class="n">frame_period</span><span class="p">,</span>
                 <span class="n">center</span><span class="o">=</span><span class="n">center</span><span class="p">,</span>
-                <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
                 <span class="n">window</span><span class="o">=</span><span class="n">window</span><span class="p">,</span>
+                <span class="n">norm</span><span class="o">=</span><span class="n">norm</span><span class="p">,</span>
+                <span class="n">symmetric</span><span class="o">=</span><span class="n">symmetric</span><span class="p">,</span>
                 <span class="n">learnable</span><span class="o">=</span><span class="s2">&quot;window&quot;</span> <span class="ow">in</span> <span class="n">learnable</span><span class="p">,</span>
             <span class="p">),</span>
         <span class="p">)</span>
