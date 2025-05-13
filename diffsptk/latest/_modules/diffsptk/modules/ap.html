@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.modules.ap &#8212; diffsptk 3.0.3.dev0 documentation</title>
+    <title>diffsptk.modules.ap &#8212; diffsptk 3.1.1.dev0 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=d57d6cd3"></script>
+    <script src="../../../_static/documentation_options.js?v=4c45e929"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/ap';</script>
@@ -53,7 +53,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="3.0.3.dev0" />
+  <meta name="docsearch:version" content="3.1.1.dev0" />
   </head>
   
   
@@ -569,16 +569,10 @@
 <span class="sd">        &gt;&gt;&gt; f0 = pitch(x)</span>
 <span class="sd">        &gt;&gt;&gt; f0.shape</span>
 <span class="sd">        torch.Size([7])</span>
-<span class="sd">        &gt;&gt;&gt; aperiodicity = diffsptk.Aperiodicity(160, 16000, 8)</span>
+<span class="sd">        &gt;&gt;&gt; aperiodicity = diffsptk.Aperiodicity(160, 16000, 1024)</span>
 <span class="sd">        &gt;&gt;&gt; ap = aperiodicity(x, f0)</span>
-<span class="sd">        &gt;&gt;&gt; ap</span>
-<span class="sd">        tensor([[0.1010, 0.9948, 0.9990, 0.9990, 0.9990],</span>
-<span class="sd">                [0.0010, 0.8419, 0.3644, 0.5912, 0.9590],</span>
-<span class="sd">                [0.0010, 0.5316, 0.3091, 0.5430, 0.9540],</span>
-<span class="sd">                [0.0010, 0.3986, 0.1930, 0.4222, 0.9234],</span>
-<span class="sd">                [0.0010, 0.3627, 0.1827, 0.4106, 0.9228],</span>
-<span class="sd">                [0.0010, 0.3699, 0.1827, 0.4106, 0.9228],</span>
-<span class="sd">                [0.0010, 0.7659, 0.7081, 0.8378, 0.9912]])</span>
+<span class="sd">        &gt;&gt;&gt; ap.shape</span>
+<span class="sd">        torch.Size([7, 513])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">d</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span>

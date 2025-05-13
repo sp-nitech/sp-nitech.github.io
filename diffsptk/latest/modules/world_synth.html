@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>quantize &#8212; diffsptk 3.1.1.dev0 documentation</title>
+    <title>world_synth &#8212; diffsptk 3.1.1.dev0 documentation</title>
   
   
   
@@ -41,7 +41,8 @@
     <script src="../_static/documentation_options.js?v=4c45e929"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/quantize';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/world_synth';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://sp-nitech.github.io/diffsptk/switcher.json';
@@ -52,8 +53,8 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="rlevdur" href="rlevdur.html" />
-    <link rel="prev" title="pqmf" href="pqmf.html" />
+    <link rel="next" title="yingram" href="yingram.html" />
+    <link rel="prev" title="window" href="window.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="3.1.1.dev0" />
@@ -481,7 +482,7 @@
 <li class="toctree-l1"><a class="reference internal" href="pol_root.html">pol_root</a></li>
 <li class="toctree-l1"><a class="reference internal" href="poledf.html">poledf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">quantize</a></li>
+<li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rlevdur.html">rlevdur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rmse.html">rmse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="root_pol.html">root_pol</a></li>
@@ -494,7 +495,7 @@
 <li class="toctree-l1"><a class="reference internal" href="vq.html">vq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="wht.html">wht</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
-<li class="toctree-l1"><a class="reference internal" href="world_synth.html">world_synth</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">world_synth</a></li>
 <li class="toctree-l1"><a class="reference internal" href="yingram.html">yingram</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
@@ -541,7 +542,7 @@
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">diffsptk.modules</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">quantize</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">world_synth</span></li>
   </ul>
 </nav>
 </div>
@@ -558,84 +559,70 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="quantize">
-<span id="id1"></span><h1>quantize<a class="headerlink" href="#quantize" title="Link to this heading">#</a></h1>
+  <section id="world-synth">
+<span id="id1"></span><h1>world_synth<a class="headerlink" href="#world-synth" title="Link to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.UniformQuantization">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">UniformQuantization</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">abs_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantizer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'mid-rise'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/quantize.html#UniformQuantization"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.UniformQuantization" title="Link to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/quantize.html">this page</a>
-for details. The gradient is copied from the subsequent module.</p>
+<dt class="sig sig-object py" id="diffsptk.WorldSynthesis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">WorldSynthesis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frame_period</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">default_f0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">500</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/world_synth.html#WorldSynthesis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.WorldSynthesis" title="Link to this definition">#</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/world_synth.html">this page</a>
+for details. Note that the gradients do not propagated through F0.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>abs_max</strong><span class="classifier">float &gt; 0</span></dt><dd><p>The absolute maximum value of the input waveform.</p>
+<dt><strong>frame_period</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The frame period in samples, <span class="math notranslate nohighlight">\(P\)</span>.</p>
 </dd>
-<dt><strong>n_bit</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The number of quantization bits.</p>
+<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 8000</span></dt><dd><p>The sample rate in Hz.</p>
 </dd>
-<dt><strong>quantizer</strong><span class="classifier">[‘mid-rise’, ‘mid-tread’]</span></dt><dd><p>The quantizer type.</p>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= 1024</span></dt><dd><p>The number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+</dd>
+<dt><strong>default_f0</strong><span class="classifier">float &gt; 0</span></dt><dd><p>The F0 value used when the input F0 is unvoiced.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.UniformQuantization.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/modules/quantize.html#UniformQuantization.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.UniformQuantization.forward" title="Link to this definition">#</a></dt>
-<dd><p>Quantize the input waveform.</p>
+<dt class="sig sig-object py" id="diffsptk.WorldSynthesis.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/modules/world_synth.html#WorldSynthesis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.WorldSynthesis.forward" title="Link to this definition">#</a></dt>
+<dd><p>Synthesize speech using WORLD vocoder.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>The input waveform.</p>
+<dt><strong>f0</strong><span class="classifier">Tensor [shape=(B, T/P) or (T/P,)]</span></dt><dd><p>The F0 in Hz.</p>
+</dd>
+<dt><strong>ap</strong><span class="classifier">Tensor [shape=(B, T/P, L/2+1) or (T/P, L/2+1)]</span></dt><dd><p>The aperiodicity in [0, 1].</p>
+</dd>
+<dt><strong>sp</strong><span class="classifier">Tensor [shape=(B, T/P, L/2+1) or (T/P, L/2+1)]</span></dt><dd><p>The spectral envelope (power spectrum).</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>The quantized waveform.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(B, T) or (T,)]</span></dt><dd><p>The synthesized speech waveform.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">quantize</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">UniformQuantization</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">quantize</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">int</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">tensor([0, 0, 1, 1, 2, 2, 3, 3, 3], dtype=torch.int32)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pitch</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Pitch</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;f0&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f0</span> <span class="o">=</span> <span class="n">pitch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">aperiodicity</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Aperiodicity</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">16000</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span> <span class="o">=</span> <span class="n">aperiodicity</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pitch_spec</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">PitchAdaptiveSpectralAnalysis</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sp</span> <span class="o">=</span> <span class="n">pitch_spec</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">world_synth</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">WorldSynthesis</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">world_synth</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span> <span class="n">ap</span><span class="p">,</span> <span class="n">sp</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">torch.Size([1120])</span>
 </pre></div>
 </div>
 </dd></dl>
 
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="diffsptk.functional.quantize">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">quantize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">abs_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_bit</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">quantizer</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'mid-rise'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/functional.html#quantize"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.quantize" title="Link to this definition">#</a></dt>
-<dd><p>Quantize the input waveform.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>The input waveform.</p>
-</dd>
-<dt><strong>abs_max</strong><span class="classifier">float &gt; 0</span></dt><dd><p>The absolute maximum value of the input waveform.</p>
-</dd>
-<dt><strong>n_bit</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The number of quantization bits.</p>
-</dd>
-<dt><strong>quantizer</strong><span class="classifier">[‘mid-rise’, ‘mid-tread’]</span></dt><dd><p>The quantizer type.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>The quantized waveform.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd></dl>
-
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="ulaw.html#ulaw"><span class="std std-ref">ulaw</span></a> <a class="reference internal" href="dequantize.html#dequantize"><span class="std std-ref">dequantize</span></a></p>
+<p><a class="reference internal" href="ap.html#ap"><span class="std std-ref">ap</span></a> <a class="reference internal" href="pitch.html#pitch"><span class="std std-ref">pitch</span></a> <a class="reference internal" href="pitch_spec.html#pitch-spec"><span class="std std-ref">pitch_spec</span></a></p>
 </div>
 </section>
 
@@ -650,20 +637,20 @@ for details. The gradient is copied from the subsequent module.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="pqmf.html"
+       href="window.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">pqmf</p>
+        <p class="prev-next-title">window</p>
       </div>
     </a>
     <a class="right-next"
-       href="rlevdur.html"
+       href="yingram.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">rlevdur</p>
+        <p class="prev-next-title">yingram</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -686,11 +673,10 @@ for details. The gradient is copied from the subsequent module.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.UniformQuantization"><code class="docutils literal notranslate"><span class="pre">UniformQuantization</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.UniformQuantization.forward"><code class="docutils literal notranslate"><span class="pre">UniformQuantization.forward()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.WorldSynthesis"><code class="docutils literal notranslate"><span class="pre">WorldSynthesis</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.WorldSynthesis.forward"><code class="docutils literal notranslate"><span class="pre">WorldSynthesis.forward()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.quantize"><code class="docutils literal notranslate"><span class="pre">quantize()</span></code></a></li>
 </ul>
   </nav></div>
 
