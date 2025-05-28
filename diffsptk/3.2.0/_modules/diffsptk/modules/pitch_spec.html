@@ -1,0 +1,1028 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>diffsptk.modules.pitch_spec &#8212; diffsptk 3.2.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../../_static/documentation_options.js?v=4f6ddb47"></script>
+    <script src="../../../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/pitch_spec';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://sp-nitech.github.io/diffsptk/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '3.2.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <link rel="icon" href="../../../_static/favicon.png"/>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="3.2.0" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../../_static/logo.png" class="logo__image only-light" alt=""/>
+    <img src="../../../_static/logo.png" class="logo__image only-dark pst-js-only" alt=""/>
+  
+  
+    <p class="title logo__title">diffsptk</p>
+  
+</a></div>
+    
+      <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../modules/index.html">
+    Modules
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../utils.html">
+    Utils
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/sp-nitech/diffsptk" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://x.com/SPTK_DSP" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-twitter-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/diffsptk" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../modules/index.html">
+    Modules
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../signals.html">
+    Signals
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../utils.html">
+    Utils
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/sp-nitech/diffsptk" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://x.com/SPTK_DSP" title="Twitter" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-twitter-square fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">Twitter</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/diffsptk" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i>
+            <span class="sr-only">PyPI</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">diffsptk.modules.pitch_spec</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for diffsptk.modules.pitch_spec</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ------------------------------------------------------------------------ #</span>
+<span class="c1"># Copyright 2022 SPTK Working Group                                        #</span>
+<span class="c1">#                                                                          #</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);          #</span>
+<span class="c1"># you may not use this file except in compliance with the License.         #</span>
+<span class="c1"># You may obtain a copy of the License at                                  #</span>
+<span class="c1">#                                                                          #</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0                           #</span>
+<span class="c1">#                                                                          #</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software      #</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,        #</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. #</span>
+<span class="c1"># See the License for the specific language governing permissions and      #</span>
+<span class="c1"># limitations under the License.                                           #</span>
+<span class="c1"># ------------------------------------------------------------------------ #</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn.functional</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">F</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..third_party.world</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">dc_correction</span><span class="p">,</span>
+    <span class="n">get_windowed_waveform</span><span class="p">,</span>
+    <span class="n">interp1</span><span class="p">,</span>
+    <span class="n">linear_smoothing</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">TAU</span><span class="p">,</span> <span class="n">iir</span><span class="p">,</span> <span class="n">next_power_of_two</span><span class="p">,</span> <span class="n">numpy_to_torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseNonFunctionalModule</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.frame</span><span class="w"> </span><span class="kn">import</span> <span class="n">Frame</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.spec</span><span class="w"> </span><span class="kn">import</span> <span class="n">Spectrum</span>
+
+
+<div class="viewcode-block" id="PitchAdaptiveSpectralAnalysis">
+<a class="viewcode-back" href="../../../modules/pitch_spec.html#diffsptk.PitchAdaptiveSpectralAnalysis">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">PitchAdaptiveSpectralAnalysis</span><span class="p">(</span><span class="n">BaseNonFunctionalModule</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;See `this page &lt;https://sp-nitech.github.io/sptk/latest/main/pitch_spec.html&gt;`_</span>
+<span class="sd">    for details. Note that the gradients do not propagated through F0.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    frame_period : int &gt;= 1</span>
+<span class="sd">        The frame period in samples, :math:`P`.</span>
+
+<span class="sd">    sample_rate : int &gt;= 8000</span>
+<span class="sd">        The sample rate in Hz.</span>
+
+<span class="sd">    fft_length : int &gt;= 1024</span>
+<span class="sd">        The number of FFT bins, :math:`L`.</span>
+
+<span class="sd">    algorithm : [&#39;cheap-trick&#39;, &#39;straight&#39;]</span>
+<span class="sd">        The algorithm to estimate spectral envelpe. The STRAIGHT supports only double</span>
+<span class="sd">        precision.</span>
+
+<span class="sd">    out_format : [&#39;db&#39;, &#39;log-magnitude&#39;, &#39;magnitude&#39;, &#39;power&#39;]</span>
+<span class="sd">        The output format.</span>
+
+<span class="sd">    default_f0 : float &gt; 0</span>
+<span class="sd">        The F0 value used when the input F0 is unvoiced.</span>
+
+<span class="sd">    References</span>
+<span class="sd">    ----------</span>
+<span class="sd">    .. [1] M. Morise, &quot;CheapTrick, a spectral envelope estimator for high-quality speech</span>
+<span class="sd">           synthesis&quot;, *Speech Communication*, vol. 67, pp. 1-7, 2015.</span>
+
+<span class="sd">    .. [2] H. Kawahara et al., &quot;Restructuring speech representations using a</span>
+<span class="sd">           pitch-adaptive time-frequency smoothing and an instantaneous-frequency-based</span>
+<span class="sd">           F0 extraction: Possible role of a repetitive structure in sounds&quot;, *Speech</span>
+<span class="sd">           Communication*, vol. 27, no. 3-4, pp. 187-207, 1999.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">frame_period</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">sample_rate</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">fft_length</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">algorithm</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;cheap-trick&quot;</span><span class="p">,</span>
+        <span class="n">out_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">=</span> <span class="s2">&quot;power&quot;</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">frame_period</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;frame_period must be positive.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">sample_rate</span> <span class="o">&lt;</span> <span class="mi">8000</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;sample_rate must be at least 8000 Hz.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">fft_length</span> <span class="o">&lt;</span> <span class="mi">1024</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;fft_length must be at least 1024.&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">algorithm</span> <span class="o">==</span> <span class="s2">&quot;cheap-trick&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">extractor</span> <span class="o">=</span> <span class="n">SpectrumExtractionByCheapTrick</span><span class="p">(</span>
+                <span class="n">frame_period</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">,</span> <span class="n">fft_length</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">algorithm</span> <span class="o">==</span> <span class="s2">&quot;straight&quot;</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">extractor</span> <span class="o">=</span> <span class="n">SpectrumExtractionBySTRAIGHT</span><span class="p">(</span>
+                <span class="n">frame_period</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">,</span> <span class="n">fft_length</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;algorithm </span><span class="si">{</span><span class="n">algorithm</span><span class="si">}</span><span class="s2"> is not supported.&quot;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">formatter</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_formatter</span><span class="p">(</span><span class="n">out_format</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PitchAdaptiveSpectralAnalysis.forward">
+<a class="viewcode-back" href="../../../modules/pitch_spec.html#diffsptk.PitchAdaptiveSpectralAnalysis.forward">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">f0</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Estimate spectral envelope.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x : Tensor [shape=(..., T)]</span>
+<span class="sd">            The input waveform.</span>
+
+<span class="sd">        f0 : Tensor [shape=(..., T/P)]</span>
+<span class="sd">            The F0 in Hz.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : Tensor [shape=(..., T/P, L/2+1)]</span>
+<span class="sd">            The spectral envelope.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; x = diffsptk.sin(1000, 80)</span>
+<span class="sd">        &gt;&gt;&gt; pitch = diffsptk.Pitch(160, 8000, out_format=&quot;f0&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; f0 = pitch(x)</span>
+<span class="sd">        &gt;&gt;&gt; f0.shape</span>
+<span class="sd">        torch.Size([7])</span>
+<span class="sd">        &gt;&gt;&gt; pitch_spec = diffsptk.PitchAdaptiveSpectralAnalysis(160, 8000, 1024)</span>
+<span class="sd">        &gt;&gt;&gt; sp = pitch_spec(x, f0)</span>
+<span class="sd">        &gt;&gt;&gt; sp.shape</span>
+<span class="sd">        torch.Size([7, 513])</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extractor</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f0</span><span class="p">)</span>
+        <span class="n">sp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">formatter</span><span class="p">(</span><span class="n">sp</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">sp</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_formatter</span><span class="p">(</span><span class="n">out_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">out_format</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s2">&quot;db&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="mi">10</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">10</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">out_format</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;log-magnitude&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="k">elif</span> <span class="n">out_format</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;magnitude&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">out_format</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;power&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;out_format </span><span class="si">{</span><span class="n">out_format</span><span class="si">}</span><span class="s2"> is not supported.&quot;</span><span class="p">)</span></div>
+
+
+
+<span class="c1"># ----------------------------------------------------------------- #</span>
+<span class="c1"># Copyright (c) 2010  M. Morise                                     #</span>
+<span class="c1">#                                                                   #</span>
+<span class="c1"># All rights reserved.                                              #</span>
+<span class="c1">#                                                                   #</span>
+<span class="c1"># Redistribution and use in source and binary forms, with or        #</span>
+<span class="c1"># without modification, are permitted provided that the following   #</span>
+<span class="c1"># conditions are met:                                               #</span>
+<span class="c1">#                                                                   #</span>
+<span class="c1"># - Redistributions of source code must retain the above copyright  #</span>
+<span class="c1">#   notice, this list of conditions and the following disclaimer.   #</span>
+<span class="c1"># - Redistributions in binary form must reproduce the above         #</span>
+<span class="c1">#   copyright notice, this list of conditions and the following     #</span>
+<span class="c1">#   disclaimer in the documentation and/or other materials provided #</span>
+<span class="c1">#   with the distribution.                                          #</span>
+<span class="c1"># - Neither the name of the M. Morise nor the names of its          #</span>
+<span class="c1">#   contributors may be used to endorse or promote products derived #</span>
+<span class="c1">#   from this software without specific prior written permission.   #</span>
+<span class="c1">#                                                                   #</span>
+<span class="c1"># THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND            #</span>
+<span class="c1"># CONTRIBUTORS &quot;AS IS&quot; AND ANY EXPRESS OR IMPLIED WARRANTIES,       #</span>
+<span class="c1"># INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF          #</span>
+<span class="c1"># MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE          #</span>
+<span class="c1"># DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS #</span>
+<span class="c1"># BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,          #</span>
+<span class="c1"># EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED   #</span>
+<span class="c1"># TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,     #</span>
+<span class="c1"># DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON #</span>
+<span class="c1"># ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,   #</span>
+<span class="c1"># OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY    #</span>
+<span class="c1"># OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE           #</span>
+<span class="c1"># POSSIBILITY OF SUCH DAMAGE.                                       #</span>
+<span class="c1"># ----------------------------------------------------------------- #</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">SpectrumExtractionByCheapTrick</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Spectral envelope estimation based on CheapTrick.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">frame_period</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">sample_rate</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">fft_length</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">default_f0</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">500</span><span class="p">,</span>
+        <span class="n">q1</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.15</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span> <span class="o">=</span> <span class="n">frame_period</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span> <span class="o">=</span> <span class="n">sample_rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span> <span class="o">=</span> <span class="n">fft_length</span>
+
+        <span class="c1"># GetF0FloorForCheapTrick()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f_min</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">sample_rate</span> <span class="o">/</span> <span class="p">(</span><span class="n">fft_length</span> <span class="o">-</span> <span class="mi">3</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">default_f0</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">f_min</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;default_f0 must be at least </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">f_min</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># GetFFTSizeForCheapTrick()</span>
+        <span class="n">min_fft_length</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span>
+            <span class="mi">1</span> <span class="o">+</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">sample_rate</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">f_min</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">fft_length</span> <span class="o">&lt;</span> <span class="n">min_fft_length</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;fft_length must be at least </span><span class="si">{</span><span class="n">min_fft_length</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+
+        <span class="c1"># Set WORLD constants.</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">q1</span> <span class="o">=</span> <span class="n">q1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default_f0</span> <span class="o">=</span> <span class="n">default_f0</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">spec</span> <span class="o">=</span> <span class="n">Spectrum</span><span class="p">(</span><span class="n">fft_length</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;ramp&quot;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">fft_length</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">f0</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="n">f0</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">f0</span> <span class="o">&lt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">f_min</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_f0</span><span class="p">,</span> <span class="n">f0</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
+
+        <span class="c1"># GetWindowedWaveform()</span>
+        <span class="n">waveform</span> <span class="o">=</span> <span class="n">get_windowed_waveform</span><span class="p">(</span>
+            <span class="n">x</span><span class="p">,</span>
+            <span class="n">f0</span><span class="p">,</span>
+            <span class="mi">3</span><span class="p">,</span>
+            <span class="mi">0</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span><span class="p">,</span>
+            <span class="s2">&quot;hanning&quot;</span><span class="p">,</span>
+            <span class="kc">True</span><span class="p">,</span>
+            <span class="mf">1e-12</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ramp</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="c1"># GetPowerSpectrum()</span>
+        <span class="n">power_spectrum</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">spec</span><span class="p">(</span><span class="n">waveform</span><span class="p">)</span>
+
+        <span class="c1"># DCCorrection()</span>
+        <span class="n">power_spectrum</span> <span class="o">=</span> <span class="n">dc_correction</span><span class="p">(</span>
+            <span class="n">power_spectrum</span><span class="p">,</span> <span class="n">f0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ramp</span>
+        <span class="p">)</span>
+
+        <span class="c1"># LinearSmoothing()</span>
+        <span class="n">power_spectrum</span> <span class="o">=</span> <span class="n">linear_smoothing</span><span class="p">(</span>
+            <span class="n">power_spectrum</span><span class="p">,</span> <span class="n">f0</span> <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ramp</span>
+        <span class="p">)</span>
+
+        <span class="c1"># AddInfinitesimalNoise()</span>
+        <span class="n">power_spectrum</span> <span class="o">+=</span> <span class="p">(</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">randn_like</span><span class="p">(</span><span class="n">power_spectrum</span><span class="p">)</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">finfo</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span><span class="o">.</span><span class="n">eps</span>
+        <span class="p">)</span>
+
+        <span class="c1"># SmoothingWithRecovery()</span>
+        <span class="n">one_sided_length</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">quefrency</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ramp</span><span class="p">[:</span><span class="n">one_sided_length</span><span class="p">]</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="n">f0</span> <span class="o">*</span> <span class="n">quefrency</span>
+        <span class="n">smoothing_lifter</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sinc</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+        <span class="n">compensation_lifter</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">q1</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">q1</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">TAU</span> <span class="o">*</span> <span class="n">z</span><span class="p">)</span>
+        <span class="n">smoothing_lifter</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">cepstrum</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">irfft</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">power_spectrum</span><span class="p">))[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="n">one_sided_length</span><span class="p">]</span>
+        <span class="n">log_power_spectrum</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">hfft</span><span class="p">(</span>
+            <span class="n">cepstrum</span> <span class="o">*</span> <span class="n">smoothing_lifter</span> <span class="o">*</span> <span class="n">compensation_lifter</span><span class="p">,</span>
+        <span class="p">)[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="n">one_sided_length</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">log_power_spectrum</span>
+
+
+<span class="c1"># ------------------------------------------------------------------------ #</span>
+<span class="c1"># Copyright 2018 Hideki Kawahara                                           #</span>
+<span class="c1">#                                                                          #</span>
+<span class="c1"># Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);          #</span>
+<span class="c1"># you may not use this file except in compliance with the License.         #</span>
+<span class="c1"># You may obtain a copy of the License at                                  #</span>
+<span class="c1">#                                                                          #</span>
+<span class="c1">#     http://www.apache.org/licenses/LICENSE-2.0                           #</span>
+<span class="c1">#                                                                          #</span>
+<span class="c1"># Unless required by applicable law or agreed to in writing, software      #</span>
+<span class="c1"># distributed under the License is distributed on an &quot;AS IS&quot; BASIS,        #</span>
+<span class="c1"># WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. #</span>
+<span class="c1"># See the License for the specific language governing permissions and      #</span>
+<span class="c1"># limitations under the License.                                           #</span>
+<span class="c1"># ------------------------------------------------------------------------ #</span>
+
+
+<span class="k">class</span><span class="w"> </span><span class="nc">SpectrumExtractionBySTRAIGHT</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Spectral envelope estimation based on STRAIGHT.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">frame_period</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">sample_rate</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="n">fft_length</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">default_f0</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">160</span><span class="p">,</span>
+        <span class="n">spectral_exponent</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">,</span>
+        <span class="n">compensation_factor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span> <span class="o">=</span> <span class="n">frame_period</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span> <span class="o">=</span> <span class="n">sample_rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span> <span class="o">=</span> <span class="n">fft_length</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">default_f0</span> <span class="o">=</span> <span class="n">default_f0</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">pc</span> <span class="o">=</span> <span class="n">spectral_exponent</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mag</span> <span class="o">=</span> <span class="n">compensation_factor</span>
+
+        <span class="kn">from</span><span class="w"> </span><span class="nn">scipy</span><span class="w"> </span><span class="kn">import</span> <span class="n">signal</span>
+
+        <span class="n">b1</span><span class="p">,</span> <span class="n">a1</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">70</span> <span class="o">/</span> <span class="n">sample_rate</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">btype</span><span class="o">=</span><span class="s2">&quot;highpass&quot;</span><span class="p">)</span>
+        <span class="n">b2</span><span class="p">,</span> <span class="n">a2</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">300</span> <span class="o">/</span> <span class="n">sample_rate</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">btype</span><span class="o">=</span><span class="s2">&quot;highpass&quot;</span><span class="p">)</span>
+        <span class="n">b3</span><span class="p">,</span> <span class="n">a3</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">butter</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">3000</span> <span class="o">/</span> <span class="n">sample_rate</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">btype</span><span class="o">=</span><span class="s2">&quot;highpass&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;b&quot;</span><span class="p">,</span> <span class="n">numpy_to_torch</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">b1</span><span class="p">,</span> <span class="n">b2</span><span class="p">,</span> <span class="n">b3</span><span class="p">])))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">numpy_to_torch</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">a1</span><span class="p">,</span> <span class="n">a2</span><span class="p">,</span> <span class="n">a3</span><span class="p">])))</span>
+
+        <span class="n">frame_length_in_msec</span> <span class="o">=</span> <span class="mi">80</span>
+        <span class="n">frame_length</span> <span class="o">=</span> <span class="n">sample_rate</span> <span class="o">*</span> <span class="n">frame_length_in_msec</span> <span class="o">//</span> <span class="mi">1000</span>
+        <span class="k">if</span> <span class="n">fft_length</span> <span class="o">&lt;</span> <span class="n">frame_length</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;fft_length must be at least </span><span class="si">{</span><span class="n">frame_length</span><span class="si">}</span><span class="s2">.&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frame</span> <span class="o">=</span> <span class="n">Frame</span><span class="p">(</span><span class="n">frame_length</span><span class="p">,</span> <span class="n">frame_period</span><span class="p">,</span> <span class="n">zmean</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;ramp&quot;</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">frame_length</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="n">fft_length</span><span class="p">)))</span>
+
+        <span class="n">tt</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ramp</span><span class="p">[:</span><span class="n">frame_length</span><span class="p">]</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">frame_length</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span> <span class="o">/</span> <span class="n">sample_rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;tt&quot;</span><span class="p">,</span> <span class="n">tt</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">fNominal</span> <span class="o">=</span> <span class="mi">40</span>
+        <span class="n">eta</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">wGaussian</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">torch</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="p">(</span><span class="n">tt</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">fNominal</span> <span class="o">/</span> <span class="n">eta</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+        <span class="n">wSynchronousBartlett</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">tt</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">fNominal</span><span class="p">)</span>
+        <span class="n">wPSGSeed</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fftfilt</span><span class="p">(</span>
+            <span class="n">wSynchronousBartlett</span><span class="p">[</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">wSynchronousBartlett</span><span class="p">],</span>
+            <span class="n">F</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">wGaussian</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">frame_length</span><span class="p">)),</span>
+        <span class="p">)</span>
+        <span class="n">maxValue</span><span class="p">,</span> <span class="n">maxLocation</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">wPSGSeed</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">wPSGSeed</span> <span class="o">=</span> <span class="n">wPSGSeed</span> <span class="o">/</span> <span class="n">maxValue</span>
+        <span class="n">tNominal</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ramp</span><span class="p">[:</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">frame_length</span><span class="p">]</span> <span class="o">-</span> <span class="n">maxLocation</span><span class="p">)</span> <span class="o">/</span> <span class="n">sample_rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;wPSGSeed&quot;</span><span class="p">,</span> <span class="n">wPSGSeed</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;tNominal&quot;</span><span class="p">,</span> <span class="n">tNominal</span><span class="p">)</span>
+
+        <span class="n">one_sided_length</span> <span class="o">=</span> <span class="n">fft_length</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">remaining_length</span> <span class="o">=</span> <span class="n">fft_length</span> <span class="o">-</span> <span class="n">one_sided_length</span>
+        <span class="n">ttm</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">ramp</span><span class="p">[:</span><span class="n">one_sided_length</span><span class="p">],</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">ramp</span><span class="p">[:</span><span class="n">remaining_length</span><span class="p">]</span> <span class="o">-</span> <span class="n">remaining_length</span><span class="p">,</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+            <span class="o">/</span> <span class="n">sample_rate</span>
+        <span class="p">)</span>
+        <span class="n">ttm</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mf">1e-5</span> <span class="o">/</span> <span class="n">sample_rate</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;ttm&quot;</span><span class="p">,</span> <span class="n">ttm</span><span class="p">)</span>
+
+        <span class="n">lft</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span>
+            <span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">ramp</span><span class="p">[:</span><span class="n">fft_length</span><span class="p">]</span> <span class="o">-</span> <span class="n">fft_length</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">-</span> <span class="n">fft_length</span> <span class="o">/</span> <span class="mi">30</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;lft&quot;</span><span class="p">,</span> <span class="n">lft</span><span class="p">)</span>
+
+        <span class="kn">from</span><span class="w"> </span><span class="nn">pylstraight.core.sp</span><span class="w"> </span><span class="kn">import</span> <span class="n">optimumsmoothing</span> <span class="k">as</span> <span class="n">optimum_smoothing</span>
+
+        <span class="n">ovc</span> <span class="o">=</span> <span class="n">optimum_smoothing</span><span class="p">(</span><span class="n">eta</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pc</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;ovc&quot;</span><span class="p">,</span> <span class="n">numpy_to_torch</span><span class="p">(</span><span class="n">ovc</span><span class="p">))</span>
+
+        <span class="n">ncw</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">sample_rate</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">)</span>
+        <span class="n">h3</span> <span class="o">=</span> <span class="n">signal</span><span class="o">.</span><span class="n">convolve</span><span class="p">(</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">hanning</span><span class="p">(</span><span class="n">ncw</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="mi">1400</span> <span class="o">/</span> <span class="n">sample_rate</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">ncw</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)),</span>
+            <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;full&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;h3&quot;</span><span class="p">,</span> <span class="n">numpy_to_torch</span><span class="p">(</span><span class="n">h3</span><span class="p">))</span>
+
+        <span class="n">ipwm</span> <span class="o">=</span> <span class="mi">7</span>
+        <span class="n">ipl</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">ipwm</span> <span class="o">/</span> <span class="p">(</span><span class="n">frame_period</span> <span class="o">/</span> <span class="n">sample_rate</span> <span class="o">*</span> <span class="mi">1000</span><span class="p">))</span>
+        <span class="n">ww</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hanning</span><span class="p">(</span><span class="n">ipl</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">3</span><span class="p">)[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">ww</span> <span class="o">/=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">ww</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;ww&quot;</span><span class="p">,</span> <span class="n">numpy_to_torch</span><span class="p">(</span><span class="n">ww</span><span class="p">))</span>
+
+        <span class="n">hh</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+                <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="o">/</span> <span class="mi">4</span><span class="p">],</span>
+                <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span> <span class="o">/</span> <span class="mi">4</span><span class="p">],</span>
+                <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">/</span> <span class="mi">4</span><span class="p">],</span>
+            <span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">bb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">solve</span><span class="p">(</span><span class="n">hh</span><span class="p">,</span> <span class="n">ovc</span><span class="p">)</span>
+        <span class="n">cc</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">16</span><span class="p">])</span>
+        <span class="n">tt</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">one_sided_length</span><span class="p">)</span> <span class="o">/</span> <span class="n">sample_rate</span>
+        <span class="n">pb2</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">eta</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">pi</span><span class="o">**</span><span class="mi">2</span> <span class="o">/</span> <span class="mi">3</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">bb</span> <span class="o">*</span> <span class="n">cc</span><span class="p">))</span> <span class="o">*</span> <span class="n">tt</span><span class="o">**</span><span class="mi">2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;pb2&quot;</span><span class="p">,</span> <span class="n">numpy_to_torch</span><span class="p">(</span><span class="n">pb2</span><span class="p">))</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">fftfilt</span><span class="p">(</span><span class="n">b</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="n">nb</span> <span class="o">=</span> <span class="n">b</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">nx</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">fft_length</span> <span class="o">=</span> <span class="n">next_power_of_two</span><span class="p">(</span><span class="n">nb</span> <span class="o">+</span> <span class="n">nx</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">B</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">fft_length</span><span class="p">)</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="n">fft_length</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ifft</span><span class="p">(</span><span class="n">X</span> <span class="o">*</span> <span class="n">B</span><span class="p">)[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="n">nx</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">y</span><span class="o">.</span><span class="n">real</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">f0</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">torch</span><span class="o">.</span><span class="n">double</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">torch</span><span class="o">.</span><span class="n">double</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Only double precision is supported.&quot;</span><span class="p">)</span>
+
+        <span class="n">xamp</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">scaleconst</span> <span class="o">=</span> <span class="mi">2200</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">xamp</span> <span class="o">&lt;</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">x</span> <span class="o">*</span> <span class="p">(</span><span class="n">scaleconst</span> <span class="o">/</span> <span class="n">xamp</span><span class="p">))</span>
+        <span class="n">xh</span> <span class="o">=</span> <span class="n">iir</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="p">,</span> <span class="n">batching</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">tx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame</span><span class="p">(</span><span class="n">xh</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:])</span>
+
+        <span class="n">f0</span> <span class="o">=</span> <span class="n">f0</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
+        <span class="n">f0raw</span> <span class="o">=</span> <span class="n">f0</span>
+        <span class="n">unvoiced</span> <span class="o">=</span> <span class="n">f0</span> <span class="o">==</span> <span class="mi">0</span>
+        <span class="n">f0</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">unvoiced</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">default_f0</span><span class="p">,</span> <span class="n">f0</span><span class="p">)</span>
+        <span class="n">ttf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tt</span> <span class="o">*</span> <span class="n">f0</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">safe_div</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">x</span> <span class="o">/</span> <span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">eps</span><span class="p">)</span>
+
+        <span class="n">wxe</span> <span class="o">=</span> <span class="n">interp1</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tNominal</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">wPSGSeed</span><span class="p">,</span> <span class="n">ttf</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">fNominal</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;*linear&quot;</span>
+        <span class="p">)</span>
+        <span class="n">wxe</span> <span class="o">/=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">vector_norm</span><span class="p">(</span><span class="n">wxe</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">bcf</span> <span class="o">=</span> <span class="mf">0.36</span>
+        <span class="n">wxd</span> <span class="o">=</span> <span class="n">bcf</span> <span class="o">*</span> <span class="n">wxe</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">pi</span> <span class="o">*</span> <span class="n">ttf</span><span class="p">)</span>
+
+        <span class="n">one_sided_length</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">pw</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">tx</span> <span class="o">*</span> <span class="n">wxe</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span><span class="p">)</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">**</span> <span class="mi">2</span>
+            <span class="o">+</span> <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">rfft</span><span class="p">(</span><span class="n">tx</span> <span class="o">*</span> <span class="n">wxd</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span><span class="p">)</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">**</span> <span class="mi">2</span>
+        <span class="p">)</span>
+        <span class="n">pw</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">pw</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pc</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+
+        <span class="n">f0pr</span> <span class="o">=</span> <span class="n">f0</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">f0p</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">f0pr</span><span class="p">)</span><span class="o">.</span><span class="n">long</span><span class="p">()</span>
+        <span class="n">f0p2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">floor</span><span class="p">((</span><span class="n">f0pr</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">long</span><span class="p">()</span>
+        <span class="n">f0pm</span> <span class="o">=</span> <span class="n">f0p</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="n">f0p2m</span> <span class="o">=</span> <span class="n">f0p2</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+        <span class="n">pwx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ramp</span><span class="p">[:</span><span class="n">f0pm</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">pwxq</span> <span class="o">=</span> <span class="n">f0pr</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">ramp</span><span class="p">[:</span><span class="n">f0p2m</span><span class="p">]</span>
+        <span class="n">tmppw</span> <span class="o">=</span> <span class="n">interp1</span><span class="p">(</span>
+            <span class="n">pwx</span><span class="p">,</span> <span class="n">pw</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="n">f0pm</span><span class="p">],</span> <span class="n">pwxq</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s2">&quot;linear&quot;</span><span class="p">,</span> <span class="n">batching</span><span class="o">=</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">tmppw</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">tmppw</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">one_sided_length</span> <span class="o">-</span> <span class="n">f0p2m</span><span class="p">))</span>
+        <span class="n">mask</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ramp</span><span class="p">[:</span><span class="n">one_sided_length</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">f0p2</span>
+        <span class="n">pw</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="n">tmppw</span><span class="p">,</span> <span class="n">pw</span><span class="p">)</span>
+
+        <span class="n">ttmf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ttm</span> <span class="o">*</span> <span class="n">f0</span>
+        <span class="n">ww2t</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sinc</span><span class="p">(</span><span class="mi">3</span> <span class="o">*</span> <span class="n">ttmf</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+        <span class="n">spw2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ihfft</span><span class="p">(</span><span class="n">ww2t</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">hfft</span><span class="p">(</span><span class="n">pw</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">lft</span><span class="p">)</span><span class="o">.</span><span class="n">real</span>
+        <span class="n">wwt</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sinc</span><span class="p">(</span><span class="n">ttmf</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span>
+        <span class="n">wwt</span> <span class="o">*=</span> <span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">ovc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+            <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ovc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="n">TAU</span> <span class="o">*</span> <span class="n">ttmf</span><span class="p">)</span>
+            <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ovc</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">cos</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">TAU</span> <span class="o">*</span> <span class="n">ttmf</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">spw</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">ihfft</span><span class="p">(</span><span class="n">wwt</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">hfft</span><span class="p">(</span><span class="n">safe_div</span><span class="p">(</span><span class="n">pw</span><span class="p">,</span> <span class="n">spw2</span><span class="p">))</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">lft</span><span class="p">)</span><span class="o">.</span><span class="n">real</span>
+            <span class="o">/</span> <span class="n">wwt</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+        <span class="p">)</span>
+        <span class="n">n2sgram</span> <span class="o">=</span> <span class="n">spw2</span> <span class="o">*</span> <span class="p">(</span>
+            <span class="mf">0.175</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">cosh</span><span class="p">(</span><span class="mi">4</span> <span class="o">/</span> <span class="mf">1.4</span> <span class="o">*</span> <span class="n">spw</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-10</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">spw</span>
+        <span class="p">)</span>
+        <span class="n">n2sgram</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">n2sgram</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">)</span> <span class="o">**</span> <span class="p">(</span><span class="mi">2</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">pc</span><span class="p">)</span>
+
+        <span class="n">nframe</span> <span class="o">=</span> <span class="n">f0</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+        <span class="n">pwcs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fftfilt</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">h3</span><span class="p">,</span> <span class="n">F</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">xh</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">h3</span><span class="p">)))</span>
+        <span class="p">)</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span> <span class="o">*</span> <span class="n">nframe</span>
+        <span class="n">pwcs</span> <span class="o">=</span> <span class="n">pwcs</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span> <span class="n">end</span> <span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span><span class="p">]</span>
+        <span class="n">lbb</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="mi">300</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">fft_length</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+        <span class="n">numer</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span>
+            <span class="p">[</span>
+                <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n2sgram</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">lbb</span><span class="p">:],</span> <span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">),</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+                <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n2sgram</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">),</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+            <span class="p">],</span>
+            <span class="n">dim</span><span class="o">=-</span><span class="mi">2</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">denom</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">pwcs</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">pwcs</span> <span class="o">=</span> <span class="n">pwcs</span> <span class="o">*</span> <span class="n">safe_div</span><span class="p">(</span><span class="n">numer</span><span class="p">,</span> <span class="n">denom</span><span class="p">)</span>
+        <span class="n">pwch</span> <span class="o">=</span> <span class="n">pwcs</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:]</span>
+
+        <span class="n">apwt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fftfilt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ww</span><span class="p">,</span> <span class="n">F</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">pwch</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ww</span><span class="p">))))</span>
+        <span class="n">begin</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ww</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span>
+        <span class="n">apwt</span> <span class="o">=</span> <span class="n">apwt</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">begin</span> <span class="p">:</span> <span class="n">begin</span> <span class="o">+</span> <span class="n">nframe</span><span class="p">]</span>
+        <span class="n">mmaa</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">amax</span><span class="p">(</span><span class="n">apwt</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">apwt</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">apwt</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">mmaa</span><span class="p">,</span> <span class="n">apwt</span><span class="p">)</span>
+
+        <span class="n">dpwt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fftfilt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ww</span><span class="p">,</span> <span class="n">F</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">pwch</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ww</span><span class="p">))))</span>
+        <span class="n">dpwt</span> <span class="o">=</span> <span class="n">dpwt</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">begin</span> <span class="p">:</span> <span class="n">begin</span> <span class="o">+</span> <span class="n">nframe</span><span class="p">]</span>
+        <span class="n">dpwt</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">dpwt</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">))</span>
+        <span class="n">rr</span> <span class="o">=</span> <span class="n">safe_div</span><span class="p">(</span><span class="n">dpwt</span><span class="p">,</span> <span class="n">apwt</span><span class="p">)</span>
+        <span class="n">lmbd</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">((</span><span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">rr</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.75</span><span class="p">)</span> <span class="o">*</span> <span class="mi">20</span><span class="p">)</span>
+
+        <span class="n">pwc</span> <span class="o">=</span> <span class="n">lmbd</span> <span class="o">*</span> <span class="n">safe_div</span><span class="p">(</span><span class="n">pwcs</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="p">:],</span> <span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">n2sgram</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">lmbd</span><span class="p">)</span>
+        <span class="n">n2sgram</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">unvoiced</span><span class="p">,</span> <span class="n">n2sgram</span> <span class="o">*</span> <span class="n">pwc</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">n2sgram</span><span class="p">)</span>
+        <span class="n">n2sgram</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">n2sgram</span> <span class="o">+</span> <span class="mf">1e-10</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">mag</span><span class="p">:</span>
+            <span class="n">ccs2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">hfft</span><span class="p">(</span><span class="n">n2sgram</span><span class="p">)[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="n">one_sided_length</span><span class="p">]</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span>
+                <span class="mi">1</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">mag</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">pb2</span> <span class="o">*</span> <span class="n">f0raw</span><span class="o">**</span><span class="mi">2</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">20</span>
+            <span class="p">)</span>
+            <span class="n">n2sgram3</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">hfft</span><span class="p">(</span><span class="n">ccs2</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="s2">&quot;forward&quot;</span><span class="p">)[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="n">one_sided_length</span><span class="p">]</span>
+            <span class="n">n2sgram</span> <span class="o">=</span> <span class="p">(</span><span class="n">n2sgram3</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">+</span> <span class="n">n2sgram3</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">+</span> <span class="mf">0.1</span>
+
+        <span class="n">xamp</span> <span class="o">=</span> <span class="n">xamp</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">n3sgram</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">xamp</span> <span class="o">&lt;</span> <span class="mf">1e-10</span><span class="p">,</span> <span class="n">n2sgram</span><span class="p">,</span> <span class="n">n2sgram</span> <span class="o">*</span> <span class="p">(</span><span class="n">xamp</span> <span class="o">/</span> <span class="n">scaleconst</span><span class="p">))</span>
+        <span class="n">n3sgram</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">n3sgram</span> <span class="o">+</span> <span class="mf">1e-10</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">n3sgram</span>
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2022, SPTK Working Group.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.1.3.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
