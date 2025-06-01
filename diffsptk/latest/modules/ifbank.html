@@ -614,6 +614,23 @@ instead of the amplitude spectrum.</p>
 </dl>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">19</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">stft</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">STFT</span><span class="p">(</span><span class="n">frame_length</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">frame_period</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">fft_length</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span> <span class="o">=</span> <span class="n">stft</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">torch.Size([2, 17])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">fbank</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MelFilterBankAnalysis</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">fft_length</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">n_channel</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">sample_rate</span><span class="o">=</span><span class="mi">8000</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ifbank</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">InverseMelFilterBankAnalysis</span><span class="p">(</span>
+<span class="gp">... </span>    <span class="n">fft_length</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">n_channel</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">sample_rate</span><span class="o">=</span><span class="mi">8000</span>
+<span class="gp">... </span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X2</span> <span class="o">=</span> <span class="n">ifbank</span><span class="p">(</span><span class="n">fbank</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">X2</span><span class="o">.</span><span class="n">shape</span>
+<span class="go">torch.Size([2, 17])</span>
+</pre></div>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -628,8 +645,6 @@ instead of the amplitude spectrum.</p>
 <dt><strong>y</strong><span class="classifier">Tensor [shape=(…, C)]</span></dt><dd><p>The mel filter bank output.</p>
 </dd>
 <dt><strong>fft_length</strong><span class="classifier">int &gt;= 2</span></dt><dd><p>The number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
-</dd>
-<dt><strong>n_channel</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The number of mel filter banks, <span class="math notranslate nohighlight">\(C\)</span>.</p>
 </dd>
 <dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The sample rate in Hz.</p>
 </dd>

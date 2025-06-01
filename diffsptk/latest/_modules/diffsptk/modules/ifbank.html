@@ -524,6 +524,20 @@
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; x = diffsptk.ramp(19)</span>
+<span class="sd">        &gt;&gt;&gt; stft = diffsptk.STFT(frame_length=10, frame_period=10, fft_length=32)</span>
+<span class="sd">        &gt;&gt;&gt; X = stft(x)</span>
+<span class="sd">        &gt;&gt;&gt; X.shape</span>
+<span class="sd">        torch.Size([2, 17])</span>
+<span class="sd">        &gt;&gt;&gt; fbank = diffsptk.MelFilterBankAnalysis(</span>
+<span class="sd">        ...     fft_length=32, n_channel=4, sample_rate=8000</span>
+<span class="sd">        ... )</span>
+<span class="sd">        &gt;&gt;&gt; ifbank = diffsptk.InverseMelFilterBankAnalysis(</span>
+<span class="sd">        ...     fft_length=32, n_channel=4, sample_rate=8000</span>
+<span class="sd">        ... )</span>
+<span class="sd">        &gt;&gt;&gt; X2 = ifbank(fbank(X))</span>
+<span class="sd">        &gt;&gt;&gt; X2.shape</span>
+<span class="sd">        torch.Size([2, 17])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">check_size</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">in_dim</span><span class="p">,</span> <span class="s2">&quot;dimension of mel spectrogram&quot;</span><span class="p">)</span>
