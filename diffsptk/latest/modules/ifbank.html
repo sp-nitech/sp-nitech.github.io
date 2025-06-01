@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>igammatone &#8212; diffsptk 3.2.1.dev0 documentation</title>
+    <title>ifbank &#8212; diffsptk 3.2.1.dev0 documentation</title>
   
   
   
@@ -41,7 +41,8 @@
     <script src="../_static/documentation_options.js?v=c91016b8"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/igammatone';</script>
+    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/ifbank';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://sp-nitech.github.io/diffsptk/switcher.json';
@@ -52,8 +53,8 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ignorm" href="ignorm.html" />
-    <link rel="prev" title="ifreqt2" href="ifreqt2.html" />
+    <link rel="next" title="ifftr" href="ifftr.html" />
+    <link rel="prev" title="idst" href="idst.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="3.2.1.dev0" />
@@ -426,10 +427,10 @@
 <li class="toctree-l1"><a class="reference internal" href="idct.html">idct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idht.html">idht</a></li>
 <li class="toctree-l1"><a class="reference internal" href="idst.html">idst</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ifbank.html">ifbank</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">ifbank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifftr.html">ifftr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ifreqt2.html">ifreqt2</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">igammatone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="igammatone.html">igammatone</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ignorm.html">ignorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imdct.html">imdct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="imdst.html">imdst</a></li>
@@ -543,7 +544,7 @@
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">diffsptk.modules</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">igammatone</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">ifbank</span></li>
   </ul>
 </nav>
 </div>
@@ -560,94 +561,101 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="igammatone">
-<span id="id1"></span><h1>igammatone<a class="headerlink" href="#igammatone" title="Link to this heading">#</a></h1>
+  <section id="ifbank">
+<span id="id1"></span><h1>ifbank<a class="headerlink" href="#ifbank" title="Link to this heading">#</a></h1>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diffsptk.IFBANK">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">IFBANK</span></span><a class="headerlink" href="#diffsptk.IFBANK" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="#diffsptk.InverseMelFilterBankAnalysis" title="diffsptk.modules.ifbank.InverseMelFilterBankAnalysis"><code class="xref py py-class docutils literal notranslate"><span class="pre">InverseMelFilterBankAnalysis</span></code></a></p>
+</dd></dl>
+
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.GammatoneFilterBankSynthesis">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">GammatoneFilterBankSynthesis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">desired_delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_min</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">70</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_base</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">6700</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bandwidth_factor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_iter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">100</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/igammatone.html#GammatoneFilterBankSynthesis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.GammatoneFilterBankSynthesis" title="Link to this definition">#</a></dt>
-<dd><p>Gammatone filter bank synthesis module.</p>
+<dt class="sig sig-object py" id="diffsptk.InverseMelFilterBankAnalysis">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">InverseMelFilterBankAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">n_channel</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_min</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_power</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">learnable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/ifbank.html#InverseMelFilterBankAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.InverseMelFilterBankAnalysis" title="Link to this definition">#</a></dt>
+<dd><p>This is the opposite module to :func:~diffsptk.MelFilterBankAnalysis`.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The sample rate in Hz.</p>
+<dt><strong>n_channel</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The number of mel filter banks, <span class="math notranslate nohighlight">\(C\)</span>.</p>
 </dd>
-<dt><strong>desired_delay</strong><span class="classifier">float &gt; 0</span></dt><dd><p>Desired delay in milliseconds.</p>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2</span></dt><dd><p>The number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+</dd>
+<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The sample rate in Hz.</p>
 </dd>
 <dt><strong>f_min</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>The minimum frequency in Hz.</p>
 </dd>
-<dt><strong>f_base</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>The base frequency in Hz.</p>
-</dd>
 <dt><strong>f_max</strong><span class="classifier">float &lt;= sample_rate // 2</span></dt><dd><p>The maximum frequency in Hz.</p>
 </dd>
-<dt><strong>filter_order</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The order of the Gammatone filter.</p>
+<dt><strong>gamma</strong><span class="classifier">float in [-1, 1]</span></dt><dd><p>The parameter of the generalized logarithmic function.</p>
 </dd>
-<dt><strong>bandwidth_factor</strong><span class="classifier">float &gt; 0</span></dt><dd><p>The bandwidth of the Gammatone filter.</p>
+<dt><strong>use_power</strong><span class="classifier">bool</span></dt><dd><p>Set to True if the mel filter bank output is extracted from the power spectrum
+instead of the amplitude spectrum.</p>
 </dd>
-<dt><strong>density</strong><span class="classifier">float &gt; 0</span></dt><dd><p>The density of frequencies on the ERB scale.</p>
-</dd>
-<dt><strong>exact</strong><span class="classifier">bool</span></dt><dd><p>If False, use all-pole approximation.</p>
-</dd>
-<dt><strong>n_iter</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The number of iterations for gain computation.</p>
-</dd>
-<dt><strong>eps</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>The tolerance for gain computation.</p>
+<dt><strong>learnable</strong><span class="classifier">bool</span></dt><dd><p>Whether to make the basis learnable.</p>
 </dd>
 </dl>
 </dd>
 </dl>
-<p class="rubric">References</p>
-<div role="list" class="citation-list">
-<div class="citation" id="rbfd65462ce41-1" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
-<p>V. Hohmann, “Frequency analysis and synthesis using a Gammatone filterbank,”
-<em>Acta Acustica united with Acustica</em>, vol. 88, no. 3, pp. 433-442, 2002.</p>
-</div>
-<div class="citation" id="rbfd65462ce41-2" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>2<span class="fn-bracket">]</span></span>
-<p>T. Herzke, “Improved numerical methods for Gammatone filterbank analysis and
-synthesis,” <em>Acta Acustica united with Acustica</em>, vol. 93, no. 3,
-pp. 498-500, 2007.</p>
-</div>
-</div>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.GammatoneFilterBankSynthesis.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">keepdim</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">compensate_delay</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/modules/igammatone.html#GammatoneFilterBankSynthesis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.GammatoneFilterBankSynthesis.forward" title="Link to this definition">#</a></dt>
-<dd><p>Reconstruct waveform from filter bank signals.</p>
+<dt class="sig sig-object py" id="diffsptk.InverseMelFilterBankAnalysis.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/modules/ifbank.html#InverseMelFilterBankAnalysis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.InverseMelFilterBankAnalysis.forward" title="Link to this definition">#</a></dt>
+<dd><p>Reconstruct the power spectrum from the mel filter bank output.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(B, K, T) or (K, T)]</span></dt><dd><p>The filter bank signals.</p>
-</dd>
-<dt><strong>keepdim</strong><span class="classifier">bool</span></dt><dd><p>If True, the output shape is (B, 1, T) instead of (B, T).</p>
-</dd>
-<dt><strong>compensate_delay</strong><span class="classifier">bool</span></dt><dd><p>If True, compensate the delay.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, C)]</span></dt><dd><p>The mel filter bank output.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(B, 1, T) or (B, T)]</span></dt><dd><p>The reconstructed waveform.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>The power spectrum.</p>
 </dd>
 </dl>
 </dd>
 </dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">impulse</span><span class="p">(</span><span class="mi">15999</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
-<span class="go">tensor([1., 0., 0., 0., 0.])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">GammatoneFilterBankAnalysis</span><span class="p">(</span><span class="mi">16000</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">g</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">GammatoneFilterBankSynthesis</span><span class="p">(</span><span class="mi">16000</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">g</span><span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
-<span class="go">tensor([ 0.8349,  0.0682, -0.1085,  0.0559, -0.0947])</span>
-</pre></div>
-</div>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diffsptk.functional.ifbank">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">ifbank</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_min</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">gamma</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">use_power</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/functional.html#ifbank"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.ifbank" title="Link to this definition">#</a></dt>
+<dd><p>Reconstruct the power spectrum from the mel filter bank output.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, C)]</span></dt><dd><p>The mel filter bank output.</p>
+</dd>
+<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2</span></dt><dd><p>The number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+</dd>
+<dt><strong>n_channel</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The number of mel filter banks, <span class="math notranslate nohighlight">\(C\)</span>.</p>
+</dd>
+<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The sample rate in Hz.</p>
+</dd>
+<dt><strong>f_min</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>The minimum frequency in Hz.</p>
+</dd>
+<dt><strong>f_max</strong><span class="classifier">float &lt;= sample_rate // 2</span></dt><dd><p>The maximum frequency in Hz.</p>
+</dd>
+<dt><strong>gamma</strong><span class="classifier">float in [-1, 1]</span></dt><dd><p>The parameter of the generalized logarithmic function.</p>
+</dd>
+<dt><strong>use_power</strong><span class="classifier">bool</span></dt><dd><p>Set to True if the mel filter bank output is extracted from the power spectrum
+instead of the amplitude spectrum.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>The reconstructed power spectrum.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="gammatone.html#gammatone"><span class="std std-ref">gammatone</span></a></p>
+<p><a class="reference internal" href="fbank.html#fbank"><span class="std std-ref">fbank</span></a> <a class="reference internal" href="griffin.html#griffin"><span class="std std-ref">griffin</span></a></p>
 </div>
 </section>
 
@@ -662,20 +670,20 @@ pp. 498-500, 2007.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="ifreqt2.html"
+       href="idst.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">ifreqt2</p>
+        <p class="prev-next-title">idst</p>
       </div>
     </a>
     <a class="right-next"
-       href="ignorm.html"
+       href="ifftr.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">ignorm</p>
+        <p class="prev-next-title">ifftr</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -698,10 +706,12 @@ pp. 498-500, 2007.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.GammatoneFilterBankSynthesis"><code class="docutils literal notranslate"><span class="pre">GammatoneFilterBankSynthesis</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.GammatoneFilterBankSynthesis.forward"><code class="docutils literal notranslate"><span class="pre">GammatoneFilterBankSynthesis.forward()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.IFBANK"><code class="docutils literal notranslate"><span class="pre">IFBANK</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.InverseMelFilterBankAnalysis"><code class="docutils literal notranslate"><span class="pre">InverseMelFilterBankAnalysis</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.InverseMelFilterBankAnalysis.forward"><code class="docutils literal notranslate"><span class="pre">InverseMelFilterBankAnalysis.forward()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.ifbank"><code class="docutils literal notranslate"><span class="pre">ifbank()</span></code></a></li>
 </ul>
   </nav></div>
 

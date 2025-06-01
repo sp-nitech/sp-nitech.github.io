@@ -1720,6 +1720,64 @@
 
 
 
+<div class="viewcode-block" id="ifbank">
+<a class="viewcode-back" href="../../modules/ifbank.html#diffsptk.functional.ifbank">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">ifbank</span><span class="p">(</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
+    <span class="n">fft_length</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">sample_rate</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">f_min</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">f_max</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">gamma</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="n">use_power</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Reconstruct the power spectrum from the mel filter bank output.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    y : Tensor [shape=(..., C)]</span>
+<span class="sd">        The mel filter bank output.</span>
+
+<span class="sd">    fft_length : int &gt;= 2</span>
+<span class="sd">        The number of FFT bins, :math:`L`.</span>
+
+<span class="sd">    n_channel : int &gt;= 1</span>
+<span class="sd">        The number of mel filter banks, :math:`C`.</span>
+
+<span class="sd">    sample_rate : int &gt;= 1</span>
+<span class="sd">        The sample rate in Hz.</span>
+
+<span class="sd">    f_min : float &gt;= 0</span>
+<span class="sd">        The minimum frequency in Hz.</span>
+
+<span class="sd">    f_max : float &lt;= sample_rate // 2</span>
+<span class="sd">        The maximum frequency in Hz.</span>
+
+<span class="sd">    gamma : float in [-1, 1]</span>
+<span class="sd">        The parameter of the generalized logarithmic function.</span>
+
+<span class="sd">    use_power : bool</span>
+<span class="sd">        Set to True if the mel filter bank output is extracted from the power spectrum</span>
+<span class="sd">        instead of the amplitude spectrum.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out : Tensor [shape=(..., L/2+1)]</span>
+<span class="sd">        The reconstructed power spectrum.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">InverseMelFilterBankAnalysis</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span>
+        <span class="n">y</span><span class="p">,</span>
+        <span class="n">fft_length</span><span class="o">=</span><span class="n">fft_length</span><span class="p">,</span>
+        <span class="n">sample_rate</span><span class="o">=</span><span class="n">sample_rate</span><span class="p">,</span>
+        <span class="n">f_min</span><span class="o">=</span><span class="n">f_min</span><span class="p">,</span>
+        <span class="n">f_max</span><span class="o">=</span><span class="n">f_max</span><span class="p">,</span>
+        <span class="n">gamma</span><span class="o">=</span><span class="n">gamma</span><span class="p">,</span>
+        <span class="n">use_power</span><span class="o">=</span><span class="n">use_power</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
 <div class="viewcode-block" id="ifftr">
 <a class="viewcode-back" href="../../modules/ifftr.html#diffsptk.functional.ifftr">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">ifftr</span><span class="p">(</span><span class="n">y</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">out_length</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
