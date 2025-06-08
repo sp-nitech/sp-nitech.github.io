@@ -447,7 +447,7 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">..typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Precomputed</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_size</span><span class="p">,</span> <span class="n">get_values</span><span class="p">,</span> <span class="n">to</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_size</span><span class="p">,</span> <span class="n">get_values</span><span class="p">,</span> <span class="n">hz_to_auditory</span><span class="p">,</span> <span class="n">to</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseFunctionalModule</span>
 
 
@@ -480,6 +480,9 @@
 <span class="sd">    gamma : float in [-1, 1]</span>
 <span class="sd">        The parameter of the generalized logarithmic function.</span>
 
+<span class="sd">    scale : [&#39;mel&#39;, &#39;bark&#39;, &#39;linear&#39;]</span>
+<span class="sd">        The type of auditory scale used to construct the filter bank.</span>
+
 <span class="sd">    use_power : bool</span>
 <span class="sd">        If True, use the power spectrum instead of the amplitude spectrum.</span>
 
@@ -506,6 +509,7 @@
         <span class="n">f_max</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">floor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-5</span><span class="p">,</span>
         <span class="n">gamma</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+        <span class="n">scale</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;mel&quot;</span><span class="p">,</span>
         <span class="n">use_power</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
         <span class="n">out_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">=</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span>
         <span class="n">learnable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -602,10 +606,11 @@
         <span class="n">sample_rate</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">f_min</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
         <span class="n">f_max</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">floor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-5</span><span class="p">,</span>
-        <span class="n">gamma</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-        <span class="n">use_power</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="n">out_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">=</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span>
+        <span class="n">floor</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">gamma</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">scale</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">use_power</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+        <span class="n">out_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">dtype</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">dtype</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Precomputed</span><span class="p">:</span>
@@ -631,11 +636,8 @@
         <span class="k">if</span> <span class="n">f_max</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">f_max</span> <span class="o">=</span> <span class="n">sample_rate</span> <span class="o">/</span> <span class="mi">2</span>
 
-        <span class="k">def</span><span class="w"> </span><span class="nf">hz_to_mel</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
-            <span class="k">return</span> <span class="mi">1127</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">log1p</span><span class="p">(</span><span class="n">x</span> <span class="o">/</span> <span class="mi">700</span><span class="p">)</span>
-
-        <span class="n">mel_min</span> <span class="o">=</span> <span class="n">hz_to_mel</span><span class="p">(</span><span class="n">f_min</span><span class="p">)</span>
-        <span class="n">mel_max</span> <span class="o">=</span> <span class="n">hz_to_mel</span><span class="p">(</span><span class="n">f_max</span><span class="p">)</span>
+        <span class="n">mel_min</span> <span class="o">=</span> <span class="n">hz_to_auditory</span><span class="p">(</span><span class="n">f_min</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
+        <span class="n">mel_max</span> <span class="o">=</span> <span class="n">hz_to_auditory</span><span class="p">(</span><span class="n">f_max</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
 
         <span class="n">lower_bin_index</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">f_min</span> <span class="o">/</span> <span class="n">sample_rate</span> <span class="o">*</span> <span class="n">fft_length</span> <span class="o">+</span> <span class="mf">1.5</span><span class="p">))</span>
         <span class="n">upper_bin_index</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span>
@@ -646,7 +648,7 @@
         <span class="n">center_frequencies</span> <span class="o">=</span> <span class="p">(</span><span class="n">mel_max</span> <span class="o">-</span> <span class="n">mel_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_channel</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">seed</span> <span class="o">+</span> <span class="n">mel_min</span>
 
         <span class="n">bin_indices</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">lower_bin_index</span><span class="p">,</span> <span class="n">upper_bin_index</span><span class="p">)</span>
-        <span class="n">mel</span> <span class="o">=</span> <span class="n">hz_to_mel</span><span class="p">(</span><span class="n">sample_rate</span> <span class="o">*</span> <span class="n">bin_indices</span> <span class="o">/</span> <span class="n">fft_length</span><span class="p">)</span>
+        <span class="n">mel</span> <span class="o">=</span> <span class="n">hz_to_auditory</span><span class="p">(</span><span class="n">sample_rate</span> <span class="o">*</span> <span class="n">bin_indices</span> <span class="o">/</span> <span class="n">fft_length</span><span class="p">,</span> <span class="n">scale</span><span class="p">)</span>
         <span class="n">lower_channel_map</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">m</span> <span class="o">&lt;=</span> <span class="n">center_frequencies</span><span class="p">))</span> <span class="k">for</span> <span class="n">m</span> <span class="ow">in</span> <span class="n">mel</span><span class="p">]</span>
 
         <span class="n">diff</span> <span class="o">=</span> <span class="n">center_frequencies</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">center_frequencies</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="n">mel_min</span><span class="p">)</span>
