@@ -530,9 +530,9 @@
         <span class="n">L</span> <span class="o">=</span> <span class="n">dht_length</span>
         <span class="n">n</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
         <span class="n">k</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">L</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">dht_type</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">dht_type</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">dht_type</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
             <span class="n">n</span> <span class="o">+=</span> <span class="mf">0.5</span>
-        <span class="k">if</span> <span class="n">dht_type</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">or</span> <span class="n">dht_type</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">dht_type</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">):</span>
             <span class="n">k</span> <span class="o">+=</span> <span class="mf">0.5</span>
         <span class="n">n</span> <span class="o">*=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">L</span>
         <span class="n">z</span> <span class="o">=</span> <span class="n">L</span><span class="o">**-</span><span class="mf">0.5</span>
