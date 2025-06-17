@@ -76,7 +76,14 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">excite</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
 <li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk20ExcitationGenerationE"><code class="docutils literal notranslate"><span class="pre">sptk::ExcitationGeneration</span></code></a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk20ExcitationGeneration20ExcitationGenerationEP39InputSourceInterpolationWithMagicNumberP25RandomGenerationInterface"><code class="docutils literal notranslate"><span class="pre">ExcitationGeneration()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk20ExcitationGeneration17NormalizationTypeE"><code class="docutils literal notranslate"><span class="pre">NormalizationType</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4sptk20ExcitationGeneration17NormalizationType5kNoneE"><code class="docutils literal notranslate"><span class="pre">kNone</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4sptk20ExcitationGeneration17NormalizationType6kPowerE"><code class="docutils literal notranslate"><span class="pre">kPower</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4sptk20ExcitationGeneration17NormalizationType10kMagnitudeE"><code class="docutils literal notranslate"><span class="pre">kMagnitude</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#_CPPv4N4sptk20ExcitationGeneration17NormalizationType22kNumNormalizationTypesE"><code class="docutils literal notranslate"><span class="pre">kNumNormalizationTypes</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk20ExcitationGeneration20ExcitationGenerationEP39InputSourceInterpolationWithMagicNumberP25RandomGenerationInterface17NormalizationType"><code class="docutils literal notranslate"><span class="pre">ExcitationGeneration()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk20ExcitationGeneration7IsValidEv"><code class="docutils literal notranslate"><span class="pre">IsValid()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk20ExcitationGeneration3GetEPdPdPdPd"><code class="docutils literal notranslate"><span class="pre">Get()</span></code></a></li>
 </ul>
@@ -84,6 +91,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="extract.html">extract</a></li>
+<li class="toctree-l1"><a class="reference internal" href="f0eval.html">f0eval</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fd.html">fd</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fdrw.html">fdrw</a></li>
@@ -248,6 +256,15 @@
 <li><p>interpolation period <span class="math notranslate nohighlight">\((0 \le I \le P/2)\)</span></p></li>
 </ul>
 </p></li>
+<li><p><strong>-N</strong> <em>int</em> <ul>
+<li><p>normalization type <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> none </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> power </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> magnitude</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
 <li><p><strong>-n</strong> <em>int</em> <ul>
 <li><p>noise type <ul>
 <li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> none </p></li>
@@ -300,10 +317,40 @@
 <dd><p>Generate exication sequence.</p>
 <p>The input is a sequence of pitch value which can be either a continuous value or a magic number. The output is the excitation signal given the input sequence. </p>
 <div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-types">Public Types</p>
+<dl class="cpp enum">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk20ExcitationGeneration17NormalizationTypeE">
+<span id="_CPPv3N4sptk20ExcitationGeneration17NormalizationTypeE"></span><span id="_CPPv2N4sptk20ExcitationGeneration17NormalizationTypeE"></span><span class="target" id="classsptk_1_1ExcitationGeneration_1afec7fce94735cfccef6d5b7e3ff7fd4a"></span><span class="k"><span class="pre">enum</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">NormalizationType</span></span></span><a class="headerlink" href="#_CPPv4N4sptk20ExcitationGeneration17NormalizationTypeE" title="Link to this definition"></a><br /></dt>
+<dd><p>Normalization type. </p>
+<p><em>Values:</em></p>
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk20ExcitationGeneration17NormalizationType5kNoneE">
+<span id="_CPPv3N4sptk20ExcitationGeneration17NormalizationType5kNoneE"></span><span id="_CPPv2N4sptk20ExcitationGeneration17NormalizationType5kNoneE"></span><span class="target" id="classsptk_1_1ExcitationGeneration_1afec7fce94735cfccef6d5b7e3ff7fd4aa577d061a2fea33857ae1ca73028b66f4"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kNone</span></span></span><a class="headerlink" href="#_CPPv4N4sptk20ExcitationGeneration17NormalizationType5kNoneE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk20ExcitationGeneration17NormalizationType6kPowerE">
+<span id="_CPPv3N4sptk20ExcitationGeneration17NormalizationType6kPowerE"></span><span id="_CPPv2N4sptk20ExcitationGeneration17NormalizationType6kPowerE"></span><span class="target" id="classsptk_1_1ExcitationGeneration_1afec7fce94735cfccef6d5b7e3ff7fd4aa1cedda4b6a7c214fe79e6027e2c198ad"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kPower</span></span></span><a class="headerlink" href="#_CPPv4N4sptk20ExcitationGeneration17NormalizationType6kPowerE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk20ExcitationGeneration17NormalizationType10kMagnitudeE">
+<span id="_CPPv3N4sptk20ExcitationGeneration17NormalizationType10kMagnitudeE"></span><span id="_CPPv2N4sptk20ExcitationGeneration17NormalizationType10kMagnitudeE"></span><span class="target" id="classsptk_1_1ExcitationGeneration_1afec7fce94735cfccef6d5b7e3ff7fd4aa18da3c027e1914ccc6c00269f41f907d"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kMagnitude</span></span></span><a class="headerlink" href="#_CPPv4N4sptk20ExcitationGeneration17NormalizationType10kMagnitudeE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+<dl class="cpp enumerator">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk20ExcitationGeneration17NormalizationType22kNumNormalizationTypesE">
+<span id="_CPPv3N4sptk20ExcitationGeneration17NormalizationType22kNumNormalizationTypesE"></span><span id="_CPPv2N4sptk20ExcitationGeneration17NormalizationType22kNumNormalizationTypesE"></span><span class="target" id="classsptk_1_1ExcitationGeneration_1afec7fce94735cfccef6d5b7e3ff7fd4aa25c855c2f15dac5b20ab206ad820772e"></span><span class="k"><span class="pre">enumerator</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">kNumNormalizationTypes</span></span></span><a class="headerlink" href="#_CPPv4N4sptk20ExcitationGeneration17NormalizationType22kNumNormalizationTypesE" title="Link to this definition"></a><br /></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4sptk20ExcitationGeneration20ExcitationGenerationEP39InputSourceInterpolationWithMagicNumberP25RandomGenerationInterface">
-<span id="_CPPv3N4sptk20ExcitationGeneration20ExcitationGenerationEP39InputSourceInterpolationWithMagicNumberP25RandomGenerationInterface"></span><span id="_CPPv2N4sptk20ExcitationGeneration20ExcitationGenerationEP39InputSourceInterpolationWithMagicNumberP25RandomGenerationInterface"></span><span id="sptk::ExcitationGeneration::ExcitationGeneration__InputSourceInterpolationWithMagicNumberP.RandomGenerationInterfaceP"></span><span class="target" id="classsptk_1_1ExcitationGeneration_1aa067c68deaf990b5026d18e6a6259f65"></span><span class="sig-name descname"><span class="n"><span class="pre">ExcitationGeneration</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">InputSourceInterpolationWithMagicNumber</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_source</span></span>, <span class="n"><span class="pre">RandomGenerationInterface</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">random_generation</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk20ExcitationGeneration20ExcitationGenerationEP39InputSourceInterpolationWithMagicNumberP25RandomGenerationInterface" title="Link to this definition"></a><br /></dt>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk20ExcitationGeneration20ExcitationGenerationEP39InputSourceInterpolationWithMagicNumberP25RandomGenerationInterface17NormalizationType">
+<span id="_CPPv3N4sptk20ExcitationGeneration20ExcitationGenerationEP39InputSourceInterpolationWithMagicNumberP25RandomGenerationInterface17NormalizationType"></span><span id="_CPPv2N4sptk20ExcitationGeneration20ExcitationGenerationEP39InputSourceInterpolationWithMagicNumberP25RandomGenerationInterface17NormalizationType"></span><span id="sptk::ExcitationGeneration::ExcitationGeneration__InputSourceInterpolationWithMagicNumberP.RandomGenerationInterfaceP.NormalizationType"></span><span class="target" id="classsptk_1_1ExcitationGeneration_1a79233fcaac7bf7c34b2fd74516ca0c4e"></span><span class="sig-name descname"><span class="n"><span class="pre">ExcitationGeneration</span></span></span><span class="sig-paren">(</span><span class="n"><span class="pre">InputSourceInterpolationWithMagicNumber</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">input_source</span></span>, <span class="n"><span class="pre">RandomGenerationInterface</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">random_generation</span></span>, <a class="reference internal" href="#_CPPv4N4sptk20ExcitationGeneration17NormalizationTypeE" title="sptk::ExcitationGeneration::NormalizationType"><span class="n"><span class="pre">NormalizationType</span></span></a><span class="w"> </span><span class="n sig-param"><span class="pre">normalization_type</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><a class="reference internal" href="#_CPPv4N4sptk20ExcitationGeneration17NormalizationType6kPowerE" title="sptk::ExcitationGeneration::kPower"><span class="n"><span class="pre">kPower</span></span></a><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk20ExcitationGeneration20ExcitationGenerationEP39InputSourceInterpolationWithMagicNumberP25RandomGenerationInterface17NormalizationType" title="Link to this definition"></a><br /></dt>
 <dd><dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">

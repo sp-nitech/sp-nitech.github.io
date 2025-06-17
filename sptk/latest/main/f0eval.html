@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>transpose &mdash; SPTK  documentation</title>
+  <title>f0eval &mdash; SPTK  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -20,8 +20,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ulaw" href="ulaw.html" />
-    <link rel="prev" title="train" href="train.html" /> 
+    <link rel="next" title="fbank" href="fbank.html" />
+    <link rel="prev" title="extract" href="extract.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -75,7 +75,10 @@
 <li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="extract.html">extract</a></li>
-<li class="toctree-l1"><a class="reference internal" href="f0eval.html">f0eval</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">f0eval</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fd.html">fd</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fdrw.html">fdrw</a></li>
@@ -179,10 +182,7 @@
 <li class="toctree-l1"><a class="reference internal" href="swab.html">swab</a></li>
 <li class="toctree-l1"><a class="reference internal" href="symmetrize.html">symmetrize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="train.html">train</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">transpose</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="transpose.html">transpose</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ulaw.html">ulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vc.html">vc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vopr.html">vopr</a></li>
@@ -216,9 +216,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">transpose</li>
+      <li class="breadcrumb-item active">f0eval</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/main/transpose.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/main/f0eval.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -226,56 +226,53 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="transpose">
-<span id="id1"></span><h1>transpose<a class="headerlink" href="#transpose" title="Link to this heading"></a></h1>
+  <section id="f0eval">
+<span id="id1"></span><h1>f0eval<a class="headerlink" href="#f0eval" title="Link to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv44mainiA_Pc">
-<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="transpose_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
-<dd><p><em>transpose</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="f0eval_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p><em>f0eval</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
 <p><ul class="simple">
-<li><p><strong>-r</strong> <em>int</em> <ul>
-<li><p>number of rows <span class="math notranslate nohighlight">\((1 \le M)\)</span></p></li>
+<li><p><strong>-q</strong> <em>int</em> <ul>
+<li><p>input format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> pitch <span class="math notranslate nohighlight">\((F_s / F_0)\)</span></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> F0 </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> log F0</p></li>
 </ul>
 </p></li>
-<li><p><strong>-c</strong> <em>int</em> <ul>
-<li><p>number of columns <span class="math notranslate nohighlight">\((1 \le N)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>-o</strong> <em>int</em> <ul>
+<li><p>output format <ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> F0 RMSE and V/UV error </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> F0 RMSE </p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> V/UV error</p></li>
+</ul>
+</p></li>
+</ul>
+</p></li>
+<li><p><strong>-s</strong> <em>double</em> <ul>
+<li><p>sampling rate [kHz] <span class="math notranslate nohighlight">\((0 &lt; F_s)\)</span></p></li>
+</ul>
+</p></li>
+<li><p><strong>file1</strong> <em>str</em> <ul>
+<li><p>double-type pitch</p></li>
 </ul>
 </p></li>
 <li><p><strong>infile</strong> <em>str</em> <ul>
-<li><p>double-type data sequence</p></li>
+<li><p>double-type pitch</p></li>
 </ul>
 </p></li>
 <li><p><strong>stdout</strong> <ul>
-<li><p>double-type transposed data sequence</p></li>
+<li><p>double-type F0 RMSE [cent] and/or voiced/unvoiced error [%]</p></li>
 </ul>
 </p></li>
 </ul>
 </p>
-<p>The input of this command is        <div class="math notranslate nohighlight">
-\[\begin{split}  \begin{array}{cccc}
-    x(0,0) &amp; x(0,1) &amp; \cdots &amp; x(0,N-1) \\
-    x(1,0) &amp; x(1,1) &amp; \cdots &amp; x(1,N-1) \\
-    \vdots &amp; \vdots &amp;        &amp; \vdots   \\
-    x(M-1,0) &amp; x(M-1,1) &amp; \cdots &amp; x(M-1,N-1)
-  \end{array}
-\end{split}\]</div>
- and the output is        <div class="math notranslate nohighlight">
-\[\begin{split}  \begin{array}{cccc}
-    x(0,0) &amp; x(1,0) &amp; \cdots &amp; x(M-1,0) \\
-    x(0,1) &amp; x(1,1) &amp; \cdots &amp; x(M-1,1) \\
-    \vdots &amp; \vdots &amp;        &amp; \vdots   \\
-    x(0,N-1) &amp; x(1,N-1) &amp; \cdots &amp; x(M-1,N-1)
-  \end{array}
-\end{split}\]</div>
- where <span class="math notranslate nohighlight">\(M\)</span> is the number of rows and <span class="math notranslate nohighlight">\(N\)</span> is the number of columns. Note that <span class="math notranslate nohighlight">\(x(m,n) \, \forall m \ge M\)</span> are discarded.</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># 0 1 2</span>
-<span class="c1"># 3 4 5</span>
-ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">10</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>transpose<span class="w"> </span>-r<span class="w"> </span><span class="m">2</span><span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span>
-<span class="c1"># 0 3</span>
-<span class="c1"># 1 4</span>
-<span class="c1"># 2 5</span>
+<p>In the example below, the voiced/unvoiced error [%] between two f0 files <code class="docutils literal notranslate"><span class="pre">data1.f0</span></code> and <code class="docutils literal notranslate"><span class="pre">data2.f0</span></code> is evaluated and displayed:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>f0eval<span class="w"> </span>-q<span class="w"> </span><span class="m">1</span><span class="w"> </span>-o<span class="w"> </span><span class="m">2</span><span class="w"> </span>data1.f0<span class="w"> </span>data2.f0<span class="w"> </span><span class="p">|</span><span class="w"> </span>dmp<span class="w"> </span>+d
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -294,7 +291,7 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">10</span><
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="symmetrize.html#symmetrize"><span class="std std-ref">symmetrize</span></a></p>
+<p><a class="reference internal" href="rmse.html#rmse"><span class="std std-ref">rmse</span></a> <a class="reference internal" href="pitch.html#pitch"><span class="std std-ref">pitch</span></a></p>
 </div>
 </section>
 
@@ -302,8 +299,8 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">10</span><
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="train.html" class="btn btn-neutral float-left" title="train" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="ulaw.html" class="btn btn-neutral float-right" title="ulaw" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="extract.html" class="btn btn-neutral float-left" title="extract" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fbank.html" class="btn btn-neutral float-right" title="fbank" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
