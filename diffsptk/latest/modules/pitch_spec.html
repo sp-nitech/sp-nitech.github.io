@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>pitch_spec &#8212; diffsptk 3.2.1.dev0 documentation</title>
+    <title>pitch_spec &#8212; diffsptk 3.3.1.dev0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=c91016b8"></script>
+    <script src="../_static/documentation_options.js?v=b5dcbc37"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -57,7 +57,7 @@
     <link rel="prev" title="pitch" href="pitch.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="3.2.1.dev0" />
+  <meta name="docsearch:version" content="3.3.1.dev0" />
   </head>
   
   
@@ -584,6 +584,18 @@ precision.</p>
 <dt><strong>out_format</strong><span class="classifier">[‘db’, ‘log-magnitude’, ‘magnitude’, ‘power’]</span></dt><dd><p>The output format.</p>
 </dd>
 <dt><strong>default_f0</strong><span class="classifier">float &gt; 0</span></dt><dd><p>The F0 value used when the input F0 is unvoiced.</p>
+</dd>
+<dt><strong>eps</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>A small value added to the power spectrum. Please increase this value if you
+encounter numerical instability (valid only if <strong>algorithm</strong> is ‘cheap-trick’).</p>
+</dd>
+<dt><strong>relative_floor</strong><span class="classifier">float &lt; 0 or None</span></dt><dd><p>The relative floor of the power spectrum in dB. Please set this value if you
+encounter numerical instability (valid only if <strong>algorithm</strong> is ‘cheap-trick’).</p>
+</dd>
+<dt><strong>device</strong><span class="classifier">torch.device or None</span></dt><dd><p>The device of this module.</p>
+</dd>
+<dt><strong>dtype</strong><span class="classifier">torch.dtype or None</span></dt><dd><p>The data type of this module.</p>
+</dd>
+<dt><strong>**kwargs</strong><span class="classifier">additional keyword arguments</span></dt><dd><p>Additional keyword arguments passed to the algorithm-specific extractor.</p>
 </dd>
 </dl>
 </dd>

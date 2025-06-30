@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.modules.icqt &#8212; diffsptk 3.2.1.dev0 documentation</title>
+    <title>diffsptk.modules.icqt &#8212; diffsptk 3.3.1.dev0 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=c91016b8"></script>
+    <script src="../../../_static/documentation_options.js?v=b5dcbc37"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/icqt';</script>
@@ -53,7 +53,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="3.2.1.dev0" />
+  <meta name="docsearch:version" content="3.3.1.dev0" />
   </head>
   
   
@@ -470,7 +470,7 @@
     <span class="n">vqt_filter_fft</span><span class="p">,</span>
     <span class="n">wavelet_lengths</span><span class="p">,</span>
 <span class="p">)</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_resample_params</span><span class="p">,</span> <span class="n">numpy_to_torch</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="n">get_resample_params</span><span class="p">,</span> <span class="n">to</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseNonFunctionalModule</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">.istft</span><span class="w"> </span><span class="kn">import</span> <span class="n">InverseShortTimeFourierTransform</span> <span class="k">as</span> <span class="n">ISTFT</span>
 
@@ -518,6 +518,12 @@
 <span class="sd">    res_type : [&#39;kaiser_best&#39;, &#39;kaiser_fast&#39;] or None</span>
 <span class="sd">        The resampling type.</span>
 
+<span class="sd">    device : torch.device or None</span>
+<span class="sd">        The device of this module.</span>
+
+<span class="sd">    dtype : torch.dtype or None</span>
+<span class="sd">        The data type of this module.</span>
+
 <span class="sd">    **kwargs : additional keyword arguments</span>
 <span class="sd">        See `torchaudio.transforms.Resample</span>
 <span class="sd">        &lt;https://pytorch.org/audio/main/generated/torchaudio.transforms.Resample.html&gt;`_.</span>
@@ -539,6 +545,8 @@
         <span class="n">window</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;hann&quot;</span><span class="p">,</span>
         <span class="n">scale</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
         <span class="n">res_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">&quot;kaiser_best&quot;</span><span class="p">,</span>
+        <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">dtype</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
         <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -574,7 +582,7 @@
             <span class="n">cqt_scale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">lengths</span><span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">cqt_scale</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">K</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;cqt_scale&quot;</span><span class="p">,</span> <span class="n">numpy_to_torch</span><span class="p">(</span><span class="n">cqt_scale</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;cqt_scale&quot;</span><span class="p">,</span> <span class="n">to</span><span class="p">(</span><span class="n">cqt_scale</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">))</span>
 
         <span class="n">fp</span> <span class="o">=</span> <span class="p">[</span><span class="n">frame_period</span><span class="p">]</span>
         <span class="n">sr</span> <span class="o">=</span> <span class="p">[</span><span class="n">sample_rate</span><span class="p">]</span>
@@ -614,7 +622,9 @@
             <span class="n">freq_power</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">reciprocal</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">fft_basis</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
             <span class="n">freq_power</span> <span class="o">*=</span> <span class="n">fft_length</span> <span class="o">/</span> <span class="n">lengths</span><span class="p">[</span><span class="n">sl</span><span class="p">]</span>
             <span class="n">fft_basis</span> <span class="o">*=</span> <span class="n">freq_power</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">]</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;fft_basis_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">numpy_to_torch</span><span class="p">(</span><span class="n">fft_basis</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">&quot;fft_basis_</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">to</span><span class="p">(</span><span class="n">fft_basis</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+            <span class="p">)</span>
 
             <span class="n">transforms</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
                 <span class="n">ISTFT</span><span class="p">(</span>
@@ -624,6 +634,8 @@
                     <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                     <span class="n">window</span><span class="o">=</span><span class="s2">&quot;rectangular&quot;</span><span class="p">,</span>
                     <span class="n">norm</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span>
+                    <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
+                    <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
                 <span class="p">)</span>
             <span class="p">)</span>
 
@@ -631,9 +643,9 @@
                 <span class="n">torchaudio</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">Resample</span><span class="p">(</span>
                     <span class="n">orig_freq</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
                     <span class="n">new_freq</span><span class="o">=</span><span class="n">sample_rate</span> <span class="o">//</span> <span class="n">sr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>  <span class="c1"># must be integer</span>
-                    <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">get_default_dtype</span><span class="p">(),</span>
+                    <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">get_default_dtype</span><span class="p">()</span> <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">dtype</span><span class="p">,</span>
                     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-                <span class="p">)</span>
+                <span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
             <span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">slices</span> <span class="o">=</span> <span class="n">slices</span>

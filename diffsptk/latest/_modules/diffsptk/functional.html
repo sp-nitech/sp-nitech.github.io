@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.functional &#8212; diffsptk 3.2.1.dev0 documentation</title>
+    <title>diffsptk.functional &#8212; diffsptk 3.3.1.dev0 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=c91016b8"></script>
+    <script src="../../_static/documentation_options.js?v=b5dcbc37"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/functional';</script>
@@ -53,7 +53,7 @@
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="3.2.1.dev0" />
+  <meta name="docsearch:version" content="3.3.1.dev0" />
   </head>
   
   
@@ -1120,7 +1120,7 @@
 <span class="sd">    scale : [&#39;htk&#39;, &#39;mel&#39;, &#39;inverted-mel&#39;, &#39;bark&#39;, &#39;linear&#39;]</span>
 <span class="sd">        The type of auditory scale used to construct the filter bank.</span>
 
-<span class="sd">    erb_factor : float or None</span>
+<span class="sd">    erb_factor : float &gt; 0 or None</span>
 <span class="sd">        The scale factor for the ERB scale, referred to as the E-factor. If not None,</span>
 <span class="sd">        the filter bandwidths are adjusted according to the scaled ERB scale.</span>
 
@@ -1769,7 +1769,7 @@
 <span class="sd">    scale : [&#39;htk&#39;, &#39;mel&#39;, &#39;inverted-mel&#39;, &#39;bark&#39;, &#39;linear&#39;]</span>
 <span class="sd">        The type of auditory scale used to construct the filter bank.</span>
 
-<span class="sd">    erb_factor : float or None</span>
+<span class="sd">    erb_factor : float &gt; 0 or None</span>
 <span class="sd">        The scale factor for the ERB scale, referred to as the E-factor. If not None,</span>
 <span class="sd">        the filter bandwidths are adjusted according to the scaled ERB scale.</span>
 
@@ -2160,7 +2160,7 @@
 
 <div class="viewcode-block" id="levdur">
 <a class="viewcode-back" href="../../modules/levdur.html#diffsptk.functional.levdur">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">levdur</span><span class="p">(</span><span class="n">r</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">levdur</span><span class="p">(</span><span class="n">r</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Solve a Yule-Walker linear system.</span>
 
 <span class="sd">    Parameters</span>
@@ -2168,7 +2168,7 @@
 <span class="sd">    r : Tensor [shape=(..., M+1)]</span>
 <span class="sd">        The autocorrelation.</span>
 
-<span class="sd">    eps : float &gt;= 0</span>
+<span class="sd">    eps : float &gt;= 0 or None</span>
 <span class="sd">        A small value to improve numerical stability.</span>
 
 <span class="sd">    Returns</span>
@@ -2206,7 +2206,7 @@
 
 <div class="viewcode-block" id="lpc">
 <a class="viewcode-back" href="../../modules/lpc.html#diffsptk.functional.lpc">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">lpc</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">lpc_order</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-6</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">lpc</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">lpc_order</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Perform LPC analysis.</span>
 
 <span class="sd">    Parameters</span>
@@ -2217,7 +2217,7 @@
 <span class="sd">    lpc_order : int &gt;= 0</span>
 <span class="sd">        The order of the LPC coefficients, :math:`M`.</span>
 
-<span class="sd">    eps : float &gt;= 0</span>
+<span class="sd">    eps : float &gt;= 0 or None</span>
 <span class="sd">        A small value to improve numerical stability.</span>
 
 <span class="sd">    Returns</span>
@@ -2450,7 +2450,7 @@
 <span class="sd">    x : Tensor [shape=(B, N, D) or (N, D) or (N,)]</span>
 <span class="sd">        The data containing magic number.</span>
 
-<span class="sd">    magic_number : float or Tensor</span>
+<span class="sd">    magic_number : float</span>
 <span class="sd">        The magic number to be interpolated.</span>
 
 <span class="sd">    Returns</span>
@@ -2659,7 +2659,7 @@
 <span class="sd">    scale : [&#39;htk&#39;, &#39;mel&#39;, &#39;inverted-mel&#39;, &#39;bark&#39;, &#39;linear&#39;]</span>
 <span class="sd">        The type of auditory scale used to construct the filter bank.</span>
 
-<span class="sd">    erb_factor : float or None</span>
+<span class="sd">    erb_factor : float &gt; 0 or None</span>
 <span class="sd">        The scale factor for the ERB scale, referred to as the E-factor. If not None,</span>
 <span class="sd">        the filter bandwidths are adjusted according to the scaled ERB scale.</span>
 
@@ -3151,7 +3151,7 @@
 <span class="sd">    scale : [&#39;htk&#39;, &#39;mel&#39;, &#39;inverted-mel&#39;, &#39;bark&#39;, &#39;linear&#39;]</span>
 <span class="sd">        The type of auditory scale used to construct the filter bank.</span>
 
-<span class="sd">    erb_factor : float or None</span>
+<span class="sd">    erb_factor : float &gt; 0 or None</span>
 <span class="sd">        The scale factor for the ERB scale, referred to as the E-factor. If not None,</span>
 <span class="sd">        the filter bandwidths are adjusted according to the scaled ERB scale.</span>
 

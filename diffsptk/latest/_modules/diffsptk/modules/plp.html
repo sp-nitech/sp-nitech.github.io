@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.modules.plp &#8212; diffsptk 3.2.1.dev0 documentation</title>
+    <title>diffsptk.modules.plp &#8212; diffsptk 3.3.1.dev0 documentation</title>
   
   
   
@@ -37,7 +37,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=c91016b8"></script>
+    <script src="../../../_static/documentation_options.js?v=b5dcbc37"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/plp';</script>
@@ -53,7 +53,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="3.2.1.dev0" />
+  <meta name="docsearch:version" content="3.3.1.dev0" />
   </head>
   
   
@@ -451,10 +451,9 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">..typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Callable</span><span class="p">,</span> <span class="n">Precomputed</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">..utils.private</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
     <span class="n">auditory_to_hz</span><span class="p">,</span>
+    <span class="n">filter_values</span><span class="p">,</span>
     <span class="n">get_layer</span><span class="p">,</span>
-    <span class="n">get_values</span><span class="p">,</span>
     <span class="n">hz_to_auditory</span><span class="p">,</span>
-    <span class="n">numpy_to_torch</span><span class="p">,</span>
     <span class="n">replicate1</span><span class="p">,</span>
     <span class="n">to</span><span class="p">,</span>
 <span class="p">)</span>
@@ -505,7 +504,7 @@
 <span class="sd">    scale : [&#39;htk&#39;, &#39;mel&#39;, &#39;inverted-mel&#39;, &#39;bark&#39;, &#39;linear&#39;]</span>
 <span class="sd">        The type of auditory scale used to construct the filter bank.</span>
 
-<span class="sd">    erb_factor : float or None</span>
+<span class="sd">    erb_factor : float &gt; 0 or None</span>
 <span class="sd">        The scale factor for the ERB scale, referred to as the E-factor. If not None,</span>
 <span class="sd">        the filter bandwidths are adjusted according to the scaled ERB scale.</span>
 
@@ -518,6 +517,12 @@
 
 <span class="sd">    learnable : bool</span>
 <span class="sd">        Whether to make the mel basis learnable.</span>
+
+<span class="sd">    device : torch.device or None</span>
+<span class="sd">        The device of this module.</span>
+
+<span class="sd">    dtype : torch.dtype or None</span>
+<span class="sd">        The data type of this module.</span>
 
 <span class="sd">    References</span>
 <span class="sd">    ----------</span>
@@ -543,10 +548,12 @@
         <span class="n">n_fft</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">,</span>
         <span class="n">out_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">=</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span>
         <span class="n">learnable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">dtype</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">layers</span><span class="p">,</span> <span class="n">tensors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="o">*</span><span class="n">get_values</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">layers</span><span class="p">,</span> <span class="n">tensors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span><span class="o">**</span><span class="n">filter_values</span><span class="p">(</span><span class="nb">locals</span><span class="p">()))</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">layers</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">(</span><span class="n">layers</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;equal_loudness_curve&quot;</span><span class="p">,</span> <span class="n">tensors</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">&quot;liftering_vector&quot;</span><span class="p">,</span> <span class="n">tensors</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
@@ -592,7 +599,12 @@
     <span class="k">def</span><span class="w"> </span><span class="nf">_func</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
         <span class="n">values</span><span class="p">,</span> <span class="n">layers</span><span class="p">,</span> <span class="n">tensors</span> <span class="o">=</span> <span class="p">(</span>
             <span class="n">PerceptualLinearPredictiveCoefficientsAnalysis</span><span class="o">.</span><span class="n">_precompute</span><span class="p">(</span>
-                <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">dtype</span>
+                <span class="mi">2</span> <span class="o">*</span> <span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span>
+                <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+                <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+                <span class="n">learnable</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                <span class="n">device</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">device</span><span class="p">,</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
             <span class="p">)</span>
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">PerceptualLinearPredictiveCoefficientsAnalysis</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span>
@@ -632,9 +644,9 @@
         <span class="n">erb_factor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
         <span class="n">n_fft</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
         <span class="n">out_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span><span class="p">,</span>
-        <span class="n">learnable</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-        <span class="n">dtype</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">dtype</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">learnable</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+        <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">dtype</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">dtype</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Precomputed</span><span class="p">:</span>
         <span class="n">PerceptualLinearPredictiveCoefficientsAnalysis</span><span class="o">.</span><span class="n">_check</span><span class="p">(</span>
             <span class="n">plp_order</span><span class="p">,</span> <span class="n">n_channel</span><span class="p">,</span> <span class="n">compression_factor</span><span class="p">,</span> <span class="n">lifter</span>
@@ -668,6 +680,8 @@
                 <span class="n">use_power</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
                 <span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;y,E&quot;</span><span class="p">,</span>
                 <span class="n">learnable</span><span class="o">=</span><span class="n">learnable</span><span class="p">,</span>
+                <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
             <span class="p">),</span>
         <span class="p">)</span>
         <span class="n">levdur</span> <span class="o">=</span> <span class="n">get_layer</span><span class="p">(</span>
@@ -675,6 +689,9 @@
             <span class="n">LevinsonDurbin</span><span class="p">,</span>
             <span class="nb">dict</span><span class="p">(</span>
                 <span class="n">lpc_order</span><span class="o">=</span><span class="n">plp_order</span><span class="p">,</span>
+                <span class="n">eps</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+                <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
             <span class="p">),</span>
         <span class="p">)</span>
         <span class="n">lpc2c</span> <span class="o">=</span> <span class="n">get_layer</span><span class="p">(</span>
@@ -692,6 +709,8 @@
                 <span class="n">out_norm</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                 <span class="n">out_mul</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
                 <span class="n">n_fft</span><span class="o">=</span><span class="n">n_fft</span><span class="p">,</span>
+                <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span>
+                <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">,</span>
             <span class="p">),</span>
         <span class="p">)</span>
 
@@ -703,8 +722,7 @@
         <span class="n">seed</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n_channel</span> <span class="o">+</span> <span class="mi">2</span><span class="p">)</span>
         <span class="n">center_frequencies</span> <span class="o">=</span> <span class="p">(</span><span class="n">mel_max</span> <span class="o">-</span> <span class="n">mel_min</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">n_channel</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">seed</span> <span class="o">+</span> <span class="n">mel_min</span>
         <span class="n">f</span> <span class="o">=</span> <span class="n">auditory_to_hz</span><span class="p">(</span><span class="n">center_frequencies</span><span class="p">,</span> <span class="n">scale</span><span class="p">)[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span>
-        <span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span> <span class="o">/</span> <span class="p">(</span><span class="n">f</span> <span class="o">+</span> <span class="mf">1.6e5</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span> <span class="o">+</span> <span class="mf">1.44e6</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">f</span> <span class="o">+</span> <span class="mf">9.61e6</span><span class="p">)</span>
-        <span class="n">equal_loudness_curve</span> <span class="o">=</span> <span class="n">numpy_to_torch</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+        <span class="n">equal_loudness_curve</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span> <span class="o">/</span> <span class="p">(</span><span class="n">f</span> <span class="o">+</span> <span class="mf">1.6e5</span><span class="p">))</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="n">f</span> <span class="o">+</span> <span class="mf">1.44e6</span><span class="p">)</span> <span class="o">/</span> <span class="p">(</span><span class="n">f</span> <span class="o">+</span> <span class="mf">9.61e6</span><span class="p">)</span>
 
         <span class="n">ramp</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">plp_order</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">double</span><span class="p">)</span>
         <span class="n">liftering_vector</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="p">(</span><span class="n">lifter</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">sin</span><span class="p">((</span><span class="n">torch</span><span class="o">.</span><span class="n">pi</span> <span class="o">/</span> <span class="n">lifter</span><span class="p">)</span> <span class="o">*</span> <span class="n">ramp</span><span class="p">)</span>
