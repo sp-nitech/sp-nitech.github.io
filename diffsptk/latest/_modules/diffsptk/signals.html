@@ -682,7 +682,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">nrand</span><span class="p">(</span>
     <span class="o">*</span><span class="n">order</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">stdv</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">var</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate random number sequence.</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate Gaussian random number sequence.</span>
 
 <span class="sd">    See `nrand &lt;https://sp-nitech.github.io/sptk/latest/main/nrand.html&gt;`_</span>
 <span class="sd">    for details.</span>
@@ -732,6 +732,58 @@
     <span class="n">order</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="o">*</span><span class="n">order</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="n">stdv</span> <span class="o">+</span> <span class="n">mean</span>
+    <span class="k">return</span> <span class="n">x</span></div>
+
+
+
+<div class="viewcode-block" id="rand">
+<a class="viewcode-back" href="../../signals.html#diffsptk.rand">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">rand</span><span class="p">(</span><span class="o">*</span><span class="n">order</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">a</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate uniform random number sequence.</span>
+
+<span class="sd">    See `rand &lt;https://sp-nitech.github.io/sptk/latest/main/rand.html&gt;`_</span>
+<span class="sd">    for details.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    order : int &gt;= 0</span>
+<span class="sd">        The order of the sequence, :math:`M`.</span>
+
+<span class="sd">    a : float</span>
+<span class="sd">        The lower bound.</span>
+
+<span class="sd">    b : float &gt;= 0</span>
+<span class="sd">        The upper bound.</span>
+
+<span class="sd">    **kwargs : additional keyword arguments</span>
+<span class="sd">        See `torch.rand &lt;https://pytorch.org/docs/stable/generated/torch.rand.html&gt;`_.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out : Tensor [shape=(M+1,)]</span>
+<span class="sd">        The random value sequence.</span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; x = diffsptk.rand(4)</span>
+<span class="sd">    &gt;&gt;&gt; x</span>
+<span class="sd">    tensor([0.3425, 0.5997, 0.2882, 0.3961, 0.9791])</span>
+<span class="sd">    &gt;&gt;&gt; x = diffsptk.rand(2, 4)</span>
+<span class="sd">    &gt;&gt;&gt; x</span>
+<span class="sd">    tensor([[0.6170, 0.3649, 0.9397, 0.2408, 0.1868],</span>
+<span class="sd">            [0.6527, 0.1400, 0.3955, 0.9999, 0.8298]])</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="n">a</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Lower bound must be less than upper bound.&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">item</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span> <span class="k">for</span> <span class="n">item</span> <span class="ow">in</span> <span class="n">order</span><span class="p">):</span>
+        <span class="n">order</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="o">*</span><span class="n">order</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">order</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">order</span><span class="p">)</span>
+    <span class="n">order</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="o">*</span><span class="n">order</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span> <span class="o">*</span> <span class="n">x</span> <span class="o">+</span> <span class="n">a</span>
     <span class="k">return</span> <span class="n">x</span></div>
 
 </pre></div>

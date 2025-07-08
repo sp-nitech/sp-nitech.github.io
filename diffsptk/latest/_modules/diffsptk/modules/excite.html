@@ -442,6 +442,8 @@
 <span class="c1"># limitations under the License.                                           #</span>
 <span class="c1"># ------------------------------------------------------------------------ #</span>
 
+<span class="kn">import</span><span class="w"> </span><span class="nn">math</span>
+
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 <span class="kn">import</span><span class="w"> </span><span class="nn">torch.nn.functional</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">F</span>
 
@@ -466,7 +468,7 @@
 <span class="sd">                     &#39;triangle&#39;, &#39;square&#39;]</span>
 <span class="sd">        The type of voiced region.</span>
 
-<span class="sd">    unvoiced_region : [&#39;zeros&#39;, &#39;gauss&#39;]</span>
+<span class="sd">    unvoiced_region : [&#39;zeros&#39;, &#39;gauss&#39;, &#39;uniform&#39;]</span>
 <span class="sd">        The type of unvoiced region.</span>
 
 <span class="sd">    polarity : [&#39;auto&#39;, &#39;unipolar&#39;, &#39;bipolar&#39;]</span>
@@ -639,6 +641,10 @@
             <span class="k">pass</span>
         <span class="k">elif</span> <span class="n">unvoiced_region</span> <span class="o">==</span> <span class="s2">&quot;gauss&quot;</span><span class="p">:</span>
             <span class="n">e</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">~</span><span class="n">mask</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">unvoiced_region</span> <span class="o">==</span> <span class="s2">&quot;uniform&quot;</span><span class="p">:</span>
+            <span class="n">e</span><span class="p">[</span><span class="o">~</span><span class="n">mask</span><span class="p">]</span> <span class="o">=</span> <span class="n">math</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span>
+                <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">~</span><span class="n">mask</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">e</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span>
+            <span class="p">)</span>
         <span class="k">else</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;unvoiced_region </span><span class="si">{</span><span class="n">unvoiced_region</span><span class="si">}</span><span class="s2"> is not supported.&quot;</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">e</span></div>
