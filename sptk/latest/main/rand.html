@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>aeq &mdash; SPTK  documentation</title>
+  <title>rand &mdash; SPTK  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
 
@@ -20,8 +20,8 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="alaw" href="alaw.html" />
-    <link rel="prev" title="acr2csm" href="acr2csm.html" /> 
+    <link rel="next" title="reverse" href="reverse.html" />
+    <link rel="prev" title="ramp" href="ramp.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -47,10 +47,7 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="acorr.html">acorr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="acr2csm.html">acr2csm</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">aeq</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="aeq.html">aeq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="alaw.html">alaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="amgcep.html">amgcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ap.html">ap</a></li>
@@ -169,7 +166,18 @@
 <li class="toctree-l1"><a class="reference internal" href="pqmf.html">pqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="quantize.html">quantize</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ramp.html">ramp</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rand.html">rand</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">rand</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk39UniformDistributedRandomValueGenerationE"><code class="docutils literal notranslate"><span class="pre">sptk::UniformDistributedRandomValueGeneration</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk39UniformDistributedRandomValueGeneration39UniformDistributedRandomValueGenerationEidd"><code class="docutils literal notranslate"><span class="pre">UniformDistributedRandomValueGeneration()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk39UniformDistributedRandomValueGeneration5ResetEv"><code class="docutils literal notranslate"><span class="pre">Reset()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk39UniformDistributedRandomValueGeneration3GetEPd"><code class="docutils literal notranslate"><span class="pre">Get()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk39UniformDistributedRandomValueGeneration7GetSeedEv"><code class="docutils literal notranslate"><span class="pre">GetSeed()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk39UniformDistributedRandomValueGeneration7IsValidEv"><code class="docutils literal notranslate"><span class="pre">IsValid()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="reverse.html">reverse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rlevdur.html">rlevdur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="rmse.html">rmse</a></li>
@@ -217,9 +225,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">aeq</li>
+      <li class="breadcrumb-item active">rand</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/main/aeq.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/main/rand.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -227,58 +235,52 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="aeq">
-<span id="id1"></span><h1>aeq<a class="headerlink" href="#aeq" title="Link to this heading"></a></h1>
+  <section id="rand">
+<span id="id1"></span><h1>rand<a class="headerlink" href="#rand" title="Link to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv44mainiA_Pc">
-<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="aeq_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
-<dd><p><em>aeq</em> [ <em>option</em> ] <em>exfile</em> [ <em>infile</em> ]</p>
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="rand_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p><em>rand</em> [ <em>option</em> ]</p>
 <p><ul class="simple">
-<li><p><strong>-t</strong> <em>double</em> <ul>
-<li><p>absolute tolerance <span class="math notranslate nohighlight">\((0 \le \epsilon)\)</span></p></li>
+<li><p><strong>-l</strong> <em>int</em> <ul>
+<li><p>output length <span class="math notranslate nohighlight">\((1 \le L)\)</span></p></li>
 </ul>
 </p></li>
-<li><p><strong>-e</strong> <em>int</em> <ul>
-<li><p>error type <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> absolute error </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> relative error</p></li>
+<li><p><strong>-m</strong> <em>int</em> <ul>
+<li><p>output order <span class="math notranslate nohighlight">\((0 \le L - 1)\)</span></p></li>
 </ul>
 </p></li>
+<li><p><strong>-s</strong> <em>int</em> <ul>
+<li><p>random seed</p></li>
 </ul>
 </p></li>
-<li><p><strong>-L</strong> <ul>
-<li><p>disable to check length</p></li>
+<li><p><strong>-a</strong> <em>double</em> <ul>
+<li><p>lower bound <span class="math notranslate nohighlight">\((a &lt; b)\)</span></p></li>
 </ul>
 </p></li>
-<li><p><strong>exfile</strong> <em>str</em> <ul>
-<li><p>double-type expected values</p></li>
-</ul>
-</p></li>
-<li><p><strong>infile</strong> <em>str</em> <ul>
-<li><p>double-type actual values</p></li>
+<li><p><strong>-b</strong> <em>double</em> <ul>
+<li><p>upper bound <span class="math notranslate nohighlight">\((b &gt; a)\)</span></p></li>
 </ul>
 </p></li>
 <li><p><strong>stdout</strong> <ul>
-<li><p>result messages</p></li>
+<li><p>double-type random values</p></li>
 </ul>
 </p></li>
 </ul>
 </p>
-<p>This command checks whether two data sequences are almost equal or not.</p>
-<p>Given the two data sequences      <div class="math notranslate nohighlight">
-\[\begin{split}  \begin{array}{cccc}
-    x_1(0), &amp; x_1(1), &amp; \ldots, &amp; x_1(T_1), \\
-    x_2(0), &amp; x_2(1), &amp; \ldots, &amp; x_2(T_2), \\
+<p>The output of this command is     <div class="math notranslate nohighlight">
+\[  \begin{array}{ccccc}
+    \epsilon(0), &amp; \epsilon(1), &amp; \ldots, &amp; \epsilon(L - 1)
   \end{array}
-\end{split}\]</div>
- the absolute error <span class="math notranslate nohighlight">\(e(t)\)</span> is calculated sample-by-sample:   <div class="math notranslate nohighlight">
-\[  e(t) = | x_1(t) - x_2(t) |.
 \]</div>
- If <span class="math notranslate nohighlight">\(e(t)\)</span> is greater than tolerance <span class="math notranslate nohighlight">\(\epsilon\)</span> or <span class="math notranslate nohighlight">\(T_1\)</span> is not equal to <span class="math notranslate nohighlight">\(T_2\)</span>, the command prints a warning message.</p>
-<p>The below example checks the equality between two data:</p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>aeq<span class="w"> </span>-t<span class="w"> </span><span class="m">0</span><span class="w"> </span>data.x1<span class="w"> </span>data.x2
+ where   <div class="math notranslate nohighlight">
+\[  \epsilon(l) \sim \mathcal{U}(a, b).
+\]</div>
+ If the output length <span class="math notranslate nohighlight">\(L\)</span> is not given, an infinite random value sequence is generated.</p>
+<p>In the below example, uniform distributed random values of length 100 are generated:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>rand<span class="w"> </span>-l<span class="w"> </span><span class="m">100</span><span class="w"> </span>&gt;<span class="w"> </span>data.rnd
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -288,25 +290,88 @@
 <li><p><strong>argv</strong> – <strong>[in]</strong> Argument vector. </p></li>
 </ul>
 </dd>
-<dt class="field-even">Return values<span class="colon">:</span></dt>
-<dd class="field-even"><ul class="simple">
-<li><p><strong>-1</strong> – Given two data sequences are not almost equal. </p></li>
-<li><p><strong>0</strong> – Given two data sequences are almost equal. </p></li>
-<li><p><strong>1</strong> – Failed to run this command. </p></li>
-</ul>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>0 on success, 1 on failure. </p>
 </dd>
 </dl>
 </dd></dl>
 
 </div>
+<div class="admonition seealso">
+<p class="admonition-title">See also</p>
+<p><a class="reference internal" href="mseq.html#mseq"><span class="std std-ref">mseq</span></a> <a class="reference internal" href="nrand.html#nrand"><span class="std std-ref">nrand</span></a></p>
+</div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk39UniformDistributedRandomValueGenerationE">
+<span id="_CPPv3N4sptk39UniformDistributedRandomValueGenerationE"></span><span id="_CPPv2N4sptk39UniformDistributedRandomValueGenerationE"></span><span id="sptk::UniformDistributedRandomValueGeneration"></span><span class="target" id="classsptk_1_1UniformDistributedRandomValueGeneration"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UniformDistributedRandomValueGeneration</span></span></span><span class="w"> </span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="k"><span class="pre">public</span></span><span class="w"> </span><a class="reference internal" href="../utils/misc.html#_CPPv44sptk" title="sptk"><span class="n"><span class="pre">sptk</span></span></a><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">RandomGenerationInterface</span></span><a class="headerlink" href="#_CPPv4N4sptk39UniformDistributedRandomValueGenerationE" title="Link to this definition"></a><br /></dt>
+<dd><p>Generate random number based on uniform distribution. </p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk39UniformDistributedRandomValueGeneration39UniformDistributedRandomValueGenerationEidd">
+<span id="_CPPv3N4sptk39UniformDistributedRandomValueGeneration39UniformDistributedRandomValueGenerationEidd"></span><span id="_CPPv2N4sptk39UniformDistributedRandomValueGeneration39UniformDistributedRandomValueGenerationEidd"></span><span id="sptk::UniformDistributedRandomValueGeneration::UniformDistributedRandomValueGeneration__i.double.double"></span><span class="target" id="classsptk_1_1UniformDistributedRandomValueGeneration_1a59f81af9d2bc88feaf3e539ca111b510"></span><span class="k"><span class="pre">explicit</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">UniformDistributedRandomValueGeneration</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">seed</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">lower_bound</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">0.0</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">upper_bound</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="m"><span class="pre">1.0</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk39UniformDistributedRandomValueGeneration39UniformDistributedRandomValueGenerationEidd" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>seed</strong> – <strong>[in]</strong> Random seed. </p></li>
+<li><p><strong>lower_bound</strong> – <strong>[in]</strong> Lower bound of random number. </p></li>
+<li><p><strong>upper_bound</strong> – <strong>[in]</strong> Upper bound of random number. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk39UniformDistributedRandomValueGeneration5ResetEv">
+<span id="_CPPv3N4sptk39UniformDistributedRandomValueGeneration5ResetEv"></span><span id="_CPPv2N4sptk39UniformDistributedRandomValueGeneration5ResetEv"></span><span id="sptk::UniformDistributedRandomValueGeneration::Reset"></span><span class="target" id="classsptk_1_1UniformDistributedRandomValueGeneration_1a105f7ff8ce83053a860416e86f6a4715"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">void</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Reset</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N4sptk39UniformDistributedRandomValueGeneration5ResetEv" title="Link to this definition"></a><br /></dt>
+<dd><p>Reset internal state. </p>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk39UniformDistributedRandomValueGeneration3GetEPd">
+<span id="_CPPv3N4sptk39UniformDistributedRandomValueGeneration3GetEPd"></span><span id="_CPPv2N4sptk39UniformDistributedRandomValueGeneration3GetEPd"></span><span id="sptk::UniformDistributedRandomValueGeneration::Get__doubleP"></span><span class="target" id="classsptk_1_1UniformDistributedRandomValueGeneration_1a625bdab0e5d38e9d8dbb75e13c2c2a7a"></span><span class="k"><span class="pre">virtual</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Get</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">output</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">override</span></span><a class="headerlink" href="#_CPPv4N4sptk39UniformDistributedRandomValueGeneration3GetEPd" title="Link to this definition"></a><br /></dt>
+<dd><p>Get random number.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>output</strong> – <strong>[out]</strong> Random number. </p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk39UniformDistributedRandomValueGeneration7GetSeedEv">
+<span id="_CPPv3NK4sptk39UniformDistributedRandomValueGeneration7GetSeedEv"></span><span id="_CPPv2NK4sptk39UniformDistributedRandomValueGeneration7GetSeedEv"></span><span id="sptk::UniformDistributedRandomValueGeneration::GetSeedC"></span><span class="target" id="classsptk_1_1UniformDistributedRandomValueGeneration_1a7415d71be59d22497338277f108b8d40"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">GetSeed</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk39UniformDistributedRandomValueGeneration7GetSeedEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Random seed. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk39UniformDistributedRandomValueGeneration7IsValidEv">
+<span id="_CPPv3NK4sptk39UniformDistributedRandomValueGeneration7IsValidEv"></span><span id="_CPPv2NK4sptk39UniformDistributedRandomValueGeneration7IsValidEv"></span><span id="sptk::UniformDistributedRandomValueGeneration::IsValidC"></span><span class="target" id="classsptk_1_1UniformDistributedRandomValueGeneration_1a35976613323b9272e6591a280737643a"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk39UniformDistributedRandomValueGeneration7IsValidEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this object is valid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="acr2csm.html" class="btn btn-neutral float-left" title="acr2csm" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="alaw.html" class="btn btn-neutral float-right" title="alaw" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="ramp.html" class="btn btn-neutral float-left" title="ramp" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="reverse.html" class="btn btn-neutral float-right" title="reverse" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
