@@ -484,7 +484,7 @@
 <span class="sd">    symmetric : bool</span>
 <span class="sd">        If True, the window is symmetric, otherwise periodic.</span>
 
-<span class="sd">    n_iter : int &gt;= 1</span>
+<span class="sd">    n_iter : int &gt;= 0</span>
 <span class="sd">        The number of iterations for phase reconstruction.</span>
 
 <span class="sd">    alpha : float &gt;= 0</span>
@@ -592,8 +592,8 @@
         <span class="n">beta</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
         <span class="n">gamma</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">n_iter</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n_iter must be positive.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">n_iter</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;n_iter must be non-negative.&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">alpha</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;alpha must be non-negative.&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">beta</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -692,7 +692,8 @@
         <span class="k">if</span> <span class="n">logger</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;alpha: </span><span class="si">{</span><span class="n">alpha</span><span class="si">}</span><span class="s2">, beta: </span><span class="si">{</span><span class="n">beta</span><span class="si">}</span><span class="s2">, gamma: </span><span class="si">{</span><span class="n">gamma</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 
-        <span class="n">s</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">eps</span> <span class="o">=</span> <span class="mf">1e-16</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">y</span> <span class="o">+</span> <span class="n">eps</span><span class="p">)</span>
         <span class="n">angle</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="n">j</span> <span class="o">*</span> <span class="n">phase_generator</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
 
         <span class="n">t_prev</span> <span class="o">=</span> <span class="n">d_prev</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># This suppresses F821 and F841.</span>
@@ -708,7 +709,7 @@
                 <span class="n">c</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">diff</span>
                 <span class="n">d</span> <span class="o">=</span> <span class="n">t</span> <span class="o">+</span> <span class="n">beta</span> <span class="o">*</span> <span class="n">diff</span>
 
-            <span class="n">angle</span> <span class="o">=</span> <span class="n">c</span> <span class="o">/</span> <span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">+</span> <span class="mf">1e-16</span><span class="p">)</span>
+            <span class="n">angle</span> <span class="o">=</span> <span class="n">c</span> <span class="o">/</span> <span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span> <span class="o">+</span> <span class="n">eps</span><span class="p">)</span>
             <span class="n">t_prev</span> <span class="o">=</span> <span class="n">t</span>
             <span class="n">d_prev</span> <span class="o">=</span> <span class="n">d</span>
 
