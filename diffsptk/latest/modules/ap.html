@@ -405,6 +405,7 @@
 <li class="toctree-l1"><a class="reference internal" href="dht.html">dht</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drc.html">drc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dst.html">dst</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtw.html">dtw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
@@ -575,7 +576,7 @@ for details. Note that the gradients do not propagated through F0.</p>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>frame_period</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The frame period in samples, <span class="math notranslate nohighlight">\(P\)</span>.</p>
 </dd>
-<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 8000</span></dt><dd><p>The sample rate in Hz.</p>
+<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 8000</span></dt><dd><p>The sample rate in Hz. If <strong>algorithm</strong> is ‘d4c’, it must be at least 12000 Hz.</p>
 </dd>
 <dt><strong>fft_length</strong><span class="classifier">int &gt;= 16 or None</span></dt><dd><p>The size of double-sided aperiodicity, <span class="math notranslate nohighlight">\(L\)</span>. If None, the band aperiodicity
 (uninterpolated aperiodicity) is returned as the output.</p>

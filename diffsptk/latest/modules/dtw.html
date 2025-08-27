@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>c2ndps &#8212; diffsptk 3.3.2.dev0 documentation</title>
+    <title>dtw &#8212; diffsptk 3.3.2.dev0 documentation</title>
   
   
   
@@ -42,8 +42,7 @@
     <script src="../_static/documentation_options.js?v=cf6a07d8"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/c2ndps';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/dtw';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://sp-nitech.github.io/diffsptk/switcher.json';
@@ -54,8 +53,8 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="cdist" href="cdist.html" />
-    <link rel="prev" title="c2mpir" href="c2mpir.html" />
+    <link rel="next" title="entropy" href="entropy.html" />
+    <link rel="prev" title="dst" href="dst.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="3.3.2.dev0" />
@@ -390,7 +389,7 @@
 <li class="toctree-l1"><a class="reference internal" href="b2mc.html">b2mc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c2acr.html">c2acr</a></li>
 <li class="toctree-l1"><a class="reference internal" href="c2mpir.html">c2mpir</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">c2ndps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="c2ndps.html">c2ndps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cdist.html">cdist</a></li>
 <li class="toctree-l1"><a class="reference internal" href="chroma.html">chroma</a></li>
 <li class="toctree-l1"><a class="reference internal" href="cqt.html">cqt</a></li>
@@ -405,7 +404,7 @@
 <li class="toctree-l1"><a class="reference internal" href="dht.html">dht</a></li>
 <li class="toctree-l1"><a class="reference internal" href="drc.html">drc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dst.html">dst</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dtw.html">dtw</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">dtw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
@@ -547,7 +546,7 @@
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">diffsptk.modules</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">c2ndps</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">dtw</span></li>
   </ul>
 </nav>
 </div>
@@ -564,59 +563,79 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="c2ndps">
-<span id="id1"></span><h1>c2ndps<a class="headerlink" href="#c2ndps" title="Link to this heading">#</a></h1>
+  <section id="dtw">
+<span id="id1"></span><h1>dtw<a class="headerlink" href="#dtw" title="Link to this heading">#</a></h1>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="diffsptk.DTW">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">DTW</span></span><a class="headerlink" href="#diffsptk.DTW" title="Link to this definition">#</a></dt>
+<dd><p>alias of <a class="reference internal" href="#diffsptk.DynamicTimeWarping" title="diffsptk.modules.dtw.DynamicTimeWarping"><code class="xref py py-class docutils literal notranslate"><span class="pre">DynamicTimeWarping</span></code></a></p>
+</dd></dl>
+
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.CepstrumToNegativeDerivativeOfPhaseSpectrum">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">CepstrumToNegativeDerivativeOfPhaseSpectrum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">cep_order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">device</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dtype</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dtype</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/c2ndps.html#CepstrumToNegativeDerivativeOfPhaseSpectrum"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.CepstrumToNegativeDerivativeOfPhaseSpectrum" title="Link to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/c2ndps.html">this page</a>
-for details.</p>
+<dt class="sig sig-object py" id="diffsptk.DynamicTimeWarping">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">DynamicTimeWarping</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'euclidean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">softness</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.001</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/dtw.html#DynamicTimeWarping"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.DynamicTimeWarping" title="Link to this definition">#</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/dtw.html">this page</a>
+for details. The current implementation is based on naive nested for loops.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>cep_order</strong><span class="classifier">int &gt;= 0</span></dt><dd><p>The order of the cepstrum, <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<dt><strong>metric</strong><span class="classifier">[‘manhattan’, ‘euclidean’, ‘squared-euclidean’, ‘symmetric-kl’]</span></dt><dd><p>The metric to compute the distance between two vectors.</p>
 </dd>
-<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2</span></dt><dd><p>The number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+<dt><strong>p</strong><span class="classifier">int in [0, 6]</span></dt><dd><p>The local path constraint type.</p>
 </dd>
-<dt><strong>device</strong><span class="classifier">torch.device or None</span></dt><dd><p>The device of this module.</p>
-</dd>
-<dt><strong>dtype</strong><span class="classifier">torch.dtype or None</span></dt><dd><p>The data type of this module.</p>
+<dt><strong>softness</strong><span class="classifier">float &gt; 0</span></dt><dd><p>A smoothing parameter. The smaller value makes the output closer to the true
+dynamic time warping distance, but the gradient vanishes.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">References</p>
 <div role="list" class="citation-list">
-<div class="citation" id="re6754b423f97-1" role="doc-biblioentry">
+<div class="citation" id="r3a7acd7fd20e-1" role="doc-biblioentry">
 <span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
-<p>B. Yegnanarayana, “Pole-zero decomposition of speech spectra,” <em>Signal
-Processing</em>, vol. 3, no. 1, pp. 5-17, 1981.</p>
+<p>M. Cuturi et al., “Soft-DTW: a differentiable loss function for time-series,”
+<em>Proceedings of ICML 2017</em>, pp. 894-903, 2017.</p>
 </div>
 </div>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.CepstrumToNegativeDerivativeOfPhaseSpectrum.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/modules/c2ndps.html#CepstrumToNegativeDerivativeOfPhaseSpectrum.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.CepstrumToNegativeDerivativeOfPhaseSpectrum.forward" title="Link to this definition">#</a></dt>
-<dd><p>Convert cepstrum to NDPS.</p>
+<dt class="sig sig-object py" id="diffsptk.DynamicTimeWarping.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lengths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/diffsptk/modules/dtw.html#DynamicTimeWarping.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.DynamicTimeWarping.forward" title="Link to this definition">#</a></dt>
+<dd><p>Compute dynamic time warping distance.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>c</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>The cepstrum.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(B, T1, D) or (T1, D) or (T1,)]</span></dt><dd><p>The query vector sequence.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(B, T2, D) or (T2, D) or (T2,)]</span></dt><dd><p>The reference vector sequence.</p>
+</dd>
+<dt><strong>lengths</strong><span class="classifier">Tensor [shape=(B, 2)] or None</span></dt><dd><p>The lengths of the sequences.</p>
+</dd>
+<dt><strong>return_indices</strong><span class="classifier">bool</span></dt><dd><p>If True, returns the indices of the viterbi path.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>The NDPS.</p>
+<dt><strong>distance</strong><span class="classifier">Tensor [shape=(B,)]</span></dt><dd><p>The dynamic time warping distance.</p>
+</dd>
+<dt><strong>indices</strong><span class="classifier">list[Tensor [shape=(T, 2)]] (optional)</span></dt><dd><p>The indices of the viterbi path for each batch.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c2ndps</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">CepstrumToNegativeDerivativeOfPhaseSpectrum</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span> <span class="o">=</span> <span class="n">c2ndps</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">n</span>
-<span class="go">tensor([ 30.0000, -21.6569,  12.0000, -10.3431,  10.0000])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">6.</span><span class="p">,</span> <span class="mf">9.</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">3.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">,</span> <span class="mf">8.</span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dtw</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">DynamicTimeWarping</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">distance</span><span class="p">,</span> <span class="n">indices</span> <span class="o">=</span> <span class="n">dtw</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">return_indices</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">distance</span>
+<span class="go">tensor([0.8749])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">indices</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="go">tensor([[0, 0],</span>
+<span class="go">        [1, 1],</span>
+<span class="go">        [2, 2],</span>
+<span class="go">        [3, 2],</span>
+<span class="go">        [3, 3]])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -624,31 +643,38 @@ Processing</em>, vol. 3, no. 1, pp. 5-17, 1981.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="diffsptk.functional.c2ndps">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">c2ndps</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">c</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fft_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/functional.html#c2ndps"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.c2ndps" title="Link to this definition">#</a></dt>
-<dd><p>Convert cepstrum to NDPS.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>c</strong><span class="classifier">Tensor [shape=(…, M+1)]</span></dt><dd><p>The cepstrum.</p>
+<dt class="sig sig-object py" id="diffsptk.functional.dtw">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">dtw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lengths</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">return_indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">metric</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'euclidean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">p</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">softness</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.001</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/diffsptk/functional.html#dtw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.dtw" title="Link to this definition">#</a></dt>
+<dd><p>Compute dynamic time warping distance.</p>
+<dl class="simple">
+<dt>x<span class="classifier">Tensor [shape=(B, T1, D) or (T1, D) or (T1,)]</span></dt><dd><p>The query vector sequence.</p>
 </dd>
-<dt><strong>fft_length</strong><span class="classifier">int &gt;= 2</span></dt><dd><p>The number of FFT bins, <span class="math notranslate nohighlight">\(L\)</span>.</p>
+<dt>y<span class="classifier">Tensor [shape=(B, T2, D), (T2, D) or (T2,)]</span></dt><dd><p>The reference vector sequence.</p>
+</dd>
+<dt>lengths<span class="classifier">Tensor [shape=(B, 2)] or None</span></dt><dd><p>The lengths of the sequences.</p>
+</dd>
+<dt>return_indices<span class="classifier">bool</span></dt><dd><p>If True, returns the indices of the viterbi path.</p>
+</dd>
+<dt>metric<span class="classifier">[‘manhattan’, ‘euclidean’, ‘squared-euclidean’, ‘symmetric-kl’]</span></dt><dd><p>The metric to compute the distance between two vectors.</p>
+</dd>
+<dt>p<span class="classifier">int in [0, 6]</span></dt><dd><p>The local path constraint type.</p>
+</dd>
+<dt>softness<span class="classifier">float &gt; 0</span></dt><dd><p>A smoothing parameter. The smaller value makes the output closer to the true
+dynamic time warping distance, but the gradient vanishes.</p>
 </dd>
 </dl>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>distance</strong><span class="classifier">Tensor [shape=(B,)]</span></dt><dd><p>The dynamic time warping distance.</p>
 </dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…, L/2+1)]</span></dt><dd><p>The NDPS.</p>
+<dt><strong>indices</strong><span class="classifier">list[Tensor [shape=(T, 2)]] (optional)</span></dt><dd><p>The indices of the viterbi path for each batch.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="ndps2c.html#ndps2c"><span class="std std-ref">ndps2c</span></a></p>
-</div>
 </section>
 
 
@@ -662,20 +688,20 @@ Processing</em>, vol. 3, no. 1, pp. 5-17, 1981.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="c2mpir.html"
+       href="dst.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">c2mpir</p>
+        <p class="prev-next-title">dst</p>
       </div>
     </a>
     <a class="right-next"
-       href="cdist.html"
+       href="entropy.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">cdist</p>
+        <p class="prev-next-title">entropy</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -698,11 +724,12 @@ Processing</em>, vol. 3, no. 1, pp. 5-17, 1981.</p>
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.CepstrumToNegativeDerivativeOfPhaseSpectrum"><code class="docutils literal notranslate"><span class="pre">CepstrumToNegativeDerivativeOfPhaseSpectrum</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.CepstrumToNegativeDerivativeOfPhaseSpectrum.forward"><code class="docutils literal notranslate"><span class="pre">CepstrumToNegativeDerivativeOfPhaseSpectrum.forward()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.DTW"><code class="docutils literal notranslate"><span class="pre">DTW</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.DynamicTimeWarping"><code class="docutils literal notranslate"><span class="pre">DynamicTimeWarping</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.DynamicTimeWarping.forward"><code class="docutils literal notranslate"><span class="pre">DynamicTimeWarping.forward()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.c2ndps"><code class="docutils literal notranslate"><span class="pre">c2ndps()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.dtw"><code class="docutils literal notranslate"><span class="pre">dtw()</span></code></a></li>
 </ul>
   </nav></div>
 

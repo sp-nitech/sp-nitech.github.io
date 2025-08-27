@@ -30,6 +30,7 @@
 <link href="../../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../../_static/custom.css?v=d51dd9d5" />
   
   <!-- So that users can add custom icons -->
   <script src="../../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -468,7 +469,7 @@
 <span class="sd">        The frame period in samples, :math:`P`.</span>
 
 <span class="sd">    sample_rate : int &gt;= 8000</span>
-<span class="sd">        The sample rate in Hz.</span>
+<span class="sd">        The sample rate in Hz. If **algorithm** is &#39;d4c&#39;, it must be at least 12000 Hz.</span>
 
 <span class="sd">    fft_length : int &gt;= 16 or None</span>
 <span class="sd">        The size of double-sided aperiodicity, :math:`L`. If None, the band aperiodicity</span>
@@ -894,6 +895,13 @@
         <span class="n">dtype</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">dtype</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
         <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">sample_rate</span> <span class="o">&lt;</span> <span class="mi">12000</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;sample_rate must be at least 12000 Hz.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">threshold</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;threshold must be non-negative.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">default_f0</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;default_f0 must be positive.&quot;</span><span class="p">)</span>
 
         <span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span> <span class="o">=</span> <span class="n">frame_period</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span> <span class="o">=</span> <span class="n">sample_rate</span>

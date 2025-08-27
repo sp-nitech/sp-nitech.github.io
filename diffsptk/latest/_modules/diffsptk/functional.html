@@ -30,6 +30,7 @@
 <link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../../_static/custom.css?v=d51dd9d5" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -1003,6 +1004,62 @@
 
 
 
+<div class="viewcode-block" id="dtw">
+<a class="viewcode-back" href="../../modules/dtw.html#diffsptk.functional.dtw">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">dtw</span><span class="p">(</span>
+    <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
+    <span class="n">y</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
+    <span class="n">lengths</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">return_indices</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="n">metric</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">=</span> <span class="s2">&quot;euclidean&quot;</span><span class="p">,</span>
+    <span class="n">p</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="n">softness</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="nb">list</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute dynamic time warping distance.</span>
+
+<span class="sd">    x : Tensor [shape=(B, T1, D) or (T1, D) or (T1,)]</span>
+<span class="sd">        The query vector sequence.</span>
+
+<span class="sd">    y : Tensor [shape=(B, T2, D), (T2, D) or (T2,)]</span>
+<span class="sd">        The reference vector sequence.</span>
+
+<span class="sd">    lengths : Tensor [shape=(B, 2)] or None</span>
+<span class="sd">        The lengths of the sequences.</span>
+
+<span class="sd">    return_indices : bool</span>
+<span class="sd">        If True, returns the indices of the viterbi path.</span>
+
+<span class="sd">    metric : [&#39;manhattan&#39;, &#39;euclidean&#39;, &#39;squared-euclidean&#39;, &#39;symmetric-kl&#39;]</span>
+<span class="sd">        The metric to compute the distance between two vectors.</span>
+
+<span class="sd">    p : int in [0, 6]</span>
+<span class="sd">        The local path constraint type.</span>
+
+<span class="sd">    softness : float &gt; 0</span>
+<span class="sd">        A smoothing parameter. The smaller value makes the output closer to the true</span>
+<span class="sd">        dynamic time warping distance, but the gradient vanishes.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    distance : Tensor [shape=(B,)]</span>
+<span class="sd">        The dynamic time warping distance.</span>
+
+<span class="sd">    indices : list[Tensor [shape=(T, 2)]] (optional)</span>
+<span class="sd">        The indices of the viterbi path for each batch.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">DynamicTimeWarping</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span>
+        <span class="n">x</span><span class="p">,</span>
+        <span class="n">y</span><span class="p">,</span>
+        <span class="n">lengths</span><span class="o">=</span><span class="n">lengths</span><span class="p">,</span>
+        <span class="n">return_indices</span><span class="o">=</span><span class="n">return_indices</span><span class="p">,</span>
+        <span class="n">metric</span><span class="o">=</span><span class="n">metric</span><span class="p">,</span>
+        <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">,</span>
+        <span class="n">softness</span><span class="o">=</span><span class="n">softness</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
 <div class="viewcode-block" id="entropy">
 <a class="viewcode-back" href="../../modules/entropy.html#diffsptk.functional.entropy">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">entropy</span><span class="p">(</span><span class="n">p</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">out_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;nat&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
@@ -1091,7 +1148,7 @@
     <span class="n">erb_factor</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
     <span class="n">use_power</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
     <span class="n">out_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;y&quot;</span><span class="p">,</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]</span> <span class="o">|</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Apply mel-filter banks to the STFT.</span>
 
 <span class="sd">    Parameters</span>
