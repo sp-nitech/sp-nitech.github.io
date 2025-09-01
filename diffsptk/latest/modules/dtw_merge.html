@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>linear_intpl &#8212; diffsptk 3.3.2.dev0 documentation</title>
+    <title>dtw_merge &#8212; diffsptk 3.3.2.dev0 documentation</title>
   
   
   
@@ -42,8 +42,7 @@
     <script src="../_static/documentation_options.js?v=cf6a07d8"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/linear_intpl';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/dtw_merge';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://sp-nitech.github.io/diffsptk/switcher.json';
@@ -54,8 +53,8 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="lpc" href="lpc.html" />
-    <link rel="prev" title="levdur" href="levdur.html" />
+    <link rel="next" title="entropy" href="entropy.html" />
+    <link rel="prev" title="dtw" href="dtw.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="3.3.2.dev0" />
@@ -406,7 +405,7 @@
 <li class="toctree-l1"><a class="reference internal" href="drc.html">drc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dst.html">dst</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dtw.html">dtw</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dtw_merge.html">dtw_merge</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">dtw_merge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
@@ -450,7 +449,7 @@
 <li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lbg.html">lbg</a></li>
 <li class="toctree-l1"><a class="reference internal" href="levdur.html">levdur</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">linear_intpl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="linear_intpl.html">linear_intpl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc.html">lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2lsp.html">lpc2lsp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
@@ -548,7 +547,7 @@
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">diffsptk.modules</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">linear_intpl</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">dtw_merge</span></li>
   </ul>
 </nav>
 </div>
@@ -565,70 +564,28 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="linear-intpl">
-<span id="id1"></span><h1>linear_intpl<a class="headerlink" href="#linear-intpl" title="Link to this heading">#</a></h1>
-<dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.LinearInterpolation">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">LinearInterpolation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">upsampling_factor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/linear_intpl.html#LinearInterpolation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LinearInterpolation" title="Link to this definition">#</a></dt>
-<dd><p>Perform linear interpolation.</p>
-<p>Note that this is not related to <cite>linear_intpl</cite> in the C/C++ version of SPTK, but
-is instead intended for interpolation of filter coefficients in digital filtering.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>upsampling_factor</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The upsampling factor, <span class="math notranslate nohighlight">\(P\)</span>.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.LinearInterpolation.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/modules/linear_intpl.html#LinearInterpolation.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.LinearInterpolation.forward" title="Link to this definition">#</a></dt>
-<dd><p>Interpolate filter coefficients.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(B, N, D) or (N, D) or (N,)]</span></dt><dd><p>The filter coefficients.</p>
-</dd>
-</dl>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(B, NxP, D) or (NxP, D) or (NxP,)]</span></dt><dd><p>The upsampled filter coefficients.</p>
-</dd>
-</dl>
-</dd>
-</dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span>
-<span class="go">tensor([0., 1., 2.])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">linear_intpl</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">LinearInterpolation</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">linear_intpl</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
-<span class="go">tensor([0.0000, 0.5000, 1.0000, 1.5000, 2.0000, 2.0000])</span>
-</pre></div>
-</div>
-</dd></dl>
-
-</dd></dl>
-
+  <section id="dtw-merge">
+<span id="id1"></span><h1>dtw_merge<a class="headerlink" href="#dtw-merge" title="Link to this heading">#</a></h1>
 <dl class="py function">
-<dt class="sig sig-object py" id="diffsptk.functional.linear_intpl">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">linear_intpl</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upsampling_factor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">80</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/functional.html#linear_intpl"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.linear_intpl" title="Link to this definition">#</a></dt>
-<dd><p>Interpolate filter coefficients.</p>
+<dt class="sig sig-object py" id="diffsptk.functional.dtw_merge">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">dtw_merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">Tensor</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Tensor</span><span class="p"><span class="pre">]</span></span></span></span><a class="reference internal" href="../_modules/diffsptk/functional.html#dtw_merge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.dtw_merge" title="Link to this definition">#</a></dt>
+<dd><p>Align two vector sequences according to the given path.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(B, N, D) or (N, D) or (N,)]</span></dt><dd><p>The filter coefficients.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(T1, …)]</span></dt><dd><p>The query vector sequence.</p>
 </dd>
-<dt><strong>upsampling_factor</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The upsampling factor, <span class="math notranslate nohighlight">\(P\)</span>.</p>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(T2, …)]</span></dt><dd><p>The reference vector sequence.</p>
+</dd>
+<dt><strong>indices</strong><span class="classifier">Tensor [shape=(T, 2)]</span></dt><dd><p>The indices of the path.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(B, NxP, D) or (NxP, D) or (NxP,)]</span></dt><dd><p>The upsampled filter coefficients.</p>
+<dt><strong>x_align</strong><span class="classifier">Tensor [shape=(T, …)]</span></dt><dd><p>The aligned query vector sequence.</p>
+</dd>
+<dt><strong>y_align</strong><span class="classifier">Tensor [shape=(T, …)]</span></dt><dd><p>The aligned reference vector sequence.</p>
 </dd>
 </dl>
 </dd>
@@ -637,7 +594,7 @@ is instead intended for interpolation of filter coefficients in digital filterin
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="poledf.html#poledf"><span class="std std-ref">poledf</span></a> <a class="reference internal" href="zerodf.html#zerodf"><span class="std std-ref">zerodf</span></a></p>
+<p><a class="reference internal" href="dtw.html#dtw"><span class="std std-ref">dtw</span></a></p>
 </div>
 </section>
 
@@ -652,20 +609,20 @@ is instead intended for interpolation of filter coefficients in digital filterin
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="levdur.html"
+       href="dtw.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">levdur</p>
+        <p class="prev-next-title">dtw</p>
       </div>
     </a>
     <a class="right-next"
-       href="lpc.html"
+       href="entropy.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">lpc</p>
+        <p class="prev-next-title">entropy</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -688,11 +645,7 @@ is instead intended for interpolation of filter coefficients in digital filterin
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.LinearInterpolation"><code class="docutils literal notranslate"><span class="pre">LinearInterpolation</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.LinearInterpolation.forward"><code class="docutils literal notranslate"><span class="pre">LinearInterpolation.forward()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.linear_intpl"><code class="docutils literal notranslate"><span class="pre">linear_intpl()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.dtw_merge"><code class="docutils literal notranslate"><span class="pre">dtw_merge()</span></code></a></li>
 </ul>
   </nav></div>
 

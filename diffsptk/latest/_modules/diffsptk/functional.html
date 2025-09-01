@@ -1060,6 +1060,41 @@
 
 
 
+<div class="viewcode-block" id="dtw_merge">
+<a class="viewcode-back" href="../../modules/dtw_merge.html#diffsptk.functional.dtw_merge">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">dtw_merge</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">indices</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Align two vector sequences according to the given path.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    x : Tensor [shape=(T1, ...)]</span>
+<span class="sd">        The query vector sequence.</span>
+
+<span class="sd">    y : Tensor [shape=(T2, ...)]</span>
+<span class="sd">        The reference vector sequence.</span>
+
+<span class="sd">    indices : Tensor [shape=(T, 2)]</span>
+<span class="sd">        The indices of the path.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    x_align : Tensor [shape=(T, ...)]</span>
+<span class="sd">        The aligned query vector sequence.</span>
+
+<span class="sd">    y_align : Tensor [shape=(T, ...)]</span>
+<span class="sd">        The aligned reference vector sequence.</span>
+
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">!=</span> <span class="n">y</span><span class="o">.</span><span class="n">dim</span><span class="p">():</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;x and y must have the same number of dimensions.&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">indices</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">indices</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The shape of indices must be (T, 2).&quot;</span><span class="p">)</span>
+    <span class="n">x_align</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">indices</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]]</span>
+    <span class="n">y_align</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">indices</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]]</span>
+    <span class="k">return</span> <span class="n">x_align</span><span class="p">,</span> <span class="n">y_align</span></div>
+
+
+
 <div class="viewcode-block" id="entropy">
 <a class="viewcode-back" href="../../modules/entropy.html#diffsptk.functional.entropy">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">entropy</span><span class="p">(</span><span class="n">p</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">out_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;nat&quot;</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
