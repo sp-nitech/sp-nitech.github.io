@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>gammatone &#8212; diffsptk 3.3.2.dev0 documentation</title>
+    <title>f0eval &#8212; diffsptk 3.3.2.dev0 documentation</title>
   
   
   
@@ -42,7 +42,7 @@
     <script src="../_static/documentation_options.js?v=cf6a07d8"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/gammatone';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/f0eval';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://sp-nitech.github.io/diffsptk/switcher.json';
@@ -53,8 +53,8 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="gmm" href="gmm.html" />
-    <link rel="prev" title="freqt2" href="freqt2.html" />
+    <link rel="next" title="fbank" href="fbank.html" />
+    <link rel="prev" title="excite" href="excite.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="3.3.2.dev0" />
@@ -408,7 +408,7 @@
 <li class="toctree-l1"><a class="reference internal" href="dtw_merge.html">dtw_merge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
-<li class="toctree-l1"><a class="reference internal" href="f0eval.html">f0eval</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">f0eval</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fbank.html">fbank</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fftcep.html">fftcep</a></li>
 <li class="toctree-l1"><a class="reference internal" href="fftr.html">fftr</a></li>
@@ -416,7 +416,7 @@
 <li class="toctree-l1"><a class="reference internal" href="frame.html">frame</a></li>
 <li class="toctree-l1"><a class="reference internal" href="freqt.html">freqt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="freqt2.html">freqt2</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">gammatone</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gammatone.html">gammatone</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gmm.html">gmm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="gnorm.html">gnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="griffin.html">griffin</a></li>
@@ -548,7 +548,7 @@
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">diffsptk.modules</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">gammatone</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">f0eval</span></li>
   </ul>
 </nav>
 </div>
@@ -565,77 +565,77 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="gammatone">
-<span id="id1"></span><h1>gammatone<a class="headerlink" href="#gammatone" title="Link to this heading">#</a></h1>
+  <section id="f0eval">
+<span id="id1"></span><h1>f0eval<a class="headerlink" href="#f0eval" title="Link to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.GammatoneFilterBankAnalysis">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">GammatoneFilterBankAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample_rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="keyword-only-separator o"><abbr title="Keyword-only parameters separator (PEP 3102)"><span class="pre">*</span></abbr></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_min</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">70</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_ref</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">6700</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_order</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bandwidth_factor</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">density</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exact</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">device</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/gammatone.html#GammatoneFilterBankAnalysis"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.GammatoneFilterBankAnalysis" title="Link to this definition">#</a></dt>
-<dd><p>Gammatone filter bank analysis module.</p>
+<dt class="sig sig-object py" id="diffsptk.F0Evaluation">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">F0Evaluation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">reduction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'f0-rmse-cent'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/f0eval.html#F0Evaluation"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.F0Evaluation" title="Link to this definition">#</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/f0eval.html">this page</a>
+for details. Note that the gradients cannot be calculated if the output format
+is related to voiced/unvoiced decision.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>sample_rate</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The sample rate in Hz.</p>
+<dt><strong>reduction</strong><span class="classifier">[‘none’, ‘mean’, ‘sum’]</span></dt><dd><p>The reduction type.</p>
 </dd>
-<dt><strong>f_min</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>The minimum frequency in Hz.</p>
-</dd>
-<dt><strong>f_ref</strong><span class="classifier">float &gt;= 0</span></dt><dd><p>The base frequency in Hz.</p>
-</dd>
-<dt><strong>f_max</strong><span class="classifier">float &lt;= sample_rate // 2</span></dt><dd><p>The maximum frequency in Hz.</p>
-</dd>
-<dt><strong>filter_order</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The order of the Gammatone filter.</p>
-</dd>
-<dt><strong>bandwidth_factor</strong><span class="classifier">float &gt; 0</span></dt><dd><p>The bandwidth of the Gammatone filter.</p>
-</dd>
-<dt><strong>density</strong><span class="classifier">float &gt; 0</span></dt><dd><p>The density of frequencies on the ERB scale.</p>
-</dd>
-<dt><strong>exact</strong><span class="classifier">bool</span></dt><dd><p>If False, use all-pole approximation.</p>
-</dd>
-<dt><strong>device</strong><span class="classifier">torch.device or None</span></dt><dd><p>The device of this module.</p>
+<dt><strong>out_format</strong><span class="classifier">[‘f0-rmse-hz’, ‘f0-rmse-cent’, ‘f0-rmse-semitone’, ‘vuv-error-rate’,                   ‘vuv-error-percent’, ‘vuv-macro-f1-score’]</span></dt><dd><p>The output format.</p>
 </dd>
 </dl>
 </dd>
 </dl>
-<p class="rubric">References</p>
-<div role="list" class="citation-list">
-<div class="citation" id="r3540ba50a819-1" role="doc-biblioentry">
-<span class="label"><span class="fn-bracket">[</span>1<span class="fn-bracket">]</span></span>
-<p>V. Hohmann, “Frequency analysis and synthesis using a Gammatone filterbank,”
-<em>Acta Acustica united with Acustica</em>, vol. 88, no. 3, pp. 433-442, 2002.</p>
-</div>
-</div>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.GammatoneFilterBankAnalysis.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/modules/gammatone.html#GammatoneFilterBankAnalysis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.GammatoneFilterBankAnalysis.forward" title="Link to this definition">#</a></dt>
-<dd><p>Apply Gammatone filter banks to the input signal.</p>
+<dt class="sig sig-object py" id="diffsptk.F0Evaluation.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/modules/f0eval.html#F0Evaluation.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.F0Evaluation.forward" title="Link to this definition">#</a></dt>
+<dd><p>Calculate F0 metric.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>x</strong><span class="classifier">Tensor [shape=(B, 1, T) or (B, T) or (T,)]</span></dt><dd><p>The input signal.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, N)]</span></dt><dd><p>The input F0 in Hz.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, N)]</span></dt><dd><p>The target F0 in Hz.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(B, K, T)]</span></dt><dd><p>The analyzed signal.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…,) or scalar]</span></dt><dd><p>The F0 metric.</p>
 </dd>
 </dl>
 </dd>
 </dl>
-<p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">impulse</span><span class="p">(</span><span class="mi">15999</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">gammatone</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">GammatoneFilterBankAnalysis</span><span class="p">(</span><span class="mi">16000</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">gammatone</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">.</span><span class="n">shape</span>
-<span class="go">torch.Size([1, 30, 16000])</span>
-</pre></div>
-</div>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="diffsptk.functional.f0eval">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">f0eval</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reduction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'mean'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_format</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'f0-rmse-cent'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/functional.html#f0eval"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.f0eval" title="Link to this definition">#</a></dt>
+<dd><p>Calculate F0 metric.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(…, N)]</span></dt><dd><p>The input F0 in Hz.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(…, N)]</span></dt><dd><p>The target F0 in Hz.</p>
+</dd>
+<dt><strong>reduction</strong><span class="classifier">[‘none’, ‘mean’, ‘sum’]</span></dt><dd><p>The reduction type.</p>
+</dd>
+<dt><strong>out_format</strong><span class="classifier">[‘f0-rmse-hz’, ‘f0-rmse-cent’, ‘f0-rmse-semitone’, ‘vuv-error-rate’,                   ‘vuv-error-percent’, ‘vuv-macro-f1-score’]</span></dt><dd><p>The output format.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(…,) or scalar]</span></dt><dd><p>The F0 metric.</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="igammatone.html#igammatone"><span class="std std-ref">igammatone</span></a></p>
+<p><a class="reference internal" href="rmse.html#rmse"><span class="std std-ref">rmse</span></a></p>
 </div>
 </section>
 
@@ -650,20 +650,20 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="freqt2.html"
+       href="excite.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">freqt2</p>
+        <p class="prev-next-title">excite</p>
       </div>
     </a>
     <a class="right-next"
-       href="gmm.html"
+       href="fbank.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">gmm</p>
+        <p class="prev-next-title">fbank</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -686,10 +686,11 @@
   </div>
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.GammatoneFilterBankAnalysis"><code class="docutils literal notranslate"><span class="pre">GammatoneFilterBankAnalysis</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.GammatoneFilterBankAnalysis.forward"><code class="docutils literal notranslate"><span class="pre">GammatoneFilterBankAnalysis.forward()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.F0Evaluation"><code class="docutils literal notranslate"><span class="pre">F0Evaluation</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.F0Evaluation.forward"><code class="docutils literal notranslate"><span class="pre">F0Evaluation.forward()</span></code></a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.f0eval"><code class="docutils literal notranslate"><span class="pre">f0eval()</span></code></a></li>
 </ul>
   </nav></div>
 
