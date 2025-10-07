@@ -520,8 +520,12 @@
 <span class="sd">        --------</span>
 <span class="sd">        &gt;&gt;&gt; sr = 16000</span>
 <span class="sd">        &gt;&gt;&gt; x = diffsptk.sin(500, period=sr/440)</span>
-<span class="sd">        &gt;&gt;&gt; stft = diffsptk.STFT(frame_length=512, frame_period=512, fft_length=512)</span>
-<span class="sd">        &gt;&gt;&gt; chroma = diffsptk.ChromaFilterBankAnalysis(12, 512, sr)</span>
+<span class="sd">        &gt;&gt;&gt; stft = diffsptk.STFT(</span>
+<span class="sd">        ...     frame_length=512, frame_period=512, fft_length=512, window=&quot;hanning&quot;</span>
+<span class="sd">        ... )</span>
+<span class="sd">        &gt;&gt;&gt; chroma = diffsptk.ChromaFilterBankAnalysis(</span>
+<span class="sd">        ...     fft_length=512, n_channel=12, sample_rate=sr</span>
+<span class="sd">        ... )</span>
 <span class="sd">        &gt;&gt;&gt; y = chroma(stft(x))</span>
 <span class="sd">        &gt;&gt;&gt; y</span>
 <span class="sd">        tensor([[0.1146, 0.0574, 0.0457, 0.0468, 0.0519, 0.0789, 0.1736, 0.4285, 0.7416,</span>
