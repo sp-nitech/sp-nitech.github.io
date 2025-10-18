@@ -53,7 +53,7 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="dtw_merge" href="dtw_merge.html" />
+    <link rel="next" title="entropy" href="entropy.html" />
     <link rel="prev" title="dst" href="dst.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -405,7 +405,6 @@
 <li class="toctree-l1"><a class="reference internal" href="drc.html">drc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dst.html">dst</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">dtw</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dtw_merge.html">dtw_merge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="f0eval.html">f0eval</a></li>
@@ -717,10 +716,30 @@ dynamic time warping distance, but the gradient vanishes.</p>
 </dl>
 </dd></dl>
 
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="dtw_merge.html#dtw-merge"><span class="std std-ref">dtw_merge</span></a></p>
-</div>
+<dl class="py function">
+<dt class="sig sig-object py" id="diffsptk.functional.dtw_merge">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">dtw_merge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">indices</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/functional.html#dtw_merge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.dtw_merge" title="Link to this definition">#</a></dt>
+<dd><p>Merge two sequences according to the given indices.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(T1, D) or (T1,)]</span></dt><dd><p>The query vector sequence.</p>
+</dd>
+<dt><strong>y</strong><span class="classifier">Tensor [shape=(T2, D) or (T2,)]</span></dt><dd><p>The reference vector sequence.</p>
+</dd>
+<dt><strong>indices</strong><span class="classifier">Tensor [shape=(T, 2)]</span></dt><dd><p>The indices of the viterbi path.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>z</strong><span class="classifier">Tensor [shape=(T, 2D) or (T, 2)]</span></dt><dd><p>The merged vector sequence.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 
 
@@ -743,11 +762,11 @@ dynamic time warping distance, but the gradient vanishes.</p>
       </div>
     </a>
     <a class="right-next"
-       href="dtw_merge.html"
+       href="entropy.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">dtw_merge</p>
+        <p class="prev-next-title">entropy</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -777,6 +796,7 @@ dynamic time warping distance, but the gradient vanishes.</p>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.dtw"><code class="docutils literal notranslate"><span class="pre">dtw()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.dtw_merge"><code class="docutils literal notranslate"><span class="pre">dtw_merge()</span></code></a></li>
 </ul>
   </nav></div>
 
