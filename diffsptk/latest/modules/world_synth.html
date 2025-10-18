@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>world_synth &#8212; diffsptk 3.3.2.dev0 documentation</title>
+    <title>world_synth &#8212; diffsptk 3.4.1.dev0 documentation</title>
   
   
   
@@ -39,7 +39,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=cf6a07d8"></script>
+    <script src="../_static/documentation_options.js?v=18caefdb"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -58,7 +58,7 @@
     <link rel="prev" title="window" href="window.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="3.3.2.dev0" />
+  <meta name="docsearch:version" content="3.4.1.dev0" />
   </head>
   
   
@@ -406,7 +406,6 @@
 <li class="toctree-l1"><a class="reference internal" href="drc.html">drc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dst.html">dst</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dtw.html">dtw</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dtw_merge.html">dtw_merge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="f0eval.html">f0eval</a></li>
@@ -593,7 +592,7 @@ for details. Note that the gradients do not propagated through F0.</p>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="diffsptk.WorldSynthesis.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/modules/world_synth.html#WorldSynthesis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.WorldSynthesis.forward" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">f0</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sp</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/modules/world_synth.html#WorldSynthesis.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.WorldSynthesis.forward" title="Link to this definition">#</a></dt>
 <dd><p>Synthesize speech using WORLD vocoder.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -603,6 +602,8 @@ for details. Note that the gradients do not propagated through F0.</p>
 <dt><strong>ap</strong><span class="classifier">Tensor [shape=(B, T/P, L/2+1) or (T/P, L/2+1)]</span></dt><dd><p>The aperiodicity in [0, 1].</p>
 </dd>
 <dt><strong>sp</strong><span class="classifier">Tensor [shape=(B, T/P, L/2+1) or (T/P, L/2+1)]</span></dt><dd><p>The spectral envelope (power spectrum).</p>
+</dd>
+<dt><strong>out_length</strong><span class="classifier">int &gt; 0 or None</span></dt><dd><p>The length of the output waveform.</p>
 </dd>
 </dl>
 </dd>
@@ -614,17 +615,18 @@ for details. Note that the gradients do not propagated through F0.</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pitch</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Pitch</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;f0&quot;</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">f0</span> <span class="o">=</span> <span class="n">pitch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">diffsptk</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">pitch</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Pitch</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">16000</span><span class="p">,</span> <span class="n">out_format</span><span class="o">=</span><span class="s2">&quot;f0&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">aperiodicity</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">Aperiodicity</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">16000</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">spec</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">PitchAdaptiveSpectralAnalysis</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">16000</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">world_synth</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">WorldSynthesis</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">16000</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2000</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">f0</span> <span class="o">=</span> <span class="n">pitch</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">ap</span> <span class="o">=</span> <span class="n">aperiodicity</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">pitch_spec</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">PitchAdaptiveSpectralAnalysis</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sp</span> <span class="o">=</span> <span class="n">pitch_spec</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f0</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">world_synth</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">WorldSynthesis</span><span class="p">(</span><span class="mi">160</span><span class="p">,</span> <span class="mi">8000</span><span class="p">,</span> <span class="mi">1024</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">world_synth</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span> <span class="n">ap</span><span class="p">,</span> <span class="n">sp</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sp</span> <span class="o">=</span> <span class="n">spec</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f0</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">world_synth</span><span class="p">(</span><span class="n">f0</span><span class="p">,</span> <span class="n">ap</span><span class="p">,</span> <span class="n">sp</span><span class="p">,</span> <span class="n">out_length</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">y</span><span class="o">.</span><span class="n">shape</span>
-<span class="go">torch.Size([1120])</span>
+<span class="go">torch.Size([2000])</span>
 </pre></div>
 </div>
 </dd></dl>

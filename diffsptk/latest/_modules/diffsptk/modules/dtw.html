@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.modules.dtw &#8212; diffsptk 3.3.2.dev0 documentation</title>
+    <title>diffsptk.modules.dtw &#8212; diffsptk 3.4.1.dev0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=cf6a07d8"></script>
+    <script src="../../../_static/documentation_options.js?v=18caefdb"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/dtw';</script>
@@ -54,7 +54,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="3.3.2.dev0" />
+  <meta name="docsearch:version" content="3.4.1.dev0" />
   </head>
   
   
@@ -622,9 +622,10 @@
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; import diffsptk</span>
+<span class="sd">        &gt;&gt;&gt; dtw = diffsptk.DynamicTimeWarping(p=1)</span>
 <span class="sd">        &gt;&gt;&gt; x = torch.tensor([1., 3., 6., 9.])</span>
 <span class="sd">        &gt;&gt;&gt; y = torch.tensor([2., 3., 8., 8.])</span>
-<span class="sd">        &gt;&gt;&gt; dtw = diffsptk.DynamicTimeWarping(p=1)</span>
 <span class="sd">        &gt;&gt;&gt; distance, indices = dtw(x, y, return_indices=True)</span>
 <span class="sd">        &gt;&gt;&gt; distance</span>
 <span class="sd">        tensor([0.8749])</span>
@@ -759,7 +760,62 @@
 
         <span class="k">if</span> <span class="n">return_indices</span><span class="p">:</span>
             <span class="k">return</span> <span class="n">distance</span><span class="p">,</span> <span class="n">indices</span>
-        <span class="k">return</span> <span class="n">distance</span></div>
+        <span class="k">return</span> <span class="n">distance</span>
+
+<div class="viewcode-block" id="DynamicTimeWarping.merge">
+<a class="viewcode-back" href="../../../modules/dtw.html#diffsptk.DynamicTimeWarping.merge">[docs]</a>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">merge</span><span class="p">(</span>
+        <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+        <span class="n">y</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+        <span class="n">indices</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Merge two sequences according to the given indices.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        x : Tensor [shape=(T1, D) or (T1,)]</span>
+<span class="sd">            The query vector sequence.</span>
+
+<span class="sd">        y : Tensor [shape=(T2, D) or (T2,)]</span>
+<span class="sd">            The reference vector sequence.</span>
+
+<span class="sd">        indices : Tensor [shape=(T, 2)]</span>
+<span class="sd">            The indices of the viterbi path.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        z : Tensor [shape=(T, 2D) or (T, 2)]</span>
+<span class="sd">            The merged vector sequence.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; import diffsptk</span>
+<span class="sd">        &gt;&gt;&gt; dtw = diffsptk.DynamicTimeWarping(p=1)</span>
+<span class="sd">        &gt;&gt;&gt; x = torch.tensor([1., 3., 6., 9.])</span>
+<span class="sd">        &gt;&gt;&gt; y = torch.tensor([2., 3., 8., 8.])</span>
+<span class="sd">        &gt;&gt;&gt; _, indices = dtw(x, y, return_indices=True)</span>
+<span class="sd">        &gt;&gt;&gt; z = dtw.merge(x, y, indices[0])</span>
+<span class="sd">        &gt;&gt;&gt; z</span>
+<span class="sd">        tensor([[1., 2.],</span>
+<span class="sd">                [3., 3.],</span>
+<span class="sd">                [6., 8.],</span>
+<span class="sd">                [9., 8.],</span>
+<span class="sd">                [9., 8.]])</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">!=</span> <span class="n">y</span><span class="o">.</span><span class="n">dim</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;x and y must have the same number of dimensions.&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">indices</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">indices</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The shape of indices must be (T, 2).&quot;</span><span class="p">)</span>
+        <span class="n">x_expanded</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">indices</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]]</span>
+        <span class="n">y_expanded</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">indices</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]]</span>
+        <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">x_expanded</span><span class="p">,</span> <span class="n">y_expanded</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">z</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">x_expanded</span><span class="p">,</span> <span class="n">y_expanded</span><span class="p">],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">z</span></div>
+</div>
 
 </pre></div>
 

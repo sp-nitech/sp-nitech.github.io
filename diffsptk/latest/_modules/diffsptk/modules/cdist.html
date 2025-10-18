@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.modules.cdist &#8212; diffsptk 3.3.2.dev0 documentation</title>
+    <title>diffsptk.modules.cdist &#8212; diffsptk 3.4.1.dev0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=cf6a07d8"></script>
+    <script src="../../../_static/documentation_options.js?v=18caefdb"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/cdist';</script>
@@ -54,7 +54,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="3.3.2.dev0" />
+  <meta name="docsearch:version" content="3.4.1.dev0" />
   </head>
   
   
@@ -499,16 +499,14 @@
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        &gt;&gt;&gt; c1 = diffsptk.nrand(2, 2)</span>
-<span class="sd">        tensor([[ 0.4296,  1.6517, -0.6022],</span>
-<span class="sd">                [-1.0464, -0.6088, -0.9274]])</span>
-<span class="sd">        &gt;&gt;&gt; c2 = diffsptk.nrand(2, 2)</span>
-<span class="sd">        tensor([[ 1.6441, -0.6962, -0.2524],</span>
-<span class="sd">                [ 0.9344,  0.3965,  1.1494]])</span>
-<span class="sd">        &gt;&gt;&gt; cdist = diffsptk.CepstralDistance()</span>
+<span class="sd">        &gt;&gt;&gt; import diffsptk</span>
+<span class="sd">        &gt;&gt;&gt; import torch</span>
+<span class="sd">        &gt;&gt;&gt; cdist = diffsptk.CepstralDistance(reduction=&quot;none&quot;)</span>
+<span class="sd">        &gt;&gt;&gt; c1 = torch.tensor([[ 0.4296,  1.6517], [-1.0464, -0.6088]])</span>
+<span class="sd">        &gt;&gt;&gt; c2 = torch.tensor([[ 1.6441, -0.6962], [ 0.9344,  0.3965]])</span>
 <span class="sd">        &gt;&gt;&gt; distance = cdist(c1, c2)</span>
 <span class="sd">        &gt;&gt;&gt; distance</span>
-<span class="sd">        tensor(1.6551)</span>
+<span class="sd">        tensor([2.3479, 1.0053])</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">values</span><span class="p">)</span></div>

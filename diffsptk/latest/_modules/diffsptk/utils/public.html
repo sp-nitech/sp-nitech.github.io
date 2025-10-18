@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.utils.public &#8212; diffsptk 3.3.2.dev0 documentation</title>
+    <title>diffsptk.utils.public &#8212; diffsptk 3.4.1.dev0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=cf6a07d8"></script>
+    <script src="../../../_static/documentation_options.js?v=18caefdb"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/utils/public';</script>
@@ -54,7 +54,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="3.3.2.dev0" />
+  <meta name="docsearch:version" content="3.4.1.dev0" />
   </head>
   
   
@@ -451,13 +451,13 @@
 <div class="viewcode-block" id="get_alpha">
 <a class="viewcode-back" href="../../../utils.html#diffsptk.get_alpha">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">get_alpha</span><span class="p">(</span>
-    <span class="n">sr</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;hts&quot;</span><span class="p">,</span> <span class="n">n_freq</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n_alpha</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span>
+    <span class="n">sample_rate</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;hts&quot;</span><span class="p">,</span> <span class="n">n_freq</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">n_alpha</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute an appropriate frequency warping factor given the sample rate.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    sr : int &gt;= 1</span>
+<span class="sd">    sample_rate : int &gt;= 1</span>
 <span class="sd">        The sample rate in Hz.</span>
 
 <span class="sd">    mode : [&#39;hts&#39;, &#39;auto&#39;]</span>
@@ -477,8 +477,8 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; _, sr = diffsptk.read(&quot;assets/data.wav&quot;)</span>
-<span class="sd">    &gt;&gt;&gt; alpha = diffsptk.get_alpha(sr)</span>
+<span class="sd">    &gt;&gt;&gt; import diffsptk</span>
+<span class="sd">    &gt;&gt;&gt; alpha = diffsptk.get_alpha(sample_rate=16000, mode=&quot;hts&quot;)</span>
 <span class="sd">    &gt;&gt;&gt; alpha</span>
 <span class="sd">    0.42</span>
 
@@ -526,9 +526,9 @@
         <span class="k">return</span> <span class="n">selected_alpha</span>
 
     <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;hts&quot;</span><span class="p">:</span>
-        <span class="n">alpha</span> <span class="o">=</span> <span class="n">get_hts_alpha</span><span class="p">(</span><span class="n">sr</span><span class="p">)</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">get_hts_alpha</span><span class="p">(</span><span class="n">sample_rate</span><span class="p">)</span>
     <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">&quot;auto&quot;</span><span class="p">:</span>
-        <span class="n">alpha</span> <span class="o">=</span> <span class="n">get_auto_alpha</span><span class="p">(</span><span class="n">sr</span><span class="p">,</span> <span class="n">n_freq</span><span class="p">,</span> <span class="n">n_alpha</span><span class="p">)</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">get_auto_alpha</span><span class="p">(</span><span class="n">sample_rate</span><span class="p">,</span> <span class="n">n_freq</span><span class="p">,</span> <span class="n">n_alpha</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;Only hts and auto are supported.&quot;</span><span class="p">)</span>
 
@@ -571,23 +571,24 @@
 <span class="sd">    x : Tensor [shape=(C, T) or (T, C) or (T,)]]</span>
 <span class="sd">        The waveform.</span>
 
-<span class="sd">    sr : int</span>
+<span class="sd">    sample_rate : int</span>
 <span class="sd">        The sample rate in Hz.</span>
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; x, sr = diffsptk.read(&quot;assets/data.wav&quot;)</span>
-<span class="sd">    &gt;&gt;&gt; x</span>
-<span class="sd">    tensor([ 0.0002,  0.0004,  0.0006,  ...,  0.0006, -0.0006, -0.0007])</span>
-<span class="sd">    &gt;&gt;&gt; sr</span>
+<span class="sd">    &gt;&gt;&gt; import diffsptk</span>
+<span class="sd">    &gt;&gt;&gt; x, sample_rate = diffsptk.read(&quot;assets/data.wav&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; x.shape</span>
+<span class="sd">    torch.Size([19200])</span>
+<span class="sd">    &gt;&gt;&gt; sample_rate</span>
 <span class="sd">    16000</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">x</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="n">x</span><span class="p">,</span> <span class="n">sample_rate</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">dtype</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">dtype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">get_default_dtype</span><span class="p">()</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">T</span> <span class="k">if</span> <span class="n">channel_first</span> <span class="k">else</span> <span class="n">x</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">sr</span></div>
+    <span class="k">return</span> <span class="n">x</span><span class="p">,</span> <span class="n">sample_rate</span></div>
 
 
 
@@ -596,7 +597,7 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span>
     <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
     <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
-    <span class="n">sr</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">sample_rate</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
     <span class="n">channel_first</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
     <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -610,7 +611,7 @@
 <span class="sd">    x : Tensor or ndarray [shape=(C, T) or (T, C) or (T,)]]</span>
 <span class="sd">        The waveform.</span>
 
-<span class="sd">    sr : int</span>
+<span class="sd">    sample_rate : int</span>
 <span class="sd">        The sample rate in Hz.</span>
 
 <span class="sd">    channel_first : bool</span>
@@ -623,12 +624,15 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
-<span class="sd">    &gt;&gt;&gt; x, sr = diffsptk.read(&quot;assets/data.wav&quot;)</span>
-<span class="sd">    &gt;&gt;&gt; diffsptk.write(&quot;out.wav&quot;, x, sr)</span>
+<span class="sd">    &gt;&gt;&gt; import diffsptk</span>
+<span class="sd">    &gt;&gt;&gt; import os</span>
+<span class="sd">    &gt;&gt;&gt; x, sample_rate = diffsptk.read(&quot;assets/data.wav&quot;)</span>
+<span class="sd">    &gt;&gt;&gt; diffsptk.write(&quot;out.wav&quot;, x, sample_rate)</span>
+<span class="sd">    &gt;&gt;&gt; os.remove(&quot;out.wav&quot;)</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">is_tensor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">else</span> <span class="n">x</span>
-    <span class="n">sf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span> <span class="k">if</span> <span class="n">channel_first</span> <span class="k">else</span> <span class="n">x</span><span class="p">,</span> <span class="n">sr</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
+    <span class="n">sf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">T</span> <span class="k">if</span> <span class="n">channel_first</span> <span class="k">else</span> <span class="n">x</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div>
 
 </pre></div>
 

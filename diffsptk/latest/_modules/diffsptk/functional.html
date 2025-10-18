@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.functional &#8212; diffsptk 3.3.2.dev0 documentation</title>
+    <title>diffsptk.functional &#8212; diffsptk 3.4.1.dev0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=cf6a07d8"></script>
+    <script src="../../_static/documentation_options.js?v=18caefdb"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/functional';</script>
@@ -54,7 +54,7 @@
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="3.3.2.dev0" />
+  <meta name="docsearch:version" content="3.4.1.dev0" />
   </head>
   
   
@@ -926,11 +926,12 @@
 <a class="viewcode-back" href="../../modules/drc.html#diffsptk.functional.drc">[docs]</a>
 <span class="k">def</span><span class="w"> </span><span class="nf">drc</span><span class="p">(</span>
     <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">sample_rate</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
     <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">ratio</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">attack_time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
     <span class="n">release_time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-    <span class="n">sample_rate</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
     <span class="n">makeup_gain</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
     <span class="n">abs_max</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
@@ -940,6 +941,9 @@
 <span class="sd">    ----------</span>
 <span class="sd">    x : Tensor [shape=(..., T)]</span>
 <span class="sd">        The input waveform.</span>
+
+<span class="sd">    sample_rate : int &gt;= 1</span>
+<span class="sd">        The sample rate in Hz.</span>
 
 <span class="sd">    threshold : float &lt;= 0</span>
 <span class="sd">        The threshold in dB.</span>
@@ -952,9 +956,6 @@
 
 <span class="sd">    release_time : float &gt; 0</span>
 <span class="sd">        The release time in msec.</span>
-
-<span class="sd">    sample_rate : int &gt;= 1</span>
-<span class="sd">        The sample rate in Hz.</span>
 
 <span class="sd">    makeup_gain : float &gt;= 0</span>
 <span class="sd">        The make-up gain in dB.</span>
@@ -1061,37 +1062,28 @@
 
 
 <div class="viewcode-block" id="dtw_merge">
-<a class="viewcode-back" href="../../modules/dtw_merge.html#diffsptk.functional.dtw_merge">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">dtw_merge</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">indices</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Align two vector sequences according to the given path.</span>
+<a class="viewcode-back" href="../../modules/dtw.html#diffsptk.functional.dtw_merge">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">dtw_merge</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">y</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">indices</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Merge two sequences according to the given indices.</span>
 
 <span class="sd">    Parameters</span>
 <span class="sd">    ----------</span>
-<span class="sd">    x : Tensor [shape=(T1, ...)]</span>
+<span class="sd">    x : Tensor [shape=(T1, D) or (T1,)]</span>
 <span class="sd">        The query vector sequence.</span>
 
-<span class="sd">    y : Tensor [shape=(T2, ...)]</span>
+<span class="sd">    y : Tensor [shape=(T2, D) or (T2,)]</span>
 <span class="sd">        The reference vector sequence.</span>
 
 <span class="sd">    indices : Tensor [shape=(T, 2)]</span>
-<span class="sd">        The indices of the path.</span>
+<span class="sd">        The indices of the viterbi path.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
-<span class="sd">    x_align : Tensor [shape=(T, ...)]</span>
-<span class="sd">        The aligned query vector sequence.</span>
-
-<span class="sd">    y_align : Tensor [shape=(T, ...)]</span>
-<span class="sd">        The aligned reference vector sequence.</span>
+<span class="sd">    z : Tensor [shape=(T, 2D) or (T, 2)]</span>
+<span class="sd">        The merged vector sequence.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">!=</span> <span class="n">y</span><span class="o">.</span><span class="n">dim</span><span class="p">():</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;x and y must have the same number of dimensions.&quot;</span><span class="p">)</span>
-    <span class="k">if</span> <span class="n">indices</span><span class="o">.</span><span class="n">dim</span><span class="p">()</span> <span class="o">!=</span> <span class="mi">2</span> <span class="ow">or</span> <span class="n">indices</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">2</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;The shape of indices must be (T, 2).&quot;</span><span class="p">)</span>
-    <span class="n">x_align</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">indices</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]]</span>
-    <span class="n">y_align</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="n">indices</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]]</span>
-    <span class="k">return</span> <span class="n">x_align</span><span class="p">,</span> <span class="n">y_align</span></div>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">DynamicTimeWarping</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">indices</span><span class="o">=</span><span class="n">indices</span><span class="p">)</span></div>
 
 
 

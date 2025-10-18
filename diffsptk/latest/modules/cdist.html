@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>cdist &#8212; diffsptk 3.3.2.dev0 documentation</title>
+    <title>cdist &#8212; diffsptk 3.4.1.dev0 documentation</title>
   
   
   
@@ -39,7 +39,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=cf6a07d8"></script>
+    <script src="../_static/documentation_options.js?v=18caefdb"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'modules/cdist';</script>
@@ -57,7 +57,7 @@
     <link rel="prev" title="c2ndps" href="c2ndps.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="3.3.2.dev0" />
+  <meta name="docsearch:version" content="3.4.1.dev0" />
   </head>
   
   
@@ -405,7 +405,6 @@
 <li class="toctree-l1"><a class="reference internal" href="drc.html">drc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dst.html">dst</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dtw.html">dtw</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dtw_merge.html">dtw_merge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="f0eval.html">f0eval</a></li>
@@ -612,16 +611,14 @@ Computers and Signal Processing</em>, vol. 1, pp. 125-128, 1993.</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">nrand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="go">tensor([[ 0.4296,  1.6517, -0.6022],</span>
-<span class="go">        [-1.0464, -0.6088, -0.9274]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">nrand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<span class="go">tensor([[ 1.6441, -0.6962, -0.2524],</span>
-<span class="go">        [ 0.9344,  0.3965,  1.1494]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">cdist</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">CepstralDistance</span><span class="p">()</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">diffsptk</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">cdist</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">CepstralDistance</span><span class="p">(</span><span class="n">reduction</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c1</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span> <span class="mf">0.4296</span><span class="p">,</span>  <span class="mf">1.6517</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.0464</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6088</span><span class="p">]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">c2</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span> <span class="mf">1.6441</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.6962</span><span class="p">],</span> <span class="p">[</span> <span class="mf">0.9344</span><span class="p">,</span>  <span class="mf">0.3965</span><span class="p">]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">distance</span> <span class="o">=</span> <span class="n">cdist</span><span class="p">(</span><span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">distance</span>
-<span class="go">tensor(1.6551)</span>
+<span class="go">tensor([2.3479, 1.0053])</span>
 </pre></div>
 </div>
 </dd></dl>

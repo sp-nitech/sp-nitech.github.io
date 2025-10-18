@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>gmm &#8212; diffsptk 3.3.2.dev0 documentation</title>
+    <title>gmm &#8212; diffsptk 3.4.1.dev0 documentation</title>
   
   
   
@@ -39,7 +39,7 @@
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../_static/documentation_options.js?v=cf6a07d8"></script>
+    <script src="../_static/documentation_options.js?v=18caefdb"></script>
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
@@ -58,7 +58,7 @@
     <link rel="prev" title="gammatone" href="gammatone.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="3.3.2.dev0" />
+  <meta name="docsearch:version" content="3.4.1.dev0" />
   </head>
   
   
@@ -406,7 +406,6 @@
 <li class="toctree-l1"><a class="reference internal" href="drc.html">drc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dst.html">dst</a></li>
 <li class="toctree-l1"><a class="reference internal" href="dtw.html">dtw</a></li>
-<li class="toctree-l1"><a class="reference internal" href="dtw_merge.html">dtw_merge</a></li>
 <li class="toctree-l1"><a class="reference internal" href="entropy.html">entropy</a></li>
 <li class="toctree-l1"><a class="reference internal" href="excite.html">excite</a></li>
 <li class="toctree-l1"><a class="reference internal" href="f0eval.html">f0eval</a></li>
@@ -647,22 +646,29 @@ and Audio Processing</em>, vol. 2, no. 2, pp. 291-298, 1994.</p>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">nrand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">diffsptk</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">gmm</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">GMM</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span>
+<span class="gp">... </span>    <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">],</span> <span class="p">[</span><span class="mf">0.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">],</span> <span class="p">[</span><span class="mf">3.4</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">2.8</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">],</span>
+<span class="gp">... </span>    <span class="p">[</span><span class="mf">2.9</span><span class="p">,</span> <span class="o">-</span><span class="mf">3.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">2.2</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.6</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.8</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">],</span>
+<span class="gp">... </span><span class="p">])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">gmm</span><span class="o">.</span><span class="n">warmup</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">params</span><span class="p">,</span> <span class="n">log_likelihood</span> <span class="o">=</span> <span class="n">gmm</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">w</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sigma</span> <span class="o">=</span> <span class="n">params</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">w</span>
-<span class="go">tensor([0.1917, 0.8083])</span>
+<span class="go">tensor([0.5471, 0.4529])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">mu</span>
-<span class="go">tensor([[ 1.2321,  0.2058],</span>
-<span class="go">        [-0.1326, -0.7006]])</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">sigma</span>
-<span class="go">tensor([[[3.4010e-01, 0.0000e+00],</span>
-<span class="go">         [0.0000e+00, 6.2351e-04]],</span>
-<span class="go">        [[3.0944e-01, 0.0000e+00],</span>
-<span class="go">         [0.0000e+00, 8.6096e-01]]])</span>
+<span class="go">tensor([[-0.1507,  0.4112],</span>
+<span class="go">        [ 2.3901, -1.0930]])</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">sigma</span><span class="p">)</span>
+<span class="go">tensor([[[2.1197, 0.0000],</span>
+<span class="go">         [0.0000, 0.1536]],</span>
+
+<span class="go">        [[0.5578, -0.0000],</span>
+<span class="go">         [-0.0000, 3.6378]]])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">log_likelihood</span>
-<span class="go">tensor(-19.5235)</span>
+<span class="go">tensor(-32.5925)</span>
 </pre></div>
 </div>
 </dd></dl>

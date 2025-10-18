@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.modules.gmm &#8212; diffsptk 3.3.2.dev0 documentation</title>
+    <title>diffsptk.modules.gmm &#8212; diffsptk 3.4.1.dev0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../../_static/documentation_options.js?v=cf6a07d8"></script>
+    <script src="../../../_static/documentation_options.js?v=18caefdb"></script>
     <script src="../../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/modules/gmm';</script>
@@ -54,7 +54,7 @@
     <link rel="search" title="Search" href="../../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="3.3.2.dev0" />
+  <meta name="docsearch:version" content="3.4.1.dev0" />
   </head>
   
   
@@ -705,22 +705,29 @@
 
 <span class="sd">        Examples</span>
 <span class="sd">        --------</span>
-<span class="sd">        &gt;&gt;&gt; x = diffsptk.nrand(10, 1)</span>
+<span class="sd">        &gt;&gt;&gt; import diffsptk</span>
+<span class="sd">        &gt;&gt;&gt; import torch</span>
 <span class="sd">        &gt;&gt;&gt; gmm = diffsptk.GMM(1, 2)</span>
+<span class="sd">        &gt;&gt;&gt; x = torch.tensor([</span>
+<span class="sd">        ...     [-0.5, 0.3], [0.0, 0.7], [0.2, -0.1], [3.4, 2.0], [-2.8, 1.0],</span>
+<span class="sd">        ...     [2.9, -3.0], [2.2, -2.5], [1.5, -1.6], [1.8, 0.5], [1.3, 0.0],</span>
+<span class="sd">        ... ])</span>
+<span class="sd">        &gt;&gt;&gt; gmm.warmup(x)</span>
 <span class="sd">        &gt;&gt;&gt; params, log_likelihood = gmm(x)</span>
 <span class="sd">        &gt;&gt;&gt; w, mu, sigma = params</span>
 <span class="sd">        &gt;&gt;&gt; w</span>
-<span class="sd">        tensor([0.1917, 0.8083])</span>
+<span class="sd">        tensor([0.5471, 0.4529])</span>
 <span class="sd">        &gt;&gt;&gt; mu</span>
-<span class="sd">        tensor([[ 1.2321,  0.2058],</span>
-<span class="sd">                [-0.1326, -0.7006]])</span>
-<span class="sd">        &gt;&gt;&gt; sigma</span>
-<span class="sd">        tensor([[[3.4010e-01, 0.0000e+00],</span>
-<span class="sd">                 [0.0000e+00, 6.2351e-04]],</span>
-<span class="sd">                [[3.0944e-01, 0.0000e+00],</span>
-<span class="sd">                 [0.0000e+00, 8.6096e-01]]])</span>
+<span class="sd">        tensor([[-0.1507,  0.4112],</span>
+<span class="sd">                [ 2.3901, -1.0930]])</span>
+<span class="sd">        &gt;&gt;&gt; print(sigma)</span>
+<span class="sd">        tensor([[[2.1197, 0.0000],</span>
+<span class="sd">                 [0.0000, 0.1536]],</span>
+<span class="sd">        &lt;BLANKLINE&gt;</span>
+<span class="sd">                [[0.5578, -0.0000],</span>
+<span class="sd">                 [-0.0000, 3.6378]]])</span>
 <span class="sd">        &gt;&gt;&gt; log_likelihood</span>
-<span class="sd">        tensor(-19.5235)</span>
+<span class="sd">        tensor(-32.5925)</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="n">x</span> <span class="o">=</span> <span class="n">to_dataloader</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">)</span>

@@ -7,7 +7,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>diffsptk.signals &#8212; diffsptk 3.3.2.dev0 documentation</title>
+    <title>diffsptk.signals &#8212; diffsptk 3.4.1.dev0 documentation</title>
   
   
   
@@ -38,7 +38,7 @@
   <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
-    <script src="../../_static/documentation_options.js?v=cf6a07d8"></script>
+    <script src="../../_static/documentation_options.js?v=18caefdb"></script>
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/signals';</script>
@@ -54,7 +54,7 @@
     <link rel="search" title="Search" href="../../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
-  <meta name="docsearch:version" content="3.3.2.dev0" />
+  <meta name="docsearch:version" content="3.4.1.dev0" />
   </head>
   
   
@@ -471,6 +471,7 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import diffsptk</span>
 <span class="sd">    &gt;&gt;&gt; x = diffsptk.impulse(4)</span>
 <span class="sd">    &gt;&gt;&gt; x</span>
 <span class="sd">    tensor([1., 0., 0., 0., 0.])</span>
@@ -507,6 +508,7 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import diffsptk</span>
 <span class="sd">    &gt;&gt;&gt; x = diffsptk.step(4, 2)</span>
 <span class="sd">    &gt;&gt;&gt; x</span>
 <span class="sd">    tensor([2., 2., 2., 2., 2.])</span>
@@ -552,6 +554,7 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import diffsptk</span>
 <span class="sd">    &gt;&gt;&gt; x = diffsptk.ramp(4)</span>
 <span class="sd">    &gt;&gt;&gt; x</span>
 <span class="sd">    tensor([0., 1., 2., 3., 4.])</span>
@@ -605,6 +608,7 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import diffsptk</span>
 <span class="sd">    &gt;&gt;&gt; x = diffsptk.sin(4)</span>
 <span class="sd">    &gt;&gt;&gt; x</span>
 <span class="sd">    tensor([ 0.0000,  0.9511,  0.5878, -0.5878, -0.9511])</span>
@@ -651,6 +655,7 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import diffsptk</span>
 <span class="sd">    &gt;&gt;&gt; x = diffsptk.train(5, 2.3)</span>
 <span class="sd">    &gt;&gt;&gt; x</span>
 <span class="sd">    tensor([1.5166, 0.0000, 0.0000, 1.5166, 0.0000, 1.5166])</span>
@@ -703,6 +708,7 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import diffsptk</span>
 <span class="sd">    &gt;&gt;&gt; x = diffsptk.mseq(4)</span>
 <span class="sd">    &gt;&gt;&gt; x</span>
 <span class="sd">    tensor([-1.,  1., -1.,  1., -1.])</span>
@@ -776,13 +782,13 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import diffsptk</span>
 <span class="sd">    &gt;&gt;&gt; x = diffsptk.nrand(4)</span>
-<span class="sd">    &gt;&gt;&gt; x</span>
-<span class="sd">    tensor([-0.8603,  0.6743, -0.9178,  1.5382, -0.2574])</span>
+<span class="sd">    &gt;&gt;&gt; x.shape</span>
+<span class="sd">    torch.Size([5])</span>
 <span class="sd">    &gt;&gt;&gt; x = diffsptk.nrand(2, 4)</span>
-<span class="sd">    &gt;&gt;&gt; x</span>
-<span class="sd">    tensor([[-0.2385, -0.0778, -0.0418, -1.6217,  0.1560],</span>
-<span class="sd">            [ 1.6646,  0.8429,  0.9357, -0.5123,  0.9571]])</span>
+<span class="sd">    &gt;&gt;&gt; x.shape</span>
+<span class="sd">    torch.Size([2, 5])</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">var</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -830,13 +836,13 @@
 
 <span class="sd">    Examples</span>
 <span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; import diffsptk</span>
 <span class="sd">    &gt;&gt;&gt; x = diffsptk.rand(4)</span>
-<span class="sd">    &gt;&gt;&gt; x</span>
-<span class="sd">    tensor([0.3425, 0.5997, 0.2882, 0.3961, 0.9791])</span>
+<span class="sd">    &gt;&gt;&gt; x.shape</span>
+<span class="sd">    torch.Size([5])</span>
 <span class="sd">    &gt;&gt;&gt; x = diffsptk.rand(2, 4)</span>
-<span class="sd">    &gt;&gt;&gt; x</span>
-<span class="sd">    tensor([[0.6170, 0.3649, 0.9397, 0.2408, 0.1868],</span>
-<span class="sd">            [0.6527, 0.1400, 0.3955, 0.9999, 0.8298]])</span>
+<span class="sd">    &gt;&gt;&gt; x.shape</span>
+<span class="sd">    torch.Size([2, 5])</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">if</span> <span class="n">b</span> <span class="o">&lt;=</span> <span class="n">a</span><span class="p">:</span>
