@@ -8,15 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>sptk &mdash; SPTK  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
 
   
       <script src="../_static/jquery.js?v=5d32c60e"></script>
       <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-      <script src="../_static/doctools.js?v=9bcbadda"></script>
-      <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-      <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -167,6 +167,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../main/ramp.html">ramp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../main/rand.html">rand</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../main/raw2wav.html">raw2wav</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../main/resamp.html">resamp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../main/reverse.html">reverse</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../main/rlevdur.html">rlevdur</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../main/rmse.html">rmse</a></li>
@@ -229,7 +230,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk4WarpEddd"><code class="docutils literal notranslate"><span class="pre">Warp()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk13PrintDataTypeERKNSt6stringEPNSt7ostreamE"><code class="docutils literal notranslate"><span class="pre">PrintDataType()</span></code></a></li>
 <li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk17PrintErrorMessageERKNSt6stringERKNSt13ostringstreamE"><code class="docutils literal notranslate"><span class="pre">PrintErrorMessage()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk13SetBinaryModeEv"><code class="docutils literal notranslate"><span class="pre">SetBinaryMode()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk13SetBinaryModeEb"><code class="docutils literal notranslate"><span class="pre">SetBinaryMode()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -710,9 +711,14 @@
 </dd></dl>
 
 <dl class="cpp function">
-<dt class="sig sig-object cpp" id="_CPPv4N4sptk13SetBinaryModeEv">
-<span id="_CPPv3N4sptk13SetBinaryModeEv"></span><span id="_CPPv2N4sptk13SetBinaryModeEv"></span><span id="sptk::SetBinaryMode"></span><span class="target" id="sptk__utils_8h_1ab766838f2be4c3defc628c143310f634"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetBinaryMode</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk13SetBinaryModeEv" title="Link to this definition"></a><br /></dt>
-<dd><p>Set standard input/output to binary mode. </p>
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk13SetBinaryModeEb">
+<span id="_CPPv3N4sptk13SetBinaryModeEb"></span><span id="_CPPv2N4sptk13SetBinaryModeEb"></span><span id="sptk::SetBinaryMode__b"></span><span class="target" id="sptk__utils_8h_1a1d21f3977ff7db98359944287bdfa2ee"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">SetBinaryMode</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">fast_io</span></span><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="k"><span class="pre">true</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk13SetBinaryModeEb" title="Link to this definition"></a><br /></dt>
+<dd><p>Set standard input/output to binary mode.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>fast_io</strong> – <strong>[in]</strong> If true, use fast I/O setting. </p>
+</dd>
+</dl>
 </dd></dl>
 
 </div>
