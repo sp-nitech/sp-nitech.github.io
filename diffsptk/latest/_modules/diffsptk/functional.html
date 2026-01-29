@@ -39,8 +39,8 @@
 <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
 
     <script src="../../_static/documentation_options.js?v=18caefdb"></script>
-    <script src="../../_static/doctools.js?v=9bcbadda"></script>
-    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = '_modules/diffsptk/functional';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.16.1';
@@ -1119,7 +1119,7 @@
     <span class="n">voiced_region</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;pulse&quot;</span><span class="p">,</span>
     <span class="n">unvoiced_region</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;gauss&quot;</span><span class="p">,</span>
     <span class="n">polarity</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;auto&quot;</span><span class="p">,</span>
-    <span class="n">init_phase</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;zeros&quot;</span><span class="p">,</span>
+    <span class="n">init_phase</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">=</span> <span class="s2">&quot;zeros&quot;</span><span class="p">,</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Generate a simple excitation signal.</span>
 
@@ -1135,14 +1135,14 @@
 <span class="sd">                     &#39;triangle&#39;, &#39;square&#39;]</span>
 <span class="sd">        The type of voiced region.</span>
 
-<span class="sd">    unvoiced_region : [&#39;zeros&#39;, &#39;gauss&#39;, &#39;uniform&#39;]</span>
+<span class="sd">    unvoiced_region : [&#39;zeros&#39;, &#39;gauss&#39;, &#39;m-sequence&#39;, &#39;uniform&#39;]</span>
 <span class="sd">        The type of unvoiced region.</span>
 
 <span class="sd">    polarity : [&#39;auto&#39;, &#39;unipolar&#39;, &#39;bipolar&#39;]</span>
 <span class="sd">        The polarity.</span>
 
-<span class="sd">    init_phase : [&#39;zeros&#39;, &#39;random&#39;]</span>
-<span class="sd">        The initial phase.</span>
+<span class="sd">    init_phase : [&#39;zeros&#39;, &#39;random&#39;] or float</span>
+<span class="sd">        The initial phase in radians.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -1669,36 +1669,6 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">HilbertTransform</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fft_length</span><span class="o">=</span><span class="n">fft_length</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span></div>
-
-
-
-<div class="viewcode-block" id="hilbert2">
-<a class="viewcode-back" href="../../modules/hilbert2.html#diffsptk.functional.hilbert2">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">hilbert2</span><span class="p">(</span>
-    <span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
-    <span class="n">fft_length</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-    <span class="n">dim</span><span class="p">:</span> <span class="n">ArrayLike</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
-<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Compute the analytic signal using the Hilbert transform.</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    x : Tensor [shape=(..., T1, T2, ...)]</span>
-<span class="sd">        The input signal.</span>
-
-<span class="sd">    fft_length : int, list[int], or None</span>
-<span class="sd">        The number of FFT bins. If None, set to (:math:`T1`, :math:`T2`).</span>
-
-<span class="sd">    dim : list[int]</span>
-<span class="sd">        The dimensions along which to take the Hilbert transform.</span>
-
-<span class="sd">    Returns</span>
-<span class="sd">    -------</span>
-<span class="sd">    out : Tensor [shape=(..., T1, T2, ...)]</span>
-<span class="sd">        The analytic signal.</span>
-
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">TwoDimensionalHilbertTransform</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fft_length</span><span class="o">=</span><span class="n">fft_length</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="n">dim</span><span class="p">)</span></div>
 
 
 
@@ -2285,7 +2255,8 @@
 <span class="sd">        The autocorrelation.</span>
 
 <span class="sd">    eps : float &gt;= 0 or None</span>
-<span class="sd">        A small value to improve numerical stability.</span>
+<span class="sd">        A small value to improve numerical stability. If None, automatically set</span>
+<span class="sd">        based on the input data type.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -2334,7 +2305,8 @@
 <span class="sd">        The order of the LPC coefficients, :math:`M`.</span>
 
 <span class="sd">    eps : float &gt;= 0 or None</span>
-<span class="sd">        A small value to improve numerical stability.</span>
+<span class="sd">        A small value to improve numerical stability. If None, automatically set</span>
+<span class="sd">        based on the input data type.</span>
 
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
@@ -3431,7 +3403,7 @@
 
 <div class="viewcode-block" id="rlevdur">
 <a class="viewcode-back" href="../../modules/rlevdur.html#diffsptk.functional.rlevdur">[docs]</a>
-<span class="k">def</span><span class="w"> </span><span class="nf">rlevdur</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">rlevdur</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">n_fft</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">512</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Solve a Yule-Walker linear system given the LPC coefficients.</span>
 
 <span class="sd">    Parameters</span>
@@ -3439,13 +3411,16 @@
 <span class="sd">    a : Tensor [shape=(..., M+1)]</span>
 <span class="sd">        The gain and the LPC coefficients.</span>
 
+<span class="sd">    n_fft : int &gt;&gt; M</span>
+<span class="sd">        The number of FFT bins. Accurate conversion requires a large value.</span>
+
 <span class="sd">    Returns</span>
 <span class="sd">    -------</span>
 <span class="sd">    out : Tensor [shape=(..., M+1)]</span>
 <span class="sd">        The autocorrelation.</span>
 
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReverseLevinsonDurbin</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">a</span><span class="p">)</span></div>
+    <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReverseLevinsonDurbin</span><span class="o">.</span><span class="n">_func</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">n_fft</span><span class="o">=</span><span class="n">n_fft</span><span class="p">)</span></div>
 
 
 
@@ -4042,7 +4017,7 @@
         <div class="footer-item">
 
   <p class="sphinx-version">
-    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.2.3.
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.0.4.
     <br/>
   </p>
 </div>
