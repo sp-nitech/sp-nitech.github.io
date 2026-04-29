@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>iulaw &#8212; diffsptk 3.5.1.dev0 documentation</title>
+    <title>medfilt &#8212; diffsptk 3.5.1.dev0 documentation</title>
   
   
   
@@ -43,7 +43,7 @@
     <script src="../_static/doctools.js?v=fd6eb6e6"></script>
     <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/iulaw';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'modules/medfilt';</script>
     <script>
         DOCUMENTATION_OPTIONS.theme_version = '0.17.1';
         DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://sp-nitech.github.io/diffsptk/switcher.json';
@@ -55,8 +55,8 @@
     <link rel="icon" href="../_static/favicon.png"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="ivq" href="ivq.html" />
-    <link rel="prev" title="istft" href="istft.html" />
+    <link rel="next" title="mfcc" href="mfcc.html" />
+    <link rel="prev" title="mdst" href="mdst.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="3.5.1.dev0" />
@@ -457,7 +457,7 @@
 <li class="toctree-l1"><a class="reference internal" href="ipqmf.html">ipqmf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="is2par.html">is2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="istft.html">istft</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">iulaw</a></li>
+<li class="toctree-l1"><a class="reference internal" href="iulaw.html">iulaw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ivq.html">ivq</a></li>
 <li class="toctree-l1"><a class="reference internal" href="iwht.html">iwht</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lar2par.html">lar2par</a></li>
@@ -476,7 +476,7 @@
 <li class="toctree-l1"><a class="reference internal" href="mcpf.html">mcpf</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mdct.html">mdct</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mdst.html">mdst</a></li>
-<li class="toctree-l1"><a class="reference internal" href="medfilt.html">medfilt</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">medfilt</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mfcc.html">mfcc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mgc2mgc.html">mgc2mgc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="mgc2sp.html">mgc2sp</a></li>
@@ -562,7 +562,7 @@
     
     <li class="breadcrumb-item"><a href="index.html" class="nav-link">diffsptk.modules</a></li>
     
-    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">iulaw</span></li>
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">medfilt</span></li>
   </ul>
 </nav>
 </div>
@@ -579,49 +579,51 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="iulaw">
-<span id="id1"></span><h1>iulaw<a class="headerlink" href="#iulaw" title="Link to this heading">#</a></h1>
+  <section id="medfilt">
+<span id="id1"></span><h1>medfilt<a class="headerlink" href="#medfilt" title="Link to this heading">#</a></h1>
 <dl class="py class">
-<dt class="sig sig-object py" id="diffsptk.MuLawExpansion">
-<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MuLawExpansion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">abs_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">255</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/iulaw.html#MuLawExpansion"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MuLawExpansion" title="Link to this definition">#</a></dt>
-<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/iulaw.html">this page</a>
+<dt class="sig sig-object py" id="diffsptk.MedianFilter">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">diffsptk.</span></span><span class="sig-name descname"><span class="pre">MedianFilter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filter_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">across_features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">magic_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/diffsptk/modules/medfilt.html#MedianFilter"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MedianFilter" title="Link to this definition">#</a></dt>
+<dd><p>See <a class="reference external" href="https://sp-nitech.github.io/sptk/latest/main/medfilt.html">this page</a>
 for details.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>abs_max</strong><span class="classifier">float &gt; 0</span></dt><dd><p>The absolute maximum value of the original input waveform.</p>
+<dt><strong>filter_length</strong><span class="classifier">int &gt; 0</span></dt><dd><p>The length of the median filter, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
-<dt><strong>mu</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The compression factor, <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<dt><strong>across_features</strong><span class="classifier">bool</span></dt><dd><p>If True, apply the filter across the feature dimension.</p>
+</dd>
+<dt><strong>magic_number</strong><span class="classifier">float or None</span></dt><dd><p>The magic number representing unvoiced frames.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="diffsptk.MuLawExpansion.forward">
-<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/modules/iulaw.html#MuLawExpansion.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MuLawExpansion.forward" title="Link to this definition">#</a></dt>
-<dd><p>Expand the waveform using the <span class="math notranslate nohighlight">\(\mu\)</span>-law algorithm.</p>
+<dt class="sig sig-object py" id="diffsptk.MedianFilter.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/modules/medfilt.html#MedianFilter.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.MedianFilter.forward" title="Link to this definition">#</a></dt>
+<dd><p>Apply median filtering to the input sequence.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>The input compressed waveform.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(B, N, D) or (N, D) or (N,)]</span></dt><dd><p>The input sequence.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>The expanded waveform.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(B, N, D) or (B, N) or (N, D) or (N,)]</span></dt><dd><p>The filtered sequence.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 <p class="rubric">Examples</p>
-<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">diffsptk</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ulaw</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MuLawCompression</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">iulaw</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MuLawExpansion</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">ramp</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span> <span class="o">=</span> <span class="n">iulaw</span><span class="p">(</span><span class="n">ulaw</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">x2</span>
-<span class="go">tensor([0.0000, 1.0000, 2.0000, 3.0000, 4.0000])</span>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span><span class="w"> </span><span class="nn">diffsptk</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">medfilt</span> <span class="o">=</span> <span class="n">diffsptk</span><span class="o">.</span><span class="n">MedianFilter</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">])</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span> <span class="o">=</span> <span class="n">medfilt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">y</span>
+<span class="go">tensor([1., 0., 2., 4., 7., 6.])</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -629,33 +631,31 @@ for details.</p>
 </dd></dl>
 
 <dl class="py function">
-<dt class="sig sig-object py" id="diffsptk.functional.iulaw">
-<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">iulaw</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">y</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">abs_max</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">mu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">255</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/functional.html#iulaw"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.iulaw" title="Link to this definition">#</a></dt>
-<dd><p>Expand the waveform using the <span class="math notranslate nohighlight">\(\mu\)</span>-law algorithm.</p>
+<dt class="sig sig-object py" id="diffsptk.functional.medfilt">
+<span class="sig-prename descclassname"><span class="pre">diffsptk.functional.</span></span><span class="sig-name descname"><span class="pre">medfilt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Tensor</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">across_features</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">magic_number</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tensor</span></span></span><a class="reference internal" href="../_modules/diffsptk/functional.html#medfilt"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#diffsptk.functional.medfilt" title="Link to this definition">#</a></dt>
+<dd><p>Apply median filtering to the input sequence.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>y</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>The compressed waveform.</p>
+<dt><strong>x</strong><span class="classifier">Tensor [shape=(B, N, D) or (N, D) or (N,)]</span></dt><dd><p>The input sequence.</p>
 </dd>
-<dt><strong>abs_max</strong><span class="classifier">float &gt; 0</span></dt><dd><p>The absolute maximum value of the original input waveform.</p>
+<dt><strong>filter_length</strong><span class="classifier">int &gt; 0</span></dt><dd><p>The length of the median filter, <span class="math notranslate nohighlight">\(L\)</span>.</p>
 </dd>
-<dt><strong>mu</strong><span class="classifier">int &gt;= 1</span></dt><dd><p>The compression factor, <span class="math notranslate nohighlight">\(\mu\)</span>.</p>
+<dt><strong>across_features</strong><span class="classifier">bool</span></dt><dd><p>If True, apply the filter across the feature dimension.</p>
+</dd>
+<dt><strong>magic_number</strong><span class="classifier">float or None</span></dt><dd><p>The magic number representing unvoiced frames.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">Tensor [shape=(…,)]</span></dt><dd><p>The expanded waveform.</p>
+<dt><strong>out</strong><span class="classifier">Tensor [shape=(B, N, D) or (B, N) or (N, D) or (N,)]</span></dt><dd><p>The filtered sequence.</p>
 </dd>
 </dl>
 </dd>
 </dl>
 </dd></dl>
 
-<div class="admonition seealso">
-<p class="admonition-title">See also</p>
-<p><a class="reference internal" href="ulaw.html#ulaw"><span class="std std-ref">ulaw</span></a></p>
-</div>
 </section>
 
 
@@ -669,20 +669,20 @@ for details.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="istft.html"
+       href="mdst.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">istft</p>
+        <p class="prev-next-title">mdst</p>
       </div>
     </a>
     <a class="right-next"
-       href="ivq.html"
+       href="mfcc.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">ivq</p>
+        <p class="prev-next-title">mfcc</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -705,11 +705,11 @@ for details.</p>
   </div>
   <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="pst-show_toc_level nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.MuLawExpansion"><code class="docutils literal notranslate"><span class="pre">MuLawExpansion</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.MuLawExpansion.forward"><code class="docutils literal notranslate"><span class="pre">MuLawExpansion.forward()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.MedianFilter"><code class="docutils literal notranslate"><span class="pre">MedianFilter</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.MedianFilter.forward"><code class="docutils literal notranslate"><span class="pre">MedianFilter.forward()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.iulaw"><code class="docutils literal notranslate"><span class="pre">iulaw()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#diffsptk.functional.medfilt"><code class="docutils literal notranslate"><span class="pre">medfilt()</span></code></a></li>
 </ul>
   </nav></div>
 
