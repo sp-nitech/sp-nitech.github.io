@@ -123,6 +123,7 @@
 <li class="toctree-l1"><a class="reference internal" href="lpc2lsp.html">lpc2lsp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpccheck.html">lpccheck</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lpnorm.html">lpnorm</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lsp2lpc.html">lsp2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lspcheck.html">lspcheck</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lspdf.html">lspdf</a></li>
@@ -257,6 +258,10 @@
 <li><p>order of vector <span class="math notranslate nohighlight">\((0 \le M)\)</span></p></li>
 </ul>
 </p></li>
+<li><p><strong>-K</strong> <em>int</em> <ul>
+<li><p>length of filter <span class="math notranslate nohighlight">\((1 \le K + 1)\)</span></p></li>
+</ul>
+</p></li>
 <li><p><strong>-k</strong> <em>int</em> <ul>
 <li><p>order of filter <span class="math notranslate nohighlight">\((0 \le K)\)</span></p></li>
 </ul>
@@ -283,7 +288,7 @@
 </p></li>
 </ul>
 </p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+ad<span class="w"> </span><span class="p">|</span><span class="w"> </span>medfilt<span class="w"> </span>-w<span class="w"> </span><span class="m">0</span><span class="w"> </span>-l<span class="w"> </span><span class="m">1</span><span class="w"> </span>-k<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="m">7</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+ad<span class="w"> </span><span class="p">|</span><span class="w"> </span>medfilt<span class="w"> </span>-w<span class="w"> </span><span class="m">0</span><span class="w"> </span>-l<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da
 <span class="c1"># 2 3 5 6</span>
 </pre></div>
 </div>

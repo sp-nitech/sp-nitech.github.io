@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>x2x &mdash; SPTK  documentation</title>
+  <title>lpnorm &mdash; SPTK  documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
 
@@ -16,11 +16,12 @@
       <script src="../_static/documentation_options.js?v=5929fcd5"></script>
       <script src="../_static/doctools.js?v=fd6eb6e6"></script>
       <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="zcross" href="zcross.html" />
-    <link rel="prev" title="world_synth" href="world_synth.html" /> 
+    <link rel="next" title="lsp2lpc" href="lsp2lpc.html" />
+    <link rel="prev" title="lpccheck" href="lpccheck.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -122,7 +123,16 @@
 <li class="toctree-l1"><a class="reference internal" href="lpc2lsp.html">lpc2lsp</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpc2par.html">lpc2par</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lpccheck.html">lpccheck</a></li>
-<li class="toctree-l1"><a class="reference internal" href="lpnorm.html">lpnorm</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">lpnorm</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#_CPPv4N4sptk17LpNormCalculationE"><code class="docutils literal notranslate"><span class="pre">sptk::LpNormCalculation</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4N4sptk17LpNormCalculation17LpNormCalculationEid"><code class="docutils literal notranslate"><span class="pre">LpNormCalculation()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk17LpNormCalculation7IsValidEv"><code class="docutils literal notranslate"><span class="pre">IsValid()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#_CPPv4NK4sptk17LpNormCalculation3RunERKNSt6vectorIdEEPd"><code class="docutils literal notranslate"><span class="pre">Run()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="lsp2lpc.html">lsp2lpc</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lspcheck.html">lspcheck</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lspdf.html">lspdf</a></li>
@@ -192,10 +202,7 @@
 <li class="toctree-l1"><a class="reference internal" href="wav2raw.html">wav2raw</a></li>
 <li class="toctree-l1"><a class="reference internal" href="window.html">window</a></li>
 <li class="toctree-l1"><a class="reference internal" href="world_synth.html">world_synth</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">x2x</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#_CPPv44mainiA_Pc"><code class="docutils literal notranslate"><span class="pre">main()</span></code></a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="x2x.html">x2x</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zcross.html">zcross</a></li>
 <li class="toctree-l1"><a class="reference internal" href="zerodf.html">zerodf</a></li>
 </ul>
@@ -220,9 +227,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">x2x</li>
+      <li class="breadcrumb-item active">lpnorm</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/main/x2x.rst.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/main/lpnorm.rst.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -230,83 +237,40 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="x2x">
-<span id="id1"></span><h1>x2x<a class="headerlink" href="#x2x" title="Link to this heading"></a></h1>
+  <section id="lpnorm">
+<span id="id1"></span><h1>lpnorm<a class="headerlink" href="#lpnorm" title="Link to this heading"></a></h1>
 <div class="breathe-sectiondef docutils container">
 <p class="breathe-sectiondef-title rubric" id="breathe-section-title-functions">Functions</p>
 <dl class="cpp function">
 <dt class="sig sig-object cpp" id="_CPPv44mainiA_Pc">
-<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="x2x_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
-<dd><p><em>x2x</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
+<span id="_CPPv34mainiA_Pc"></span><span id="_CPPv24mainiA_Pc"></span><span id="main__i.cPA"></span><span class="target" id="lpnorm_8cc_1a0ddf1224851353fc92bfbff6f499fa97"></span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">main</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">argc</span></span>, <span class="kt"><span class="pre">char</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">argv</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="sig-paren">)</span><br /></dt>
+<dd><p><em>lpnorm</em> [ <em>option</em> ] [ <em>infile</em> ]</p>
 <p><ul class="simple">
-<li><p><strong>+type</strong> <em>char</em> <ul>
-<li><p>data type <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">c</span></code> char (1byte) </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">C</span></code> unsigned char (1byte) </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">s</span></code> short (2byte) </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">S</span></code> unsigned short (2byte) </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">h</span></code> int (3byte) </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">H</span></code> unsigned int (3byte) </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">i</span></code> int (4byte) </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">I</span></code> unsigned int (4byte) </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">l</span></code> long (8byte) </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">L</span></code> unsigned long (8byte) </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">f</span></code> float (4byte) </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">d</span></code> double (8byte) </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">e</span></code> long double (16byte) </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">a</span></code> ascii</p></li>
+<li><p><strong>-l</strong> <em>int</em> <ul>
+<li><p>length of vector</p></li>
 </ul>
 </p></li>
+<li><p><strong>-m</strong> <em>int</em> <ul>
+<li><p>order of vector</p></li>
 </ul>
 </p></li>
-<li><p><strong>-r</strong> <ul>
-<li><p>rounding</p></li>
-</ul>
-</p></li>
-<li><p><strong>-e</strong> <em>int</em> <ul>
-<li><p>warning type for out-of-range value <ul>
-<li><p><code class="docutils literal notranslate"><span class="pre">0</span></code> no warning </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">1</span></code> output index </p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">2</span></code> output index and exit immediately</p></li>
-</ul>
-</p></li>
-</ul>
-</p></li>
-<li><p><strong>-c</strong> <em>int</em> <ul>
-<li><p>number of columns</p></li>
-</ul>
-</p></li>
-<li><p><strong>-f</strong> <em>str</em> <ul>
-<li><p>print format</p></li>
+<li><p><strong>-p</strong> <em>double</em> or <em>str</em> <ul>
+<li><p>order of norm</p></li>
 </ul>
 </p></li>
 <li><p><strong>infile</strong> <em>str</em> <ul>
-<li><p>double-type data sequence</p></li>
+<li><p>double-type vector sequence</p></li>
 </ul>
 </p></li>
 <li><p><strong>stdout</strong> <ul>
-<li><p>double-type transformed data sequence</p></li>
+<li><p>double-type normalized vector sequence</p></li>
 </ul>
 </p></li>
 </ul>
 </p>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da
-<span class="c1"># 0</span>
-<span class="c1"># 1</span>
-<span class="c1"># 2</span>
-<span class="c1"># 3</span>
-ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span>
-<span class="c1"># 0       1</span>
-<span class="c1"># 2       3</span>
-ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>sopr<span class="w"> </span>-a<span class="w"> </span><span class="m">0</span>.5<span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+dc<span class="w"> </span>-r<span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+ca<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span>
-<span class="c1"># 1       2</span>
-<span class="c1"># 3       4</span>
-ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da<span class="w"> </span>-c<span class="w"> </span><span class="m">2</span><span class="w"> </span>-f<span class="w"> </span>%.1f
-<span class="c1"># 0.0     1.0</span>
-<span class="c1"># 2.0     3.0</span>
-<span class="nb">echo</span><span class="w"> </span>-1<span class="w"> </span><span class="m">1000</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+aC<span class="w"> </span>-e<span class="w"> </span><span class="m">0</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+Ca
-<span class="c1"># 0</span>
-<span class="c1"># 255</span>
+<p>The below example calculates L2-normalized vector sequence:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nb">echo</span><span class="w"> </span><span class="m">3</span><span class="w"> </span><span class="m">4</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+ad<span class="w"> </span><span class="p">|</span><span class="w"> </span>lpnorm<span class="w"> </span>-l<span class="w"> </span><span class="m">2</span><span class="w"> </span>-p<span class="w"> </span><span class="m">2</span><span class="w"> </span><span class="p">|</span><span class="w"> </span>x2x<span class="w"> </span>+da
+<span class="c1"># 0.6 0.8</span>
 </pre></div>
 </div>
 <dl class="field-list simple">
@@ -325,16 +289,75 @@ ramp<span class="w"> </span>-l<span class="w"> </span><span class="m">4</span><s
 </div>
 <div class="admonition seealso">
 <p class="admonition-title">See also</p>
-<p><a class="reference internal" href="dmp.html#dmp"><span class="std std-ref">dmp</span></a></p>
+<p><a class="reference internal" href="vopr.html#vopr"><span class="std std-ref">vopr</span></a> <a class="reference internal" href="vsum.html#vsum"><span class="std std-ref">vsum</span></a></p>
 </div>
+<dl class="cpp class">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk17LpNormCalculationE">
+<span id="_CPPv3N4sptk17LpNormCalculationE"></span><span id="_CPPv2N4sptk17LpNormCalculationE"></span><span id="sptk::LpNormCalculation"></span><span class="target" id="classsptk_1_1LpNormCalculation"></span><span class="k"><span class="pre">class</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">LpNormCalculation</span></span></span><a class="headerlink" href="#_CPPv4N4sptk17LpNormCalculationE" title="Link to this definition"></a><br /></dt>
+<dd><p>Calculate Lp-norm.</p>
+<p>The input is the <span class="math notranslate nohighlight">\(M\)</span>-th order vector:     <div class="math notranslate nohighlight">
+\[  \begin{array}{cccc}
+    x(0), &amp; x(1), &amp; \ldots, &amp; x(M),
+  \end{array}
+\]</div>
+ The output is the Lp-norm represented as     <div class="math notranslate nohighlight">
+\[  \begin{array}{cccc}
+    \|x\|_p = \left(\displaystyle\sum_{m=0}^M |x(m)|^p\right)^{\frac{1}{p}}.
+  \end{array}
+\]</div>
+</p>
+<div class="breathe-sectiondef docutils container">
+<p class="breathe-sectiondef-title rubric" id="breathe-section-title-public-functions">Public Functions</p>
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4N4sptk17LpNormCalculation17LpNormCalculationEid">
+<span id="_CPPv3N4sptk17LpNormCalculation17LpNormCalculationEid"></span><span id="_CPPv2N4sptk17LpNormCalculation17LpNormCalculationEid"></span><span id="sptk::LpNormCalculation::LpNormCalculation__i.double"></span><span class="target" id="classsptk_1_1LpNormCalculation_1aac7486c35759eeb523a38e3d28a64f66"></span><span class="sig-name descname"><span class="n"><span class="pre">LpNormCalculation</span></span></span><span class="sig-paren">(</span><span class="kt"><span class="pre">int</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">num_order</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="n sig-param"><span class="pre">p</span></span><span class="sig-paren">)</span><a class="headerlink" href="#_CPPv4N4sptk17LpNormCalculation17LpNormCalculationEid" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>num_order</strong> – <strong>[in]</strong> Order of input, <span class="math notranslate nohighlight">\(M\)</span>. </p></li>
+<li><p><strong>p</strong> – <strong>[in]</strong> Power, <span class="math notranslate nohighlight">\(p\)</span>. </p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk17LpNormCalculation7IsValidEv">
+<span id="_CPPv3NK4sptk17LpNormCalculation7IsValidEv"></span><span id="_CPPv2NK4sptk17LpNormCalculation7IsValidEv"></span><span id="sptk::LpNormCalculation::IsValidC"></span><span class="target" id="classsptk_1_1LpNormCalculation_1ae12256d64e486772b91893aa3efe5a78"></span><span class="k"><span class="pre">inline</span></span><span class="w"> </span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">IsValid</span></span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk17LpNormCalculation7IsValidEv" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if this object is valid. </p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="cpp function">
+<dt class="sig sig-object cpp" id="_CPPv4NK4sptk17LpNormCalculation3RunERKNSt6vectorIdEEPd">
+<span id="_CPPv3NK4sptk17LpNormCalculation3RunERKNSt6vectorIdEEPd"></span><span id="_CPPv2NK4sptk17LpNormCalculation3RunERKNSt6vectorIdEEPd"></span><span id="sptk::LpNormCalculation::Run__std::vector:double:CR.doublePC"></span><span class="target" id="classsptk_1_1LpNormCalculation_1a3aacd809ceef1dbb448c864b84b54a5e"></span><span class="kt"><span class="pre">bool</span></span><span class="w"> </span><span class="sig-name descname"><span class="n"><span class="pre">Run</span></span></span><span class="sig-paren">(</span><span class="k"><span class="pre">const</span></span><span class="w"> </span><span class="n"><span class="pre">std</span></span><span class="p"><span class="pre">::</span></span><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">&lt;</span></span><span class="kt"><span class="pre">double</span></span><span class="p"><span class="pre">&gt;</span></span><span class="w"> </span><span class="p"><span class="pre">&amp;</span></span><span class="n sig-param"><span class="pre">data</span></span>, <span class="kt"><span class="pre">double</span></span><span class="w"> </span><span class="p"><span class="pre">*</span></span><span class="n sig-param"><span class="pre">norm</span></span><span class="sig-paren">)</span><span class="w"> </span><span class="k"><span class="pre">const</span></span><a class="headerlink" href="#_CPPv4NK4sptk17LpNormCalculation3RunERKNSt6vectorIdEEPd" title="Link to this definition"></a><br /></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>data</strong> – <strong>[in]</strong> <span class="math notranslate nohighlight">\(M\)</span>-th order vector. </p></li>
+<li><p><strong>norm</strong> – <strong>[out]</strong> Lp-norm. </p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>True on success, false on failure. </p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</dd></dl>
+
 </section>
 
 
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="world_synth.html" class="btn btn-neutral float-left" title="world_synth" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="zcross.html" class="btn btn-neutral float-right" title="zcross" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="lpccheck.html" class="btn btn-neutral float-left" title="lpccheck" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="lsp2lpc.html" class="btn btn-neutral float-right" title="lsp2lpc" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
