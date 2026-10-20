@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>pitch_garden.algorithms &#8212; pitch-garden 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'api/algorithms';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.22.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://sp-nitech.github.io/pitch-garden/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="pitch_garden.voters" href="voters.html" />
+    <link rel="prev" title="pitch_garden" href="pitch_garden.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../_static/searchtools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">pitch-garden</p>
+  
+</a></div>
+    
+      <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../reference.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/sp-nitech/pitch-garden/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/pitch-garden/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i><span class="visually-hidden">PyPI</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button type="button" class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../reference.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/sp-nitech/pitch-garden/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/pitch-garden/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i><span class="visually-hidden">PyPI</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item pst-sidebar-collapse"><button type="button" id="pst-collapse-sidebar-button" aria-expanded="true" aria-controls="pst-primary-sidebar">
+  <svg class="pst-icon" role="img" aria-hidden="true" focusable="false" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+    <path fill="currentColor" d="M3 15.5C2.36232 15.5 1.74874 15.2564 1.28478 14.8189C0.820828 14.3815 0.541576 13.7832 0.504167 13.1467L0.5 13L0.5 3C0.499965 2.36232 0.743605 1.74874 1.18107 1.28478C1.61854 0.820828 2.21676 0.541576 2.85333 0.504167L3 0.5L13 0.5C13.6377 0.499965 14.2513 0.743605 14.7152 1.18107C15.1792 1.61854 15.4584 2.21676 15.4958 2.85333L15.5 3L15.5 13C15.5 13.6377 15.2564 14.2513 14.8189 14.7152C14.3815 15.1792 13.7832 15.4584 13.1467 15.4958L13 15.5L3 15.5ZM3 13.8333L10.5 13.8333L10.5 2.16667L3 2.16667C2.79589 2.16669 2.59889 2.24163 2.44636 2.37726C2.29383 2.5129 2.19638 2.69979 2.1725 2.9025L2.16667 3L2.16667 13C2.16669 13.2041 2.24163 13.4011 2.37726 13.5536C2.5129 13.7062 2.69979 13.8036 2.9025 13.8275L3 13.8333ZM6.65583 10.325L6.5775 10.2558L4.91083 8.58917C4.76735 8.44567 4.68116 8.25476 4.66843 8.05223C4.65569 7.84971 4.71729 7.6495 4.84167 7.48917L4.91083 7.41083L6.5775 5.74417C6.72747 5.59471 6.9287 5.50794 7.14032 5.50148C7.35194 5.49502 7.55809 5.56935 7.7169 5.70937C7.8757 5.8494 7.97525 6.04463 7.99533 6.25539C8.01541 6.46616 7.95451 6.67667 7.825 6.84417L7.75583 6.9225L6.67917 8L7.75583 9.0775C7.89931 9.22099 7.98551 9.41191 7.99824 9.61443C8.01097 9.81695 7.94938 10.0172 7.825 10.1775L7.75583 10.2558C7.61234 10.3993 7.42142 10.4855 7.2189 10.4982C7.01638 10.511 6.81617 10.4494 6.65583 10.325Z"/>
+  </svg>
+  <span class="pst-collapse-sidebar-label">Collapse Sidebar</span>
+  <span class="pst-expand-sidebar-label">Expand Sidebar</span>
+</button></div>
+        <div class="sidebar-primary-item">
+
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="pitch_garden.html">pitch_garden</a></li>
+<li class="toctree-l1 current active"><a aria-current="page" class="current reference internal" href="#">pitch_garden.algorithms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="voters.html">pitch_garden.voters</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ranges.html">pitch_garden.ranges</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metrics.html">pitch_garden.metrics</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../reference.html" class="nav-link">pitch-garden API</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">pitch_garden.algorithms</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="pitch-garden-algorithms">
+<h1>pitch_garden.algorithms<a class="headerlink" href="#pitch-garden-algorithms" title="Link to this heading">#</a></h1>
+<p>The algorithms are chosen by their names, e.g., <code class="docutils literal notranslate"><span class="pre">pg.Tracker(&quot;rapt&quot;)</span></code>, and
+their parameters are given as the fields of their configurations, e.g.,
+<code class="docutils literal notranslate"><span class="pre">pg.Tracker(&quot;rapt&quot;,</span> <span class="pre">fmin=60.0)</span></code>.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.base.AlgorithmConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.base.</span></span><span class="sig-name descname"><span class="pre">AlgorithmConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/base.html#AlgorithmConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.base.AlgorithmConfig" title="Link to this definition">#</a></dt>
+<dd><p>The base configuration shared by all algorithms.</p>
+<p>Each algorithm defines its own configuration by inheriting this class and adding
+algorithm-specific fields.</p>
+</dd></dl>
+
+<section id="crepe">
+<h2><code class="docutils literal notranslate"><span class="pre">crepe</span></code><a class="headerlink" href="#crepe" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.crepe.CrepeAlgorithm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.crepe.</span></span><span class="sig-name descname"><span class="pre">CrepeAlgorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pitch_garden.algorithms.base.AlgorithmConfig" title="pitch_garden.algorithms.base.AlgorithmConfig"><span class="pre">AlgorithmConfig</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/crepe.html#CrepeAlgorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.crepe.CrepeAlgorithm" title="Link to this definition">#</a></dt>
+<dd><p>CREPE: a convolutional representation for pitch estimation (Kim et al., 2018).</p>
+<p>The model and the weights are those of torchcrepe. Unlike torchcrepe, no dither
+is added to the pitch, so the results are reproducible, and the audio is
+resampled by soxr instead of resampy.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.crepe.CrepeConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.crepe.</span></span><span class="sig-name descname"><span class="pre">CrepeConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'full'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'tiny'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'full'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">decoder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'viterbi'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'weighted_argmax'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'viterbi'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voicing_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.21</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filter_length</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">15.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">silence_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">512</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_threads</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/crepe.html#CrepeConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.crepe.CrepeConfig" title="Link to this definition">#</a></dt>
+<dd><p>Configuration of CREPE.</p>
+</dd></dl>
+
+</section>
+<section id="dio">
+<h2><code class="docutils literal notranslate"><span class="pre">dio</span></code><a class="headerlink" href="#dio" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.sptk.DioAlgorithm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.sptk.</span></span><span class="sig-name descname"><span class="pre">DioAlgorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pitch_garden.algorithms.base.AlgorithmConfig" title="pitch_garden.algorithms.base.AlgorithmConfig"><span class="pre">AlgorithmConfig</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/sptk.html#DioAlgorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.sptk.DioAlgorithm" title="Link to this definition">#</a></dt>
+<dd><p>DIO: a fast F0 estimator of WORLD (Morise et al., 2009).</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.sptk.DioConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.sptk.</span></span><span class="sig-name descname"><span class="pre">DioConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">800.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voicing_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/sptk.html#DioConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.sptk.DioConfig" title="Link to this definition">#</a></dt>
+<dd><p>Configuration of DIO, where a higher threshold gives more voiced frames.</p>
+<p>The recommended range of the threshold is [0.02, 0.2] as in SPTK, but values
+outside are also accepted.</p>
+</dd></dl>
+
+</section>
+<section id="fcn-f0">
+<h2><code class="docutils literal notranslate"><span class="pre">fcn-f0</span></code><a class="headerlink" href="#fcn-f0" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.fcn_f0.FcnF0Algorithm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.fcn_f0.</span></span><span class="sig-name descname"><span class="pre">FcnF0Algorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pitch_garden.algorithms.base.AlgorithmConfig" title="pitch_garden.algorithms.base.AlgorithmConfig"><span class="pre">AlgorithmConfig</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/fcn_f0.html#FcnF0Algorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.fcn_f0.FcnF0Algorithm" title="Link to this definition">#</a></dt>
+<dd><p>FCN-f0: a fully-convolutional network for pitch estimation of speech signals.</p>
+<p>This is proposed by Ardaillon and Roebel (2019). The frames are normalized and
+analyzed one by one as <cite>FULLCONV=False</cite> of FCN-f0, unlike the default of FCN-f0
+analyzing the whole audio at once with the normalization by sliding windows,
+so that any frame period is available.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.fcn_f0.FcnF0Config">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.fcn_f0.</span></span><span class="sig-name descname"><span class="pre">FcnF0Config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'929'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'993'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'1953'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'993'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voicing_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.4</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">512</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_threads</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/fcn_f0.html#FcnF0Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.fcn_f0.FcnF0Config" title="Link to this definition">#</a></dt>
+<dd><p>Configuration of FCN-f0.</p>
+</dd></dl>
+
+</section>
+<section id="fcpe">
+<h2><code class="docutils literal notranslate"><span class="pre">fcpe</span></code><a class="headerlink" href="#fcpe" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.fcpe.FcpeAlgorithm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.fcpe.</span></span><span class="sig-name descname"><span class="pre">FcpeAlgorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pitch_garden.algorithms.base.AlgorithmConfig" title="pitch_garden.algorithms.base.AlgorithmConfig"><span class="pre">AlgorithmConfig</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/fcpe.html#FcpeAlgorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.fcpe.FcpeAlgorithm" title="Link to this definition">#</a></dt>
+<dd><p>FCPE: fast context-based pitch estimation (Luo et al., 2025).</p>
+<p>The model and the weights are those bundled in torchfcpe. The frames are
+analyzed every 10 milliseconds for any frame period. The outputs are at the hops
+as trained in FCPE, although the windows are centered 80 samples after the hops.
+The whole audio is analyzed at once because the group normalization of the model
+uses the statistics over all the frames.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.fcpe.FcpeConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.fcpe.</span></span><span class="sig-name descname"><span class="pre">FcpeConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voicing_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.006</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_threads</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/fcpe.html#FcpeConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.fcpe.FcpeConfig" title="Link to this definition">#</a></dt>
+<dd><p>Configuration of FCPE.</p>
+</dd></dl>
+
+</section>
+<section id="harmof0">
+<h2><code class="docutils literal notranslate"><span class="pre">harmof0</span></code><a class="headerlink" href="#harmof0" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.harmof0.HarmoF0Algorithm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.harmof0.</span></span><span class="sig-name descname"><span class="pre">HarmoF0Algorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pitch_garden.algorithms.base.AlgorithmConfig" title="pitch_garden.algorithms.base.AlgorithmConfig"><span class="pre">AlgorithmConfig</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/harmof0.html#HarmoF0Algorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.harmof0.HarmoF0Algorithm" title="Link to this definition">#</a></dt>
+<dd><p>HarmoF0: logarithmic scale dilated convolution (Wei et al., 2022).</p>
+<p>The models and the weights are those of HarmoF0. The frames are analyzed every
+46 samples, i.e., about 2.9 milliseconds, for any frame period, because the
+convolution over the frames is trained on such dense frames, e.g., a hop of 10
+milliseconds degrades the accuracy considerably. Unlike HarmoF0, the frames are
+centered at multiples of the hop, the dynamic range of the log spectrogram is
+limited relative to the maximum of the whole audio instead of every 1000 frames,
+and the batches of frames overlap so that the results are independent of the
+batch size.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.harmof0.HarmoF0Config">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.harmof0.</span></span><span class="sig-name descname"><span class="pre">HarmoF0Config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Literal</span><span class="p"><span class="pre">[</span></span><span class="s"><span class="pre">'mdb-stem-synth'</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="s"><span class="pre">'mir-1k'</span></span><span class="p"><span class="pre">]</span></span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'mdb-stem-synth'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voicing_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.8</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_threads</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/harmof0.html#HarmoF0Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.harmof0.HarmoF0Config" title="Link to this definition">#</a></dt>
+<dd><p>Configuration of HarmoF0.</p>
+</dd></dl>
+
+</section>
+<section id="harvest">
+<h2><code class="docutils literal notranslate"><span class="pre">harvest</span></code><a class="headerlink" href="#harvest" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.sptk.HarvestAlgorithm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.sptk.</span></span><span class="sig-name descname"><span class="pre">HarvestAlgorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pitch_garden.algorithms.base.AlgorithmConfig" title="pitch_garden.algorithms.base.AlgorithmConfig"><span class="pre">AlgorithmConfig</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/sptk.html#HarvestAlgorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.sptk.HarvestAlgorithm" title="Link to this definition">#</a></dt>
+<dd><p>Harvest: a high-performance F0 estimator of WORLD (Morise, 2017).</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.sptk.HarvestConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.sptk.</span></span><span class="sig-name descname"><span class="pre">HarvestConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">800.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voicing_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.01</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/sptk.html#HarvestConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.sptk.HarvestConfig" title="Link to this definition">#</a></dt>
+<dd><p>Configuration of Harvest, where a higher threshold gives more voiced frames.</p>
+<p>The recommended range of the threshold is [0.0, 0.2] as in SPTK, but values
+outside are also accepted.</p>
+</dd></dl>
+
+</section>
+<section id="pesto">
+<h2><code class="docutils literal notranslate"><span class="pre">pesto</span></code><a class="headerlink" href="#pesto" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.pesto.PestoAlgorithm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.pesto.</span></span><span class="sig-name descname"><span class="pre">PestoAlgorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pitch_garden.algorithms.base.AlgorithmConfig" title="pitch_garden.algorithms.base.AlgorithmConfig"><span class="pre">AlgorithmConfig</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/pesto.html#PestoAlgorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.pesto.PestoAlgorithm" title="Link to this definition">#</a></dt>
+<dd><p>PESTO: a self-supervised pitch estimator (Riou et al., 2023).</p>
+<p>PESTO stands for pitch estimation with self-supervised transposition-equivariant
+objective. See <a class="github reference external" href="https://github.com/SonyCSLParis/pesto">SonyCSLParis/pesto</a> for details.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.pesto.PestoConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.pesto.</span></span><span class="sig-name descname"><span class="pre">PestoConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voicing_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_threads</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/pesto.html#PestoConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.pesto.PestoConfig" title="Link to this definition">#</a></dt>
+<dd><p>Configuration of PESTO.</p>
+</dd></dl>
+
+</section>
+<section id="pienet">
+<h2><code class="docutils literal notranslate"><span class="pre">pienet</span></code><a class="headerlink" href="#pienet" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.pienet.PiENetAlgorithm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.pienet.</span></span><span class="sig-name descname"><span class="pre">PiENetAlgorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pitch_garden.algorithms.base.AlgorithmConfig" title="pitch_garden.algorithms.base.AlgorithmConfig"><span class="pre">AlgorithmConfig</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/pienet.html#PiENetAlgorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.pienet.PiENetAlgorithm" title="Link to this definition">#</a></dt>
+<dd><p>PiENet: the pitch estimation network (Airaksinen et al., 2019).</p>
+<p>The model and the weights are those of GTE-AUG in PiENet, which is trained with
+noise augmentation for robustness. The frames are analyzed every 10
+milliseconds, with which the convolution over the frames is trained, for any
+frame period, and the batches of frames overlap so that the results are
+independent of the batch size.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.pienet.PiENetConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.pienet.</span></span><span class="sig-name descname"><span class="pre">PiENetConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voicing_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.9</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">batch_size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">1000</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_threads</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/pienet.html#PiENetConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.pienet.PiENetConfig" title="Link to this definition">#</a></dt>
+<dd><p>Configuration of PiENet.</p>
+</dd></dl>
+
+</section>
+<section id="pyin">
+<h2><code class="docutils literal notranslate"><span class="pre">pyin</span></code><a class="headerlink" href="#pyin" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.pyin.PyinAlgorithm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.pyin.</span></span><span class="sig-name descname"><span class="pre">PyinAlgorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pitch_garden.algorithms.base.AlgorithmConfig" title="pitch_garden.algorithms.base.AlgorithmConfig"><span class="pre">AlgorithmConfig</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/pyin.html#PyinAlgorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.pyin.PyinAlgorithm" title="Link to this definition">#</a></dt>
+<dd><p>pYIN: probabilistic YIN (Mauch and Dixon, 2014).</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.pyin.PyinConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.pyin.</span></span><span class="sig-name descname"><span class="pre">PyinConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">800.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/pyin.html#PyinConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.pyin.PyinConfig" title="Link to this definition">#</a></dt>
+<dd><p>Configuration of pYIN.</p>
+<p>The default search range covers both speech and singing voice. The voicing is
+decided by Viterbi decoding, and thus no threshold is given.</p>
+</dd></dl>
+
+</section>
+<section id="rapt">
+<h2><code class="docutils literal notranslate"><span class="pre">rapt</span></code><a class="headerlink" href="#rapt" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.sptk.RaptAlgorithm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.sptk.</span></span><span class="sig-name descname"><span class="pre">RaptAlgorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pitch_garden.algorithms.base.AlgorithmConfig" title="pitch_garden.algorithms.base.AlgorithmConfig"><span class="pre">AlgorithmConfig</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/sptk.html#RaptAlgorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.sptk.RaptAlgorithm" title="Link to this definition">#</a></dt>
+<dd><p>RAPT: a robust algorithm for pitch tracking (Talkin, 1995).</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.sptk.RaptConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.sptk.</span></span><span class="sig-name descname"><span class="pre">RaptConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">800.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voicing_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/sptk.html#RaptConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.sptk.RaptConfig" title="Link to this definition">#</a></dt>
+<dd><p>Configuration of RAPT, where a higher threshold gives more voiced frames.</p>
+<p>The recommended range of the threshold is [-0.6, 0.7] as in SPTK, but values
+outside are also accepted.</p>
+</dd></dl>
+
+</section>
+<section id="reaper">
+<h2><code class="docutils literal notranslate"><span class="pre">reaper</span></code><a class="headerlink" href="#reaper" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.sptk.ReaperAlgorithm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.sptk.</span></span><span class="sig-name descname"><span class="pre">ReaperAlgorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pitch_garden.algorithms.base.AlgorithmConfig" title="pitch_garden.algorithms.base.AlgorithmConfig"><span class="pre">AlgorithmConfig</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/sptk.html#ReaperAlgorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.sptk.ReaperAlgorithm" title="Link to this definition">#</a></dt>
+<dd><p>REAPER: robust epoch and pitch estimator (Talkin, 2015).</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.sptk.ReaperConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.sptk.</span></span><span class="sig-name descname"><span class="pre">ReaperConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">800.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voicing_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.9</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/sptk.html#ReaperConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.sptk.ReaperConfig" title="Link to this definition">#</a></dt>
+<dd><p>Configuration of REAPER, where a higher threshold gives more voiced frames.</p>
+<p>The recommended range of the threshold is [-0.5, 1.6] as in SPTK, but values
+outside are also accepted.</p>
+</dd></dl>
+
+</section>
+<section id="rmvpe">
+<h2><code class="docutils literal notranslate"><span class="pre">rmvpe</span></code><a class="headerlink" href="#rmvpe" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.rmvpe.RmvpeAlgorithm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.rmvpe.</span></span><span class="sig-name descname"><span class="pre">RmvpeAlgorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pitch_garden.algorithms.base.AlgorithmConfig" title="pitch_garden.algorithms.base.AlgorithmConfig"><span class="pre">AlgorithmConfig</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/rmvpe.html#RmvpeAlgorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.rmvpe.RmvpeAlgorithm" title="Link to this definition">#</a></dt>
+<dd><p>RMVPE: a robust model for vocal pitch estimation (Wei et al., 2023).</p>
+<p>The model and the weights are those of RVC. The frame period of the model is
+fixed to 10 ms.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.rmvpe.RmvpeConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.rmvpe.</span></span><span class="sig-name descname"><span class="pre">RmvpeConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'auto'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voicing_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.03</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_threads</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weights_path</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/rmvpe.html#RmvpeConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.rmvpe.RmvpeConfig" title="Link to this definition">#</a></dt>
+<dd><p>Configuration of RMVPE.</p>
+</dd></dl>
+
+</section>
+<section id="straight">
+<h2><code class="docutils literal notranslate"><span class="pre">straight</span></code><a class="headerlink" href="#straight" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.straight.StraightAlgorithm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.straight.</span></span><span class="sig-name descname"><span class="pre">StraightAlgorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pitch_garden.algorithms.base.AlgorithmConfig" title="pitch_garden.algorithms.base.AlgorithmConfig"><span class="pre">AlgorithmConfig</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/straight.html#StraightAlgorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.straight.StraightAlgorithm" title="Link to this definition">#</a></dt>
+<dd><p>STRAIGHT: the F0 extraction based on multiple cues (Kawahara et al., 2005).</p>
+<p>This uses pylstraight, a Python port of Legacy STRAIGHT. See
+<a class="github reference external" href="https://github.com/takenori-y/pylstraight">takenori-y/pylstraight</a> for details. The voicing decision is
+made inside the algorithm, and thus the voicing score is not provided. Note that
+the voicing decision relies on the contrast with silent segments.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.straight.StraightConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.straight.</span></span><span class="sig-name descname"><span class="pre">StraightConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">800.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seed</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/straight.html#StraightConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.straight.StraightConfig" title="Link to this definition">#</a></dt>
+<dd><p>Configuration of STRAIGHT.</p>
+<p>The default search range covers both speech and singing voice.</p>
+</dd></dl>
+
+</section>
+<section id="swift-f0">
+<h2><code class="docutils literal notranslate"><span class="pre">swift-f0</span></code><a class="headerlink" href="#swift-f0" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.swift_f0.SwiftF0Algorithm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.swift_f0.</span></span><span class="sig-name descname"><span class="pre">SwiftF0Algorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pitch_garden.algorithms.base.AlgorithmConfig" title="pitch_garden.algorithms.base.AlgorithmConfig"><span class="pre">AlgorithmConfig</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/swift_f0.html#SwiftF0Algorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.swift_f0.SwiftF0Algorithm" title="Link to this definition">#</a></dt>
+<dd><p>SwiftF0: a fast and accurate monophonic pitch detector.</p>
+<p>See <a class="github reference external" href="https://github.com/lars76/swift-f0">lars76/swift-f0</a> for details.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.swift_f0.SwiftF0Config">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.swift_f0.</span></span><span class="sig-name descname"><span class="pre">SwiftF0Config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voicing_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.5</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_threads</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/swift_f0.html#SwiftF0Config"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.swift_f0.SwiftF0Config" title="Link to this definition">#</a></dt>
+<dd><p>Configuration of SwiftF0.</p>
+</dd></dl>
+
+</section>
+<section id="swipe">
+<h2><code class="docutils literal notranslate"><span class="pre">swipe</span></code><a class="headerlink" href="#swipe" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.sptk.SwipeAlgorithm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.sptk.</span></span><span class="sig-name descname"><span class="pre">SwipeAlgorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pitch_garden.algorithms.base.AlgorithmConfig" title="pitch_garden.algorithms.base.AlgorithmConfig"><span class="pre">AlgorithmConfig</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/sptk.html#SwipeAlgorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.sptk.SwipeAlgorithm" title="Link to this definition">#</a></dt>
+<dd><p>SWIPE’: a sawtooth waveform inspired pitch estimator (Camacho, 2007).</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.sptk.SwipeConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.sptk.</span></span><span class="sig-name descname"><span class="pre">SwipeConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">800.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voicing_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.3</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/sptk.html#SwipeConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.sptk.SwipeConfig" title="Link to this definition">#</a></dt>
+<dd><p>Configuration of SWIPE’, where a lower threshold gives more voiced frames.</p>
+<p>The recommended range of the threshold is [0.2, 0.5] as in SPTK, but values
+outside are also accepted.</p>
+</dd></dl>
+
+</section>
+<section id="yaapt">
+<h2><code class="docutils literal notranslate"><span class="pre">yaapt</span></code><a class="headerlink" href="#yaapt" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.yaapt.YaaptAlgorithm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.yaapt.</span></span><span class="sig-name descname"><span class="pre">YaaptAlgorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pitch_garden.algorithms.base.AlgorithmConfig" title="pitch_garden.algorithms.base.AlgorithmConfig"><span class="pre">AlgorithmConfig</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/yaapt.html#YaaptAlgorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.yaapt.YaaptAlgorithm" title="Link to this definition">#</a></dt>
+<dd><p>YAAPT: yet another algorithm for pitch tracking (Zahorian and Hu, 2008).</p>
+<p>This uses AMFM_decompy, a Python port of YAAPT. See
+<a class="github reference external" href="https://github.com/bjbschmitt/AMFM_decompy">bjbschmitt/AMFM_decompy</a> for details. The voicing decision is
+made inside the algorithm by dynamic programming, and thus the voicing score is
+not provided. The warnings and the messages of AMFM_decompy are suppressed.</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.yaapt.YaaptConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.yaapt.</span></span><span class="sig-name descname"><span class="pre">YaaptConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">800.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voicing_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.75</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/yaapt.html#YaaptConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.yaapt.YaaptConfig" title="Link to this definition">#</a></dt>
+<dd><p>Configuration of YAAPT.</p>
+<p>The default search range covers both speech and singing voice.</p>
+</dd></dl>
+
+</section>
+<section id="yin">
+<h2><code class="docutils literal notranslate"><span class="pre">yin</span></code><a class="headerlink" href="#yin" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.yin.YinAlgorithm">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.yin.</span></span><span class="sig-name descname"><span class="pre">YinAlgorithm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">config</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#pitch_garden.algorithms.base.AlgorithmConfig" title="pitch_garden.algorithms.base.AlgorithmConfig"><span class="pre">AlgorithmConfig</span></a></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/yin.html#YinAlgorithm"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.yin.YinAlgorithm" title="Link to this definition">#</a></dt>
+<dd><p>YIN: a fundamental frequency estimator (de Cheveigné and Kawahara, 2002).</p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="pitch_garden.algorithms.yin.YinConfig">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">pitch_garden.algorithms.yin.</span></span><span class="sig-name descname"><span class="pre">YinConfig</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fmin</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">40.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fmax</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">800.0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'cpu'</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">trough_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voicing_threshold</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">0.4</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/pitch_garden/algorithms/yin.html#YinConfig"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#pitch_garden.algorithms.yin.YinConfig" title="Link to this definition">#</a></dt>
+<dd><p>Configuration of YIN.</p>
+<p>The default search range covers both speech and singing voice.</p>
+</dd></dl>
+
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="pitch_garden.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">pitch_garden</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="voters.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">pitch_garden.voters</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="pst-show_toc_level nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.base.AlgorithmConfig"><code class="docutils literal notranslate"><span class="pre">AlgorithmConfig</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#crepe"><code class="docutils literal notranslate"><span class="pre">crepe</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.crepe.CrepeAlgorithm"><code class="docutils literal notranslate"><span class="pre">CrepeAlgorithm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.crepe.CrepeConfig"><code class="docutils literal notranslate"><span class="pre">CrepeConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#dio"><code class="docutils literal notranslate"><span class="pre">dio</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.sptk.DioAlgorithm"><code class="docutils literal notranslate"><span class="pre">DioAlgorithm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.sptk.DioConfig"><code class="docutils literal notranslate"><span class="pre">DioConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fcn-f0"><code class="docutils literal notranslate"><span class="pre">fcn-f0</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.fcn_f0.FcnF0Algorithm"><code class="docutils literal notranslate"><span class="pre">FcnF0Algorithm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.fcn_f0.FcnF0Config"><code class="docutils literal notranslate"><span class="pre">FcnF0Config</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#fcpe"><code class="docutils literal notranslate"><span class="pre">fcpe</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.fcpe.FcpeAlgorithm"><code class="docutils literal notranslate"><span class="pre">FcpeAlgorithm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.fcpe.FcpeConfig"><code class="docutils literal notranslate"><span class="pre">FcpeConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harmof0"><code class="docutils literal notranslate"><span class="pre">harmof0</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.harmof0.HarmoF0Algorithm"><code class="docutils literal notranslate"><span class="pre">HarmoF0Algorithm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.harmof0.HarmoF0Config"><code class="docutils literal notranslate"><span class="pre">HarmoF0Config</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#harvest"><code class="docutils literal notranslate"><span class="pre">harvest</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.sptk.HarvestAlgorithm"><code class="docutils literal notranslate"><span class="pre">HarvestAlgorithm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.sptk.HarvestConfig"><code class="docutils literal notranslate"><span class="pre">HarvestConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pesto"><code class="docutils literal notranslate"><span class="pre">pesto</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.pesto.PestoAlgorithm"><code class="docutils literal notranslate"><span class="pre">PestoAlgorithm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.pesto.PestoConfig"><code class="docutils literal notranslate"><span class="pre">PestoConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pienet"><code class="docutils literal notranslate"><span class="pre">pienet</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.pienet.PiENetAlgorithm"><code class="docutils literal notranslate"><span class="pre">PiENetAlgorithm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.pienet.PiENetConfig"><code class="docutils literal notranslate"><span class="pre">PiENetConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pyin"><code class="docutils literal notranslate"><span class="pre">pyin</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.pyin.PyinAlgorithm"><code class="docutils literal notranslate"><span class="pre">PyinAlgorithm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.pyin.PyinConfig"><code class="docutils literal notranslate"><span class="pre">PyinConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rapt"><code class="docutils literal notranslate"><span class="pre">rapt</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.sptk.RaptAlgorithm"><code class="docutils literal notranslate"><span class="pre">RaptAlgorithm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.sptk.RaptConfig"><code class="docutils literal notranslate"><span class="pre">RaptConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#reaper"><code class="docutils literal notranslate"><span class="pre">reaper</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.sptk.ReaperAlgorithm"><code class="docutils literal notranslate"><span class="pre">ReaperAlgorithm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.sptk.ReaperConfig"><code class="docutils literal notranslate"><span class="pre">ReaperConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rmvpe"><code class="docutils literal notranslate"><span class="pre">rmvpe</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.rmvpe.RmvpeAlgorithm"><code class="docutils literal notranslate"><span class="pre">RmvpeAlgorithm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.rmvpe.RmvpeConfig"><code class="docutils literal notranslate"><span class="pre">RmvpeConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#straight"><code class="docutils literal notranslate"><span class="pre">straight</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.straight.StraightAlgorithm"><code class="docutils literal notranslate"><span class="pre">StraightAlgorithm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.straight.StraightConfig"><code class="docutils literal notranslate"><span class="pre">StraightConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swift-f0"><code class="docutils literal notranslate"><span class="pre">swift-f0</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.swift_f0.SwiftF0Algorithm"><code class="docutils literal notranslate"><span class="pre">SwiftF0Algorithm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.swift_f0.SwiftF0Config"><code class="docutils literal notranslate"><span class="pre">SwiftF0Config</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#swipe"><code class="docutils literal notranslate"><span class="pre">swipe</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.sptk.SwipeAlgorithm"><code class="docutils literal notranslate"><span class="pre">SwipeAlgorithm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.sptk.SwipeConfig"><code class="docutils literal notranslate"><span class="pre">SwipeConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yaapt"><code class="docutils literal notranslate"><span class="pre">yaapt</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.yaapt.YaaptAlgorithm"><code class="docutils literal notranslate"><span class="pre">YaaptAlgorithm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.yaapt.YaaptConfig"><code class="docutils literal notranslate"><span class="pre">YaaptConfig</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#yin"><code class="docutils literal notranslate"><span class="pre">yin</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.yin.YinAlgorithm"><code class="docutils literal notranslate"><span class="pre">YinAlgorithm</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pitch_garden.algorithms.yin.YinConfig"><code class="docutils literal notranslate"><span class="pre">YinConfig</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Nagoya Institute of Technology.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

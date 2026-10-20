@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pitch_garden.algorithms.harmof0 &#8212; pitch-garden 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/pitch_garden/algorithms/harmof0';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.22.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://sp-nitech.github.io/pitch-garden/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">pitch-garden</p>
+  
+</a></div>
+    
+      <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/sp-nitech/pitch-garden/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/pitch-garden/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i><span class="visually-hidden">PyPI</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/sp-nitech/pitch-garden/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/pitch-garden/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i><span class="visually-hidden">PyPI</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">pitch_garden.algorithms.harmof0</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for pitch_garden.algorithms.harmof0</h1><div class="highlight"><pre>
+<span></span><span class="c1"># This module is ported from HarmoF0 (https://github.com/WX-Wei/HarmoF0), which is</span>
+<span class="c1"># distributed under the following license.</span>
+<span class="c1">#</span>
+<span class="c1"># The MIT License (MIT)</span>
+<span class="c1">#</span>
+<span class="c1"># Copyright (c) 2022 Weiweixing</span>
+<span class="c1">#</span>
+<span class="c1"># Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span class="c1"># of this software and associated documentation files (the "Software"), to deal</span>
+<span class="c1"># in the Software without restriction, including without limitation the rights</span>
+<span class="c1"># to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<span class="c1"># copies of the Software, and to permit persons to whom the Software is</span>
+<span class="c1"># furnished to do so, subject to the following conditions:</span>
+<span class="c1">#</span>
+<span class="c1"># The above copyright notice and this permission notice shall be included in all</span>
+<span class="c1"># copies or substantial portions of the Software.</span>
+<span class="c1">#</span>
+<span class="c1"># THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span class="c1"># IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span class="c1"># FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span class="c1"># AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span class="c1"># LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span class="c1"># OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
+<span class="c1"># SOFTWARE.</span>
+
+<span class="sd">"""A module for the HarmoF0 algorithm.</span>
+
+<span class="sd">The models and the weights are those of HarmoF0, which are ported here to avoid its</span>
+<span class="sd">dependencies, e.g., librosa and torchaudio.</span>
+
+<span class="sd">"""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">functools</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">replace</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">cast</span><span class="p">,</span> <span class="n">get_args</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..interfaces.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">Audio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">._torch</span><span class="w"> </span><span class="kn">import</span> <span class="p">(</span>
+    <span class="n">download_weights</span><span class="p">,</span>
+    <span class="n">import_torch</span><span class="p">,</span>
+    <span class="n">resolve_torch_device</span><span class="p">,</span>
+    <span class="n">with_num_threads</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">._utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">frame_audio</span><span class="p">,</span> <span class="n">mask_bins_out_of_range</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">AlgorithmConfig</span><span class="p">,</span> <span class="n">BaseAlgorithm</span><span class="p">,</span> <span class="n">NativeContour</span><span class="p">,</span> <span class="n">TwoPassPolicy</span>
+
+<span class="n">SAMPLE_RATE</span> <span class="o">=</span> <span class="mi">16000</span>  <span class="c1"># The sample rate of the models in Hz.</span>
+<span class="n">WINDOW_SIZE</span> <span class="o">=</span> <span class="mi">1024</span>  <span class="c1"># The number of samples of an input frame.</span>
+<span class="c1"># The frame shift in samples, i.e., about 2.9 ms, which is that of the annotations</span>
+<span class="c1"># of MDB-stem-synth, 128 samples at 44.1 kHz.</span>
+<span class="n">HOP_SIZE</span> <span class="o">=</span> <span class="mi">46</span>
+<span class="n">NUM_BINS</span> <span class="o">=</span> <span class="mi">352</span>  <span class="c1"># The number of pitch bins.</span>
+<span class="n">BINS_PER_OCTAVE</span> <span class="o">=</span> <span class="mi">48</span>  <span class="c1"># The number of pitch bins per octave, i.e., 25 cents.</span>
+<span class="n">LOWEST_FREQUENCY</span> <span class="o">=</span> <span class="mf">27.5</span>  <span class="c1"># The frequency of the lowest pitch bin in Hz.</span>
+<span class="n">HIGHEST_FREQUENCY</span> <span class="o">=</span> <span class="n">LOWEST_FREQUENCY</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">((</span><span class="n">NUM_BINS</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="n">BINS_PER_OCTAVE</span><span class="p">)</span>
+
+<span class="c1"># The dynamic range of the log spectrogram in dB.</span>
+<span class="n">_TOP_DB</span> <span class="o">=</span> <span class="mf">80.0</span>
+
+<span class="c1"># The number of the frames on each side that affect the output of a frame through</span>
+<span class="c1"># the four blocks of the convolution with three frames.</span>
+<span class="n">_CONTEXT</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="n">Model</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">"mdb-stem-synth"</span><span class="p">,</span> <span class="s2">"mir-1k"</span><span class="p">]</span>
+
+<span class="c1"># The weights of HarmoF0 at a fixed commit and their SHA-256 hashes.</span>
+<span class="n">_WEIGHTS_URL</span> <span class="o">=</span> <span class="p">(</span>
+    <span class="s2">"https://github.com/WX-Wei/HarmoF0/raw/"</span>
+    <span class="s2">"3b2223649953f7786b602c8b7d608bce1562da38/harmof0/checkpoints/</span><span class="si">{}</span><span class="s2">.pth"</span>
+<span class="p">)</span>
+<span class="n">_WEIGHTS_SHA256</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"mdb-stem-synth"</span><span class="p">:</span> <span class="p">(</span>
+        <span class="s2">"1d47ce083858782cf3de78b1a0f61d98e5836b5a81745a3e47f2ad8ddafec99e"</span>
+    <span class="p">),</span>
+    <span class="s2">"mir-1k"</span><span class="p">:</span> <span class="s2">"f4d224e47871594360cedddeab3cc49048997eaa68a6fd6f5a631113a943cce6"</span><span class="p">,</span>
+<span class="p">}</span>
+
+
+<span class="nd">@functools</span><span class="o">.</span><span class="n">cache</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">_bin_frequencies</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Get the frequencies of the pitch bins in Hz.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out : np.ndarray</span>
+<span class="sd">        The read-only frequencies with shape (352,), which are shared by the calls.</span>
+
+<span class="sd">    """</span>
+    <span class="n">frequencies</span> <span class="o">=</span> <span class="n">LOWEST_FREQUENCY</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">NUM_BINS</span><span class="p">)</span> <span class="o">/</span> <span class="n">BINS_PER_OCTAVE</span><span class="p">)</span>
+    <span class="n">frequencies</span><span class="o">.</span><span class="n">setflags</span><span class="p">(</span><span class="n">write</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">frequencies</span>
+
+
+<div class="viewcode-block" id="HarmoF0Config">
+<a class="viewcode-back" href="../../../api/algorithms.html#pitch_garden.algorithms.harmof0.HarmoF0Config">[docs]</a>
+<span class="nd">@dataclass</span><span class="p">(</span><span class="n">frozen</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">HarmoF0Config</span><span class="p">(</span><span class="n">AlgorithmConfig</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Configuration of HarmoF0."""</span>
+
+    <span class="c1"># The model named after its training data: mdb-stem-synth or mir-1k.</span>
+    <span class="n">model</span><span class="p">:</span> <span class="n">Model</span> <span class="o">=</span> <span class="s2">"mdb-stem-synth"</span>
+
+    <span class="c1"># The frames whose confidence, i.e., the maximum activation, is greater than or</span>
+    <span class="c1"># equal to the threshold are regarded as voiced. The default value is the high</span>
+    <span class="c1"># threshold of the post-processing of HarmoF0.</span>
+    <span class="n">voicing_threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.8</span>
+
+    <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span>  <span class="c1"># The number of frames in a forward pass.</span>
+    <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"auto"</span>  <span class="c1"># The device of PyTorch, where 'auto' prefers a GPU.</span>
+
+    <span class="c1"># The number of CPU threads used by PyTorch. If None, the default of PyTorch is</span>
+    <span class="c1"># used, or 1 when running in parallel.</span>
+    <span class="n">num_threads</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># The path to the weights for offline use. If None, the weights are downloaded</span>
+    <span class="c1"># to the cache directory of PyTorch, i.e., TORCH_HOME, at the first use.</span>
+    <span class="n">weights_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Validate the configuration.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the model or the batch size is invalid.</span>
+
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">get_args</span><span class="p">(</span><span class="n">Model</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"Unsupported model '</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="si">}</span><span class="s2">'. "</span>
+                <span class="sa">f</span><span class="s2">"Supported models are: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">get_args</span><span class="p">(</span><span class="n">Model</span><span class="p">))</span><span class="si">}</span><span class="s2">"</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"batch_size must be a positive integer."</span><span class="p">)</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_create_spectrogram</span><span class="p">(</span><span class="n">torch</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Create the log-frequency power spectrogram of HarmoF0 before the dB scaling.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    torch : module</span>
+<span class="sd">        The torch module.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out : torch.nn.Module</span>
+<span class="sd">        The module taking frames with shape (B, 1024) and giving the power with</span>
+<span class="sd">        shape (B, 352).</span>
+
+<span class="sd">    """</span>
+    <span class="n">nn</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">Spectrogram</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">"window"</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">hann_window</span><span class="p">(</span><span class="n">WINDOW_SIZE</span><span class="p">))</span>
+            <span class="n">indices</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">NUM_BINS</span><span class="p">)</span>
+            <span class="n">positions</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">LOWEST_FREQUENCY</span>
+                <span class="o">*</span> <span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="n">indices</span> <span class="o">/</span> <span class="n">BINS_PER_OCTAVE</span><span class="p">))</span>
+                <span class="o">/</span> <span class="p">(</span><span class="n">SAMPLE_RATE</span> <span class="o">/</span> <span class="n">WINDOW_SIZE</span><span class="p">)</span>
+            <span class="p">)</span>
+            <span class="n">floor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">positions</span><span class="p">)</span><span class="o">.</span><span class="n">long</span><span class="p">()</span>
+            <span class="n">ceil</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">positions</span><span class="p">)</span><span class="o">.</span><span class="n">long</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">"floor"</span><span class="p">,</span> <span class="n">floor</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">"ceil"</span><span class="p">,</span> <span class="n">ceil</span><span class="p">)</span>
+            <span class="c1"># The weights of the linear interpolation are swapped as in HarmoF0,</span>
+            <span class="c1"># with which the models are trained.</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">"floor_weight"</span><span class="p">,</span> <span class="n">positions</span> <span class="o">-</span> <span class="n">floor</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">"ceil_weight"</span><span class="p">,</span> <span class="n">ceil</span> <span class="o">-</span> <span class="n">positions</span><span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+            <span class="n">spectrum</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">fft</span><span class="o">.</span><span class="n">fft</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">window</span><span class="p">)</span>
+            <span class="n">power</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">spectrum</span><span class="p">[:,</span> <span class="p">:</span> <span class="n">WINDOW_SIZE</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span><span class="p">])</span> <span class="o">**</span> <span class="mi">2</span>
+            <span class="k">return</span> <span class="p">(</span>
+                <span class="n">power</span><span class="p">[:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">floor</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">floor_weight</span>
+                <span class="o">+</span> <span class="n">power</span><span class="p">[:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ceil</span><span class="p">]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">ceil_weight</span>
+            <span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">Spectrogram</span><span class="p">()</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_create_network</span><span class="p">(</span><span class="n">torch</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Create the network of HarmoF0 after the log spectrogram.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    torch : module</span>
+<span class="sd">        The torch module.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out : torch.nn.Module</span>
+<span class="sd">        The network taking the log spectrogram with shape (T, 352) and giving the</span>
+<span class="sd">        activations with shape (T, 352), whose parameter names match the weights of</span>
+<span class="sd">        HarmoF0.</span>
+
+<span class="sd">    """</span>
+    <span class="n">nn</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">MultipleRateDilatedConv</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">"""The convolution summing the bins at the harmonics of each bin."""</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channels</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dilations</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">dilations</span> <span class="o">=</span> <span class="n">dilations</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">conv_list</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">(</span>
+                <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">channels</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">dilations</span>
+            <span class="p">)</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv_list</span><span class="p">[</span><span class="mi">0</span><span class="p">](</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dilations</span><span class="p">[</span><span class="mi">0</span><span class="p">]])</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="bp">self</span><span class="o">.</span><span class="n">dilations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="p">:]</span>
+            <span class="k">for</span> <span class="n">conv</span><span class="p">,</span> <span class="n">dilation</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv_list</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="bp">self</span><span class="o">.</span><span class="n">dilations</span><span class="p">[</span><span class="mi">1</span><span class="p">:]):</span>
+                <span class="n">z</span> <span class="o">=</span> <span class="n">conv</span><span class="p">(</span><span class="n">x</span><span class="p">)[:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="n">dilation</span><span class="p">:]</span>
+                <span class="n">y</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="p">:</span> <span class="n">z</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span> <span class="o">+=</span> <span class="n">z</span>
+            <span class="k">return</span> <span class="n">y</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">block</span><span class="p">(</span><span class="n">in_channels</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dilated</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="n">conv</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_channels</span><span class="p">,</span> <span class="n">out_channels</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+        <span class="n">norm</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">BatchNorm2d</span><span class="p">(</span><span class="n">out_channels</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="n">conv</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span> <span class="n">dilated</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">(),</span> <span class="n">norm</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">fixed</span><span class="p">(</span><span class="n">channels</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span>
+            <span class="n">channels</span><span class="p">,</span> <span class="n">channels</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span> <span class="n">padding</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">48</span><span class="p">],</span> <span class="n">dilation</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">48</span><span class="p">]</span>
+        <span class="p">)</span>
+
+    <span class="c1"># The dilations at the first 12 harmonics in the bins.</span>
+    <span class="n">harmonics</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">))</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">2</span> <span class="o">**</span> <span class="p">(</span><span class="mi">1</span> <span class="o">/</span> <span class="n">BINS_PER_OCTAVE</span><span class="p">))</span>
+    <span class="n">dilations</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">harmonics</span><span class="o">.</span><span class="n">round</span><span class="p">()]</span>
+
+    <span class="k">class</span><span class="w"> </span><span class="nc">HarmoF0</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+        <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">block_1</span> <span class="o">=</span> <span class="n">block</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">MultipleRateDilatedConv</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="n">dilations</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">block_2</span> <span class="o">=</span> <span class="n">block</span><span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">fixed</span><span class="p">(</span><span class="mi">64</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">block_3</span> <span class="o">=</span> <span class="n">block</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="n">fixed</span><span class="p">(</span><span class="mi">128</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">block_4</span> <span class="o">=</span> <span class="n">block</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="n">fixed</span><span class="p">(</span><span class="mi">128</span><span class="p">))</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">conv_5</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">conv_6</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">64</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+
+        <span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
+            <span class="k">for</span> <span class="n">layer</span> <span class="ow">in</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">block_1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_3</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">block_4</span><span class="p">):</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="n">layer</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv_5</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv_6</span><span class="p">(</span><span class="n">x</span><span class="p">))[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">HarmoF0</span><span class="p">()</span>
+
+
+<div class="viewcode-block" id="HarmoF0Algorithm">
+<a class="viewcode-back" href="../../../api/algorithms.html#pitch_garden.algorithms.harmof0.HarmoF0Algorithm">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">HarmoF0Algorithm</span><span class="p">(</span><span class="n">BaseAlgorithm</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""HarmoF0: logarithmic scale dilated convolution (Wei et al., 2022).</span>
+
+<span class="sd">    The models and the weights are those of HarmoF0. The frames are analyzed every</span>
+<span class="sd">    46 samples, i.e., about 2.9 milliseconds, for any frame period, because the</span>
+<span class="sd">    convolution over the frames is trained on such dense frames, e.g., a hop of 10</span>
+<span class="sd">    milliseconds degrades the accuracy considerably. Unlike HarmoF0, the frames are</span>
+<span class="sd">    centered at multiples of the hop, the dynamic range of the log spectrogram is</span>
+<span class="sd">    limited relative to the maximum of the whole audio instead of every 1000 frames,</span>
+<span class="sd">    and the batches of frames overlap so that the results are independent of the</span>
+<span class="sd">    batch size.</span>
+
+<span class="sd">    """</span>
+
+    <span class="n">config_class</span> <span class="o">=</span> <span class="n">HarmoF0Config</span>
+    <span class="n">is_neural</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="n">supports_gpu</span> <span class="o">=</span> <span class="kc">True</span>
+    <span class="c1"># The setting chosen on the speech of pitch-benchmark (examples/pitch_benchmark).</span>
+    <span class="n">two_pass_policy</span> <span class="o">=</span> <span class="n">TwoPassPolicy</span><span class="p">(</span><span class="n">enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">voicing_from</span><span class="o">=</span><span class="s2">"2nd"</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">AlgorithmConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Initialize HarmoF0.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        config : AlgorithmConfig</span>
+<span class="sd">            The configuration of HarmoF0.</span>
+
+<span class="sd">        """</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">torch</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spectrogram</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_supported_sample_rates</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Get the sample rate of the models.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : tuple[int, int] | None</span>
+<span class="sd">            The sample rate in Hz as the lower and upper limits.</span>
+
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="n">SAMPLE_RATE</span><span class="p">,</span> <span class="n">SAMPLE_RATE</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_f0_limits</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Get the F0 range of the pitch bins.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : tuple[float, float]</span>
+<span class="sd">            The lower and upper limits in Hz.</span>
+
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="n">LOWEST_FREQUENCY</span><span class="p">,</span> <span class="n">HIGHEST_FREQUENCY</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">parallel_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">config</span><span class="p">:</span> <span class="n">AlgorithmConfig</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AlgorithmConfig</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Use a single thread when running in parallel.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        config : AlgorithmConfig</span>
+<span class="sd">            The configuration of HarmoF0.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : AlgorithmConfig</span>
+<span class="sd">            The adjusted configuration.</span>
+
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">HarmoF0Config</span><span class="p">)</span> <span class="ow">and</span> <span class="n">config</span><span class="o">.</span><span class="n">num_threads</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">replace</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">num_threads</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">config</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">resolve_device</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Resolve the device 'auto' into cuda if a GPU is available.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        device : str</span>
+<span class="sd">            The device given by users.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : str</span>
+<span class="sd">            The actual device.</span>
+
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="n">resolve_torch_device</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_weights_path</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Get the path to the weights, downloading them if necessary."""</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">HarmoF0Config</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">config</span><span class="o">.</span><span class="n">weights_path</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">config</span><span class="o">.</span><span class="n">weights_path</span>
+        <span class="k">return</span> <span class="n">download_weights</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">torch</span><span class="p">,</span>
+            <span class="n">_WEIGHTS_URL</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">model</span><span class="p">),</span>
+            <span class="n">_WEIGHTS_SHA256</span><span class="p">[</span><span class="n">config</span><span class="o">.</span><span class="n">model</span><span class="p">],</span>
+            <span class="sa">f</span><span class="s2">"harmof0-</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">model</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+            <span class="s2">".pth"</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Load the model.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ImportError</span>
+<span class="sd">            If PyTorch is not installed.</span>
+
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">torch</span> <span class="o">=</span> <span class="n">import_torch</span><span class="p">(</span><span class="s2">"HarmoF0"</span><span class="p">)</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">HarmoF0Config</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+        <span class="n">network</span> <span class="o">=</span> <span class="n">_create_network</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">torch</span><span class="p">)</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_weights_path</span><span class="p">(),</span> <span class="n">map_location</span><span class="o">=</span><span class="n">config</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">weights_only</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+        <span class="c1"># The window of an unused spectrogram of torchaudio is also saved in HarmoF0.</span>
+        <span class="n">prefix</span> <span class="o">=</span> <span class="s2">"waveform_to_logspecgram."</span>
+        <span class="n">network</span><span class="o">.</span><span class="n">load_state_dict</span><span class="p">(</span>
+            <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">state</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">k</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="n">prefix</span><span class="p">)}</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">spectrogram</span> <span class="o">=</span> <span class="n">_create_spectrogram</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">torch</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">network</span> <span class="o">=</span> <span class="n">network</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_infer</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">frames</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Compute the activations of the pitch bins."""</span>
+        <span class="n">torch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">torch</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">HarmoF0Config</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">inference_mode</span><span class="p">():</span>
+            <span class="n">power</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span>
+                <span class="p">[</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">spectrogram</span><span class="p">(</span>
+                        <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">batch</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+                    <span class="p">)</span>
+                    <span class="k">for</span> <span class="n">batch</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span>
+                        <span class="n">frames</span><span class="p">,</span> <span class="nb">range</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">batch_size</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">batch_size</span><span class="p">)</span>
+                    <span class="p">)</span>
+                <span class="p">]</span>
+            <span class="p">)</span>
+            <span class="n">log_power</span> <span class="o">=</span> <span class="mi">10</span> <span class="o">*</span> <span class="n">torch</span><span class="o">.</span><span class="n">log10</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="n">power</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">1e-10</span><span class="p">))</span>
+            <span class="n">log_power</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">log_power</span><span class="p">,</span> <span class="n">log_power</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">_TOP_DB</span><span class="p">)</span>
+            <span class="n">outputs</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">start</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">),</span> <span class="n">config</span><span class="o">.</span><span class="n">batch_size</span><span class="p">):</span>
+                <span class="n">end</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">start</span> <span class="o">+</span> <span class="n">config</span><span class="o">.</span><span class="n">batch_size</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">))</span>
+                <span class="c1"># The frames on both sides are added to the batch as the context.</span>
+                <span class="n">first</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">start</span> <span class="o">-</span> <span class="n">_CONTEXT</span><span class="p">)</span>
+                <span class="n">last</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">),</span> <span class="n">end</span> <span class="o">+</span> <span class="n">_CONTEXT</span><span class="p">)</span>
+                <span class="n">activation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">network</span><span class="p">(</span><span class="n">log_power</span><span class="p">[</span><span class="n">first</span><span class="p">:</span><span class="n">last</span><span class="p">])</span>
+                <span class="n">outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">activation</span><span class="p">[</span><span class="n">start</span> <span class="o">-</span> <span class="n">first</span> <span class="p">:</span> <span class="n">end</span> <span class="o">-</span> <span class="n">first</span><span class="p">]</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span><span class="n">outputs</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+    <span class="nd">@with_num_threads</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">estimate</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">audio</span><span class="p">:</span> <span class="n">Audio</span><span class="p">,</span> <span class="n">f0_range</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="n">frame_period</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NativeContour</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Estimate the F0 contour.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        audio : Audio</span>
+<span class="sd">            The input audio at 16 kHz.</span>
+
+<span class="sd">        f0_range : tuple[float, float]</span>
+<span class="sd">            The F0 search range in Hz.</span>
+
+<span class="sd">        frame_period : float</span>
+<span class="sd">            The frame period in milliseconds, which is unused because the frames are</span>
+<span class="sd">            analyzed every 46 samples.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : NativeContour</span>
+<span class="sd">            The estimated contour, where the score is the confidence.</span>
+
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">HarmoF0Config</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+        <span class="n">frames</span><span class="p">,</span> <span class="n">hop</span> <span class="o">=</span> <span class="n">frame_audio</span><span class="p">(</span>
+            <span class="n">audio</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">SAMPLE_RATE</span><span class="p">,</span> <span class="n">HOP_SIZE</span> <span class="o">*</span> <span class="mi">1000</span> <span class="o">/</span> <span class="n">SAMPLE_RATE</span><span class="p">,</span> <span class="n">WINDOW_SIZE</span>
+        <span class="p">)</span>
+        <span class="n">activation</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_infer</span><span class="p">(</span><span class="n">frames</span><span class="p">)</span>
+        <span class="n">frequencies</span> <span class="o">=</span> <span class="n">_bin_frequencies</span><span class="p">()</span>
+        <span class="n">masked</span> <span class="o">=</span> <span class="n">mask_bins_out_of_range</span><span class="p">(</span><span class="n">activation</span><span class="p">,</span> <span class="n">frequencies</span><span class="p">,</span> <span class="n">f0_range</span><span class="p">)</span>
+        <span class="n">candidate</span> <span class="o">=</span> <span class="n">frequencies</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">masked</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)]</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="n">masked</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+        <span class="n">f0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">voicing_threshold</span> <span class="o">&lt;=</span> <span class="n">score</span><span class="p">,</span> <span class="n">candidate</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">NativeContour</span><span class="p">(</span>
+            <span class="n">times</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">))</span> <span class="o">*</span> <span class="n">hop</span> <span class="o">/</span> <span class="n">SAMPLE_RATE</span><span class="p">,</span>
+            <span class="n">f0</span><span class="o">=</span><span class="n">f0</span><span class="p">,</span>
+            <span class="n">score</span><span class="o">=</span><span class="n">score</span><span class="p">,</span>
+            <span class="n">candidate</span><span class="o">=</span><span class="n">candidate</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Nagoya Institute of Technology.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

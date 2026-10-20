@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pitch_garden.interfaces.tracker &#8212; pitch-garden 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/pitch_garden/interfaces/tracker';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.22.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://sp-nitech.github.io/pitch-garden/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">pitch-garden</p>
+  
+</a></div>
+    
+      <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/sp-nitech/pitch-garden/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/pitch-garden/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i><span class="visually-hidden">PyPI</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/sp-nitech/pitch-garden/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/pitch-garden/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i><span class="visually-hidden">PyPI</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">pitch_garden.interfaces.tracker</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for pitch_garden.interfaces.tracker</h1><div class="highlight"><pre>
+<span></span><span class="sd">"""A module for tracking pitch with a specified algorithm."""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">fields</span><span class="p">,</span> <span class="n">replace</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">soxr</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..algorithms</span><span class="w"> </span><span class="kn">import</span> <span class="n">ALGORITHM_MAP</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..algorithms.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">AlgorithmConfig</span><span class="p">,</span> <span class="n">BaseAlgorithm</span><span class="p">,</span> <span class="n">TwoPassPolicy</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.grid</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_frame_period</span><span class="p">,</span> <span class="n">get_num_frames</span><span class="p">,</span> <span class="n">resample</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">._utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_audio_object</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">Audio</span><span class="p">,</span> <span class="n">NativeContour</span><span class="p">,</span> <span class="n">Pitch</span>
+
+<span class="c1"># The minimum number of native frames in the audio. Some algorithms fail if the</span>
+<span class="c1"># frame period is long relative to the duration, e.g., RAPT, REAPER, and STRAIGHT.</span>
+<span class="n">_MIN_NATIVE_FRAMES</span> <span class="o">=</span> <span class="mi">4</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_clip_range</span><span class="p">(</span>
+    <span class="n">algo_cls</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">BaseAlgorithm</span><span class="p">],</span> <span class="n">fmin</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">fmax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Clip a search range by the limits of an algorithm.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    algo_cls : type[BaseAlgorithm]</span>
+<span class="sd">        The algorithm class.</span>
+
+<span class="sd">    fmin : float | None</span>
+<span class="sd">        The lower bound in Hz, or None for the lower limit of the algorithm.</span>
+
+<span class="sd">    fmax : float | None</span>
+<span class="sd">        The upper bound in Hz, or None for the upper limit of the algorithm.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out : tuple[float, float]</span>
+<span class="sd">        The clipped range in Hz.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If the clipped range is empty.</span>
+
+<span class="sd">    """</span>
+    <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span> <span class="o">=</span> <span class="n">algo_cls</span><span class="o">.</span><span class="n">get_f0_limits</span><span class="p">()</span>
+    <span class="n">low</span> <span class="o">=</span> <span class="n">lower</span> <span class="k">if</span> <span class="n">fmin</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">max</span><span class="p">(</span><span class="n">lower</span><span class="p">,</span> <span class="n">fmin</span><span class="p">)</span>
+    <span class="n">high</span> <span class="o">=</span> <span class="n">upper</span> <span class="k">if</span> <span class="n">fmax</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">min</span><span class="p">(</span><span class="n">upper</span><span class="p">,</span> <span class="n">fmax</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">high</span> <span class="o">&lt;=</span> <span class="n">low</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"Invalid F0 search range: fmin=</span><span class="si">{</span><span class="n">low</span><span class="si">}</span><span class="s2">, fmax=</span><span class="si">{</span><span class="n">high</span><span class="si">}</span><span class="s2">. "</span>
+            <span class="sa">f</span><span class="s2">"The limits of </span><span class="si">{</span><span class="n">algo_cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> are </span><span class="si">{</span><span class="p">(</span><span class="n">lower</span><span class="p">,</span><span class="w"> </span><span class="n">upper</span><span class="p">)</span><span class="si">}</span><span class="s2">."</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">low</span><span class="p">,</span> <span class="n">high</span>
+
+
+<div class="viewcode-block" id="Tracker">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.Tracker">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Tracker</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""A class for tracking pitch with an algorithm and its own parameters."""</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">algorithm</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">type</span><span class="p">[</span><span class="n">BaseAlgorithm</span><span class="p">],</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">two_pass_policy</span><span class="p">:</span> <span class="n">TwoPassPolicy</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">**</span><span class="n">params</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Initialize the tracker.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        algorithm : str | type[BaseAlgorithm]</span>
+<span class="sd">            The name of a registered algorithm or an algorithm class.</span>
+
+<span class="sd">        name : str | None, optional</span>
+<span class="sd">            The name of the tracker used to identify its output. If None, the name of</span>
+<span class="sd">            the algorithm is used. Different names allow using the same algorithm</span>
+<span class="sd">            with different parameters.</span>
+
+<span class="sd">        two_pass_policy : TwoPassPolicy | None, optional</span>
+<span class="sd">            The settings of the two-pass tracking in the pipeline, i.e., whether the</span>
+<span class="sd">            tracker is rerun and which pass gives the voicing decisions. If None,</span>
+<span class="sd">            the recommended settings of the algorithm are used.</span>
+
+<span class="sd">        **params : Any</span>
+<span class="sd">            The algorithm-specific parameters defined by its configuration class,</span>
+<span class="sd">            including the device, e.g., cuda, for algorithms supporting GPUs.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the algorithm or the parameters are invalid.</span>
+
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">algorithm</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="bp">cls</span> <span class="o">=</span> <span class="n">ALGORITHM_MAP</span><span class="p">[</span><span class="n">algorithm</span><span class="p">]</span>
+            <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">"Unsupported algorithm '</span><span class="si">{</span><span class="n">algorithm</span><span class="si">}</span><span class="s2">'. "</span>
+                    <span class="sa">f</span><span class="s2">"Supported algorithms are: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">ALGORITHM_MAP</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span><span class="si">}</span><span class="s2">"</span>
+                <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+            <span class="n">default_name</span> <span class="o">=</span> <span class="n">algorithm</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">cls</span> <span class="o">=</span> <span class="n">algorithm</span>
+            <span class="n">default_name</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="vm">__name__</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">algorithm_class</span> <span class="o">=</span> <span class="bp">cls</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">default_name</span> <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_create_config</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">params</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_two_pass_policy</span> <span class="o">=</span> <span class="n">two_pass_policy</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_algorithm</span><span class="p">:</span> <span class="n">BaseAlgorithm</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_create_config</span><span class="p">(</span>
+        <span class="n">algo_cls</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">BaseAlgorithm</span><span class="p">],</span> <span class="n">params</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AlgorithmConfig</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Create and validate the configuration of the algorithm.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        algo_cls : type[BaseAlgorithm]</span>
+<span class="sd">            The algorithm class.</span>
+
+<span class="sd">        params : dict[str, Any]</span>
+<span class="sd">            The algorithm-specific parameters.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : AlgorithmConfig</span>
+<span class="sd">            The validated configuration.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the parameters are invalid.</span>
+
+<span class="sd">        """</span>
+        <span class="n">valid_keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fields</span><span class="p">(</span><span class="n">algo_cls</span><span class="o">.</span><span class="n">config_class</span><span class="p">)]</span>
+        <span class="n">unknown_keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">params</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">valid_keys</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">unknown_keys</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"Unknown parameters </span><span class="si">{</span><span class="n">unknown_keys</span><span class="si">}</span><span class="s2"> for </span><span class="si">{</span><span class="n">algo_cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">. "</span>
+                <span class="sa">f</span><span class="s2">"Valid parameters are: </span><span class="si">{</span><span class="n">valid_keys</span><span class="si">}</span><span class="s2">"</span>
+            <span class="p">)</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">algo_cls</span><span class="o">.</span><span class="n">config_class</span><span class="p">(</span><span class="o">**</span><span class="n">params</span><span class="p">)</span>
+        <span class="n">config</span> <span class="o">=</span> <span class="n">replace</span><span class="p">(</span><span class="n">config</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">algo_cls</span><span class="o">.</span><span class="n">resolve_device</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">device</span><span class="p">))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">algo_cls</span><span class="o">.</span><span class="n">supports_gpu</span> <span class="ow">and</span> <span class="n">config</span><span class="o">.</span><span class="n">device</span> <span class="o">!=</span> <span class="s2">"cpu"</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">algo_cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> runs only on CPU, got device '</span><span class="si">{</span><span class="n">config</span><span class="o">.</span><span class="n">device</span><span class="si">}</span><span class="s2">'."</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">algo_cls</span><span class="o">.</span><span class="n">supports_f0_range</span> <span class="ow">and</span> <span class="p">(</span>
+            <span class="n">config</span><span class="o">.</span><span class="n">fmin</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">config</span><span class="o">.</span><span class="n">fmax</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">algo_cls</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> does not support the F0 search range."</span>
+            <span class="p">)</span>
+        <span class="n">_clip_range</span><span class="p">(</span><span class="n">algo_cls</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">fmin</span><span class="p">,</span> <span class="n">config</span><span class="o">.</span><span class="n">fmax</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">config</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__getstate__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Get the state for pickling without the loaded algorithm."""</span>
+        <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">state</span><span class="p">[</span><span class="s2">"_algorithm"</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">state</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Get the string representation."""</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Tracker(name=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">!r}</span><span class="s2">, config=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="si">!r}</span><span class="s2">)"</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">supports_f0_range</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Get whether the F0 search range can be specified.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : bool</span>
+<span class="sd">            True if the F0 search range can be specified.</span>
+
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">algorithm_class</span><span class="o">.</span><span class="n">supports_f0_range</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">two_pass_policy</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TwoPassPolicy</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Get the settings of the two-pass tracking.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : TwoPassPolicy</span>
+<span class="sd">            The given settings, or the recommended settings of the algorithm.</span>
+
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_two_pass_policy</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">algorithm_class</span><span class="o">.</span><span class="n">two_pass_policy</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_two_pass_policy</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">parallel_safe</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Get whether the tracker can be run in a worker process.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : bool</span>
+<span class="sd">            True if the tracker can be run in a worker process.</span>
+
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">algorithm_class</span><span class="o">.</span><span class="n">is_parallel_safe</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">f0_range</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Get the effective F0 search range.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : tuple[float, float]</span>
+<span class="sd">            The lower and upper bounds of the F0 search range in Hz.</span>
+
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="n">_clip_range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">algorithm_class</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">fmin</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">fmax</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_track</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">audio</span><span class="p">:</span> <span class="n">Audio</span><span class="p">,</span> <span class="n">f0_range</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span> <span class="n">frame_period</span><span class="p">:</span> <span class="nb">float</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">NativeContour</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Run the algorithm after resampling the audio if it is unsupported.</span>
+
+<span class="sd">        The frame period given to the algorithm is limited by the algorithm and by</span>
+<span class="sd">        the duration, where the lower limit of the algorithm takes precedence. The</span>
+<span class="sd">        result is resampled onto the frame grid anyway.</span>
+
+<span class="sd">        """</span>
+        <span class="bp">cls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">algorithm_class</span>
+        <span class="n">upper</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">max_frame_period</span><span class="p">,</span> <span class="n">audio</span><span class="o">.</span><span class="n">duration</span> <span class="o">*</span> <span class="mi">1000</span> <span class="o">/</span> <span class="n">_MIN_NATIVE_FRAMES</span><span class="p">)</span>
+        <span class="n">frame_period</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">min_frame_period</span><span class="p">,</span> <span class="nb">min</span><span class="p">(</span><span class="n">frame_period</span><span class="p">,</span> <span class="n">upper</span><span class="p">))</span>
+        <span class="n">limits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">algorithm_class</span><span class="o">.</span><span class="n">get_supported_sample_rates</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">limits</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">limits</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">audio</span><span class="o">.</span><span class="n">sample_rate</span> <span class="o">&lt;=</span> <span class="n">limits</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+            <span class="n">target</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">algorithm_class</span><span class="o">.</span><span class="n">preferred_sample_rate</span>
+            <span class="n">data</span> <span class="o">=</span> <span class="n">soxr</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="n">audio</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">audio</span><span class="o">.</span><span class="n">sample_rate</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+            <span class="n">audio</span> <span class="o">=</span> <span class="n">Audio</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">load</span><span class="p">()</span><span class="o">.</span><span class="n">estimate</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">f0_range</span><span class="p">,</span> <span class="n">frame_period</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_resolve_call_range</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">fmin</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">fmax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Get the search range used at a call."""</span>
+        <span class="k">if</span> <span class="n">fmin</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">fmax</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">f0_range</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">supports_f0_range</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">algorithm_class</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2"> does not support the F0 search range."</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="n">_clip_range</span><span class="p">(</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">algorithm_class</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">fmin</span> <span class="k">if</span> <span class="n">fmin</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">fmin</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">fmax</span> <span class="k">if</span> <span class="n">fmax</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">fmax</span><span class="p">,</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="Tracker.replace">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.Tracker.replace">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">replace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">params</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tracker</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Create a new tracker with some parameters replaced.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        **params : Any</span>
+<span class="sd">            The parameters to be replaced, including `two_pass_policy`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : Tracker</span>
+<span class="sd">            The new tracker with the same name.</span>
+
+<span class="sd">        """</span>
+        <span class="n">current</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">fields</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="n">current</span><span class="p">[</span><span class="s2">"two_pass_policy"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_two_pass_policy</span>
+        <span class="n">current</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">params</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">Tracker</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">algorithm_class</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="o">**</span><span class="n">current</span><span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_for_parallel</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tracker</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Create a new tracker adjusted for running in a worker process.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : Tracker</span>
+<span class="sd">            The adjusted tracker.</span>
+
+<span class="sd">        """</span>
+        <span class="n">new_tracker</span> <span class="o">=</span> <span class="n">Tracker</span><span class="o">.</span><span class="fm">__new__</span><span class="p">(</span><span class="n">Tracker</span><span class="p">)</span>
+        <span class="n">new_tracker</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">__getstate__</span><span class="p">())</span>
+        <span class="n">new_tracker</span><span class="o">.</span><span class="n">config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">algorithm_class</span><span class="o">.</span><span class="n">parallel_config</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">new_tracker</span>
+
+<div class="viewcode-block" id="Tracker.load">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.Tracker.load">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">BaseAlgorithm</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Load the algorithm if it is not loaded yet.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : BaseAlgorithm</span>
+<span class="sd">            The loaded algorithm.</span>
+
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_algorithm</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_algorithm</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">algorithm_class</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_algorithm</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_algorithm</span></div>
+
+
+<div class="viewcode-block" id="Tracker.__call__">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.Tracker.__call__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">source</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="n">Audio</span><span class="p">,</span>
+        <span class="n">sample_rate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">frame_period</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span>
+        <span class="n">fmin</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">fmax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Pitch</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Track the pitch of the input audio.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        source : np.ndarray | Audio</span>
+<span class="sd">            The input waveform with shape (T,) or an Audio object.</span>
+
+<span class="sd">        sample_rate : int | None, optional</span>
+<span class="sd">            The sample rate of the input waveform.</span>
+
+<span class="sd">        frame_period : float, optional</span>
+<span class="sd">            The frame period of the output in milliseconds.</span>
+
+<span class="sd">        fmin : float | None, optional</span>
+<span class="sd">            The lower bound of the F0 search range in Hz overriding the one given at</span>
+<span class="sd">            the creation only for this call. If None, the one given at the creation</span>
+<span class="sd">            is used. The range is clipped to the limits of the algorithm, and</span>
+<span class="sd">            changing it does not reload the algorithm.</span>
+
+<span class="sd">        fmax : float | None, optional</span>
+<span class="sd">            The upper bound of the F0 search range in Hz, which is given in the same</span>
+<span class="sd">            way as `fmin`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : Pitch</span>
+<span class="sd">            The estimated F0 contour.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the frame period is invalid, or the search range is invalid or not</span>
+<span class="sd">            supported by the algorithm.</span>
+
+<span class="sd">        Examples</span>
+<span class="sd">        --------</span>
+<span class="sd">        &gt;&gt;&gt; import numpy as np</span>
+<span class="sd">        &gt;&gt;&gt; import pitch_garden as pg</span>
+<span class="sd">        &gt;&gt;&gt; sr = 16000</span>
+<span class="sd">        &gt;&gt;&gt; x = np.sin(2 * np.pi * 220 * np.arange(sr) / sr)</span>
+<span class="sd">        &gt;&gt;&gt; tracker = pg.Tracker("swift-f0", voicing_threshold=0.5)</span>
+<span class="sd">        &gt;&gt;&gt; pitch = tracker(x, sr, frame_period=5.0)</span>
+<span class="sd">        &gt;&gt;&gt; pitch.length</span>
+<span class="sd">        200</span>
+
+<span class="sd">        """</span>
+        <span class="n">check_frame_period</span><span class="p">(</span><span class="n">frame_period</span><span class="p">)</span>
+        <span class="n">audio</span> <span class="o">=</span> <span class="n">create_audio_object</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">)</span>
+        <span class="n">call_range</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_resolve_call_range</span><span class="p">(</span><span class="n">fmin</span><span class="p">,</span> <span class="n">fmax</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">audio</span><span class="o">.</span><span class="n">length</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="c1"># Some algorithms fail on empty audio, which has no frames anyway.</span>
+            <span class="n">native</span> <span class="o">=</span> <span class="n">NativeContour</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">f0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">native</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_track</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">call_range</span><span class="p">,</span> <span class="n">frame_period</span><span class="p">)</span>
+        <span class="n">grid</span> <span class="o">=</span> <span class="n">resample</span><span class="p">(</span>
+            <span class="n">native</span><span class="o">.</span><span class="n">times</span><span class="p">,</span>
+            <span class="n">native</span><span class="o">.</span><span class="n">f0</span><span class="p">,</span>
+            <span class="n">num_frames</span><span class="o">=</span><span class="n">get_num_frames</span><span class="p">(</span><span class="n">audio</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="n">audio</span><span class="o">.</span><span class="n">sample_rate</span><span class="p">,</span> <span class="n">frame_period</span><span class="p">),</span>
+            <span class="n">frame_period</span><span class="o">=</span><span class="n">frame_period</span><span class="p">,</span>
+            <span class="n">score</span><span class="o">=</span><span class="n">native</span><span class="o">.</span><span class="n">score</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">Pitch</span><span class="p">(</span>
+            <span class="n">f0</span><span class="o">=</span><span class="n">grid</span><span class="o">.</span><span class="n">f0</span><span class="p">,</span>
+            <span class="n">frame_period</span><span class="o">=</span><span class="n">frame_period</span><span class="p">,</span>
+            <span class="n">sample_rate</span><span class="o">=</span><span class="n">audio</span><span class="o">.</span><span class="n">sample_rate</span><span class="p">,</span>
+            <span class="n">source</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+            <span class="n">score</span><span class="o">=</span><span class="n">grid</span><span class="o">.</span><span class="n">score</span><span class="p">,</span>
+            <span class="n">native</span><span class="o">=</span><span class="n">native</span><span class="p">,</span>
+        <span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Nagoya Institute of Technology.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

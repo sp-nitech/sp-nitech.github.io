@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pitch_garden.utils.io &#8212; pitch-garden 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/pitch_garden/utils/io';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.22.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://sp-nitech.github.io/pitch-garden/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">pitch-garden</p>
+  
+</a></div>
+    
+      <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/sp-nitech/pitch-garden/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/pitch-garden/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i><span class="visually-hidden">PyPI</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/sp-nitech/pitch-garden/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/pitch-garden/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i><span class="visually-hidden">PyPI</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">pitch_garden.utils.io</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for pitch_garden.utils.io</h1><div class="highlight"><pre>
+<span></span><span class="sd">"""I/O utilities."""</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">get_args</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">soundfile</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">sf</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..interfaces.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">Audio</span>
+
+<span class="c1"># The data types of headerless raw files, following `x2x` of SPTK. The long double</span>
+<span class="c1"># ('e') and ASCII ('a') types are not supported.</span>
+<span class="n">RawDataType</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">"c"</span><span class="p">,</span> <span class="s2">"C"</span><span class="p">,</span> <span class="s2">"s"</span><span class="p">,</span> <span class="s2">"S"</span><span class="p">,</span> <span class="s2">"h"</span><span class="p">,</span> <span class="s2">"H"</span><span class="p">,</span> <span class="s2">"i"</span><span class="p">,</span> <span class="s2">"I"</span><span class="p">,</span> <span class="s2">"l"</span><span class="p">,</span> <span class="s2">"L"</span><span class="p">,</span> <span class="s2">"f"</span><span class="p">,</span> <span class="s2">"d"</span><span class="p">]</span>
+
+<span class="c1"># The number of bytes and the kind of each data type.</span>
+<span class="n">_RAW_TYPES</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"c"</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"signed"</span><span class="p">),</span>
+    <span class="s2">"C"</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"unsigned"</span><span class="p">),</span>
+    <span class="s2">"s"</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">"signed"</span><span class="p">),</span>
+    <span class="s2">"S"</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">"unsigned"</span><span class="p">),</span>
+    <span class="s2">"h"</span><span class="p">:</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">"signed"</span><span class="p">),</span>
+    <span class="s2">"H"</span><span class="p">:</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">"unsigned"</span><span class="p">),</span>
+    <span class="s2">"i"</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s2">"signed"</span><span class="p">),</span>
+    <span class="s2">"I"</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s2">"unsigned"</span><span class="p">),</span>
+    <span class="s2">"l"</span><span class="p">:</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="s2">"signed"</span><span class="p">),</span>
+    <span class="s2">"L"</span><span class="p">:</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="s2">"unsigned"</span><span class="p">),</span>
+    <span class="s2">"f"</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="s2">"float"</span><span class="p">),</span>
+    <span class="s2">"d"</span><span class="p">:</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="s2">"float"</span><span class="p">),</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="RawFormat">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.RawFormat">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">RawFormat</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""The format of headerless raw audio files."""</span>
+
+    <span class="n">sample_rate</span><span class="p">:</span> <span class="nb">int</span>  <span class="c1"># The sample rate in Hz.</span>
+    <span class="n">data_type</span><span class="p">:</span> <span class="n">RawDataType</span> <span class="o">=</span> <span class="s2">"s"</span>  <span class="c1"># The data type in the notation of SPTK x2x.</span>
+    <span class="n">num_channels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># The number of interleaved channels, which are averaged.</span>
+    <span class="n">extensions</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="k">lambda</span><span class="p">:</span> <span class="p">[</span><span class="s2">".raw"</span><span class="p">])</span>
+
+<div class="viewcode-block" id="RawFormat.is_raw">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.RawFormat.is_raw">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">is_raw</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Check whether the file is regarded as raw by its extension.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        path : str</span>
+<span class="sd">            The path to the file.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : bool</span>
+<span class="sd">            True if the file is regarded as raw.</span>
+
+<span class="sd">        """</span>
+        <span class="n">ext</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">path</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">return</span> <span class="n">ext</span> <span class="ow">in</span> <span class="p">[</span><span class="n">e</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">e</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">extensions</span><span class="p">]</span></div>
+</div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_load_raw</span><span class="p">(</span>
+    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">sample_rate</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+    <span class="n">data_type</span><span class="p">:</span> <span class="n">RawDataType</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span>
+    <span class="n">num_channels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Audio</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Load a headerless little-endian raw audio file.</span>
+
+<span class="sd">    Integers are normalized into [-1, 1), where unsigned integers are offset to be</span>
+<span class="sd">    centered at zero. Floating-point values are kept as they are. Multiple channels</span>
+<span class="sd">    are assumed to be interleaved and are averaged.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path : str</span>
+<span class="sd">        The path to the raw file.</span>
+
+<span class="sd">    sample_rate : int</span>
+<span class="sd">        The sample rate in Hz.</span>
+
+<span class="sd">    data_type : ['c', 'C', 's', 'S', 'h', 'H', 'i', 'I', 'l', 'L', 'f', 'd']</span>
+<span class="sd">        The data type in the notation of SPTK x2x.</span>
+
+<span class="sd">    num_channels : int, optional</span>
+<span class="sd">        The number of interleaved channels.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out : Audio</span>
+<span class="sd">        The loaded monaural audio.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    ValueError</span>
+<span class="sd">        If the data type or the number of channels is invalid, or the file size is</span>
+<span class="sd">        inconsistent with them.</span>
+
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="n">data_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_RAW_TYPES</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"Unsupported raw data type '</span><span class="si">{</span><span class="n">data_type</span><span class="si">}</span><span class="s2">'. "</span>
+            <span class="sa">f</span><span class="s2">"Supported types are: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">get_args</span><span class="p">(</span><span class="n">RawDataType</span><span class="p">))</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span>
+    <span class="k">if</span> <span class="n">num_channels</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"num_channels must be a positive integer."</span><span class="p">)</span>
+    <span class="n">size</span><span class="p">,</span> <span class="n">kind</span> <span class="o">=</span> <span class="n">_RAW_TYPES</span><span class="p">[</span><span class="n">data_type</span><span class="p">]</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromfile</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+    <span class="n">frame_size</span> <span class="o">=</span> <span class="n">size</span> <span class="o">*</span> <span class="n">num_channels</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">%</span> <span class="n">frame_size</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"The size of </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="si">}</span><span class="s2"> bytes) is not a multiple of "</span>
+            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">frame_size</span><span class="si">}</span><span class="s2"> bytes of </span><span class="si">{</span><span class="n">num_channels</span><span class="si">}</span><span class="s2"> channel(s) of the data type "</span>
+            <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">data_type</span><span class="si">}</span><span class="s2">'."</span>
+        <span class="p">)</span>
+
+    <span class="n">x</span> <span class="o">=</span> <span class="n">_decode</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">size</span><span class="p">,</span> <span class="n">kind</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Audio</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">num_channels</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="n">sample_rate</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_decode</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">kind</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Decode the bytes into normalized samples."""</span>
+    <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">"float"</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">data</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="sa">f</span><span class="s2">"&lt;f</span><span class="si">{</span><span class="n">size</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+
+    <span class="n">bits</span> <span class="o">=</span> <span class="mi">8</span> <span class="o">*</span> <span class="n">size</span>
+    <span class="k">if</span> <span class="n">size</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
+        <span class="n">b</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">b</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">|</span> <span class="p">(</span><span class="n">b</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">8</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">b</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">&lt;&lt;</span> <span class="mi">16</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">u</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="sa">f</span><span class="s2">"&lt;u</span><span class="si">{</span><span class="n">size</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span> <span class="k">if</span> <span class="n">size</span> <span class="o">==</span> <span class="mi">8</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">)</span>
+    <span class="n">half</span> <span class="o">=</span> <span class="mf">2.0</span> <span class="o">**</span> <span class="p">(</span><span class="n">bits</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">half</span> <span class="o">&lt;=</span> <span class="n">u</span><span class="p">,</span> <span class="n">u</span> <span class="o">-</span> <span class="mf">2.0</span><span class="o">**</span><span class="n">bits</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span> <span class="k">if</span> <span class="n">kind</span> <span class="o">==</span> <span class="s2">"signed"</span> <span class="k">else</span> <span class="n">u</span> <span class="o">-</span> <span class="n">half</span>
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span> <span class="o">/</span> <span class="n">half</span>
+
+
+<div class="viewcode-block" id="load_audio">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.load_audio">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">load_audio</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">raw</span><span class="p">:</span> <span class="n">RawFormat</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Audio</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Load an audio file as monaural audio.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    path : str</span>
+<span class="sd">        The path to the audio file.</span>
+
+<span class="sd">    raw : RawFormat | None, optional</span>
+<span class="sd">        The format of raw files. The files with its extensions are read as raw.</span>
+<span class="sd">        If None, no file is read as raw.</span>
+
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    out : Audio</span>
+<span class="sd">        The loaded audio, where multiple channels are averaged.</span>
+
+<span class="sd">    Raises</span>
+<span class="sd">    ------</span>
+<span class="sd">    FileNotFoundError</span>
+<span class="sd">        If the file does not exist.</span>
+
+<span class="sd">    ValueError</span>
+<span class="sd">        If the file cannot be read as audio without the format of raw files.</span>
+
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No such file: </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">raw</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">raw</span><span class="o">.</span><span class="n">is_raw</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">_load_raw</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">raw</span><span class="o">.</span><span class="n">sample_rate</span><span class="p">,</span> <span class="n">raw</span><span class="o">.</span><span class="n">data_type</span><span class="p">,</span> <span class="n">raw</span><span class="o">.</span><span class="n">num_channels</span><span class="p">)</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">sf</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">"float64"</span><span class="p">,</span> <span class="n">always_2d</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="n">sf</span><span class="o">.</span><span class="n">LibsndfileError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">raw</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"Failed to read </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> as audio. Give a RawFormat (the raw section of "</span>
+            <span class="s2">"the configuration) to read it as headerless raw audio."</span>
+        <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">Audio</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">sr</span><span class="p">))</span></div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Nagoya Institute of Technology.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pitch_garden.interfaces.types &#8212; pitch-garden 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/pitch_garden/interfaces/types';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.22.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://sp-nitech.github.io/pitch-garden/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">pitch-garden</p>
+  
+</a></div>
+    
+      <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/sp-nitech/pitch-garden/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/pitch-garden/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i><span class="visually-hidden">PyPI</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/sp-nitech/pitch-garden/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/pitch-garden/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i><span class="visually-hidden">PyPI</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">pitch_garden.interfaces.types</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for pitch_garden.interfaces.types</h1><div class="highlight"><pre>
+<span></span><span class="sd">"""A module defining data types."""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">replace</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">cast</span><span class="p">,</span> <span class="n">get_args</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.grid</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_frame_period</span><span class="p">,</span> <span class="n">get_frame_times</span><span class="p">,</span> <span class="n">resample</span>
+
+<span class="n">LOG_ZERO</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1e10</span>  <span class="c1"># The magic number for unvoiced frames in the log domain (SPTK).</span>
+
+<span class="n">OutputFormat</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">"linear"</span><span class="p">,</span> <span class="s2">"log"</span><span class="p">,</span> <span class="s2">"inverse"</span><span class="p">]</span>
+<span class="n">FileType</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">"npz"</span><span class="p">,</span> <span class="s2">"float"</span><span class="p">,</span> <span class="s2">"double"</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="Audio">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.Audio">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Audio</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Dataclass to hold monaural audio data."""</span>
+
+    <span class="n">data</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>  <span class="c1"># The waveform with shape (T,).</span>
+    <span class="n">sample_rate</span><span class="p">:</span> <span class="nb">int</span>  <span class="c1"># The sample rate in Hz.</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Validate the input data."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"data must be a 1-D array, got shape </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">integer</span><span class="p">))</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"sample_rate must be a positive integer."</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Get the number of samples.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : int</span>
+<span class="sd">            The number of samples.</span>
+
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">duration</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Get the duration in seconds.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : float</span>
+<span class="sd">            The duration in seconds.</span>
+
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span></div>
+
+
+
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">NativeContour</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Dataclass to hold a contour on the native frame grid of an algorithm."""</span>
+
+    <span class="n">times</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>  <span class="c1"># The center times of the frames in seconds with shape (M,).</span>
+    <span class="n">f0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>  <span class="c1"># The F0 in Hz with shape (M,). Unvoiced frames are 0.</span>
+    <span class="n">score</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># The voicing score with shape (M,).</span>
+    <span class="n">candidate</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># The F0 candidate in all frames (M,).</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Validate the input data."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">times</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"score"</span><span class="p">,</span> <span class="s2">"candidate"</span><span class="p">):</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">value</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">))</span>
+
+
+<div class="viewcode-block" id="Pitch">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.Pitch">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">Pitch</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Dataclass to hold an F0 contour on a uniform frame grid.</span>
+
+<span class="sd">    The center of the n-th frame is located at ``n * frame_period`` milliseconds.</span>
+
+<span class="sd">    """</span>
+
+    <span class="n">f0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>  <span class="c1"># The F0 in Hz with shape (N,). Unvoiced frames are 0.</span>
+    <span class="n">frame_period</span><span class="p">:</span> <span class="nb">float</span>  <span class="c1"># The frame period in milliseconds.</span>
+    <span class="n">sample_rate</span><span class="p">:</span> <span class="nb">int</span>  <span class="c1"># The sample rate of the source audio in Hz.</span>
+    <span class="n">source</span><span class="p">:</span> <span class="nb">str</span>  <span class="c1"># The name of the tracker or voter producing the contour.</span>
+    <span class="n">score</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># The voicing score with shape (N,).</span>
+    <span class="n">native</span><span class="p">:</span> <span class="n">NativeContour</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># The contour on the native frame grid.</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Validate the input data."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">f0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f0</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">f0</span><span class="o">.</span><span class="n">ndim</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"f0 must be a 1-D array, got shape </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">f0</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f0</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">np</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">isfinite</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f0</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"f0 must be finite and non-negative."</span><span class="p">)</span>
+        <span class="n">check_frame_period</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">score</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">score</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">score</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">f0</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"score must have the same shape as f0."</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Get a concise representation without the arrays."""</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"Pitch(source=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="si">!r}</span><span class="s2">, num_frames=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="si">}</span><span class="s2">, "</span>
+            <span class="sa">f</span><span class="s2">"num_voiced_frames=</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">voiced</span><span class="o">.</span><span class="n">sum</span><span class="p">())</span><span class="si">}</span><span class="s2">, "</span>
+            <span class="sa">f</span><span class="s2">"frame_period=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span><span class="si">}</span><span class="s2">, sample_rate=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span><span class="si">}</span><span class="s2">)"</span>
+        <span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">length</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Get the number of frames.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : int</span>
+<span class="sd">            The number of frames.</span>
+
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f0</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">voiced</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Get the voiced flags.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : np.ndarray</span>
+<span class="sd">            The boolean array that is True for voiced frames.</span>
+
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">f0</span>
+
+<div class="viewcode-block" id="Pitch.to">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.Pitch.to">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">output_format</span><span class="p">:</span> <span class="n">OutputFormat</span> <span class="o">|</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Convert the F0 contour to the specified format.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        output_format : ['linear', 'log', 'inverse']</span>
+<span class="sd">            The output format. 'linear' is F0 in Hz (unvoiced: 0), 'log' is log F0</span>
+<span class="sd">            (unvoiced: -1e10), and 'inverse' is the pitch period in samples, i.e.,</span>
+<span class="sd">            Fs/F0 (unvoiced: 0), where Fs is the sample rate of the source audio.</span>
+<span class="sd">            These are compatible with SPTK.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : np.ndarray</span>
+<span class="sd">            The converted contour.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the output format is not supported.</span>
+
+<span class="sd">        """</span>
+        <span class="n">voiced</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">voiced</span>
+        <span class="k">if</span> <span class="n">output_format</span> <span class="o">==</span> <span class="s2">"linear"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">f0</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">output_format</span> <span class="o">==</span> <span class="s2">"log"</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">full_like</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f0</span><span class="p">,</span> <span class="n">LOG_ZERO</span><span class="p">)</span>
+            <span class="n">out</span><span class="p">[</span><span class="n">voiced</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f0</span><span class="p">[</span><span class="n">voiced</span><span class="p">])</span>
+            <span class="k">return</span> <span class="n">out</span>
+        <span class="k">if</span> <span class="n">output_format</span> <span class="o">==</span> <span class="s2">"inverse"</span><span class="p">:</span>
+            <span class="n">out</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">f0</span><span class="p">)</span>
+            <span class="n">out</span><span class="p">[</span><span class="n">voiced</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">f0</span><span class="p">[</span><span class="n">voiced</span><span class="p">]</span>
+            <span class="k">return</span> <span class="n">out</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"Unsupported output format '</span><span class="si">{</span><span class="n">output_format</span><span class="si">}</span><span class="s2">'. "</span>
+            <span class="sa">f</span><span class="s2">"Supported formats are: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">get_args</span><span class="p">(</span><span class="n">OutputFormat</span><span class="p">))</span><span class="si">}</span><span class="s2">"</span>
+        <span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_can_rethreshold</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Check whether the voicing score is available for re-thresholding."""</span>
+        <span class="n">native</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">native</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="n">native</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="ow">and</span> <span class="n">native</span><span class="o">.</span><span class="n">score</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+            <span class="ow">and</span> <span class="n">native</span><span class="o">.</span><span class="n">candidate</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="Pitch.with_threshold">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.Pitch.with_threshold">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">with_threshold</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Pitch</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Redo the voicing decision with a new threshold on the voicing score.</span>
+
+<span class="sd">        The threshold is applied on the native frame grid of the tracker, and the</span>
+<span class="sd">        result is resampled onto the frame grid, so that the result is identical to</span>
+<span class="sd">        re-extraction with the threshold.</span>
+
+<span class="sd">        This is available only for the trackers providing the voicing score, e.g.,</span>
+<span class="sd">        the confidence of neural networks. The voicing decision of the other</span>
+<span class="sd">        trackers is made inside their algorithms, and thus requires re-extraction</span>
+<span class="sd">        with different parameters.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        threshold : float</span>
+<span class="sd">            The frames whose score is greater than or equal to the threshold are</span>
+<span class="sd">            regarded as voiced.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : Pitch</span>
+<span class="sd">            The new pitch object.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the voicing score is not available.</span>
+
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_can_rethreshold</span><span class="p">():</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"The voicing threshold of '</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="si">}</span><span class="s2">' cannot be changed without "</span>
+                <span class="s2">"re-extraction because the voicing score is not available. Extract "</span>
+                <span class="s2">"again with a tracker whose parameters are changed by "</span>
+                <span class="s2">"`tracker.replace(...)`."</span>
+            <span class="p">)</span>
+        <span class="n">native</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">NativeContour</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">native</span><span class="p">)</span>
+        <span class="n">score</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">native</span><span class="o">.</span><span class="n">score</span><span class="p">)</span>
+        <span class="n">candidate</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">native</span><span class="o">.</span><span class="n">candidate</span><span class="p">)</span>
+        <span class="n">native</span> <span class="o">=</span> <span class="n">replace</span><span class="p">(</span><span class="n">native</span><span class="p">,</span> <span class="n">f0</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">threshold</span> <span class="o">&lt;=</span> <span class="n">score</span><span class="p">,</span> <span class="n">candidate</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="n">grid</span> <span class="o">=</span> <span class="n">resample</span><span class="p">(</span>
+            <span class="n">native</span><span class="o">.</span><span class="n">times</span><span class="p">,</span>
+            <span class="n">native</span><span class="o">.</span><span class="n">f0</span><span class="p">,</span>
+            <span class="n">num_frames</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="p">,</span>
+            <span class="n">frame_period</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span><span class="p">,</span>
+            <span class="n">score</span><span class="o">=</span><span class="n">score</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="k">return</span> <span class="n">replace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f0</span><span class="o">=</span><span class="n">grid</span><span class="o">.</span><span class="n">f0</span><span class="p">,</span> <span class="n">score</span><span class="o">=</span><span class="n">grid</span><span class="o">.</span><span class="n">score</span><span class="p">,</span> <span class="n">native</span><span class="o">=</span><span class="n">native</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Pitch.with_f0">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.Pitch.with_f0">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">with_f0</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Pitch</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Create a new pitch object with the given F0 contour.</span>
+
+<span class="sd">        The native contour is dropped because it is no longer consistent.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        f0 : np.ndarray</span>
+<span class="sd">            The new F0 contour in Hz.</span>
+
+<span class="sd">        source : str | None, optional</span>
+<span class="sd">            The new source name. If None, the current one is kept.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : Pitch</span>
+<span class="sd">            The new pitch object.</span>
+
+<span class="sd">        """</span>
+        <span class="k">return</span> <span class="n">replace</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span>
+            <span class="n">f0</span><span class="o">=</span><span class="n">f0</span><span class="p">,</span>
+            <span class="n">source</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span> <span class="k">if</span> <span class="n">source</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">source</span><span class="p">,</span>
+            <span class="n">native</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Pitch.to_grid">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.Pitch.to_grid">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">to_grid</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_frames</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">frame_period</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Pitch</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Put the F0 contour on another uniform frame grid.</span>
+
+<span class="sd">        The F0 and the score are resampled in the same way as the native contours of</span>
+<span class="sd">        trackers, and the frames beyond the last frame of the contour are unvoiced.</span>
+<span class="sd">        The native contour is dropped because it is no longer consistent.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        num_frames : int</span>
+<span class="sd">            The number of frames of the new grid.</span>
+
+<span class="sd">        frame_period : float</span>
+<span class="sd">            The frame period of the new grid in milliseconds.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : Pitch</span>
+<span class="sd">            The new pitch object.</span>
+
+<span class="sd">        """</span>
+        <span class="n">check_frame_period</span><span class="p">(</span><span class="n">frame_period</span><span class="p">)</span>
+        <span class="n">times</span> <span class="o">=</span> <span class="n">get_frame_times</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span><span class="p">)</span>
+        <span class="n">grid</span> <span class="o">=</span> <span class="n">resample</span><span class="p">(</span>
+            <span class="n">times</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">f0</span><span class="p">,</span>
+            <span class="n">num_frames</span><span class="o">=</span><span class="n">num_frames</span><span class="p">,</span>
+            <span class="n">frame_period</span><span class="o">=</span><span class="n">frame_period</span><span class="p">,</span>
+            <span class="n">score</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">score</span><span class="p">,</span>
+        <span class="p">)</span>
+        <span class="n">f0</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">f0</span>
+        <span class="k">if</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">length</span><span class="p">:</span>
+            <span class="n">beyond</span> <span class="o">=</span> <span class="n">times</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mf">1e-9</span> <span class="o">&lt;</span> <span class="n">get_frame_times</span><span class="p">(</span><span class="n">num_frames</span><span class="p">,</span> <span class="n">frame_period</span><span class="p">)</span>
+            <span class="n">f0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">beyond</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">f0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">replace</span><span class="p">(</span>
+            <span class="bp">self</span><span class="p">,</span> <span class="n">f0</span><span class="o">=</span><span class="n">f0</span><span class="p">,</span> <span class="n">frame_period</span><span class="o">=</span><span class="n">frame_period</span><span class="p">,</span> <span class="n">score</span><span class="o">=</span><span class="n">grid</span><span class="o">.</span><span class="n">score</span><span class="p">,</span> <span class="n">native</span><span class="o">=</span><span class="kc">None</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Pitch.tofile">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.Pitch.tofile">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tofile</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+        <span class="n">output_format</span><span class="p">:</span> <span class="n">OutputFormat</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"linear"</span><span class="p">,</span>
+        <span class="n">file_type</span><span class="p">:</span> <span class="n">FileType</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"npz"</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Save the F0 contour to a file.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        path : str</span>
+<span class="sd">            The path to the output file.</span>
+
+<span class="sd">        output_format : ['linear', 'log', 'inverse']</span>
+<span class="sd">            The output format.</span>
+
+<span class="sd">        file_type : ['npz', 'float', 'double']</span>
+<span class="sd">            The file type. 'float' and 'double' are headerless binary files that can</span>
+<span class="sd">            be directly processed by SPTK.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the output format or the file type is not supported.</span>
+
+<span class="sd">        """</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">output_format</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">file_type</span> <span class="o">==</span> <span class="s2">"npz"</span><span class="p">:</span>
+            <span class="n">np</span><span class="o">.</span><span class="n">savez_compressed</span><span class="p">(</span>
+                <span class="n">path</span><span class="p">,</span>
+                <span class="n">f0</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+                <span class="nb">format</span><span class="o">=</span><span class="n">output_format</span><span class="p">,</span>
+                <span class="n">frame_period</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">frame_period</span><span class="p">,</span>
+                <span class="n">sample_rate</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sample_rate</span><span class="p">,</span>
+                <span class="n">source</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">source</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">file_type</span> <span class="o">==</span> <span class="s2">"float"</span><span class="p">:</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span><span class="o">.</span><span class="n">tofile</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">file_type</span> <span class="o">==</span> <span class="s2">"double"</span><span class="p">:</span>
+            <span class="n">data</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">)</span><span class="o">.</span><span class="n">tofile</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"Unsupported file type '</span><span class="si">{</span><span class="n">file_type</span><span class="si">}</span><span class="s2">'. "</span>
+                <span class="sa">f</span><span class="s2">"Supported types are: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">get_args</span><span class="p">(</span><span class="n">FileType</span><span class="p">))</span><span class="si">}</span><span class="s2">"</span>
+            <span class="p">)</span></div>
+</div>
+
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Nagoya Institute of Technology.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>pitch_garden.interfaces.pipeline &#8212; pitch-garden 0.1.0 documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../../_static/styles/theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+<link href="../../../_static/styles/pydata-sphinx-theme.css?digest=64cc4de3f052d77215f0" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=8f2a1f02" />
+  
+  <!-- So that users can add custom icons -->
+  <script defer src="../../../_static/scripts/fontawesome.js?digest=64cc4de3f052d77215f0"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0" />
+<link rel="preload" as="script" href="../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0" />
+
+    <script src="../../../_static/documentation_options.js?v=01f34227"></script>
+    <script src="../../../_static/doctools.js?v=fd6eb6e6"></script>
+    <script src="../../../_static/sphinx_highlight.js?v=6ffebe34"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_modules/pitch_garden/interfaces/pipeline';</script>
+    <script>
+        DOCUMENTATION_OPTIONS.theme_version = '0.22.0';
+        DOCUMENTATION_OPTIONS.theme_switcher_json_url = 'https://sp-nitech.github.io/pitch-garden/switcher.json';
+        DOCUMENTATION_OPTIONS.theme_switcher_version_match = '0.1.0';
+        DOCUMENTATION_OPTIONS.show_version_warning_banner =
+            false;
+        </script>
+    <script>DOCUMENTATION_OPTIONS.search_as_you_type = false;</script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  
+    
+    <script src="../../../_static/searchtools.js"></script>
+    <script src="../../../_static/language_data.js"></script>
+    <script src="../../../searchindex.js"></script>
+  
+  </head>
+  <body data-default-mode="">
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+  
+  
+  
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header id="pst-header" class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button type="button" class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">pitch-garden</p>
+  
+</a></div>
+    
+      <div class="navbar-item">
+<div class="version-switcher__container dropdown pst-js-only">
+  <button id="pst-version-switcher-button-2"
+    type="button"
+    class="version-switcher__button btn btn-sm dropdown-toggle"
+    data-bs-toggle="dropdown"
+    aria-haspopup="listbox"
+    aria-controls="pst-version-switcher-list-2"
+    aria-label="Version switcher list"
+  >
+    Choose version  <!-- this text may get changed later by javascript -->
+    <span class="caret"></span>
+  </button>
+  <div id="pst-version-switcher-list-2"
+    class="version-switcher__menu dropdown-menu list-group-flush py-0"
+    role="listbox" aria-labelledby="pst-version-switcher-button-2">
+    <!-- dropdown will be populated by javascript on page load -->
+  </div>
+</div></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+      
+        <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/sp-nitech/pitch-garden/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/pitch-garden/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i><span class="visually-hidden">PyPI</span></a>
+        </li>
+</ul></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button type="button" class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+        
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar hide-on-wide">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../../reference.html">
+    API Reference
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<div class="theme-switch-container dropdown pst-js-only" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Color mode">
+  <button type="button" class="btn btn-sm nav-link pst-navbar-icon theme-switch-button dropdown-toggle" aria-label="Color mode" data-bs-toggle="dropdown">
+    <i class="theme-switch fa-solid fa-sun fa-lg fa-fw" data-mode="light" title="Light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg fa-fw" data-mode="dark" title="Dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg fa-fw" data-mode="auto" title="System Settings"></i>
+  </button>
+  <ul class="dropdown-menu dropdown-menu-end">
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="auto"><i class="fa-solid fa-circle-half-stroke fa-lg fa-fw me-1"></i>System Settings</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="light"><i class="fa-solid fa-sun fa-lg fa-fw me-1"></i>Light</button></li>
+    <li><button type="button" class="dropdown-item d-flex align-items-center theme-change-button" data-mode="dark"><i class="fa-solid fa-moon fa-lg fa-fw me-1"></i>Dark</button></li>
+  </ul>
+</div></div>
+        
+          <div class="navbar-item"><ul class="navbar-icon-links"
+    aria-label="Icon Links">
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://github.com/sp-nitech/pitch-garden/" title="GitHub" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fab fa-github-square fa-lg" aria-hidden="true"></i><span class="visually-hidden">GitHub</span></a>
+        </li>
+        <li class="nav-item">
+          
+          
+          
+          
+          
+          
+          
+          
+          <a href="https://pypi.org/project/pitch-garden/" title="PyPI" class="nav-link pst-navbar-icon" rel="noopener" target="_blank" data-bs-toggle="tooltip" data-bs-placement="bottom"><i class="fa-brands fa-python fa-lg" aria-hidden="true"></i><span class="visually-hidden">PyPI</span></a>
+        </li>
+</ul></div>
+        
+      </div>
+    
+  </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../index.html" class="nav-link">Module code</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">pitch_garden.interfaces.pipeline</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <h1>Source code for pitch_garden.interfaces.pipeline</h1><div class="highlight"><pre>
+<span></span><span class="sd">"""A module for the pipeline of tracking, voting, and two-pass tracking."""</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">__future__</span><span class="w"> </span><span class="kn">import</span> <span class="n">annotations</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">logging</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">multiprocessing</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mp</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">collections.abc</span><span class="w"> </span><span class="kn">import</span> <span class="n">Mapping</span><span class="p">,</span> <span class="n">Sequence</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">concurrent.futures</span><span class="w"> </span><span class="kn">import</span> <span class="n">Future</span><span class="p">,</span> <span class="n">ProcessPoolExecutor</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dataclasses</span><span class="w"> </span><span class="kn">import</span> <span class="n">dataclass</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">replace</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Literal</span><span class="p">,</span> <span class="n">cast</span><span class="p">,</span> <span class="n">get_args</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">..algorithms.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">VoicingSource</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..ranges._utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">clip_to_range</span><span class="p">,</span> <span class="n">estimate_f0_range</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..ranges.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseRangeEstimator</span><span class="p">,</span> <span class="n">F0Range</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..ranges.log_normal</span><span class="w"> </span><span class="kn">import</span> <span class="n">LogNormalRangeEstimator</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..utils.grid</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_frame_period</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..voters</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_voter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">..voters.base</span><span class="w"> </span><span class="kn">import</span> <span class="n">BaseVoter</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">._utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">create_audio_object</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.tracker</span><span class="w"> </span><span class="kn">import</span> <span class="n">Tracker</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">.types</span><span class="w"> </span><span class="kn">import</span> <span class="n">Audio</span><span class="p">,</span> <span class="n">Pitch</span>
+
+<span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="s2">"pitch_garden"</span><span class="p">)</span>
+
+<span class="n">OnError</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">"skip"</span><span class="p">,</span> <span class="s2">"raise"</span><span class="p">]</span>
+
+<span class="c1"># The trackers loaded in a worker process, keyed by their identities.</span>
+<span class="n">_WORKER_CACHE</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tracker</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_tracker_key</span><span class="p">(</span><span class="n">tracker</span><span class="p">:</span> <span class="n">Tracker</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Get the identity of a tracker."""</span>
+    <span class="bp">cls</span> <span class="o">=</span> <span class="n">tracker</span><span class="o">.</span><span class="n">algorithm_class</span>
+    <span class="k">return</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__module__</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="bp">cls</span><span class="o">.</span><span class="vm">__qualname__</span><span class="si">}</span><span class="s2">|</span><span class="si">{</span><span class="n">tracker</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">|</span><span class="si">{</span><span class="n">tracker</span><span class="o">.</span><span class="n">config</span><span class="si">!r}</span><span class="s2">"</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_run_in_worker</span><span class="p">(</span>
+    <span class="n">tracker</span><span class="p">:</span> <span class="n">Tracker</span><span class="p">,</span>
+    <span class="n">audio</span><span class="p">:</span> <span class="n">Audio</span><span class="p">,</span>
+    <span class="n">frame_period</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">f0_range</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Pitch</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Run a tracker in a worker process while reusing the loaded algorithm.</span>
+
+<span class="sd">    The search range is given at the call, so that the cache does not grow with the</span>
+<span class="sd">    estimated ranges.</span>
+
+<span class="sd">    """</span>
+    <span class="n">key</span> <span class="o">=</span> <span class="n">_tracker_key</span><span class="p">(</span><span class="n">tracker</span><span class="p">)</span>
+    <span class="n">cached</span> <span class="o">=</span> <span class="n">_WORKER_CACHE</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">cached</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">cached</span> <span class="o">=</span> <span class="n">_WORKER_CACHE</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">tracker</span>
+    <span class="k">return</span> <span class="n">_call</span><span class="p">(</span><span class="n">cached</span><span class="p">,</span> <span class="n">audio</span><span class="p">,</span> <span class="n">frame_period</span><span class="p">,</span> <span class="n">f0_range</span><span class="p">)</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_call</span><span class="p">(</span>
+    <span class="n">tracker</span><span class="p">:</span> <span class="n">Tracker</span><span class="p">,</span>
+    <span class="n">audio</span><span class="p">:</span> <span class="n">Audio</span><span class="p">,</span>
+    <span class="n">frame_period</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">f0_range</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Pitch</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Run a tracker with the search range if given."""</span>
+    <span class="k">if</span> <span class="n">f0_range</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">tracker</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">frame_period</span><span class="o">=</span><span class="n">frame_period</span><span class="p">)</span>
+    <span class="n">fmin</span><span class="p">,</span> <span class="n">fmax</span> <span class="o">=</span> <span class="n">f0_range</span>
+    <span class="k">return</span> <span class="n">tracker</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">frame_period</span><span class="o">=</span><span class="n">frame_period</span><span class="p">,</span> <span class="n">fmin</span><span class="o">=</span><span class="n">fmin</span><span class="p">,</span> <span class="n">fmax</span><span class="o">=</span><span class="n">fmax</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="TwoPass">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.TwoPass">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">TwoPass</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Settings of the two-pass tracking with an estimated F0 search range.</span>
+
+<span class="sd">    In the first pass, the trackers supporting the search range are run with the</span>
+<span class="sd">    wide range [fmin, fmax]. The range is then estimated from the distribution of</span>
+<span class="sd">    voiced F0 of `range_from`. In the second pass, the trackers supporting the</span>
+<span class="sd">    search range are rerun with the estimated range if their `two_pass_policy`</span>
+<span class="sd">    enables it, and the outputs of the other trackers are reused. Whether each</span>
+<span class="sd">    tracker is rerun and which pass gives its voicing decisions are given by</span>
+<span class="sd">    `Tracker.two_pass_policy`. The out-of-range frames of the trackers not</span>
+<span class="sd">    supporting the search range, i.e., `supports_f0_range=False`, are unvoiced if</span>
+<span class="sd">    `clip_out_of_range`, which does not affect the built-in algorithms since all of</span>
+<span class="sd">    them support the range.</span>
+
+<span class="sd">    """</span>
+
+    <span class="n">estimator</span><span class="p">:</span> <span class="n">BaseRangeEstimator</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="n">LogNormalRangeEstimator</span><span class="p">)</span>
+    <span class="n">range_from</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># The tracker giving the range (None: the final).</span>
+    <span class="n">fmin</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">40.0</span>  <span class="c1"># The lower bound of the first-pass range in Hz.</span>
+    <span class="n">fmax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2000.0</span>  <span class="c1"># The upper bound of the first-pass range in Hz.</span>
+    <span class="n">clip_out_of_range</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># Only for `supports_f0_range=False`.</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">__post_init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Validate the settings.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the settings are invalid.</span>
+
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmin</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">fmax</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"0 &lt; fmin &lt; fmax must be satisfied."</span><span class="p">)</span>
+
+<div class="viewcode-block" id="TwoPass.check_trackers">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.TwoPass.check_trackers">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">check_trackers</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">has_voter</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Check that the settings can be used with the trackers.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        names : Sequence[str]</span>
+<span class="sd">            The names of the trackers.</span>
+
+<span class="sd">        has_voter : bool</span>
+<span class="sd">            Whether a voter is used.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the contour giving the range is unavailable.</span>
+
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">range_from</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">has_voter</span> <span class="ow">and</span> <span class="mi">1</span> <span class="o">&lt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                    <span class="s2">"A voter or range_from is required to estimate the F0 range from "</span>
+                    <span class="s2">"multiple trackers."</span>
+                <span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">range_from</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">names</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"Unknown tracker '</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">range_from</span><span class="si">}</span><span class="s2">' in range_from. "</span>
+                <span class="sa">f</span><span class="s2">"Choose one of </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">names</span><span class="p">)</span><span class="si">}</span><span class="s2">."</span>
+            <span class="p">)</span></div>
+</div>
+
+
+
+<div class="viewcode-block" id="PipelineResult">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.PipelineResult">[docs]</a>
+<span class="nd">@dataclass</span>
+<span class="k">class</span><span class="w"> </span><span class="nc">PipelineResult</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Dataclass to hold the result of the pipeline."""</span>
+
+    <span class="c1"># The final contour: the output of the tracker if only one tracker is used, or</span>
+    <span class="c1"># the voted contour otherwise, which is None if no voter is used.</span>
+    <span class="n">pitch</span><span class="p">:</span> <span class="n">Pitch</span> <span class="o">|</span> <span class="kc">None</span>
+    <span class="n">each</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Pitch</span><span class="p">]</span>  <span class="c1"># The outputs of the trackers keyed by their names.</span>
+    <span class="n">f0_range</span><span class="p">:</span> <span class="n">F0Range</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># The estimated range of the two-pass tracking.</span>
+    <span class="n">pass1</span><span class="p">:</span> <span class="n">PipelineResult</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># The result of the first pass.</span>
+    <span class="c1"># The error messages of the failed trackers keyed by their names. The trackers</span>
+    <span class="c1"># failed in the first pass are excluded from each, and the ones failed in the</span>
+    <span class="c1"># second pass keep the outputs of the first pass.</span>
+    <span class="n">errors</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="n">field</span><span class="p">(</span><span class="n">default_factory</span><span class="o">=</span><span class="nb">dict</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="Pipeline">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.Pipeline">[docs]</a>
+<span class="k">class</span><span class="w"> </span><span class="nc">Pipeline</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""A class for the pipeline of tracking, voting, and two-pass tracking.</span>
+
+<span class="sd">    The pipeline runs one or more trackers, votes their outputs if a voter is given,</span>
+<span class="sd">    and reruns them with an estimated F0 search range if the two-pass tracking is</span>
+<span class="sd">    enabled. The trackers that can be run in worker processes (CPU-only ones) are</span>
+<span class="sd">    run in parallel, and the others are run sequentially in the main process.</span>
+
+<span class="sd">    """</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">trackers</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tracker</span><span class="p">],</span>
+        <span class="n">voter</span><span class="p">:</span> <span class="n">BaseVoter</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="s2">"median"</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">num_workers</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">two_pass</span><span class="p">:</span> <span class="n">TwoPass</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">on_error</span><span class="p">:</span> <span class="n">OnError</span> <span class="o">=</span> <span class="s2">"skip"</span><span class="p">,</span>
+        <span class="n">mp_context</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"spawn"</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Initialize the pipeline.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        trackers : Sequence[Tracker]</span>
+<span class="sd">            The trackers, each of which holds its own parameters.</span>
+
+<span class="sd">        voter : BaseVoter | str | None, optional</span>
+<span class="sd">            The voter instance, the registered name of a voter with its default</span>
+<span class="sd">            parameters, or None to skip voting.</span>
+
+<span class="sd">        num_workers : int | None, optional</span>
+<span class="sd">            The number of worker processes. If None, it is the smaller of the number</span>
+<span class="sd">            of parallelizable trackers and the number of CPUs. If 1, all trackers are</span>
+<span class="sd">            run sequentially in the main process.</span>
+
+<span class="sd">        two_pass : TwoPass | None, optional</span>
+<span class="sd">            The settings of the two-pass tracking. If None, the trackers are run</span>
+<span class="sd">            once with their own search ranges.</span>
+
+<span class="sd">        on_error : OnError, optional</span>
+<span class="sd">            The behavior on a failure of a tracker. If 'skip', the failed tracker is</span>
+<span class="sd">            excluded from voting with a warning, or keeps the output of the first</span>
+<span class="sd">            pass if it fails in the second pass. If 'raise', the error is raised.</span>
+<span class="sd">            Note that the error is always raised if all trackers fail.</span>
+
+<span class="sd">        mp_context : str, optional</span>
+<span class="sd">            The start method of the worker processes.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the trackers are invalid.</span>
+
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">trackers</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"At least one tracker is required."</span><span class="p">)</span>
+        <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">trackers</span><span class="p">]</span>
+        <span class="n">duplicates</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">({</span><span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">names</span> <span class="k">if</span> <span class="n">names</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">})</span>
+        <span class="k">if</span> <span class="n">duplicates</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"Duplicate tracker names </span><span class="si">{</span><span class="n">duplicates</span><span class="si">}</span><span class="s2">. "</span>
+                <span class="s2">"Give different names to the trackers using the same algorithm."</span>
+            <span class="p">)</span>
+        <span class="k">if</span> <span class="n">num_workers</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">num_workers</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"num_workers must be a positive integer."</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">on_error</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">get_args</span><span class="p">(</span><span class="n">OnError</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"Invalid on_error '</span><span class="si">{</span><span class="n">on_error</span><span class="si">}</span><span class="s2">'. "</span>
+                <span class="sa">f</span><span class="s2">"Valid options are: </span><span class="si">{</span><span class="nb">list</span><span class="p">(</span><span class="n">get_args</span><span class="p">(</span><span class="n">OnError</span><span class="p">))</span><span class="si">}</span><span class="s2">"</span>
+            <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">trackers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">trackers</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">voter</span> <span class="o">=</span> <span class="n">create_voter</span><span class="p">(</span><span class="n">voter</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">voter</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">voter</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">voter</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">voter</span><span class="o">.</span><span class="n">check_trackers</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">two_pass</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">two_pass</span><span class="o">.</span><span class="n">check_trackers</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">has_voter</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">voter</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">two_pass</span> <span class="o">=</span> <span class="n">two_pass</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_workers</span> <span class="o">=</span> <span class="n">num_workers</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">on_error</span> <span class="o">=</span> <span class="n">on_error</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mp_context</span> <span class="o">=</span> <span class="n">mp_context</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_executor</span><span class="p">:</span> <span class="n">ProcessPoolExecutor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_warned</span> <span class="o">=</span> <span class="kc">False</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Pipeline</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Enter the context."""</span>
+        <span class="k">return</span> <span class="bp">self</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Exit the context and shut down the worker processes."""</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<div class="viewcode-block" id="Pipeline.close">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.Pipeline.close">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Shut down the worker processes."""</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_executor</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_executor</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_executor</span> <span class="o">=</span> <span class="kc">None</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_get_executor</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_parallel</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ProcessPoolExecutor</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Get the process pool, creating it if needed."""</span>
+        <span class="n">num_workers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_workers</span>
+        <span class="k">if</span> <span class="n">num_workers</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">num_workers</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">num_parallel</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()</span> <span class="ow">or</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">num_workers</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">num_parallel</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_can_start_workers</span><span class="p">():</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_warned</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+                    <span class="s2">"The worker processes cannot be started because the main script "</span>
+                    <span class="s2">"is not a file, e.g., given via stdin. The trackers are run "</span>
+                    <span class="s2">"sequentially."</span>
+                <span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_warned</span> <span class="o">=</span> <span class="kc">True</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_executor</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_executor</span> <span class="o">=</span> <span class="n">ProcessPoolExecutor</span><span class="p">(</span>
+                <span class="n">max_workers</span><span class="o">=</span><span class="n">num_workers</span><span class="p">,</span> <span class="n">mp_context</span><span class="o">=</span><span class="n">mp</span><span class="o">.</span><span class="n">get_context</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mp_context</span><span class="p">)</span>
+            <span class="p">)</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_executor</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_can_start_workers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Check whether the worker processes can be started.</span>
+
+<span class="sd">        The 'spawn' and 'forkserver' start methods re-import the main script in the</span>
+<span class="sd">        worker processes, which fails and hangs if the script is not a file.</span>
+
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mp_context</span> <span class="o">==</span> <span class="s2">"fork"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"__main__"</span><span class="p">),</span> <span class="s2">"__file__"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">path</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Pipeline.track">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.Pipeline.track">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">track</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">audio</span><span class="p">:</span> <span class="n">Audio</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">frame_period</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span>
+        <span class="n">trackers</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tracker</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">f0_ranges</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Pitch</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Run the trackers.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        audio : Audio</span>
+<span class="sd">            The input audio.</span>
+
+<span class="sd">        frame_period : float, optional</span>
+<span class="sd">            The frame period of the outputs in milliseconds.</span>
+
+<span class="sd">        trackers : Sequence[Tracker] | None, optional</span>
+<span class="sd">            The trackers to be run. If None, all trackers of the pipeline are run.</span>
+
+<span class="sd">        f0_ranges : Mapping[str, tuple[float, float]] | None, optional</span>
+<span class="sd">            The F0 search ranges in Hz keyed by the tracker names. The trackers not</span>
+<span class="sd">            included or not supporting the search range use their own ranges.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : dict[str, Pitch]</span>
+<span class="sd">            The outputs of the trackers keyed by their names, in the given order.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        Exception</span>
+<span class="sd">            The error of the first failed tracker, regardless of on_error.</span>
+
+<span class="sd">        """</span>
+        <span class="n">outputs</span><span class="p">,</span> <span class="n">errors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_track_each</span><span class="p">(</span>
+            <span class="n">audio</span><span class="p">,</span> <span class="n">frame_period</span><span class="o">=</span><span class="n">frame_period</span><span class="p">,</span> <span class="n">trackers</span><span class="o">=</span><span class="n">trackers</span><span class="p">,</span> <span class="n">f0_ranges</span><span class="o">=</span><span class="n">f0_ranges</span>
+        <span class="p">)</span>
+        <span class="k">if</span> <span class="n">errors</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">errors</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+        <span class="k">return</span> <span class="n">outputs</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_track_each</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">audio</span><span class="p">:</span> <span class="n">Audio</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">frame_period</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">trackers</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">Tracker</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">f0_ranges</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Pitch</span><span class="p">],</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">"""Run the trackers and collect their outputs and errors separately."""</span>
+        <span class="c1"># An invalid frame period is an error of the input, not of the trackers.</span>
+        <span class="n">check_frame_period</span><span class="p">(</span><span class="n">frame_period</span><span class="p">)</span>
+        <span class="n">trackers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trackers</span> <span class="k">if</span> <span class="n">trackers</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">list</span><span class="p">(</span><span class="n">trackers</span><span class="p">)</span>
+        <span class="n">parallel</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">trackers</span> <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">parallel_safe</span><span class="p">]</span>
+        <span class="n">executor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_executor</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">parallel</span><span class="p">))</span>
+
+        <span class="n">f0_ranges</span> <span class="o">=</span> <span class="p">{}</span> <span class="k">if</span> <span class="n">f0_ranges</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">f0_ranges</span>
+        <span class="n">ranges</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">_range_for</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">f0_ranges</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">))</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">trackers</span><span class="p">}</span>
+        <span class="n">futures</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Future</span><span class="p">[</span><span class="n">Pitch</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="n">executor</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">parallel</span><span class="p">:</span>
+                <span class="n">args</span> <span class="o">=</span> <span class="p">(</span><span class="n">t</span><span class="o">.</span><span class="n">_for_parallel</span><span class="p">(),</span> <span class="n">audio</span><span class="p">,</span> <span class="n">frame_period</span><span class="p">,</span> <span class="n">ranges</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">])</span>
+                <span class="n">futures</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">_run_in_worker</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+
+        <span class="n">outputs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Pitch</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">errors</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">trackers</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">futures</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">outputs</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">_call</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">audio</span><span class="p">,</span> <span class="n">frame_period</span><span class="p">,</span> <span class="n">ranges</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">])</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="n">errors</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">e</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">future</span> <span class="ow">in</span> <span class="n">futures</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">outputs</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">errors</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">e</span>
+        <span class="n">order</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">trackers</span><span class="p">]</span>
+        <span class="k">return</span> <span class="p">(</span>
+            <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="n">outputs</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">order</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">},</span>
+            <span class="p">{</span><span class="n">n</span><span class="p">:</span> <span class="n">errors</span><span class="p">[</span><span class="n">n</span><span class="p">]</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">order</span> <span class="k">if</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">errors</span><span class="p">},</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_handle_errors</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">errors</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">],</span> <span class="n">stage</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Raise the first error or warn about all errors depending on on_error."""</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">errors</span><span class="p">:</span>
+            <span class="k">return</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_error</span> <span class="o">==</span> <span class="s2">"raise"</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">errors</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+        <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">error</span> <span class="ow">in</span> <span class="n">errors</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Tracker '</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">' failed in the </span><span class="si">{</span><span class="n">stage</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">error</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_finalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">each</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Pitch</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Pitch</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Get the final contour from the outputs of the trackers.</span>
+
+<span class="sd">        The output of a single tracker is used as it is without voting.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        each : dict[str, Pitch]</span>
+<span class="sd">            The outputs of the trackers keyed by their names.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : Pitch | None</span>
+<span class="sd">            The final contour, which is None if multiple trackers are used without</span>
+<span class="sd">            a voter.</span>
+
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">each</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">each</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+        <span class="k">return</span> <span class="kc">None</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">voter</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">voter</span><span class="p">(</span><span class="n">each</span><span class="p">)</span>
+
+<div class="viewcode-block" id="Pipeline.__call__">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.Pipeline.__call__">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">source</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="n">Audio</span><span class="p">,</span>
+        <span class="n">sample_rate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">frame_period</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span>
+        <span class="n">fmin</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">fmax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PipelineResult</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Run the trackers and vote their outputs.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        source : np.ndarray | Audio</span>
+<span class="sd">            The input waveform with shape (T,) or an Audio object.</span>
+
+<span class="sd">        sample_rate : int | None, optional</span>
+<span class="sd">            The sample rate of the input waveform.</span>
+
+<span class="sd">        frame_period : float, optional</span>
+<span class="sd">            The frame period of the outputs in milliseconds.</span>
+
+<span class="sd">        fmin : float | None, optional</span>
+<span class="sd">            The lower bound of the F0 search range in Hz overriding the range used</span>
+<span class="sd">            first only for this call, i.e., the ranges of the trackers, or the</span>
+<span class="sd">            first-pass range of the two-pass tracking. If None, the bound of the</span>
+<span class="sd">            overridden range is kept. The trackers not supporting the search range</span>
+<span class="sd">            are not affected.</span>
+
+<span class="sd">        fmax : float | None, optional</span>
+<span class="sd">            The upper bound of the F0 search range in Hz, which is given in the same</span>
+<span class="sd">            way as `fmin`.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : PipelineResult</span>
+<span class="sd">            The final contour and the outputs of the trackers.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the search range is invalid.</span>
+
+<span class="sd">        """</span>
+        <span class="n">audio</span> <span class="o">=</span> <span class="n">create_audio_object</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">sample_rate</span><span class="p">)</span>
+        <span class="n">first</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">first_pass</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">frame_period</span><span class="o">=</span><span class="n">frame_period</span><span class="p">,</span> <span class="n">fmin</span><span class="o">=</span><span class="n">fmin</span><span class="p">,</span> <span class="n">fmax</span><span class="o">=</span><span class="n">fmax</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">two_pass</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">first</span>
+        <span class="n">f0_range</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">estimate_f0_range</span><span class="p">([</span><span class="n">first</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">f0_range</span><span class="o">.</span><span class="n">fallback</span><span class="p">:</span>
+            <span class="c1"># The range of the first pass is kept, which may be given at call.</span>
+            <span class="n">wide</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_first_pass_range</span><span class="p">(</span><span class="n">fmin</span><span class="p">,</span> <span class="n">fmax</span><span class="p">)</span>
+            <span class="n">f0_range</span> <span class="o">=</span> <span class="n">replace</span><span class="p">(</span><span class="n">f0_range</span><span class="p">,</span> <span class="n">fmin</span><span class="o">=</span><span class="n">wide</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">fmax</span><span class="o">=</span><span class="n">wide</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">second_pass</span><span class="p">(</span><span class="n">audio</span><span class="p">,</span> <span class="n">first</span><span class="p">,</span> <span class="n">f0_range</span><span class="p">,</span> <span class="n">frame_period</span><span class="o">=</span><span class="n">frame_period</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Pipeline.first_pass">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.Pipeline.first_pass">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">first_pass</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">audio</span><span class="p">:</span> <span class="n">Audio</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">frame_period</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span>
+        <span class="n">fmin</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">fmax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PipelineResult</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Run the trackers with the first-pass search range and vote their outputs.</span>
+
+<span class="sd">        If the two-pass tracking is disabled, the trackers are run with their own</span>
+<span class="sd">        search ranges.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        audio : Audio</span>
+<span class="sd">            The input audio.</span>
+
+<span class="sd">        frame_period : float, optional</span>
+<span class="sd">            The frame period of the outputs in milliseconds.</span>
+
+<span class="sd">        fmin : float | None, optional</span>
+<span class="sd">            The lower bound of the F0 search range in Hz overriding the range used</span>
+<span class="sd">            first only for this call, which is given in the same way as in</span>
+<span class="sd">            `__call__`.</span>
+
+<span class="sd">        fmax : float | None, optional</span>
+<span class="sd">            The upper bound of the F0 search range in Hz overriding the range used</span>
+<span class="sd">            first only for this call.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : PipelineResult</span>
+<span class="sd">            The result of the first pass.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        ValueError</span>
+<span class="sd">            If the search range is invalid.</span>
+
+<span class="sd">        """</span>
+        <span class="n">f0_ranges</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">two_pass</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># All trackers use the wide range regardless of whether they are rerun.</span>
+            <span class="n">wide</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_first_pass_range</span><span class="p">(</span><span class="n">fmin</span><span class="p">,</span> <span class="n">fmax</span><span class="p">)</span>
+            <span class="n">f0_ranges</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">wide</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">trackers</span><span class="p">}</span>
+        <span class="k">elif</span> <span class="n">fmin</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">fmax</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># The bound not given is taken from each tracker.</span>
+            <span class="n">f0_ranges</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">trackers</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">supports_f0_range</span><span class="p">:</span>
+                    <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">f0_range</span>
+                    <span class="n">f0_ranges</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">_check_range</span><span class="p">(</span>
+                        <span class="n">lower</span> <span class="k">if</span> <span class="n">fmin</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">fmin</span><span class="p">,</span> <span class="n">upper</span> <span class="k">if</span> <span class="n">fmax</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">fmax</span>
+                    <span class="p">)</span>
+        <span class="n">each</span><span class="p">,</span> <span class="n">errors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_track_each</span><span class="p">(</span>
+            <span class="n">audio</span><span class="p">,</span> <span class="n">frame_period</span><span class="o">=</span><span class="n">frame_period</span><span class="p">,</span> <span class="n">trackers</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">f0_ranges</span><span class="o">=</span><span class="n">f0_ranges</span>
+        <span class="p">)</span>
+        <span class="n">stage</span> <span class="o">=</span> <span class="s2">"tracking"</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">two_pass</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="s2">"first pass"</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_handle_errors</span><span class="p">(</span><span class="n">errors</span><span class="p">,</span> <span class="n">stage</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">each</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span>
+                <span class="sa">f</span><span class="s2">"All trackers failed: </span><span class="si">{</span><span class="n">_format_errors</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
+            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">errors</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+        <span class="k">return</span> <span class="n">PipelineResult</span><span class="p">(</span>
+            <span class="n">pitch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_finalize</span><span class="p">(</span><span class="n">each</span><span class="p">),</span> <span class="n">each</span><span class="o">=</span><span class="n">each</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="n">_format_errors</span><span class="p">(</span><span class="n">errors</span><span class="p">)</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Pipeline.estimate_f0_range">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.Pipeline.estimate_f0_range">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">estimate_f0_range</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">:</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">PipelineResult</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">F0Range</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Estimate the F0 search range from the results of the first pass.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        results : Sequence[PipelineResult]</span>
+<span class="sd">            The results of the first pass, e.g., of all utterances of a speaker.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : F0Range</span>
+<span class="sd">            The estimated F0 search range.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        RuntimeError</span>
+<span class="sd">            If the two-pass tracking is disabled.</span>
+
+<span class="sd">        ValueError</span>
+<span class="sd">            If the contour giving the range is not found in the results.</span>
+
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">two_pass</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"The two-pass tracking is disabled."</span><span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">two_pass</span><span class="o">.</span><span class="n">range_from</span>
+        <span class="n">pitches</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+            <span class="n">pitch</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">pitch</span> <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">r</span><span class="o">.</span><span class="n">each</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">pitch</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">errors</span><span class="p">:</span>
+                    <span class="c1"># The failed tracker is skipped, which may lead to the fallback.</span>
+                    <span class="k">continue</span>
+                <span class="n">target</span> <span class="o">=</span> <span class="s2">"The final contour"</span> <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">"Tracker '</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">'"</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">target</span><span class="si">}</span><span class="s2"> is not found in the results."</span><span class="p">)</span>
+            <span class="n">pitches</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pitch</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">estimate_f0_range</span><span class="p">(</span>
+            <span class="n">pitches</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">two_pass</span><span class="o">.</span><span class="n">estimator</span><span class="p">,</span>
+            <span class="n">default</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">two_pass</span><span class="o">.</span><span class="n">fmin</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">two_pass</span><span class="o">.</span><span class="n">fmax</span><span class="p">),</span>
+        <span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="Pipeline.second_pass">
+<a class="viewcode-back" href="../../../api/pitch_garden.html#pitch_garden.Pipeline.second_pass">[docs]</a>
+    <span class="k">def</span><span class="w"> </span><span class="nf">second_pass</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">audio</span><span class="p">:</span> <span class="n">Audio</span><span class="p">,</span>
+        <span class="n">first</span><span class="p">:</span> <span class="n">PipelineResult</span><span class="p">,</span>
+        <span class="n">f0_range</span><span class="p">:</span> <span class="n">F0Range</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">frame_period</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">PipelineResult</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Rerun the trackers with the estimated search range and vote the outputs.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        audio : Audio</span>
+<span class="sd">            The input audio.</span>
+
+<span class="sd">        first : PipelineResult</span>
+<span class="sd">            The result of the first pass of the same audio.</span>
+
+<span class="sd">        f0_range : F0Range</span>
+<span class="sd">            The estimated F0 search range.</span>
+
+<span class="sd">        frame_period : float, optional</span>
+<span class="sd">            The frame period of the outputs in milliseconds.</span>
+
+<span class="sd">        Returns</span>
+<span class="sd">        -------</span>
+<span class="sd">        out : PipelineResult</span>
+<span class="sd">            The result of the second pass with the estimated range and the result of</span>
+<span class="sd">            the first pass.</span>
+
+<span class="sd">        Raises</span>
+<span class="sd">        ------</span>
+<span class="sd">        RuntimeError</span>
+<span class="sd">            If the two-pass tracking is disabled.</span>
+
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">two_pass</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">"The two-pass tracking is disabled."</span><span class="p">)</span>
+        <span class="c1"># The trackers need not be rerun if the first-pass range is kept.</span>
+        <span class="n">rerun_each</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Pitch</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="n">errors</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">f0_range</span><span class="o">.</span><span class="n">fallback</span><span class="p">:</span>
+            <span class="c1"># The trackers failed in the first pass are not rerun.</span>
+            <span class="n">rerun</span> <span class="o">=</span> <span class="p">[</span><span class="n">t</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rerun_trackers</span><span class="p">()</span> <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">first</span><span class="o">.</span><span class="n">each</span><span class="p">]</span>
+            <span class="n">estimated</span> <span class="o">=</span> <span class="p">(</span><span class="n">f0_range</span><span class="o">.</span><span class="n">fmin</span><span class="p">,</span> <span class="n">f0_range</span><span class="o">.</span><span class="n">fmax</span><span class="p">)</span>
+            <span class="n">rerun_each</span><span class="p">,</span> <span class="n">errors</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_track_each</span><span class="p">(</span>
+                <span class="n">audio</span><span class="p">,</span>
+                <span class="n">frame_period</span><span class="o">=</span><span class="n">frame_period</span><span class="p">,</span>
+                <span class="n">trackers</span><span class="o">=</span><span class="n">rerun</span><span class="p">,</span>
+                <span class="n">f0_ranges</span><span class="o">=</span><span class="p">{</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">estimated</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">rerun</span><span class="p">},</span>
+            <span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_handle_errors</span><span class="p">(</span><span class="n">errors</span><span class="p">,</span> <span class="s2">"second pass"</span><span class="p">)</span>
+
+        <span class="n">each</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Pitch</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">trackers</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">name</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">first</span><span class="o">.</span><span class="n">each</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">name</span> <span class="ow">in</span> <span class="n">rerun_each</span><span class="p">:</span>
+                <span class="n">second</span> <span class="o">=</span> <span class="n">rerun_each</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+                <span class="n">voicing</span> <span class="o">=</span> <span class="n">t</span><span class="o">.</span><span class="n">two_pass_policy</span><span class="o">.</span><span class="n">voicing_from</span>
+                <span class="n">each</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_merge_voicing</span><span class="p">(</span><span class="n">first</span><span class="o">.</span><span class="n">each</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">],</span> <span class="n">second</span><span class="p">,</span> <span class="n">voicing</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="n">t</span><span class="o">.</span><span class="n">supports_f0_range</span><span class="p">:</span>
+                <span class="n">each</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="n">each</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">two_pass</span><span class="o">.</span><span class="n">clip_out_of_range</span><span class="p">:</span>
+                <span class="n">each</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">clip_to_range</span><span class="p">(</span><span class="n">first</span><span class="o">.</span><span class="n">each</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">],</span> <span class="n">f0_range</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">each</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">first</span><span class="o">.</span><span class="n">each</span><span class="p">[</span><span class="n">t</span><span class="o">.</span><span class="n">name</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">PipelineResult</span><span class="p">(</span>
+            <span class="n">pitch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_finalize</span><span class="p">(</span><span class="n">each</span><span class="p">),</span>
+            <span class="n">each</span><span class="o">=</span><span class="n">each</span><span class="p">,</span>
+            <span class="n">f0_range</span><span class="o">=</span><span class="n">f0_range</span><span class="p">,</span>
+            <span class="n">pass1</span><span class="o">=</span><span class="n">first</span><span class="p">,</span>
+            <span class="n">errors</span><span class="o">=</span><span class="p">{</span><span class="o">**</span><span class="n">first</span><span class="o">.</span><span class="n">errors</span><span class="p">,</span> <span class="o">**</span><span class="n">_format_errors</span><span class="p">(</span><span class="n">errors</span><span class="p">)},</span>
+        <span class="p">)</span></div>
+
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_first_pass_range</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span> <span class="n">fmin</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span> <span class="n">fmax</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Get the first-pass range of the two-pass tracking given at a call."""</span>
+        <span class="n">two_pass</span> <span class="o">=</span> <span class="n">cast</span><span class="p">(</span><span class="n">TwoPass</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">two_pass</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">_check_range</span><span class="p">(</span>
+            <span class="n">two_pass</span><span class="o">.</span><span class="n">fmin</span> <span class="k">if</span> <span class="n">fmin</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">fmin</span><span class="p">,</span>
+            <span class="n">two_pass</span><span class="o">.</span><span class="n">fmax</span> <span class="k">if</span> <span class="n">fmax</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">fmax</span><span class="p">,</span>
+        <span class="p">)</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">_rerun_trackers</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">Tracker</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""Get the trackers rerun in the second pass."""</span>
+        <span class="k">return</span> <span class="p">[</span>
+            <span class="n">t</span>
+            <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">trackers</span>
+            <span class="k">if</span> <span class="n">t</span><span class="o">.</span><span class="n">supports_f0_range</span> <span class="ow">and</span> <span class="n">t</span><span class="o">.</span><span class="n">two_pass_policy</span><span class="o">.</span><span class="n">enabled</span>
+        <span class="p">]</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_merge_voicing</span><span class="p">(</span><span class="n">first</span><span class="p">:</span> <span class="n">Pitch</span><span class="p">,</span> <span class="n">second</span><span class="p">:</span> <span class="n">Pitch</span><span class="p">,</span> <span class="n">voicing</span><span class="p">:</span> <span class="n">VoicingSource</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Pitch</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Take the voicing decisions from the first pass if requested."""</span>
+        <span class="k">if</span> <span class="n">voicing</span> <span class="o">==</span> <span class="s2">"2nd"</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">second</span>
+        <span class="n">f0</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">second</span><span class="o">.</span><span class="n">f0</span><span class="p">,</span> <span class="n">second</span><span class="o">.</span><span class="n">f0</span><span class="p">,</span> <span class="n">first</span><span class="o">.</span><span class="n">f0</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">second</span><span class="o">.</span><span class="n">with_f0</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="mi">0</span> <span class="o">&lt;</span> <span class="n">first</span><span class="o">.</span><span class="n">f0</span><span class="p">,</span> <span class="n">f0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">_range_for</span><span class="p">(</span>
+        <span class="n">tracker</span><span class="p">:</span> <span class="n">Tracker</span><span class="p">,</span> <span class="n">f0_range</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Get the search range given to a tracker at a call.</span>
+
+<span class="sd">        None is returned, i.e., the tracker uses its own range, if the tracker does</span>
+<span class="sd">        not support the search range or the range is out of its limits.</span>
+
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="n">f0_range</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">tracker</span><span class="o">.</span><span class="n">supports_f0_range</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">lower</span><span class="p">,</span> <span class="n">upper</span> <span class="o">=</span> <span class="n">tracker</span><span class="o">.</span><span class="n">algorithm_class</span><span class="o">.</span><span class="n">get_f0_limits</span><span class="p">()</span>
+        <span class="k">if</span> <span class="nb">min</span><span class="p">(</span><span class="n">f0_range</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">upper</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="nb">max</span><span class="p">(</span><span class="n">f0_range</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">lower</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="k">return</span> <span class="n">f0_range</span></div>
+
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_check_range</span><span class="p">(</span><span class="n">fmin</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">fmax</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Check the search range given at a call."""</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">fmin</span> <span class="o">&lt;</span> <span class="n">fmax</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">"Invalid F0 search range: fmin=</span><span class="si">{</span><span class="n">fmin</span><span class="si">}</span><span class="s2">, fmax=</span><span class="si">{</span><span class="n">fmax</span><span class="si">}</span><span class="s2">. "</span>
+            <span class="s2">"0 &lt; fmin &lt; fmax must be satisfied."</span>
+        <span class="p">)</span>
+    <span class="k">return</span> <span class="n">fmin</span><span class="p">,</span> <span class="n">fmax</span>
+
+
+<span class="k">def</span><span class="w"> </span><span class="nf">_format_errors</span><span class="p">(</span><span class="n">errors</span><span class="p">:</span> <span class="n">Mapping</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="ne">Exception</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""Format the errors of the trackers as messages."""</span>
+    <span class="k">return</span> <span class="p">{</span><span class="n">name</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">e</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">e</span> <span class="ow">in</span> <span class="n">errors</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+</pre></div>
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../../_static/scripts/bootstrap.js?digest=64cc4de3f052d77215f0"></script>
+<script defer src="../../../_static/scripts/pydata-sphinx-theme.js?digest=64cc4de3f052d77215f0"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Nagoya Institute of Technology.
+      <br/>
+    
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__center">
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 9.1.0.
+  </p>
+</div>
+      
+    </div>
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.22.0.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
